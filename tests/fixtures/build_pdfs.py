@@ -43,8 +43,38 @@ def build_01_simple_table(out: Path) -> None:
     doc.build(story)
 
 
+def build_02_nested_table(out: Path) -> None:
+    doc = SimpleDocTemplate(str(out), pagesize=LETTER)
+    s = _styles()
+    inner = Table(
+        [["sub-A", "sub-B"], ["1", "2"], ["3", "4"]],
+        style=TableStyle([("GRID", (0, 0), (-1, -1), 0.4, colors.grey)]),
+        colWidths=[40, 40],
+    )
+    outer = Table(
+        [
+            ["Outer-Col-1", "Outer-Col-2", "Outer-Col-3"],
+            ["row-1-a", inner, "row-1-c"],
+            ["row-2-a", "row-2-b", "row-2-c"],
+        ],
+        style=TableStyle([
+            ("GRID", (0, 0), (-1, -1), 0.5, colors.black),
+            ("BACKGROUND", (0, 0), (-1, 0), colors.lightgrey),
+            ("VALIGN", (0, 0), (-1, -1), "MIDDLE"),
+        ]),
+        colWidths=[100, 100, 100],
+    )
+    story = [
+        Paragraph("Nested Table Example", s["Heading1"]),
+        Spacer(1, 12),
+        outer,
+    ]
+    doc.build(story)
+
+
 BUILDERS = {
     "01_simple_table": build_01_simple_table,
+    "02_nested_table": build_02_nested_table,
 }
 
 

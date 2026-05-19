@@ -22,3 +22,11 @@ def test_committed_fixture_matches_regeneration(tmp_path):
     regen = tmp_path / "regen.pdf"
     BUILDERS["01_simple_table"](regen)
     assert _digest(committed) == _digest(regen)
+
+
+def test_nested_table_pdf_is_byte_stable(tmp_path):
+    a = tmp_path / "a.pdf"
+    b = tmp_path / "b.pdf"
+    BUILDERS["02_nested_table"](a)
+    BUILDERS["02_nested_table"](b)
+    assert _digest(a) == _digest(b)
