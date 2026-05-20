@@ -38,3 +38,17 @@ def test_page_spanning_pdf_is_byte_stable(tmp_path):
     BUILDERS["03_page_spanning"](a)
     BUILDERS["03_page_spanning"](b)
     assert _digest(a) == _digest(b)
+
+
+def test_multi_column_pdf_is_byte_stable(tmp_path):
+    a = tmp_path / "a.pdf"; b = tmp_path / "b.pdf"
+    BUILDERS["04_multi_column"](a)
+    BUILDERS["04_multi_column"](b)
+    assert _digest(a) == _digest(b)
+
+
+def test_sections_lists_pdf_is_byte_stable(tmp_path):
+    a = tmp_path / "a.pdf"; b = tmp_path / "b.pdf"
+    BUILDERS["05_sections_lists"](a)
+    BUILDERS["05_sections_lists"](b)
+    assert _digest(a) == _digest(b)

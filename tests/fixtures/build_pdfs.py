@@ -11,6 +11,7 @@ from reportlab.lib.styles import getSampleStyleSheet
 from reportlab.platypus import (
     Paragraph, SimpleDocTemplate, Spacer, Table, TableStyle, PageBreak,
 )
+from reportlab.platypus.flowables import BalancedColumns
 
 # Force reproducible PDFs (reportlab embeds a /CreationDate; pin via env).
 os.environ.setdefault("SOURCE_DATE_EPOCH", "1700000000")
@@ -90,11 +91,53 @@ def build_03_page_spanning(out: Path) -> None:
     doc.build(story)
 
 
+def build_04_multi_column(out: Path) -> None:
+    doc = SimpleDocTemplate(str(out), pagesize=LETTER)
+    s = _styles()
+    long_text = "Lorem ipsum dolor sit amet, consectetur adipiscing elit. " * 8
+    flow = [Paragraph(long_text, s["BodyText"]) for _ in range(4)]
+    story = [
+        Paragraph("Two-Column Layout", s["Heading1"]),
+        Spacer(1, 12),
+        BalancedColumns(flow, nCols=2),
+    ]
+    doc.build(story)
+
+
+def build_05_sections_lists(out: Path) -> None:
+    from reportlab.platypus import ListFlowable, ListItem
+    doc = SimpleDocTemplate(str(out), pagesize=LETTER)
+    s = _styles()
+    story = [
+        Paragraph("Sections And Lists", s["Heading1"]),
+        Spacer(1, 8),
+        Paragraph("1. Background", s["Heading2"]),
+        Paragraph("This is the background paragraph.", s["BodyText"]),
+        Spacer(1, 6),
+        Paragraph("2. Findings", s["Heading2"]),
+        ListFlowable(
+            [ListItem(Paragraph(t, s["BodyText"])) for t in ("First finding.", "Second finding.", "Third finding.")],
+            bulletType="bullet",
+        ),
+        Spacer(1, 8),
+        Paragraph("2.1 Detail Table", s["Heading3"]),
+        Table(
+            [["A", "B"], ["1", "2"], ["3", "4"]],
+            style=TableStyle([("GRID", (0, 0), (-1, -1), 0.5, colors.black)]),
+        ),
+    ]
+    doc.build(story)
+
+
 BUILDERS = {
     "01_simple_table": build_01_simple_table,
     "02_nested_table": build_02_nested_table,
     "03_page_spanning": build_03_page_spanning,
+    "04_multi_column": build_04_multi_column,
+    "05_sections_lists": build_05_sections_lists,
 }
+
+
 
 
 def build_all() -> None:
