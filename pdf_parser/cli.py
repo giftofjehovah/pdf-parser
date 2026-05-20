@@ -1,9 +1,8 @@
-"""CLI: pdf-parser parse <path> [--format ...]."""
+"""CLI: pdf-parser parse <path> [--format ...] [--output PATH]."""
 
 from __future__ import annotations
 
 import json
-import sys
 from pathlib import Path
 from typing import Optional
 
@@ -24,11 +23,27 @@ def _root() -> None:
     """Force subcommand mode so `pdf-parser parse <path>` is the entrypoint."""
 
 
+def _render(tree, format: str) -> str:
+    if format == "json":
+        return to_json(tree, indent=2)
+    if format == "markdown":
+        return to_markdown(tree)
+    if format == "html":
+        return to_html(tree)
+    if format == "chunks":
+        return json.dumps([c.model_dump() for c in chunk_tree(tree)], indent=2)
+    raise typer.BadParameter(f"unknown format: {format}", param_hint="--format")
+
+
 @app.command()
 def parse(
     path: Path,
     format: str = typer.Option("json", "--format", "-f",
                                help="json | markdown | html | chunks"),
+    output: Optional[Path] = typer.Option(
+        None, "--output", "-o",
+        help="Write rendered output to PATH instead of stdout. Parent dirs are created.",
+    ),
     validate_only: bool = typer.Option(False, "--validate-only"),
     enable_llm_fallback: bool = typer.Option(False, "--enable-llm-fallback"),
     visualize: Optional[Path] = typer.Option(None, "--visualize"),
@@ -50,18 +65,12 @@ def parse(
         from scripts.visualize import render_overlays
         render_overlays(path, tree, visualize)
 
-    if format == "json":
-        typer.echo(to_json(tree, indent=2))
-    elif format == "markdown":
-        typer.echo(to_markdown(tree))
-    elif format == "html":
-        typer.echo(to_html(tree))
-    elif format == "chunks":
-        chunks = chunk_tree(tree)
-        typer.echo(json.dumps([c.model_dump() for c in chunks], indent=2))
+    rendered = _render(tree, format)
+    if output is None:
+        typer.echo(rendered)
     else:
-        typer.echo(f"unknown format: {format}", err=True)
-        raise typer.Exit(code=2)
+        output.parent.mkdir(parents=True, exist_ok=True)
+        output.write_text(rendered + "\n")
 
 
 if __name__ == "__main__":

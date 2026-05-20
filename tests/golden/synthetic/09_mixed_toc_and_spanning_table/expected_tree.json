@@ -1,0 +1,6179 @@
+{
+  "attrs": {},
+  "bbox": {
+    "page": 0,
+    "x0": 0,
+    "x1": 0,
+    "y0": 0,
+    "y1": 0
+  },
+  "children": [
+    {
+      "attrs": {
+        "page_index": 0
+      },
+      "bbox": {
+        "page": 0,
+        "x0": 0,
+        "x1": 612,
+        "y0": 0,
+        "y1": 792
+      },
+      "children": [
+        {
+          "attrs": {
+            "level": 1
+          },
+          "bbox": {
+            "page": 0,
+            "x0": 78,
+            "x1": 247,
+            "y0": 77,
+            "y1": 102
+          },
+          "children": [],
+          "id": "5a1051a84b4e",
+          "kind": "heading",
+          "provenance": {
+            "extractor": "segment",
+            "stage": "build_tree"
+          },
+          "text": "Annual Report 2025"
+        },
+        {
+          "attrs": {},
+          "bbox": {
+            "page": 0,
+            "x0": 78,
+            "x1": 530,
+            "y0": 123,
+            "y1": 137
+          },
+          "children": [],
+          "id": "47bce4d25ce0",
+          "kind": "paragraph",
+          "provenance": {
+            "extractor": "segment",
+            "stage": "build_tree"
+          },
+          "text": "This report summarises the deterministic synthetic corpus used to exercise the parser end-to-end. The"
+        },
+        {
+          "attrs": {},
+          "bbox": {
+            "page": 0,
+            "x0": 78,
+            "x1": 527,
+            "y0": 135,
+            "y1": 149
+          },
+          "children": [],
+          "id": "351c8432f81c",
+          "kind": "paragraph",
+          "provenance": {
+            "extractor": "segment",
+            "stage": "build_tree"
+          },
+          "text": "text below is intentionally long enough to fill several lines so paragraph segmentation has real input to"
+        },
+        {
+          "attrs": {},
+          "bbox": {
+            "page": 0,
+            "x0": 78,
+            "x1": 129,
+            "y0": 147,
+            "y1": 161
+          },
+          "children": [],
+          "id": "cd8ad3f1f26a",
+          "kind": "paragraph",
+          "provenance": {
+            "extractor": "segment",
+            "stage": "build_tree"
+          },
+          "text": "operate on."
+        },
+        {
+          "attrs": {},
+          "bbox": {
+            "page": 0,
+            "x0": 78,
+            "x1": 530,
+            "y0": 177,
+            "y1": 191
+          },
+          "children": [],
+          "id": "f202163bf0a8",
+          "kind": "paragraph",
+          "provenance": {
+            "extractor": "segment",
+            "stage": "build_tree"
+          },
+          "text": "This report summarises the deterministic synthetic corpus used to exercise the parser end-to-end. The"
+        },
+        {
+          "attrs": {},
+          "bbox": {
+            "page": 0,
+            "x0": 78,
+            "x1": 527,
+            "y0": 189,
+            "y1": 203
+          },
+          "children": [],
+          "id": "05b25e8ce33a",
+          "kind": "paragraph",
+          "provenance": {
+            "extractor": "segment",
+            "stage": "build_tree"
+          },
+          "text": "text below is intentionally long enough to fill several lines so paragraph segmentation has real input to"
+        },
+        {
+          "attrs": {},
+          "bbox": {
+            "page": 0,
+            "x0": 78,
+            "x1": 129,
+            "y0": 201,
+            "y1": 215
+          },
+          "children": [],
+          "id": "6f93f6bf40ca",
+          "kind": "paragraph",
+          "provenance": {
+            "extractor": "segment",
+            "stage": "build_tree"
+          },
+          "text": "operate on."
+        },
+        {
+          "attrs": {
+            "level": 2
+          },
+          "bbox": {
+            "page": 0,
+            "x0": 78,
+            "x1": 139,
+            "y0": 243,
+            "y1": 262
+          },
+          "children": [],
+          "id": "76717da63bf2",
+          "kind": "heading",
+          "provenance": {
+            "extractor": "segment",
+            "stage": "build_tree"
+          },
+          "text": "Contents"
+        },
+        {
+          "attrs": {},
+          "bbox": {
+            "page": 0,
+            "x0": 78,
+            "x1": 325,
+            "y0": 281,
+            "y1": 295
+          },
+          "children": [],
+          "id": "40c1fefe5405",
+          "kind": "paragraph",
+          "provenance": {
+            "extractor": "segment",
+            "stage": "build_tree"
+          },
+          "text": "1. Executive Summary ................................................. 2"
+        },
+        {
+          "attrs": {},
+          "bbox": {
+            "page": 0,
+            "x0": 78,
+            "x1": 310,
+            "y0": 299,
+            "y1": 313
+          },
+          "children": [],
+          "id": "688b2a28b673",
+          "kind": "paragraph",
+          "provenance": {
+            "extractor": "segment",
+            "stage": "build_tree"
+          },
+          "text": "2. Methodology ....................................................... 2"
+        },
+        {
+          "attrs": {},
+          "bbox": {
+            "page": 0,
+            "x0": 78,
+            "x1": 312,
+            "y0": 317,
+            "y1": 331
+          },
+          "children": [],
+          "id": "1a498dc886c1",
+          "kind": "paragraph",
+          "provenance": {
+            "extractor": "segment",
+            "stage": "build_tree"
+          },
+          "text": "3. Detailed Results .................................................. 3"
+        },
+        {
+          "attrs": {},
+          "bbox": {
+            "page": 0,
+            "x0": 78,
+            "x1": 303,
+            "y0": 335,
+            "y1": 349
+          },
+          "children": [],
+          "id": "d09e503feee7",
+          "kind": "paragraph",
+          "provenance": {
+            "extractor": "segment",
+            "stage": "build_tree"
+          },
+          "text": "4. Appendix .......................................................... 5"
+        }
+      ],
+      "id": "47fff3334e28",
+      "kind": "page",
+      "provenance": {},
+      "text": null
+    },
+    {
+      "attrs": {
+        "page_index": 1
+      },
+      "bbox": {
+        "page": 1,
+        "x0": 0,
+        "x1": 612,
+        "y0": 0,
+        "y1": 792
+      },
+      "children": [
+        {
+          "attrs": {
+            "level": 2
+          },
+          "bbox": {
+            "page": 1,
+            "x0": 78,
+            "x1": 227,
+            "y0": 77,
+            "y1": 96
+          },
+          "children": [],
+          "id": "d685218916eb",
+          "kind": "heading",
+          "provenance": {
+            "extractor": "segment",
+            "stage": "build_tree"
+          },
+          "text": "1. Executive Summary"
+        },
+        {
+          "attrs": {},
+          "bbox": {
+            "page": 1,
+            "x0": 78,
+            "x1": 530,
+            "y0": 101,
+            "y1": 115
+          },
+          "children": [],
+          "id": "4c8b0d419745",
+          "kind": "paragraph",
+          "provenance": {
+            "extractor": "segment",
+            "stage": "build_tree"
+          },
+          "text": "This report summarises the deterministic synthetic corpus used to exercise the parser end-to-end. The"
+        },
+        {
+          "attrs": {},
+          "bbox": {
+            "page": 1,
+            "x0": 78,
+            "x1": 527,
+            "y0": 113,
+            "y1": 127
+          },
+          "children": [],
+          "id": "2b6ae697fbd5",
+          "kind": "paragraph",
+          "provenance": {
+            "extractor": "segment",
+            "stage": "build_tree"
+          },
+          "text": "text below is intentionally long enough to fill several lines so paragraph segmentation has real input to"
+        },
+        {
+          "attrs": {},
+          "bbox": {
+            "page": 1,
+            "x0": 78,
+            "x1": 129,
+            "y0": 125,
+            "y1": 139
+          },
+          "children": [],
+          "id": "f1fb22f66a67",
+          "kind": "paragraph",
+          "provenance": {
+            "extractor": "segment",
+            "stage": "build_tree"
+          },
+          "text": "operate on."
+        },
+        {
+          "attrs": {
+            "level": 2
+          },
+          "bbox": {
+            "page": 1,
+            "x0": 78,
+            "x1": 181,
+            "y0": 161,
+            "y1": 180
+          },
+          "children": [],
+          "id": "2d8a260b9d5e",
+          "kind": "heading",
+          "provenance": {
+            "extractor": "segment",
+            "stage": "build_tree"
+          },
+          "text": "2. Methodology"
+        },
+        {
+          "attrs": {},
+          "bbox": {
+            "page": 1,
+            "x0": 78,
+            "x1": 530,
+            "y0": 185,
+            "y1": 199
+          },
+          "children": [],
+          "id": "fd0567249e9a",
+          "kind": "paragraph",
+          "provenance": {
+            "extractor": "segment",
+            "stage": "build_tree"
+          },
+          "text": "This report summarises the deterministic synthetic corpus used to exercise the parser end-to-end. The"
+        },
+        {
+          "attrs": {},
+          "bbox": {
+            "page": 1,
+            "x0": 78,
+            "x1": 527,
+            "y0": 197,
+            "y1": 211
+          },
+          "children": [],
+          "id": "1284ecb93f9b",
+          "kind": "paragraph",
+          "provenance": {
+            "extractor": "segment",
+            "stage": "build_tree"
+          },
+          "text": "text below is intentionally long enough to fill several lines so paragraph segmentation has real input to"
+        },
+        {
+          "attrs": {},
+          "bbox": {
+            "page": 1,
+            "x0": 78,
+            "x1": 129,
+            "y0": 209,
+            "y1": 223
+          },
+          "children": [],
+          "id": "20979c181d7a",
+          "kind": "paragraph",
+          "provenance": {
+            "extractor": "segment",
+            "stage": "build_tree"
+          },
+          "text": "operate on."
+        }
+      ],
+      "id": "db3973767cec",
+      "kind": "page",
+      "provenance": {},
+      "text": null
+    },
+    {
+      "attrs": {
+        "page_index": 2
+      },
+      "bbox": {
+        "page": 2,
+        "x0": 0,
+        "x1": 612,
+        "y0": 0,
+        "y1": 792
+      },
+      "children": [
+        {
+          "attrs": {
+            "level": 2
+          },
+          "bbox": {
+            "page": 2,
+            "x0": 78,
+            "x1": 202,
+            "y0": 77,
+            "y1": 96
+          },
+          "children": [],
+          "id": "9cd69d073eb0",
+          "kind": "heading",
+          "provenance": {
+            "extractor": "segment",
+            "stage": "build_tree"
+          },
+          "text": "3. Detailed Results"
+        },
+        {
+          "attrs": {},
+          "bbox": {
+            "page": 2,
+            "x0": 78,
+            "x1": 534,
+            "y0": 115,
+            "y1": 129
+          },
+          "children": [],
+          "id": "b5e0316c62bb",
+          "kind": "paragraph",
+          "provenance": {
+            "extractor": "segment",
+            "stage": "build_tree"
+          },
+          "text": "The table below lists every observation. It is large enough to overflow onto the next page so the stitcher"
+        },
+        {
+          "attrs": {},
+          "bbox": {
+            "page": 2,
+            "x0": 78,
+            "x1": 287,
+            "y0": 127,
+            "y1": 141
+          },
+          "children": [],
+          "id": "40c4bfe8c86e",
+          "kind": "paragraph",
+          "provenance": {
+            "extractor": "segment",
+            "stage": "build_tree"
+          },
+          "text": "must merge the two halves back into one table."
+        },
+        {
+          "attrs": {
+            "header_signature": [
+              "ID",
+              "Region",
+              "Metric",
+              "Value"
+            ],
+            "n_cols": 4,
+            "n_rows": 61,
+            "page": 2,
+            "spans_pages": [
+              2,
+              3
+            ]
+          },
+          "bbox": [
+            {
+              "page": 2,
+              "x0": 86,
+              "x1": 526,
+              "y0": 148,
+              "y1": 706
+            },
+            {
+              "page": 3,
+              "x0": 86,
+              "x1": 526,
+              "y0": 78,
+              "y1": 618
+            }
+          ],
+          "children": [
+            {
+              "attrs": {
+                "page": 2,
+                "row_index": 0
+              },
+              "bbox": {
+                "page": 2,
+                "x0": 86,
+                "x1": 526,
+                "y0": 148,
+                "y1": 706
+              },
+              "children": [
+                {
+                  "attrs": {},
+                  "bbox": {
+                    "page": 2,
+                    "x0": 86,
+                    "x1": 136,
+                    "y0": 148,
+                    "y1": 166
+                  },
+                  "children": [],
+                  "id": "08b6cfbd74d7",
+                  "kind": "cell",
+                  "provenance": {
+                    "extractor": "pdfplumber",
+                    "stage": "extract_tables"
+                  },
+                  "text": "ID"
+                },
+                {
+                  "attrs": {},
+                  "bbox": {
+                    "page": 2,
+                    "x0": 136,
+                    "x1": 246,
+                    "y0": 148,
+                    "y1": 166
+                  },
+                  "children": [],
+                  "id": "37990a8bc537",
+                  "kind": "cell",
+                  "provenance": {
+                    "extractor": "pdfplumber",
+                    "stage": "extract_tables"
+                  },
+                  "text": "Region"
+                },
+                {
+                  "attrs": {},
+                  "bbox": {
+                    "page": 2,
+                    "x0": 246,
+                    "x1": 446,
+                    "y0": 148,
+                    "y1": 166
+                  },
+                  "children": [],
+                  "id": "0ddb87cb75e5",
+                  "kind": "cell",
+                  "provenance": {
+                    "extractor": "pdfplumber",
+                    "stage": "extract_tables"
+                  },
+                  "text": "Metric"
+                },
+                {
+                  "attrs": {},
+                  "bbox": {
+                    "page": 2,
+                    "x0": 446,
+                    "x1": 526,
+                    "y0": 148,
+                    "y1": 166
+                  },
+                  "children": [],
+                  "id": "2f48cff2ddc9",
+                  "kind": "cell",
+                  "provenance": {
+                    "extractor": "pdfplumber",
+                    "stage": "extract_tables"
+                  },
+                  "text": "Value"
+                }
+              ],
+              "id": "fbfcb0da6483",
+              "kind": "row",
+              "provenance": {},
+              "text": null
+            },
+            {
+              "attrs": {
+                "page": 2,
+                "row_index": 1
+              },
+              "bbox": {
+                "page": 2,
+                "x0": 86,
+                "x1": 526,
+                "y0": 148,
+                "y1": 706
+              },
+              "children": [
+                {
+                  "attrs": {},
+                  "bbox": {
+                    "page": 2,
+                    "x0": 86,
+                    "x1": 136,
+                    "y0": 166,
+                    "y1": 184
+                  },
+                  "children": [],
+                  "id": "df86af8baab5",
+                  "kind": "cell",
+                  "provenance": {
+                    "extractor": "pdfplumber",
+                    "stage": "extract_tables"
+                  },
+                  "text": "1"
+                },
+                {
+                  "attrs": {},
+                  "bbox": {
+                    "page": 2,
+                    "x0": 136,
+                    "x1": 246,
+                    "y0": 166,
+                    "y1": 184
+                  },
+                  "children": [],
+                  "id": "22986e4773e7",
+                  "kind": "cell",
+                  "provenance": {
+                    "extractor": "pdfplumber",
+                    "stage": "extract_tables"
+                  },
+                  "text": "Region-2"
+                },
+                {
+                  "attrs": {},
+                  "bbox": {
+                    "page": 2,
+                    "x0": 246,
+                    "x1": 446,
+                    "y0": 166,
+                    "y1": 184
+                  },
+                  "children": [],
+                  "id": "4c0b7e76ea39",
+                  "kind": "cell",
+                  "provenance": {
+                    "extractor": "pdfplumber",
+                    "stage": "extract_tables"
+                  },
+                  "text": "metric-1"
+                },
+                {
+                  "attrs": {},
+                  "bbox": {
+                    "page": 2,
+                    "x0": 446,
+                    "x1": 526,
+                    "y0": 166,
+                    "y1": 184
+                  },
+                  "children": [],
+                  "id": "272af1a5e685",
+                  "kind": "cell",
+                  "provenance": {
+                    "extractor": "pdfplumber",
+                    "stage": "extract_tables"
+                  },
+                  "text": "3.25"
+                }
+              ],
+              "id": "8d1f483cfdfa",
+              "kind": "row",
+              "provenance": {},
+              "text": null
+            },
+            {
+              "attrs": {
+                "page": 2,
+                "row_index": 2
+              },
+              "bbox": {
+                "page": 2,
+                "x0": 86,
+                "x1": 526,
+                "y0": 148,
+                "y1": 706
+              },
+              "children": [
+                {
+                  "attrs": {},
+                  "bbox": {
+                    "page": 2,
+                    "x0": 86,
+                    "x1": 136,
+                    "y0": 184,
+                    "y1": 202
+                  },
+                  "children": [],
+                  "id": "56b1bf67102e",
+                  "kind": "cell",
+                  "provenance": {
+                    "extractor": "pdfplumber",
+                    "stage": "extract_tables"
+                  },
+                  "text": "2"
+                },
+                {
+                  "attrs": {},
+                  "bbox": {
+                    "page": 2,
+                    "x0": 136,
+                    "x1": 246,
+                    "y0": 184,
+                    "y1": 202
+                  },
+                  "children": [],
+                  "id": "879e6190130d",
+                  "kind": "cell",
+                  "provenance": {
+                    "extractor": "pdfplumber",
+                    "stage": "extract_tables"
+                  },
+                  "text": "Region-3"
+                },
+                {
+                  "attrs": {},
+                  "bbox": {
+                    "page": 2,
+                    "x0": 246,
+                    "x1": 446,
+                    "y0": 184,
+                    "y1": 202
+                  },
+                  "children": [],
+                  "id": "4e35cbc20bcd",
+                  "kind": "cell",
+                  "provenance": {
+                    "extractor": "pdfplumber",
+                    "stage": "extract_tables"
+                  },
+                  "text": "metric-2"
+                },
+                {
+                  "attrs": {},
+                  "bbox": {
+                    "page": 2,
+                    "x0": 446,
+                    "x1": 526,
+                    "y0": 184,
+                    "y1": 202
+                  },
+                  "children": [],
+                  "id": "a77c87c321a6",
+                  "kind": "cell",
+                  "provenance": {
+                    "extractor": "pdfplumber",
+                    "stage": "extract_tables"
+                  },
+                  "text": "6.50"
+                }
+              ],
+              "id": "bfdd0cd973d4",
+              "kind": "row",
+              "provenance": {},
+              "text": null
+            },
+            {
+              "attrs": {
+                "page": 2,
+                "row_index": 3
+              },
+              "bbox": {
+                "page": 2,
+                "x0": 86,
+                "x1": 526,
+                "y0": 148,
+                "y1": 706
+              },
+              "children": [
+                {
+                  "attrs": {},
+                  "bbox": {
+                    "page": 2,
+                    "x0": 86,
+                    "x1": 136,
+                    "y0": 202,
+                    "y1": 220
+                  },
+                  "children": [],
+                  "id": "b39b1dcfd465",
+                  "kind": "cell",
+                  "provenance": {
+                    "extractor": "pdfplumber",
+                    "stage": "extract_tables"
+                  },
+                  "text": "3"
+                },
+                {
+                  "attrs": {},
+                  "bbox": {
+                    "page": 2,
+                    "x0": 136,
+                    "x1": 246,
+                    "y0": 202,
+                    "y1": 220
+                  },
+                  "children": [],
+                  "id": "f3962d9c72da",
+                  "kind": "cell",
+                  "provenance": {
+                    "extractor": "pdfplumber",
+                    "stage": "extract_tables"
+                  },
+                  "text": "Region-4"
+                },
+                {
+                  "attrs": {},
+                  "bbox": {
+                    "page": 2,
+                    "x0": 246,
+                    "x1": 446,
+                    "y0": 202,
+                    "y1": 220
+                  },
+                  "children": [],
+                  "id": "99b1d351b54e",
+                  "kind": "cell",
+                  "provenance": {
+                    "extractor": "pdfplumber",
+                    "stage": "extract_tables"
+                  },
+                  "text": "metric-3"
+                },
+                {
+                  "attrs": {},
+                  "bbox": {
+                    "page": 2,
+                    "x0": 446,
+                    "x1": 526,
+                    "y0": 202,
+                    "y1": 220
+                  },
+                  "children": [],
+                  "id": "4f8c08cc2f19",
+                  "kind": "cell",
+                  "provenance": {
+                    "extractor": "pdfplumber",
+                    "stage": "extract_tables"
+                  },
+                  "text": "9.75"
+                }
+              ],
+              "id": "66b555fabc17",
+              "kind": "row",
+              "provenance": {},
+              "text": null
+            },
+            {
+              "attrs": {
+                "page": 2,
+                "row_index": 4
+              },
+              "bbox": {
+                "page": 2,
+                "x0": 86,
+                "x1": 526,
+                "y0": 148,
+                "y1": 706
+              },
+              "children": [
+                {
+                  "attrs": {},
+                  "bbox": {
+                    "page": 2,
+                    "x0": 86,
+                    "x1": 136,
+                    "y0": 220,
+                    "y1": 238
+                  },
+                  "children": [],
+                  "id": "649dc105730e",
+                  "kind": "cell",
+                  "provenance": {
+                    "extractor": "pdfplumber",
+                    "stage": "extract_tables"
+                  },
+                  "text": "4"
+                },
+                {
+                  "attrs": {},
+                  "bbox": {
+                    "page": 2,
+                    "x0": 136,
+                    "x1": 246,
+                    "y0": 220,
+                    "y1": 238
+                  },
+                  "children": [],
+                  "id": "323aa04d9d19",
+                  "kind": "cell",
+                  "provenance": {
+                    "extractor": "pdfplumber",
+                    "stage": "extract_tables"
+                  },
+                  "text": "Region-1"
+                },
+                {
+                  "attrs": {},
+                  "bbox": {
+                    "page": 2,
+                    "x0": 246,
+                    "x1": 446,
+                    "y0": 220,
+                    "y1": 238
+                  },
+                  "children": [],
+                  "id": "7e54b309905e",
+                  "kind": "cell",
+                  "provenance": {
+                    "extractor": "pdfplumber",
+                    "stage": "extract_tables"
+                  },
+                  "text": "metric-4"
+                },
+                {
+                  "attrs": {},
+                  "bbox": {
+                    "page": 2,
+                    "x0": 446,
+                    "x1": 526,
+                    "y0": 220,
+                    "y1": 238
+                  },
+                  "children": [],
+                  "id": "a0a5dce622e1",
+                  "kind": "cell",
+                  "provenance": {
+                    "extractor": "pdfplumber",
+                    "stage": "extract_tables"
+                  },
+                  "text": "13.00"
+                }
+              ],
+              "id": "78486a8eb3b6",
+              "kind": "row",
+              "provenance": {},
+              "text": null
+            },
+            {
+              "attrs": {
+                "page": 2,
+                "row_index": 5
+              },
+              "bbox": {
+                "page": 2,
+                "x0": 86,
+                "x1": 526,
+                "y0": 148,
+                "y1": 706
+              },
+              "children": [
+                {
+                  "attrs": {},
+                  "bbox": {
+                    "page": 2,
+                    "x0": 86,
+                    "x1": 136,
+                    "y0": 238,
+                    "y1": 256
+                  },
+                  "children": [],
+                  "id": "710bdd4c32f9",
+                  "kind": "cell",
+                  "provenance": {
+                    "extractor": "pdfplumber",
+                    "stage": "extract_tables"
+                  },
+                  "text": "5"
+                },
+                {
+                  "attrs": {},
+                  "bbox": {
+                    "page": 2,
+                    "x0": 136,
+                    "x1": 246,
+                    "y0": 238,
+                    "y1": 256
+                  },
+                  "children": [],
+                  "id": "3ef7069c2b3c",
+                  "kind": "cell",
+                  "provenance": {
+                    "extractor": "pdfplumber",
+                    "stage": "extract_tables"
+                  },
+                  "text": "Region-2"
+                },
+                {
+                  "attrs": {},
+                  "bbox": {
+                    "page": 2,
+                    "x0": 246,
+                    "x1": 446,
+                    "y0": 238,
+                    "y1": 256
+                  },
+                  "children": [],
+                  "id": "d0ca40cd4003",
+                  "kind": "cell",
+                  "provenance": {
+                    "extractor": "pdfplumber",
+                    "stage": "extract_tables"
+                  },
+                  "text": "metric-5"
+                },
+                {
+                  "attrs": {},
+                  "bbox": {
+                    "page": 2,
+                    "x0": 446,
+                    "x1": 526,
+                    "y0": 238,
+                    "y1": 256
+                  },
+                  "children": [],
+                  "id": "e35183133b3a",
+                  "kind": "cell",
+                  "provenance": {
+                    "extractor": "pdfplumber",
+                    "stage": "extract_tables"
+                  },
+                  "text": "16.25"
+                }
+              ],
+              "id": "6f1fb166a35a",
+              "kind": "row",
+              "provenance": {},
+              "text": null
+            },
+            {
+              "attrs": {
+                "page": 2,
+                "row_index": 6
+              },
+              "bbox": {
+                "page": 2,
+                "x0": 86,
+                "x1": 526,
+                "y0": 148,
+                "y1": 706
+              },
+              "children": [
+                {
+                  "attrs": {},
+                  "bbox": {
+                    "page": 2,
+                    "x0": 86,
+                    "x1": 136,
+                    "y0": 256,
+                    "y1": 274
+                  },
+                  "children": [],
+                  "id": "d6c9fc7cb046",
+                  "kind": "cell",
+                  "provenance": {
+                    "extractor": "pdfplumber",
+                    "stage": "extract_tables"
+                  },
+                  "text": "6"
+                },
+                {
+                  "attrs": {},
+                  "bbox": {
+                    "page": 2,
+                    "x0": 136,
+                    "x1": 246,
+                    "y0": 256,
+                    "y1": 274
+                  },
+                  "children": [],
+                  "id": "f90ff594d3c4",
+                  "kind": "cell",
+                  "provenance": {
+                    "extractor": "pdfplumber",
+                    "stage": "extract_tables"
+                  },
+                  "text": "Region-3"
+                },
+                {
+                  "attrs": {},
+                  "bbox": {
+                    "page": 2,
+                    "x0": 246,
+                    "x1": 446,
+                    "y0": 256,
+                    "y1": 274
+                  },
+                  "children": [],
+                  "id": "421d8f513700",
+                  "kind": "cell",
+                  "provenance": {
+                    "extractor": "pdfplumber",
+                    "stage": "extract_tables"
+                  },
+                  "text": "metric-6"
+                },
+                {
+                  "attrs": {},
+                  "bbox": {
+                    "page": 2,
+                    "x0": 446,
+                    "x1": 526,
+                    "y0": 256,
+                    "y1": 274
+                  },
+                  "children": [],
+                  "id": "8d54d8c63c31",
+                  "kind": "cell",
+                  "provenance": {
+                    "extractor": "pdfplumber",
+                    "stage": "extract_tables"
+                  },
+                  "text": "19.50"
+                }
+              ],
+              "id": "86ae727c99f3",
+              "kind": "row",
+              "provenance": {},
+              "text": null
+            },
+            {
+              "attrs": {
+                "page": 2,
+                "row_index": 7
+              },
+              "bbox": {
+                "page": 2,
+                "x0": 86,
+                "x1": 526,
+                "y0": 148,
+                "y1": 706
+              },
+              "children": [
+                {
+                  "attrs": {},
+                  "bbox": {
+                    "page": 2,
+                    "x0": 86,
+                    "x1": 136,
+                    "y0": 274,
+                    "y1": 292
+                  },
+                  "children": [],
+                  "id": "2d7a0796d08f",
+                  "kind": "cell",
+                  "provenance": {
+                    "extractor": "pdfplumber",
+                    "stage": "extract_tables"
+                  },
+                  "text": "7"
+                },
+                {
+                  "attrs": {},
+                  "bbox": {
+                    "page": 2,
+                    "x0": 136,
+                    "x1": 246,
+                    "y0": 274,
+                    "y1": 292
+                  },
+                  "children": [],
+                  "id": "71c97db63b16",
+                  "kind": "cell",
+                  "provenance": {
+                    "extractor": "pdfplumber",
+                    "stage": "extract_tables"
+                  },
+                  "text": "Region-4"
+                },
+                {
+                  "attrs": {},
+                  "bbox": {
+                    "page": 2,
+                    "x0": 246,
+                    "x1": 446,
+                    "y0": 274,
+                    "y1": 292
+                  },
+                  "children": [],
+                  "id": "1f1488b4f021",
+                  "kind": "cell",
+                  "provenance": {
+                    "extractor": "pdfplumber",
+                    "stage": "extract_tables"
+                  },
+                  "text": "metric-7"
+                },
+                {
+                  "attrs": {},
+                  "bbox": {
+                    "page": 2,
+                    "x0": 446,
+                    "x1": 526,
+                    "y0": 274,
+                    "y1": 292
+                  },
+                  "children": [],
+                  "id": "e3b4a025d0db",
+                  "kind": "cell",
+                  "provenance": {
+                    "extractor": "pdfplumber",
+                    "stage": "extract_tables"
+                  },
+                  "text": "22.75"
+                }
+              ],
+              "id": "892c5deecd73",
+              "kind": "row",
+              "provenance": {},
+              "text": null
+            },
+            {
+              "attrs": {
+                "page": 2,
+                "row_index": 8
+              },
+              "bbox": {
+                "page": 2,
+                "x0": 86,
+                "x1": 526,
+                "y0": 148,
+                "y1": 706
+              },
+              "children": [
+                {
+                  "attrs": {},
+                  "bbox": {
+                    "page": 2,
+                    "x0": 86,
+                    "x1": 136,
+                    "y0": 292,
+                    "y1": 310
+                  },
+                  "children": [],
+                  "id": "520b1d0e71cb",
+                  "kind": "cell",
+                  "provenance": {
+                    "extractor": "pdfplumber",
+                    "stage": "extract_tables"
+                  },
+                  "text": "8"
+                },
+                {
+                  "attrs": {},
+                  "bbox": {
+                    "page": 2,
+                    "x0": 136,
+                    "x1": 246,
+                    "y0": 292,
+                    "y1": 310
+                  },
+                  "children": [],
+                  "id": "f0ba99ee197c",
+                  "kind": "cell",
+                  "provenance": {
+                    "extractor": "pdfplumber",
+                    "stage": "extract_tables"
+                  },
+                  "text": "Region-1"
+                },
+                {
+                  "attrs": {},
+                  "bbox": {
+                    "page": 2,
+                    "x0": 246,
+                    "x1": 446,
+                    "y0": 292,
+                    "y1": 310
+                  },
+                  "children": [],
+                  "id": "7da282c4b86c",
+                  "kind": "cell",
+                  "provenance": {
+                    "extractor": "pdfplumber",
+                    "stage": "extract_tables"
+                  },
+                  "text": "metric-8"
+                },
+                {
+                  "attrs": {},
+                  "bbox": {
+                    "page": 2,
+                    "x0": 446,
+                    "x1": 526,
+                    "y0": 292,
+                    "y1": 310
+                  },
+                  "children": [],
+                  "id": "8e29482119c3",
+                  "kind": "cell",
+                  "provenance": {
+                    "extractor": "pdfplumber",
+                    "stage": "extract_tables"
+                  },
+                  "text": "26.00"
+                }
+              ],
+              "id": "56b070e0ec4f",
+              "kind": "row",
+              "provenance": {},
+              "text": null
+            },
+            {
+              "attrs": {
+                "page": 2,
+                "row_index": 9
+              },
+              "bbox": {
+                "page": 2,
+                "x0": 86,
+                "x1": 526,
+                "y0": 148,
+                "y1": 706
+              },
+              "children": [
+                {
+                  "attrs": {},
+                  "bbox": {
+                    "page": 2,
+                    "x0": 86,
+                    "x1": 136,
+                    "y0": 310,
+                    "y1": 328
+                  },
+                  "children": [],
+                  "id": "8ca6b3bfd3d1",
+                  "kind": "cell",
+                  "provenance": {
+                    "extractor": "pdfplumber",
+                    "stage": "extract_tables"
+                  },
+                  "text": "9"
+                },
+                {
+                  "attrs": {},
+                  "bbox": {
+                    "page": 2,
+                    "x0": 136,
+                    "x1": 246,
+                    "y0": 310,
+                    "y1": 328
+                  },
+                  "children": [],
+                  "id": "d4d65c68e381",
+                  "kind": "cell",
+                  "provenance": {
+                    "extractor": "pdfplumber",
+                    "stage": "extract_tables"
+                  },
+                  "text": "Region-2"
+                },
+                {
+                  "attrs": {},
+                  "bbox": {
+                    "page": 2,
+                    "x0": 246,
+                    "x1": 446,
+                    "y0": 310,
+                    "y1": 328
+                  },
+                  "children": [],
+                  "id": "1efe6e0ddfbd",
+                  "kind": "cell",
+                  "provenance": {
+                    "extractor": "pdfplumber",
+                    "stage": "extract_tables"
+                  },
+                  "text": "metric-9"
+                },
+                {
+                  "attrs": {},
+                  "bbox": {
+                    "page": 2,
+                    "x0": 446,
+                    "x1": 526,
+                    "y0": 310,
+                    "y1": 328
+                  },
+                  "children": [],
+                  "id": "a16b2c1b70f1",
+                  "kind": "cell",
+                  "provenance": {
+                    "extractor": "pdfplumber",
+                    "stage": "extract_tables"
+                  },
+                  "text": "29.25"
+                }
+              ],
+              "id": "c3f15071b144",
+              "kind": "row",
+              "provenance": {},
+              "text": null
+            },
+            {
+              "attrs": {
+                "page": 2,
+                "row_index": 10
+              },
+              "bbox": {
+                "page": 2,
+                "x0": 86,
+                "x1": 526,
+                "y0": 148,
+                "y1": 706
+              },
+              "children": [
+                {
+                  "attrs": {},
+                  "bbox": {
+                    "page": 2,
+                    "x0": 86,
+                    "x1": 136,
+                    "y0": 328,
+                    "y1": 346
+                  },
+                  "children": [],
+                  "id": "9dd02beec338",
+                  "kind": "cell",
+                  "provenance": {
+                    "extractor": "pdfplumber",
+                    "stage": "extract_tables"
+                  },
+                  "text": "10"
+                },
+                {
+                  "attrs": {},
+                  "bbox": {
+                    "page": 2,
+                    "x0": 136,
+                    "x1": 246,
+                    "y0": 328,
+                    "y1": 346
+                  },
+                  "children": [],
+                  "id": "e6b9adc4f792",
+                  "kind": "cell",
+                  "provenance": {
+                    "extractor": "pdfplumber",
+                    "stage": "extract_tables"
+                  },
+                  "text": "Region-3"
+                },
+                {
+                  "attrs": {},
+                  "bbox": {
+                    "page": 2,
+                    "x0": 246,
+                    "x1": 446,
+                    "y0": 328,
+                    "y1": 346
+                  },
+                  "children": [],
+                  "id": "e0686618fedb",
+                  "kind": "cell",
+                  "provenance": {
+                    "extractor": "pdfplumber",
+                    "stage": "extract_tables"
+                  },
+                  "text": "metric-10"
+                },
+                {
+                  "attrs": {},
+                  "bbox": {
+                    "page": 2,
+                    "x0": 446,
+                    "x1": 526,
+                    "y0": 328,
+                    "y1": 346
+                  },
+                  "children": [],
+                  "id": "3604ac1e11c3",
+                  "kind": "cell",
+                  "provenance": {
+                    "extractor": "pdfplumber",
+                    "stage": "extract_tables"
+                  },
+                  "text": "32.50"
+                }
+              ],
+              "id": "12af381e3c33",
+              "kind": "row",
+              "provenance": {},
+              "text": null
+            },
+            {
+              "attrs": {
+                "page": 2,
+                "row_index": 11
+              },
+              "bbox": {
+                "page": 2,
+                "x0": 86,
+                "x1": 526,
+                "y0": 148,
+                "y1": 706
+              },
+              "children": [
+                {
+                  "attrs": {},
+                  "bbox": {
+                    "page": 2,
+                    "x0": 86,
+                    "x1": 136,
+                    "y0": 346,
+                    "y1": 364
+                  },
+                  "children": [],
+                  "id": "0277b775cae8",
+                  "kind": "cell",
+                  "provenance": {
+                    "extractor": "pdfplumber",
+                    "stage": "extract_tables"
+                  },
+                  "text": "11"
+                },
+                {
+                  "attrs": {},
+                  "bbox": {
+                    "page": 2,
+                    "x0": 136,
+                    "x1": 246,
+                    "y0": 346,
+                    "y1": 364
+                  },
+                  "children": [],
+                  "id": "15d8c4594dfb",
+                  "kind": "cell",
+                  "provenance": {
+                    "extractor": "pdfplumber",
+                    "stage": "extract_tables"
+                  },
+                  "text": "Region-4"
+                },
+                {
+                  "attrs": {},
+                  "bbox": {
+                    "page": 2,
+                    "x0": 246,
+                    "x1": 446,
+                    "y0": 346,
+                    "y1": 364
+                  },
+                  "children": [],
+                  "id": "9cb3e82aa327",
+                  "kind": "cell",
+                  "provenance": {
+                    "extractor": "pdfplumber",
+                    "stage": "extract_tables"
+                  },
+                  "text": "metric-11"
+                },
+                {
+                  "attrs": {},
+                  "bbox": {
+                    "page": 2,
+                    "x0": 446,
+                    "x1": 526,
+                    "y0": 346,
+                    "y1": 364
+                  },
+                  "children": [],
+                  "id": "29344b766274",
+                  "kind": "cell",
+                  "provenance": {
+                    "extractor": "pdfplumber",
+                    "stage": "extract_tables"
+                  },
+                  "text": "35.75"
+                }
+              ],
+              "id": "7151491b06f4",
+              "kind": "row",
+              "provenance": {},
+              "text": null
+            },
+            {
+              "attrs": {
+                "page": 2,
+                "row_index": 12
+              },
+              "bbox": {
+                "page": 2,
+                "x0": 86,
+                "x1": 526,
+                "y0": 148,
+                "y1": 706
+              },
+              "children": [
+                {
+                  "attrs": {},
+                  "bbox": {
+                    "page": 2,
+                    "x0": 86,
+                    "x1": 136,
+                    "y0": 364,
+                    "y1": 382
+                  },
+                  "children": [],
+                  "id": "1edfb7aca39d",
+                  "kind": "cell",
+                  "provenance": {
+                    "extractor": "pdfplumber",
+                    "stage": "extract_tables"
+                  },
+                  "text": "12"
+                },
+                {
+                  "attrs": {},
+                  "bbox": {
+                    "page": 2,
+                    "x0": 136,
+                    "x1": 246,
+                    "y0": 364,
+                    "y1": 382
+                  },
+                  "children": [],
+                  "id": "0207d04f59e7",
+                  "kind": "cell",
+                  "provenance": {
+                    "extractor": "pdfplumber",
+                    "stage": "extract_tables"
+                  },
+                  "text": "Region-1"
+                },
+                {
+                  "attrs": {},
+                  "bbox": {
+                    "page": 2,
+                    "x0": 246,
+                    "x1": 446,
+                    "y0": 364,
+                    "y1": 382
+                  },
+                  "children": [],
+                  "id": "1c099c1af51a",
+                  "kind": "cell",
+                  "provenance": {
+                    "extractor": "pdfplumber",
+                    "stage": "extract_tables"
+                  },
+                  "text": "metric-12"
+                },
+                {
+                  "attrs": {},
+                  "bbox": {
+                    "page": 2,
+                    "x0": 446,
+                    "x1": 526,
+                    "y0": 364,
+                    "y1": 382
+                  },
+                  "children": [],
+                  "id": "b9a2d099db3b",
+                  "kind": "cell",
+                  "provenance": {
+                    "extractor": "pdfplumber",
+                    "stage": "extract_tables"
+                  },
+                  "text": "39.00"
+                }
+              ],
+              "id": "5714714ac6a3",
+              "kind": "row",
+              "provenance": {},
+              "text": null
+            },
+            {
+              "attrs": {
+                "page": 2,
+                "row_index": 13
+              },
+              "bbox": {
+                "page": 2,
+                "x0": 86,
+                "x1": 526,
+                "y0": 148,
+                "y1": 706
+              },
+              "children": [
+                {
+                  "attrs": {},
+                  "bbox": {
+                    "page": 2,
+                    "x0": 86,
+                    "x1": 136,
+                    "y0": 382,
+                    "y1": 400
+                  },
+                  "children": [],
+                  "id": "50dde5d4c4ab",
+                  "kind": "cell",
+                  "provenance": {
+                    "extractor": "pdfplumber",
+                    "stage": "extract_tables"
+                  },
+                  "text": "13"
+                },
+                {
+                  "attrs": {},
+                  "bbox": {
+                    "page": 2,
+                    "x0": 136,
+                    "x1": 246,
+                    "y0": 382,
+                    "y1": 400
+                  },
+                  "children": [],
+                  "id": "f4871e784903",
+                  "kind": "cell",
+                  "provenance": {
+                    "extractor": "pdfplumber",
+                    "stage": "extract_tables"
+                  },
+                  "text": "Region-2"
+                },
+                {
+                  "attrs": {},
+                  "bbox": {
+                    "page": 2,
+                    "x0": 246,
+                    "x1": 446,
+                    "y0": 382,
+                    "y1": 400
+                  },
+                  "children": [],
+                  "id": "a5057a0cb54c",
+                  "kind": "cell",
+                  "provenance": {
+                    "extractor": "pdfplumber",
+                    "stage": "extract_tables"
+                  },
+                  "text": "metric-13"
+                },
+                {
+                  "attrs": {},
+                  "bbox": {
+                    "page": 2,
+                    "x0": 446,
+                    "x1": 526,
+                    "y0": 382,
+                    "y1": 400
+                  },
+                  "children": [],
+                  "id": "eb5b47d68ac0",
+                  "kind": "cell",
+                  "provenance": {
+                    "extractor": "pdfplumber",
+                    "stage": "extract_tables"
+                  },
+                  "text": "42.25"
+                }
+              ],
+              "id": "699fa1be7646",
+              "kind": "row",
+              "provenance": {},
+              "text": null
+            },
+            {
+              "attrs": {
+                "page": 2,
+                "row_index": 14
+              },
+              "bbox": {
+                "page": 2,
+                "x0": 86,
+                "x1": 526,
+                "y0": 148,
+                "y1": 706
+              },
+              "children": [
+                {
+                  "attrs": {},
+                  "bbox": {
+                    "page": 2,
+                    "x0": 86,
+                    "x1": 136,
+                    "y0": 400,
+                    "y1": 418
+                  },
+                  "children": [],
+                  "id": "deeed2bf2a2d",
+                  "kind": "cell",
+                  "provenance": {
+                    "extractor": "pdfplumber",
+                    "stage": "extract_tables"
+                  },
+                  "text": "14"
+                },
+                {
+                  "attrs": {},
+                  "bbox": {
+                    "page": 2,
+                    "x0": 136,
+                    "x1": 246,
+                    "y0": 400,
+                    "y1": 418
+                  },
+                  "children": [],
+                  "id": "4729405ee6dd",
+                  "kind": "cell",
+                  "provenance": {
+                    "extractor": "pdfplumber",
+                    "stage": "extract_tables"
+                  },
+                  "text": "Region-3"
+                },
+                {
+                  "attrs": {},
+                  "bbox": {
+                    "page": 2,
+                    "x0": 246,
+                    "x1": 446,
+                    "y0": 400,
+                    "y1": 418
+                  },
+                  "children": [],
+                  "id": "2c084bf4a943",
+                  "kind": "cell",
+                  "provenance": {
+                    "extractor": "pdfplumber",
+                    "stage": "extract_tables"
+                  },
+                  "text": "metric-14"
+                },
+                {
+                  "attrs": {},
+                  "bbox": {
+                    "page": 2,
+                    "x0": 446,
+                    "x1": 526,
+                    "y0": 400,
+                    "y1": 418
+                  },
+                  "children": [],
+                  "id": "a29de0137dc4",
+                  "kind": "cell",
+                  "provenance": {
+                    "extractor": "pdfplumber",
+                    "stage": "extract_tables"
+                  },
+                  "text": "45.50"
+                }
+              ],
+              "id": "df809e01b4f4",
+              "kind": "row",
+              "provenance": {},
+              "text": null
+            },
+            {
+              "attrs": {
+                "page": 2,
+                "row_index": 15
+              },
+              "bbox": {
+                "page": 2,
+                "x0": 86,
+                "x1": 526,
+                "y0": 148,
+                "y1": 706
+              },
+              "children": [
+                {
+                  "attrs": {},
+                  "bbox": {
+                    "page": 2,
+                    "x0": 86,
+                    "x1": 136,
+                    "y0": 418,
+                    "y1": 436
+                  },
+                  "children": [],
+                  "id": "4f1f6e5ef94d",
+                  "kind": "cell",
+                  "provenance": {
+                    "extractor": "pdfplumber",
+                    "stage": "extract_tables"
+                  },
+                  "text": "15"
+                },
+                {
+                  "attrs": {},
+                  "bbox": {
+                    "page": 2,
+                    "x0": 136,
+                    "x1": 246,
+                    "y0": 418,
+                    "y1": 436
+                  },
+                  "children": [],
+                  "id": "5508324d6256",
+                  "kind": "cell",
+                  "provenance": {
+                    "extractor": "pdfplumber",
+                    "stage": "extract_tables"
+                  },
+                  "text": "Region-4"
+                },
+                {
+                  "attrs": {},
+                  "bbox": {
+                    "page": 2,
+                    "x0": 246,
+                    "x1": 446,
+                    "y0": 418,
+                    "y1": 436
+                  },
+                  "children": [],
+                  "id": "3cc22d71cabd",
+                  "kind": "cell",
+                  "provenance": {
+                    "extractor": "pdfplumber",
+                    "stage": "extract_tables"
+                  },
+                  "text": "metric-15"
+                },
+                {
+                  "attrs": {},
+                  "bbox": {
+                    "page": 2,
+                    "x0": 446,
+                    "x1": 526,
+                    "y0": 418,
+                    "y1": 436
+                  },
+                  "children": [],
+                  "id": "e15b031530e5",
+                  "kind": "cell",
+                  "provenance": {
+                    "extractor": "pdfplumber",
+                    "stage": "extract_tables"
+                  },
+                  "text": "48.75"
+                }
+              ],
+              "id": "8b278816976b",
+              "kind": "row",
+              "provenance": {},
+              "text": null
+            },
+            {
+              "attrs": {
+                "page": 2,
+                "row_index": 16
+              },
+              "bbox": {
+                "page": 2,
+                "x0": 86,
+                "x1": 526,
+                "y0": 148,
+                "y1": 706
+              },
+              "children": [
+                {
+                  "attrs": {},
+                  "bbox": {
+                    "page": 2,
+                    "x0": 86,
+                    "x1": 136,
+                    "y0": 436,
+                    "y1": 454
+                  },
+                  "children": [],
+                  "id": "1de0ca282b1f",
+                  "kind": "cell",
+                  "provenance": {
+                    "extractor": "pdfplumber",
+                    "stage": "extract_tables"
+                  },
+                  "text": "16"
+                },
+                {
+                  "attrs": {},
+                  "bbox": {
+                    "page": 2,
+                    "x0": 136,
+                    "x1": 246,
+                    "y0": 436,
+                    "y1": 454
+                  },
+                  "children": [],
+                  "id": "144314c53101",
+                  "kind": "cell",
+                  "provenance": {
+                    "extractor": "pdfplumber",
+                    "stage": "extract_tables"
+                  },
+                  "text": "Region-1"
+                },
+                {
+                  "attrs": {},
+                  "bbox": {
+                    "page": 2,
+                    "x0": 246,
+                    "x1": 446,
+                    "y0": 436,
+                    "y1": 454
+                  },
+                  "children": [],
+                  "id": "4530d668b361",
+                  "kind": "cell",
+                  "provenance": {
+                    "extractor": "pdfplumber",
+                    "stage": "extract_tables"
+                  },
+                  "text": "metric-16"
+                },
+                {
+                  "attrs": {},
+                  "bbox": {
+                    "page": 2,
+                    "x0": 446,
+                    "x1": 526,
+                    "y0": 436,
+                    "y1": 454
+                  },
+                  "children": [],
+                  "id": "15d9a705b677",
+                  "kind": "cell",
+                  "provenance": {
+                    "extractor": "pdfplumber",
+                    "stage": "extract_tables"
+                  },
+                  "text": "52.00"
+                }
+              ],
+              "id": "fe450510fcf0",
+              "kind": "row",
+              "provenance": {},
+              "text": null
+            },
+            {
+              "attrs": {
+                "page": 2,
+                "row_index": 17
+              },
+              "bbox": {
+                "page": 2,
+                "x0": 86,
+                "x1": 526,
+                "y0": 148,
+                "y1": 706
+              },
+              "children": [
+                {
+                  "attrs": {},
+                  "bbox": {
+                    "page": 2,
+                    "x0": 86,
+                    "x1": 136,
+                    "y0": 454,
+                    "y1": 472
+                  },
+                  "children": [],
+                  "id": "447c4801b3f4",
+                  "kind": "cell",
+                  "provenance": {
+                    "extractor": "pdfplumber",
+                    "stage": "extract_tables"
+                  },
+                  "text": "17"
+                },
+                {
+                  "attrs": {},
+                  "bbox": {
+                    "page": 2,
+                    "x0": 136,
+                    "x1": 246,
+                    "y0": 454,
+                    "y1": 472
+                  },
+                  "children": [],
+                  "id": "b680bca1a897",
+                  "kind": "cell",
+                  "provenance": {
+                    "extractor": "pdfplumber",
+                    "stage": "extract_tables"
+                  },
+                  "text": "Region-2"
+                },
+                {
+                  "attrs": {},
+                  "bbox": {
+                    "page": 2,
+                    "x0": 246,
+                    "x1": 446,
+                    "y0": 454,
+                    "y1": 472
+                  },
+                  "children": [],
+                  "id": "78f7d6238070",
+                  "kind": "cell",
+                  "provenance": {
+                    "extractor": "pdfplumber",
+                    "stage": "extract_tables"
+                  },
+                  "text": "metric-17"
+                },
+                {
+                  "attrs": {},
+                  "bbox": {
+                    "page": 2,
+                    "x0": 446,
+                    "x1": 526,
+                    "y0": 454,
+                    "y1": 472
+                  },
+                  "children": [],
+                  "id": "fca5c29a0f93",
+                  "kind": "cell",
+                  "provenance": {
+                    "extractor": "pdfplumber",
+                    "stage": "extract_tables"
+                  },
+                  "text": "55.25"
+                }
+              ],
+              "id": "1772395355e0",
+              "kind": "row",
+              "provenance": {},
+              "text": null
+            },
+            {
+              "attrs": {
+                "page": 2,
+                "row_index": 18
+              },
+              "bbox": {
+                "page": 2,
+                "x0": 86,
+                "x1": 526,
+                "y0": 148,
+                "y1": 706
+              },
+              "children": [
+                {
+                  "attrs": {},
+                  "bbox": {
+                    "page": 2,
+                    "x0": 86,
+                    "x1": 136,
+                    "y0": 472,
+                    "y1": 490
+                  },
+                  "children": [],
+                  "id": "1515c03c8694",
+                  "kind": "cell",
+                  "provenance": {
+                    "extractor": "pdfplumber",
+                    "stage": "extract_tables"
+                  },
+                  "text": "18"
+                },
+                {
+                  "attrs": {},
+                  "bbox": {
+                    "page": 2,
+                    "x0": 136,
+                    "x1": 246,
+                    "y0": 472,
+                    "y1": 490
+                  },
+                  "children": [],
+                  "id": "c476e0936041",
+                  "kind": "cell",
+                  "provenance": {
+                    "extractor": "pdfplumber",
+                    "stage": "extract_tables"
+                  },
+                  "text": "Region-3"
+                },
+                {
+                  "attrs": {},
+                  "bbox": {
+                    "page": 2,
+                    "x0": 246,
+                    "x1": 446,
+                    "y0": 472,
+                    "y1": 490
+                  },
+                  "children": [],
+                  "id": "c8bc7e16fa8f",
+                  "kind": "cell",
+                  "provenance": {
+                    "extractor": "pdfplumber",
+                    "stage": "extract_tables"
+                  },
+                  "text": "metric-18"
+                },
+                {
+                  "attrs": {},
+                  "bbox": {
+                    "page": 2,
+                    "x0": 446,
+                    "x1": 526,
+                    "y0": 472,
+                    "y1": 490
+                  },
+                  "children": [],
+                  "id": "7a237a31273d",
+                  "kind": "cell",
+                  "provenance": {
+                    "extractor": "pdfplumber",
+                    "stage": "extract_tables"
+                  },
+                  "text": "58.50"
+                }
+              ],
+              "id": "6cfbf74ba4a1",
+              "kind": "row",
+              "provenance": {},
+              "text": null
+            },
+            {
+              "attrs": {
+                "page": 2,
+                "row_index": 19
+              },
+              "bbox": {
+                "page": 2,
+                "x0": 86,
+                "x1": 526,
+                "y0": 148,
+                "y1": 706
+              },
+              "children": [
+                {
+                  "attrs": {},
+                  "bbox": {
+                    "page": 2,
+                    "x0": 86,
+                    "x1": 136,
+                    "y0": 490,
+                    "y1": 508
+                  },
+                  "children": [],
+                  "id": "52f96559d82d",
+                  "kind": "cell",
+                  "provenance": {
+                    "extractor": "pdfplumber",
+                    "stage": "extract_tables"
+                  },
+                  "text": "19"
+                },
+                {
+                  "attrs": {},
+                  "bbox": {
+                    "page": 2,
+                    "x0": 136,
+                    "x1": 246,
+                    "y0": 490,
+                    "y1": 508
+                  },
+                  "children": [],
+                  "id": "af2c2ea4ef2e",
+                  "kind": "cell",
+                  "provenance": {
+                    "extractor": "pdfplumber",
+                    "stage": "extract_tables"
+                  },
+                  "text": "Region-4"
+                },
+                {
+                  "attrs": {},
+                  "bbox": {
+                    "page": 2,
+                    "x0": 246,
+                    "x1": 446,
+                    "y0": 490,
+                    "y1": 508
+                  },
+                  "children": [],
+                  "id": "dbdbb6af67c8",
+                  "kind": "cell",
+                  "provenance": {
+                    "extractor": "pdfplumber",
+                    "stage": "extract_tables"
+                  },
+                  "text": "metric-19"
+                },
+                {
+                  "attrs": {},
+                  "bbox": {
+                    "page": 2,
+                    "x0": 446,
+                    "x1": 526,
+                    "y0": 490,
+                    "y1": 508
+                  },
+                  "children": [],
+                  "id": "38c24f0deb7c",
+                  "kind": "cell",
+                  "provenance": {
+                    "extractor": "pdfplumber",
+                    "stage": "extract_tables"
+                  },
+                  "text": "61.75"
+                }
+              ],
+              "id": "7d4d96376910",
+              "kind": "row",
+              "provenance": {},
+              "text": null
+            },
+            {
+              "attrs": {
+                "page": 2,
+                "row_index": 20
+              },
+              "bbox": {
+                "page": 2,
+                "x0": 86,
+                "x1": 526,
+                "y0": 148,
+                "y1": 706
+              },
+              "children": [
+                {
+                  "attrs": {},
+                  "bbox": {
+                    "page": 2,
+                    "x0": 86,
+                    "x1": 136,
+                    "y0": 508,
+                    "y1": 526
+                  },
+                  "children": [],
+                  "id": "50e0a14dfd87",
+                  "kind": "cell",
+                  "provenance": {
+                    "extractor": "pdfplumber",
+                    "stage": "extract_tables"
+                  },
+                  "text": "20"
+                },
+                {
+                  "attrs": {},
+                  "bbox": {
+                    "page": 2,
+                    "x0": 136,
+                    "x1": 246,
+                    "y0": 508,
+                    "y1": 526
+                  },
+                  "children": [],
+                  "id": "faeb79cd1a49",
+                  "kind": "cell",
+                  "provenance": {
+                    "extractor": "pdfplumber",
+                    "stage": "extract_tables"
+                  },
+                  "text": "Region-1"
+                },
+                {
+                  "attrs": {},
+                  "bbox": {
+                    "page": 2,
+                    "x0": 246,
+                    "x1": 446,
+                    "y0": 508,
+                    "y1": 526
+                  },
+                  "children": [],
+                  "id": "f3200f2a583c",
+                  "kind": "cell",
+                  "provenance": {
+                    "extractor": "pdfplumber",
+                    "stage": "extract_tables"
+                  },
+                  "text": "metric-20"
+                },
+                {
+                  "attrs": {},
+                  "bbox": {
+                    "page": 2,
+                    "x0": 446,
+                    "x1": 526,
+                    "y0": 508,
+                    "y1": 526
+                  },
+                  "children": [],
+                  "id": "4e856162e896",
+                  "kind": "cell",
+                  "provenance": {
+                    "extractor": "pdfplumber",
+                    "stage": "extract_tables"
+                  },
+                  "text": "65.00"
+                }
+              ],
+              "id": "ca686724960f",
+              "kind": "row",
+              "provenance": {},
+              "text": null
+            },
+            {
+              "attrs": {
+                "page": 2,
+                "row_index": 21
+              },
+              "bbox": {
+                "page": 2,
+                "x0": 86,
+                "x1": 526,
+                "y0": 148,
+                "y1": 706
+              },
+              "children": [
+                {
+                  "attrs": {},
+                  "bbox": {
+                    "page": 2,
+                    "x0": 86,
+                    "x1": 136,
+                    "y0": 526,
+                    "y1": 544
+                  },
+                  "children": [],
+                  "id": "378ac020eba3",
+                  "kind": "cell",
+                  "provenance": {
+                    "extractor": "pdfplumber",
+                    "stage": "extract_tables"
+                  },
+                  "text": "21"
+                },
+                {
+                  "attrs": {},
+                  "bbox": {
+                    "page": 2,
+                    "x0": 136,
+                    "x1": 246,
+                    "y0": 526,
+                    "y1": 544
+                  },
+                  "children": [],
+                  "id": "8a5a88e087ba",
+                  "kind": "cell",
+                  "provenance": {
+                    "extractor": "pdfplumber",
+                    "stage": "extract_tables"
+                  },
+                  "text": "Region-2"
+                },
+                {
+                  "attrs": {},
+                  "bbox": {
+                    "page": 2,
+                    "x0": 246,
+                    "x1": 446,
+                    "y0": 526,
+                    "y1": 544
+                  },
+                  "children": [],
+                  "id": "eba565864adc",
+                  "kind": "cell",
+                  "provenance": {
+                    "extractor": "pdfplumber",
+                    "stage": "extract_tables"
+                  },
+                  "text": "metric-21"
+                },
+                {
+                  "attrs": {},
+                  "bbox": {
+                    "page": 2,
+                    "x0": 446,
+                    "x1": 526,
+                    "y0": 526,
+                    "y1": 544
+                  },
+                  "children": [],
+                  "id": "778648868fe8",
+                  "kind": "cell",
+                  "provenance": {
+                    "extractor": "pdfplumber",
+                    "stage": "extract_tables"
+                  },
+                  "text": "68.25"
+                }
+              ],
+              "id": "1d8e18deb4f9",
+              "kind": "row",
+              "provenance": {},
+              "text": null
+            },
+            {
+              "attrs": {
+                "page": 2,
+                "row_index": 22
+              },
+              "bbox": {
+                "page": 2,
+                "x0": 86,
+                "x1": 526,
+                "y0": 148,
+                "y1": 706
+              },
+              "children": [
+                {
+                  "attrs": {},
+                  "bbox": {
+                    "page": 2,
+                    "x0": 86,
+                    "x1": 136,
+                    "y0": 544,
+                    "y1": 562
+                  },
+                  "children": [],
+                  "id": "a98a284ed5a0",
+                  "kind": "cell",
+                  "provenance": {
+                    "extractor": "pdfplumber",
+                    "stage": "extract_tables"
+                  },
+                  "text": "22"
+                },
+                {
+                  "attrs": {},
+                  "bbox": {
+                    "page": 2,
+                    "x0": 136,
+                    "x1": 246,
+                    "y0": 544,
+                    "y1": 562
+                  },
+                  "children": [],
+                  "id": "38652b7bb549",
+                  "kind": "cell",
+                  "provenance": {
+                    "extractor": "pdfplumber",
+                    "stage": "extract_tables"
+                  },
+                  "text": "Region-3"
+                },
+                {
+                  "attrs": {},
+                  "bbox": {
+                    "page": 2,
+                    "x0": 246,
+                    "x1": 446,
+                    "y0": 544,
+                    "y1": 562
+                  },
+                  "children": [],
+                  "id": "f8349bf888a2",
+                  "kind": "cell",
+                  "provenance": {
+                    "extractor": "pdfplumber",
+                    "stage": "extract_tables"
+                  },
+                  "text": "metric-22"
+                },
+                {
+                  "attrs": {},
+                  "bbox": {
+                    "page": 2,
+                    "x0": 446,
+                    "x1": 526,
+                    "y0": 544,
+                    "y1": 562
+                  },
+                  "children": [],
+                  "id": "085a9c2968c5",
+                  "kind": "cell",
+                  "provenance": {
+                    "extractor": "pdfplumber",
+                    "stage": "extract_tables"
+                  },
+                  "text": "71.50"
+                }
+              ],
+              "id": "f556c234271d",
+              "kind": "row",
+              "provenance": {},
+              "text": null
+            },
+            {
+              "attrs": {
+                "page": 2,
+                "row_index": 23
+              },
+              "bbox": {
+                "page": 2,
+                "x0": 86,
+                "x1": 526,
+                "y0": 148,
+                "y1": 706
+              },
+              "children": [
+                {
+                  "attrs": {},
+                  "bbox": {
+                    "page": 2,
+                    "x0": 86,
+                    "x1": 136,
+                    "y0": 562,
+                    "y1": 580
+                  },
+                  "children": [],
+                  "id": "9323d06edf1e",
+                  "kind": "cell",
+                  "provenance": {
+                    "extractor": "pdfplumber",
+                    "stage": "extract_tables"
+                  },
+                  "text": "23"
+                },
+                {
+                  "attrs": {},
+                  "bbox": {
+                    "page": 2,
+                    "x0": 136,
+                    "x1": 246,
+                    "y0": 562,
+                    "y1": 580
+                  },
+                  "children": [],
+                  "id": "48da370274d1",
+                  "kind": "cell",
+                  "provenance": {
+                    "extractor": "pdfplumber",
+                    "stage": "extract_tables"
+                  },
+                  "text": "Region-4"
+                },
+                {
+                  "attrs": {},
+                  "bbox": {
+                    "page": 2,
+                    "x0": 246,
+                    "x1": 446,
+                    "y0": 562,
+                    "y1": 580
+                  },
+                  "children": [],
+                  "id": "060d175d71a3",
+                  "kind": "cell",
+                  "provenance": {
+                    "extractor": "pdfplumber",
+                    "stage": "extract_tables"
+                  },
+                  "text": "metric-23"
+                },
+                {
+                  "attrs": {},
+                  "bbox": {
+                    "page": 2,
+                    "x0": 446,
+                    "x1": 526,
+                    "y0": 562,
+                    "y1": 580
+                  },
+                  "children": [],
+                  "id": "92fccf033e5d",
+                  "kind": "cell",
+                  "provenance": {
+                    "extractor": "pdfplumber",
+                    "stage": "extract_tables"
+                  },
+                  "text": "74.75"
+                }
+              ],
+              "id": "95dca4069847",
+              "kind": "row",
+              "provenance": {},
+              "text": null
+            },
+            {
+              "attrs": {
+                "page": 2,
+                "row_index": 24
+              },
+              "bbox": {
+                "page": 2,
+                "x0": 86,
+                "x1": 526,
+                "y0": 148,
+                "y1": 706
+              },
+              "children": [
+                {
+                  "attrs": {},
+                  "bbox": {
+                    "page": 2,
+                    "x0": 86,
+                    "x1": 136,
+                    "y0": 580,
+                    "y1": 598
+                  },
+                  "children": [],
+                  "id": "6d24ff121fea",
+                  "kind": "cell",
+                  "provenance": {
+                    "extractor": "pdfplumber",
+                    "stage": "extract_tables"
+                  },
+                  "text": "24"
+                },
+                {
+                  "attrs": {},
+                  "bbox": {
+                    "page": 2,
+                    "x0": 136,
+                    "x1": 246,
+                    "y0": 580,
+                    "y1": 598
+                  },
+                  "children": [],
+                  "id": "2a097b0be924",
+                  "kind": "cell",
+                  "provenance": {
+                    "extractor": "pdfplumber",
+                    "stage": "extract_tables"
+                  },
+                  "text": "Region-1"
+                },
+                {
+                  "attrs": {},
+                  "bbox": {
+                    "page": 2,
+                    "x0": 246,
+                    "x1": 446,
+                    "y0": 580,
+                    "y1": 598
+                  },
+                  "children": [],
+                  "id": "9a0db908f74d",
+                  "kind": "cell",
+                  "provenance": {
+                    "extractor": "pdfplumber",
+                    "stage": "extract_tables"
+                  },
+                  "text": "metric-24"
+                },
+                {
+                  "attrs": {},
+                  "bbox": {
+                    "page": 2,
+                    "x0": 446,
+                    "x1": 526,
+                    "y0": 580,
+                    "y1": 598
+                  },
+                  "children": [],
+                  "id": "a9dc5c6fdc1d",
+                  "kind": "cell",
+                  "provenance": {
+                    "extractor": "pdfplumber",
+                    "stage": "extract_tables"
+                  },
+                  "text": "78.00"
+                }
+              ],
+              "id": "8e62b0898c74",
+              "kind": "row",
+              "provenance": {},
+              "text": null
+            },
+            {
+              "attrs": {
+                "page": 2,
+                "row_index": 25
+              },
+              "bbox": {
+                "page": 2,
+                "x0": 86,
+                "x1": 526,
+                "y0": 148,
+                "y1": 706
+              },
+              "children": [
+                {
+                  "attrs": {},
+                  "bbox": {
+                    "page": 2,
+                    "x0": 86,
+                    "x1": 136,
+                    "y0": 598,
+                    "y1": 616
+                  },
+                  "children": [],
+                  "id": "137064397c27",
+                  "kind": "cell",
+                  "provenance": {
+                    "extractor": "pdfplumber",
+                    "stage": "extract_tables"
+                  },
+                  "text": "25"
+                },
+                {
+                  "attrs": {},
+                  "bbox": {
+                    "page": 2,
+                    "x0": 136,
+                    "x1": 246,
+                    "y0": 598,
+                    "y1": 616
+                  },
+                  "children": [],
+                  "id": "d5fb8664d180",
+                  "kind": "cell",
+                  "provenance": {
+                    "extractor": "pdfplumber",
+                    "stage": "extract_tables"
+                  },
+                  "text": "Region-2"
+                },
+                {
+                  "attrs": {},
+                  "bbox": {
+                    "page": 2,
+                    "x0": 246,
+                    "x1": 446,
+                    "y0": 598,
+                    "y1": 616
+                  },
+                  "children": [],
+                  "id": "473a1428519e",
+                  "kind": "cell",
+                  "provenance": {
+                    "extractor": "pdfplumber",
+                    "stage": "extract_tables"
+                  },
+                  "text": "metric-25"
+                },
+                {
+                  "attrs": {},
+                  "bbox": {
+                    "page": 2,
+                    "x0": 446,
+                    "x1": 526,
+                    "y0": 598,
+                    "y1": 616
+                  },
+                  "children": [],
+                  "id": "79b653740506",
+                  "kind": "cell",
+                  "provenance": {
+                    "extractor": "pdfplumber",
+                    "stage": "extract_tables"
+                  },
+                  "text": "81.25"
+                }
+              ],
+              "id": "14a47691131d",
+              "kind": "row",
+              "provenance": {},
+              "text": null
+            },
+            {
+              "attrs": {
+                "page": 2,
+                "row_index": 26
+              },
+              "bbox": {
+                "page": 2,
+                "x0": 86,
+                "x1": 526,
+                "y0": 148,
+                "y1": 706
+              },
+              "children": [
+                {
+                  "attrs": {},
+                  "bbox": {
+                    "page": 2,
+                    "x0": 86,
+                    "x1": 136,
+                    "y0": 616,
+                    "y1": 634
+                  },
+                  "children": [],
+                  "id": "a58007d73a66",
+                  "kind": "cell",
+                  "provenance": {
+                    "extractor": "pdfplumber",
+                    "stage": "extract_tables"
+                  },
+                  "text": "26"
+                },
+                {
+                  "attrs": {},
+                  "bbox": {
+                    "page": 2,
+                    "x0": 136,
+                    "x1": 246,
+                    "y0": 616,
+                    "y1": 634
+                  },
+                  "children": [],
+                  "id": "8abbf3788ec3",
+                  "kind": "cell",
+                  "provenance": {
+                    "extractor": "pdfplumber",
+                    "stage": "extract_tables"
+                  },
+                  "text": "Region-3"
+                },
+                {
+                  "attrs": {},
+                  "bbox": {
+                    "page": 2,
+                    "x0": 246,
+                    "x1": 446,
+                    "y0": 616,
+                    "y1": 634
+                  },
+                  "children": [],
+                  "id": "8ffd50f1eb57",
+                  "kind": "cell",
+                  "provenance": {
+                    "extractor": "pdfplumber",
+                    "stage": "extract_tables"
+                  },
+                  "text": "metric-26"
+                },
+                {
+                  "attrs": {},
+                  "bbox": {
+                    "page": 2,
+                    "x0": 446,
+                    "x1": 526,
+                    "y0": 616,
+                    "y1": 634
+                  },
+                  "children": [],
+                  "id": "c285f3f86221",
+                  "kind": "cell",
+                  "provenance": {
+                    "extractor": "pdfplumber",
+                    "stage": "extract_tables"
+                  },
+                  "text": "84.50"
+                }
+              ],
+              "id": "95a371efc2b4",
+              "kind": "row",
+              "provenance": {},
+              "text": null
+            },
+            {
+              "attrs": {
+                "page": 2,
+                "row_index": 27
+              },
+              "bbox": {
+                "page": 2,
+                "x0": 86,
+                "x1": 526,
+                "y0": 148,
+                "y1": 706
+              },
+              "children": [
+                {
+                  "attrs": {},
+                  "bbox": {
+                    "page": 2,
+                    "x0": 86,
+                    "x1": 136,
+                    "y0": 634,
+                    "y1": 652
+                  },
+                  "children": [],
+                  "id": "2225a5cac6fa",
+                  "kind": "cell",
+                  "provenance": {
+                    "extractor": "pdfplumber",
+                    "stage": "extract_tables"
+                  },
+                  "text": "27"
+                },
+                {
+                  "attrs": {},
+                  "bbox": {
+                    "page": 2,
+                    "x0": 136,
+                    "x1": 246,
+                    "y0": 634,
+                    "y1": 652
+                  },
+                  "children": [],
+                  "id": "7f22ac8f052c",
+                  "kind": "cell",
+                  "provenance": {
+                    "extractor": "pdfplumber",
+                    "stage": "extract_tables"
+                  },
+                  "text": "Region-4"
+                },
+                {
+                  "attrs": {},
+                  "bbox": {
+                    "page": 2,
+                    "x0": 246,
+                    "x1": 446,
+                    "y0": 634,
+                    "y1": 652
+                  },
+                  "children": [],
+                  "id": "d129066b2a26",
+                  "kind": "cell",
+                  "provenance": {
+                    "extractor": "pdfplumber",
+                    "stage": "extract_tables"
+                  },
+                  "text": "metric-27"
+                },
+                {
+                  "attrs": {},
+                  "bbox": {
+                    "page": 2,
+                    "x0": 446,
+                    "x1": 526,
+                    "y0": 634,
+                    "y1": 652
+                  },
+                  "children": [],
+                  "id": "272959277376",
+                  "kind": "cell",
+                  "provenance": {
+                    "extractor": "pdfplumber",
+                    "stage": "extract_tables"
+                  },
+                  "text": "87.75"
+                }
+              ],
+              "id": "9e12bc6f75ef",
+              "kind": "row",
+              "provenance": {},
+              "text": null
+            },
+            {
+              "attrs": {
+                "page": 2,
+                "row_index": 28
+              },
+              "bbox": {
+                "page": 2,
+                "x0": 86,
+                "x1": 526,
+                "y0": 148,
+                "y1": 706
+              },
+              "children": [
+                {
+                  "attrs": {},
+                  "bbox": {
+                    "page": 2,
+                    "x0": 86,
+                    "x1": 136,
+                    "y0": 652,
+                    "y1": 670
+                  },
+                  "children": [],
+                  "id": "1070100e9e88",
+                  "kind": "cell",
+                  "provenance": {
+                    "extractor": "pdfplumber",
+                    "stage": "extract_tables"
+                  },
+                  "text": "28"
+                },
+                {
+                  "attrs": {},
+                  "bbox": {
+                    "page": 2,
+                    "x0": 136,
+                    "x1": 246,
+                    "y0": 652,
+                    "y1": 670
+                  },
+                  "children": [],
+                  "id": "5e68c2ea974b",
+                  "kind": "cell",
+                  "provenance": {
+                    "extractor": "pdfplumber",
+                    "stage": "extract_tables"
+                  },
+                  "text": "Region-1"
+                },
+                {
+                  "attrs": {},
+                  "bbox": {
+                    "page": 2,
+                    "x0": 246,
+                    "x1": 446,
+                    "y0": 652,
+                    "y1": 670
+                  },
+                  "children": [],
+                  "id": "c1af71bb17c1",
+                  "kind": "cell",
+                  "provenance": {
+                    "extractor": "pdfplumber",
+                    "stage": "extract_tables"
+                  },
+                  "text": "metric-28"
+                },
+                {
+                  "attrs": {},
+                  "bbox": {
+                    "page": 2,
+                    "x0": 446,
+                    "x1": 526,
+                    "y0": 652,
+                    "y1": 670
+                  },
+                  "children": [],
+                  "id": "86680a724650",
+                  "kind": "cell",
+                  "provenance": {
+                    "extractor": "pdfplumber",
+                    "stage": "extract_tables"
+                  },
+                  "text": "91.00"
+                }
+              ],
+              "id": "4a5578932689",
+              "kind": "row",
+              "provenance": {},
+              "text": null
+            },
+            {
+              "attrs": {
+                "page": 2,
+                "row_index": 29
+              },
+              "bbox": {
+                "page": 2,
+                "x0": 86,
+                "x1": 526,
+                "y0": 148,
+                "y1": 706
+              },
+              "children": [
+                {
+                  "attrs": {},
+                  "bbox": {
+                    "page": 2,
+                    "x0": 86,
+                    "x1": 136,
+                    "y0": 670,
+                    "y1": 688
+                  },
+                  "children": [],
+                  "id": "649788a71af0",
+                  "kind": "cell",
+                  "provenance": {
+                    "extractor": "pdfplumber",
+                    "stage": "extract_tables"
+                  },
+                  "text": "29"
+                },
+                {
+                  "attrs": {},
+                  "bbox": {
+                    "page": 2,
+                    "x0": 136,
+                    "x1": 246,
+                    "y0": 670,
+                    "y1": 688
+                  },
+                  "children": [],
+                  "id": "e8473cfb1912",
+                  "kind": "cell",
+                  "provenance": {
+                    "extractor": "pdfplumber",
+                    "stage": "extract_tables"
+                  },
+                  "text": "Region-2"
+                },
+                {
+                  "attrs": {},
+                  "bbox": {
+                    "page": 2,
+                    "x0": 246,
+                    "x1": 446,
+                    "y0": 670,
+                    "y1": 688
+                  },
+                  "children": [],
+                  "id": "187ed05b7402",
+                  "kind": "cell",
+                  "provenance": {
+                    "extractor": "pdfplumber",
+                    "stage": "extract_tables"
+                  },
+                  "text": "metric-29"
+                },
+                {
+                  "attrs": {},
+                  "bbox": {
+                    "page": 2,
+                    "x0": 446,
+                    "x1": 526,
+                    "y0": 670,
+                    "y1": 688
+                  },
+                  "children": [],
+                  "id": "8abe306f6c66",
+                  "kind": "cell",
+                  "provenance": {
+                    "extractor": "pdfplumber",
+                    "stage": "extract_tables"
+                  },
+                  "text": "94.25"
+                }
+              ],
+              "id": "064b3962bea9",
+              "kind": "row",
+              "provenance": {},
+              "text": null
+            },
+            {
+              "attrs": {
+                "page": 2,
+                "row_index": 30
+              },
+              "bbox": {
+                "page": 2,
+                "x0": 86,
+                "x1": 526,
+                "y0": 148,
+                "y1": 706
+              },
+              "children": [
+                {
+                  "attrs": {},
+                  "bbox": {
+                    "page": 2,
+                    "x0": 86,
+                    "x1": 136,
+                    "y0": 688,
+                    "y1": 706
+                  },
+                  "children": [],
+                  "id": "47f4e86dac38",
+                  "kind": "cell",
+                  "provenance": {
+                    "extractor": "pdfplumber",
+                    "stage": "extract_tables"
+                  },
+                  "text": "30"
+                },
+                {
+                  "attrs": {},
+                  "bbox": {
+                    "page": 2,
+                    "x0": 136,
+                    "x1": 246,
+                    "y0": 688,
+                    "y1": 706
+                  },
+                  "children": [],
+                  "id": "ed3a0510c76d",
+                  "kind": "cell",
+                  "provenance": {
+                    "extractor": "pdfplumber",
+                    "stage": "extract_tables"
+                  },
+                  "text": "Region-3"
+                },
+                {
+                  "attrs": {},
+                  "bbox": {
+                    "page": 2,
+                    "x0": 246,
+                    "x1": 446,
+                    "y0": 688,
+                    "y1": 706
+                  },
+                  "children": [],
+                  "id": "12f6a48e2708",
+                  "kind": "cell",
+                  "provenance": {
+                    "extractor": "pdfplumber",
+                    "stage": "extract_tables"
+                  },
+                  "text": "metric-30"
+                },
+                {
+                  "attrs": {},
+                  "bbox": {
+                    "page": 2,
+                    "x0": 446,
+                    "x1": 526,
+                    "y0": 688,
+                    "y1": 706
+                  },
+                  "children": [],
+                  "id": "a982e6a29541",
+                  "kind": "cell",
+                  "provenance": {
+                    "extractor": "pdfplumber",
+                    "stage": "extract_tables"
+                  },
+                  "text": "97.50"
+                }
+              ],
+              "id": "5057cb8e1e61",
+              "kind": "row",
+              "provenance": {},
+              "text": null
+            },
+            {
+              "attrs": {
+                "page": 3,
+                "row_index": 31
+              },
+              "bbox": {
+                "page": 3,
+                "x0": 86,
+                "x1": 526,
+                "y0": 78,
+                "y1": 618
+              },
+              "children": [
+                {
+                  "attrs": {},
+                  "bbox": {
+                    "page": 3,
+                    "x0": 86,
+                    "x1": 136,
+                    "y0": 78,
+                    "y1": 96
+                  },
+                  "children": [],
+                  "id": "eec4ef724275",
+                  "kind": "cell",
+                  "provenance": {
+                    "extractor": "pdfplumber",
+                    "stage": "extract_tables"
+                  },
+                  "text": "31"
+                },
+                {
+                  "attrs": {},
+                  "bbox": {
+                    "page": 3,
+                    "x0": 136,
+                    "x1": 246,
+                    "y0": 78,
+                    "y1": 96
+                  },
+                  "children": [],
+                  "id": "84f0c214ffb9",
+                  "kind": "cell",
+                  "provenance": {
+                    "extractor": "pdfplumber",
+                    "stage": "extract_tables"
+                  },
+                  "text": "Region-4"
+                },
+                {
+                  "attrs": {},
+                  "bbox": {
+                    "page": 3,
+                    "x0": 246,
+                    "x1": 446,
+                    "y0": 78,
+                    "y1": 96
+                  },
+                  "children": [],
+                  "id": "2efb5d6f29b5",
+                  "kind": "cell",
+                  "provenance": {
+                    "extractor": "pdfplumber",
+                    "stage": "extract_tables"
+                  },
+                  "text": "metric-31"
+                },
+                {
+                  "attrs": {},
+                  "bbox": {
+                    "page": 3,
+                    "x0": 446,
+                    "x1": 526,
+                    "y0": 78,
+                    "y1": 96
+                  },
+                  "children": [],
+                  "id": "5b4301bc1d82",
+                  "kind": "cell",
+                  "provenance": {
+                    "extractor": "pdfplumber",
+                    "stage": "extract_tables"
+                  },
+                  "text": "100.75"
+                }
+              ],
+              "id": "9b3845ab0a80",
+              "kind": "row",
+              "provenance": {},
+              "text": null
+            },
+            {
+              "attrs": {
+                "page": 3,
+                "row_index": 32
+              },
+              "bbox": {
+                "page": 3,
+                "x0": 86,
+                "x1": 526,
+                "y0": 78,
+                "y1": 618
+              },
+              "children": [
+                {
+                  "attrs": {},
+                  "bbox": {
+                    "page": 3,
+                    "x0": 86,
+                    "x1": 136,
+                    "y0": 96,
+                    "y1": 114
+                  },
+                  "children": [],
+                  "id": "00df248ca8a3",
+                  "kind": "cell",
+                  "provenance": {
+                    "extractor": "pdfplumber",
+                    "stage": "extract_tables"
+                  },
+                  "text": "32"
+                },
+                {
+                  "attrs": {},
+                  "bbox": {
+                    "page": 3,
+                    "x0": 136,
+                    "x1": 246,
+                    "y0": 96,
+                    "y1": 114
+                  },
+                  "children": [],
+                  "id": "50ee2f0f9866",
+                  "kind": "cell",
+                  "provenance": {
+                    "extractor": "pdfplumber",
+                    "stage": "extract_tables"
+                  },
+                  "text": "Region-1"
+                },
+                {
+                  "attrs": {},
+                  "bbox": {
+                    "page": 3,
+                    "x0": 246,
+                    "x1": 446,
+                    "y0": 96,
+                    "y1": 114
+                  },
+                  "children": [],
+                  "id": "8fb9c3f2f0f0",
+                  "kind": "cell",
+                  "provenance": {
+                    "extractor": "pdfplumber",
+                    "stage": "extract_tables"
+                  },
+                  "text": "metric-32"
+                },
+                {
+                  "attrs": {},
+                  "bbox": {
+                    "page": 3,
+                    "x0": 446,
+                    "x1": 526,
+                    "y0": 96,
+                    "y1": 114
+                  },
+                  "children": [],
+                  "id": "dd747de9a3f5",
+                  "kind": "cell",
+                  "provenance": {
+                    "extractor": "pdfplumber",
+                    "stage": "extract_tables"
+                  },
+                  "text": "104.00"
+                }
+              ],
+              "id": "1da4e813fe6c",
+              "kind": "row",
+              "provenance": {},
+              "text": null
+            },
+            {
+              "attrs": {
+                "page": 3,
+                "row_index": 33
+              },
+              "bbox": {
+                "page": 3,
+                "x0": 86,
+                "x1": 526,
+                "y0": 78,
+                "y1": 618
+              },
+              "children": [
+                {
+                  "attrs": {},
+                  "bbox": {
+                    "page": 3,
+                    "x0": 86,
+                    "x1": 136,
+                    "y0": 114,
+                    "y1": 132
+                  },
+                  "children": [],
+                  "id": "88cf6925a2fa",
+                  "kind": "cell",
+                  "provenance": {
+                    "extractor": "pdfplumber",
+                    "stage": "extract_tables"
+                  },
+                  "text": "33"
+                },
+                {
+                  "attrs": {},
+                  "bbox": {
+                    "page": 3,
+                    "x0": 136,
+                    "x1": 246,
+                    "y0": 114,
+                    "y1": 132
+                  },
+                  "children": [],
+                  "id": "b2a30acf79c6",
+                  "kind": "cell",
+                  "provenance": {
+                    "extractor": "pdfplumber",
+                    "stage": "extract_tables"
+                  },
+                  "text": "Region-2"
+                },
+                {
+                  "attrs": {},
+                  "bbox": {
+                    "page": 3,
+                    "x0": 246,
+                    "x1": 446,
+                    "y0": 114,
+                    "y1": 132
+                  },
+                  "children": [],
+                  "id": "8ce311d2bf7e",
+                  "kind": "cell",
+                  "provenance": {
+                    "extractor": "pdfplumber",
+                    "stage": "extract_tables"
+                  },
+                  "text": "metric-33"
+                },
+                {
+                  "attrs": {},
+                  "bbox": {
+                    "page": 3,
+                    "x0": 446,
+                    "x1": 526,
+                    "y0": 114,
+                    "y1": 132
+                  },
+                  "children": [],
+                  "id": "90cd9af0b464",
+                  "kind": "cell",
+                  "provenance": {
+                    "extractor": "pdfplumber",
+                    "stage": "extract_tables"
+                  },
+                  "text": "107.25"
+                }
+              ],
+              "id": "ad54a72d136e",
+              "kind": "row",
+              "provenance": {},
+              "text": null
+            },
+            {
+              "attrs": {
+                "page": 3,
+                "row_index": 34
+              },
+              "bbox": {
+                "page": 3,
+                "x0": 86,
+                "x1": 526,
+                "y0": 78,
+                "y1": 618
+              },
+              "children": [
+                {
+                  "attrs": {},
+                  "bbox": {
+                    "page": 3,
+                    "x0": 86,
+                    "x1": 136,
+                    "y0": 132,
+                    "y1": 150
+                  },
+                  "children": [],
+                  "id": "aa95f1caa58d",
+                  "kind": "cell",
+                  "provenance": {
+                    "extractor": "pdfplumber",
+                    "stage": "extract_tables"
+                  },
+                  "text": "34"
+                },
+                {
+                  "attrs": {},
+                  "bbox": {
+                    "page": 3,
+                    "x0": 136,
+                    "x1": 246,
+                    "y0": 132,
+                    "y1": 150
+                  },
+                  "children": [],
+                  "id": "0274486cc565",
+                  "kind": "cell",
+                  "provenance": {
+                    "extractor": "pdfplumber",
+                    "stage": "extract_tables"
+                  },
+                  "text": "Region-3"
+                },
+                {
+                  "attrs": {},
+                  "bbox": {
+                    "page": 3,
+                    "x0": 246,
+                    "x1": 446,
+                    "y0": 132,
+                    "y1": 150
+                  },
+                  "children": [],
+                  "id": "ad9ad35e393c",
+                  "kind": "cell",
+                  "provenance": {
+                    "extractor": "pdfplumber",
+                    "stage": "extract_tables"
+                  },
+                  "text": "metric-34"
+                },
+                {
+                  "attrs": {},
+                  "bbox": {
+                    "page": 3,
+                    "x0": 446,
+                    "x1": 526,
+                    "y0": 132,
+                    "y1": 150
+                  },
+                  "children": [],
+                  "id": "54b628aca230",
+                  "kind": "cell",
+                  "provenance": {
+                    "extractor": "pdfplumber",
+                    "stage": "extract_tables"
+                  },
+                  "text": "110.50"
+                }
+              ],
+              "id": "9c3a13465556",
+              "kind": "row",
+              "provenance": {},
+              "text": null
+            },
+            {
+              "attrs": {
+                "page": 3,
+                "row_index": 35
+              },
+              "bbox": {
+                "page": 3,
+                "x0": 86,
+                "x1": 526,
+                "y0": 78,
+                "y1": 618
+              },
+              "children": [
+                {
+                  "attrs": {},
+                  "bbox": {
+                    "page": 3,
+                    "x0": 86,
+                    "x1": 136,
+                    "y0": 150,
+                    "y1": 168
+                  },
+                  "children": [],
+                  "id": "103a8977dceb",
+                  "kind": "cell",
+                  "provenance": {
+                    "extractor": "pdfplumber",
+                    "stage": "extract_tables"
+                  },
+                  "text": "35"
+                },
+                {
+                  "attrs": {},
+                  "bbox": {
+                    "page": 3,
+                    "x0": 136,
+                    "x1": 246,
+                    "y0": 150,
+                    "y1": 168
+                  },
+                  "children": [],
+                  "id": "f9bdf3abc15e",
+                  "kind": "cell",
+                  "provenance": {
+                    "extractor": "pdfplumber",
+                    "stage": "extract_tables"
+                  },
+                  "text": "Region-4"
+                },
+                {
+                  "attrs": {},
+                  "bbox": {
+                    "page": 3,
+                    "x0": 246,
+                    "x1": 446,
+                    "y0": 150,
+                    "y1": 168
+                  },
+                  "children": [],
+                  "id": "821aa7dcbc73",
+                  "kind": "cell",
+                  "provenance": {
+                    "extractor": "pdfplumber",
+                    "stage": "extract_tables"
+                  },
+                  "text": "metric-35"
+                },
+                {
+                  "attrs": {},
+                  "bbox": {
+                    "page": 3,
+                    "x0": 446,
+                    "x1": 526,
+                    "y0": 150,
+                    "y1": 168
+                  },
+                  "children": [],
+                  "id": "5e594f60483f",
+                  "kind": "cell",
+                  "provenance": {
+                    "extractor": "pdfplumber",
+                    "stage": "extract_tables"
+                  },
+                  "text": "113.75"
+                }
+              ],
+              "id": "379d215f25e2",
+              "kind": "row",
+              "provenance": {},
+              "text": null
+            },
+            {
+              "attrs": {
+                "page": 3,
+                "row_index": 36
+              },
+              "bbox": {
+                "page": 3,
+                "x0": 86,
+                "x1": 526,
+                "y0": 78,
+                "y1": 618
+              },
+              "children": [
+                {
+                  "attrs": {},
+                  "bbox": {
+                    "page": 3,
+                    "x0": 86,
+                    "x1": 136,
+                    "y0": 168,
+                    "y1": 186
+                  },
+                  "children": [],
+                  "id": "b92051f59a89",
+                  "kind": "cell",
+                  "provenance": {
+                    "extractor": "pdfplumber",
+                    "stage": "extract_tables"
+                  },
+                  "text": "36"
+                },
+                {
+                  "attrs": {},
+                  "bbox": {
+                    "page": 3,
+                    "x0": 136,
+                    "x1": 246,
+                    "y0": 168,
+                    "y1": 186
+                  },
+                  "children": [],
+                  "id": "1170a2e8c05a",
+                  "kind": "cell",
+                  "provenance": {
+                    "extractor": "pdfplumber",
+                    "stage": "extract_tables"
+                  },
+                  "text": "Region-1"
+                },
+                {
+                  "attrs": {},
+                  "bbox": {
+                    "page": 3,
+                    "x0": 246,
+                    "x1": 446,
+                    "y0": 168,
+                    "y1": 186
+                  },
+                  "children": [],
+                  "id": "57ecd99207eb",
+                  "kind": "cell",
+                  "provenance": {
+                    "extractor": "pdfplumber",
+                    "stage": "extract_tables"
+                  },
+                  "text": "metric-36"
+                },
+                {
+                  "attrs": {},
+                  "bbox": {
+                    "page": 3,
+                    "x0": 446,
+                    "x1": 526,
+                    "y0": 168,
+                    "y1": 186
+                  },
+                  "children": [],
+                  "id": "2b4751418c32",
+                  "kind": "cell",
+                  "provenance": {
+                    "extractor": "pdfplumber",
+                    "stage": "extract_tables"
+                  },
+                  "text": "117.00"
+                }
+              ],
+              "id": "73f22817b9ff",
+              "kind": "row",
+              "provenance": {},
+              "text": null
+            },
+            {
+              "attrs": {
+                "page": 3,
+                "row_index": 37
+              },
+              "bbox": {
+                "page": 3,
+                "x0": 86,
+                "x1": 526,
+                "y0": 78,
+                "y1": 618
+              },
+              "children": [
+                {
+                  "attrs": {},
+                  "bbox": {
+                    "page": 3,
+                    "x0": 86,
+                    "x1": 136,
+                    "y0": 186,
+                    "y1": 204
+                  },
+                  "children": [],
+                  "id": "a0fedb0ea677",
+                  "kind": "cell",
+                  "provenance": {
+                    "extractor": "pdfplumber",
+                    "stage": "extract_tables"
+                  },
+                  "text": "37"
+                },
+                {
+                  "attrs": {},
+                  "bbox": {
+                    "page": 3,
+                    "x0": 136,
+                    "x1": 246,
+                    "y0": 186,
+                    "y1": 204
+                  },
+                  "children": [],
+                  "id": "8adcd9fbcdbf",
+                  "kind": "cell",
+                  "provenance": {
+                    "extractor": "pdfplumber",
+                    "stage": "extract_tables"
+                  },
+                  "text": "Region-2"
+                },
+                {
+                  "attrs": {},
+                  "bbox": {
+                    "page": 3,
+                    "x0": 246,
+                    "x1": 446,
+                    "y0": 186,
+                    "y1": 204
+                  },
+                  "children": [],
+                  "id": "b93a87c94055",
+                  "kind": "cell",
+                  "provenance": {
+                    "extractor": "pdfplumber",
+                    "stage": "extract_tables"
+                  },
+                  "text": "metric-37"
+                },
+                {
+                  "attrs": {},
+                  "bbox": {
+                    "page": 3,
+                    "x0": 446,
+                    "x1": 526,
+                    "y0": 186,
+                    "y1": 204
+                  },
+                  "children": [],
+                  "id": "9b83f71fdb12",
+                  "kind": "cell",
+                  "provenance": {
+                    "extractor": "pdfplumber",
+                    "stage": "extract_tables"
+                  },
+                  "text": "120.25"
+                }
+              ],
+              "id": "3c6aa3686905",
+              "kind": "row",
+              "provenance": {},
+              "text": null
+            },
+            {
+              "attrs": {
+                "page": 3,
+                "row_index": 38
+              },
+              "bbox": {
+                "page": 3,
+                "x0": 86,
+                "x1": 526,
+                "y0": 78,
+                "y1": 618
+              },
+              "children": [
+                {
+                  "attrs": {},
+                  "bbox": {
+                    "page": 3,
+                    "x0": 86,
+                    "x1": 136,
+                    "y0": 204,
+                    "y1": 222
+                  },
+                  "children": [],
+                  "id": "d2b91b91d102",
+                  "kind": "cell",
+                  "provenance": {
+                    "extractor": "pdfplumber",
+                    "stage": "extract_tables"
+                  },
+                  "text": "38"
+                },
+                {
+                  "attrs": {},
+                  "bbox": {
+                    "page": 3,
+                    "x0": 136,
+                    "x1": 246,
+                    "y0": 204,
+                    "y1": 222
+                  },
+                  "children": [],
+                  "id": "e188d6a5546b",
+                  "kind": "cell",
+                  "provenance": {
+                    "extractor": "pdfplumber",
+                    "stage": "extract_tables"
+                  },
+                  "text": "Region-3"
+                },
+                {
+                  "attrs": {},
+                  "bbox": {
+                    "page": 3,
+                    "x0": 246,
+                    "x1": 446,
+                    "y0": 204,
+                    "y1": 222
+                  },
+                  "children": [],
+                  "id": "022fbeef1017",
+                  "kind": "cell",
+                  "provenance": {
+                    "extractor": "pdfplumber",
+                    "stage": "extract_tables"
+                  },
+                  "text": "metric-38"
+                },
+                {
+                  "attrs": {},
+                  "bbox": {
+                    "page": 3,
+                    "x0": 446,
+                    "x1": 526,
+                    "y0": 204,
+                    "y1": 222
+                  },
+                  "children": [],
+                  "id": "914a121fefbe",
+                  "kind": "cell",
+                  "provenance": {
+                    "extractor": "pdfplumber",
+                    "stage": "extract_tables"
+                  },
+                  "text": "123.50"
+                }
+              ],
+              "id": "03002dfcb373",
+              "kind": "row",
+              "provenance": {},
+              "text": null
+            },
+            {
+              "attrs": {
+                "page": 3,
+                "row_index": 39
+              },
+              "bbox": {
+                "page": 3,
+                "x0": 86,
+                "x1": 526,
+                "y0": 78,
+                "y1": 618
+              },
+              "children": [
+                {
+                  "attrs": {},
+                  "bbox": {
+                    "page": 3,
+                    "x0": 86,
+                    "x1": 136,
+                    "y0": 222,
+                    "y1": 240
+                  },
+                  "children": [],
+                  "id": "16e81f72f938",
+                  "kind": "cell",
+                  "provenance": {
+                    "extractor": "pdfplumber",
+                    "stage": "extract_tables"
+                  },
+                  "text": "39"
+                },
+                {
+                  "attrs": {},
+                  "bbox": {
+                    "page": 3,
+                    "x0": 136,
+                    "x1": 246,
+                    "y0": 222,
+                    "y1": 240
+                  },
+                  "children": [],
+                  "id": "c7b3694fbd2f",
+                  "kind": "cell",
+                  "provenance": {
+                    "extractor": "pdfplumber",
+                    "stage": "extract_tables"
+                  },
+                  "text": "Region-4"
+                },
+                {
+                  "attrs": {},
+                  "bbox": {
+                    "page": 3,
+                    "x0": 246,
+                    "x1": 446,
+                    "y0": 222,
+                    "y1": 240
+                  },
+                  "children": [],
+                  "id": "224a14a2a52b",
+                  "kind": "cell",
+                  "provenance": {
+                    "extractor": "pdfplumber",
+                    "stage": "extract_tables"
+                  },
+                  "text": "metric-39"
+                },
+                {
+                  "attrs": {},
+                  "bbox": {
+                    "page": 3,
+                    "x0": 446,
+                    "x1": 526,
+                    "y0": 222,
+                    "y1": 240
+                  },
+                  "children": [],
+                  "id": "2b79fba8cbcc",
+                  "kind": "cell",
+                  "provenance": {
+                    "extractor": "pdfplumber",
+                    "stage": "extract_tables"
+                  },
+                  "text": "126.75"
+                }
+              ],
+              "id": "57cdc53811d0",
+              "kind": "row",
+              "provenance": {},
+              "text": null
+            },
+            {
+              "attrs": {
+                "page": 3,
+                "row_index": 40
+              },
+              "bbox": {
+                "page": 3,
+                "x0": 86,
+                "x1": 526,
+                "y0": 78,
+                "y1": 618
+              },
+              "children": [
+                {
+                  "attrs": {},
+                  "bbox": {
+                    "page": 3,
+                    "x0": 86,
+                    "x1": 136,
+                    "y0": 240,
+                    "y1": 258
+                  },
+                  "children": [],
+                  "id": "f956e57c4d15",
+                  "kind": "cell",
+                  "provenance": {
+                    "extractor": "pdfplumber",
+                    "stage": "extract_tables"
+                  },
+                  "text": "40"
+                },
+                {
+                  "attrs": {},
+                  "bbox": {
+                    "page": 3,
+                    "x0": 136,
+                    "x1": 246,
+                    "y0": 240,
+                    "y1": 258
+                  },
+                  "children": [],
+                  "id": "9120332694a5",
+                  "kind": "cell",
+                  "provenance": {
+                    "extractor": "pdfplumber",
+                    "stage": "extract_tables"
+                  },
+                  "text": "Region-1"
+                },
+                {
+                  "attrs": {},
+                  "bbox": {
+                    "page": 3,
+                    "x0": 246,
+                    "x1": 446,
+                    "y0": 240,
+                    "y1": 258
+                  },
+                  "children": [],
+                  "id": "a536bb4842bb",
+                  "kind": "cell",
+                  "provenance": {
+                    "extractor": "pdfplumber",
+                    "stage": "extract_tables"
+                  },
+                  "text": "metric-40"
+                },
+                {
+                  "attrs": {},
+                  "bbox": {
+                    "page": 3,
+                    "x0": 446,
+                    "x1": 526,
+                    "y0": 240,
+                    "y1": 258
+                  },
+                  "children": [],
+                  "id": "ae76d37e56f0",
+                  "kind": "cell",
+                  "provenance": {
+                    "extractor": "pdfplumber",
+                    "stage": "extract_tables"
+                  },
+                  "text": "130.00"
+                }
+              ],
+              "id": "9393e736d426",
+              "kind": "row",
+              "provenance": {},
+              "text": null
+            },
+            {
+              "attrs": {
+                "page": 3,
+                "row_index": 41
+              },
+              "bbox": {
+                "page": 3,
+                "x0": 86,
+                "x1": 526,
+                "y0": 78,
+                "y1": 618
+              },
+              "children": [
+                {
+                  "attrs": {},
+                  "bbox": {
+                    "page": 3,
+                    "x0": 86,
+                    "x1": 136,
+                    "y0": 258,
+                    "y1": 276
+                  },
+                  "children": [],
+                  "id": "a6680ed97fed",
+                  "kind": "cell",
+                  "provenance": {
+                    "extractor": "pdfplumber",
+                    "stage": "extract_tables"
+                  },
+                  "text": "41"
+                },
+                {
+                  "attrs": {},
+                  "bbox": {
+                    "page": 3,
+                    "x0": 136,
+                    "x1": 246,
+                    "y0": 258,
+                    "y1": 276
+                  },
+                  "children": [],
+                  "id": "a2d53c0d5e31",
+                  "kind": "cell",
+                  "provenance": {
+                    "extractor": "pdfplumber",
+                    "stage": "extract_tables"
+                  },
+                  "text": "Region-2"
+                },
+                {
+                  "attrs": {},
+                  "bbox": {
+                    "page": 3,
+                    "x0": 246,
+                    "x1": 446,
+                    "y0": 258,
+                    "y1": 276
+                  },
+                  "children": [],
+                  "id": "150f3721f052",
+                  "kind": "cell",
+                  "provenance": {
+                    "extractor": "pdfplumber",
+                    "stage": "extract_tables"
+                  },
+                  "text": "metric-41"
+                },
+                {
+                  "attrs": {},
+                  "bbox": {
+                    "page": 3,
+                    "x0": 446,
+                    "x1": 526,
+                    "y0": 258,
+                    "y1": 276
+                  },
+                  "children": [],
+                  "id": "d09a934f0bde",
+                  "kind": "cell",
+                  "provenance": {
+                    "extractor": "pdfplumber",
+                    "stage": "extract_tables"
+                  },
+                  "text": "133.25"
+                }
+              ],
+              "id": "386218c4ccb6",
+              "kind": "row",
+              "provenance": {},
+              "text": null
+            },
+            {
+              "attrs": {
+                "page": 3,
+                "row_index": 42
+              },
+              "bbox": {
+                "page": 3,
+                "x0": 86,
+                "x1": 526,
+                "y0": 78,
+                "y1": 618
+              },
+              "children": [
+                {
+                  "attrs": {},
+                  "bbox": {
+                    "page": 3,
+                    "x0": 86,
+                    "x1": 136,
+                    "y0": 276,
+                    "y1": 294
+                  },
+                  "children": [],
+                  "id": "610977f09643",
+                  "kind": "cell",
+                  "provenance": {
+                    "extractor": "pdfplumber",
+                    "stage": "extract_tables"
+                  },
+                  "text": "42"
+                },
+                {
+                  "attrs": {},
+                  "bbox": {
+                    "page": 3,
+                    "x0": 136,
+                    "x1": 246,
+                    "y0": 276,
+                    "y1": 294
+                  },
+                  "children": [],
+                  "id": "69c10e5c03d5",
+                  "kind": "cell",
+                  "provenance": {
+                    "extractor": "pdfplumber",
+                    "stage": "extract_tables"
+                  },
+                  "text": "Region-3"
+                },
+                {
+                  "attrs": {},
+                  "bbox": {
+                    "page": 3,
+                    "x0": 246,
+                    "x1": 446,
+                    "y0": 276,
+                    "y1": 294
+                  },
+                  "children": [],
+                  "id": "1d367d47d9b0",
+                  "kind": "cell",
+                  "provenance": {
+                    "extractor": "pdfplumber",
+                    "stage": "extract_tables"
+                  },
+                  "text": "metric-42"
+                },
+                {
+                  "attrs": {},
+                  "bbox": {
+                    "page": 3,
+                    "x0": 446,
+                    "x1": 526,
+                    "y0": 276,
+                    "y1": 294
+                  },
+                  "children": [],
+                  "id": "3f8cdd005567",
+                  "kind": "cell",
+                  "provenance": {
+                    "extractor": "pdfplumber",
+                    "stage": "extract_tables"
+                  },
+                  "text": "136.50"
+                }
+              ],
+              "id": "9aad8b7af717",
+              "kind": "row",
+              "provenance": {},
+              "text": null
+            },
+            {
+              "attrs": {
+                "page": 3,
+                "row_index": 43
+              },
+              "bbox": {
+                "page": 3,
+                "x0": 86,
+                "x1": 526,
+                "y0": 78,
+                "y1": 618
+              },
+              "children": [
+                {
+                  "attrs": {},
+                  "bbox": {
+                    "page": 3,
+                    "x0": 86,
+                    "x1": 136,
+                    "y0": 294,
+                    "y1": 312
+                  },
+                  "children": [],
+                  "id": "86310688dce1",
+                  "kind": "cell",
+                  "provenance": {
+                    "extractor": "pdfplumber",
+                    "stage": "extract_tables"
+                  },
+                  "text": "43"
+                },
+                {
+                  "attrs": {},
+                  "bbox": {
+                    "page": 3,
+                    "x0": 136,
+                    "x1": 246,
+                    "y0": 294,
+                    "y1": 312
+                  },
+                  "children": [],
+                  "id": "cda02cbcf77d",
+                  "kind": "cell",
+                  "provenance": {
+                    "extractor": "pdfplumber",
+                    "stage": "extract_tables"
+                  },
+                  "text": "Region-4"
+                },
+                {
+                  "attrs": {},
+                  "bbox": {
+                    "page": 3,
+                    "x0": 246,
+                    "x1": 446,
+                    "y0": 294,
+                    "y1": 312
+                  },
+                  "children": [],
+                  "id": "6e30e81dd81e",
+                  "kind": "cell",
+                  "provenance": {
+                    "extractor": "pdfplumber",
+                    "stage": "extract_tables"
+                  },
+                  "text": "metric-43"
+                },
+                {
+                  "attrs": {},
+                  "bbox": {
+                    "page": 3,
+                    "x0": 446,
+                    "x1": 526,
+                    "y0": 294,
+                    "y1": 312
+                  },
+                  "children": [],
+                  "id": "74af9880c38a",
+                  "kind": "cell",
+                  "provenance": {
+                    "extractor": "pdfplumber",
+                    "stage": "extract_tables"
+                  },
+                  "text": "139.75"
+                }
+              ],
+              "id": "74eb9a0fb2f6",
+              "kind": "row",
+              "provenance": {},
+              "text": null
+            },
+            {
+              "attrs": {
+                "page": 3,
+                "row_index": 44
+              },
+              "bbox": {
+                "page": 3,
+                "x0": 86,
+                "x1": 526,
+                "y0": 78,
+                "y1": 618
+              },
+              "children": [
+                {
+                  "attrs": {},
+                  "bbox": {
+                    "page": 3,
+                    "x0": 86,
+                    "x1": 136,
+                    "y0": 312,
+                    "y1": 330
+                  },
+                  "children": [],
+                  "id": "db1562876817",
+                  "kind": "cell",
+                  "provenance": {
+                    "extractor": "pdfplumber",
+                    "stage": "extract_tables"
+                  },
+                  "text": "44"
+                },
+                {
+                  "attrs": {},
+                  "bbox": {
+                    "page": 3,
+                    "x0": 136,
+                    "x1": 246,
+                    "y0": 312,
+                    "y1": 330
+                  },
+                  "children": [],
+                  "id": "c928a59196db",
+                  "kind": "cell",
+                  "provenance": {
+                    "extractor": "pdfplumber",
+                    "stage": "extract_tables"
+                  },
+                  "text": "Region-1"
+                },
+                {
+                  "attrs": {},
+                  "bbox": {
+                    "page": 3,
+                    "x0": 246,
+                    "x1": 446,
+                    "y0": 312,
+                    "y1": 330
+                  },
+                  "children": [],
+                  "id": "1dbd32575fa3",
+                  "kind": "cell",
+                  "provenance": {
+                    "extractor": "pdfplumber",
+                    "stage": "extract_tables"
+                  },
+                  "text": "metric-44"
+                },
+                {
+                  "attrs": {},
+                  "bbox": {
+                    "page": 3,
+                    "x0": 446,
+                    "x1": 526,
+                    "y0": 312,
+                    "y1": 330
+                  },
+                  "children": [],
+                  "id": "fed1f0d7ee2e",
+                  "kind": "cell",
+                  "provenance": {
+                    "extractor": "pdfplumber",
+                    "stage": "extract_tables"
+                  },
+                  "text": "143.00"
+                }
+              ],
+              "id": "ff1b213860be",
+              "kind": "row",
+              "provenance": {},
+              "text": null
+            },
+            {
+              "attrs": {
+                "page": 3,
+                "row_index": 45
+              },
+              "bbox": {
+                "page": 3,
+                "x0": 86,
+                "x1": 526,
+                "y0": 78,
+                "y1": 618
+              },
+              "children": [
+                {
+                  "attrs": {},
+                  "bbox": {
+                    "page": 3,
+                    "x0": 86,
+                    "x1": 136,
+                    "y0": 330,
+                    "y1": 348
+                  },
+                  "children": [],
+                  "id": "3f40bb08d715",
+                  "kind": "cell",
+                  "provenance": {
+                    "extractor": "pdfplumber",
+                    "stage": "extract_tables"
+                  },
+                  "text": "45"
+                },
+                {
+                  "attrs": {},
+                  "bbox": {
+                    "page": 3,
+                    "x0": 136,
+                    "x1": 246,
+                    "y0": 330,
+                    "y1": 348
+                  },
+                  "children": [],
+                  "id": "2a2b9674ca92",
+                  "kind": "cell",
+                  "provenance": {
+                    "extractor": "pdfplumber",
+                    "stage": "extract_tables"
+                  },
+                  "text": "Region-2"
+                },
+                {
+                  "attrs": {},
+                  "bbox": {
+                    "page": 3,
+                    "x0": 246,
+                    "x1": 446,
+                    "y0": 330,
+                    "y1": 348
+                  },
+                  "children": [],
+                  "id": "5c34303083b8",
+                  "kind": "cell",
+                  "provenance": {
+                    "extractor": "pdfplumber",
+                    "stage": "extract_tables"
+                  },
+                  "text": "metric-45"
+                },
+                {
+                  "attrs": {},
+                  "bbox": {
+                    "page": 3,
+                    "x0": 446,
+                    "x1": 526,
+                    "y0": 330,
+                    "y1": 348
+                  },
+                  "children": [],
+                  "id": "d788ad6a9708",
+                  "kind": "cell",
+                  "provenance": {
+                    "extractor": "pdfplumber",
+                    "stage": "extract_tables"
+                  },
+                  "text": "146.25"
+                }
+              ],
+              "id": "27b5aac54121",
+              "kind": "row",
+              "provenance": {},
+              "text": null
+            },
+            {
+              "attrs": {
+                "page": 3,
+                "row_index": 46
+              },
+              "bbox": {
+                "page": 3,
+                "x0": 86,
+                "x1": 526,
+                "y0": 78,
+                "y1": 618
+              },
+              "children": [
+                {
+                  "attrs": {},
+                  "bbox": {
+                    "page": 3,
+                    "x0": 86,
+                    "x1": 136,
+                    "y0": 348,
+                    "y1": 366
+                  },
+                  "children": [],
+                  "id": "31247afb6a62",
+                  "kind": "cell",
+                  "provenance": {
+                    "extractor": "pdfplumber",
+                    "stage": "extract_tables"
+                  },
+                  "text": "46"
+                },
+                {
+                  "attrs": {},
+                  "bbox": {
+                    "page": 3,
+                    "x0": 136,
+                    "x1": 246,
+                    "y0": 348,
+                    "y1": 366
+                  },
+                  "children": [],
+                  "id": "9c82b512d599",
+                  "kind": "cell",
+                  "provenance": {
+                    "extractor": "pdfplumber",
+                    "stage": "extract_tables"
+                  },
+                  "text": "Region-3"
+                },
+                {
+                  "attrs": {},
+                  "bbox": {
+                    "page": 3,
+                    "x0": 246,
+                    "x1": 446,
+                    "y0": 348,
+                    "y1": 366
+                  },
+                  "children": [],
+                  "id": "44924244c919",
+                  "kind": "cell",
+                  "provenance": {
+                    "extractor": "pdfplumber",
+                    "stage": "extract_tables"
+                  },
+                  "text": "metric-46"
+                },
+                {
+                  "attrs": {},
+                  "bbox": {
+                    "page": 3,
+                    "x0": 446,
+                    "x1": 526,
+                    "y0": 348,
+                    "y1": 366
+                  },
+                  "children": [],
+                  "id": "5c8983d7265b",
+                  "kind": "cell",
+                  "provenance": {
+                    "extractor": "pdfplumber",
+                    "stage": "extract_tables"
+                  },
+                  "text": "149.50"
+                }
+              ],
+              "id": "a963a331a34e",
+              "kind": "row",
+              "provenance": {},
+              "text": null
+            },
+            {
+              "attrs": {
+                "page": 3,
+                "row_index": 47
+              },
+              "bbox": {
+                "page": 3,
+                "x0": 86,
+                "x1": 526,
+                "y0": 78,
+                "y1": 618
+              },
+              "children": [
+                {
+                  "attrs": {},
+                  "bbox": {
+                    "page": 3,
+                    "x0": 86,
+                    "x1": 136,
+                    "y0": 366,
+                    "y1": 384
+                  },
+                  "children": [],
+                  "id": "25bebee69fc2",
+                  "kind": "cell",
+                  "provenance": {
+                    "extractor": "pdfplumber",
+                    "stage": "extract_tables"
+                  },
+                  "text": "47"
+                },
+                {
+                  "attrs": {},
+                  "bbox": {
+                    "page": 3,
+                    "x0": 136,
+                    "x1": 246,
+                    "y0": 366,
+                    "y1": 384
+                  },
+                  "children": [],
+                  "id": "c6c8831d784a",
+                  "kind": "cell",
+                  "provenance": {
+                    "extractor": "pdfplumber",
+                    "stage": "extract_tables"
+                  },
+                  "text": "Region-4"
+                },
+                {
+                  "attrs": {},
+                  "bbox": {
+                    "page": 3,
+                    "x0": 246,
+                    "x1": 446,
+                    "y0": 366,
+                    "y1": 384
+                  },
+                  "children": [],
+                  "id": "54dd8fa69320",
+                  "kind": "cell",
+                  "provenance": {
+                    "extractor": "pdfplumber",
+                    "stage": "extract_tables"
+                  },
+                  "text": "metric-47"
+                },
+                {
+                  "attrs": {},
+                  "bbox": {
+                    "page": 3,
+                    "x0": 446,
+                    "x1": 526,
+                    "y0": 366,
+                    "y1": 384
+                  },
+                  "children": [],
+                  "id": "b212a5ce4acd",
+                  "kind": "cell",
+                  "provenance": {
+                    "extractor": "pdfplumber",
+                    "stage": "extract_tables"
+                  },
+                  "text": "152.75"
+                }
+              ],
+              "id": "512a96d86c18",
+              "kind": "row",
+              "provenance": {},
+              "text": null
+            },
+            {
+              "attrs": {
+                "page": 3,
+                "row_index": 48
+              },
+              "bbox": {
+                "page": 3,
+                "x0": 86,
+                "x1": 526,
+                "y0": 78,
+                "y1": 618
+              },
+              "children": [
+                {
+                  "attrs": {},
+                  "bbox": {
+                    "page": 3,
+                    "x0": 86,
+                    "x1": 136,
+                    "y0": 384,
+                    "y1": 402
+                  },
+                  "children": [],
+                  "id": "7b3fc58f36de",
+                  "kind": "cell",
+                  "provenance": {
+                    "extractor": "pdfplumber",
+                    "stage": "extract_tables"
+                  },
+                  "text": "48"
+                },
+                {
+                  "attrs": {},
+                  "bbox": {
+                    "page": 3,
+                    "x0": 136,
+                    "x1": 246,
+                    "y0": 384,
+                    "y1": 402
+                  },
+                  "children": [],
+                  "id": "0a33adbcec8a",
+                  "kind": "cell",
+                  "provenance": {
+                    "extractor": "pdfplumber",
+                    "stage": "extract_tables"
+                  },
+                  "text": "Region-1"
+                },
+                {
+                  "attrs": {},
+                  "bbox": {
+                    "page": 3,
+                    "x0": 246,
+                    "x1": 446,
+                    "y0": 384,
+                    "y1": 402
+                  },
+                  "children": [],
+                  "id": "63a4131aea26",
+                  "kind": "cell",
+                  "provenance": {
+                    "extractor": "pdfplumber",
+                    "stage": "extract_tables"
+                  },
+                  "text": "metric-48"
+                },
+                {
+                  "attrs": {},
+                  "bbox": {
+                    "page": 3,
+                    "x0": 446,
+                    "x1": 526,
+                    "y0": 384,
+                    "y1": 402
+                  },
+                  "children": [],
+                  "id": "85b9c60215f4",
+                  "kind": "cell",
+                  "provenance": {
+                    "extractor": "pdfplumber",
+                    "stage": "extract_tables"
+                  },
+                  "text": "156.00"
+                }
+              ],
+              "id": "69093fad4899",
+              "kind": "row",
+              "provenance": {},
+              "text": null
+            },
+            {
+              "attrs": {
+                "page": 3,
+                "row_index": 49
+              },
+              "bbox": {
+                "page": 3,
+                "x0": 86,
+                "x1": 526,
+                "y0": 78,
+                "y1": 618
+              },
+              "children": [
+                {
+                  "attrs": {},
+                  "bbox": {
+                    "page": 3,
+                    "x0": 86,
+                    "x1": 136,
+                    "y0": 402,
+                    "y1": 420
+                  },
+                  "children": [],
+                  "id": "fa6464d499e6",
+                  "kind": "cell",
+                  "provenance": {
+                    "extractor": "pdfplumber",
+                    "stage": "extract_tables"
+                  },
+                  "text": "49"
+                },
+                {
+                  "attrs": {},
+                  "bbox": {
+                    "page": 3,
+                    "x0": 136,
+                    "x1": 246,
+                    "y0": 402,
+                    "y1": 420
+                  },
+                  "children": [],
+                  "id": "131464567bfb",
+                  "kind": "cell",
+                  "provenance": {
+                    "extractor": "pdfplumber",
+                    "stage": "extract_tables"
+                  },
+                  "text": "Region-2"
+                },
+                {
+                  "attrs": {},
+                  "bbox": {
+                    "page": 3,
+                    "x0": 246,
+                    "x1": 446,
+                    "y0": 402,
+                    "y1": 420
+                  },
+                  "children": [],
+                  "id": "5c7ba0c8bdc3",
+                  "kind": "cell",
+                  "provenance": {
+                    "extractor": "pdfplumber",
+                    "stage": "extract_tables"
+                  },
+                  "text": "metric-49"
+                },
+                {
+                  "attrs": {},
+                  "bbox": {
+                    "page": 3,
+                    "x0": 446,
+                    "x1": 526,
+                    "y0": 402,
+                    "y1": 420
+                  },
+                  "children": [],
+                  "id": "c349dc3ec066",
+                  "kind": "cell",
+                  "provenance": {
+                    "extractor": "pdfplumber",
+                    "stage": "extract_tables"
+                  },
+                  "text": "159.25"
+                }
+              ],
+              "id": "0e2deaef3b4c",
+              "kind": "row",
+              "provenance": {},
+              "text": null
+            },
+            {
+              "attrs": {
+                "page": 3,
+                "row_index": 50
+              },
+              "bbox": {
+                "page": 3,
+                "x0": 86,
+                "x1": 526,
+                "y0": 78,
+                "y1": 618
+              },
+              "children": [
+                {
+                  "attrs": {},
+                  "bbox": {
+                    "page": 3,
+                    "x0": 86,
+                    "x1": 136,
+                    "y0": 420,
+                    "y1": 438
+                  },
+                  "children": [],
+                  "id": "f0137b053560",
+                  "kind": "cell",
+                  "provenance": {
+                    "extractor": "pdfplumber",
+                    "stage": "extract_tables"
+                  },
+                  "text": "50"
+                },
+                {
+                  "attrs": {},
+                  "bbox": {
+                    "page": 3,
+                    "x0": 136,
+                    "x1": 246,
+                    "y0": 420,
+                    "y1": 438
+                  },
+                  "children": [],
+                  "id": "ed80cdf77487",
+                  "kind": "cell",
+                  "provenance": {
+                    "extractor": "pdfplumber",
+                    "stage": "extract_tables"
+                  },
+                  "text": "Region-3"
+                },
+                {
+                  "attrs": {},
+                  "bbox": {
+                    "page": 3,
+                    "x0": 246,
+                    "x1": 446,
+                    "y0": 420,
+                    "y1": 438
+                  },
+                  "children": [],
+                  "id": "fc93ae37182e",
+                  "kind": "cell",
+                  "provenance": {
+                    "extractor": "pdfplumber",
+                    "stage": "extract_tables"
+                  },
+                  "text": "metric-50"
+                },
+                {
+                  "attrs": {},
+                  "bbox": {
+                    "page": 3,
+                    "x0": 446,
+                    "x1": 526,
+                    "y0": 420,
+                    "y1": 438
+                  },
+                  "children": [],
+                  "id": "c0c8701a851a",
+                  "kind": "cell",
+                  "provenance": {
+                    "extractor": "pdfplumber",
+                    "stage": "extract_tables"
+                  },
+                  "text": "162.50"
+                }
+              ],
+              "id": "d6df42fe0b4b",
+              "kind": "row",
+              "provenance": {},
+              "text": null
+            },
+            {
+              "attrs": {
+                "page": 3,
+                "row_index": 51
+              },
+              "bbox": {
+                "page": 3,
+                "x0": 86,
+                "x1": 526,
+                "y0": 78,
+                "y1": 618
+              },
+              "children": [
+                {
+                  "attrs": {},
+                  "bbox": {
+                    "page": 3,
+                    "x0": 86,
+                    "x1": 136,
+                    "y0": 438,
+                    "y1": 456
+                  },
+                  "children": [],
+                  "id": "4f4f21a12c00",
+                  "kind": "cell",
+                  "provenance": {
+                    "extractor": "pdfplumber",
+                    "stage": "extract_tables"
+                  },
+                  "text": "51"
+                },
+                {
+                  "attrs": {},
+                  "bbox": {
+                    "page": 3,
+                    "x0": 136,
+                    "x1": 246,
+                    "y0": 438,
+                    "y1": 456
+                  },
+                  "children": [],
+                  "id": "a2e559961e52",
+                  "kind": "cell",
+                  "provenance": {
+                    "extractor": "pdfplumber",
+                    "stage": "extract_tables"
+                  },
+                  "text": "Region-4"
+                },
+                {
+                  "attrs": {},
+                  "bbox": {
+                    "page": 3,
+                    "x0": 246,
+                    "x1": 446,
+                    "y0": 438,
+                    "y1": 456
+                  },
+                  "children": [],
+                  "id": "7c39299cf8a7",
+                  "kind": "cell",
+                  "provenance": {
+                    "extractor": "pdfplumber",
+                    "stage": "extract_tables"
+                  },
+                  "text": "metric-51"
+                },
+                {
+                  "attrs": {},
+                  "bbox": {
+                    "page": 3,
+                    "x0": 446,
+                    "x1": 526,
+                    "y0": 438,
+                    "y1": 456
+                  },
+                  "children": [],
+                  "id": "5bdf3287ff62",
+                  "kind": "cell",
+                  "provenance": {
+                    "extractor": "pdfplumber",
+                    "stage": "extract_tables"
+                  },
+                  "text": "165.75"
+                }
+              ],
+              "id": "5ff98c243c80",
+              "kind": "row",
+              "provenance": {},
+              "text": null
+            },
+            {
+              "attrs": {
+                "page": 3,
+                "row_index": 52
+              },
+              "bbox": {
+                "page": 3,
+                "x0": 86,
+                "x1": 526,
+                "y0": 78,
+                "y1": 618
+              },
+              "children": [
+                {
+                  "attrs": {},
+                  "bbox": {
+                    "page": 3,
+                    "x0": 86,
+                    "x1": 136,
+                    "y0": 456,
+                    "y1": 474
+                  },
+                  "children": [],
+                  "id": "a1c033ff2692",
+                  "kind": "cell",
+                  "provenance": {
+                    "extractor": "pdfplumber",
+                    "stage": "extract_tables"
+                  },
+                  "text": "52"
+                },
+                {
+                  "attrs": {},
+                  "bbox": {
+                    "page": 3,
+                    "x0": 136,
+                    "x1": 246,
+                    "y0": 456,
+                    "y1": 474
+                  },
+                  "children": [],
+                  "id": "ff23c8c25fc5",
+                  "kind": "cell",
+                  "provenance": {
+                    "extractor": "pdfplumber",
+                    "stage": "extract_tables"
+                  },
+                  "text": "Region-1"
+                },
+                {
+                  "attrs": {},
+                  "bbox": {
+                    "page": 3,
+                    "x0": 246,
+                    "x1": 446,
+                    "y0": 456,
+                    "y1": 474
+                  },
+                  "children": [],
+                  "id": "0b041348dd3d",
+                  "kind": "cell",
+                  "provenance": {
+                    "extractor": "pdfplumber",
+                    "stage": "extract_tables"
+                  },
+                  "text": "metric-52"
+                },
+                {
+                  "attrs": {},
+                  "bbox": {
+                    "page": 3,
+                    "x0": 446,
+                    "x1": 526,
+                    "y0": 456,
+                    "y1": 474
+                  },
+                  "children": [],
+                  "id": "498224a53c66",
+                  "kind": "cell",
+                  "provenance": {
+                    "extractor": "pdfplumber",
+                    "stage": "extract_tables"
+                  },
+                  "text": "169.00"
+                }
+              ],
+              "id": "d227edead460",
+              "kind": "row",
+              "provenance": {},
+              "text": null
+            },
+            {
+              "attrs": {
+                "page": 3,
+                "row_index": 53
+              },
+              "bbox": {
+                "page": 3,
+                "x0": 86,
+                "x1": 526,
+                "y0": 78,
+                "y1": 618
+              },
+              "children": [
+                {
+                  "attrs": {},
+                  "bbox": {
+                    "page": 3,
+                    "x0": 86,
+                    "x1": 136,
+                    "y0": 474,
+                    "y1": 492
+                  },
+                  "children": [],
+                  "id": "e36716698679",
+                  "kind": "cell",
+                  "provenance": {
+                    "extractor": "pdfplumber",
+                    "stage": "extract_tables"
+                  },
+                  "text": "53"
+                },
+                {
+                  "attrs": {},
+                  "bbox": {
+                    "page": 3,
+                    "x0": 136,
+                    "x1": 246,
+                    "y0": 474,
+                    "y1": 492
+                  },
+                  "children": [],
+                  "id": "9d760fe3ba52",
+                  "kind": "cell",
+                  "provenance": {
+                    "extractor": "pdfplumber",
+                    "stage": "extract_tables"
+                  },
+                  "text": "Region-2"
+                },
+                {
+                  "attrs": {},
+                  "bbox": {
+                    "page": 3,
+                    "x0": 246,
+                    "x1": 446,
+                    "y0": 474,
+                    "y1": 492
+                  },
+                  "children": [],
+                  "id": "edf1a63a4bd2",
+                  "kind": "cell",
+                  "provenance": {
+                    "extractor": "pdfplumber",
+                    "stage": "extract_tables"
+                  },
+                  "text": "metric-53"
+                },
+                {
+                  "attrs": {},
+                  "bbox": {
+                    "page": 3,
+                    "x0": 446,
+                    "x1": 526,
+                    "y0": 474,
+                    "y1": 492
+                  },
+                  "children": [],
+                  "id": "c2a62b8be898",
+                  "kind": "cell",
+                  "provenance": {
+                    "extractor": "pdfplumber",
+                    "stage": "extract_tables"
+                  },
+                  "text": "172.25"
+                }
+              ],
+              "id": "431e45afcadc",
+              "kind": "row",
+              "provenance": {},
+              "text": null
+            },
+            {
+              "attrs": {
+                "page": 3,
+                "row_index": 54
+              },
+              "bbox": {
+                "page": 3,
+                "x0": 86,
+                "x1": 526,
+                "y0": 78,
+                "y1": 618
+              },
+              "children": [
+                {
+                  "attrs": {},
+                  "bbox": {
+                    "page": 3,
+                    "x0": 86,
+                    "x1": 136,
+                    "y0": 492,
+                    "y1": 510
+                  },
+                  "children": [],
+                  "id": "bcacc22b5f35",
+                  "kind": "cell",
+                  "provenance": {
+                    "extractor": "pdfplumber",
+                    "stage": "extract_tables"
+                  },
+                  "text": "54"
+                },
+                {
+                  "attrs": {},
+                  "bbox": {
+                    "page": 3,
+                    "x0": 136,
+                    "x1": 246,
+                    "y0": 492,
+                    "y1": 510
+                  },
+                  "children": [],
+                  "id": "05c4501ccd72",
+                  "kind": "cell",
+                  "provenance": {
+                    "extractor": "pdfplumber",
+                    "stage": "extract_tables"
+                  },
+                  "text": "Region-3"
+                },
+                {
+                  "attrs": {},
+                  "bbox": {
+                    "page": 3,
+                    "x0": 246,
+                    "x1": 446,
+                    "y0": 492,
+                    "y1": 510
+                  },
+                  "children": [],
+                  "id": "8ff073e178e9",
+                  "kind": "cell",
+                  "provenance": {
+                    "extractor": "pdfplumber",
+                    "stage": "extract_tables"
+                  },
+                  "text": "metric-54"
+                },
+                {
+                  "attrs": {},
+                  "bbox": {
+                    "page": 3,
+                    "x0": 446,
+                    "x1": 526,
+                    "y0": 492,
+                    "y1": 510
+                  },
+                  "children": [],
+                  "id": "a2dcf255abbd",
+                  "kind": "cell",
+                  "provenance": {
+                    "extractor": "pdfplumber",
+                    "stage": "extract_tables"
+                  },
+                  "text": "175.50"
+                }
+              ],
+              "id": "676bba4e0046",
+              "kind": "row",
+              "provenance": {},
+              "text": null
+            },
+            {
+              "attrs": {
+                "page": 3,
+                "row_index": 55
+              },
+              "bbox": {
+                "page": 3,
+                "x0": 86,
+                "x1": 526,
+                "y0": 78,
+                "y1": 618
+              },
+              "children": [
+                {
+                  "attrs": {},
+                  "bbox": {
+                    "page": 3,
+                    "x0": 86,
+                    "x1": 136,
+                    "y0": 510,
+                    "y1": 528
+                  },
+                  "children": [],
+                  "id": "1160377de564",
+                  "kind": "cell",
+                  "provenance": {
+                    "extractor": "pdfplumber",
+                    "stage": "extract_tables"
+                  },
+                  "text": "55"
+                },
+                {
+                  "attrs": {},
+                  "bbox": {
+                    "page": 3,
+                    "x0": 136,
+                    "x1": 246,
+                    "y0": 510,
+                    "y1": 528
+                  },
+                  "children": [],
+                  "id": "116ff974ebb5",
+                  "kind": "cell",
+                  "provenance": {
+                    "extractor": "pdfplumber",
+                    "stage": "extract_tables"
+                  },
+                  "text": "Region-4"
+                },
+                {
+                  "attrs": {},
+                  "bbox": {
+                    "page": 3,
+                    "x0": 246,
+                    "x1": 446,
+                    "y0": 510,
+                    "y1": 528
+                  },
+                  "children": [],
+                  "id": "dbfa398aeb01",
+                  "kind": "cell",
+                  "provenance": {
+                    "extractor": "pdfplumber",
+                    "stage": "extract_tables"
+                  },
+                  "text": "metric-55"
+                },
+                {
+                  "attrs": {},
+                  "bbox": {
+                    "page": 3,
+                    "x0": 446,
+                    "x1": 526,
+                    "y0": 510,
+                    "y1": 528
+                  },
+                  "children": [],
+                  "id": "ea28999a238f",
+                  "kind": "cell",
+                  "provenance": {
+                    "extractor": "pdfplumber",
+                    "stage": "extract_tables"
+                  },
+                  "text": "178.75"
+                }
+              ],
+              "id": "a506d81e948b",
+              "kind": "row",
+              "provenance": {},
+              "text": null
+            },
+            {
+              "attrs": {
+                "page": 3,
+                "row_index": 56
+              },
+              "bbox": {
+                "page": 3,
+                "x0": 86,
+                "x1": 526,
+                "y0": 78,
+                "y1": 618
+              },
+              "children": [
+                {
+                  "attrs": {},
+                  "bbox": {
+                    "page": 3,
+                    "x0": 86,
+                    "x1": 136,
+                    "y0": 528,
+                    "y1": 546
+                  },
+                  "children": [],
+                  "id": "fc5d8c014a86",
+                  "kind": "cell",
+                  "provenance": {
+                    "extractor": "pdfplumber",
+                    "stage": "extract_tables"
+                  },
+                  "text": "56"
+                },
+                {
+                  "attrs": {},
+                  "bbox": {
+                    "page": 3,
+                    "x0": 136,
+                    "x1": 246,
+                    "y0": 528,
+                    "y1": 546
+                  },
+                  "children": [],
+                  "id": "8557da461c53",
+                  "kind": "cell",
+                  "provenance": {
+                    "extractor": "pdfplumber",
+                    "stage": "extract_tables"
+                  },
+                  "text": "Region-1"
+                },
+                {
+                  "attrs": {},
+                  "bbox": {
+                    "page": 3,
+                    "x0": 246,
+                    "x1": 446,
+                    "y0": 528,
+                    "y1": 546
+                  },
+                  "children": [],
+                  "id": "d9551949d9ac",
+                  "kind": "cell",
+                  "provenance": {
+                    "extractor": "pdfplumber",
+                    "stage": "extract_tables"
+                  },
+                  "text": "metric-56"
+                },
+                {
+                  "attrs": {},
+                  "bbox": {
+                    "page": 3,
+                    "x0": 446,
+                    "x1": 526,
+                    "y0": 528,
+                    "y1": 546
+                  },
+                  "children": [],
+                  "id": "d15b5059c94b",
+                  "kind": "cell",
+                  "provenance": {
+                    "extractor": "pdfplumber",
+                    "stage": "extract_tables"
+                  },
+                  "text": "182.00"
+                }
+              ],
+              "id": "d0bd2de94fc6",
+              "kind": "row",
+              "provenance": {},
+              "text": null
+            },
+            {
+              "attrs": {
+                "page": 3,
+                "row_index": 57
+              },
+              "bbox": {
+                "page": 3,
+                "x0": 86,
+                "x1": 526,
+                "y0": 78,
+                "y1": 618
+              },
+              "children": [
+                {
+                  "attrs": {},
+                  "bbox": {
+                    "page": 3,
+                    "x0": 86,
+                    "x1": 136,
+                    "y0": 546,
+                    "y1": 564
+                  },
+                  "children": [],
+                  "id": "66f3766d542f",
+                  "kind": "cell",
+                  "provenance": {
+                    "extractor": "pdfplumber",
+                    "stage": "extract_tables"
+                  },
+                  "text": "57"
+                },
+                {
+                  "attrs": {},
+                  "bbox": {
+                    "page": 3,
+                    "x0": 136,
+                    "x1": 246,
+                    "y0": 546,
+                    "y1": 564
+                  },
+                  "children": [],
+                  "id": "ed6bf6f0c1cb",
+                  "kind": "cell",
+                  "provenance": {
+                    "extractor": "pdfplumber",
+                    "stage": "extract_tables"
+                  },
+                  "text": "Region-2"
+                },
+                {
+                  "attrs": {},
+                  "bbox": {
+                    "page": 3,
+                    "x0": 246,
+                    "x1": 446,
+                    "y0": 546,
+                    "y1": 564
+                  },
+                  "children": [],
+                  "id": "7633f00068ce",
+                  "kind": "cell",
+                  "provenance": {
+                    "extractor": "pdfplumber",
+                    "stage": "extract_tables"
+                  },
+                  "text": "metric-57"
+                },
+                {
+                  "attrs": {},
+                  "bbox": {
+                    "page": 3,
+                    "x0": 446,
+                    "x1": 526,
+                    "y0": 546,
+                    "y1": 564
+                  },
+                  "children": [],
+                  "id": "bc37efb8094b",
+                  "kind": "cell",
+                  "provenance": {
+                    "extractor": "pdfplumber",
+                    "stage": "extract_tables"
+                  },
+                  "text": "185.25"
+                }
+              ],
+              "id": "52fb14255f42",
+              "kind": "row",
+              "provenance": {},
+              "text": null
+            },
+            {
+              "attrs": {
+                "page": 3,
+                "row_index": 58
+              },
+              "bbox": {
+                "page": 3,
+                "x0": 86,
+                "x1": 526,
+                "y0": 78,
+                "y1": 618
+              },
+              "children": [
+                {
+                  "attrs": {},
+                  "bbox": {
+                    "page": 3,
+                    "x0": 86,
+                    "x1": 136,
+                    "y0": 564,
+                    "y1": 582
+                  },
+                  "children": [],
+                  "id": "ca343c7ad819",
+                  "kind": "cell",
+                  "provenance": {
+                    "extractor": "pdfplumber",
+                    "stage": "extract_tables"
+                  },
+                  "text": "58"
+                },
+                {
+                  "attrs": {},
+                  "bbox": {
+                    "page": 3,
+                    "x0": 136,
+                    "x1": 246,
+                    "y0": 564,
+                    "y1": 582
+                  },
+                  "children": [],
+                  "id": "f21c8e568533",
+                  "kind": "cell",
+                  "provenance": {
+                    "extractor": "pdfplumber",
+                    "stage": "extract_tables"
+                  },
+                  "text": "Region-3"
+                },
+                {
+                  "attrs": {},
+                  "bbox": {
+                    "page": 3,
+                    "x0": 246,
+                    "x1": 446,
+                    "y0": 564,
+                    "y1": 582
+                  },
+                  "children": [],
+                  "id": "cf82fc9fd1da",
+                  "kind": "cell",
+                  "provenance": {
+                    "extractor": "pdfplumber",
+                    "stage": "extract_tables"
+                  },
+                  "text": "metric-58"
+                },
+                {
+                  "attrs": {},
+                  "bbox": {
+                    "page": 3,
+                    "x0": 446,
+                    "x1": 526,
+                    "y0": 564,
+                    "y1": 582
+                  },
+                  "children": [],
+                  "id": "680ca1767e35",
+                  "kind": "cell",
+                  "provenance": {
+                    "extractor": "pdfplumber",
+                    "stage": "extract_tables"
+                  },
+                  "text": "188.50"
+                }
+              ],
+              "id": "a4277659e443",
+              "kind": "row",
+              "provenance": {},
+              "text": null
+            },
+            {
+              "attrs": {
+                "page": 3,
+                "row_index": 59
+              },
+              "bbox": {
+                "page": 3,
+                "x0": 86,
+                "x1": 526,
+                "y0": 78,
+                "y1": 618
+              },
+              "children": [
+                {
+                  "attrs": {},
+                  "bbox": {
+                    "page": 3,
+                    "x0": 86,
+                    "x1": 136,
+                    "y0": 582,
+                    "y1": 600
+                  },
+                  "children": [],
+                  "id": "27a8fde79409",
+                  "kind": "cell",
+                  "provenance": {
+                    "extractor": "pdfplumber",
+                    "stage": "extract_tables"
+                  },
+                  "text": "59"
+                },
+                {
+                  "attrs": {},
+                  "bbox": {
+                    "page": 3,
+                    "x0": 136,
+                    "x1": 246,
+                    "y0": 582,
+                    "y1": 600
+                  },
+                  "children": [],
+                  "id": "9b204eb3fcfd",
+                  "kind": "cell",
+                  "provenance": {
+                    "extractor": "pdfplumber",
+                    "stage": "extract_tables"
+                  },
+                  "text": "Region-4"
+                },
+                {
+                  "attrs": {},
+                  "bbox": {
+                    "page": 3,
+                    "x0": 246,
+                    "x1": 446,
+                    "y0": 582,
+                    "y1": 600
+                  },
+                  "children": [],
+                  "id": "f89d1a00901b",
+                  "kind": "cell",
+                  "provenance": {
+                    "extractor": "pdfplumber",
+                    "stage": "extract_tables"
+                  },
+                  "text": "metric-59"
+                },
+                {
+                  "attrs": {},
+                  "bbox": {
+                    "page": 3,
+                    "x0": 446,
+                    "x1": 526,
+                    "y0": 582,
+                    "y1": 600
+                  },
+                  "children": [],
+                  "id": "8dab5a21fb36",
+                  "kind": "cell",
+                  "provenance": {
+                    "extractor": "pdfplumber",
+                    "stage": "extract_tables"
+                  },
+                  "text": "191.75"
+                }
+              ],
+              "id": "aae0d1a3b735",
+              "kind": "row",
+              "provenance": {},
+              "text": null
+            },
+            {
+              "attrs": {
+                "page": 3,
+                "row_index": 60
+              },
+              "bbox": {
+                "page": 3,
+                "x0": 86,
+                "x1": 526,
+                "y0": 78,
+                "y1": 618
+              },
+              "children": [
+                {
+                  "attrs": {},
+                  "bbox": {
+                    "page": 3,
+                    "x0": 86,
+                    "x1": 136,
+                    "y0": 600,
+                    "y1": 618
+                  },
+                  "children": [],
+                  "id": "00002a145cb1",
+                  "kind": "cell",
+                  "provenance": {
+                    "extractor": "pdfplumber",
+                    "stage": "extract_tables"
+                  },
+                  "text": "60"
+                },
+                {
+                  "attrs": {},
+                  "bbox": {
+                    "page": 3,
+                    "x0": 136,
+                    "x1": 246,
+                    "y0": 600,
+                    "y1": 618
+                  },
+                  "children": [],
+                  "id": "2c027169a063",
+                  "kind": "cell",
+                  "provenance": {
+                    "extractor": "pdfplumber",
+                    "stage": "extract_tables"
+                  },
+                  "text": "Region-1"
+                },
+                {
+                  "attrs": {},
+                  "bbox": {
+                    "page": 3,
+                    "x0": 246,
+                    "x1": 446,
+                    "y0": 600,
+                    "y1": 618
+                  },
+                  "children": [],
+                  "id": "6fa0b265762a",
+                  "kind": "cell",
+                  "provenance": {
+                    "extractor": "pdfplumber",
+                    "stage": "extract_tables"
+                  },
+                  "text": "metric-60"
+                },
+                {
+                  "attrs": {},
+                  "bbox": {
+                    "page": 3,
+                    "x0": 446,
+                    "x1": 526,
+                    "y0": 600,
+                    "y1": 618
+                  },
+                  "children": [],
+                  "id": "b6190073d1fb",
+                  "kind": "cell",
+                  "provenance": {
+                    "extractor": "pdfplumber",
+                    "stage": "extract_tables"
+                  },
+                  "text": "195.00"
+                }
+              ],
+              "id": "8b06e045fab2",
+              "kind": "row",
+              "provenance": {},
+              "text": null
+            }
+          ],
+          "id": "b1ec6fd5040f",
+          "kind": "table",
+          "provenance": {
+            "extractor": "pdfplumber+stitch",
+            "stage": "stitch_pages"
+          },
+          "text": null
+        }
+      ],
+      "id": "6fad0973b6c4",
+      "kind": "page",
+      "provenance": {},
+      "text": null
+    },
+    {
+      "attrs": {
+        "page_index": 3
+      },
+      "bbox": {
+        "page": 3,
+        "x0": 0,
+        "x1": 612,
+        "y0": 0,
+        "y1": 792
+      },
+      "children": [
+        {
+          "attrs": {
+            "level": 2
+          },
+          "bbox": {
+            "page": 3,
+            "x0": 78,
+            "x1": 157,
+            "y0": 647,
+            "y1": 666
+          },
+          "children": [],
+          "id": "43dd723f7dba",
+          "kind": "heading",
+          "provenance": {
+            "extractor": "segment",
+            "stage": "build_tree"
+          },
+          "text": "4. Appendix"
+        },
+        {
+          "attrs": {},
+          "bbox": {
+            "page": 3,
+            "x0": 78,
+            "x1": 530,
+            "y0": 671,
+            "y1": 685
+          },
+          "children": [],
+          "id": "27c09d3078a2",
+          "kind": "paragraph",
+          "provenance": {
+            "extractor": "segment",
+            "stage": "build_tree"
+          },
+          "text": "This report summarises the deterministic synthetic corpus used to exercise the parser end-to-end. The"
+        },
+        {
+          "attrs": {},
+          "bbox": {
+            "page": 3,
+            "x0": 78,
+            "x1": 527,
+            "y0": 683,
+            "y1": 697
+          },
+          "children": [],
+          "id": "a636ea8ec11b",
+          "kind": "paragraph",
+          "provenance": {
+            "extractor": "segment",
+            "stage": "build_tree"
+          },
+          "text": "text below is intentionally long enough to fill several lines so paragraph segmentation has real input to"
+        },
+        {
+          "attrs": {},
+          "bbox": {
+            "page": 3,
+            "x0": 78,
+            "x1": 129,
+            "y0": 695,
+            "y1": 709
+          },
+          "children": [],
+          "id": "012fcfdb8589",
+          "kind": "paragraph",
+          "provenance": {
+            "extractor": "segment",
+            "stage": "build_tree"
+          },
+          "text": "operate on."
+        }
+      ],
+      "id": "50de4d18343a",
+      "kind": "page",
+      "provenance": {},
+      "text": null
+    }
+  ],
+  "id": "dd8b1db7a924",
+  "kind": "document",
+  "provenance": {},
+  "text": null
+}

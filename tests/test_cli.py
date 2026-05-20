@@ -38,3 +38,14 @@ def test_parse_chunks():
 def test_validate_only_exits_zero_on_good_pdf():
     result = runner.invoke(app, ["parse", str(SIMPLE), "--validate-only"])
     assert result.exit_code == 0
+
+
+def test_parse_output_flag_writes_to_path(tmp_path):
+    out = tmp_path / "nested" / "tree.json"
+    result = runner.invoke(
+        app, ["parse", str(SIMPLE), "--format", "json", "-o", str(out)]
+    )
+    assert result.exit_code == 0, result.stdout
+    assert result.stdout.strip() == ""  # nothing on stdout when -o set
+    data = json.loads(out.read_text())
+    assert data["kind"] == "document"

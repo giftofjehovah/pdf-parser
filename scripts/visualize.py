@@ -1,4 +1,11 @@
-"""Render bbox overlays onto each page of a PDF for human spot-checking."""
+"""Render bbox overlays onto each page of a PDF for human spot-checking.
+
+Output mode is chosen by the destination path:
+
+  * a path ending in ``.pdf`` writes a single multi-page debug PDF;
+  * any other path is treated as a directory and gets one PNG per page
+    (``page_000.png``, ``page_001.png``, ...).
+"""
 
 from __future__ import annotations
 
@@ -31,27 +38,43 @@ def _bboxes(node: DocNode) -> list[BBox]:
     return node.bbox if isinstance(node.bbox, list) else [node.bbox]
 
 
-def render_overlays(pdf_path: Path, tree: DocNode, out_dir: Path) -> None:
-    out_dir.mkdir(parents=True, exist_ok=True)
+def _render_page(page, page_index: int, tree: DocNode) -> Image.Image:
+    pix = page.get_pixmap(dpi=150)
+    img = Image.frombytes("RGB", (pix.width, pix.height), pix.samples)
+    draw = ImageDraw.Draw(img)
+    scale_x = pix.width / page.rect.width
+    scale_y = pix.height / page.rect.height
+    for node in _walk(tree):
+        color = KIND_COLORS.get(node.kind)
+        if color is None:
+            continue
+        for b in _bboxes(node):
+            if b.page != page_index:
+                continue
+            draw.rectangle(
+                [b.x0 * scale_x, b.y0 * scale_y, b.x1 * scale_x, b.y1 * scale_y],
+                outline=color, width=2,
+            )
+    return img
+
+
+def render_overlays(pdf_path: Path, tree: DocNode, out: Path) -> None:
+    out = Path(out)
+    as_pdf = out.suffix.lower() == ".pdf"
+    if as_pdf:
+        out.parent.mkdir(parents=True, exist_ok=True)
+    else:
+        out.mkdir(parents=True, exist_ok=True)
+
     doc = pymupdf.open(str(pdf_path))
     try:
-        for page_index, page in enumerate(doc):
-            pix = page.get_pixmap(dpi=150)
-            img = Image.frombytes("RGB", (pix.width, pix.height), pix.samples)
-            draw = ImageDraw.Draw(img)
-            scale_x = pix.width / page.rect.width
-            scale_y = pix.height / page.rect.height
-            for node in _walk(tree):
-                color = KIND_COLORS.get(node.kind)
-                if color is None:
-                    continue
-                for b in _bboxes(node):
-                    if b.page != page_index:
-                        continue
-                    draw.rectangle(
-                        [b.x0 * scale_x, b.y0 * scale_y, b.x1 * scale_x, b.y1 * scale_y],
-                        outline=color, width=2,
-                    )
-            img.save(out_dir / f"page_{page_index:03d}.png")
+        if as_pdf:
+            pages = [_render_page(page, idx, tree) for idx, page in enumerate(doc)]
+            if not pages:
+                raise ValueError(f"{pdf_path} has no pages to render")
+            pages[0].save(out, save_all=True, append_images=pages[1:])
+        else:
+            for idx, page in enumerate(doc):
+                _render_page(page, idx, tree).save(out / f"page_{idx:03d}.png")
     finally:
         doc.close()

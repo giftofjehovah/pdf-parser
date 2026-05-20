@@ -1,0 +1,953 @@
+{
+  "children": [
+    {
+      "children": [
+        {
+          "kind": "heading",
+          "text": "Page-Spanning Table With Nested Sub-Tables"
+        },
+        {
+          "children": [
+            {
+              "children": [
+                {
+                  "kind": "cell",
+                  "text": "Step"
+                },
+                {
+                  "kind": "cell",
+                  "text": "Inputs"
+                },
+                {
+                  "kind": "cell",
+                  "text": "Notes"
+                }
+              ],
+              "kind": "row"
+            },
+            {
+              "children": [
+                {
+                  "kind": "cell",
+                  "text": "1"
+                },
+                {
+                  "kind": "cell",
+                  "text": "plain input 1"
+                },
+                {
+                  "kind": "cell",
+                  "text": "note 1"
+                }
+              ],
+              "kind": "row"
+            },
+            {
+              "children": [
+                {
+                  "kind": "cell",
+                  "text": "2"
+                },
+                {
+                  "kind": "cell",
+                  "text": "plain input 2"
+                },
+                {
+                  "kind": "cell",
+                  "text": "note 2"
+                }
+              ],
+              "kind": "row"
+            },
+            {
+              "children": [
+                {
+                  "kind": "cell",
+                  "text": "3"
+                },
+                {
+                  "kind": "cell",
+                  "text": "plain input 3"
+                },
+                {
+                  "kind": "cell",
+                  "text": "note 3"
+                }
+              ],
+              "kind": "row"
+            },
+            {
+              "children": [
+                {
+                  "kind": "cell",
+                  "text": "4"
+                },
+                {
+                  "kind": "cell",
+                  "text": "plain input 4"
+                },
+                {
+                  "kind": "cell",
+                  "text": "note 4"
+                }
+              ],
+              "kind": "row"
+            },
+            {
+              "children": [
+                {
+                  "kind": "cell",
+                  "text": "5"
+                },
+                {
+                  "children": [
+                    {
+                      "children": [
+                        {
+                          "children": [
+                            {
+                              "kind": "cell",
+                              "text": "p1-A"
+                            },
+                            {
+                              "kind": "cell",
+                              "text": "p1-B"
+                            }
+                          ],
+                          "kind": "row"
+                        },
+                        {
+                          "children": [
+                            {
+                              "kind": "cell",
+                              "text": "1"
+                            },
+                            {
+                              "kind": "cell",
+                              "text": "2"
+                            }
+                          ],
+                          "kind": "row"
+                        }
+                      ],
+                      "kind": "table"
+                    }
+                  ],
+                  "kind": "cell"
+                },
+                {
+                  "kind": "cell",
+                  "text": "has nested"
+                }
+              ],
+              "kind": "row"
+            },
+            {
+              "children": [
+                {
+                  "kind": "cell",
+                  "text": "6"
+                },
+                {
+                  "kind": "cell",
+                  "text": "plain input 6"
+                },
+                {
+                  "kind": "cell",
+                  "text": "note 6"
+                }
+              ],
+              "kind": "row"
+            },
+            {
+              "children": [
+                {
+                  "kind": "cell",
+                  "text": "7"
+                },
+                {
+                  "kind": "cell",
+                  "text": "plain input 7"
+                },
+                {
+                  "kind": "cell",
+                  "text": "note 7"
+                }
+              ],
+              "kind": "row"
+            },
+            {
+              "children": [
+                {
+                  "kind": "cell",
+                  "text": "8"
+                },
+                {
+                  "kind": "cell",
+                  "text": "plain input 8"
+                },
+                {
+                  "kind": "cell",
+                  "text": "note 8"
+                }
+              ],
+              "kind": "row"
+            },
+            {
+              "children": [
+                {
+                  "kind": "cell",
+                  "text": "9"
+                },
+                {
+                  "kind": "cell",
+                  "text": "plain input 9"
+                },
+                {
+                  "kind": "cell",
+                  "text": "note 9"
+                }
+              ],
+              "kind": "row"
+            },
+            {
+              "children": [
+                {
+                  "kind": "cell",
+                  "text": "10"
+                },
+                {
+                  "kind": "cell",
+                  "text": "plain input 10"
+                },
+                {
+                  "kind": "cell",
+                  "text": "note 10"
+                }
+              ],
+              "kind": "row"
+            },
+            {
+              "children": [
+                {
+                  "kind": "cell",
+                  "text": "11"
+                },
+                {
+                  "kind": "cell",
+                  "text": "plain input 11"
+                },
+                {
+                  "kind": "cell",
+                  "text": "note 11"
+                }
+              ],
+              "kind": "row"
+            },
+            {
+              "children": [
+                {
+                  "kind": "cell",
+                  "text": "12"
+                },
+                {
+                  "kind": "cell",
+                  "text": "plain input 12"
+                },
+                {
+                  "kind": "cell",
+                  "text": "note 12"
+                }
+              ],
+              "kind": "row"
+            },
+            {
+              "children": [
+                {
+                  "kind": "cell",
+                  "text": "13"
+                },
+                {
+                  "kind": "cell",
+                  "text": "plain input 13"
+                },
+                {
+                  "kind": "cell",
+                  "text": "note 13"
+                }
+              ],
+              "kind": "row"
+            },
+            {
+              "children": [
+                {
+                  "kind": "cell",
+                  "text": "14"
+                },
+                {
+                  "kind": "cell",
+                  "text": "plain input 14"
+                },
+                {
+                  "kind": "cell",
+                  "text": "note 14"
+                }
+              ],
+              "kind": "row"
+            },
+            {
+              "children": [
+                {
+                  "kind": "cell",
+                  "text": "15"
+                },
+                {
+                  "kind": "cell",
+                  "text": "plain input 15"
+                },
+                {
+                  "kind": "cell",
+                  "text": "note 15"
+                }
+              ],
+              "kind": "row"
+            },
+            {
+              "children": [
+                {
+                  "kind": "cell",
+                  "text": "16"
+                },
+                {
+                  "kind": "cell",
+                  "text": "plain input 16"
+                },
+                {
+                  "kind": "cell",
+                  "text": "note 16"
+                }
+              ],
+              "kind": "row"
+            },
+            {
+              "children": [
+                {
+                  "kind": "cell",
+                  "text": "17"
+                },
+                {
+                  "kind": "cell",
+                  "text": "plain input 17"
+                },
+                {
+                  "kind": "cell",
+                  "text": "note 17"
+                }
+              ],
+              "kind": "row"
+            },
+            {
+              "children": [
+                {
+                  "kind": "cell",
+                  "text": "18"
+                },
+                {
+                  "kind": "cell",
+                  "text": "plain input 18"
+                },
+                {
+                  "kind": "cell",
+                  "text": "note 18"
+                }
+              ],
+              "kind": "row"
+            },
+            {
+              "children": [
+                {
+                  "kind": "cell",
+                  "text": "19"
+                },
+                {
+                  "kind": "cell",
+                  "text": "plain input 19"
+                },
+                {
+                  "kind": "cell",
+                  "text": "note 19"
+                }
+              ],
+              "kind": "row"
+            },
+            {
+              "children": [
+                {
+                  "kind": "cell",
+                  "text": "20"
+                },
+                {
+                  "kind": "cell",
+                  "text": "plain input 20"
+                },
+                {
+                  "kind": "cell",
+                  "text": "note 20"
+                }
+              ],
+              "kind": "row"
+            },
+            {
+              "children": [
+                {
+                  "kind": "cell",
+                  "text": "21"
+                },
+                {
+                  "kind": "cell",
+                  "text": "plain input 21"
+                },
+                {
+                  "kind": "cell",
+                  "text": "note 21"
+                }
+              ],
+              "kind": "row"
+            },
+            {
+              "children": [
+                {
+                  "kind": "cell",
+                  "text": "22"
+                },
+                {
+                  "kind": "cell",
+                  "text": "plain input 22"
+                },
+                {
+                  "kind": "cell",
+                  "text": "note 22"
+                }
+              ],
+              "kind": "row"
+            },
+            {
+              "children": [
+                {
+                  "kind": "cell",
+                  "text": "23"
+                },
+                {
+                  "kind": "cell",
+                  "text": "plain input 23"
+                },
+                {
+                  "kind": "cell",
+                  "text": "note 23"
+                }
+              ],
+              "kind": "row"
+            },
+            {
+              "children": [
+                {
+                  "kind": "cell",
+                  "text": "24"
+                },
+                {
+                  "kind": "cell",
+                  "text": "plain input 24"
+                },
+                {
+                  "kind": "cell",
+                  "text": "note 24"
+                }
+              ],
+              "kind": "row"
+            },
+            {
+              "children": [
+                {
+                  "kind": "cell",
+                  "text": "25"
+                },
+                {
+                  "kind": "cell",
+                  "text": "plain input 25"
+                },
+                {
+                  "kind": "cell",
+                  "text": "note 25"
+                }
+              ],
+              "kind": "row"
+            },
+            {
+              "children": [
+                {
+                  "kind": "cell",
+                  "text": "26"
+                },
+                {
+                  "kind": "cell",
+                  "text": "plain input 26"
+                },
+                {
+                  "kind": "cell",
+                  "text": "note 26"
+                }
+              ],
+              "kind": "row"
+            },
+            {
+              "children": [
+                {
+                  "kind": "cell",
+                  "text": "27"
+                },
+                {
+                  "kind": "cell",
+                  "text": "plain input 27"
+                },
+                {
+                  "kind": "cell",
+                  "text": "note 27"
+                }
+              ],
+              "kind": "row"
+            },
+            {
+              "children": [
+                {
+                  "kind": "cell",
+                  "text": "28"
+                },
+                {
+                  "kind": "cell",
+                  "text": "plain input 28"
+                },
+                {
+                  "kind": "cell",
+                  "text": "note 28"
+                }
+              ],
+              "kind": "row"
+            },
+            {
+              "children": [
+                {
+                  "kind": "cell",
+                  "text": "29"
+                },
+                {
+                  "kind": "cell",
+                  "text": "plain input 29"
+                },
+                {
+                  "kind": "cell",
+                  "text": "note 29"
+                }
+              ],
+              "kind": "row"
+            },
+            {
+              "children": [
+                {
+                  "kind": "cell",
+                  "text": "30"
+                },
+                {
+                  "kind": "cell",
+                  "text": "plain input 30"
+                },
+                {
+                  "kind": "cell",
+                  "text": "note 30"
+                }
+              ],
+              "kind": "row"
+            },
+            {
+              "children": [
+                {
+                  "kind": "cell",
+                  "text": "31"
+                },
+                {
+                  "kind": "cell",
+                  "text": "plain input 31"
+                },
+                {
+                  "kind": "cell",
+                  "text": "note 31"
+                }
+              ],
+              "kind": "row"
+            },
+            {
+              "children": [
+                {
+                  "kind": "cell",
+                  "text": "32"
+                },
+                {
+                  "kind": "cell",
+                  "text": "plain input 32"
+                },
+                {
+                  "kind": "cell",
+                  "text": "note 32"
+                }
+              ],
+              "kind": "row"
+            },
+            {
+              "children": [
+                {
+                  "kind": "cell",
+                  "text": "33"
+                },
+                {
+                  "kind": "cell",
+                  "text": "plain input 33"
+                },
+                {
+                  "kind": "cell",
+                  "text": "note 33"
+                }
+              ],
+              "kind": "row"
+            },
+            {
+              "children": [
+                {
+                  "kind": "cell",
+                  "text": "34"
+                },
+                {
+                  "kind": "cell",
+                  "text": "plain input 34"
+                },
+                {
+                  "kind": "cell",
+                  "text": "note 34"
+                }
+              ],
+              "kind": "row"
+            },
+            {
+              "children": [
+                {
+                  "kind": "cell",
+                  "text": "35"
+                },
+                {
+                  "kind": "cell",
+                  "text": "plain input 35"
+                },
+                {
+                  "kind": "cell",
+                  "text": "note 35"
+                }
+              ],
+              "kind": "row"
+            },
+            {
+              "children": [
+                {
+                  "kind": "cell",
+                  "text": "36"
+                },
+                {
+                  "kind": "cell",
+                  "text": "plain input 36"
+                },
+                {
+                  "kind": "cell",
+                  "text": "note 36"
+                }
+              ],
+              "kind": "row"
+            },
+            {
+              "children": [
+                {
+                  "kind": "cell",
+                  "text": "37"
+                },
+                {
+                  "kind": "cell",
+                  "text": "plain input 37"
+                },
+                {
+                  "kind": "cell",
+                  "text": "note 37"
+                }
+              ],
+              "kind": "row"
+            },
+            {
+              "children": [
+                {
+                  "kind": "cell",
+                  "text": "38"
+                },
+                {
+                  "kind": "cell",
+                  "text": "plain input 38"
+                },
+                {
+                  "kind": "cell",
+                  "text": "note 38"
+                }
+              ],
+              "kind": "row"
+            },
+            {
+              "children": [
+                {
+                  "kind": "cell",
+                  "text": "39"
+                },
+                {
+                  "kind": "cell",
+                  "text": "plain input 39"
+                },
+                {
+                  "kind": "cell",
+                  "text": "note 39"
+                }
+              ],
+              "kind": "row"
+            },
+            {
+              "children": [
+                {
+                  "kind": "cell",
+                  "text": "40"
+                },
+                {
+                  "kind": "cell",
+                  "text": "plain input 40"
+                },
+                {
+                  "kind": "cell",
+                  "text": "note 40"
+                }
+              ],
+              "kind": "row"
+            },
+            {
+              "children": [
+                {
+                  "kind": "cell",
+                  "text": "41"
+                },
+                {
+                  "kind": "cell",
+                  "text": "plain input 41"
+                },
+                {
+                  "kind": "cell",
+                  "text": "note 41"
+                }
+              ],
+              "kind": "row"
+            },
+            {
+              "children": [
+                {
+                  "kind": "cell",
+                  "text": "42"
+                },
+                {
+                  "kind": "cell",
+                  "text": "plain input 42"
+                },
+                {
+                  "kind": "cell",
+                  "text": "note 42"
+                }
+              ],
+              "kind": "row"
+            },
+            {
+              "children": [
+                {
+                  "kind": "cell",
+                  "text": "43"
+                },
+                {
+                  "kind": "cell",
+                  "text": "plain input 43"
+                },
+                {
+                  "kind": "cell",
+                  "text": "note 43"
+                }
+              ],
+              "kind": "row"
+            },
+            {
+              "children": [
+                {
+                  "kind": "cell",
+                  "text": "44"
+                },
+                {
+                  "kind": "cell",
+                  "text": "plain input 44"
+                },
+                {
+                  "kind": "cell",
+                  "text": "note 44"
+                }
+              ],
+              "kind": "row"
+            },
+            {
+              "children": [
+                {
+                  "kind": "cell",
+                  "text": "45"
+                },
+                {
+                  "children": [
+                    {
+                      "children": [
+                        {
+                          "children": [
+                            {
+                              "kind": "cell",
+                              "text": "p2-A"
+                            },
+                            {
+                              "kind": "cell",
+                              "text": "p2-B"
+                            }
+                          ],
+                          "kind": "row"
+                        },
+                        {
+                          "children": [
+                            {
+                              "kind": "cell",
+                              "text": "1"
+                            },
+                            {
+                              "kind": "cell",
+                              "text": "2"
+                            }
+                          ],
+                          "kind": "row"
+                        }
+                      ],
+                      "kind": "table"
+                    }
+                  ],
+                  "kind": "cell"
+                },
+                {
+                  "kind": "cell",
+                  "text": "has nested"
+                }
+              ],
+              "kind": "row"
+            },
+            {
+              "children": [
+                {
+                  "kind": "cell",
+                  "text": "46"
+                },
+                {
+                  "kind": "cell",
+                  "text": "plain input 46"
+                },
+                {
+                  "kind": "cell",
+                  "text": "note 46"
+                }
+              ],
+              "kind": "row"
+            },
+            {
+              "children": [
+                {
+                  "kind": "cell",
+                  "text": "47"
+                },
+                {
+                  "kind": "cell",
+                  "text": "plain input 47"
+                },
+                {
+                  "kind": "cell",
+                  "text": "note 47"
+                }
+              ],
+              "kind": "row"
+            },
+            {
+              "children": [
+                {
+                  "kind": "cell",
+                  "text": "48"
+                },
+                {
+                  "kind": "cell",
+                  "text": "plain input 48"
+                },
+                {
+                  "kind": "cell",
+                  "text": "note 48"
+                }
+              ],
+              "kind": "row"
+            },
+            {
+              "children": [
+                {
+                  "kind": "cell",
+                  "text": "49"
+                },
+                {
+                  "kind": "cell",
+                  "text": "plain input 49"
+                },
+                {
+                  "kind": "cell",
+                  "text": "note 49"
+                }
+              ],
+              "kind": "row"
+            },
+            {
+              "children": [
+                {
+                  "kind": "cell",
+                  "text": "50"
+                },
+                {
+                  "kind": "cell",
+                  "text": "plain input 50"
+                },
+                {
+                  "kind": "cell",
+                  "text": "note 50"
+                }
+              ],
+              "kind": "row"
+            }
+          ],
+          "kind": "table"
+        }
+      ],
+      "kind": "page"
+    },
+    {
+      "kind": "page"
+    }
+  ],
+  "kind": "document"
+}

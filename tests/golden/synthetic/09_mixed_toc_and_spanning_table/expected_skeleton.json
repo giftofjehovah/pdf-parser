@@ -1,0 +1,1419 @@
+{
+  "children": [
+    {
+      "children": [
+        {
+          "kind": "heading",
+          "text": "Annual Report 2025"
+        },
+        {
+          "kind": "paragraph",
+          "text": "This report summarises the deterministic synthetic corpus used to exercise the parser end-to-end. The"
+        },
+        {
+          "kind": "paragraph",
+          "text": "text below is intentionally long enough to fill several lines so paragraph segmentation has real input to"
+        },
+        {
+          "kind": "paragraph",
+          "text": "operate on."
+        },
+        {
+          "kind": "paragraph",
+          "text": "This report summarises the deterministic synthetic corpus used to exercise the parser end-to-end. The"
+        },
+        {
+          "kind": "paragraph",
+          "text": "text below is intentionally long enough to fill several lines so paragraph segmentation has real input to"
+        },
+        {
+          "kind": "paragraph",
+          "text": "operate on."
+        },
+        {
+          "kind": "heading",
+          "text": "Contents"
+        },
+        {
+          "kind": "paragraph",
+          "text": "1. Executive Summary ................................................. 2"
+        },
+        {
+          "kind": "paragraph",
+          "text": "2. Methodology ....................................................... 2"
+        },
+        {
+          "kind": "paragraph",
+          "text": "3. Detailed Results .................................................. 3"
+        },
+        {
+          "kind": "paragraph",
+          "text": "4. Appendix .......................................................... 5"
+        }
+      ],
+      "kind": "page"
+    },
+    {
+      "children": [
+        {
+          "kind": "heading",
+          "text": "1. Executive Summary"
+        },
+        {
+          "kind": "paragraph",
+          "text": "This report summarises the deterministic synthetic corpus used to exercise the parser end-to-end. The"
+        },
+        {
+          "kind": "paragraph",
+          "text": "text below is intentionally long enough to fill several lines so paragraph segmentation has real input to"
+        },
+        {
+          "kind": "paragraph",
+          "text": "operate on."
+        },
+        {
+          "kind": "heading",
+          "text": "2. Methodology"
+        },
+        {
+          "kind": "paragraph",
+          "text": "This report summarises the deterministic synthetic corpus used to exercise the parser end-to-end. The"
+        },
+        {
+          "kind": "paragraph",
+          "text": "text below is intentionally long enough to fill several lines so paragraph segmentation has real input to"
+        },
+        {
+          "kind": "paragraph",
+          "text": "operate on."
+        }
+      ],
+      "kind": "page"
+    },
+    {
+      "children": [
+        {
+          "kind": "heading",
+          "text": "3. Detailed Results"
+        },
+        {
+          "kind": "paragraph",
+          "text": "The table below lists every observation. It is large enough to overflow onto the next page so the stitcher"
+        },
+        {
+          "kind": "paragraph",
+          "text": "must merge the two halves back into one table."
+        },
+        {
+          "children": [
+            {
+              "children": [
+                {
+                  "kind": "cell",
+                  "text": "ID"
+                },
+                {
+                  "kind": "cell",
+                  "text": "Region"
+                },
+                {
+                  "kind": "cell",
+                  "text": "Metric"
+                },
+                {
+                  "kind": "cell",
+                  "text": "Value"
+                }
+              ],
+              "kind": "row"
+            },
+            {
+              "children": [
+                {
+                  "kind": "cell",
+                  "text": "1"
+                },
+                {
+                  "kind": "cell",
+                  "text": "Region-2"
+                },
+                {
+                  "kind": "cell",
+                  "text": "metric-1"
+                },
+                {
+                  "kind": "cell",
+                  "text": "3.25"
+                }
+              ],
+              "kind": "row"
+            },
+            {
+              "children": [
+                {
+                  "kind": "cell",
+                  "text": "2"
+                },
+                {
+                  "kind": "cell",
+                  "text": "Region-3"
+                },
+                {
+                  "kind": "cell",
+                  "text": "metric-2"
+                },
+                {
+                  "kind": "cell",
+                  "text": "6.50"
+                }
+              ],
+              "kind": "row"
+            },
+            {
+              "children": [
+                {
+                  "kind": "cell",
+                  "text": "3"
+                },
+                {
+                  "kind": "cell",
+                  "text": "Region-4"
+                },
+                {
+                  "kind": "cell",
+                  "text": "metric-3"
+                },
+                {
+                  "kind": "cell",
+                  "text": "9.75"
+                }
+              ],
+              "kind": "row"
+            },
+            {
+              "children": [
+                {
+                  "kind": "cell",
+                  "text": "4"
+                },
+                {
+                  "kind": "cell",
+                  "text": "Region-1"
+                },
+                {
+                  "kind": "cell",
+                  "text": "metric-4"
+                },
+                {
+                  "kind": "cell",
+                  "text": "13.00"
+                }
+              ],
+              "kind": "row"
+            },
+            {
+              "children": [
+                {
+                  "kind": "cell",
+                  "text": "5"
+                },
+                {
+                  "kind": "cell",
+                  "text": "Region-2"
+                },
+                {
+                  "kind": "cell",
+                  "text": "metric-5"
+                },
+                {
+                  "kind": "cell",
+                  "text": "16.25"
+                }
+              ],
+              "kind": "row"
+            },
+            {
+              "children": [
+                {
+                  "kind": "cell",
+                  "text": "6"
+                },
+                {
+                  "kind": "cell",
+                  "text": "Region-3"
+                },
+                {
+                  "kind": "cell",
+                  "text": "metric-6"
+                },
+                {
+                  "kind": "cell",
+                  "text": "19.50"
+                }
+              ],
+              "kind": "row"
+            },
+            {
+              "children": [
+                {
+                  "kind": "cell",
+                  "text": "7"
+                },
+                {
+                  "kind": "cell",
+                  "text": "Region-4"
+                },
+                {
+                  "kind": "cell",
+                  "text": "metric-7"
+                },
+                {
+                  "kind": "cell",
+                  "text": "22.75"
+                }
+              ],
+              "kind": "row"
+            },
+            {
+              "children": [
+                {
+                  "kind": "cell",
+                  "text": "8"
+                },
+                {
+                  "kind": "cell",
+                  "text": "Region-1"
+                },
+                {
+                  "kind": "cell",
+                  "text": "metric-8"
+                },
+                {
+                  "kind": "cell",
+                  "text": "26.00"
+                }
+              ],
+              "kind": "row"
+            },
+            {
+              "children": [
+                {
+                  "kind": "cell",
+                  "text": "9"
+                },
+                {
+                  "kind": "cell",
+                  "text": "Region-2"
+                },
+                {
+                  "kind": "cell",
+                  "text": "metric-9"
+                },
+                {
+                  "kind": "cell",
+                  "text": "29.25"
+                }
+              ],
+              "kind": "row"
+            },
+            {
+              "children": [
+                {
+                  "kind": "cell",
+                  "text": "10"
+                },
+                {
+                  "kind": "cell",
+                  "text": "Region-3"
+                },
+                {
+                  "kind": "cell",
+                  "text": "metric-10"
+                },
+                {
+                  "kind": "cell",
+                  "text": "32.50"
+                }
+              ],
+              "kind": "row"
+            },
+            {
+              "children": [
+                {
+                  "kind": "cell",
+                  "text": "11"
+                },
+                {
+                  "kind": "cell",
+                  "text": "Region-4"
+                },
+                {
+                  "kind": "cell",
+                  "text": "metric-11"
+                },
+                {
+                  "kind": "cell",
+                  "text": "35.75"
+                }
+              ],
+              "kind": "row"
+            },
+            {
+              "children": [
+                {
+                  "kind": "cell",
+                  "text": "12"
+                },
+                {
+                  "kind": "cell",
+                  "text": "Region-1"
+                },
+                {
+                  "kind": "cell",
+                  "text": "metric-12"
+                },
+                {
+                  "kind": "cell",
+                  "text": "39.00"
+                }
+              ],
+              "kind": "row"
+            },
+            {
+              "children": [
+                {
+                  "kind": "cell",
+                  "text": "13"
+                },
+                {
+                  "kind": "cell",
+                  "text": "Region-2"
+                },
+                {
+                  "kind": "cell",
+                  "text": "metric-13"
+                },
+                {
+                  "kind": "cell",
+                  "text": "42.25"
+                }
+              ],
+              "kind": "row"
+            },
+            {
+              "children": [
+                {
+                  "kind": "cell",
+                  "text": "14"
+                },
+                {
+                  "kind": "cell",
+                  "text": "Region-3"
+                },
+                {
+                  "kind": "cell",
+                  "text": "metric-14"
+                },
+                {
+                  "kind": "cell",
+                  "text": "45.50"
+                }
+              ],
+              "kind": "row"
+            },
+            {
+              "children": [
+                {
+                  "kind": "cell",
+                  "text": "15"
+                },
+                {
+                  "kind": "cell",
+                  "text": "Region-4"
+                },
+                {
+                  "kind": "cell",
+                  "text": "metric-15"
+                },
+                {
+                  "kind": "cell",
+                  "text": "48.75"
+                }
+              ],
+              "kind": "row"
+            },
+            {
+              "children": [
+                {
+                  "kind": "cell",
+                  "text": "16"
+                },
+                {
+                  "kind": "cell",
+                  "text": "Region-1"
+                },
+                {
+                  "kind": "cell",
+                  "text": "metric-16"
+                },
+                {
+                  "kind": "cell",
+                  "text": "52.00"
+                }
+              ],
+              "kind": "row"
+            },
+            {
+              "children": [
+                {
+                  "kind": "cell",
+                  "text": "17"
+                },
+                {
+                  "kind": "cell",
+                  "text": "Region-2"
+                },
+                {
+                  "kind": "cell",
+                  "text": "metric-17"
+                },
+                {
+                  "kind": "cell",
+                  "text": "55.25"
+                }
+              ],
+              "kind": "row"
+            },
+            {
+              "children": [
+                {
+                  "kind": "cell",
+                  "text": "18"
+                },
+                {
+                  "kind": "cell",
+                  "text": "Region-3"
+                },
+                {
+                  "kind": "cell",
+                  "text": "metric-18"
+                },
+                {
+                  "kind": "cell",
+                  "text": "58.50"
+                }
+              ],
+              "kind": "row"
+            },
+            {
+              "children": [
+                {
+                  "kind": "cell",
+                  "text": "19"
+                },
+                {
+                  "kind": "cell",
+                  "text": "Region-4"
+                },
+                {
+                  "kind": "cell",
+                  "text": "metric-19"
+                },
+                {
+                  "kind": "cell",
+                  "text": "61.75"
+                }
+              ],
+              "kind": "row"
+            },
+            {
+              "children": [
+                {
+                  "kind": "cell",
+                  "text": "20"
+                },
+                {
+                  "kind": "cell",
+                  "text": "Region-1"
+                },
+                {
+                  "kind": "cell",
+                  "text": "metric-20"
+                },
+                {
+                  "kind": "cell",
+                  "text": "65.00"
+                }
+              ],
+              "kind": "row"
+            },
+            {
+              "children": [
+                {
+                  "kind": "cell",
+                  "text": "21"
+                },
+                {
+                  "kind": "cell",
+                  "text": "Region-2"
+                },
+                {
+                  "kind": "cell",
+                  "text": "metric-21"
+                },
+                {
+                  "kind": "cell",
+                  "text": "68.25"
+                }
+              ],
+              "kind": "row"
+            },
+            {
+              "children": [
+                {
+                  "kind": "cell",
+                  "text": "22"
+                },
+                {
+                  "kind": "cell",
+                  "text": "Region-3"
+                },
+                {
+                  "kind": "cell",
+                  "text": "metric-22"
+                },
+                {
+                  "kind": "cell",
+                  "text": "71.50"
+                }
+              ],
+              "kind": "row"
+            },
+            {
+              "children": [
+                {
+                  "kind": "cell",
+                  "text": "23"
+                },
+                {
+                  "kind": "cell",
+                  "text": "Region-4"
+                },
+                {
+                  "kind": "cell",
+                  "text": "metric-23"
+                },
+                {
+                  "kind": "cell",
+                  "text": "74.75"
+                }
+              ],
+              "kind": "row"
+            },
+            {
+              "children": [
+                {
+                  "kind": "cell",
+                  "text": "24"
+                },
+                {
+                  "kind": "cell",
+                  "text": "Region-1"
+                },
+                {
+                  "kind": "cell",
+                  "text": "metric-24"
+                },
+                {
+                  "kind": "cell",
+                  "text": "78.00"
+                }
+              ],
+              "kind": "row"
+            },
+            {
+              "children": [
+                {
+                  "kind": "cell",
+                  "text": "25"
+                },
+                {
+                  "kind": "cell",
+                  "text": "Region-2"
+                },
+                {
+                  "kind": "cell",
+                  "text": "metric-25"
+                },
+                {
+                  "kind": "cell",
+                  "text": "81.25"
+                }
+              ],
+              "kind": "row"
+            },
+            {
+              "children": [
+                {
+                  "kind": "cell",
+                  "text": "26"
+                },
+                {
+                  "kind": "cell",
+                  "text": "Region-3"
+                },
+                {
+                  "kind": "cell",
+                  "text": "metric-26"
+                },
+                {
+                  "kind": "cell",
+                  "text": "84.50"
+                }
+              ],
+              "kind": "row"
+            },
+            {
+              "children": [
+                {
+                  "kind": "cell",
+                  "text": "27"
+                },
+                {
+                  "kind": "cell",
+                  "text": "Region-4"
+                },
+                {
+                  "kind": "cell",
+                  "text": "metric-27"
+                },
+                {
+                  "kind": "cell",
+                  "text": "87.75"
+                }
+              ],
+              "kind": "row"
+            },
+            {
+              "children": [
+                {
+                  "kind": "cell",
+                  "text": "28"
+                },
+                {
+                  "kind": "cell",
+                  "text": "Region-1"
+                },
+                {
+                  "kind": "cell",
+                  "text": "metric-28"
+                },
+                {
+                  "kind": "cell",
+                  "text": "91.00"
+                }
+              ],
+              "kind": "row"
+            },
+            {
+              "children": [
+                {
+                  "kind": "cell",
+                  "text": "29"
+                },
+                {
+                  "kind": "cell",
+                  "text": "Region-2"
+                },
+                {
+                  "kind": "cell",
+                  "text": "metric-29"
+                },
+                {
+                  "kind": "cell",
+                  "text": "94.25"
+                }
+              ],
+              "kind": "row"
+            },
+            {
+              "children": [
+                {
+                  "kind": "cell",
+                  "text": "30"
+                },
+                {
+                  "kind": "cell",
+                  "text": "Region-3"
+                },
+                {
+                  "kind": "cell",
+                  "text": "metric-30"
+                },
+                {
+                  "kind": "cell",
+                  "text": "97.50"
+                }
+              ],
+              "kind": "row"
+            },
+            {
+              "children": [
+                {
+                  "kind": "cell",
+                  "text": "31"
+                },
+                {
+                  "kind": "cell",
+                  "text": "Region-4"
+                },
+                {
+                  "kind": "cell",
+                  "text": "metric-31"
+                },
+                {
+                  "kind": "cell",
+                  "text": "100.75"
+                }
+              ],
+              "kind": "row"
+            },
+            {
+              "children": [
+                {
+                  "kind": "cell",
+                  "text": "32"
+                },
+                {
+                  "kind": "cell",
+                  "text": "Region-1"
+                },
+                {
+                  "kind": "cell",
+                  "text": "metric-32"
+                },
+                {
+                  "kind": "cell",
+                  "text": "104.00"
+                }
+              ],
+              "kind": "row"
+            },
+            {
+              "children": [
+                {
+                  "kind": "cell",
+                  "text": "33"
+                },
+                {
+                  "kind": "cell",
+                  "text": "Region-2"
+                },
+                {
+                  "kind": "cell",
+                  "text": "metric-33"
+                },
+                {
+                  "kind": "cell",
+                  "text": "107.25"
+                }
+              ],
+              "kind": "row"
+            },
+            {
+              "children": [
+                {
+                  "kind": "cell",
+                  "text": "34"
+                },
+                {
+                  "kind": "cell",
+                  "text": "Region-3"
+                },
+                {
+                  "kind": "cell",
+                  "text": "metric-34"
+                },
+                {
+                  "kind": "cell",
+                  "text": "110.50"
+                }
+              ],
+              "kind": "row"
+            },
+            {
+              "children": [
+                {
+                  "kind": "cell",
+                  "text": "35"
+                },
+                {
+                  "kind": "cell",
+                  "text": "Region-4"
+                },
+                {
+                  "kind": "cell",
+                  "text": "metric-35"
+                },
+                {
+                  "kind": "cell",
+                  "text": "113.75"
+                }
+              ],
+              "kind": "row"
+            },
+            {
+              "children": [
+                {
+                  "kind": "cell",
+                  "text": "36"
+                },
+                {
+                  "kind": "cell",
+                  "text": "Region-1"
+                },
+                {
+                  "kind": "cell",
+                  "text": "metric-36"
+                },
+                {
+                  "kind": "cell",
+                  "text": "117.00"
+                }
+              ],
+              "kind": "row"
+            },
+            {
+              "children": [
+                {
+                  "kind": "cell",
+                  "text": "37"
+                },
+                {
+                  "kind": "cell",
+                  "text": "Region-2"
+                },
+                {
+                  "kind": "cell",
+                  "text": "metric-37"
+                },
+                {
+                  "kind": "cell",
+                  "text": "120.25"
+                }
+              ],
+              "kind": "row"
+            },
+            {
+              "children": [
+                {
+                  "kind": "cell",
+                  "text": "38"
+                },
+                {
+                  "kind": "cell",
+                  "text": "Region-3"
+                },
+                {
+                  "kind": "cell",
+                  "text": "metric-38"
+                },
+                {
+                  "kind": "cell",
+                  "text": "123.50"
+                }
+              ],
+              "kind": "row"
+            },
+            {
+              "children": [
+                {
+                  "kind": "cell",
+                  "text": "39"
+                },
+                {
+                  "kind": "cell",
+                  "text": "Region-4"
+                },
+                {
+                  "kind": "cell",
+                  "text": "metric-39"
+                },
+                {
+                  "kind": "cell",
+                  "text": "126.75"
+                }
+              ],
+              "kind": "row"
+            },
+            {
+              "children": [
+                {
+                  "kind": "cell",
+                  "text": "40"
+                },
+                {
+                  "kind": "cell",
+                  "text": "Region-1"
+                },
+                {
+                  "kind": "cell",
+                  "text": "metric-40"
+                },
+                {
+                  "kind": "cell",
+                  "text": "130.00"
+                }
+              ],
+              "kind": "row"
+            },
+            {
+              "children": [
+                {
+                  "kind": "cell",
+                  "text": "41"
+                },
+                {
+                  "kind": "cell",
+                  "text": "Region-2"
+                },
+                {
+                  "kind": "cell",
+                  "text": "metric-41"
+                },
+                {
+                  "kind": "cell",
+                  "text": "133.25"
+                }
+              ],
+              "kind": "row"
+            },
+            {
+              "children": [
+                {
+                  "kind": "cell",
+                  "text": "42"
+                },
+                {
+                  "kind": "cell",
+                  "text": "Region-3"
+                },
+                {
+                  "kind": "cell",
+                  "text": "metric-42"
+                },
+                {
+                  "kind": "cell",
+                  "text": "136.50"
+                }
+              ],
+              "kind": "row"
+            },
+            {
+              "children": [
+                {
+                  "kind": "cell",
+                  "text": "43"
+                },
+                {
+                  "kind": "cell",
+                  "text": "Region-4"
+                },
+                {
+                  "kind": "cell",
+                  "text": "metric-43"
+                },
+                {
+                  "kind": "cell",
+                  "text": "139.75"
+                }
+              ],
+              "kind": "row"
+            },
+            {
+              "children": [
+                {
+                  "kind": "cell",
+                  "text": "44"
+                },
+                {
+                  "kind": "cell",
+                  "text": "Region-1"
+                },
+                {
+                  "kind": "cell",
+                  "text": "metric-44"
+                },
+                {
+                  "kind": "cell",
+                  "text": "143.00"
+                }
+              ],
+              "kind": "row"
+            },
+            {
+              "children": [
+                {
+                  "kind": "cell",
+                  "text": "45"
+                },
+                {
+                  "kind": "cell",
+                  "text": "Region-2"
+                },
+                {
+                  "kind": "cell",
+                  "text": "metric-45"
+                },
+                {
+                  "kind": "cell",
+                  "text": "146.25"
+                }
+              ],
+              "kind": "row"
+            },
+            {
+              "children": [
+                {
+                  "kind": "cell",
+                  "text": "46"
+                },
+                {
+                  "kind": "cell",
+                  "text": "Region-3"
+                },
+                {
+                  "kind": "cell",
+                  "text": "metric-46"
+                },
+                {
+                  "kind": "cell",
+                  "text": "149.50"
+                }
+              ],
+              "kind": "row"
+            },
+            {
+              "children": [
+                {
+                  "kind": "cell",
+                  "text": "47"
+                },
+                {
+                  "kind": "cell",
+                  "text": "Region-4"
+                },
+                {
+                  "kind": "cell",
+                  "text": "metric-47"
+                },
+                {
+                  "kind": "cell",
+                  "text": "152.75"
+                }
+              ],
+              "kind": "row"
+            },
+            {
+              "children": [
+                {
+                  "kind": "cell",
+                  "text": "48"
+                },
+                {
+                  "kind": "cell",
+                  "text": "Region-1"
+                },
+                {
+                  "kind": "cell",
+                  "text": "metric-48"
+                },
+                {
+                  "kind": "cell",
+                  "text": "156.00"
+                }
+              ],
+              "kind": "row"
+            },
+            {
+              "children": [
+                {
+                  "kind": "cell",
+                  "text": "49"
+                },
+                {
+                  "kind": "cell",
+                  "text": "Region-2"
+                },
+                {
+                  "kind": "cell",
+                  "text": "metric-49"
+                },
+                {
+                  "kind": "cell",
+                  "text": "159.25"
+                }
+              ],
+              "kind": "row"
+            },
+            {
+              "children": [
+                {
+                  "kind": "cell",
+                  "text": "50"
+                },
+                {
+                  "kind": "cell",
+                  "text": "Region-3"
+                },
+                {
+                  "kind": "cell",
+                  "text": "metric-50"
+                },
+                {
+                  "kind": "cell",
+                  "text": "162.50"
+                }
+              ],
+              "kind": "row"
+            },
+            {
+              "children": [
+                {
+                  "kind": "cell",
+                  "text": "51"
+                },
+                {
+                  "kind": "cell",
+                  "text": "Region-4"
+                },
+                {
+                  "kind": "cell",
+                  "text": "metric-51"
+                },
+                {
+                  "kind": "cell",
+                  "text": "165.75"
+                }
+              ],
+              "kind": "row"
+            },
+            {
+              "children": [
+                {
+                  "kind": "cell",
+                  "text": "52"
+                },
+                {
+                  "kind": "cell",
+                  "text": "Region-1"
+                },
+                {
+                  "kind": "cell",
+                  "text": "metric-52"
+                },
+                {
+                  "kind": "cell",
+                  "text": "169.00"
+                }
+              ],
+              "kind": "row"
+            },
+            {
+              "children": [
+                {
+                  "kind": "cell",
+                  "text": "53"
+                },
+                {
+                  "kind": "cell",
+                  "text": "Region-2"
+                },
+                {
+                  "kind": "cell",
+                  "text": "metric-53"
+                },
+                {
+                  "kind": "cell",
+                  "text": "172.25"
+                }
+              ],
+              "kind": "row"
+            },
+            {
+              "children": [
+                {
+                  "kind": "cell",
+                  "text": "54"
+                },
+                {
+                  "kind": "cell",
+                  "text": "Region-3"
+                },
+                {
+                  "kind": "cell",
+                  "text": "metric-54"
+                },
+                {
+                  "kind": "cell",
+                  "text": "175.50"
+                }
+              ],
+              "kind": "row"
+            },
+            {
+              "children": [
+                {
+                  "kind": "cell",
+                  "text": "55"
+                },
+                {
+                  "kind": "cell",
+                  "text": "Region-4"
+                },
+                {
+                  "kind": "cell",
+                  "text": "metric-55"
+                },
+                {
+                  "kind": "cell",
+                  "text": "178.75"
+                }
+              ],
+              "kind": "row"
+            },
+            {
+              "children": [
+                {
+                  "kind": "cell",
+                  "text": "56"
+                },
+                {
+                  "kind": "cell",
+                  "text": "Region-1"
+                },
+                {
+                  "kind": "cell",
+                  "text": "metric-56"
+                },
+                {
+                  "kind": "cell",
+                  "text": "182.00"
+                }
+              ],
+              "kind": "row"
+            },
+            {
+              "children": [
+                {
+                  "kind": "cell",
+                  "text": "57"
+                },
+                {
+                  "kind": "cell",
+                  "text": "Region-2"
+                },
+                {
+                  "kind": "cell",
+                  "text": "metric-57"
+                },
+                {
+                  "kind": "cell",
+                  "text": "185.25"
+                }
+              ],
+              "kind": "row"
+            },
+            {
+              "children": [
+                {
+                  "kind": "cell",
+                  "text": "58"
+                },
+                {
+                  "kind": "cell",
+                  "text": "Region-3"
+                },
+                {
+                  "kind": "cell",
+                  "text": "metric-58"
+                },
+                {
+                  "kind": "cell",
+                  "text": "188.50"
+                }
+              ],
+              "kind": "row"
+            },
+            {
+              "children": [
+                {
+                  "kind": "cell",
+                  "text": "59"
+                },
+                {
+                  "kind": "cell",
+                  "text": "Region-4"
+                },
+                {
+                  "kind": "cell",
+                  "text": "metric-59"
+                },
+                {
+                  "kind": "cell",
+                  "text": "191.75"
+                }
+              ],
+              "kind": "row"
+            },
+            {
+              "children": [
+                {
+                  "kind": "cell",
+                  "text": "60"
+                },
+                {
+                  "kind": "cell",
+                  "text": "Region-1"
+                },
+                {
+                  "kind": "cell",
+                  "text": "metric-60"
+                },
+                {
+                  "kind": "cell",
+                  "text": "195.00"
+                }
+              ],
+              "kind": "row"
+            }
+          ],
+          "kind": "table"
+        }
+      ],
+      "kind": "page"
+    },
+    {
+      "children": [
+        {
+          "kind": "heading",
+          "text": "4. Appendix"
+        },
+        {
+          "kind": "paragraph",
+          "text": "This report summarises the deterministic synthetic corpus used to exercise the parser end-to-end. The"
+        },
+        {
+          "kind": "paragraph",
+          "text": "text below is intentionally long enough to fill several lines so paragraph segmentation has real input to"
+        },
+        {
+          "kind": "paragraph",
+          "text": "operate on."
+        }
+      ],
+      "kind": "page"
+    }
+  ],
+  "kind": "document"
+}

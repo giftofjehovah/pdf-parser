@@ -12,3 +12,20 @@ def test_visualize_writes_one_png_per_page(tmp_path):
     pngs = sorted(tmp_path.glob("page_*.png"))
     assert len(pngs) == 1
     assert pngs[0].stat().st_size > 0
+
+
+MULTI = Path("tests/golden/synthetic/03_page_spanning/source.pdf")
+
+
+def test_visualize_writes_single_pdf_when_target_is_pdf(tmp_path):
+    import pymupdf
+
+    tree = parse(MULTI)
+    out = tmp_path / "debug.pdf"
+    render_overlays(MULTI, tree, out)
+    assert out.is_file() and out.stat().st_size > 0
+    doc = pymupdf.open(str(out))
+    try:
+        assert doc.page_count == 2
+    finally:
+        doc.close()
