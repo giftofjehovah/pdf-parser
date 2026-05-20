@@ -51,7 +51,8 @@
             ],
             "n_cols": 5,
             "n_rows": 34,
-            "page": 0
+            "page": 0,
+            "page_height": 792.0
           },
           "bbox": {
             "page": 0,

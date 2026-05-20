@@ -90,10 +90,6 @@ def _split_paragraph(node: DocNode, max_tokens: int, overlap: int) -> list[Chunk
 
 def _walk_with_breadcrumb(node: DocNode, crumbs: list[str], max_tokens: int, overlap: int) -> list[Chunk]:
     out: list[Chunk] = []
-    new_crumbs = crumbs
-    if node.kind == "heading" and node.text:
-        new_crumbs = crumbs + [node.text]
-        return out  # heading text itself isn't a chunk; it becomes breadcrumb
     if node.kind == "paragraph":
         ch = _split_paragraph(node, max_tokens, overlap)
         for c in ch:
@@ -115,9 +111,15 @@ def _walk_with_breadcrumb(node: DocNode, crumbs: list[str], max_tokens: int, ove
             c.breadcrumb = list(crumbs)
         return ch
 
-    # Recurse for containers (document, page, section, cell).
+    # Containers (document, page, section, cell): iterate children and carry
+    # a running crumbs list so each heading updates the context for its
+    # subsequent siblings — headings themselves are never emitted as chunks.
+    current_crumbs = crumbs
     for child in node.children:
-        out.extend(_walk_with_breadcrumb(child, new_crumbs, max_tokens, overlap))
+        if child.kind == "heading" and child.text:
+            current_crumbs = current_crumbs + [child.text]
+        else:
+            out.extend(_walk_with_breadcrumb(child, current_crumbs, max_tokens, overlap))
     return out
 
 

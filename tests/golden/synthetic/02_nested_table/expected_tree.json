@@ -49,7 +49,8 @@
             ],
             "n_cols": 3,
             "n_rows": 3,
-            "page": 0
+            "page": 0,
+            "page_height": 792.0
           },
           "bbox": {
             "page": 0,
@@ -181,7 +182,8 @@
                         ],
                         "n_cols": 2,
                         "n_rows": 3,
-                        "page": 0
+                        "page": 0,
+                        "page_height": 792.0
                       },
                       "bbox": {
                         "page": 0,

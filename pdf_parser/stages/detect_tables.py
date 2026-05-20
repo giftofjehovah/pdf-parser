@@ -29,13 +29,14 @@ class TableRegion:
     bbox: BBox
     grid: list[list[str]]          # row-major text
     cell_bboxes: list[list[BBox]]  # parallel to grid
+    page_height: float = 0.0       # original page height in points (for stitch proximity check)
 
 
 def _cell_text(cells: list[list]) -> list[list[str]]:
     return [[(c if c is not None else "") for c in row] for row in cells]
 
 
-def _extract_region(plumber_page, table, page_index: int) -> Optional[TableRegion]:
+def _extract_region(plumber_page, table, page_index: int, page_height: float = 0.0) -> Optional[TableRegion]:
     rows = table.extract()
     if not rows or len(rows) < 1:
         return None
@@ -59,6 +60,7 @@ def _extract_region(plumber_page, table, page_index: int) -> Optional[TableRegio
         bbox=BBox(page=page_index, x0=x0, y0=y0, x1=x1, y1=y1),
         grid=grid,
         cell_bboxes=cell_bboxes,
+        page_height=page_height,
     )
 
 
@@ -76,7 +78,7 @@ def detect_tables(
             if region_bbox is not None:
                 target = page.crop((region_bbox.x0, region_bbox.y0, region_bbox.x1, region_bbox.y1))
             for t in target.find_tables(table_settings=settings):
-                region = _extract_region(target, t, page.page_number - 1)
+                region = _extract_region(target, t, page.page_number - 1, float(page.height))
                 if region is not None:
                     out.append(region)
     return out

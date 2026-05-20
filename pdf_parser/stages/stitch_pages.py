@@ -5,15 +5,33 @@ from __future__ import annotations
 from pdf_parser.model import BBox, DocNode
 
 COLUMN_ANCHOR_TOL = 4.0   # points
-BOTTOM_MARGIN_FRAC = 0.05  # within 5% of page height counts as "near bottom"
-TOP_MARGIN_FRAC = 0.10     # within 10% of page height counts as "near top"
+# A table that ends before this fraction of the page height from the bottom is
+# complete on that page and must NOT be stitched to a same-column table on the
+# next page.  Standard reportlab bottom margin is 1 in (72 pt) on a 792 pt LETTER
+# page, so a table cut at the page break ends at ~720 pt (≈ 91% down the page).
+# Using 0.15 means any table that ends before the bottom 15% (≥ y1 < 673 pt on
+# LETTER) is treated as complete.  Only applied when page_height is stored in
+# the table's attrs; synthetic tables built in tests are unaffected.
+BOTTOM_MARGIN_FRAC = 0.15
 
 
 def _col_anchors(table: DocNode) -> list[tuple[float, float]]:
-    if not table.children or not table.children[0].children:
-        return []
-    first_row = table.children[0]
-    return [(cell.bbox.x0, cell.bbox.x1) for cell in first_row.children]
+    """Return (x0, x1) per logical column.
+
+    Scans every row and picks the one with the most non-covered cells.
+    This avoids colspan rows (where one cell spans the full table width)
+    misreporting the column structure and preventing a legitimate stitch.
+    """
+    best: list[tuple[float, float]] = []
+    for row in table.children:
+        anchors = [
+            (c.bbox.x0, c.bbox.x1)
+            for c in row.children
+            if not c.attrs.get("covered")
+        ]
+        if len(anchors) > len(best):
+            best = anchors
+    return best
 
 
 def _anchors_match(a: list[tuple[float, float]], b: list[tuple[float, float]]) -> bool:
@@ -39,6 +57,14 @@ def _can_merge(prev: DocNode, nxt: DocNode) -> bool:
     n_page = _first_bbox(nxt).page
     if n_page != p_page + 1:
         return False
+    # Guard against stitching two independent tables that happen to share column
+    # anchors: a table cut by a page break fills near the page bottom; a table
+    # that ends well before the bottom is complete and should not be merged.
+    page_height: float | None = prev.attrs.get("page_height")
+    if page_height:
+        prev_last_bbox = prev.bbox[-1] if isinstance(prev.bbox, list) else prev.bbox
+        if prev_last_bbox.y1 < page_height * (1.0 - BOTTOM_MARGIN_FRAC):
+            return False
     return True
 
 

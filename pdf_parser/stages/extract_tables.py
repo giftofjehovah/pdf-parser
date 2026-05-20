@@ -21,18 +21,27 @@ def _page_y(page_height: float, pdf_y: float) -> float:
 def _outer_line_ys(page, table_bbox: tuple[float, float, float, float]) -> list[float]:
     """Return sorted page-space y-values of horizontal lines that mark row boundaries.
 
-    Accepts any line that lies within the table's x range and spans at least
-    50 % of the table width.  The relaxed threshold (vs. the original 100 %)
-    handles row-spanning cells: a row-dividing line is suppressed only for the
-    spanned column but still drawn across the remaining columns, producing a
-    partial-width segment (≥ 50 % when at most half the columns are merged).
+    Accepts any line that lies within the table's x-range AND y-range and spans
+    at least 50 % of the table width.  The relaxed width threshold (vs. the
+    original 100 %) handles row-spanning cells: a row-dividing line is suppressed
+    only for the spanned column but still drawn across the remaining columns,
+    producing a partial-width segment (≥ 50 % when at most half the columns are
+    merged).
+
+    The y-range filter is critical: without it, horizontal lines from unrelated
+    tables elsewhere on the same page can be included as row boundaries, producing
+    phantom extra rows whose cell bboxes extend into the unrelated table's region.
     """
-    table_x0, _, table_x1, _ = table_bbox
+    table_x0, table_y0, table_x1, table_y1 = table_bbox
     table_width = table_x1 - table_x0
     page_height = page.height
     ys: set[float] = set()
     for line in page.lines:
         if abs(line["y0"] - line["y1"]) < 1:  # horizontal
+            # Must overlap with the table's y-range (top-origin pdfplumber coords).
+            ln_top = min(line["top"], line["bottom"])
+            if ln_top < table_y0 - _OVERLAP_TOL or ln_top > table_y1 + _OVERLAP_TOL:
+                continue
             line_width = line["x1"] - line["x0"]
             in_x = (line["x0"] >= table_x0 - _OVERLAP_TOL
                     and line["x1"] <= table_x1 + _OVERLAP_TOL)
@@ -61,17 +70,32 @@ def _outer_col_xs_from_lines(
     those out while still capturing outer column boundaries that are suppressed
     in a colspan header row (typically 1 out of N rows, leaving (N-1)/N ≥ 80 %
     for N ≥ 5; the threshold was originally 95 % which broke on any colspan).
+
+    Lines are pre-filtered to those whose x lies within the table's x-range and
+    whose y-span overlaps the table's y-range.  Without both filters,
+    vertical lines from unrelated tables elsewhere on the same page can satisfy
+    the height threshold (because the merged-cells table may be very short) and
+    produce spurious columns.
     """
-    _, table_y0, _, table_y1 = table_bbox
+    table_x0, table_y0, table_x1, table_y1 = table_bbox
     table_height = table_y1 - table_y0
     if table_height <= 0:
         return []
     xs: set[float] = set()
     for ln in page.lines:
-        if abs(ln["x0"] - ln["x1"]) < 1:  # vertical
+        if abs(ln["x0"] - ln["x1"]) < 1:  # vertical line
+            ln_x = round(ln["x0"], 1)
+            # Must lie within the table's x-range.
+            if ln_x < table_x0 - _OVERLAP_TOL or ln_x > table_x1 + _OVERLAP_TOL:
+                continue
+            # Must overlap with the table's y-range (top-origin pdfplumber coords).
+            ln_top = min(ln["top"], ln["bottom"])
+            ln_bot = max(ln["top"], ln["bottom"])
+            if ln_bot < table_y0 - _OVERLAP_TOL or ln_top > table_y1 + _OVERLAP_TOL:
+                continue
             length = abs(ln["y1"] - ln["y0"])
             if length >= 0.70 * table_height:
-                xs.add(round(ln["x0"], 1))
+                xs.add(ln_x)
     xs_sorted = sorted(xs)
     if len(xs_sorted) < 2:
         return []
@@ -102,6 +126,16 @@ def _logical_grid_from_table(
     col_xs = _outer_col_xs_from_lines(page, t.bbox)
     if not col_xs:
         col_xs = _outer_col_xs(raw_rows[0])
+    # A colspan row that spans the full table width suppresses all inner vertical
+    # edges for that row.  When the fragment is short (e.g. the top portion of a
+    # split merged-cells table), inner dividers only appear in the remaining rows
+    # and may not reach the 70 % height threshold.  Fall back to the raw row with
+    # the most non-None cells so we still recover the correct column structure.
+    if len(col_xs) < 2:
+        for row in raw_rows:
+            cand = _outer_col_xs(row)
+            if len(cand) > len(col_xs):
+                col_xs = cand
     if not col_xs:
         return None
 
@@ -240,6 +274,7 @@ def _build_table(region: TableRegion, pdf_path: Path, depth: int) -> DocNode:
             "n_cols": len(region.grid[0]) if region.grid else 0,
             "header_signature": tuple(region.grid[0]) if region.grid else (),
             "page": region.page_index,
+            "page_height": region.page_height,
         },
         provenance={"extractor": "pdfplumber", "stage": "extract_tables"},
     )
@@ -282,6 +317,7 @@ def _build_table_from_logical(
             "n_cols": len(logical_grid[0]) if logical_grid else 0,
             "header_signature": tuple(logical_grid[0]) if logical_grid else (),
             "page": region.page_index,
+            "page_height": region.page_height,
         },
         provenance={"extractor": "pdfplumber", "stage": "extract_tables"},
     )
