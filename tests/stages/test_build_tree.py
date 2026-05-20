@@ -16,6 +16,23 @@ def _run(pdf_path):
     return build_tree(segs, tables)
 
 
+SPAN = Path(__file__).resolve().parents[1] / "golden" / "synthetic" / "03_page_spanning" / "source.pdf"
+
+
+def test_page_spanning_table_does_not_duplicate_cell_text_as_paragraphs():
+    tree = _run(SPAN)
+
+    def walk(n):
+        yield n
+        for c in n.children:
+            yield from walk(c)
+
+    # Cell text like "Item number 30" appears on page 2. If overlap filtering
+    # is broken, the segmenter's text shows up as a paragraph node on page 2.
+    paragraphs = [n for n in walk(tree) if n.kind == "paragraph"]
+    leaked = [p for p in paragraphs if p.text and "Item number" in p.text]
+    assert leaked == [], f"page-spanning table cell text leaked as paragraphs: {[p.text for p in leaked]}"
+
 def test_root_is_document():
     tree = _run(FIXTURE)
     assert tree.kind == "document"
