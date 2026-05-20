@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>PDF Preview</title>
+<style>
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+body {
+  background: #777;
+  padding: 24px;
+  font-family: Helvetica, Arial, sans-serif;
+  font-size: 11.25px;
+}
+.page {
+  position: relative;
+  background: white;
+  margin: 0 auto 32px;
+  box-shadow: 0 4px 24px rgba(0,0,0,.45);
+  overflow: hidden;
+}
+.tb {
+  position: absolute;
+  overflow: hidden;
+  white-space: nowrap;
+}
+.tb-h1 { font-size: 21.00px; font-weight: bold; }
+.tb-h2 { font-size: 18.00px; font-weight: bold; }
+.tb-h3 { font-size: 16.50px; font-weight: bold; }
+.tb-h4 { font-size: 15.00px; font-weight: bold; }
+.cell {
+  position: absolute;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  font-size: 11.25px;
+  line-height: 13.50px;
+  padding: 3.0px 4.5px;
+  border: 0.6px solid #AAAAAA;
+}
+/* heuristic fallback classes (used when no pdf_path is given) */
+.rH { background: #D0D0D0; font-weight: bold; justify-content: center; }
+.rS { background: #E8E8E8; font-weight: bold; font-size: 10.50px; }
+.rT { background: #F0F0F0; font-weight: bold; border-top-color: #000 !important; }
+.rK { background: #DDEEFF; font-weight: bold;
+       border-top: 1.2px solid #000 !important;
+       border-bottom: 1.2px solid #000 !important; }
+.rP { font-style: italic; color: #444; }
+.num { justify-content: flex-end; }
+
+</style>
+</head>
+<body>
+<div class="page" style="width:918px;height:1188px;"><div class="tb tb-h1" style="left:117.0px;top:115.1px;width:243.1px;height:37.2px;">Sections And Lists</div><div class="tb tb-h2" style="left:117.0px;top:187.5px;width:145.9px;height:28.9px;">1. Background</div><div class="tb" style="left:117.0px;top:223.9px;width:227.6px;height:20.6px;">This is the background paragraph.</div><div class="tb tb-h2" style="left:117.0px;top:268.5px;width:110.9px;height:28.9px;">2. Findings</div><div class="tb tb-h3" style="left:117.0px;top:304.7px;width:6.3px;height:24.7px;">•</div><div class="tb" style="left:144.0px;top:304.9px;width:81.7px;height:20.6px;">First finding.</div><div class="tb tb-h3" style="left:117.0px;top:331.7px;width:6.3px;height:24.7px;">•</div><div class="tb" style="left:144.0px;top:331.9px;width:103.4px;height:20.6px;">Second finding.</div><div class="tb tb-h3" style="left:117.0px;top:358.7px;width:6.3px;height:24.7px;">•</div><div class="tb" style="left:144.0px;top:358.9px;width:86.7px;height:20.6px;">Third finding.</div><div class="tb tb-h3" style="left:117.0px;top:406.7px;width:131.1px;height:24.9px;">2.1 Detail Table</div><div class="cell rH" style="left:431.0px;top:438.0px;width:28.0px;height:27.0px;">A</div><div class="cell rH num" style="left:459.0px;top:438.0px;width:28.0px;height:27.0px;">B</div><div class="cell rK" style="left:431.0px;top:465.0px;width:28.0px;height:27.0px;">1</div><div class="cell rK num" style="left:459.0px;top:465.0px;width:28.0px;height:27.0px;">2</div><div class="cell rK" style="left:431.0px;top:492.0px;width:28.0px;height:27.0px;">3</div><div class="cell rK num" style="left:459.0px;top:492.0px;width:28.0px;height:27.0px;">4</div></div>
+
+</body>
+</html>
+

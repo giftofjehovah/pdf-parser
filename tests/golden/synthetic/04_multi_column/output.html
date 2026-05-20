@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>PDF Preview</title>
+<style>
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+body {
+  background: #777;
+  padding: 24px;
+  font-family: Helvetica, Arial, sans-serif;
+  font-size: 11.25px;
+}
+.page {
+  position: relative;
+  background: white;
+  margin: 0 auto 32px;
+  box-shadow: 0 4px 24px rgba(0,0,0,.45);
+  overflow: hidden;
+}
+.tb {
+  position: absolute;
+  overflow: hidden;
+  white-space: nowrap;
+}
+.tb-h1 { font-size: 21.00px; font-weight: bold; }
+.tb-h2 { font-size: 18.00px; font-weight: bold; }
+.tb-h3 { font-size: 16.50px; font-weight: bold; }
+.tb-h4 { font-size: 15.00px; font-weight: bold; }
+.cell {
+  position: absolute;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  font-size: 11.25px;
+  line-height: 13.50px;
+  padding: 3.0px 4.5px;
+  border: 0.6px solid #AAAAAA;
+}
+/* heuristic fallback classes (used when no pdf_path is given) */
+.rH { background: #D0D0D0; font-weight: bold; justify-content: center; }
+.rS { background: #E8E8E8; font-weight: bold; font-size: 10.50px; }
+.rT { background: #F0F0F0; font-weight: bold; border-top-color: #000 !important; }
+.rK { background: #DDEEFF; font-weight: bold;
+       border-top: 1.2px solid #000 !important;
+       border-bottom: 1.2px solid #000 !important; }
+.rP { font-style: italic; color: #444; }
+.num { justify-content: flex-end; }
+
+</style>
+</head>
+<body>
+<div class="page" style="width:918px;height:1188px;"><div class="tb tb-h1" style="left:117.0px;top:115.1px;width:259.5px;height:37.2px;">Two-Column Layout</div><div class="tb" style="left:126.0px;top:193.9px;width:604.3px;height:20.6px;">Lorem ipsum dolor sit amet, consectetur Lorem ipsum dolor sit amet, consectetur</div><div class="tb" style="left:126.0px;top:211.9px;width:620.9px;height:20.6px;">adipiscing elit. Lorem ipsum dolor sit amet, adipiscing elit. Lorem ipsum dolor sit amet,</div><div class="tb" style="left:126.0px;top:229.9px;width:660.9px;height:20.6px;">consectetur adipiscing elit. Lorem ipsum dolor sit consectetur adipiscing elit. Lorem ipsum dolor sit</div><div class="tb" style="left:126.0px;top:247.9px;width:645.9px;height:20.6px;">amet, consectetur adipiscing elit. Lorem ipsum amet, consectetur adipiscing elit. Lorem ipsum</div><div class="tb" style="left:126.0px;top:265.9px;width:658.5px;height:20.6px;">dolor sit amet, consectetur adipiscing elit. Lorem dolor sit amet, consectetur adipiscing elit. Lorem</div><div class="tb" style="left:126.0px;top:283.9px;width:655.9px;height:20.6px;">ipsum dolor sit amet, consectetur adipiscing elit. ipsum dolor sit amet, consectetur adipiscing elit.</div><div class="tb" style="left:126.0px;top:301.9px;width:604.3px;height:20.6px;">Lorem ipsum dolor sit amet, consectetur Lorem ipsum dolor sit amet, consectetur</div><div class="tb" style="left:126.0px;top:319.9px;width:620.9px;height:20.6px;">adipiscing elit. Lorem ipsum dolor sit amet, adipiscing elit. Lorem ipsum dolor sit amet,</div><div class="tb" style="left:126.0px;top:337.9px;width:660.9px;height:20.6px;">consectetur adipiscing elit. Lorem ipsum dolor sit consectetur adipiscing elit. Lorem ipsum dolor sit</div><div class="tb" style="left:126.0px;top:355.9px;width:555.1px;height:20.6px;">amet, consectetur adipiscing elit. amet, consectetur adipiscing elit.</div><div class="tb" style="left:126.0px;top:382.9px;width:604.3px;height:20.6px;">Lorem ipsum dolor sit amet, consectetur Lorem ipsum dolor sit amet, consectetur</div><div class="tb" style="left:126.0px;top:400.9px;width:620.9px;height:20.6px;">adipiscing elit. Lorem ipsum dolor sit amet, adipiscing elit. Lorem ipsum dolor sit amet,</div><div class="tb" style="left:126.0px;top:418.9px;width:660.9px;height:20.6px;">consectetur adipiscing elit. Lorem ipsum dolor sit consectetur adipiscing elit. Lorem ipsum dolor sit</div><div class="tb" style="left:126.0px;top:436.9px;width:645.9px;height:20.6px;">amet, consectetur adipiscing elit. Lorem ipsum amet, consectetur adipiscing elit. Lorem ipsum</div><div class="tb" style="left:126.0px;top:454.9px;width:658.5px;height:20.6px;">dolor sit amet, consectetur adipiscing elit. Lorem dolor sit amet, consectetur adipiscing elit. Lorem</div><div class="tb" style="left:126.0px;top:472.9px;width:655.9px;height:20.6px;">ipsum dolor sit amet, consectetur adipiscing elit. ipsum dolor sit amet, consectetur adipiscing elit.</div><div class="tb" style="left:126.0px;top:490.9px;width:604.3px;height:20.6px;">Lorem ipsum dolor sit amet, consectetur Lorem ipsum dolor sit amet, consectetur</div><div class="tb" style="left:126.0px;top:508.9px;width:620.9px;height:20.6px;">adipiscing elit. Lorem ipsum dolor sit amet, adipiscing elit. Lorem ipsum dolor sit amet,</div><div class="tb" style="left:126.0px;top:526.9px;width:660.9px;height:20.6px;">consectetur adipiscing elit. Lorem ipsum dolor sit consectetur adipiscing elit. Lorem ipsum dolor sit</div><div class="tb" style="left:126.0px;top:544.9px;width:555.1px;height:20.6px;">amet, consectetur adipiscing elit. amet, consectetur adipiscing elit.</div></div>
+
+</body>
+</html>
+
