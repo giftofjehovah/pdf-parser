@@ -77,12 +77,12 @@
                   "bbox": {
                     "page": 0,
                     "x0": 151,
-                    "x1": 301,
+                    "x1": 461,
                     "y0": 118,
                     "y1": 136
                   },
                   "children": [],
-                  "id": "cc6a1aa9bf02",
+                  "id": "b1c67c01bf16",
                   "kind": "cell",
                   "provenance": {
                     "extractor": "pdfplumber",
@@ -91,7 +91,9 @@
                   "text": "Quarterly Report"
                 },
                 {
-                  "attrs": {},
+                  "attrs": {
+                    "covered": true
+                  },
                   "bbox": {
                     "page": 0,
                     "x0": 301,
@@ -109,7 +111,9 @@
                   "text": ""
                 },
                 {
-                  "attrs": {},
+                  "attrs": {
+                    "covered": true
+                  },
                   "bbox": {
                     "page": 0,
                     "x0": 381,
@@ -127,7 +131,7 @@
                   "text": ""
                 }
               ],
-              "id": "cf6e2721d40c",
+              "id": "efdb2333b333",
               "kind": "row",
               "provenance": {},
               "text": null
@@ -225,10 +229,10 @@
                     "x0": 151,
                     "x1": 301,
                     "y0": 154,
-                    "y1": 172
+                    "y1": 190
                   },
                   "children": [],
-                  "id": "0d2712fb90ef",
+                  "id": "1a3c30a031ec",
                   "kind": "cell",
                   "provenance": {
                     "extractor": "pdfplumber",
@@ -273,7 +277,7 @@
                   "text": "200"
                 }
               ],
-              "id": "4c6f1fe219dc",
+              "id": "616d4b9c3ac7",
               "kind": "row",
               "provenance": {},
               "text": null
@@ -292,7 +296,9 @@
               },
               "children": [
                 {
-                  "attrs": {},
+                  "attrs": {
+                    "covered": true
+                  },
                   "bbox": {
                     "page": 0,
                     "x0": 151,
@@ -425,7 +431,7 @@
               "text": null
             }
           ],
-          "id": "ee46ab94d0c5",
+          "id": "d449e18c7bd4",
           "kind": "table",
           "provenance": {
             "extractor": "pdfplumber",
@@ -434,13 +440,13 @@
           "text": null
         }
       ],
-      "id": "a14ec7c4da72",
+      "id": "2802267184ba",
       "kind": "page",
       "provenance": {},
       "text": null
     }
   ],
-  "id": "39df65239d2e",
+  "id": "128a7975a650",
   "kind": "document",
   "provenance": {},
   "text": null

@@ -261,6 +261,8 @@ def _render_table_rows(
         rtype = _classify_row_heuristic(row) if not use_rects else ""
 
         for col_idx, cell in enumerate(row.children):
+            if cell.attrs.get("covered"):
+                continue
             b = _single_bbox(cell)
             pos = _bbox_pos(b, x_off, y_off)
 

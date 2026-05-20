@@ -80,12 +80,13 @@ def _outer_col_xs_from_lines(
 
 def _logical_grid_from_table(
     page, t, page_index: int
-) -> Optional[tuple[list[list[str]], list[list[BBox]]]]:
+) -> Optional[tuple[list[list[str]], list[list[BBox]], set[tuple[int, int]]]]:
     """
     Reconstruct the logical (merged-cell) grid for a pdfplumber table.
 
-    Returns (logical_grid, logical_cell_bboxes), or None if no outer-line
-    structure is found (caller should fall back to the raw TableRegion).
+    Returns (logical_grid, logical_cell_bboxes, covered) where *covered* is the
+    set of (row_idx, col_idx) positions that are spanned over by an earlier cell
+    (colspan or rowspan).  Returns None if no outer-line structure is found.
     """
     raw_rows = [r.cells for r in t.rows]
     texts = t.extract()
@@ -107,14 +108,19 @@ def _logical_grid_from_table(
     row_boundaries = list(zip(outer_ys[:-1], outer_ys[1:]))
     logical_grid: list[list[str]] = []
     logical_cell_bboxes: list[list[BBox]] = []
+    covered: set[tuple[int, int]] = set()
 
-    for row_y0, row_y1 in row_boundaries:
+    for r_idx, (row_y0, row_y1) in enumerate(row_boundaries):
         row_texts: list[str] = []
         row_bboxes: list[BBox] = []
-        for col_x0, col_x1 in col_xs:
-            logical_bbox = BBox(
-                page=page_index, x0=col_x0, y0=row_y0, x1=col_x1, y1=row_y1
-            )
+        for c_idx, (col_x0, col_x1) in enumerate(col_xs):
+            if (r_idx, c_idx) in covered:
+                row_texts.append("")
+                row_bboxes.append(BBox(
+                    page=page_index, x0=col_x0, y0=row_y0, x1=col_x1, y1=row_y1
+                ))
+                continue
+
             # Collect text from all raw sub-cells that START in this logical cell.
             # Using the top-left corner (cx0, cy0) rather than the centre avoids
             # merged cells being assigned to multiple logical cells: a colspan/rowspan
@@ -128,6 +134,7 @@ def _logical_grid_from_table(
             # two rows simultaneously).  In practice pdfplumber coordinates are exact
             # to within 1-2 pt, so tol=2.0 is sufficient.
             cell_texts: list[str] = []
+            primary_raw: tuple[float, float, float, float] | None = None
             for ri, rrow in enumerate(raw_rows):
                 for ci, cell in enumerate(rrow):
                     if cell is None:
@@ -139,17 +146,43 @@ def _logical_grid_from_table(
                         t_val = texts[ri][ci]
                         if t_val:
                             cell_texts.append(t_val)
-            row_texts.append(" ".join(cell_texts))
-            row_bboxes.append(logical_bbox)
+                        if primary_raw is None:
+                            primary_raw = (cx0, cy0, cx1, cy1)
+
+            text = " ".join(cell_texts)
+
+            # Detect colspan / rowspan from the primary raw cell's extent.
+            actual_x1 = col_x1
+            actual_y1 = row_y1
+            if primary_raw is not None and text:
+                _, _, raw_x1, raw_y1 = primary_raw
+                # Colspan: raw cell extends beyond this column's right edge.
+                if raw_x1 > col_x1 + _OVERLAP_TOL:
+                    actual_x1 = raw_x1
+                    for nc in range(c_idx + 1, len(col_xs)):
+                        if col_xs[nc][0] < raw_x1 - _OVERLAP_TOL:
+                            covered.add((r_idx, nc))
+                # Rowspan: raw cell extends below this row's bottom edge.
+                if raw_y1 > row_y1 + _OVERLAP_TOL:
+                    actual_y1 = raw_y1
+                    for nr in range(r_idx + 1, len(row_boundaries)):
+                        if row_boundaries[nr][0] < raw_y1 - _OVERLAP_TOL:
+                            covered.add((nr, c_idx))
+
+            row_texts.append(text)
+            row_bboxes.append(BBox(
+                page=page_index, x0=col_x0, y0=row_y0, x1=actual_x1, y1=actual_y1
+            ))
         logical_grid.append(row_texts)
         logical_cell_bboxes.append(row_bboxes)
 
-    return logical_grid, logical_cell_bboxes
+    return logical_grid, logical_cell_bboxes, covered
 
 
-def _build_cell(text: str, bbox: BBox, pdf_path: Path, depth: int) -> DocNode:
+def _build_cell(text: str, bbox: BBox, pdf_path: Path, depth: int,
+                covered: bool = False) -> DocNode:
     children: list[DocNode] = []
-    if depth + 1 < MAX_DEPTH:
+    if not covered and depth + 1 < MAX_DEPTH:
         shrunk = BBox(
             page=bbox.page,
             x0=bbox.x0 + 1,
@@ -165,11 +198,15 @@ def _build_cell(text: str, bbox: BBox, pdf_path: Path, depth: int) -> DocNode:
                 if abs(region.bbox.x1 - region.bbox.x0) >= abs(bbox.x1 - bbox.x0) - 1:
                     continue
                 children.append(_build_table(region, pdf_path, depth + 1))
+    attrs: dict = {}
+    if covered:
+        attrs["covered"] = True
     return DocNode(
         kind="cell",
         bbox=bbox,
         text=text if not children else None,
         children=children,
+        attrs=attrs,
         provenance={"extractor": "pdfplumber", "stage": "extract_tables"},
     )
 
@@ -214,6 +251,7 @@ def _build_table_from_logical(
     region: TableRegion,
     pdf_path: Path,
     depth: int,
+    covered: set[tuple[int, int]] | None = None,
 ) -> DocNode:
     """Build a DocNode table from a reconstructed logical (merged-cell) grid."""
     rows: list[DocNode] = []
@@ -225,7 +263,8 @@ def _build_table_from_logical(
                 if r_idx < len(cell_bboxes) and c_idx < len(cell_bboxes[r_idx])
                 else region.bbox
             )
-            cells.append(_build_cell(text, cbox, pdf_path, depth))
+            is_covered = covered is not None and (r_idx, c_idx) in covered
+            cells.append(_build_cell(text, cbox, pdf_path, depth, covered=is_covered))
         rows.append(
             DocNode(
                 kind="row",
@@ -279,9 +318,9 @@ def extract_tables(pdf_path: Path) -> list[DocNode]:
                 logical = _logical_grid_from_table(page, matched_pt, region.page_index)
 
             if logical is not None:
-                grid, bboxes = logical
+                grid, bboxes, cov = logical
                 result.append(
-                    _build_table_from_logical(grid, bboxes, region, pdf_path, depth=0)
+                    _build_table_from_logical(grid, bboxes, region, pdf_path, depth=0, covered=cov)
                 )
             else:
                 result.append(_build_table(region, pdf_path, depth=0))
