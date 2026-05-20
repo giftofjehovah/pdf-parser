@@ -23,13 +23,13 @@ def _root() -> None:
     """Force subcommand mode so `pdf-parser parse <path>` is the entrypoint."""
 
 
-def _render(tree, format: str) -> str:
+def _render(tree, format: str, pdf_path: Path | None = None) -> str:
     if format == "json":
         return to_json(tree, indent=2)
     if format == "markdown":
         return to_markdown(tree)
     if format == "html":
-        return to_html(tree)
+        return to_html(tree, pdf_path=pdf_path)
     if format == "chunks":
         return json.dumps([c.model_dump() for c in chunk_tree(tree)], indent=2)
     raise typer.BadParameter(f"unknown format: {format}", param_hint="--format")
@@ -65,7 +65,7 @@ def parse(
         from scripts.visualize import render_overlays
         render_overlays(path, tree, visualize)
 
-    rendered = _render(tree, format)
+    rendered = _render(tree, format, pdf_path=path)
     if output is None:
         typer.echo(rendered)
     else:
