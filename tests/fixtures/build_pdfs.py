@@ -525,6 +525,115 @@ def build_11_pl_statement(out: Path) -> None:
     ]
     doc.build(story)
 
+
+
+def _make_chart_png() -> bytes:
+    """Generate a deterministic 420×260 bar chart PNG using Pillow only."""
+    import io
+    from PIL import Image, ImageDraw, ImageFont
+
+    W, H = 420, 260
+    img = Image.new("RGB", (W, H), (255, 255, 255))
+    draw = ImageDraw.Draw(img)
+    font = ImageFont.load_default()
+
+    # Revenue data: (quarter, product_rev, service_rev) in $000s
+    data = [
+        ("Q1", 12_450, 2_890),
+        ("Q2", 15_320, 3_450),
+        ("Q3", 18_760, 4_120),
+        ("Q4", 22_140, 5_380),
+    ]
+    BLUE   = (70, 130, 180)
+    ORANGE = (220, 120, 60)
+    BLACK  = (0, 0, 0)
+    GRAY   = (180, 180, 180)
+
+    ml, mr, mt, mb = 35, 15, 25, 30
+    x0, x1, y0, y1 = ml, W - mr, mt, H - mb
+    cw, ch = x1 - x0, y1 - y0
+    max_v = max(p + s for _, p, s in data)
+    gw = cw // len(data)
+    bw = gw // 3
+
+    # Horizontal grid lines at 25 % intervals
+    for frac in (0.25, 0.50, 0.75, 1.0):
+        gy = y1 - int(frac * ch)
+        draw.line([x0, gy, x1, gy], fill=GRAY, width=1)
+
+    for i, (lbl, prod, svc) in enumerate(data):
+        gx = x0 + i * gw + gw // 6
+        # Product bar (blue)
+        bh = int(prod / max_v * ch)
+        draw.rectangle([gx, y1 - bh, gx + bw, y1], fill=BLUE)
+        # Service bar (orange), immediately to the right
+        gx2 = gx + bw + 2
+        bh2 = int(svc / max_v * ch)
+        draw.rectangle([gx2, y1 - bh2, gx2 + bw, y1], fill=ORANGE)
+        # Quarter label below the group
+        lx = x0 + i * gw + gw // 2 - 6
+        draw.text((lx, y1 + 3), lbl, fill=BLACK, font=font)
+
+    # Axes
+    draw.line([x0, y0, x0, y1], fill=BLACK, width=1)
+    draw.line([x0, y1, x1, y1], fill=BLACK, width=1)
+
+    # Legend (top-right)
+    lx, ly = x1 - 130, y0
+    draw.rectangle([lx, ly, lx + 10, ly + 8], fill=BLUE)
+    draw.text((lx + 13, ly), "Product Rev", fill=BLACK, font=font)
+    draw.rectangle([lx, ly + 12, lx + 10, ly + 20], fill=ORANGE)
+    draw.text((lx + 13, ly + 12), "Service Rev", fill=BLACK, font=font)
+
+    buf = io.BytesIO()
+    img.save(buf, format="PNG", optimize=False)
+    return buf.getvalue()
+
+
+def build_12_image_chart(out: Path) -> None:
+    """Single page: heading + intro paragraph + embedded bar-chart PNG + analysis text.
+
+    Exercises the image pipeline end-to-end:
+      - raster PNG embedded via reportlab Image flowable
+      - figure node appears in the DocNode tree between text blocks
+      - HTML renderer inlines the image as a base64 data URI
+    """
+    import io
+    from reportlab.lib.pagesizes import LETTER
+    from reportlab.lib.styles import getSampleStyleSheet
+    from reportlab.lib.units import inch
+    from reportlab.platypus import Image as RLImage
+    from reportlab.platypus import Paragraph, SimpleDocTemplate, Spacer
+
+    s = getSampleStyleSheet()
+    doc = SimpleDocTemplate(
+        str(out), pagesize=LETTER,
+        leftMargin=72, rightMargin=72, topMargin=72, bottomMargin=72,
+    )
+
+    chart_bytes = _make_chart_png()
+    chart_img = RLImage(io.BytesIO(chart_bytes), width=4.5 * inch, height=2.79 * inch)
+
+    story = [
+        Paragraph("Quarterly Revenue Report", s["Heading1"]),
+        Spacer(1, 10),
+        Paragraph(
+            "The chart below shows product and service revenue for each quarter of the "
+            "current fiscal year. Product revenue (blue) consistently outpaces service "
+            "revenue (orange) across all four quarters.",
+            s["BodyText"],
+        ),
+        Spacer(1, 12),
+        chart_img,
+        Spacer(1, 12),
+        Paragraph(
+            "Product revenue grew 77.8 % year-over-year, reaching $22.14 M in Q4. "
+            "Service revenue expanded 86.2 % over the same period to $5.38 M. "
+            "Combined Q4 revenue of $27.52 M represents a 74.0 % increase over Q1.",
+            s["BodyText"],
+        ),
+    ]
+    doc.build(story)
 BUILDERS = {
     "01_simple_table": build_01_simple_table,
     "02_nested_table": build_02_nested_table,
@@ -537,6 +646,7 @@ BUILDERS = {
     "09_mixed_toc_and_spanning_table": build_09_mixed_toc_and_spanning_table,
     "10_merged_cells": build_10_merged_cells,
     "11_pl_statement": build_11_pl_statement,
+    "12_image_chart": build_12_image_chart,
 }
 
 

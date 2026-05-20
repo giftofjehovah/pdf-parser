@@ -1,0 +1,37 @@
+{
+  "children": [
+    {
+      "children": [
+        {
+          "kind": "heading",
+          "text": "Quarterly Revenue Report"
+        },
+        {
+          "kind": "paragraph",
+          "text": "The chart below shows product and service revenue for each quarter of the current fiscal year. Product"
+        },
+        {
+          "kind": "paragraph",
+          "text": "revenue (blue) consistently outpaces service revenue (orange) across all four quarters."
+        },
+        {
+          "kind": "figure"
+        },
+        {
+          "kind": "paragraph",
+          "text": "Product revenue grew 77.8 % year-over-year, reaching $22.14 M in Q4. Service revenue expanded"
+        },
+        {
+          "kind": "paragraph",
+          "text": "86.2 % over the same period to $5.38 M. Combined Q4 revenue of $27.52 M represents a 74.0 %"
+        },
+        {
+          "kind": "paragraph",
+          "text": "increase over Q1."
+        }
+      ],
+      "kind": "page"
+    }
+  ],
+  "kind": "document"
+}
