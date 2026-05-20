@@ -55,7 +55,8 @@ class DocNode(BaseModel):
 
     def _compute_id(self) -> str:
         bbox = self.bbox if isinstance(self.bbox, BBox) else self.bbox[0]
-        material = f"{self.kind}|{bbox.rounded()}|{self.text or ''}"
+        child_part = ",".join(c.id for c in self.children)
+        material = f"{self.kind}|{bbox.rounded()}|{self.text or ''}|{child_part}"
         return hashlib.sha256(material.encode("utf-8")).hexdigest()[:12]
 
     def assert_invariants(self, depth: int = 0) -> None:
