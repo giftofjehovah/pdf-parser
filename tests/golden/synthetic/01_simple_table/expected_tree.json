@@ -1,0 +1,319 @@
+{
+  "attrs": {},
+  "bbox": {
+    "page": 0,
+    "x0": 0,
+    "x1": 0,
+    "y0": 0,
+    "y1": 0
+  },
+  "children": [
+    {
+      "attrs": {
+        "page_index": 0
+      },
+      "bbox": {
+        "page": 0,
+        "x0": 0,
+        "x1": 612,
+        "y0": 0,
+        "y1": 792
+      },
+      "children": [
+        {
+          "attrs": {
+            "level": 1
+          },
+          "bbox": {
+            "page": 0,
+            "x0": 78,
+            "x1": 268,
+            "y0": 77,
+            "y1": 102
+          },
+          "children": [],
+          "id": "99ccc6ec374b",
+          "kind": "heading",
+          "provenance": {
+            "extractor": "segment",
+            "stage": "build_tree"
+          },
+          "text": "Simple Table Example"
+        },
+        {
+          "attrs": {},
+          "bbox": {
+            "page": 0,
+            "x0": 78,
+            "x1": 236,
+            "y0": 123,
+            "y1": 137
+          },
+          "children": [],
+          "id": "5b8957cf2e41",
+          "kind": "paragraph",
+          "provenance": {
+            "extractor": "segment",
+            "stage": "build_tree"
+          },
+          "text": "The table below has three columns."
+        },
+        {
+          "attrs": {
+            "header_signature": [
+              "Name",
+              "Quantity",
+              "Price"
+            ],
+            "n_cols": 3,
+            "n_rows": 3,
+            "page": 0
+          },
+          "bbox": {
+            "page": 0,
+            "x0": 240,
+            "x1": 372,
+            "y0": 148,
+            "y1": 202
+          },
+          "children": [
+            {
+              "attrs": {
+                "page": 0,
+                "row_index": 0
+              },
+              "bbox": {
+                "page": 0,
+                "x0": 240,
+                "x1": 372,
+                "y0": 148,
+                "y1": 202
+              },
+              "children": [
+                {
+                  "attrs": {},
+                  "bbox": {
+                    "page": 0,
+                    "x0": 240,
+                    "x1": 286,
+                    "y0": 148,
+                    "y1": 166
+                  },
+                  "children": [],
+                  "id": "7cc49c35be4c",
+                  "kind": "cell",
+                  "provenance": {
+                    "extractor": "pdfplumber",
+                    "stage": "extract_tables"
+                  },
+                  "text": "Name"
+                },
+                {
+                  "attrs": {},
+                  "bbox": {
+                    "page": 0,
+                    "x0": 286,
+                    "x1": 335,
+                    "y0": 148,
+                    "y1": 166
+                  },
+                  "children": [],
+                  "id": "5984719d8c18",
+                  "kind": "cell",
+                  "provenance": {
+                    "extractor": "pdfplumber",
+                    "stage": "extract_tables"
+                  },
+                  "text": "Quantity"
+                },
+                {
+                  "attrs": {},
+                  "bbox": {
+                    "page": 0,
+                    "x0": 335,
+                    "x1": 372,
+                    "y0": 148,
+                    "y1": 166
+                  },
+                  "children": [],
+                  "id": "1d00bb54a46f",
+                  "kind": "cell",
+                  "provenance": {
+                    "extractor": "pdfplumber",
+                    "stage": "extract_tables"
+                  },
+                  "text": "Price"
+                }
+              ],
+              "id": "d94e13f30887",
+              "kind": "row",
+              "provenance": {},
+              "text": null
+            },
+            {
+              "attrs": {
+                "page": 0,
+                "row_index": 1
+              },
+              "bbox": {
+                "page": 0,
+                "x0": 240,
+                "x1": 372,
+                "y0": 148,
+                "y1": 202
+              },
+              "children": [
+                {
+                  "attrs": {},
+                  "bbox": {
+                    "page": 0,
+                    "x0": 240,
+                    "x1": 286,
+                    "y0": 166,
+                    "y1": 184
+                  },
+                  "children": [],
+                  "id": "9df466a6e15f",
+                  "kind": "cell",
+                  "provenance": {
+                    "extractor": "pdfplumber",
+                    "stage": "extract_tables"
+                  },
+                  "text": "Apple"
+                },
+                {
+                  "attrs": {},
+                  "bbox": {
+                    "page": 0,
+                    "x0": 286,
+                    "x1": 335,
+                    "y0": 166,
+                    "y1": 184
+                  },
+                  "children": [],
+                  "id": "f9318109181c",
+                  "kind": "cell",
+                  "provenance": {
+                    "extractor": "pdfplumber",
+                    "stage": "extract_tables"
+                  },
+                  "text": "3"
+                },
+                {
+                  "attrs": {},
+                  "bbox": {
+                    "page": 0,
+                    "x0": 335,
+                    "x1": 372,
+                    "y0": 166,
+                    "y1": 184
+                  },
+                  "children": [],
+                  "id": "df6cedbbc53d",
+                  "kind": "cell",
+                  "provenance": {
+                    "extractor": "pdfplumber",
+                    "stage": "extract_tables"
+                  },
+                  "text": "$1.00"
+                }
+              ],
+              "id": "35f48c0e8218",
+              "kind": "row",
+              "provenance": {},
+              "text": null
+            },
+            {
+              "attrs": {
+                "page": 0,
+                "row_index": 2
+              },
+              "bbox": {
+                "page": 0,
+                "x0": 240,
+                "x1": 372,
+                "y0": 148,
+                "y1": 202
+              },
+              "children": [
+                {
+                  "attrs": {},
+                  "bbox": {
+                    "page": 0,
+                    "x0": 240,
+                    "x1": 286,
+                    "y0": 184,
+                    "y1": 202
+                  },
+                  "children": [],
+                  "id": "ceac38f51a78",
+                  "kind": "cell",
+                  "provenance": {
+                    "extractor": "pdfplumber",
+                    "stage": "extract_tables"
+                  },
+                  "text": "Banana"
+                },
+                {
+                  "attrs": {},
+                  "bbox": {
+                    "page": 0,
+                    "x0": 286,
+                    "x1": 335,
+                    "y0": 184,
+                    "y1": 202
+                  },
+                  "children": [],
+                  "id": "a7965d6936aa",
+                  "kind": "cell",
+                  "provenance": {
+                    "extractor": "pdfplumber",
+                    "stage": "extract_tables"
+                  },
+                  "text": "6"
+                },
+                {
+                  "attrs": {},
+                  "bbox": {
+                    "page": 0,
+                    "x0": 335,
+                    "x1": 372,
+                    "y0": 184,
+                    "y1": 202
+                  },
+                  "children": [],
+                  "id": "37627ab0b3f7",
+                  "kind": "cell",
+                  "provenance": {
+                    "extractor": "pdfplumber",
+                    "stage": "extract_tables"
+                  },
+                  "text": "$0.50"
+                }
+              ],
+              "id": "a997c0ed0e7c",
+              "kind": "row",
+              "provenance": {},
+              "text": null
+            }
+          ],
+          "id": "23b5a81424f2",
+          "kind": "table",
+          "provenance": {
+            "extractor": "pdfplumber",
+            "stage": "extract_tables"
+          },
+          "text": null
+        }
+      ],
+      "id": "738b643ae7f1",
+      "kind": "page",
+      "provenance": {},
+      "text": null
+    }
+  ],
+  "id": "bd5447e3da19",
+  "kind": "document",
+  "provenance": {},
+  "text": null
+}

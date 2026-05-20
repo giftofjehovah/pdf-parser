@@ -1,0 +1,98 @@
+{
+  "children": [
+    {
+      "children": [
+        {
+          "kind": "heading",
+          "text": "Sections And Lists"
+        },
+        {
+          "kind": "heading",
+          "text": "1. Background"
+        },
+        {
+          "kind": "paragraph",
+          "text": "This is the background paragraph."
+        },
+        {
+          "kind": "heading",
+          "text": "2. Findings"
+        },
+        {
+          "kind": "heading",
+          "text": "\u2022"
+        },
+        {
+          "kind": "paragraph",
+          "text": "First finding."
+        },
+        {
+          "kind": "heading",
+          "text": "\u2022"
+        },
+        {
+          "kind": "paragraph",
+          "text": "Second finding."
+        },
+        {
+          "kind": "heading",
+          "text": "\u2022"
+        },
+        {
+          "kind": "paragraph",
+          "text": "Third finding."
+        },
+        {
+          "kind": "heading",
+          "text": "2.1 Detail Table"
+        },
+        {
+          "children": [
+            {
+              "children": [
+                {
+                  "kind": "cell",
+                  "text": "A"
+                },
+                {
+                  "kind": "cell",
+                  "text": "B"
+                }
+              ],
+              "kind": "row"
+            },
+            {
+              "children": [
+                {
+                  "kind": "cell",
+                  "text": "1"
+                },
+                {
+                  "kind": "cell",
+                  "text": "2"
+                }
+              ],
+              "kind": "row"
+            },
+            {
+              "children": [
+                {
+                  "kind": "cell",
+                  "text": "3"
+                },
+                {
+                  "kind": "cell",
+                  "text": "4"
+                }
+              ],
+              "kind": "row"
+            }
+          ],
+          "kind": "table"
+        }
+      ],
+      "kind": "page"
+    }
+  ],
+  "kind": "document"
+}
