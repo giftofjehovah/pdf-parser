@@ -7,7 +7,7 @@ from typing import Literal, Optional
 
 from pydantic import BaseModel, ConfigDict, Field, model_validator
 
-MAX_DEPTH = 3
+MAX_DEPTH = 12
 
 Kind = Literal[
     "document", "page", "section", "heading", "paragraph",
