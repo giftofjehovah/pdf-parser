@@ -19,7 +19,14 @@ def _page_y(page_height: float, pdf_y: float) -> float:
 
 
 def _outer_line_ys(page, table_bbox: tuple[float, float, float, float]) -> list[float]:
-    """Return sorted page-space y-values of horizontal lines spanning the full table width."""
+    """Return sorted page-space y-values of horizontal lines that mark row boundaries.
+
+    Accepts any line that lies within the table's x range and spans at least
+    50 % of the table width.  The relaxed threshold (vs. the original 100 %)
+    handles row-spanning cells: a row-dividing line is suppressed only for the
+    spanned column but still drawn across the remaining columns, producing a
+    partial-width segment (≥ 50 % when at most half the columns are merged).
+    """
     table_x0, _, table_x1, _ = table_bbox
     table_width = table_x1 - table_x0
     page_height = page.height
@@ -27,14 +34,48 @@ def _outer_line_ys(page, table_bbox: tuple[float, float, float, float]) -> list[
     for line in page.lines:
         if abs(line["y0"] - line["y1"]) < 1:  # horizontal
             line_width = line["x1"] - line["x0"]
-            if abs(line_width - table_width) < _OVERLAP_TOL:
+            in_x = (line["x0"] >= table_x0 - _OVERLAP_TOL
+                    and line["x1"] <= table_x1 + _OVERLAP_TOL)
+            if in_x and line_width >= 0.50 * table_width:
                 ys.add(round(_page_y(page_height, line["y0"]), 1))
     return sorted(ys)
 
 
 def _outer_col_xs(raw_header_row: list) -> list[tuple[float, float]]:
-    """Return (x0, x1) for each logical outer column, derived from non-None header cells."""
+    """Return (x0, x1) for each logical outer column, derived from non-None header cells.
+
+    Used as a fallback when the table lacks full-height vertical borders.
+    Vulnerable to nested-table interference if the header row itself is split
+    by inner-table vertical edges; prefer :func:`_outer_col_xs_from_lines`.
+    """
     return [(cell[0], cell[2]) for cell in raw_header_row if cell is not None]
+
+
+def _outer_col_xs_from_lines(
+    page, table_bbox: tuple[float, float, float, float]
+) -> list[tuple[float, float]]:
+    """Return (x0, x1) for each outer column, derived from tall vertical lines.
+
+    Nested sub-tables draw vertical edges confined to a single cell, so they
+    span only a fraction of the table height.  The ``≥ 70 %`` threshold keeps
+    those out while still capturing outer column boundaries that are suppressed
+    in a colspan header row (typically 1 out of N rows, leaving (N-1)/N ≥ 80 %
+    for N ≥ 5; the threshold was originally 95 % which broke on any colspan).
+    """
+    _, table_y0, _, table_y1 = table_bbox
+    table_height = table_y1 - table_y0
+    if table_height <= 0:
+        return []
+    xs: set[float] = set()
+    for ln in page.lines:
+        if abs(ln["x0"] - ln["x1"]) < 1:  # vertical
+            length = abs(ln["y1"] - ln["y0"])
+            if length >= 0.70 * table_height:
+                xs.add(round(ln["x0"], 1))
+    xs_sorted = sorted(xs)
+    if len(xs_sorted) < 2:
+        return []
+    return list(zip(xs_sorted[:-1], xs_sorted[1:]))
 
 
 def _logical_grid_from_table(
@@ -55,7 +96,11 @@ def _logical_grid_from_table(
     if len(outer_ys) < 2:
         return None
 
-    col_xs = _outer_col_xs(raw_rows[0])
+    # Prefer full-height vertical lines: robust when the first/last row contains
+    # a nested sub-table that would otherwise pollute the header-cell positions.
+    col_xs = _outer_col_xs_from_lines(page, t.bbox)
+    if not col_xs:
+        col_xs = _outer_col_xs(raw_rows[0])
     if not col_xs:
         return None
 
@@ -70,17 +115,26 @@ def _logical_grid_from_table(
             logical_bbox = BBox(
                 page=page_index, x0=col_x0, y0=row_y0, x1=col_x1, y1=row_y1
             )
-            # Collect text from all raw sub-cells whose centre falls in this logical cell.
+            # Collect text from all raw sub-cells that START in this logical cell.
+            # Using the top-left corner (cx0, cy0) rather than the centre avoids
+            # merged cells being assigned to multiple logical cells: a colspan/rowspan
+            # cell's centre lands exactly on a boundary, but its top-left corner is
+            # unambiguously inside the first logical cell of the span.
+            #
+            # Symmetric tolerance: [boundary - tol, boundary + tol] for the lower
+            # edge (handles sub-pixel rounding where cy0 is slightly below row_y0)
+            # and [boundary - tol, next_boundary - tol] for the upper edge (prevents
+            # a cell whose start drifted to within tol of the next row from matching
+            # two rows simultaneously).  In practice pdfplumber coordinates are exact
+            # to within 1-2 pt, so tol=2.0 is sufficient.
             cell_texts: list[str] = []
             for ri, rrow in enumerate(raw_rows):
                 for ci, cell in enumerate(rrow):
                     if cell is None:
                         continue
                     cx0, cy0, cx1, cy1 = cell
-                    cx_mid = (cx0 + cx1) / 2
-                    cy_mid = (cy0 + cy1) / 2
-                    in_x = col_x0 - _OVERLAP_TOL <= cx_mid <= col_x1 + _OVERLAP_TOL
-                    in_y = row_y0 - _OVERLAP_TOL <= cy_mid <= row_y1 + _OVERLAP_TOL
+                    in_x = col_x0 - _OVERLAP_TOL <= cx0 <= col_x1 - _OVERLAP_TOL
+                    in_y = row_y0 - _OVERLAP_TOL <= cy0 <= row_y1 - _OVERLAP_TOL
                     if in_x and in_y:
                         t_val = texts[ri][ci]
                         if t_val:

@@ -1,0 +1,849 @@
+{
+  "children": [
+    {
+      "children": [
+        {
+          "kind": "heading",
+          "text": "Consolidated Income Statement ($000s unless noted)"
+        },
+        {
+          "children": [
+            {
+              "children": [
+                {
+                  "kind": "cell",
+                  "text": "Income Statement"
+                },
+                {
+                  "kind": "cell",
+                  "text": "FY2021"
+                },
+                {
+                  "kind": "cell",
+                  "text": "FY2022"
+                },
+                {
+                  "kind": "cell",
+                  "text": "FY2023"
+                },
+                {
+                  "kind": "cell",
+                  "text": "FY2024"
+                }
+              ],
+              "kind": "row"
+            },
+            {
+              "children": [
+                {
+                  "kind": "cell",
+                  "text": "Revenue"
+                },
+                {
+                  "kind": "cell"
+                },
+                {
+                  "kind": "cell"
+                },
+                {
+                  "kind": "cell"
+                },
+                {
+                  "kind": "cell"
+                }
+              ],
+              "kind": "row"
+            },
+            {
+              "children": [
+                {
+                  "kind": "cell",
+                  "text": "Product Revenue"
+                },
+                {
+                  "kind": "cell",
+                  "text": "12,450"
+                },
+                {
+                  "kind": "cell",
+                  "text": "15,320"
+                },
+                {
+                  "kind": "cell",
+                  "text": "18,760"
+                },
+                {
+                  "kind": "cell",
+                  "text": "22,140"
+                }
+              ],
+              "kind": "row"
+            },
+            {
+              "children": [
+                {
+                  "kind": "cell",
+                  "text": "Service Revenue"
+                },
+                {
+                  "kind": "cell",
+                  "text": "2,890"
+                },
+                {
+                  "kind": "cell",
+                  "text": "3,450"
+                },
+                {
+                  "kind": "cell",
+                  "text": "4,120"
+                },
+                {
+                  "kind": "cell",
+                  "text": "5,380"
+                }
+              ],
+              "kind": "row"
+            },
+            {
+              "children": [
+                {
+                  "kind": "cell",
+                  "text": "Other Revenue"
+                },
+                {
+                  "kind": "cell",
+                  "text": "480"
+                },
+                {
+                  "kind": "cell",
+                  "text": "620"
+                },
+                {
+                  "kind": "cell",
+                  "text": "710"
+                },
+                {
+                  "kind": "cell",
+                  "text": "850"
+                }
+              ],
+              "kind": "row"
+            },
+            {
+              "children": [
+                {
+                  "kind": "cell",
+                  "text": "Total Revenue"
+                },
+                {
+                  "kind": "cell",
+                  "text": "15,820"
+                },
+                {
+                  "kind": "cell",
+                  "text": "19,390"
+                },
+                {
+                  "kind": "cell",
+                  "text": "23,590"
+                },
+                {
+                  "kind": "cell",
+                  "text": "28,370"
+                }
+              ],
+              "kind": "row"
+            },
+            {
+              "children": [
+                {
+                  "kind": "cell",
+                  "text": "Cost of Revenue"
+                },
+                {
+                  "kind": "cell"
+                },
+                {
+                  "kind": "cell"
+                },
+                {
+                  "kind": "cell"
+                },
+                {
+                  "kind": "cell"
+                }
+              ],
+              "kind": "row"
+            },
+            {
+              "children": [
+                {
+                  "kind": "cell",
+                  "text": "Cost of Goods Sold"
+                },
+                {
+                  "kind": "cell",
+                  "text": "(8,240)"
+                },
+                {
+                  "kind": "cell",
+                  "text": "(9,950)"
+                },
+                {
+                  "kind": "cell",
+                  "text": "(11,820)"
+                },
+                {
+                  "kind": "cell",
+                  "text": "(13,760)"
+                }
+              ],
+              "kind": "row"
+            },
+            {
+              "children": [
+                {
+                  "kind": "cell",
+                  "text": "Depreciation & Amort."
+                },
+                {
+                  "kind": "cell",
+                  "text": "(320)"
+                },
+                {
+                  "kind": "cell",
+                  "text": "(380)"
+                },
+                {
+                  "kind": "cell",
+                  "text": "(430)"
+                },
+                {
+                  "kind": "cell",
+                  "text": "(480)"
+                }
+              ],
+              "kind": "row"
+            },
+            {
+              "children": [
+                {
+                  "kind": "cell",
+                  "text": "Total Cost of Revenue"
+                },
+                {
+                  "kind": "cell",
+                  "text": "(8,560)"
+                },
+                {
+                  "kind": "cell",
+                  "text": "(10,330)"
+                },
+                {
+                  "kind": "cell",
+                  "text": "(12,250)"
+                },
+                {
+                  "kind": "cell",
+                  "text": "(14,240)"
+                }
+              ],
+              "kind": "row"
+            },
+            {
+              "children": [
+                {
+                  "kind": "cell",
+                  "text": "Gross Profit"
+                },
+                {
+                  "kind": "cell",
+                  "text": "7,260"
+                },
+                {
+                  "kind": "cell",
+                  "text": "9,060"
+                },
+                {
+                  "kind": "cell",
+                  "text": "11,340"
+                },
+                {
+                  "kind": "cell",
+                  "text": "14,130"
+                }
+              ],
+              "kind": "row"
+            },
+            {
+              "children": [
+                {
+                  "kind": "cell",
+                  "text": "Gross Margin %"
+                },
+                {
+                  "kind": "cell",
+                  "text": "45.9%"
+                },
+                {
+                  "kind": "cell",
+                  "text": "46.7%"
+                },
+                {
+                  "kind": "cell",
+                  "text": "48.1%"
+                },
+                {
+                  "kind": "cell",
+                  "text": "49.8%"
+                }
+              ],
+              "kind": "row"
+            },
+            {
+              "children": [
+                {
+                  "kind": "cell",
+                  "text": "Operating Expenses"
+                },
+                {
+                  "kind": "cell"
+                },
+                {
+                  "kind": "cell"
+                },
+                {
+                  "kind": "cell"
+                },
+                {
+                  "kind": "cell"
+                }
+              ],
+              "kind": "row"
+            },
+            {
+              "children": [
+                {
+                  "kind": "cell",
+                  "text": "Research & Development"
+                },
+                {
+                  "kind": "cell",
+                  "text": "(2,140)"
+                },
+                {
+                  "kind": "cell",
+                  "text": "(2,660)"
+                },
+                {
+                  "kind": "cell",
+                  "text": "(3,180)"
+                },
+                {
+                  "kind": "cell",
+                  "text": "(3,720)"
+                }
+              ],
+              "kind": "row"
+            },
+            {
+              "children": [
+                {
+                  "kind": "cell",
+                  "text": "Sales & Marketing"
+                },
+                {
+                  "kind": "cell",
+                  "text": "(3,280)"
+                },
+                {
+                  "kind": "cell",
+                  "text": "(3,950)"
+                },
+                {
+                  "kind": "cell",
+                  "text": "(4,840)"
+                },
+                {
+                  "kind": "cell",
+                  "text": "(5,600)"
+                }
+              ],
+              "kind": "row"
+            },
+            {
+              "children": [
+                {
+                  "kind": "cell",
+                  "text": "General & Administrative"
+                },
+                {
+                  "kind": "cell",
+                  "text": "(1,120)"
+                },
+                {
+                  "kind": "cell",
+                  "text": "(1,280)"
+                },
+                {
+                  "kind": "cell",
+                  "text": "(1,460)"
+                },
+                {
+                  "kind": "cell",
+                  "text": "(1,640)"
+                }
+              ],
+              "kind": "row"
+            },
+            {
+              "children": [
+                {
+                  "kind": "cell",
+                  "text": "Stock-Based Compensation"
+                },
+                {
+                  "kind": "cell",
+                  "text": "(890)"
+                },
+                {
+                  "kind": "cell",
+                  "text": "(1,020)"
+                },
+                {
+                  "kind": "cell",
+                  "text": "(1,190)"
+                },
+                {
+                  "kind": "cell",
+                  "text": "(1,380)"
+                }
+              ],
+              "kind": "row"
+            },
+            {
+              "children": [
+                {
+                  "kind": "cell",
+                  "text": "Total Operating Expenses"
+                },
+                {
+                  "kind": "cell",
+                  "text": "(7,430)"
+                },
+                {
+                  "kind": "cell",
+                  "text": "(8,910)"
+                },
+                {
+                  "kind": "cell",
+                  "text": "(10,670)"
+                },
+                {
+                  "kind": "cell",
+                  "text": "(12,340)"
+                }
+              ],
+              "kind": "row"
+            },
+            {
+              "children": [
+                {
+                  "kind": "cell",
+                  "text": "Operating Income (EBIT)"
+                },
+                {
+                  "kind": "cell",
+                  "text": "(170)"
+                },
+                {
+                  "kind": "cell",
+                  "text": "150"
+                },
+                {
+                  "kind": "cell",
+                  "text": "670"
+                },
+                {
+                  "kind": "cell",
+                  "text": "1,790"
+                }
+              ],
+              "kind": "row"
+            },
+            {
+              "children": [
+                {
+                  "kind": "cell",
+                  "text": "EBIT Margin %"
+                },
+                {
+                  "kind": "cell",
+                  "text": "-1.1%"
+                },
+                {
+                  "kind": "cell",
+                  "text": "0.8%"
+                },
+                {
+                  "kind": "cell",
+                  "text": "2.8%"
+                },
+                {
+                  "kind": "cell",
+                  "text": "6.3%"
+                }
+              ],
+              "kind": "row"
+            },
+            {
+              "children": [
+                {
+                  "kind": "cell",
+                  "text": "Other Items"
+                },
+                {
+                  "kind": "cell"
+                },
+                {
+                  "kind": "cell"
+                },
+                {
+                  "kind": "cell"
+                },
+                {
+                  "kind": "cell"
+                }
+              ],
+              "kind": "row"
+            },
+            {
+              "children": [
+                {
+                  "kind": "cell",
+                  "text": "Interest Income"
+                },
+                {
+                  "kind": "cell",
+                  "text": "85"
+                },
+                {
+                  "kind": "cell",
+                  "text": "110"
+                },
+                {
+                  "kind": "cell",
+                  "text": "190"
+                },
+                {
+                  "kind": "cell",
+                  "text": "340"
+                }
+              ],
+              "kind": "row"
+            },
+            {
+              "children": [
+                {
+                  "kind": "cell",
+                  "text": "Interest Expense"
+                },
+                {
+                  "kind": "cell",
+                  "text": "(420)"
+                },
+                {
+                  "kind": "cell",
+                  "text": "(390)"
+                },
+                {
+                  "kind": "cell",
+                  "text": "(350)"
+                },
+                {
+                  "kind": "cell",
+                  "text": "(290)"
+                }
+              ],
+              "kind": "row"
+            },
+            {
+              "children": [
+                {
+                  "kind": "cell",
+                  "text": "Other Income (Expense), net"
+                },
+                {
+                  "kind": "cell",
+                  "text": "40"
+                },
+                {
+                  "kind": "cell",
+                  "text": "25"
+                },
+                {
+                  "kind": "cell",
+                  "text": "(30)"
+                },
+                {
+                  "kind": "cell",
+                  "text": "60"
+                }
+              ],
+              "kind": "row"
+            },
+            {
+              "children": [
+                {
+                  "kind": "cell",
+                  "text": "Total Other Items"
+                },
+                {
+                  "kind": "cell",
+                  "text": "(295)"
+                },
+                {
+                  "kind": "cell",
+                  "text": "(255)"
+                },
+                {
+                  "kind": "cell",
+                  "text": "(190)"
+                },
+                {
+                  "kind": "cell",
+                  "text": "110"
+                }
+              ],
+              "kind": "row"
+            },
+            {
+              "children": [
+                {
+                  "kind": "cell",
+                  "text": "Pre-Tax Income (Loss)"
+                },
+                {
+                  "kind": "cell",
+                  "text": "(465)"
+                },
+                {
+                  "kind": "cell",
+                  "text": "(105)"
+                },
+                {
+                  "kind": "cell",
+                  "text": "480"
+                },
+                {
+                  "kind": "cell",
+                  "text": "1,900"
+                }
+              ],
+              "kind": "row"
+            },
+            {
+              "children": [
+                {
+                  "kind": "cell",
+                  "text": "Income Tax Provision"
+                },
+                {
+                  "kind": "cell",
+                  "text": "\u2014"
+                },
+                {
+                  "kind": "cell",
+                  "text": "\u2014"
+                },
+                {
+                  "kind": "cell",
+                  "text": "(96)"
+                },
+                {
+                  "kind": "cell",
+                  "text": "(418)"
+                }
+              ],
+              "kind": "row"
+            },
+            {
+              "children": [
+                {
+                  "kind": "cell",
+                  "text": "Net Income (Loss)"
+                },
+                {
+                  "kind": "cell",
+                  "text": "(465)"
+                },
+                {
+                  "kind": "cell",
+                  "text": "(105)"
+                },
+                {
+                  "kind": "cell",
+                  "text": "384"
+                },
+                {
+                  "kind": "cell",
+                  "text": "1,482"
+                }
+              ],
+              "kind": "row"
+            },
+            {
+              "children": [
+                {
+                  "kind": "cell",
+                  "text": "Net Margin %"
+                },
+                {
+                  "kind": "cell",
+                  "text": "-2.9%"
+                },
+                {
+                  "kind": "cell",
+                  "text": "-0.5%"
+                },
+                {
+                  "kind": "cell",
+                  "text": "1.6%"
+                },
+                {
+                  "kind": "cell",
+                  "text": "5.2%"
+                }
+              ],
+              "kind": "row"
+            },
+            {
+              "children": [
+                {
+                  "kind": "cell",
+                  "text": "Per Share Data"
+                },
+                {
+                  "kind": "cell"
+                },
+                {
+                  "kind": "cell"
+                },
+                {
+                  "kind": "cell"
+                },
+                {
+                  "kind": "cell"
+                }
+              ],
+              "kind": "row"
+            },
+            {
+              "children": [
+                {
+                  "kind": "cell",
+                  "text": "Basic EPS"
+                },
+                {
+                  "kind": "cell",
+                  "text": "$(0.47)"
+                },
+                {
+                  "kind": "cell",
+                  "text": "$(0.11)"
+                },
+                {
+                  "kind": "cell",
+                  "text": "$0.38"
+                },
+                {
+                  "kind": "cell",
+                  "text": "$1.49"
+                }
+              ],
+              "kind": "row"
+            },
+            {
+              "children": [
+                {
+                  "kind": "cell",
+                  "text": "Diluted EPS"
+                },
+                {
+                  "kind": "cell",
+                  "text": "$(0.47)"
+                },
+                {
+                  "kind": "cell",
+                  "text": "$(0.11)"
+                },
+                {
+                  "kind": "cell",
+                  "text": "$0.37"
+                },
+                {
+                  "kind": "cell",
+                  "text": "$1.44"
+                }
+              ],
+              "kind": "row"
+            },
+            {
+              "children": [
+                {
+                  "kind": "cell",
+                  "text": "Wtd-Avg Shares, Basic (M)"
+                },
+                {
+                  "kind": "cell",
+                  "text": "99.1"
+                },
+                {
+                  "kind": "cell",
+                  "text": "99.8"
+                },
+                {
+                  "kind": "cell",
+                  "text": "100.2"
+                },
+                {
+                  "kind": "cell",
+                  "text": "99.5"
+                }
+              ],
+              "kind": "row"
+            },
+            {
+              "children": [
+                {
+                  "kind": "cell",
+                  "text": "Wtd-Avg Shares, Diluted (M)"
+                },
+                {
+                  "kind": "cell",
+                  "text": "103.4"
+                },
+                {
+                  "kind": "cell",
+                  "text": "103.9"
+                },
+                {
+                  "kind": "cell",
+                  "text": "104.1"
+                },
+                {
+                  "kind": "cell",
+                  "text": "103.8"
+                }
+              ],
+              "kind": "row"
+            }
+          ],
+          "kind": "table"
+        }
+      ],
+      "kind": "page"
+    }
+  ],
+  "kind": "document"
+}

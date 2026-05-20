@@ -1,0 +1,3790 @@
+{
+  "attrs": {},
+  "bbox": {
+    "page": 0,
+    "x0": 0,
+    "x1": 0,
+    "y0": 0,
+    "y1": 0
+  },
+  "children": [
+    {
+      "attrs": {
+        "page_index": 0
+      },
+      "bbox": {
+        "page": 0,
+        "x0": 0,
+        "x1": 612,
+        "y0": 0,
+        "y1": 792
+      },
+      "children": [
+        {
+          "attrs": {
+            "level": 1
+          },
+          "bbox": {
+            "page": 0,
+            "x0": 60,
+            "x1": 416,
+            "y0": 59,
+            "y1": 78
+          },
+          "children": [],
+          "id": "7781a323dca6",
+          "kind": "heading",
+          "provenance": {
+            "extractor": "segment",
+            "stage": "build_tree"
+          },
+          "text": "Consolidated Income Statement ($000s unless noted)"
+        },
+        {
+          "attrs": {
+            "header_signature": [
+              "Income Statement",
+              "FY2021",
+              "FY2022",
+              "FY2023",
+              "FY2024"
+            ],
+            "n_cols": 5,
+            "n_rows": 34,
+            "page": 0
+          },
+          "bbox": {
+            "page": 0,
+            "x0": 82,
+            "x1": 530,
+            "y0": 90,
+            "y1": 532
+          },
+          "children": [
+            {
+              "attrs": {
+                "page": 0,
+                "row_index": 0
+              },
+              "bbox": {
+                "page": 0,
+                "x0": 82,
+                "x1": 530,
+                "y0": 90,
+                "y1": 532
+              },
+              "children": [
+                {
+                  "attrs": {},
+                  "bbox": {
+                    "page": 0,
+                    "x0": 82,
+                    "x1": 278,
+                    "y0": 90,
+                    "y1": 103
+                  },
+                  "children": [],
+                  "id": "2a1ef58c3ccf",
+                  "kind": "cell",
+                  "provenance": {
+                    "extractor": "pdfplumber",
+                    "stage": "extract_tables"
+                  },
+                  "text": "Income Statement"
+                },
+                {
+                  "attrs": {},
+                  "bbox": {
+                    "page": 0,
+                    "x0": 278,
+                    "x1": 340,
+                    "y0": 90,
+                    "y1": 103
+                  },
+                  "children": [],
+                  "id": "3cf224a360be",
+                  "kind": "cell",
+                  "provenance": {
+                    "extractor": "pdfplumber",
+                    "stage": "extract_tables"
+                  },
+                  "text": "FY2021"
+                },
+                {
+                  "attrs": {},
+                  "bbox": {
+                    "page": 0,
+                    "x0": 340,
+                    "x1": 404,
+                    "y0": 90,
+                    "y1": 103
+                  },
+                  "children": [],
+                  "id": "7b786170a18e",
+                  "kind": "cell",
+                  "provenance": {
+                    "extractor": "pdfplumber",
+                    "stage": "extract_tables"
+                  },
+                  "text": "FY2022"
+                },
+                {
+                  "attrs": {},
+                  "bbox": {
+                    "page": 0,
+                    "x0": 404,
+                    "x1": 466,
+                    "y0": 90,
+                    "y1": 103
+                  },
+                  "children": [],
+                  "id": "06927e688300",
+                  "kind": "cell",
+                  "provenance": {
+                    "extractor": "pdfplumber",
+                    "stage": "extract_tables"
+                  },
+                  "text": "FY2023"
+                },
+                {
+                  "attrs": {},
+                  "bbox": {
+                    "page": 0,
+                    "x0": 466,
+                    "x1": 530,
+                    "y0": 90,
+                    "y1": 103
+                  },
+                  "children": [],
+                  "id": "664f69a30f20",
+                  "kind": "cell",
+                  "provenance": {
+                    "extractor": "pdfplumber",
+                    "stage": "extract_tables"
+                  },
+                  "text": "FY2024"
+                }
+              ],
+              "id": "95c1236e1bdc",
+              "kind": "row",
+              "provenance": {},
+              "text": null
+            },
+            {
+              "attrs": {
+                "page": 0,
+                "row_index": 1
+              },
+              "bbox": {
+                "page": 0,
+                "x0": 82,
+                "x1": 530,
+                "y0": 90,
+                "y1": 532
+              },
+              "children": [
+                {
+                  "attrs": {},
+                  "bbox": {
+                    "page": 0,
+                    "x0": 82,
+                    "x1": 278,
+                    "y0": 103,
+                    "y1": 116
+                  },
+                  "children": [],
+                  "id": "45001502c0c3",
+                  "kind": "cell",
+                  "provenance": {
+                    "extractor": "pdfplumber",
+                    "stage": "extract_tables"
+                  },
+                  "text": "Revenue"
+                },
+                {
+                  "attrs": {},
+                  "bbox": {
+                    "page": 0,
+                    "x0": 278,
+                    "x1": 340,
+                    "y0": 103,
+                    "y1": 116
+                  },
+                  "children": [],
+                  "id": "f7b48461a67f",
+                  "kind": "cell",
+                  "provenance": {
+                    "extractor": "pdfplumber",
+                    "stage": "extract_tables"
+                  },
+                  "text": ""
+                },
+                {
+                  "attrs": {},
+                  "bbox": {
+                    "page": 0,
+                    "x0": 340,
+                    "x1": 404,
+                    "y0": 103,
+                    "y1": 116
+                  },
+                  "children": [],
+                  "id": "21e726d3e42b",
+                  "kind": "cell",
+                  "provenance": {
+                    "extractor": "pdfplumber",
+                    "stage": "extract_tables"
+                  },
+                  "text": ""
+                },
+                {
+                  "attrs": {},
+                  "bbox": {
+                    "page": 0,
+                    "x0": 404,
+                    "x1": 466,
+                    "y0": 103,
+                    "y1": 116
+                  },
+                  "children": [],
+                  "id": "f3b2d3a00d18",
+                  "kind": "cell",
+                  "provenance": {
+                    "extractor": "pdfplumber",
+                    "stage": "extract_tables"
+                  },
+                  "text": ""
+                },
+                {
+                  "attrs": {},
+                  "bbox": {
+                    "page": 0,
+                    "x0": 466,
+                    "x1": 530,
+                    "y0": 103,
+                    "y1": 116
+                  },
+                  "children": [],
+                  "id": "6b4c5dacf1a1",
+                  "kind": "cell",
+                  "provenance": {
+                    "extractor": "pdfplumber",
+                    "stage": "extract_tables"
+                  },
+                  "text": ""
+                }
+              ],
+              "id": "6fd2c660519f",
+              "kind": "row",
+              "provenance": {},
+              "text": null
+            },
+            {
+              "attrs": {
+                "page": 0,
+                "row_index": 2
+              },
+              "bbox": {
+                "page": 0,
+                "x0": 82,
+                "x1": 530,
+                "y0": 90,
+                "y1": 532
+              },
+              "children": [
+                {
+                  "attrs": {},
+                  "bbox": {
+                    "page": 0,
+                    "x0": 82,
+                    "x1": 278,
+                    "y0": 116,
+                    "y1": 129
+                  },
+                  "children": [],
+                  "id": "d91e8e6264cf",
+                  "kind": "cell",
+                  "provenance": {
+                    "extractor": "pdfplumber",
+                    "stage": "extract_tables"
+                  },
+                  "text": "Product Revenue"
+                },
+                {
+                  "attrs": {},
+                  "bbox": {
+                    "page": 0,
+                    "x0": 278,
+                    "x1": 340,
+                    "y0": 116,
+                    "y1": 129
+                  },
+                  "children": [],
+                  "id": "9320253035eb",
+                  "kind": "cell",
+                  "provenance": {
+                    "extractor": "pdfplumber",
+                    "stage": "extract_tables"
+                  },
+                  "text": "12,450"
+                },
+                {
+                  "attrs": {},
+                  "bbox": {
+                    "page": 0,
+                    "x0": 340,
+                    "x1": 404,
+                    "y0": 116,
+                    "y1": 129
+                  },
+                  "children": [],
+                  "id": "3547a0256b32",
+                  "kind": "cell",
+                  "provenance": {
+                    "extractor": "pdfplumber",
+                    "stage": "extract_tables"
+                  },
+                  "text": "15,320"
+                },
+                {
+                  "attrs": {},
+                  "bbox": {
+                    "page": 0,
+                    "x0": 404,
+                    "x1": 466,
+                    "y0": 116,
+                    "y1": 129
+                  },
+                  "children": [],
+                  "id": "fc239623f9c0",
+                  "kind": "cell",
+                  "provenance": {
+                    "extractor": "pdfplumber",
+                    "stage": "extract_tables"
+                  },
+                  "text": "18,760"
+                },
+                {
+                  "attrs": {},
+                  "bbox": {
+                    "page": 0,
+                    "x0": 466,
+                    "x1": 530,
+                    "y0": 116,
+                    "y1": 129
+                  },
+                  "children": [],
+                  "id": "874862ccebdf",
+                  "kind": "cell",
+                  "provenance": {
+                    "extractor": "pdfplumber",
+                    "stage": "extract_tables"
+                  },
+                  "text": "22,140"
+                }
+              ],
+              "id": "1513bcbe5851",
+              "kind": "row",
+              "provenance": {},
+              "text": null
+            },
+            {
+              "attrs": {
+                "page": 0,
+                "row_index": 3
+              },
+              "bbox": {
+                "page": 0,
+                "x0": 82,
+                "x1": 530,
+                "y0": 90,
+                "y1": 532
+              },
+              "children": [
+                {
+                  "attrs": {},
+                  "bbox": {
+                    "page": 0,
+                    "x0": 82,
+                    "x1": 278,
+                    "y0": 129,
+                    "y1": 142
+                  },
+                  "children": [],
+                  "id": "3088538b378e",
+                  "kind": "cell",
+                  "provenance": {
+                    "extractor": "pdfplumber",
+                    "stage": "extract_tables"
+                  },
+                  "text": "Service Revenue"
+                },
+                {
+                  "attrs": {},
+                  "bbox": {
+                    "page": 0,
+                    "x0": 278,
+                    "x1": 340,
+                    "y0": 129,
+                    "y1": 142
+                  },
+                  "children": [],
+                  "id": "755e7f822a6e",
+                  "kind": "cell",
+                  "provenance": {
+                    "extractor": "pdfplumber",
+                    "stage": "extract_tables"
+                  },
+                  "text": "2,890"
+                },
+                {
+                  "attrs": {},
+                  "bbox": {
+                    "page": 0,
+                    "x0": 340,
+                    "x1": 404,
+                    "y0": 129,
+                    "y1": 142
+                  },
+                  "children": [],
+                  "id": "5ce150f02da4",
+                  "kind": "cell",
+                  "provenance": {
+                    "extractor": "pdfplumber",
+                    "stage": "extract_tables"
+                  },
+                  "text": "3,450"
+                },
+                {
+                  "attrs": {},
+                  "bbox": {
+                    "page": 0,
+                    "x0": 404,
+                    "x1": 466,
+                    "y0": 129,
+                    "y1": 142
+                  },
+                  "children": [],
+                  "id": "7f3894f5c2c0",
+                  "kind": "cell",
+                  "provenance": {
+                    "extractor": "pdfplumber",
+                    "stage": "extract_tables"
+                  },
+                  "text": "4,120"
+                },
+                {
+                  "attrs": {},
+                  "bbox": {
+                    "page": 0,
+                    "x0": 466,
+                    "x1": 530,
+                    "y0": 129,
+                    "y1": 142
+                  },
+                  "children": [],
+                  "id": "a97dc2ee842b",
+                  "kind": "cell",
+                  "provenance": {
+                    "extractor": "pdfplumber",
+                    "stage": "extract_tables"
+                  },
+                  "text": "5,380"
+                }
+              ],
+              "id": "054cefd5832a",
+              "kind": "row",
+              "provenance": {},
+              "text": null
+            },
+            {
+              "attrs": {
+                "page": 0,
+                "row_index": 4
+              },
+              "bbox": {
+                "page": 0,
+                "x0": 82,
+                "x1": 530,
+                "y0": 90,
+                "y1": 532
+              },
+              "children": [
+                {
+                  "attrs": {},
+                  "bbox": {
+                    "page": 0,
+                    "x0": 82,
+                    "x1": 278,
+                    "y0": 142,
+                    "y1": 155
+                  },
+                  "children": [],
+                  "id": "866abbb4f0b6",
+                  "kind": "cell",
+                  "provenance": {
+                    "extractor": "pdfplumber",
+                    "stage": "extract_tables"
+                  },
+                  "text": "Other Revenue"
+                },
+                {
+                  "attrs": {},
+                  "bbox": {
+                    "page": 0,
+                    "x0": 278,
+                    "x1": 340,
+                    "y0": 142,
+                    "y1": 155
+                  },
+                  "children": [],
+                  "id": "c0dcbbd6572b",
+                  "kind": "cell",
+                  "provenance": {
+                    "extractor": "pdfplumber",
+                    "stage": "extract_tables"
+                  },
+                  "text": "480"
+                },
+                {
+                  "attrs": {},
+                  "bbox": {
+                    "page": 0,
+                    "x0": 340,
+                    "x1": 404,
+                    "y0": 142,
+                    "y1": 155
+                  },
+                  "children": [],
+                  "id": "0d27fbcddf94",
+                  "kind": "cell",
+                  "provenance": {
+                    "extractor": "pdfplumber",
+                    "stage": "extract_tables"
+                  },
+                  "text": "620"
+                },
+                {
+                  "attrs": {},
+                  "bbox": {
+                    "page": 0,
+                    "x0": 404,
+                    "x1": 466,
+                    "y0": 142,
+                    "y1": 155
+                  },
+                  "children": [],
+                  "id": "004188b730d8",
+                  "kind": "cell",
+                  "provenance": {
+                    "extractor": "pdfplumber",
+                    "stage": "extract_tables"
+                  },
+                  "text": "710"
+                },
+                {
+                  "attrs": {},
+                  "bbox": {
+                    "page": 0,
+                    "x0": 466,
+                    "x1": 530,
+                    "y0": 142,
+                    "y1": 155
+                  },
+                  "children": [],
+                  "id": "4d5769397732",
+                  "kind": "cell",
+                  "provenance": {
+                    "extractor": "pdfplumber",
+                    "stage": "extract_tables"
+                  },
+                  "text": "850"
+                }
+              ],
+              "id": "69412563cba4",
+              "kind": "row",
+              "provenance": {},
+              "text": null
+            },
+            {
+              "attrs": {
+                "page": 0,
+                "row_index": 5
+              },
+              "bbox": {
+                "page": 0,
+                "x0": 82,
+                "x1": 530,
+                "y0": 90,
+                "y1": 532
+              },
+              "children": [
+                {
+                  "attrs": {},
+                  "bbox": {
+                    "page": 0,
+                    "x0": 82,
+                    "x1": 278,
+                    "y0": 155,
+                    "y1": 168
+                  },
+                  "children": [],
+                  "id": "2df646f794e8",
+                  "kind": "cell",
+                  "provenance": {
+                    "extractor": "pdfplumber",
+                    "stage": "extract_tables"
+                  },
+                  "text": "Total Revenue"
+                },
+                {
+                  "attrs": {},
+                  "bbox": {
+                    "page": 0,
+                    "x0": 278,
+                    "x1": 340,
+                    "y0": 155,
+                    "y1": 168
+                  },
+                  "children": [],
+                  "id": "84d1f820c66d",
+                  "kind": "cell",
+                  "provenance": {
+                    "extractor": "pdfplumber",
+                    "stage": "extract_tables"
+                  },
+                  "text": "15,820"
+                },
+                {
+                  "attrs": {},
+                  "bbox": {
+                    "page": 0,
+                    "x0": 340,
+                    "x1": 404,
+                    "y0": 155,
+                    "y1": 168
+                  },
+                  "children": [],
+                  "id": "b0303954652a",
+                  "kind": "cell",
+                  "provenance": {
+                    "extractor": "pdfplumber",
+                    "stage": "extract_tables"
+                  },
+                  "text": "19,390"
+                },
+                {
+                  "attrs": {},
+                  "bbox": {
+                    "page": 0,
+                    "x0": 404,
+                    "x1": 466,
+                    "y0": 155,
+                    "y1": 168
+                  },
+                  "children": [],
+                  "id": "b0ad8d303fd7",
+                  "kind": "cell",
+                  "provenance": {
+                    "extractor": "pdfplumber",
+                    "stage": "extract_tables"
+                  },
+                  "text": "23,590"
+                },
+                {
+                  "attrs": {},
+                  "bbox": {
+                    "page": 0,
+                    "x0": 466,
+                    "x1": 530,
+                    "y0": 155,
+                    "y1": 168
+                  },
+                  "children": [],
+                  "id": "b9526f1412d8",
+                  "kind": "cell",
+                  "provenance": {
+                    "extractor": "pdfplumber",
+                    "stage": "extract_tables"
+                  },
+                  "text": "28,370"
+                }
+              ],
+              "id": "550e116c2af8",
+              "kind": "row",
+              "provenance": {},
+              "text": null
+            },
+            {
+              "attrs": {
+                "page": 0,
+                "row_index": 6
+              },
+              "bbox": {
+                "page": 0,
+                "x0": 82,
+                "x1": 530,
+                "y0": 90,
+                "y1": 532
+              },
+              "children": [
+                {
+                  "attrs": {},
+                  "bbox": {
+                    "page": 0,
+                    "x0": 82,
+                    "x1": 278,
+                    "y0": 168,
+                    "y1": 181
+                  },
+                  "children": [],
+                  "id": "481b8f11ea97",
+                  "kind": "cell",
+                  "provenance": {
+                    "extractor": "pdfplumber",
+                    "stage": "extract_tables"
+                  },
+                  "text": "Cost of Revenue"
+                },
+                {
+                  "attrs": {},
+                  "bbox": {
+                    "page": 0,
+                    "x0": 278,
+                    "x1": 340,
+                    "y0": 168,
+                    "y1": 181
+                  },
+                  "children": [],
+                  "id": "1ab09ed6fc24",
+                  "kind": "cell",
+                  "provenance": {
+                    "extractor": "pdfplumber",
+                    "stage": "extract_tables"
+                  },
+                  "text": ""
+                },
+                {
+                  "attrs": {},
+                  "bbox": {
+                    "page": 0,
+                    "x0": 340,
+                    "x1": 404,
+                    "y0": 168,
+                    "y1": 181
+                  },
+                  "children": [],
+                  "id": "529bb2d9e859",
+                  "kind": "cell",
+                  "provenance": {
+                    "extractor": "pdfplumber",
+                    "stage": "extract_tables"
+                  },
+                  "text": ""
+                },
+                {
+                  "attrs": {},
+                  "bbox": {
+                    "page": 0,
+                    "x0": 404,
+                    "x1": 466,
+                    "y0": 168,
+                    "y1": 181
+                  },
+                  "children": [],
+                  "id": "7dd7dd4b4bf8",
+                  "kind": "cell",
+                  "provenance": {
+                    "extractor": "pdfplumber",
+                    "stage": "extract_tables"
+                  },
+                  "text": ""
+                },
+                {
+                  "attrs": {},
+                  "bbox": {
+                    "page": 0,
+                    "x0": 466,
+                    "x1": 530,
+                    "y0": 168,
+                    "y1": 181
+                  },
+                  "children": [],
+                  "id": "0e199cc34447",
+                  "kind": "cell",
+                  "provenance": {
+                    "extractor": "pdfplumber",
+                    "stage": "extract_tables"
+                  },
+                  "text": ""
+                }
+              ],
+              "id": "07e2f63e974e",
+              "kind": "row",
+              "provenance": {},
+              "text": null
+            },
+            {
+              "attrs": {
+                "page": 0,
+                "row_index": 7
+              },
+              "bbox": {
+                "page": 0,
+                "x0": 82,
+                "x1": 530,
+                "y0": 90,
+                "y1": 532
+              },
+              "children": [
+                {
+                  "attrs": {},
+                  "bbox": {
+                    "page": 0,
+                    "x0": 82,
+                    "x1": 278,
+                    "y0": 181,
+                    "y1": 194
+                  },
+                  "children": [],
+                  "id": "f418ff87e393",
+                  "kind": "cell",
+                  "provenance": {
+                    "extractor": "pdfplumber",
+                    "stage": "extract_tables"
+                  },
+                  "text": "Cost of Goods Sold"
+                },
+                {
+                  "attrs": {},
+                  "bbox": {
+                    "page": 0,
+                    "x0": 278,
+                    "x1": 340,
+                    "y0": 181,
+                    "y1": 194
+                  },
+                  "children": [],
+                  "id": "da1cbfc6616d",
+                  "kind": "cell",
+                  "provenance": {
+                    "extractor": "pdfplumber",
+                    "stage": "extract_tables"
+                  },
+                  "text": "(8,240)"
+                },
+                {
+                  "attrs": {},
+                  "bbox": {
+                    "page": 0,
+                    "x0": 340,
+                    "x1": 404,
+                    "y0": 181,
+                    "y1": 194
+                  },
+                  "children": [],
+                  "id": "bfaf6e5d5420",
+                  "kind": "cell",
+                  "provenance": {
+                    "extractor": "pdfplumber",
+                    "stage": "extract_tables"
+                  },
+                  "text": "(9,950)"
+                },
+                {
+                  "attrs": {},
+                  "bbox": {
+                    "page": 0,
+                    "x0": 404,
+                    "x1": 466,
+                    "y0": 181,
+                    "y1": 194
+                  },
+                  "children": [],
+                  "id": "3dd124345817",
+                  "kind": "cell",
+                  "provenance": {
+                    "extractor": "pdfplumber",
+                    "stage": "extract_tables"
+                  },
+                  "text": "(11,820)"
+                },
+                {
+                  "attrs": {},
+                  "bbox": {
+                    "page": 0,
+                    "x0": 466,
+                    "x1": 530,
+                    "y0": 181,
+                    "y1": 194
+                  },
+                  "children": [],
+                  "id": "883bbdd09c33",
+                  "kind": "cell",
+                  "provenance": {
+                    "extractor": "pdfplumber",
+                    "stage": "extract_tables"
+                  },
+                  "text": "(13,760)"
+                }
+              ],
+              "id": "cad7b52600fc",
+              "kind": "row",
+              "provenance": {},
+              "text": null
+            },
+            {
+              "attrs": {
+                "page": 0,
+                "row_index": 8
+              },
+              "bbox": {
+                "page": 0,
+                "x0": 82,
+                "x1": 530,
+                "y0": 90,
+                "y1": 532
+              },
+              "children": [
+                {
+                  "attrs": {},
+                  "bbox": {
+                    "page": 0,
+                    "x0": 82,
+                    "x1": 278,
+                    "y0": 194,
+                    "y1": 207
+                  },
+                  "children": [],
+                  "id": "875362701f74",
+                  "kind": "cell",
+                  "provenance": {
+                    "extractor": "pdfplumber",
+                    "stage": "extract_tables"
+                  },
+                  "text": "Depreciation & Amort."
+                },
+                {
+                  "attrs": {},
+                  "bbox": {
+                    "page": 0,
+                    "x0": 278,
+                    "x1": 340,
+                    "y0": 194,
+                    "y1": 207
+                  },
+                  "children": [],
+                  "id": "3e33ef601b01",
+                  "kind": "cell",
+                  "provenance": {
+                    "extractor": "pdfplumber",
+                    "stage": "extract_tables"
+                  },
+                  "text": "(320)"
+                },
+                {
+                  "attrs": {},
+                  "bbox": {
+                    "page": 0,
+                    "x0": 340,
+                    "x1": 404,
+                    "y0": 194,
+                    "y1": 207
+                  },
+                  "children": [],
+                  "id": "6fd6b9f33baa",
+                  "kind": "cell",
+                  "provenance": {
+                    "extractor": "pdfplumber",
+                    "stage": "extract_tables"
+                  },
+                  "text": "(380)"
+                },
+                {
+                  "attrs": {},
+                  "bbox": {
+                    "page": 0,
+                    "x0": 404,
+                    "x1": 466,
+                    "y0": 194,
+                    "y1": 207
+                  },
+                  "children": [],
+                  "id": "46ab8e0d0ef7",
+                  "kind": "cell",
+                  "provenance": {
+                    "extractor": "pdfplumber",
+                    "stage": "extract_tables"
+                  },
+                  "text": "(430)"
+                },
+                {
+                  "attrs": {},
+                  "bbox": {
+                    "page": 0,
+                    "x0": 466,
+                    "x1": 530,
+                    "y0": 194,
+                    "y1": 207
+                  },
+                  "children": [],
+                  "id": "6b6a6243c8d8",
+                  "kind": "cell",
+                  "provenance": {
+                    "extractor": "pdfplumber",
+                    "stage": "extract_tables"
+                  },
+                  "text": "(480)"
+                }
+              ],
+              "id": "94d5611d37b2",
+              "kind": "row",
+              "provenance": {},
+              "text": null
+            },
+            {
+              "attrs": {
+                "page": 0,
+                "row_index": 9
+              },
+              "bbox": {
+                "page": 0,
+                "x0": 82,
+                "x1": 530,
+                "y0": 90,
+                "y1": 532
+              },
+              "children": [
+                {
+                  "attrs": {},
+                  "bbox": {
+                    "page": 0,
+                    "x0": 82,
+                    "x1": 278,
+                    "y0": 207,
+                    "y1": 220
+                  },
+                  "children": [],
+                  "id": "378b31b926d3",
+                  "kind": "cell",
+                  "provenance": {
+                    "extractor": "pdfplumber",
+                    "stage": "extract_tables"
+                  },
+                  "text": "Total Cost of Revenue"
+                },
+                {
+                  "attrs": {},
+                  "bbox": {
+                    "page": 0,
+                    "x0": 278,
+                    "x1": 340,
+                    "y0": 207,
+                    "y1": 220
+                  },
+                  "children": [],
+                  "id": "8eaa73a739b9",
+                  "kind": "cell",
+                  "provenance": {
+                    "extractor": "pdfplumber",
+                    "stage": "extract_tables"
+                  },
+                  "text": "(8,560)"
+                },
+                {
+                  "attrs": {},
+                  "bbox": {
+                    "page": 0,
+                    "x0": 340,
+                    "x1": 404,
+                    "y0": 207,
+                    "y1": 220
+                  },
+                  "children": [],
+                  "id": "9eecc4eb8de7",
+                  "kind": "cell",
+                  "provenance": {
+                    "extractor": "pdfplumber",
+                    "stage": "extract_tables"
+                  },
+                  "text": "(10,330)"
+                },
+                {
+                  "attrs": {},
+                  "bbox": {
+                    "page": 0,
+                    "x0": 404,
+                    "x1": 466,
+                    "y0": 207,
+                    "y1": 220
+                  },
+                  "children": [],
+                  "id": "aeedcb7801e8",
+                  "kind": "cell",
+                  "provenance": {
+                    "extractor": "pdfplumber",
+                    "stage": "extract_tables"
+                  },
+                  "text": "(12,250)"
+                },
+                {
+                  "attrs": {},
+                  "bbox": {
+                    "page": 0,
+                    "x0": 466,
+                    "x1": 530,
+                    "y0": 207,
+                    "y1": 220
+                  },
+                  "children": [],
+                  "id": "82d71da59af7",
+                  "kind": "cell",
+                  "provenance": {
+                    "extractor": "pdfplumber",
+                    "stage": "extract_tables"
+                  },
+                  "text": "(14,240)"
+                }
+              ],
+              "id": "6d603c7af2a7",
+              "kind": "row",
+              "provenance": {},
+              "text": null
+            },
+            {
+              "attrs": {
+                "page": 0,
+                "row_index": 10
+              },
+              "bbox": {
+                "page": 0,
+                "x0": 82,
+                "x1": 530,
+                "y0": 90,
+                "y1": 532
+              },
+              "children": [
+                {
+                  "attrs": {},
+                  "bbox": {
+                    "page": 0,
+                    "x0": 82,
+                    "x1": 278,
+                    "y0": 220,
+                    "y1": 233
+                  },
+                  "children": [],
+                  "id": "74ce6712cf0a",
+                  "kind": "cell",
+                  "provenance": {
+                    "extractor": "pdfplumber",
+                    "stage": "extract_tables"
+                  },
+                  "text": "Gross Profit"
+                },
+                {
+                  "attrs": {},
+                  "bbox": {
+                    "page": 0,
+                    "x0": 278,
+                    "x1": 340,
+                    "y0": 220,
+                    "y1": 233
+                  },
+                  "children": [],
+                  "id": "3d5273f42bf6",
+                  "kind": "cell",
+                  "provenance": {
+                    "extractor": "pdfplumber",
+                    "stage": "extract_tables"
+                  },
+                  "text": "7,260"
+                },
+                {
+                  "attrs": {},
+                  "bbox": {
+                    "page": 0,
+                    "x0": 340,
+                    "x1": 404,
+                    "y0": 220,
+                    "y1": 233
+                  },
+                  "children": [],
+                  "id": "76e3239d962f",
+                  "kind": "cell",
+                  "provenance": {
+                    "extractor": "pdfplumber",
+                    "stage": "extract_tables"
+                  },
+                  "text": "9,060"
+                },
+                {
+                  "attrs": {},
+                  "bbox": {
+                    "page": 0,
+                    "x0": 404,
+                    "x1": 466,
+                    "y0": 220,
+                    "y1": 233
+                  },
+                  "children": [],
+                  "id": "208c3e8e75ba",
+                  "kind": "cell",
+                  "provenance": {
+                    "extractor": "pdfplumber",
+                    "stage": "extract_tables"
+                  },
+                  "text": "11,340"
+                },
+                {
+                  "attrs": {},
+                  "bbox": {
+                    "page": 0,
+                    "x0": 466,
+                    "x1": 530,
+                    "y0": 220,
+                    "y1": 233
+                  },
+                  "children": [],
+                  "id": "b760c8bf39e8",
+                  "kind": "cell",
+                  "provenance": {
+                    "extractor": "pdfplumber",
+                    "stage": "extract_tables"
+                  },
+                  "text": "14,130"
+                }
+              ],
+              "id": "1bef2b7a4e89",
+              "kind": "row",
+              "provenance": {},
+              "text": null
+            },
+            {
+              "attrs": {
+                "page": 0,
+                "row_index": 11
+              },
+              "bbox": {
+                "page": 0,
+                "x0": 82,
+                "x1": 530,
+                "y0": 90,
+                "y1": 532
+              },
+              "children": [
+                {
+                  "attrs": {},
+                  "bbox": {
+                    "page": 0,
+                    "x0": 82,
+                    "x1": 278,
+                    "y0": 233,
+                    "y1": 246
+                  },
+                  "children": [],
+                  "id": "1610f006571d",
+                  "kind": "cell",
+                  "provenance": {
+                    "extractor": "pdfplumber",
+                    "stage": "extract_tables"
+                  },
+                  "text": "Gross Margin %"
+                },
+                {
+                  "attrs": {},
+                  "bbox": {
+                    "page": 0,
+                    "x0": 278,
+                    "x1": 340,
+                    "y0": 233,
+                    "y1": 246
+                  },
+                  "children": [],
+                  "id": "c17041bf073b",
+                  "kind": "cell",
+                  "provenance": {
+                    "extractor": "pdfplumber",
+                    "stage": "extract_tables"
+                  },
+                  "text": "45.9%"
+                },
+                {
+                  "attrs": {},
+                  "bbox": {
+                    "page": 0,
+                    "x0": 340,
+                    "x1": 404,
+                    "y0": 233,
+                    "y1": 246
+                  },
+                  "children": [],
+                  "id": "a3b469a92e8f",
+                  "kind": "cell",
+                  "provenance": {
+                    "extractor": "pdfplumber",
+                    "stage": "extract_tables"
+                  },
+                  "text": "46.7%"
+                },
+                {
+                  "attrs": {},
+                  "bbox": {
+                    "page": 0,
+                    "x0": 404,
+                    "x1": 466,
+                    "y0": 233,
+                    "y1": 246
+                  },
+                  "children": [],
+                  "id": "eb9c7713cb6c",
+                  "kind": "cell",
+                  "provenance": {
+                    "extractor": "pdfplumber",
+                    "stage": "extract_tables"
+                  },
+                  "text": "48.1%"
+                },
+                {
+                  "attrs": {},
+                  "bbox": {
+                    "page": 0,
+                    "x0": 466,
+                    "x1": 530,
+                    "y0": 233,
+                    "y1": 246
+                  },
+                  "children": [],
+                  "id": "ddfd94dfc519",
+                  "kind": "cell",
+                  "provenance": {
+                    "extractor": "pdfplumber",
+                    "stage": "extract_tables"
+                  },
+                  "text": "49.8%"
+                }
+              ],
+              "id": "eb4eabdf9c21",
+              "kind": "row",
+              "provenance": {},
+              "text": null
+            },
+            {
+              "attrs": {
+                "page": 0,
+                "row_index": 12
+              },
+              "bbox": {
+                "page": 0,
+                "x0": 82,
+                "x1": 530,
+                "y0": 90,
+                "y1": 532
+              },
+              "children": [
+                {
+                  "attrs": {},
+                  "bbox": {
+                    "page": 0,
+                    "x0": 82,
+                    "x1": 278,
+                    "y0": 246,
+                    "y1": 259
+                  },
+                  "children": [],
+                  "id": "cb06000401ca",
+                  "kind": "cell",
+                  "provenance": {
+                    "extractor": "pdfplumber",
+                    "stage": "extract_tables"
+                  },
+                  "text": "Operating Expenses"
+                },
+                {
+                  "attrs": {},
+                  "bbox": {
+                    "page": 0,
+                    "x0": 278,
+                    "x1": 340,
+                    "y0": 246,
+                    "y1": 259
+                  },
+                  "children": [],
+                  "id": "61d88691c3bf",
+                  "kind": "cell",
+                  "provenance": {
+                    "extractor": "pdfplumber",
+                    "stage": "extract_tables"
+                  },
+                  "text": ""
+                },
+                {
+                  "attrs": {},
+                  "bbox": {
+                    "page": 0,
+                    "x0": 340,
+                    "x1": 404,
+                    "y0": 246,
+                    "y1": 259
+                  },
+                  "children": [],
+                  "id": "d0878f68d06e",
+                  "kind": "cell",
+                  "provenance": {
+                    "extractor": "pdfplumber",
+                    "stage": "extract_tables"
+                  },
+                  "text": ""
+                },
+                {
+                  "attrs": {},
+                  "bbox": {
+                    "page": 0,
+                    "x0": 404,
+                    "x1": 466,
+                    "y0": 246,
+                    "y1": 259
+                  },
+                  "children": [],
+                  "id": "0850ac654c8d",
+                  "kind": "cell",
+                  "provenance": {
+                    "extractor": "pdfplumber",
+                    "stage": "extract_tables"
+                  },
+                  "text": ""
+                },
+                {
+                  "attrs": {},
+                  "bbox": {
+                    "page": 0,
+                    "x0": 466,
+                    "x1": 530,
+                    "y0": 246,
+                    "y1": 259
+                  },
+                  "children": [],
+                  "id": "c16abcc60cf5",
+                  "kind": "cell",
+                  "provenance": {
+                    "extractor": "pdfplumber",
+                    "stage": "extract_tables"
+                  },
+                  "text": ""
+                }
+              ],
+              "id": "a6a84f9694f6",
+              "kind": "row",
+              "provenance": {},
+              "text": null
+            },
+            {
+              "attrs": {
+                "page": 0,
+                "row_index": 13
+              },
+              "bbox": {
+                "page": 0,
+                "x0": 82,
+                "x1": 530,
+                "y0": 90,
+                "y1": 532
+              },
+              "children": [
+                {
+                  "attrs": {},
+                  "bbox": {
+                    "page": 0,
+                    "x0": 82,
+                    "x1": 278,
+                    "y0": 259,
+                    "y1": 272
+                  },
+                  "children": [],
+                  "id": "38c84ed26f1f",
+                  "kind": "cell",
+                  "provenance": {
+                    "extractor": "pdfplumber",
+                    "stage": "extract_tables"
+                  },
+                  "text": "Research & Development"
+                },
+                {
+                  "attrs": {},
+                  "bbox": {
+                    "page": 0,
+                    "x0": 278,
+                    "x1": 340,
+                    "y0": 259,
+                    "y1": 272
+                  },
+                  "children": [],
+                  "id": "6d8200a49e88",
+                  "kind": "cell",
+                  "provenance": {
+                    "extractor": "pdfplumber",
+                    "stage": "extract_tables"
+                  },
+                  "text": "(2,140)"
+                },
+                {
+                  "attrs": {},
+                  "bbox": {
+                    "page": 0,
+                    "x0": 340,
+                    "x1": 404,
+                    "y0": 259,
+                    "y1": 272
+                  },
+                  "children": [],
+                  "id": "26fc46ef800b",
+                  "kind": "cell",
+                  "provenance": {
+                    "extractor": "pdfplumber",
+                    "stage": "extract_tables"
+                  },
+                  "text": "(2,660)"
+                },
+                {
+                  "attrs": {},
+                  "bbox": {
+                    "page": 0,
+                    "x0": 404,
+                    "x1": 466,
+                    "y0": 259,
+                    "y1": 272
+                  },
+                  "children": [],
+                  "id": "deb7e12ede8d",
+                  "kind": "cell",
+                  "provenance": {
+                    "extractor": "pdfplumber",
+                    "stage": "extract_tables"
+                  },
+                  "text": "(3,180)"
+                },
+                {
+                  "attrs": {},
+                  "bbox": {
+                    "page": 0,
+                    "x0": 466,
+                    "x1": 530,
+                    "y0": 259,
+                    "y1": 272
+                  },
+                  "children": [],
+                  "id": "39fbaa4c7076",
+                  "kind": "cell",
+                  "provenance": {
+                    "extractor": "pdfplumber",
+                    "stage": "extract_tables"
+                  },
+                  "text": "(3,720)"
+                }
+              ],
+              "id": "de4f7ff16438",
+              "kind": "row",
+              "provenance": {},
+              "text": null
+            },
+            {
+              "attrs": {
+                "page": 0,
+                "row_index": 14
+              },
+              "bbox": {
+                "page": 0,
+                "x0": 82,
+                "x1": 530,
+                "y0": 90,
+                "y1": 532
+              },
+              "children": [
+                {
+                  "attrs": {},
+                  "bbox": {
+                    "page": 0,
+                    "x0": 82,
+                    "x1": 278,
+                    "y0": 272,
+                    "y1": 285
+                  },
+                  "children": [],
+                  "id": "ab7c5c5df749",
+                  "kind": "cell",
+                  "provenance": {
+                    "extractor": "pdfplumber",
+                    "stage": "extract_tables"
+                  },
+                  "text": "Sales & Marketing"
+                },
+                {
+                  "attrs": {},
+                  "bbox": {
+                    "page": 0,
+                    "x0": 278,
+                    "x1": 340,
+                    "y0": 272,
+                    "y1": 285
+                  },
+                  "children": [],
+                  "id": "17ba2d53e5f9",
+                  "kind": "cell",
+                  "provenance": {
+                    "extractor": "pdfplumber",
+                    "stage": "extract_tables"
+                  },
+                  "text": "(3,280)"
+                },
+                {
+                  "attrs": {},
+                  "bbox": {
+                    "page": 0,
+                    "x0": 340,
+                    "x1": 404,
+                    "y0": 272,
+                    "y1": 285
+                  },
+                  "children": [],
+                  "id": "184b4d7515df",
+                  "kind": "cell",
+                  "provenance": {
+                    "extractor": "pdfplumber",
+                    "stage": "extract_tables"
+                  },
+                  "text": "(3,950)"
+                },
+                {
+                  "attrs": {},
+                  "bbox": {
+                    "page": 0,
+                    "x0": 404,
+                    "x1": 466,
+                    "y0": 272,
+                    "y1": 285
+                  },
+                  "children": [],
+                  "id": "3a4134347184",
+                  "kind": "cell",
+                  "provenance": {
+                    "extractor": "pdfplumber",
+                    "stage": "extract_tables"
+                  },
+                  "text": "(4,840)"
+                },
+                {
+                  "attrs": {},
+                  "bbox": {
+                    "page": 0,
+                    "x0": 466,
+                    "x1": 530,
+                    "y0": 272,
+                    "y1": 285
+                  },
+                  "children": [],
+                  "id": "227f9767def9",
+                  "kind": "cell",
+                  "provenance": {
+                    "extractor": "pdfplumber",
+                    "stage": "extract_tables"
+                  },
+                  "text": "(5,600)"
+                }
+              ],
+              "id": "4b5aa9a26139",
+              "kind": "row",
+              "provenance": {},
+              "text": null
+            },
+            {
+              "attrs": {
+                "page": 0,
+                "row_index": 15
+              },
+              "bbox": {
+                "page": 0,
+                "x0": 82,
+                "x1": 530,
+                "y0": 90,
+                "y1": 532
+              },
+              "children": [
+                {
+                  "attrs": {},
+                  "bbox": {
+                    "page": 0,
+                    "x0": 82,
+                    "x1": 278,
+                    "y0": 285,
+                    "y1": 298
+                  },
+                  "children": [],
+                  "id": "60dc220dcd66",
+                  "kind": "cell",
+                  "provenance": {
+                    "extractor": "pdfplumber",
+                    "stage": "extract_tables"
+                  },
+                  "text": "General & Administrative"
+                },
+                {
+                  "attrs": {},
+                  "bbox": {
+                    "page": 0,
+                    "x0": 278,
+                    "x1": 340,
+                    "y0": 285,
+                    "y1": 298
+                  },
+                  "children": [],
+                  "id": "b8f5d7634b94",
+                  "kind": "cell",
+                  "provenance": {
+                    "extractor": "pdfplumber",
+                    "stage": "extract_tables"
+                  },
+                  "text": "(1,120)"
+                },
+                {
+                  "attrs": {},
+                  "bbox": {
+                    "page": 0,
+                    "x0": 340,
+                    "x1": 404,
+                    "y0": 285,
+                    "y1": 298
+                  },
+                  "children": [],
+                  "id": "284175fb0668",
+                  "kind": "cell",
+                  "provenance": {
+                    "extractor": "pdfplumber",
+                    "stage": "extract_tables"
+                  },
+                  "text": "(1,280)"
+                },
+                {
+                  "attrs": {},
+                  "bbox": {
+                    "page": 0,
+                    "x0": 404,
+                    "x1": 466,
+                    "y0": 285,
+                    "y1": 298
+                  },
+                  "children": [],
+                  "id": "7ff3fb23cd51",
+                  "kind": "cell",
+                  "provenance": {
+                    "extractor": "pdfplumber",
+                    "stage": "extract_tables"
+                  },
+                  "text": "(1,460)"
+                },
+                {
+                  "attrs": {},
+                  "bbox": {
+                    "page": 0,
+                    "x0": 466,
+                    "x1": 530,
+                    "y0": 285,
+                    "y1": 298
+                  },
+                  "children": [],
+                  "id": "68c1a8485347",
+                  "kind": "cell",
+                  "provenance": {
+                    "extractor": "pdfplumber",
+                    "stage": "extract_tables"
+                  },
+                  "text": "(1,640)"
+                }
+              ],
+              "id": "00fdfd3235ca",
+              "kind": "row",
+              "provenance": {},
+              "text": null
+            },
+            {
+              "attrs": {
+                "page": 0,
+                "row_index": 16
+              },
+              "bbox": {
+                "page": 0,
+                "x0": 82,
+                "x1": 530,
+                "y0": 90,
+                "y1": 532
+              },
+              "children": [
+                {
+                  "attrs": {},
+                  "bbox": {
+                    "page": 0,
+                    "x0": 82,
+                    "x1": 278,
+                    "y0": 298,
+                    "y1": 311
+                  },
+                  "children": [],
+                  "id": "13d444cae6e4",
+                  "kind": "cell",
+                  "provenance": {
+                    "extractor": "pdfplumber",
+                    "stage": "extract_tables"
+                  },
+                  "text": "Stock-Based Compensation"
+                },
+                {
+                  "attrs": {},
+                  "bbox": {
+                    "page": 0,
+                    "x0": 278,
+                    "x1": 340,
+                    "y0": 298,
+                    "y1": 311
+                  },
+                  "children": [],
+                  "id": "01b2a580fb2c",
+                  "kind": "cell",
+                  "provenance": {
+                    "extractor": "pdfplumber",
+                    "stage": "extract_tables"
+                  },
+                  "text": "(890)"
+                },
+                {
+                  "attrs": {},
+                  "bbox": {
+                    "page": 0,
+                    "x0": 340,
+                    "x1": 404,
+                    "y0": 298,
+                    "y1": 311
+                  },
+                  "children": [],
+                  "id": "09bbd8b1eb59",
+                  "kind": "cell",
+                  "provenance": {
+                    "extractor": "pdfplumber",
+                    "stage": "extract_tables"
+                  },
+                  "text": "(1,020)"
+                },
+                {
+                  "attrs": {},
+                  "bbox": {
+                    "page": 0,
+                    "x0": 404,
+                    "x1": 466,
+                    "y0": 298,
+                    "y1": 311
+                  },
+                  "children": [],
+                  "id": "455b8d39f04d",
+                  "kind": "cell",
+                  "provenance": {
+                    "extractor": "pdfplumber",
+                    "stage": "extract_tables"
+                  },
+                  "text": "(1,190)"
+                },
+                {
+                  "attrs": {},
+                  "bbox": {
+                    "page": 0,
+                    "x0": 466,
+                    "x1": 530,
+                    "y0": 298,
+                    "y1": 311
+                  },
+                  "children": [],
+                  "id": "46470e08ec15",
+                  "kind": "cell",
+                  "provenance": {
+                    "extractor": "pdfplumber",
+                    "stage": "extract_tables"
+                  },
+                  "text": "(1,380)"
+                }
+              ],
+              "id": "05a5199b304b",
+              "kind": "row",
+              "provenance": {},
+              "text": null
+            },
+            {
+              "attrs": {
+                "page": 0,
+                "row_index": 17
+              },
+              "bbox": {
+                "page": 0,
+                "x0": 82,
+                "x1": 530,
+                "y0": 90,
+                "y1": 532
+              },
+              "children": [
+                {
+                  "attrs": {},
+                  "bbox": {
+                    "page": 0,
+                    "x0": 82,
+                    "x1": 278,
+                    "y0": 311,
+                    "y1": 324
+                  },
+                  "children": [],
+                  "id": "598b03f5e609",
+                  "kind": "cell",
+                  "provenance": {
+                    "extractor": "pdfplumber",
+                    "stage": "extract_tables"
+                  },
+                  "text": "Total Operating Expenses"
+                },
+                {
+                  "attrs": {},
+                  "bbox": {
+                    "page": 0,
+                    "x0": 278,
+                    "x1": 340,
+                    "y0": 311,
+                    "y1": 324
+                  },
+                  "children": [],
+                  "id": "fb57e6b373cb",
+                  "kind": "cell",
+                  "provenance": {
+                    "extractor": "pdfplumber",
+                    "stage": "extract_tables"
+                  },
+                  "text": "(7,430)"
+                },
+                {
+                  "attrs": {},
+                  "bbox": {
+                    "page": 0,
+                    "x0": 340,
+                    "x1": 404,
+                    "y0": 311,
+                    "y1": 324
+                  },
+                  "children": [],
+                  "id": "9197b650777f",
+                  "kind": "cell",
+                  "provenance": {
+                    "extractor": "pdfplumber",
+                    "stage": "extract_tables"
+                  },
+                  "text": "(8,910)"
+                },
+                {
+                  "attrs": {},
+                  "bbox": {
+                    "page": 0,
+                    "x0": 404,
+                    "x1": 466,
+                    "y0": 311,
+                    "y1": 324
+                  },
+                  "children": [],
+                  "id": "e5355104d920",
+                  "kind": "cell",
+                  "provenance": {
+                    "extractor": "pdfplumber",
+                    "stage": "extract_tables"
+                  },
+                  "text": "(10,670)"
+                },
+                {
+                  "attrs": {},
+                  "bbox": {
+                    "page": 0,
+                    "x0": 466,
+                    "x1": 530,
+                    "y0": 311,
+                    "y1": 324
+                  },
+                  "children": [],
+                  "id": "3a11963e0fdc",
+                  "kind": "cell",
+                  "provenance": {
+                    "extractor": "pdfplumber",
+                    "stage": "extract_tables"
+                  },
+                  "text": "(12,340)"
+                }
+              ],
+              "id": "3e02186c2bc6",
+              "kind": "row",
+              "provenance": {},
+              "text": null
+            },
+            {
+              "attrs": {
+                "page": 0,
+                "row_index": 18
+              },
+              "bbox": {
+                "page": 0,
+                "x0": 82,
+                "x1": 530,
+                "y0": 90,
+                "y1": 532
+              },
+              "children": [
+                {
+                  "attrs": {},
+                  "bbox": {
+                    "page": 0,
+                    "x0": 82,
+                    "x1": 278,
+                    "y0": 324,
+                    "y1": 337
+                  },
+                  "children": [],
+                  "id": "53707d7072c8",
+                  "kind": "cell",
+                  "provenance": {
+                    "extractor": "pdfplumber",
+                    "stage": "extract_tables"
+                  },
+                  "text": "Operating Income (EBIT)"
+                },
+                {
+                  "attrs": {},
+                  "bbox": {
+                    "page": 0,
+                    "x0": 278,
+                    "x1": 340,
+                    "y0": 324,
+                    "y1": 337
+                  },
+                  "children": [],
+                  "id": "2d71884b00e3",
+                  "kind": "cell",
+                  "provenance": {
+                    "extractor": "pdfplumber",
+                    "stage": "extract_tables"
+                  },
+                  "text": "(170)"
+                },
+                {
+                  "attrs": {},
+                  "bbox": {
+                    "page": 0,
+                    "x0": 340,
+                    "x1": 404,
+                    "y0": 324,
+                    "y1": 337
+                  },
+                  "children": [],
+                  "id": "f83df326e28c",
+                  "kind": "cell",
+                  "provenance": {
+                    "extractor": "pdfplumber",
+                    "stage": "extract_tables"
+                  },
+                  "text": "150"
+                },
+                {
+                  "attrs": {},
+                  "bbox": {
+                    "page": 0,
+                    "x0": 404,
+                    "x1": 466,
+                    "y0": 324,
+                    "y1": 337
+                  },
+                  "children": [],
+                  "id": "5d923606e722",
+                  "kind": "cell",
+                  "provenance": {
+                    "extractor": "pdfplumber",
+                    "stage": "extract_tables"
+                  },
+                  "text": "670"
+                },
+                {
+                  "attrs": {},
+                  "bbox": {
+                    "page": 0,
+                    "x0": 466,
+                    "x1": 530,
+                    "y0": 324,
+                    "y1": 337
+                  },
+                  "children": [],
+                  "id": "4d6587c387e1",
+                  "kind": "cell",
+                  "provenance": {
+                    "extractor": "pdfplumber",
+                    "stage": "extract_tables"
+                  },
+                  "text": "1,790"
+                }
+              ],
+              "id": "12ce89aa597a",
+              "kind": "row",
+              "provenance": {},
+              "text": null
+            },
+            {
+              "attrs": {
+                "page": 0,
+                "row_index": 19
+              },
+              "bbox": {
+                "page": 0,
+                "x0": 82,
+                "x1": 530,
+                "y0": 90,
+                "y1": 532
+              },
+              "children": [
+                {
+                  "attrs": {},
+                  "bbox": {
+                    "page": 0,
+                    "x0": 82,
+                    "x1": 278,
+                    "y0": 337,
+                    "y1": 350
+                  },
+                  "children": [],
+                  "id": "37ac1ee32141",
+                  "kind": "cell",
+                  "provenance": {
+                    "extractor": "pdfplumber",
+                    "stage": "extract_tables"
+                  },
+                  "text": "EBIT Margin %"
+                },
+                {
+                  "attrs": {},
+                  "bbox": {
+                    "page": 0,
+                    "x0": 278,
+                    "x1": 340,
+                    "y0": 337,
+                    "y1": 350
+                  },
+                  "children": [],
+                  "id": "61dde24d7397",
+                  "kind": "cell",
+                  "provenance": {
+                    "extractor": "pdfplumber",
+                    "stage": "extract_tables"
+                  },
+                  "text": "-1.1%"
+                },
+                {
+                  "attrs": {},
+                  "bbox": {
+                    "page": 0,
+                    "x0": 340,
+                    "x1": 404,
+                    "y0": 337,
+                    "y1": 350
+                  },
+                  "children": [],
+                  "id": "44c7d94f270b",
+                  "kind": "cell",
+                  "provenance": {
+                    "extractor": "pdfplumber",
+                    "stage": "extract_tables"
+                  },
+                  "text": "0.8%"
+                },
+                {
+                  "attrs": {},
+                  "bbox": {
+                    "page": 0,
+                    "x0": 404,
+                    "x1": 466,
+                    "y0": 337,
+                    "y1": 350
+                  },
+                  "children": [],
+                  "id": "10671de35c38",
+                  "kind": "cell",
+                  "provenance": {
+                    "extractor": "pdfplumber",
+                    "stage": "extract_tables"
+                  },
+                  "text": "2.8%"
+                },
+                {
+                  "attrs": {},
+                  "bbox": {
+                    "page": 0,
+                    "x0": 466,
+                    "x1": 530,
+                    "y0": 337,
+                    "y1": 350
+                  },
+                  "children": [],
+                  "id": "1af8ed930e25",
+                  "kind": "cell",
+                  "provenance": {
+                    "extractor": "pdfplumber",
+                    "stage": "extract_tables"
+                  },
+                  "text": "6.3%"
+                }
+              ],
+              "id": "543722116b0e",
+              "kind": "row",
+              "provenance": {},
+              "text": null
+            },
+            {
+              "attrs": {
+                "page": 0,
+                "row_index": 20
+              },
+              "bbox": {
+                "page": 0,
+                "x0": 82,
+                "x1": 530,
+                "y0": 90,
+                "y1": 532
+              },
+              "children": [
+                {
+                  "attrs": {},
+                  "bbox": {
+                    "page": 0,
+                    "x0": 82,
+                    "x1": 278,
+                    "y0": 350,
+                    "y1": 363
+                  },
+                  "children": [],
+                  "id": "af216052f455",
+                  "kind": "cell",
+                  "provenance": {
+                    "extractor": "pdfplumber",
+                    "stage": "extract_tables"
+                  },
+                  "text": "Other Items"
+                },
+                {
+                  "attrs": {},
+                  "bbox": {
+                    "page": 0,
+                    "x0": 278,
+                    "x1": 340,
+                    "y0": 350,
+                    "y1": 363
+                  },
+                  "children": [],
+                  "id": "de7ad6e427f1",
+                  "kind": "cell",
+                  "provenance": {
+                    "extractor": "pdfplumber",
+                    "stage": "extract_tables"
+                  },
+                  "text": ""
+                },
+                {
+                  "attrs": {},
+                  "bbox": {
+                    "page": 0,
+                    "x0": 340,
+                    "x1": 404,
+                    "y0": 350,
+                    "y1": 363
+                  },
+                  "children": [],
+                  "id": "1ca2ec488118",
+                  "kind": "cell",
+                  "provenance": {
+                    "extractor": "pdfplumber",
+                    "stage": "extract_tables"
+                  },
+                  "text": ""
+                },
+                {
+                  "attrs": {},
+                  "bbox": {
+                    "page": 0,
+                    "x0": 404,
+                    "x1": 466,
+                    "y0": 350,
+                    "y1": 363
+                  },
+                  "children": [],
+                  "id": "17a8d97d8455",
+                  "kind": "cell",
+                  "provenance": {
+                    "extractor": "pdfplumber",
+                    "stage": "extract_tables"
+                  },
+                  "text": ""
+                },
+                {
+                  "attrs": {},
+                  "bbox": {
+                    "page": 0,
+                    "x0": 466,
+                    "x1": 530,
+                    "y0": 350,
+                    "y1": 363
+                  },
+                  "children": [],
+                  "id": "df84133a42a2",
+                  "kind": "cell",
+                  "provenance": {
+                    "extractor": "pdfplumber",
+                    "stage": "extract_tables"
+                  },
+                  "text": ""
+                }
+              ],
+              "id": "d8879774f69a",
+              "kind": "row",
+              "provenance": {},
+              "text": null
+            },
+            {
+              "attrs": {
+                "page": 0,
+                "row_index": 21
+              },
+              "bbox": {
+                "page": 0,
+                "x0": 82,
+                "x1": 530,
+                "y0": 90,
+                "y1": 532
+              },
+              "children": [
+                {
+                  "attrs": {},
+                  "bbox": {
+                    "page": 0,
+                    "x0": 82,
+                    "x1": 278,
+                    "y0": 363,
+                    "y1": 376
+                  },
+                  "children": [],
+                  "id": "614f10c4a477",
+                  "kind": "cell",
+                  "provenance": {
+                    "extractor": "pdfplumber",
+                    "stage": "extract_tables"
+                  },
+                  "text": "Interest Income"
+                },
+                {
+                  "attrs": {},
+                  "bbox": {
+                    "page": 0,
+                    "x0": 278,
+                    "x1": 340,
+                    "y0": 363,
+                    "y1": 376
+                  },
+                  "children": [],
+                  "id": "e5b5d79c9423",
+                  "kind": "cell",
+                  "provenance": {
+                    "extractor": "pdfplumber",
+                    "stage": "extract_tables"
+                  },
+                  "text": "85"
+                },
+                {
+                  "attrs": {},
+                  "bbox": {
+                    "page": 0,
+                    "x0": 340,
+                    "x1": 404,
+                    "y0": 363,
+                    "y1": 376
+                  },
+                  "children": [],
+                  "id": "de79b435cd78",
+                  "kind": "cell",
+                  "provenance": {
+                    "extractor": "pdfplumber",
+                    "stage": "extract_tables"
+                  },
+                  "text": "110"
+                },
+                {
+                  "attrs": {},
+                  "bbox": {
+                    "page": 0,
+                    "x0": 404,
+                    "x1": 466,
+                    "y0": 363,
+                    "y1": 376
+                  },
+                  "children": [],
+                  "id": "b454d14f526c",
+                  "kind": "cell",
+                  "provenance": {
+                    "extractor": "pdfplumber",
+                    "stage": "extract_tables"
+                  },
+                  "text": "190"
+                },
+                {
+                  "attrs": {},
+                  "bbox": {
+                    "page": 0,
+                    "x0": 466,
+                    "x1": 530,
+                    "y0": 363,
+                    "y1": 376
+                  },
+                  "children": [],
+                  "id": "5633b195cefd",
+                  "kind": "cell",
+                  "provenance": {
+                    "extractor": "pdfplumber",
+                    "stage": "extract_tables"
+                  },
+                  "text": "340"
+                }
+              ],
+              "id": "b624ea5544e7",
+              "kind": "row",
+              "provenance": {},
+              "text": null
+            },
+            {
+              "attrs": {
+                "page": 0,
+                "row_index": 22
+              },
+              "bbox": {
+                "page": 0,
+                "x0": 82,
+                "x1": 530,
+                "y0": 90,
+                "y1": 532
+              },
+              "children": [
+                {
+                  "attrs": {},
+                  "bbox": {
+                    "page": 0,
+                    "x0": 82,
+                    "x1": 278,
+                    "y0": 376,
+                    "y1": 389
+                  },
+                  "children": [],
+                  "id": "7c43103e0e5c",
+                  "kind": "cell",
+                  "provenance": {
+                    "extractor": "pdfplumber",
+                    "stage": "extract_tables"
+                  },
+                  "text": "Interest Expense"
+                },
+                {
+                  "attrs": {},
+                  "bbox": {
+                    "page": 0,
+                    "x0": 278,
+                    "x1": 340,
+                    "y0": 376,
+                    "y1": 389
+                  },
+                  "children": [],
+                  "id": "3b4f94ceb719",
+                  "kind": "cell",
+                  "provenance": {
+                    "extractor": "pdfplumber",
+                    "stage": "extract_tables"
+                  },
+                  "text": "(420)"
+                },
+                {
+                  "attrs": {},
+                  "bbox": {
+                    "page": 0,
+                    "x0": 340,
+                    "x1": 404,
+                    "y0": 376,
+                    "y1": 389
+                  },
+                  "children": [],
+                  "id": "14d69bd9d830",
+                  "kind": "cell",
+                  "provenance": {
+                    "extractor": "pdfplumber",
+                    "stage": "extract_tables"
+                  },
+                  "text": "(390)"
+                },
+                {
+                  "attrs": {},
+                  "bbox": {
+                    "page": 0,
+                    "x0": 404,
+                    "x1": 466,
+                    "y0": 376,
+                    "y1": 389
+                  },
+                  "children": [],
+                  "id": "26287a1668fa",
+                  "kind": "cell",
+                  "provenance": {
+                    "extractor": "pdfplumber",
+                    "stage": "extract_tables"
+                  },
+                  "text": "(350)"
+                },
+                {
+                  "attrs": {},
+                  "bbox": {
+                    "page": 0,
+                    "x0": 466,
+                    "x1": 530,
+                    "y0": 376,
+                    "y1": 389
+                  },
+                  "children": [],
+                  "id": "b420221768aa",
+                  "kind": "cell",
+                  "provenance": {
+                    "extractor": "pdfplumber",
+                    "stage": "extract_tables"
+                  },
+                  "text": "(290)"
+                }
+              ],
+              "id": "78b3dd5b7e23",
+              "kind": "row",
+              "provenance": {},
+              "text": null
+            },
+            {
+              "attrs": {
+                "page": 0,
+                "row_index": 23
+              },
+              "bbox": {
+                "page": 0,
+                "x0": 82,
+                "x1": 530,
+                "y0": 90,
+                "y1": 532
+              },
+              "children": [
+                {
+                  "attrs": {},
+                  "bbox": {
+                    "page": 0,
+                    "x0": 82,
+                    "x1": 278,
+                    "y0": 389,
+                    "y1": 402
+                  },
+                  "children": [],
+                  "id": "ec3fabc3edd7",
+                  "kind": "cell",
+                  "provenance": {
+                    "extractor": "pdfplumber",
+                    "stage": "extract_tables"
+                  },
+                  "text": "Other Income (Expense), net"
+                },
+                {
+                  "attrs": {},
+                  "bbox": {
+                    "page": 0,
+                    "x0": 278,
+                    "x1": 340,
+                    "y0": 389,
+                    "y1": 402
+                  },
+                  "children": [],
+                  "id": "92d1e19a47d0",
+                  "kind": "cell",
+                  "provenance": {
+                    "extractor": "pdfplumber",
+                    "stage": "extract_tables"
+                  },
+                  "text": "40"
+                },
+                {
+                  "attrs": {},
+                  "bbox": {
+                    "page": 0,
+                    "x0": 340,
+                    "x1": 404,
+                    "y0": 389,
+                    "y1": 402
+                  },
+                  "children": [],
+                  "id": "e4f5e2620918",
+                  "kind": "cell",
+                  "provenance": {
+                    "extractor": "pdfplumber",
+                    "stage": "extract_tables"
+                  },
+                  "text": "25"
+                },
+                {
+                  "attrs": {},
+                  "bbox": {
+                    "page": 0,
+                    "x0": 404,
+                    "x1": 466,
+                    "y0": 389,
+                    "y1": 402
+                  },
+                  "children": [],
+                  "id": "f6ca5cd88367",
+                  "kind": "cell",
+                  "provenance": {
+                    "extractor": "pdfplumber",
+                    "stage": "extract_tables"
+                  },
+                  "text": "(30)"
+                },
+                {
+                  "attrs": {},
+                  "bbox": {
+                    "page": 0,
+                    "x0": 466,
+                    "x1": 530,
+                    "y0": 389,
+                    "y1": 402
+                  },
+                  "children": [],
+                  "id": "c6223b2e3fce",
+                  "kind": "cell",
+                  "provenance": {
+                    "extractor": "pdfplumber",
+                    "stage": "extract_tables"
+                  },
+                  "text": "60"
+                }
+              ],
+              "id": "daaf989215c2",
+              "kind": "row",
+              "provenance": {},
+              "text": null
+            },
+            {
+              "attrs": {
+                "page": 0,
+                "row_index": 24
+              },
+              "bbox": {
+                "page": 0,
+                "x0": 82,
+                "x1": 530,
+                "y0": 90,
+                "y1": 532
+              },
+              "children": [
+                {
+                  "attrs": {},
+                  "bbox": {
+                    "page": 0,
+                    "x0": 82,
+                    "x1": 278,
+                    "y0": 402,
+                    "y1": 415
+                  },
+                  "children": [],
+                  "id": "e52f318f9df4",
+                  "kind": "cell",
+                  "provenance": {
+                    "extractor": "pdfplumber",
+                    "stage": "extract_tables"
+                  },
+                  "text": "Total Other Items"
+                },
+                {
+                  "attrs": {},
+                  "bbox": {
+                    "page": 0,
+                    "x0": 278,
+                    "x1": 340,
+                    "y0": 402,
+                    "y1": 415
+                  },
+                  "children": [],
+                  "id": "e124666728ca",
+                  "kind": "cell",
+                  "provenance": {
+                    "extractor": "pdfplumber",
+                    "stage": "extract_tables"
+                  },
+                  "text": "(295)"
+                },
+                {
+                  "attrs": {},
+                  "bbox": {
+                    "page": 0,
+                    "x0": 340,
+                    "x1": 404,
+                    "y0": 402,
+                    "y1": 415
+                  },
+                  "children": [],
+                  "id": "f020672b1723",
+                  "kind": "cell",
+                  "provenance": {
+                    "extractor": "pdfplumber",
+                    "stage": "extract_tables"
+                  },
+                  "text": "(255)"
+                },
+                {
+                  "attrs": {},
+                  "bbox": {
+                    "page": 0,
+                    "x0": 404,
+                    "x1": 466,
+                    "y0": 402,
+                    "y1": 415
+                  },
+                  "children": [],
+                  "id": "cfd70c512958",
+                  "kind": "cell",
+                  "provenance": {
+                    "extractor": "pdfplumber",
+                    "stage": "extract_tables"
+                  },
+                  "text": "(190)"
+                },
+                {
+                  "attrs": {},
+                  "bbox": {
+                    "page": 0,
+                    "x0": 466,
+                    "x1": 530,
+                    "y0": 402,
+                    "y1": 415
+                  },
+                  "children": [],
+                  "id": "10b5b03205ec",
+                  "kind": "cell",
+                  "provenance": {
+                    "extractor": "pdfplumber",
+                    "stage": "extract_tables"
+                  },
+                  "text": "110"
+                }
+              ],
+              "id": "4eab51adf750",
+              "kind": "row",
+              "provenance": {},
+              "text": null
+            },
+            {
+              "attrs": {
+                "page": 0,
+                "row_index": 25
+              },
+              "bbox": {
+                "page": 0,
+                "x0": 82,
+                "x1": 530,
+                "y0": 90,
+                "y1": 532
+              },
+              "children": [
+                {
+                  "attrs": {},
+                  "bbox": {
+                    "page": 0,
+                    "x0": 82,
+                    "x1": 278,
+                    "y0": 415,
+                    "y1": 428
+                  },
+                  "children": [],
+                  "id": "221f5a115174",
+                  "kind": "cell",
+                  "provenance": {
+                    "extractor": "pdfplumber",
+                    "stage": "extract_tables"
+                  },
+                  "text": "Pre-Tax Income (Loss)"
+                },
+                {
+                  "attrs": {},
+                  "bbox": {
+                    "page": 0,
+                    "x0": 278,
+                    "x1": 340,
+                    "y0": 415,
+                    "y1": 428
+                  },
+                  "children": [],
+                  "id": "8acdd7b50c0c",
+                  "kind": "cell",
+                  "provenance": {
+                    "extractor": "pdfplumber",
+                    "stage": "extract_tables"
+                  },
+                  "text": "(465)"
+                },
+                {
+                  "attrs": {},
+                  "bbox": {
+                    "page": 0,
+                    "x0": 340,
+                    "x1": 404,
+                    "y0": 415,
+                    "y1": 428
+                  },
+                  "children": [],
+                  "id": "37015354b1b1",
+                  "kind": "cell",
+                  "provenance": {
+                    "extractor": "pdfplumber",
+                    "stage": "extract_tables"
+                  },
+                  "text": "(105)"
+                },
+                {
+                  "attrs": {},
+                  "bbox": {
+                    "page": 0,
+                    "x0": 404,
+                    "x1": 466,
+                    "y0": 415,
+                    "y1": 428
+                  },
+                  "children": [],
+                  "id": "9810c12a8b16",
+                  "kind": "cell",
+                  "provenance": {
+                    "extractor": "pdfplumber",
+                    "stage": "extract_tables"
+                  },
+                  "text": "480"
+                },
+                {
+                  "attrs": {},
+                  "bbox": {
+                    "page": 0,
+                    "x0": 466,
+                    "x1": 530,
+                    "y0": 415,
+                    "y1": 428
+                  },
+                  "children": [],
+                  "id": "06bc1408c14a",
+                  "kind": "cell",
+                  "provenance": {
+                    "extractor": "pdfplumber",
+                    "stage": "extract_tables"
+                  },
+                  "text": "1,900"
+                }
+              ],
+              "id": "2b78da8a0eee",
+              "kind": "row",
+              "provenance": {},
+              "text": null
+            },
+            {
+              "attrs": {
+                "page": 0,
+                "row_index": 26
+              },
+              "bbox": {
+                "page": 0,
+                "x0": 82,
+                "x1": 530,
+                "y0": 90,
+                "y1": 532
+              },
+              "children": [
+                {
+                  "attrs": {},
+                  "bbox": {
+                    "page": 0,
+                    "x0": 82,
+                    "x1": 278,
+                    "y0": 428,
+                    "y1": 441
+                  },
+                  "children": [],
+                  "id": "35eddce5ce98",
+                  "kind": "cell",
+                  "provenance": {
+                    "extractor": "pdfplumber",
+                    "stage": "extract_tables"
+                  },
+                  "text": "Income Tax Provision"
+                },
+                {
+                  "attrs": {},
+                  "bbox": {
+                    "page": 0,
+                    "x0": 278,
+                    "x1": 340,
+                    "y0": 428,
+                    "y1": 441
+                  },
+                  "children": [],
+                  "id": "97b68a2ba7ac",
+                  "kind": "cell",
+                  "provenance": {
+                    "extractor": "pdfplumber",
+                    "stage": "extract_tables"
+                  },
+                  "text": "\u2014"
+                },
+                {
+                  "attrs": {},
+                  "bbox": {
+                    "page": 0,
+                    "x0": 340,
+                    "x1": 404,
+                    "y0": 428,
+                    "y1": 441
+                  },
+                  "children": [],
+                  "id": "d2518e61a25c",
+                  "kind": "cell",
+                  "provenance": {
+                    "extractor": "pdfplumber",
+                    "stage": "extract_tables"
+                  },
+                  "text": "\u2014"
+                },
+                {
+                  "attrs": {},
+                  "bbox": {
+                    "page": 0,
+                    "x0": 404,
+                    "x1": 466,
+                    "y0": 428,
+                    "y1": 441
+                  },
+                  "children": [],
+                  "id": "609228a6a174",
+                  "kind": "cell",
+                  "provenance": {
+                    "extractor": "pdfplumber",
+                    "stage": "extract_tables"
+                  },
+                  "text": "(96)"
+                },
+                {
+                  "attrs": {},
+                  "bbox": {
+                    "page": 0,
+                    "x0": 466,
+                    "x1": 530,
+                    "y0": 428,
+                    "y1": 441
+                  },
+                  "children": [],
+                  "id": "0775631df691",
+                  "kind": "cell",
+                  "provenance": {
+                    "extractor": "pdfplumber",
+                    "stage": "extract_tables"
+                  },
+                  "text": "(418)"
+                }
+              ],
+              "id": "c2b90ac41165",
+              "kind": "row",
+              "provenance": {},
+              "text": null
+            },
+            {
+              "attrs": {
+                "page": 0,
+                "row_index": 27
+              },
+              "bbox": {
+                "page": 0,
+                "x0": 82,
+                "x1": 530,
+                "y0": 90,
+                "y1": 532
+              },
+              "children": [
+                {
+                  "attrs": {},
+                  "bbox": {
+                    "page": 0,
+                    "x0": 82,
+                    "x1": 278,
+                    "y0": 441,
+                    "y1": 454
+                  },
+                  "children": [],
+                  "id": "19d09c387ccc",
+                  "kind": "cell",
+                  "provenance": {
+                    "extractor": "pdfplumber",
+                    "stage": "extract_tables"
+                  },
+                  "text": "Net Income (Loss)"
+                },
+                {
+                  "attrs": {},
+                  "bbox": {
+                    "page": 0,
+                    "x0": 278,
+                    "x1": 340,
+                    "y0": 441,
+                    "y1": 454
+                  },
+                  "children": [],
+                  "id": "381fd614b6f8",
+                  "kind": "cell",
+                  "provenance": {
+                    "extractor": "pdfplumber",
+                    "stage": "extract_tables"
+                  },
+                  "text": "(465)"
+                },
+                {
+                  "attrs": {},
+                  "bbox": {
+                    "page": 0,
+                    "x0": 340,
+                    "x1": 404,
+                    "y0": 441,
+                    "y1": 454
+                  },
+                  "children": [],
+                  "id": "a078bfa33836",
+                  "kind": "cell",
+                  "provenance": {
+                    "extractor": "pdfplumber",
+                    "stage": "extract_tables"
+                  },
+                  "text": "(105)"
+                },
+                {
+                  "attrs": {},
+                  "bbox": {
+                    "page": 0,
+                    "x0": 404,
+                    "x1": 466,
+                    "y0": 441,
+                    "y1": 454
+                  },
+                  "children": [],
+                  "id": "cf683ec90477",
+                  "kind": "cell",
+                  "provenance": {
+                    "extractor": "pdfplumber",
+                    "stage": "extract_tables"
+                  },
+                  "text": "384"
+                },
+                {
+                  "attrs": {},
+                  "bbox": {
+                    "page": 0,
+                    "x0": 466,
+                    "x1": 530,
+                    "y0": 441,
+                    "y1": 454
+                  },
+                  "children": [],
+                  "id": "6721f056bf01",
+                  "kind": "cell",
+                  "provenance": {
+                    "extractor": "pdfplumber",
+                    "stage": "extract_tables"
+                  },
+                  "text": "1,482"
+                }
+              ],
+              "id": "74f529bb61b5",
+              "kind": "row",
+              "provenance": {},
+              "text": null
+            },
+            {
+              "attrs": {
+                "page": 0,
+                "row_index": 28
+              },
+              "bbox": {
+                "page": 0,
+                "x0": 82,
+                "x1": 530,
+                "y0": 90,
+                "y1": 532
+              },
+              "children": [
+                {
+                  "attrs": {},
+                  "bbox": {
+                    "page": 0,
+                    "x0": 82,
+                    "x1": 278,
+                    "y0": 454,
+                    "y1": 467
+                  },
+                  "children": [],
+                  "id": "da6940d87f25",
+                  "kind": "cell",
+                  "provenance": {
+                    "extractor": "pdfplumber",
+                    "stage": "extract_tables"
+                  },
+                  "text": "Net Margin %"
+                },
+                {
+                  "attrs": {},
+                  "bbox": {
+                    "page": 0,
+                    "x0": 278,
+                    "x1": 340,
+                    "y0": 454,
+                    "y1": 467
+                  },
+                  "children": [],
+                  "id": "49cdc8fceef1",
+                  "kind": "cell",
+                  "provenance": {
+                    "extractor": "pdfplumber",
+                    "stage": "extract_tables"
+                  },
+                  "text": "-2.9%"
+                },
+                {
+                  "attrs": {},
+                  "bbox": {
+                    "page": 0,
+                    "x0": 340,
+                    "x1": 404,
+                    "y0": 454,
+                    "y1": 467
+                  },
+                  "children": [],
+                  "id": "50b30fa0fd49",
+                  "kind": "cell",
+                  "provenance": {
+                    "extractor": "pdfplumber",
+                    "stage": "extract_tables"
+                  },
+                  "text": "-0.5%"
+                },
+                {
+                  "attrs": {},
+                  "bbox": {
+                    "page": 0,
+                    "x0": 404,
+                    "x1": 466,
+                    "y0": 454,
+                    "y1": 467
+                  },
+                  "children": [],
+                  "id": "326ea688d48c",
+                  "kind": "cell",
+                  "provenance": {
+                    "extractor": "pdfplumber",
+                    "stage": "extract_tables"
+                  },
+                  "text": "1.6%"
+                },
+                {
+                  "attrs": {},
+                  "bbox": {
+                    "page": 0,
+                    "x0": 466,
+                    "x1": 530,
+                    "y0": 454,
+                    "y1": 467
+                  },
+                  "children": [],
+                  "id": "8cb1a60b23cd",
+                  "kind": "cell",
+                  "provenance": {
+                    "extractor": "pdfplumber",
+                    "stage": "extract_tables"
+                  },
+                  "text": "5.2%"
+                }
+              ],
+              "id": "141279888313",
+              "kind": "row",
+              "provenance": {},
+              "text": null
+            },
+            {
+              "attrs": {
+                "page": 0,
+                "row_index": 29
+              },
+              "bbox": {
+                "page": 0,
+                "x0": 82,
+                "x1": 530,
+                "y0": 90,
+                "y1": 532
+              },
+              "children": [
+                {
+                  "attrs": {},
+                  "bbox": {
+                    "page": 0,
+                    "x0": 82,
+                    "x1": 278,
+                    "y0": 467,
+                    "y1": 480
+                  },
+                  "children": [],
+                  "id": "a501ff848c06",
+                  "kind": "cell",
+                  "provenance": {
+                    "extractor": "pdfplumber",
+                    "stage": "extract_tables"
+                  },
+                  "text": "Per Share Data"
+                },
+                {
+                  "attrs": {},
+                  "bbox": {
+                    "page": 0,
+                    "x0": 278,
+                    "x1": 340,
+                    "y0": 467,
+                    "y1": 480
+                  },
+                  "children": [],
+                  "id": "de48b0a59bef",
+                  "kind": "cell",
+                  "provenance": {
+                    "extractor": "pdfplumber",
+                    "stage": "extract_tables"
+                  },
+                  "text": ""
+                },
+                {
+                  "attrs": {},
+                  "bbox": {
+                    "page": 0,
+                    "x0": 340,
+                    "x1": 404,
+                    "y0": 467,
+                    "y1": 480
+                  },
+                  "children": [],
+                  "id": "c1143bf37d82",
+                  "kind": "cell",
+                  "provenance": {
+                    "extractor": "pdfplumber",
+                    "stage": "extract_tables"
+                  },
+                  "text": ""
+                },
+                {
+                  "attrs": {},
+                  "bbox": {
+                    "page": 0,
+                    "x0": 404,
+                    "x1": 466,
+                    "y0": 467,
+                    "y1": 480
+                  },
+                  "children": [],
+                  "id": "55ca366dc89a",
+                  "kind": "cell",
+                  "provenance": {
+                    "extractor": "pdfplumber",
+                    "stage": "extract_tables"
+                  },
+                  "text": ""
+                },
+                {
+                  "attrs": {},
+                  "bbox": {
+                    "page": 0,
+                    "x0": 466,
+                    "x1": 530,
+                    "y0": 467,
+                    "y1": 480
+                  },
+                  "children": [],
+                  "id": "941e9905bf23",
+                  "kind": "cell",
+                  "provenance": {
+                    "extractor": "pdfplumber",
+                    "stage": "extract_tables"
+                  },
+                  "text": ""
+                }
+              ],
+              "id": "75f3c0cc6d5e",
+              "kind": "row",
+              "provenance": {},
+              "text": null
+            },
+            {
+              "attrs": {
+                "page": 0,
+                "row_index": 30
+              },
+              "bbox": {
+                "page": 0,
+                "x0": 82,
+                "x1": 530,
+                "y0": 90,
+                "y1": 532
+              },
+              "children": [
+                {
+                  "attrs": {},
+                  "bbox": {
+                    "page": 0,
+                    "x0": 82,
+                    "x1": 278,
+                    "y0": 480,
+                    "y1": 493
+                  },
+                  "children": [],
+                  "id": "cc8396eb85f1",
+                  "kind": "cell",
+                  "provenance": {
+                    "extractor": "pdfplumber",
+                    "stage": "extract_tables"
+                  },
+                  "text": "Basic EPS"
+                },
+                {
+                  "attrs": {},
+                  "bbox": {
+                    "page": 0,
+                    "x0": 278,
+                    "x1": 340,
+                    "y0": 480,
+                    "y1": 493
+                  },
+                  "children": [],
+                  "id": "0a869c838d44",
+                  "kind": "cell",
+                  "provenance": {
+                    "extractor": "pdfplumber",
+                    "stage": "extract_tables"
+                  },
+                  "text": "$(0.47)"
+                },
+                {
+                  "attrs": {},
+                  "bbox": {
+                    "page": 0,
+                    "x0": 340,
+                    "x1": 404,
+                    "y0": 480,
+                    "y1": 493
+                  },
+                  "children": [],
+                  "id": "8b74c8f0c3b1",
+                  "kind": "cell",
+                  "provenance": {
+                    "extractor": "pdfplumber",
+                    "stage": "extract_tables"
+                  },
+                  "text": "$(0.11)"
+                },
+                {
+                  "attrs": {},
+                  "bbox": {
+                    "page": 0,
+                    "x0": 404,
+                    "x1": 466,
+                    "y0": 480,
+                    "y1": 493
+                  },
+                  "children": [],
+                  "id": "8c3c73e5b280",
+                  "kind": "cell",
+                  "provenance": {
+                    "extractor": "pdfplumber",
+                    "stage": "extract_tables"
+                  },
+                  "text": "$0.38"
+                },
+                {
+                  "attrs": {},
+                  "bbox": {
+                    "page": 0,
+                    "x0": 466,
+                    "x1": 530,
+                    "y0": 480,
+                    "y1": 493
+                  },
+                  "children": [],
+                  "id": "cb0ccc02e4b5",
+                  "kind": "cell",
+                  "provenance": {
+                    "extractor": "pdfplumber",
+                    "stage": "extract_tables"
+                  },
+                  "text": "$1.49"
+                }
+              ],
+              "id": "9af99ea963a5",
+              "kind": "row",
+              "provenance": {},
+              "text": null
+            },
+            {
+              "attrs": {
+                "page": 0,
+                "row_index": 31
+              },
+              "bbox": {
+                "page": 0,
+                "x0": 82,
+                "x1": 530,
+                "y0": 90,
+                "y1": 532
+              },
+              "children": [
+                {
+                  "attrs": {},
+                  "bbox": {
+                    "page": 0,
+                    "x0": 82,
+                    "x1": 278,
+                    "y0": 493,
+                    "y1": 506
+                  },
+                  "children": [],
+                  "id": "8f1bfa4677b6",
+                  "kind": "cell",
+                  "provenance": {
+                    "extractor": "pdfplumber",
+                    "stage": "extract_tables"
+                  },
+                  "text": "Diluted EPS"
+                },
+                {
+                  "attrs": {},
+                  "bbox": {
+                    "page": 0,
+                    "x0": 278,
+                    "x1": 340,
+                    "y0": 493,
+                    "y1": 506
+                  },
+                  "children": [],
+                  "id": "e27d89f83be1",
+                  "kind": "cell",
+                  "provenance": {
+                    "extractor": "pdfplumber",
+                    "stage": "extract_tables"
+                  },
+                  "text": "$(0.47)"
+                },
+                {
+                  "attrs": {},
+                  "bbox": {
+                    "page": 0,
+                    "x0": 340,
+                    "x1": 404,
+                    "y0": 493,
+                    "y1": 506
+                  },
+                  "children": [],
+                  "id": "516a0c7dda14",
+                  "kind": "cell",
+                  "provenance": {
+                    "extractor": "pdfplumber",
+                    "stage": "extract_tables"
+                  },
+                  "text": "$(0.11)"
+                },
+                {
+                  "attrs": {},
+                  "bbox": {
+                    "page": 0,
+                    "x0": 404,
+                    "x1": 466,
+                    "y0": 493,
+                    "y1": 506
+                  },
+                  "children": [],
+                  "id": "0d8ecd03d210",
+                  "kind": "cell",
+                  "provenance": {
+                    "extractor": "pdfplumber",
+                    "stage": "extract_tables"
+                  },
+                  "text": "$0.37"
+                },
+                {
+                  "attrs": {},
+                  "bbox": {
+                    "page": 0,
+                    "x0": 466,
+                    "x1": 530,
+                    "y0": 493,
+                    "y1": 506
+                  },
+                  "children": [],
+                  "id": "1bc896593e52",
+                  "kind": "cell",
+                  "provenance": {
+                    "extractor": "pdfplumber",
+                    "stage": "extract_tables"
+                  },
+                  "text": "$1.44"
+                }
+              ],
+              "id": "92dafd671d35",
+              "kind": "row",
+              "provenance": {},
+              "text": null
+            },
+            {
+              "attrs": {
+                "page": 0,
+                "row_index": 32
+              },
+              "bbox": {
+                "page": 0,
+                "x0": 82,
+                "x1": 530,
+                "y0": 90,
+                "y1": 532
+              },
+              "children": [
+                {
+                  "attrs": {},
+                  "bbox": {
+                    "page": 0,
+                    "x0": 82,
+                    "x1": 278,
+                    "y0": 506,
+                    "y1": 519
+                  },
+                  "children": [],
+                  "id": "4cb194c281a6",
+                  "kind": "cell",
+                  "provenance": {
+                    "extractor": "pdfplumber",
+                    "stage": "extract_tables"
+                  },
+                  "text": "Wtd-Avg Shares, Basic (M)"
+                },
+                {
+                  "attrs": {},
+                  "bbox": {
+                    "page": 0,
+                    "x0": 278,
+                    "x1": 340,
+                    "y0": 506,
+                    "y1": 519
+                  },
+                  "children": [],
+                  "id": "70ce91f9343c",
+                  "kind": "cell",
+                  "provenance": {
+                    "extractor": "pdfplumber",
+                    "stage": "extract_tables"
+                  },
+                  "text": "99.1"
+                },
+                {
+                  "attrs": {},
+                  "bbox": {
+                    "page": 0,
+                    "x0": 340,
+                    "x1": 404,
+                    "y0": 506,
+                    "y1": 519
+                  },
+                  "children": [],
+                  "id": "0608cd08e40a",
+                  "kind": "cell",
+                  "provenance": {
+                    "extractor": "pdfplumber",
+                    "stage": "extract_tables"
+                  },
+                  "text": "99.8"
+                },
+                {
+                  "attrs": {},
+                  "bbox": {
+                    "page": 0,
+                    "x0": 404,
+                    "x1": 466,
+                    "y0": 506,
+                    "y1": 519
+                  },
+                  "children": [],
+                  "id": "bd07fe740c10",
+                  "kind": "cell",
+                  "provenance": {
+                    "extractor": "pdfplumber",
+                    "stage": "extract_tables"
+                  },
+                  "text": "100.2"
+                },
+                {
+                  "attrs": {},
+                  "bbox": {
+                    "page": 0,
+                    "x0": 466,
+                    "x1": 530,
+                    "y0": 506,
+                    "y1": 519
+                  },
+                  "children": [],
+                  "id": "507087275e8b",
+                  "kind": "cell",
+                  "provenance": {
+                    "extractor": "pdfplumber",
+                    "stage": "extract_tables"
+                  },
+                  "text": "99.5"
+                }
+              ],
+              "id": "1297175c0695",
+              "kind": "row",
+              "provenance": {},
+              "text": null
+            },
+            {
+              "attrs": {
+                "page": 0,
+                "row_index": 33
+              },
+              "bbox": {
+                "page": 0,
+                "x0": 82,
+                "x1": 530,
+                "y0": 90,
+                "y1": 532
+              },
+              "children": [
+                {
+                  "attrs": {},
+                  "bbox": {
+                    "page": 0,
+                    "x0": 82,
+                    "x1": 278,
+                    "y0": 519,
+                    "y1": 532
+                  },
+                  "children": [],
+                  "id": "b643e4452d86",
+                  "kind": "cell",
+                  "provenance": {
+                    "extractor": "pdfplumber",
+                    "stage": "extract_tables"
+                  },
+                  "text": "Wtd-Avg Shares, Diluted (M)"
+                },
+                {
+                  "attrs": {},
+                  "bbox": {
+                    "page": 0,
+                    "x0": 278,
+                    "x1": 340,
+                    "y0": 519,
+                    "y1": 532
+                  },
+                  "children": [],
+                  "id": "9add2ac2a6e5",
+                  "kind": "cell",
+                  "provenance": {
+                    "extractor": "pdfplumber",
+                    "stage": "extract_tables"
+                  },
+                  "text": "103.4"
+                },
+                {
+                  "attrs": {},
+                  "bbox": {
+                    "page": 0,
+                    "x0": 340,
+                    "x1": 404,
+                    "y0": 519,
+                    "y1": 532
+                  },
+                  "children": [],
+                  "id": "c9809f45456c",
+                  "kind": "cell",
+                  "provenance": {
+                    "extractor": "pdfplumber",
+                    "stage": "extract_tables"
+                  },
+                  "text": "103.9"
+                },
+                {
+                  "attrs": {},
+                  "bbox": {
+                    "page": 0,
+                    "x0": 404,
+                    "x1": 466,
+                    "y0": 519,
+                    "y1": 532
+                  },
+                  "children": [],
+                  "id": "885557a72998",
+                  "kind": "cell",
+                  "provenance": {
+                    "extractor": "pdfplumber",
+                    "stage": "extract_tables"
+                  },
+                  "text": "104.1"
+                },
+                {
+                  "attrs": {},
+                  "bbox": {
+                    "page": 0,
+                    "x0": 466,
+                    "x1": 530,
+                    "y0": 519,
+                    "y1": 532
+                  },
+                  "children": [],
+                  "id": "52a5ebdaaf5f",
+                  "kind": "cell",
+                  "provenance": {
+                    "extractor": "pdfplumber",
+                    "stage": "extract_tables"
+                  },
+                  "text": "103.8"
+                }
+              ],
+              "id": "a4f4e1202182",
+              "kind": "row",
+              "provenance": {},
+              "text": null
+            }
+          ],
+          "id": "1325638515c6",
+          "kind": "table",
+          "provenance": {
+            "extractor": "pdfplumber",
+            "stage": "extract_tables"
+          },
+          "text": null
+        }
+      ],
+      "id": "cdb2e94a2bcf",
+      "kind": "page",
+      "provenance": {},
+      "text": null
+    }
+  ],
+  "id": "cf0b09f00021",
+  "kind": "document",
+  "provenance": {},
+  "text": null
+}

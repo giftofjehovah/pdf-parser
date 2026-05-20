@@ -129,12 +129,414 @@ def build_05_sections_lists(out: Path) -> None:
     doc.build(story)
 
 
+def build_06_page_spanning_no_header_repeat(out: Path) -> None:
+    """Multi-page table whose continuation pages have NO repeated header row.
+
+    Mirrors build_03 except `repeatRows` is omitted, so the header appears
+    only on page 1; page-2+ start directly with a data row. Stitcher must
+    merge by column-anchor alone and keep every continuation row.
+    """
+    doc = SimpleDocTemplate(str(out), pagesize=LETTER, topMargin=72, bottomMargin=72)
+    s = _styles()
+    header = ["ID", "Description", "Value"]
+    rows = [header] + [[str(i), f"Item number {i}", f"${i * 1.5:.2f}"] for i in range(1, 51)]
+    t = Table(
+        rows,
+        style=TableStyle([
+            ("GRID", (0, 0), (-1, -1), 0.5, colors.black),
+            ("BACKGROUND", (0, 0), (-1, 0), colors.lightgrey),
+        ]),
+        colWidths=[60, 280, 80],
+    )
+    story = [Paragraph("Page-Spanning Table (no header repeat)", s["Heading1"]), Spacer(1, 12), t]
+    doc.build(story)
+
+
+def build_07_page_spanning_with_nested(out: Path) -> None:
+    """Multi-page outer table with nested sub-tables on BOTH pages, no header repeat.
+
+    Layout:
+      - 3 outer columns: Step, Inputs, Notes.
+      - Header on page 1 only (no repeatRows).
+      - Two of the data rows embed a small 2x2 sub-table in the "Inputs" cell:
+        one positioned early enough to land on page 1, one late enough to land
+        on page 2. Stitcher must merge the two per-page outer tables, keep all
+        rows, and the extractor must still surface both nested sub-tables.
+    """
+    doc = SimpleDocTemplate(str(out), pagesize=LETTER, topMargin=72, bottomMargin=72)
+    s = _styles()
+
+    def _sub(label: str) -> Table:
+        return Table(
+            [[f"{label}-A", f"{label}-B"], ["1", "2"]],
+            style=TableStyle([("GRID", (0, 0), (-1, -1), 0.4, colors.grey)]),
+            colWidths=[50, 50],
+        )
+
+    rows: list[list] = [["Step", "Inputs", "Notes"]]
+    # Plain rows 1..50; inject a nested table at row 5 (page 1) and row 45 (page 2).
+    for i in range(1, 51):
+        if i == 5:
+            rows.append([str(i), _sub("p1"), "has nested"])
+        elif i == 45:
+            rows.append([str(i), _sub("p2"), "has nested"])
+        else:
+            rows.append([str(i), f"plain input {i}", f"note {i}"])
+    t = Table(
+        rows,
+        style=TableStyle([
+            ("GRID", (0, 0), (-1, -1), 0.5, colors.black),
+            ("BACKGROUND", (0, 0), (-1, 0), colors.lightgrey),
+            ("VALIGN", (0, 0), (-1, -1), "MIDDLE"),
+        ]),
+        colWidths=[70, 280, 150],
+    )
+    story = [
+        Paragraph("Page-Spanning Table With Nested Sub-Tables", s["Heading1"]),
+        Spacer(1, 12),
+        t,
+    ]
+    doc.build(story)
+
+
+def build_08_page_spanning_subtable_split(out: Path) -> None:
+    """Multi-page outer table whose nested sub-table also straddles the page break.
+
+    The outer table has no repeated header on page 2. A nested sub-table is
+    laid out as two halves placed in adjacent outer rows tuned so that:
+      - the first half (header + 3 data rows) is the last data row on page 1;
+      - the second half (3 data rows, no header) is the first data row on page 2;
+      - both halves share identical column widths, so their column anchors
+        match and the extractor can recognise them as one continued sub-table.
+
+    Exercises the line-based outer-column detection: with no repeated outer
+    header on page 2, the page-2 outer column anchors must be derived from
+    full-table-height vertical edges, otherwise the inner sub-table's vertical
+    edges would split the outer row into 6 spurious columns.
+    """
+    doc = SimpleDocTemplate(str(out), pagesize=LETTER, topMargin=72, bottomMargin=72)
+    s = _styles()
+
+    def _inner(data: list[list[str]], with_header: bool) -> Table:
+        body = ([["sub-H1", "sub-H2"]] if with_header else []) + data
+        style = [("GRID", (0, 0), (-1, -1), 0.4, colors.grey)]
+        if with_header:
+            style.append(("BACKGROUND", (0, 0), (-1, 0), colors.lightgrey))
+        return Table(body, style=TableStyle(style), colWidths=[60, 60])
+
+    rows: list[list] = [["Step", "Detail", "Notes"]]
+    for i in range(1, 50):
+        if i == 28:
+            rows.append([str(i), _inner([["a", "1"], ["b", "2"], ["c", "3"]], with_header=True),
+                         "ends pg1"])
+        elif i == 29:
+            rows.append([str(i), _inner([["d", "4"], ["e", "5"], ["f", "6"]], with_header=False),
+                         "starts pg2"])
+        else:
+            rows.append([str(i), f"plain {i}", f"n{i}"])
+
+    t = Table(
+        rows,
+        style=TableStyle([
+            ("GRID", (0, 0), (-1, -1), 0.5, colors.black),
+            ("BACKGROUND", (0, 0), (-1, 0), colors.lightgrey),
+            ("VALIGN", (0, 0), (-1, -1), "MIDDLE"),
+        ]),
+        colWidths=[60, 200, 80],
+    )
+    story = [
+        Paragraph("Sub-Table Spanning Pages", s["Heading1"]),
+        Spacer(1, 12),
+        t,
+    ]
+    doc.build(story)
+
+
+def build_09_mixed_toc_and_spanning_table(out: Path) -> None:
+    """Realistic document: prose + table of contents + multi-page data table.
+
+    Layout:
+      - Page 1: title heading, two intro paragraphs, then a 2-column
+        "Contents" table (section name / page) with grid lines so the
+        parser recognises it as a table rather than running text.
+      - Page 2: section headings + prose paragraphs for the first two
+        sections referenced by the TOC.
+      - Page 3+: a 4-column data table with ~60 rows that overflows into
+        a second page (no `repeatRows`, so the continuation page has no
+        header — exercises both the page-spanning stitcher and the
+        section/prose interleaving on the surrounding pages).
+      - Final page: closing prose for the Appendix section.
+
+    Exercises the full mix the parser is supposed to handle end-to-end:
+    headings of multiple levels, body paragraphs, a small structured table,
+    and a large page-spanning table, all in one document.
+    """
+    doc = SimpleDocTemplate(str(out), pagesize=LETTER, topMargin=72, bottomMargin=72)
+    s = _styles()
+
+    # TOC rendered as plain numbered lines with dot-leader fill + page number,
+    # NOT a bordered table. Exercises the parser on tabular-looking prose
+    # that must not be misclassified as a table.
+    toc_entries = [
+        ("1. Executive Summary", "2"),
+        ("2. Methodology", "2"),
+        ("3. Detailed Results", "3"),
+        ("4. Appendix", "5"),
+    ]
+    LINE_WIDTH = 72  # characters; aligns visually in the default body font
+    toc_lines = [
+        Paragraph(
+            f"{title} {'.' * max(3, LINE_WIDTH - len(title) - len(page) - 2)} {page}",
+            s["BodyText"],
+        )
+        for title, page in toc_entries
+    ]
+
+    data_header = ["ID", "Region", "Metric", "Value"]
+    data_rows = [data_header] + [
+        [str(i), f"Region-{(i % 4) + 1}", f"metric-{i}", f"{i * 3.25:.2f}"]
+        for i in range(1, 61)
+    ]
+    data_table = Table(
+        data_rows,
+        style=TableStyle([
+            ("GRID", (0, 0), (-1, -1), 0.5, colors.black),
+            ("BACKGROUND", (0, 0), (-1, 0), colors.lightgrey),
+        ]),
+        colWidths=[50, 110, 200, 80],
+    )
+
+    prose = (
+        "This report summarises the deterministic synthetic corpus used to "
+        "exercise the parser end-to-end. The text below is intentionally "
+        "long enough to fill several lines so paragraph segmentation has "
+        "real input to operate on."
+    )
+
+    story = [
+        Paragraph("Annual Report 2025", s["Heading1"]),
+        Spacer(1, 12),
+        Paragraph(prose, s["BodyText"]),
+        Spacer(1, 12),
+        Paragraph(prose, s["BodyText"]),
+        Spacer(1, 18),
+        Paragraph("Contents", s["Heading2"]),
+        Spacer(1, 8),
+        *toc_lines,
+        PageBreak(),
+
+        Paragraph("1. Executive Summary", s["Heading2"]),
+        Paragraph(prose, s["BodyText"]),
+        Spacer(1, 12),
+        Paragraph("2. Methodology", s["Heading2"]),
+        Paragraph(prose, s["BodyText"]),
+        PageBreak(),
+
+        Paragraph("3. Detailed Results", s["Heading2"]),
+        Spacer(1, 8),
+        Paragraph(
+            "The table below lists every observation. It is large enough "
+            "to overflow onto the next page so the stitcher must merge the "
+            "two halves back into one table.",
+            s["BodyText"],
+        ),
+        Spacer(1, 8),
+        data_table,
+        Spacer(1, 18),
+
+        Paragraph("4. Appendix", s["Heading2"]),
+        Paragraph(prose, s["BodyText"]),
+    ]
+    doc.build(story)
+
+
+
+def build_10_merged_cells(out: Path) -> None:
+    """Table with merged cells: one colspan spanning all columns, one rowspan.
+
+    Layout (3 cols × 5 rows):
+      Row 0: "Quarterly Report" colspan across all 3 columns.
+      Row 1: Normal sub-header "Region", "Q1", "Q2".
+      Row 2: "North" rowspan over rows 2–3 in col 0; data "100", "200".
+      Row 3: col 0 is the rowspan continuation (empty data cell); "120", "180".
+      Row 4: Normal row "South", "300", "400".
+
+    Exercises both horizontal (colspan) and vertical (rowspan) merged cells in
+    a single table so the extractor must place each cell's text exactly once in
+    the upper-left logical cell of the span.
+    """
+    doc = SimpleDocTemplate(str(out), pagesize=LETTER)
+    s = _styles()
+    data = [
+        ["Quarterly Report", "",    ""   ],
+        ["Region",           "Q1",  "Q2" ],
+        ["North",            "100", "200"],
+        ["",                 "120", "180"],
+        ["South",            "300", "400"],
+    ]
+    t = Table(
+        data,
+        colWidths=[150, 80, 80],
+        style=TableStyle([
+            ("SPAN", (0, 0), (2, 0)),   # colspan: "Quarterly Report" over all 3 cols
+            ("SPAN", (0, 2), (0, 3)),   # rowspan: "North" over rows 2–3 in col 0
+            ("GRID", (0, 0), (-1, -1), 0.5, colors.black),
+            ("BACKGROUND", (0, 0), (-1, 0), colors.lightgrey),
+            ("BACKGROUND", (0, 1), (-1, 1), colors.lightgrey),
+            ("ALIGN",      (0, 0), (2, 0), "CENTER"),
+            ("VALIGN",     (0, 0), (-1, -1), "MIDDLE"),
+        ]),
+    )
+    story = [
+        Paragraph("Merged Cells Example", s["Heading1"]),
+        Spacer(1, 12),
+        t,
+    ]
+    doc.build(story)
+
+
+def build_11_pl_statement(out: Path) -> None:
+    """4-year P&L statement: 34 rows × 5 tight columns (label + FY2021–FY2024).
+
+    Exercises the parser on a dense financial table:
+      - 7.5 pt font in 63 pt-wide numeric columns ("very small cells")
+      - Mixed positive / negative values; negatives in parentheses
+      - Section-header rows with distinct background across all columns
+      - Subtotal / total rows differentiated by bold font and thin rules
+      - Percentage rows interspersed with absolute-value rows
+      - Right-aligned numeric columns, left-aligned label column
+      - Realistic section structure: Revenue → COGS → OpEx → Other → EPS
+    """
+
+    doc = SimpleDocTemplate(
+        str(out), pagesize=LETTER,
+        leftMargin=54, rightMargin=54, topMargin=54, bottomMargin=54,
+    )
+    s = _styles()
+
+    # ------------------------------------------------------------------ data
+    # Each row is (label, FY2021, FY2022, FY2023, FY2024).
+    # Row-type tags drive styling below; they are NOT in the data list.
+    # Types: H=column header, S=section header, I=indent item,
+    #        T=subtotal, K=key total, P=percentage/rate, B=blank separator
+    rows_tagged = [
+        # type, label, fy21, fy22, fy23, fy24
+        ("H",  "Income Statement",               "FY2021",   "FY2022",   "FY2023",   "FY2024"),
+        ("S",  "Revenue",                        "",         "",         "",         ""),
+        ("I",  "  Product Revenue",              "12,450",   "15,320",   "18,760",   "22,140"),
+        ("I",  "  Service Revenue",              "2,890",    "3,450",    "4,120",    "5,380"),
+        ("I",  "  Other Revenue",                "480",      "620",      "710",      "850"),
+        ("T",  "Total Revenue",                  "15,820",   "19,390",   "23,590",   "28,370"),
+        ("S",  "Cost of Revenue",                "",         "",         "",         ""),
+        ("I",  "  Cost of Goods Sold",           "(8,240)",  "(9,950)",  "(11,820)", "(13,760)"),
+        ("I",  "  Depreciation & Amort.",        "(320)",    "(380)",    "(430)",    "(480)"),
+        ("T",  "Total Cost of Revenue",          "(8,560)",  "(10,330)", "(12,250)", "(14,240)"),
+        ("K",  "Gross Profit",                   "7,260",    "9,060",    "11,340",   "14,130"),
+        ("P",  "  Gross Margin %",               "45.9%",    "46.7%",    "48.1%",    "49.8%"),
+        ("S",  "Operating Expenses",             "",         "",         "",         ""),
+        ("I",  "  Research & Development",       "(2,140)",  "(2,660)",  "(3,180)",  "(3,720)"),
+        ("I",  "  Sales & Marketing",            "(3,280)",  "(3,950)",  "(4,840)",  "(5,600)"),
+        ("I",  "  General & Administrative",     "(1,120)",  "(1,280)",  "(1,460)",  "(1,640)"),
+        ("I",  "  Stock-Based Compensation",     "(890)",    "(1,020)",  "(1,190)",  "(1,380)"),
+        ("T",  "Total Operating Expenses",       "(7,430)",  "(8,910)",  "(10,670)", "(12,340)"),
+        ("K",  "Operating Income (EBIT)",        "(170)",    "150",      "670",      "1,790"),
+        ("P",  "  EBIT Margin %",                "-1.1%",    "0.8%",     "2.8%",     "6.3%"),
+        ("S",  "Other Items",                    "",         "",         "",         ""),
+        ("I",  "  Interest Income",              "85",       "110",      "190",      "340"),
+        ("I",  "  Interest Expense",             "(420)",    "(390)",    "(350)",    "(290)"),
+        ("I",  "  Other Income (Expense), net",  "40",       "25",       "(30)",     "60"),
+        ("T",  "Total Other Items",              "(295)",    "(255)",    "(190)",    "110"),
+        ("T",  "Pre-Tax Income (Loss)",          "(465)",    "(105)",    "480",      "1,900"),
+        ("I",  "  Income Tax Provision",         "\u2014",   "\u2014",   "(96)",     "(418)"),
+        ("K",  "Net Income (Loss)",              "(465)",    "(105)",    "384",      "1,482"),
+        ("P",  "  Net Margin %",                 "-2.9%",    "-0.5%",    "1.6%",     "5.2%"),
+        ("S",  "Per Share Data",                 "",         "",         "",         ""),
+        ("I",  "  Basic EPS",                    "$(0.47)",  "$(0.11)",  "$0.38",    "$1.49"),
+        ("I",  "  Diluted EPS",                  "$(0.47)",  "$(0.11)",  "$0.37",    "$1.44"),
+        ("I",  "  Wtd-Avg Shares, Basic (M)",    "99.1",     "99.8",     "100.2",    "99.5"),
+        ("I",  "  Wtd-Avg Shares, Diluted (M)",  "103.4",    "103.9",    "104.1",    "103.8"),
+    ]
+
+    data = [[row[1], row[2], row[3], row[4], row[5]] for row in rows_tagged]
+    types = [row[0] for row in rows_tagged]
+    n = len(data)
+
+    # ---------------------------------------------------------------- palette
+    _GREY_HEADER  = colors.HexColor("#D0D0D0")
+    _GREY_SECTION = colors.HexColor("#E8E8E8")
+    _GREY_TOTAL   = colors.HexColor("#F0F0F0")
+    _GREY_KEY     = colors.HexColor("#DDEEFF")
+    _WHITE        = colors.white
+
+    # ----------------------------------------------------------------- styles
+    cmd: list = [
+        ("FONTNAME",    (0, 0), (-1, -1), "Helvetica"),
+        ("FONTSIZE",    (0, 0), (-1, -1), 7.5),
+        ("LEADING",     (0, 0), (-1, -1), 9),
+        ("TOPPADDING",  (0, 0), (-1, -1), 2),
+        ("BOTTOMPADDING", (0, 0), (-1, -1), 2),
+        ("LEFTPADDING", (0, 0), (-1, -1), 3),
+        ("RIGHTPADDING",(0, 0), (-1, -1), 3),
+        # Grid
+        ("GRID",        (0, 0), (-1, -1), 0.4, colors.HexColor("#AAAAAA")),
+        # Numeric columns: right-align
+        ("ALIGN",       (1, 0), (-1, -1), "RIGHT"),
+        ("ALIGN",       (0, 0), (0, -1),  "LEFT"),
+    ]
+
+    for i, t in enumerate(types):
+        if t == "H":
+            cmd += [
+                ("BACKGROUND",  (0, i), (-1, i), _GREY_HEADER),
+                ("FONTNAME",    (0, i), (-1, i), "Helvetica-Bold"),
+                ("ALIGN",       (0, i), (-1, i), "CENTER"),
+            ]
+        elif t == "S":
+            cmd += [
+                ("BACKGROUND",  (0, i), (-1, i), _GREY_SECTION),
+                ("FONTNAME",    (0, i), (-1, i), "Helvetica-Bold"),
+                ("FONTSIZE",    (0, i), (-1, i), 7.0),
+            ]
+        elif t == "T":
+            cmd += [
+                ("BACKGROUND",  (0, i), (-1, i), _GREY_TOTAL),
+                ("FONTNAME",    (0, i), (-1, i), "Helvetica-Bold"),
+                ("LINEABOVE",   (0, i), (-1, i), 0.5, colors.black),
+            ]
+        elif t == "K":
+            cmd += [
+                ("BACKGROUND",  (0, i), (-1, i), _GREY_KEY),
+                ("FONTNAME",    (0, i), (-1, i), "Helvetica-Bold"),
+                ("LINEABOVE",   (0, i), (-1, i), 0.8, colors.black),
+                ("LINEBELOW",   (0, i), (-1, i), 0.8, colors.black),
+            ]
+        elif t == "P":
+            cmd += [
+                ("FONTNAME",    (0, i), (-1, i), "Helvetica-Oblique"),
+                ("TEXTCOLOR",   (0, i), (-1, i), colors.HexColor("#444444")),
+            ]
+
+    col_widths = [195, 63, 63, 63, 63]
+    t = Table(data, colWidths=col_widths, style=TableStyle(cmd), repeatRows=1)
+    story = [
+        Paragraph("Consolidated Income Statement ($000s unless noted)", s["Heading2"]),
+        Spacer(1, 6),
+        t,
+    ]
+    doc.build(story)
+
 BUILDERS = {
     "01_simple_table": build_01_simple_table,
     "02_nested_table": build_02_nested_table,
     "03_page_spanning": build_03_page_spanning,
     "04_multi_column": build_04_multi_column,
     "05_sections_lists": build_05_sections_lists,
+    "06_page_spanning_no_header_repeat": build_06_page_spanning_no_header_repeat,
+    "07_page_spanning_with_nested": build_07_page_spanning_with_nested,
+    "08_page_spanning_subtable_split": build_08_page_spanning_subtable_split,
+    "09_mixed_toc_and_spanning_table": build_09_mixed_toc_and_spanning_table,
+    "10_merged_cells": build_10_merged_cells,
+    "11_pl_statement": build_11_pl_statement,
 }
 
 
