@@ -9,6 +9,10 @@ import pymupdf
 
 from pdf_parser.model import BBox
 
+# Images smaller than this in either dimension are decorative artefacts (rules,
+# bullets, background fills) and are not surfaced as figure nodes.
+_MIN_IMAGE_PT = 10.0
+
 
 @dataclass(frozen=True)
 class Span:
@@ -20,6 +24,15 @@ class Span:
     italic: bool
 
 
+@dataclass(frozen=True)
+class ImageInfo:
+    """Embedded image found on a PDF page."""
+    bbox: BBox
+    xref: int    # pymupdf cross-reference index; used to extract bytes later
+    width: int   # pixel width of the original image
+    height: int  # pixel height of the original image
+
+
 @dataclass
 class PageRaw:
     index: int
@@ -27,7 +40,7 @@ class PageRaw:
     height: float
     spans: list[Span] = field(default_factory=list)
     drawings: list[dict] = field(default_factory=list)
-    images: list[BBox] = field(default_factory=list)
+    images: list[ImageInfo] = field(default_factory=list)
 
 
 def ingest(pdf_path: Path) -> list[PageRaw]:
@@ -55,10 +68,24 @@ def ingest(pdf_path: Path) -> list[PageRaw]:
                             italic=bool(span.get("flags", 0) & 2),
                         ))
             raw.drawings = page.get_drawings()
-            for img in page.get_image_info():
+            seen_xrefs: set[int] = set()
+            for img in page.get_image_info(xrefs=True):
                 bb = img.get("bbox")
-                if bb:
-                    raw.images.append(BBox(page=idx, x0=bb[0], y0=bb[1], x1=bb[2], y1=bb[3]))
+                xref = img.get("xref", 0)
+                if not bb or not xref:
+                    continue
+                x0, y0, x1, y1 = bb
+                if (x1 - x0) < _MIN_IMAGE_PT or (y1 - y0) < _MIN_IMAGE_PT:
+                    continue
+                if xref in seen_xrefs:
+                    continue  # same image referenced multiple times on this page
+                seen_xrefs.add(xref)
+                raw.images.append(ImageInfo(
+                    bbox=BBox(page=idx, x0=x0, y0=y0, x1=x1, y1=y1),
+                    xref=xref,
+                    width=img.get("width", 0),
+                    height=img.get("height", 0),
+                ))
             pages.append(raw)
     finally:
         doc.close()

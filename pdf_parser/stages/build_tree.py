@@ -70,7 +70,22 @@ def _build_page(
         b for b in seg.blocks
         if not any(_bbox_overlaps_tbox(b.bbox, tb) for tb in table_bboxes_on_page)
     ]
-    nodes: list[DocNode] = [_block_to_node(b) for b in free_blocks] + list(table_nodes_anchored_here)
+    # Create figure nodes for embedded images that don't fall inside a table region.
+    figure_nodes = [
+        DocNode(
+            kind="figure",
+            bbox=img.bbox,
+            attrs={"xref": img.xref, "width": img.width, "height": img.height},
+            provenance={"extractor": "pymupdf", "stage": "ingest"},
+        )
+        for img in seg.images
+        if not any(_bbox_overlaps_tbox(img.bbox, tb) for tb in table_bboxes_on_page)
+    ]
+    nodes: list[DocNode] = (
+        [_block_to_node(b) for b in free_blocks]
+        + list(table_nodes_anchored_here)
+        + figure_nodes
+    )
     nodes.sort(key=_bbox_top)
     nodes = _group_list_items(nodes)
     return DocNode(

@@ -165,6 +165,35 @@ def _load_rect_colors(pdf_path: Path) -> list[_RectEntry]:
     return entries
 
 
+# xref → "data:<mime>;base64,<b64>"
+_ImageMap = dict[int, str]
+
+
+def _load_images(pdf_path: Path) -> _ImageMap:
+    """Extract all embedded images from the PDF as base64 data URIs."""
+    import base64
+    import pymupdf
+
+    data: _ImageMap = {}
+    doc = pymupdf.open(str(pdf_path))
+    try:
+        for page in doc:
+            for img_info in page.get_image_info(xrefs=True):
+                xref = img_info.get("xref", 0)
+                if not xref or xref in data:
+                    continue
+                img = doc.extract_image(xref)
+                if not img:
+                    continue
+                ext = img.get("ext", "png")
+                mime = "image/jpeg" if ext in ("jpg", "jpeg") else f"image/{ext}"
+                b64 = base64.b64encode(img["image"]).decode()
+                data[xref] = f"data:{mime};base64,{b64}"
+    finally:
+        doc.close()
+    return data
+
+
 def _lookup_color(rects: list[_RectEntry], bbox: BBox) -> str | None:
     cx = (bbox.x0 + bbox.x1) / 2
     cy = (bbox.y0 + bbox.y1) / 2
@@ -321,11 +350,12 @@ def _render_node(
     rects: list[_RectEntry],
     page_index: int,
     extras: dict[int, list[tuple[DocNode, list[DocNode]]]],
+    images: _ImageMap,
 ) -> str:
     kind = node.kind
 
     if kind == "document":
-        return "".join(_render_node(c, rects, page_index, extras) for c in node.children)
+        return "".join(_render_node(c, rects, page_index, extras, images) for c in node.children)
 
     if kind == "page":
         pi = node.attrs.get("page_index", 0)
@@ -333,7 +363,7 @@ def _render_node(
         w = (b.x1 - b.x0) * _S
         h = (b.y1 - b.y0) * _S
         # Render this page's own children (tables filtered to this page)
-        inner = "".join(_render_node(c, rects, pi, extras) for c in node.children)
+        inner = "".join(_render_node(c, rects, pi, extras, images) for c in node.children)
         # Inject rows from stitched tables whose home page < pi
         for tbl, rows in extras.get(pi, []):
             inner += _render_table_rows(tbl, rows, rects)
@@ -349,7 +379,7 @@ def _render_node(
         return f'<div class="tb" style="{_bbox_pos(b)}">{_esc(node.text)}</div>'
 
     if kind == "section":
-        return "".join(_render_node(c, rects, page_index, extras) for c in node.children)
+        return "".join(_render_node(c, rects, page_index, extras, images) for c in node.children)
 
     if kind == "table":
         return _render_table(node, rects, page_index)
@@ -361,10 +391,14 @@ def _render_node(
 
     if kind == "figure":
         b = _single_bbox(node)
-        path = _esc(node.attrs.get("path", ""))
+        xref = node.attrs.get("xref")
+        src = images.get(xref, "") if images and xref else ""
+        if not src:
+            src = _esc(node.attrs.get("path", ""))
         return (
             f'<div class="tb" style="{_bbox_pos(b)}">'
-            f'<img src="{path}" style="max-width:100%;max-height:100%;"></div>'
+            f'<img src="{src}" style="max-width:100%;max-height:100%;'
+            f'object-fit:contain;" alt=""></div>'
         )
 
     return ""
@@ -377,15 +411,19 @@ def to_html(tree: DocNode, pdf_path: Path | str | None = None) -> str:
         tree:     Parsed document tree.
         pdf_path: Path to the original PDF.  When supplied, background fill
                   colours are extracted directly from the PDF so they match
-                  the source exactly.  Omit for a heuristic-only render.
+                  the source exactly, and embedded images are inlined as
+                  base64 data URIs.  Omit for a heuristic-only render.
     """
     rects: list[_RectEntry] = []
+    images: _ImageMap = {}
     if pdf_path is not None:
-        rects = _load_rect_colors(Path(pdf_path))
+        p = Path(pdf_path)
+        rects = _load_rect_colors(p)
+        images = _load_images(p)
 
     # Pre-collect stitched-table rows that belong to pages > their home page.
     extras: dict[int, list[tuple[DocNode, list[DocNode]]]] = {}
     _collect_multipage_rows(tree, extras)
 
-    body = _render_node(tree, rects, page_index=0, extras=extras)
+    body = _render_node(tree, rects, page_index=0, extras=extras, images=images)
     return _DOC_TMPL.format(css=_CSS, body=body)

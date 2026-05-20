@@ -7,7 +7,7 @@ from dataclasses import dataclass, field
 from typing import Literal
 
 from pdf_parser.model import BBox
-from pdf_parser.stages.ingest import PageRaw, Span
+from pdf_parser.stages.ingest import ImageInfo, PageRaw, Span
 
 BlockKind = Literal["heading", "paragraph", "list_item", "unknown"]
 
@@ -29,6 +29,7 @@ class PageSegmented:
     width: float
     height: float
     blocks: list[Block] = field(default_factory=list)
+    images: list[ImageInfo] = field(default_factory=list)
 
 
 def _line_key(span: Span) -> int:
@@ -93,4 +94,7 @@ def _segment_page(page: PageRaw) -> PageSegmented:
 
 
 def segment(pages: list[PageRaw]) -> list[PageSegmented]:
-    return [_segment_page(p) for p in pages]
+    result = [_segment_page(p) for p in pages]
+    for seg, raw in zip(result, pages):
+        seg.images = list(raw.images)
+    return result
