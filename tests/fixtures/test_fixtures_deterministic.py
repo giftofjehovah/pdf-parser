@@ -110,3 +110,18 @@ def test_pl_statement_committed_fixture_matches_regeneration(tmp_path):
     regen = tmp_path / "regen.pdf"
     BUILDERS["11_pl_statement"](regen)
     assert _digest(committed) == _digest(regen)
+
+
+def test_comprehensive_pdf_is_byte_stable(tmp_path):
+    a = tmp_path / "a.pdf"; b = tmp_path / "b.pdf"
+    BUILDERS["13_comprehensive"](a)
+    BUILDERS["13_comprehensive"](b)
+    assert _digest(a) == _digest(b)
+
+
+def test_comprehensive_committed_fixture_matches_regeneration(tmp_path):
+    committed = GOLDEN_DIR / "13_comprehensive" / "source.pdf"
+    assert committed.exists(), "run `python -m tests.fixtures.build_pdfs` first"
+    regen = tmp_path / "regen.pdf"
+    BUILDERS["13_comprehensive"](regen)
+    assert _digest(committed) == _digest(regen)

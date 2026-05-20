@@ -634,6 +634,492 @@ def build_12_image_chart(out: Path) -> None:
         ),
     ]
     doc.build(story)
+
+
+def _make_line_chart_png() -> bytes:
+    """Generate a deterministic 420x260 two-series monthly line chart (Pillow only)."""
+    import io
+    from PIL import Image, ImageDraw, ImageFont
+
+    W, H = 420, 260
+    img = Image.new("RGB", (W, H), (255, 255, 255))
+    draw = ImageDraw.Draw(img)
+    font = ImageFont.load_default()
+
+    months   = ["Jan", "Feb", "Mar", "Apr", "May", "Jun",
+                "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"]
+    series_a = [42, 45, 41, 48, 53, 58, 62, 60, 67, 71, 78, 85]
+    series_b = [38, 36, 40, 43, 45, 47, 50, 52, 55, 58, 60, 63]
+
+    BLUE  = (70, 130, 180)
+    GREEN = (60, 160, 80)
+    BLACK = (0, 0, 0)
+    GRAY  = (180, 180, 180)
+
+    ml, mr, mt, mb = 40, 15, 20, 30
+    x0, x1, y0, y1 = ml, W - mr, mt, H - mb
+    cw, ch = x1 - x0, y1 - y0
+    n = len(months)
+    max_v = max(max(series_a), max(series_b))
+
+    for frac in (0.25, 0.50, 0.75, 1.0):
+        gy = y1 - int(frac * ch)
+        draw.line([x0, gy, x1, gy], fill=GRAY, width=1)
+
+    def x_for(i: int) -> int:
+        return x0 + i * cw // (n - 1)
+
+    def y_for(v: int) -> int:
+        return y1 - int(v / max_v * ch)
+
+    pts_a = [(x_for(i), y_for(v)) for i, v in enumerate(series_a)]
+    pts_b = [(x_for(i), y_for(v)) for i, v in enumerate(series_b)]
+
+    for i in range(n - 1):
+        draw.line([pts_a[i], pts_a[i + 1]], fill=BLUE, width=2)
+        draw.line([pts_b[i], pts_b[i + 1]], fill=GREEN, width=2)
+
+    # Axes
+    draw.line([x0, y0, x0, y1], fill=BLACK, width=1)
+    draw.line([x0, y1, x1, y1], fill=BLACK, width=1)
+
+    # X labels every 3rd month
+    for i, lbl in enumerate(months):
+        if i % 3 == 0:
+            draw.text((x_for(i) - 6, y1 + 3), lbl, fill=BLACK, font=font)
+
+    # Legend
+    lx, ly = x1 - 135, y0
+    draw.line([lx, ly + 4, lx + 15, ly + 4], fill=BLUE, width=2)
+    draw.text((lx + 18, ly), "Revenue ($M)", fill=BLACK, font=font)
+    draw.line([lx, ly + 16, lx + 15, ly + 16], fill=GREEN, width=2)
+    draw.text((lx + 18, ly + 12), "Costs ($M)", fill=BLACK, font=font)
+
+    buf = io.BytesIO()
+    img.save(buf, format="PNG", optimize=False)
+    return buf.getvalue()
+
+
+def build_13_comprehensive(out: Path) -> None:
+    """Omnibus document: every structural use-case in a single multi-page PDF.
+
+    Covers in one document:
+      - Heading levels 1, 2, 3
+      - Body paragraphs
+      - Bullet lists (×2)
+      - Two-column balanced layout (BalancedColumns)
+      - Simple grid table (TOC + regional summary)
+      - Nested table (table inside a cell)
+      - Merged cells — colspan spanning all columns + rowspan over two rows
+      - Page-spanning table WITH header repeat (repeatRows=1)
+      - Page-spanning table WITHOUT header repeat
+      - Page-spanning table with nested sub-tables on both pages (no header repeat)
+      - Dense financial table (income statement style, small font, section rows)
+      - Three embedded raster PNG images (bar chart ×2, line chart ×1)
+    """
+    import io
+    from reportlab.lib.pagesizes import LETTER
+    from reportlab.lib.styles import getSampleStyleSheet
+    from reportlab.lib.units import inch
+    from reportlab.platypus import (
+        Image as RLImage, ListFlowable, ListItem,
+        Paragraph, SimpleDocTemplate, Spacer, Table, TableStyle, PageBreak,
+    )
+    from reportlab.platypus.flowables import BalancedColumns
+
+    s = getSampleStyleSheet()
+    doc = SimpleDocTemplate(
+        str(out), pagesize=LETTER,
+        leftMargin=72, rightMargin=72, topMargin=72, bottomMargin=72,
+    )
+
+    def _p(text: str, style: str = "BodyText") -> Paragraph:
+        return Paragraph(text, s[style])
+
+    def _sp(n: int = 8) -> Spacer:
+        return Spacer(1, n)
+
+    def _img(data: bytes, w: float = 4.5, h: float = 2.79) -> RLImage:
+        return RLImage(io.BytesIO(data), width=w * inch, height=h * inch)
+
+    PROSE = (
+        "This section provides an in-depth analysis of the operational data "
+        "collected during the assessment period. The findings are presented "
+        "in structured form to facilitate comparison across regions and time."
+    )
+
+    bar_png  = _make_chart_png()
+    line_png = _make_line_chart_png()
+
+    # ------------------------------------------------------------------ page 1
+    # Title + intro paragraph + TOC as a real GRID table + bar chart
+
+    toc_data = [
+        ["Section", "Page"],
+        ["1. Executive Summary", "2"],
+        ["2. Performance Analysis", "3"],
+        ["3. Data Summary", "4"],
+        ["4. Transaction Log", "5"],
+        ["5. Operations Register", "7"],
+        ["6. Project Tracking", "9"],
+        ["7. Financial Results", "11"],
+        ["8. Conclusions", "12"],
+    ]
+    toc_table = Table(
+        toc_data,
+        colWidths=[370, 60],
+        style=TableStyle([
+            ("GRID",       (0, 0), (-1, -1), 0.5, colors.black),
+            ("BACKGROUND", (0, 0), (-1, 0),  colors.lightgrey),
+            ("FONTNAME",   (0, 0), (-1, 0),  "Helvetica-Bold"),
+        ]),
+    )
+
+    story: list = [
+        _p("Technology Assessment Report 2025", "Heading1"),
+        _sp(12),
+        _p(PROSE),
+        _sp(18),
+        _p("Table of Contents", "Heading2"),
+        _sp(8),
+        toc_table,
+        _sp(16),
+        _img(bar_png),
+        _p("Figure 1: Quarterly revenue by product line."),
+        PageBreak(),
+    ]
+
+    # ------------------------------------------------------------------ page 2
+    # H2 + H3 headings, paragraphs, bullet list, two-column layout, simple table
+
+    findings = [
+        "Product revenue grew 77.8% year-over-year to $22.14M in Q4.",
+        "Service revenue expanded 86.2% over the same period to $5.38M.",
+        "Combined operating expenses decreased as a percentage of revenue.",
+    ]
+
+    story += [
+        _p("1. Executive Summary", "Heading2"),
+        _sp(8),
+        _p(PROSE),
+        _sp(8),
+        _p("1.1 Key Findings", "Heading3"),
+        _sp(6),
+        ListFlowable(
+            [ListItem(_p(t)) for t in findings],
+            bulletType="bullet",
+        ),
+        _sp(10),
+        _p("1.2 Regional Overview", "Heading3"),
+        _sp(6),
+        BalancedColumns(
+            [
+                _p(
+                    "North America accounts for the largest share of total revenue, "
+                    "driven by strong product adoption and enterprise service contracts. "
+                    "Growth in this region is expected to continue at a compound annual "
+                    "rate of approximately 18 percent over the next three years."
+                ),
+                _p(
+                    "Europe and Asia-Pacific together represent the fastest-growing "
+                    "segments, with combined year-over-year growth exceeding 35 percent. "
+                    "Investments in regional distribution and localised product variants "
+                    "are the primary drivers of this expansion."
+                ),
+            ],
+            nCols=2,
+        ),
+        _sp(12),
+        _p("1.3 Regional Summary", "Heading3"),
+        _sp(6),
+        Table(
+            [
+                ["Region",         "Revenue ($M)", "YoY Growth"],
+                ["North America",  "14.2",         "22%"],
+                ["Europe",         "8.5",          "31%"],
+                ["Asia-Pacific",   "5.6",          "41%"],
+                ["Other",          "2.1",          "18%"],
+            ],
+            colWidths=[180, 120, 120],
+            style=TableStyle([
+                ("GRID",       (0, 0), (-1, -1), 0.5, colors.black),
+                ("BACKGROUND", (0, 0), (-1, 0),  colors.lightgrey),
+                ("FONTNAME",   (0, 0), (-1, 0),  "Helvetica-Bold"),
+            ]),
+        ),
+        PageBreak(),
+    ]
+
+    # ------------------------------------------------------------------ page 3
+    # Line chart, nested table, merged-cells table
+
+    def _sub(label: str) -> Table:
+        return Table(
+            [[f"{label}-X", f"{label}-Y"], ["val-1", "val-2"]],
+            style=TableStyle([("GRID", (0, 0), (-1, -1), 0.4, colors.grey)]),
+            colWidths=[50, 50],
+        )
+
+    nested_outer = Table(
+        [
+            ["Component",  "Specifications", "Notes"  ],
+            ["CPU",        _sub("cpu"),       "4-core" ],
+            ["Memory",     "16 GB",           "DDR5"   ],
+            ["Storage",    _sub("disk"),      "NVMe"   ],
+        ],
+        colWidths=[120, 180, 120],
+        style=TableStyle([
+            ("GRID",       (0, 0), (-1, -1), 0.5, colors.black),
+            ("BACKGROUND", (0, 0), (-1, 0),  colors.lightgrey),
+            ("VALIGN",     (0, 0), (-1, -1), "MIDDLE"),
+        ]),
+    )
+
+    merged_table = Table(
+        [
+            ["Quarterly Report", "",     ""   ],
+            ["Region",           "Q1",   "Q2" ],
+            ["North",            "100",  "200"],
+            ["",                 "120",  "180"],
+            ["South",            "300",  "400"],
+        ],
+        colWidths=[150, 80, 80],
+        style=TableStyle([
+            ("SPAN",       (0, 0), (2, 0)),
+            ("SPAN",       (0, 2), (0, 3)),
+            ("GRID",       (0, 0), (-1, -1), 0.5, colors.black),
+            ("BACKGROUND", (0, 0), (-1, 0),  colors.lightgrey),
+            ("BACKGROUND", (0, 1), (-1, 1),  colors.lightgrey),
+            ("ALIGN",      (0, 0), (2, 0),   "CENTER"),
+            ("VALIGN",     (0, 0), (-1, -1), "MIDDLE"),
+        ]),
+    )
+
+    story += [
+        _p("2. Performance Analysis", "Heading2"),
+        _sp(8),
+        _p("2.1 Revenue Trends", "Heading3"),
+        _sp(6),
+        _img(line_png),
+        _p("Figure 2: Monthly revenue and cost trends."),
+        _sp(12),
+        _p(PROSE),
+        _sp(16),
+        _p("3. Data Summary", "Heading2"),
+        _sp(8),
+        _p("3.1 Hardware Inventory", "Heading3"),
+        _sp(6),
+        nested_outer,
+        _sp(12),
+        _p("3.2 Quarterly Performance", "Heading3"),
+        _sp(6),
+        merged_table,
+        PageBreak(),
+    ]
+
+    # --------------------------------------------------------------- pages 4-6
+    # Page-spanning table WITH header repeat (repeatRows=1)
+
+    span_with_header = Table(
+        [["ID", "Description", "Value"]] + [
+            [str(i), f"Transaction item {i}", f"${i * 2.75:.2f}"]
+            for i in range(1, 51)
+        ],
+        repeatRows=1,
+        colWidths=[60, 300, 80],
+        style=TableStyle([
+            ("GRID",       (0, 0), (-1, -1), 0.5, colors.black),
+            ("BACKGROUND", (0, 0), (-1, 0),  colors.lightgrey),
+        ]),
+    )
+
+    story += [
+        _p("4. Transaction Log", "Heading2"),
+        _sp(8),
+        _p("All 50 transactions; header row repeats on each continuation page."),
+        _sp(8),
+        span_with_header,
+        PageBreak(),
+    ]
+
+    # --------------------------------------------------------------- pages 6-8
+    # Page-spanning table WITHOUT header repeat
+
+    span_no_header = Table(
+        [["ID", "Operation", "Cost"]] + [
+            [str(i), f"Operation step {i}", f"${i * 1.50:.2f}"]
+            for i in range(1, 51)
+        ],
+        colWidths=[60, 300, 80],
+        style=TableStyle([
+            ("GRID",       (0, 0), (-1, -1), 0.5, colors.black),
+            ("BACKGROUND", (0, 0), (-1, 0),  colors.lightgrey),
+        ]),
+    )
+
+    story += [
+        _p("5. Operations Register", "Heading2"),
+        _sp(8),
+        _p("Operations log; header appears on page 1 only (no repeatRows)."),
+        _sp(8),
+        span_no_header,
+        PageBreak(),
+    ]
+
+    # --------------------------------------------------------------- pages 8-10
+    # Page-spanning table with nested sub-tables on BOTH pages (no header repeat)
+
+    def _nested_sub(label: str) -> Table:
+        return Table(
+            [[f"{label}-A", f"{label}-B"], ["1", "2"]],
+            style=TableStyle([("GRID", (0, 0), (-1, -1), 0.4, colors.grey)]),
+            colWidths=[50, 50],
+        )
+
+    project_rows: list = [["Step", "Inputs", "Notes"]]
+    for i in range(1, 51):
+        if i == 5:
+            project_rows.append([str(i), _nested_sub("p1"), "nested on pg1"])
+        elif i == 45:
+            project_rows.append([str(i), _nested_sub("p2"), "nested on pg2"])
+        else:
+            project_rows.append([str(i), f"input {i}", f"note {i}"])
+
+    project_table = Table(
+        project_rows,
+        colWidths=[70, 280, 150],
+        style=TableStyle([
+            ("GRID",       (0, 0), (-1, -1), 0.5, colors.black),
+            ("BACKGROUND", (0, 0), (-1, 0),  colors.lightgrey),
+            ("VALIGN",     (0, 0), (-1, -1), "MIDDLE"),
+        ]),
+    )
+
+    story += [
+        _p("6. Project Tracking", "Heading2"),
+        _sp(8),
+        _p("Project log with nested input tables on both continuation pages."),
+        _sp(8),
+        project_table,
+        PageBreak(),
+    ]
+
+    # -------------------------------------------------------------- page 10-11
+    # Dense financial table: income statement style (small font, section rows)
+
+    pl_tagged = [
+        # type, label,                          FY21,       FY22,       FY23,       FY24
+        ("H", "Income Statement",               "FY2021",   "FY2022",   "FY2023",   "FY2024"),
+        ("S", "Revenue",                        "",         "",         "",         ""),
+        ("I", "  Product Revenue",              "12,450",   "15,320",   "18,760",   "22,140"),
+        ("I", "  Service Revenue",              "2,890",    "3,450",    "4,120",    "5,380"),
+        ("I", "  Other Revenue",                "480",      "620",      "710",      "850"),
+        ("T", "Total Revenue",                  "15,820",   "19,390",   "23,590",   "28,370"),
+        ("S", "Cost of Revenue",                "",         "",         "",         ""),
+        ("I", "  Cost of Goods Sold",           "(8,240)",  "(9,950)",  "(11,820)", "(13,760)"),
+        ("I", "  Depreciation & Amort.",        "(320)",    "(380)",    "(430)",    "(480)"),
+        ("T", "Total Cost of Revenue",          "(8,560)",  "(10,330)", "(12,250)", "(14,240)"),
+        ("K", "Gross Profit",                   "7,260",    "9,060",    "11,340",   "14,130"),
+        ("P", "  Gross Margin %",               "45.9%",    "46.7%",    "48.1%",    "49.8%"),
+        ("S", "Operating Expenses",             "",         "",         "",         ""),
+        ("I", "  Research & Development",       "(2,140)",  "(2,660)",  "(3,180)",  "(3,720)"),
+        ("I", "  Sales & Marketing",            "(3,280)",  "(3,950)",  "(4,840)",  "(5,600)"),
+        ("I", "  General & Administrative",     "(1,120)",  "(1,280)",  "(1,460)",  "(1,640)"),
+        ("T", "Total Operating Expenses",       "(6,540)",  "(7,890)",  "(9,480)",  "(10,960)"),
+        ("K", "Operating Income (EBIT)",        "720",      "1,170",    "1,860",    "3,170"),
+        ("P", "  EBIT Margin %",                "4.6%",     "6.0%",     "7.9%",     "11.2%"),
+        ("S", "Other Items",                    "",         "",         "",         ""),
+        ("I", "  Interest Income",              "85",       "110",      "190",      "340"),
+        ("I", "  Interest Expense",             "(420)",    "(390)",    "(350)",    "(290)"),
+        ("T", "Pre-Tax Income",                 "385",      "890",      "1,700",    "3,220"),
+        ("I", "  Income Tax Provision",         "(78)",     "(178)",    "(340)",    "(644)"),
+        ("K", "Net Income",                     "307",      "712",      "1,360",    "2,576"),
+        ("P", "  Net Margin %",                 "1.9%",     "3.7%",     "5.8%",     "9.1%"),
+        ("S", "Per Share Data",                 "",         "",         "",         ""),
+        ("I", "  Basic EPS",                    "$0.31",    "$0.71",    "$1.36",    "$2.59"),
+        ("I", "  Diluted EPS",                  "$0.30",    "$0.69",    "$1.32",    "$2.51"),
+    ]
+
+    _GH = colors.HexColor("#D0D0D0")
+    _GS = colors.HexColor("#E8E8E8")
+    _GT = colors.HexColor("#F0F0F0")
+    _GK = colors.HexColor("#DDEEFF")
+
+    pl_cmd: list = [
+        ("FONTNAME",      (0, 0), (-1, -1), "Helvetica"),
+        ("FONTSIZE",      (0, 0), (-1, -1), 7.5),
+        ("LEADING",       (0, 0), (-1, -1), 9),
+        ("TOPPADDING",    (0, 0), (-1, -1), 2),
+        ("BOTTOMPADDING", (0, 0), (-1, -1), 2),
+        ("LEFTPADDING",   (0, 0), (-1, -1), 3),
+        ("RIGHTPADDING",  (0, 0), (-1, -1), 3),
+        ("GRID",          (0, 0), (-1, -1), 0.4, colors.HexColor("#AAAAAA")),
+        ("ALIGN",         (1, 0), (-1, -1), "RIGHT"),
+        ("ALIGN",         (0, 0), (0, -1),  "LEFT"),
+    ]
+    for i, (t, *_) in enumerate(pl_tagged):
+        if t == "H":
+            pl_cmd += [("BACKGROUND", (0, i), (-1, i), _GH),
+                       ("FONTNAME",   (0, i), (-1, i), "Helvetica-Bold"),
+                       ("ALIGN",      (0, i), (-1, i), "CENTER")]
+        elif t == "S":
+            pl_cmd += [("BACKGROUND", (0, i), (-1, i), _GS),
+                       ("FONTNAME",   (0, i), (-1, i), "Helvetica-Bold"),
+                       ("FONTSIZE",   (0, i), (-1, i), 7.0)]
+        elif t == "T":
+            pl_cmd += [("BACKGROUND", (0, i), (-1, i), _GT),
+                       ("FONTNAME",   (0, i), (-1, i), "Helvetica-Bold"),
+                       ("LINEABOVE",  (0, i), (-1, i), 0.5, colors.black)]
+        elif t == "K":
+            pl_cmd += [("BACKGROUND", (0, i), (-1, i), _GK),
+                       ("FONTNAME",   (0, i), (-1, i), "Helvetica-Bold"),
+                       ("LINEABOVE",  (0, i), (-1, i), 0.8, colors.black),
+                       ("LINEBELOW",  (0, i), (-1, i), 0.8, colors.black)]
+        elif t == "P":
+            pl_cmd += [("FONTNAME",   (0, i), (-1, i), "Helvetica-Oblique"),
+                       ("TEXTCOLOR",  (0, i), (-1, i), colors.HexColor("#444444"))]
+
+    pl_table = Table(
+        [[r[1], r[2], r[3], r[4], r[5]] for r in pl_tagged],
+        colWidths=[195, 63, 63, 63, 63],
+        style=TableStyle(pl_cmd),
+        repeatRows=1,
+    )
+
+    story += [
+        _p("7. Financial Results", "Heading2"),
+        _sp(8),
+        _p("Consolidated income statement ($000s unless noted)."),
+        _sp(6),
+        pl_table,
+        PageBreak(),
+    ]
+
+    # ----------------------------------------------------------------- page 12
+    # Closing section: prose + bullet list + third image
+
+    conclusions = [
+        "Revenue growth of 79.6% over four fiscal years demonstrates sustained demand.",
+        "Operating leverage improved as fixed costs spread over a larger revenue base.",
+        "Continued R&D investment is expected to drive further margin expansion.",
+        "Regional diversification reduces concentration risk and opens new corridors.",
+    ]
+
+    story += [
+        _p("8. Conclusions", "Heading2"),
+        _sp(8),
+        _p(PROSE),
+        _sp(8),
+        ListFlowable(
+            [ListItem(_p(t)) for t in conclusions],
+            bulletType="bullet",
+        ),
+        _sp(16),
+        _img(bar_png),
+        _p("Figure 3: Full-year revenue summary."),
+    ]
+
+    doc.build(story)
 BUILDERS = {
     "01_simple_table": build_01_simple_table,
     "02_nested_table": build_02_nested_table,
@@ -646,7 +1132,8 @@ BUILDERS = {
     "09_mixed_toc_and_spanning_table": build_09_mixed_toc_and_spanning_table,
     "10_merged_cells": build_10_merged_cells,
     "11_pl_statement": build_11_pl_statement,
-    "12_image_chart": build_12_image_chart,
+    "12_image_chart":   build_12_image_chart,
+    "13_comprehensive": build_13_comprehensive,
 }
 
 

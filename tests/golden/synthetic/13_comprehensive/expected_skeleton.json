@@ -1,0 +1,4096 @@
+{
+  "children": [
+    {
+      "children": [
+        {
+          "kind": "heading",
+          "text": "Technology Assessment Report 2025"
+        },
+        {
+          "kind": "paragraph",
+          "text": "This section provides an in-depth analysis of the operational data collected during the assessment"
+        },
+        {
+          "kind": "paragraph",
+          "text": "period. The findings are presented in structured form to facilitate comparison across regions and time."
+        },
+        {
+          "kind": "heading",
+          "text": "Table of Contents"
+        },
+        {
+          "children": [
+            {
+              "children": [
+                {
+                  "kind": "cell",
+                  "text": "Section"
+                },
+                {
+                  "kind": "cell",
+                  "text": "Page"
+                }
+              ],
+              "kind": "row"
+            },
+            {
+              "children": [
+                {
+                  "kind": "cell",
+                  "text": "1. Executive Summary"
+                },
+                {
+                  "kind": "cell",
+                  "text": "2"
+                }
+              ],
+              "kind": "row"
+            },
+            {
+              "children": [
+                {
+                  "kind": "cell",
+                  "text": "2. Performance Analysis"
+                },
+                {
+                  "kind": "cell",
+                  "text": "3"
+                }
+              ],
+              "kind": "row"
+            },
+            {
+              "children": [
+                {
+                  "kind": "cell",
+                  "text": "3. Data Summary"
+                },
+                {
+                  "kind": "cell",
+                  "text": "4"
+                }
+              ],
+              "kind": "row"
+            },
+            {
+              "children": [
+                {
+                  "kind": "cell",
+                  "text": "4. Transaction Log"
+                },
+                {
+                  "kind": "cell",
+                  "text": "5"
+                }
+              ],
+              "kind": "row"
+            },
+            {
+              "children": [
+                {
+                  "kind": "cell",
+                  "text": "5. Operations Register"
+                },
+                {
+                  "kind": "cell",
+                  "text": "7"
+                }
+              ],
+              "kind": "row"
+            },
+            {
+              "children": [
+                {
+                  "kind": "cell",
+                  "text": "6. Project Tracking"
+                },
+                {
+                  "kind": "cell",
+                  "text": "9"
+                }
+              ],
+              "kind": "row"
+            },
+            {
+              "children": [
+                {
+                  "kind": "cell",
+                  "text": "7. Financial Results"
+                },
+                {
+                  "kind": "cell",
+                  "text": "11"
+                }
+              ],
+              "kind": "row"
+            },
+            {
+              "children": [
+                {
+                  "kind": "cell",
+                  "text": "8. Conclusions"
+                },
+                {
+                  "kind": "cell",
+                  "text": "12"
+                }
+              ],
+              "kind": "row"
+            }
+          ],
+          "kind": "table"
+        },
+        {
+          "kind": "figure"
+        },
+        {
+          "kind": "paragraph",
+          "text": "Figure 1: Quarterly revenue by product line."
+        }
+      ],
+      "kind": "page"
+    },
+    {
+      "children": [
+        {
+          "kind": "heading",
+          "text": "1. Executive Summary"
+        },
+        {
+          "kind": "paragraph",
+          "text": "This section provides an in-depth analysis of the operational data collected during the assessment"
+        },
+        {
+          "kind": "paragraph",
+          "text": "period. The findings are presented in structured form to facilitate comparison across regions and time."
+        },
+        {
+          "kind": "heading",
+          "text": "1.1 Key Findings"
+        },
+        {
+          "kind": "heading",
+          "text": "\u2022"
+        },
+        {
+          "kind": "paragraph",
+          "text": "Product revenue grew 77.8% year-over-year to $22.14M in Q4."
+        },
+        {
+          "kind": "heading",
+          "text": "\u2022"
+        },
+        {
+          "kind": "paragraph",
+          "text": "Service revenue expanded 86.2% over the same period to $5.38M."
+        },
+        {
+          "kind": "heading",
+          "text": "\u2022"
+        },
+        {
+          "kind": "paragraph",
+          "text": "Combined operating expenses decreased as a percentage of revenue."
+        },
+        {
+          "kind": "heading",
+          "text": "1.2 Regional Overview"
+        },
+        {
+          "kind": "paragraph",
+          "text": "North America accounts for the largest share of Europe and Asia-Pacific together represent the"
+        },
+        {
+          "kind": "paragraph",
+          "text": "total revenue, driven by strong product adoption fastest-growing segments, with combined"
+        },
+        {
+          "kind": "paragraph",
+          "text": "and enterprise service contracts. Growth in this year-over-year growth exceeding 35 percent."
+        },
+        {
+          "kind": "paragraph",
+          "text": "region is expected to continue at a compound Investments in regional distribution and localised"
+        },
+        {
+          "kind": "paragraph",
+          "text": "annual rate of approximately 18 percent over the product variants are the primary drivers of this"
+        },
+        {
+          "kind": "paragraph",
+          "text": "next three years. expansion."
+        },
+        {
+          "kind": "heading",
+          "text": "1.3 Regional Summary"
+        },
+        {
+          "children": [
+            {
+              "children": [
+                {
+                  "kind": "cell",
+                  "text": "Region"
+                },
+                {
+                  "kind": "cell",
+                  "text": "Revenue ($M)"
+                },
+                {
+                  "kind": "cell",
+                  "text": "YoY Growth"
+                }
+              ],
+              "kind": "row"
+            },
+            {
+              "children": [
+                {
+                  "kind": "cell",
+                  "text": "North America"
+                },
+                {
+                  "kind": "cell",
+                  "text": "14.2"
+                },
+                {
+                  "kind": "cell",
+                  "text": "22%"
+                }
+              ],
+              "kind": "row"
+            },
+            {
+              "children": [
+                {
+                  "kind": "cell",
+                  "text": "Europe"
+                },
+                {
+                  "kind": "cell",
+                  "text": "8.5"
+                },
+                {
+                  "kind": "cell",
+                  "text": "31%"
+                }
+              ],
+              "kind": "row"
+            },
+            {
+              "children": [
+                {
+                  "kind": "cell",
+                  "text": "Asia-Pacific"
+                },
+                {
+                  "kind": "cell",
+                  "text": "5.6"
+                },
+                {
+                  "kind": "cell",
+                  "text": "41%"
+                }
+              ],
+              "kind": "row"
+            },
+            {
+              "children": [
+                {
+                  "kind": "cell",
+                  "text": "Other"
+                },
+                {
+                  "kind": "cell",
+                  "text": "2.1"
+                },
+                {
+                  "kind": "cell",
+                  "text": "18%"
+                }
+              ],
+              "kind": "row"
+            }
+          ],
+          "kind": "table"
+        }
+      ],
+      "kind": "page"
+    },
+    {
+      "children": [
+        {
+          "kind": "heading",
+          "text": "2. Performance Analysis"
+        },
+        {
+          "kind": "heading",
+          "text": "2.1 Revenue Trends"
+        },
+        {
+          "kind": "figure"
+        },
+        {
+          "kind": "paragraph",
+          "text": "Figure 2: Monthly revenue and cost trends."
+        },
+        {
+          "kind": "paragraph",
+          "text": "This section provides an in-depth analysis of the operational data collected during the assessment"
+        },
+        {
+          "kind": "paragraph",
+          "text": "period. The findings are presented in structured form to facilitate comparison across regions and time."
+        },
+        {
+          "kind": "heading",
+          "text": "3. Data Summary"
+        },
+        {
+          "kind": "heading",
+          "text": "3.1 Hardware Inventory"
+        },
+        {
+          "children": [
+            {
+              "children": [
+                {
+                  "kind": "cell",
+                  "text": "Component"
+                },
+                {
+                  "kind": "cell",
+                  "text": "Specifications"
+                },
+                {
+                  "kind": "cell",
+                  "text": "Notes"
+                }
+              ],
+              "kind": "row"
+            },
+            {
+              "children": [
+                {
+                  "kind": "cell",
+                  "text": "CPU"
+                },
+                {
+                  "children": [
+                    {
+                      "children": [
+                        {
+                          "children": [
+                            {
+                              "kind": "cell",
+                              "text": "cpu-X"
+                            },
+                            {
+                              "kind": "cell",
+                              "text": "cpu-Y"
+                            }
+                          ],
+                          "kind": "row"
+                        },
+                        {
+                          "children": [
+                            {
+                              "kind": "cell",
+                              "text": "val-1"
+                            },
+                            {
+                              "kind": "cell",
+                              "text": "val-2"
+                            }
+                          ],
+                          "kind": "row"
+                        }
+                      ],
+                      "kind": "table"
+                    }
+                  ],
+                  "kind": "cell"
+                },
+                {
+                  "kind": "cell",
+                  "text": "4-core"
+                }
+              ],
+              "kind": "row"
+            },
+            {
+              "children": [
+                {
+                  "kind": "cell",
+                  "text": "Memory"
+                },
+                {
+                  "kind": "cell",
+                  "text": "16 GB"
+                },
+                {
+                  "kind": "cell",
+                  "text": "DDR5"
+                }
+              ],
+              "kind": "row"
+            },
+            {
+              "children": [
+                {
+                  "kind": "cell",
+                  "text": "Storage"
+                },
+                {
+                  "children": [
+                    {
+                      "children": [
+                        {
+                          "children": [
+                            {
+                              "kind": "cell",
+                              "text": "disk-X"
+                            },
+                            {
+                              "kind": "cell",
+                              "text": "disk-Y"
+                            }
+                          ],
+                          "kind": "row"
+                        },
+                        {
+                          "children": [
+                            {
+                              "kind": "cell",
+                              "text": "val-1"
+                            },
+                            {
+                              "kind": "cell",
+                              "text": "val-2"
+                            }
+                          ],
+                          "kind": "row"
+                        }
+                      ],
+                      "kind": "table"
+                    }
+                  ],
+                  "kind": "cell"
+                },
+                {
+                  "kind": "cell",
+                  "text": "NVMe"
+                }
+              ],
+              "kind": "row"
+            }
+          ],
+          "kind": "table"
+        },
+        {
+          "kind": "heading",
+          "text": "3.2 Quarterly Performance"
+        },
+        {
+          "children": [
+            {
+              "children": [
+                {
+                  "kind": "cell",
+                  "text": "Quarterly Report"
+                },
+                {
+                  "kind": "cell"
+                },
+                {
+                  "kind": "cell"
+                }
+              ],
+              "kind": "row"
+            },
+            {
+              "children": [
+                {
+                  "kind": "cell",
+                  "text": "Region"
+                },
+                {
+                  "kind": "cell",
+                  "text": "Q1"
+                },
+                {
+                  "kind": "cell",
+                  "text": "Q2"
+                }
+              ],
+              "kind": "row"
+            },
+            {
+              "children": [
+                {
+                  "kind": "cell",
+                  "text": "North"
+                },
+                {
+                  "kind": "cell",
+                  "text": "100"
+                },
+                {
+                  "kind": "cell",
+                  "text": "200"
+                }
+              ],
+              "kind": "row"
+            },
+            {
+              "children": [
+                {
+                  "kind": "cell"
+                },
+                {
+                  "kind": "cell",
+                  "text": "120"
+                },
+                {
+                  "kind": "cell",
+                  "text": "180"
+                }
+              ],
+              "kind": "row"
+            },
+            {
+              "children": [
+                {
+                  "kind": "cell",
+                  "text": "South"
+                },
+                {
+                  "kind": "cell",
+                  "text": "300"
+                },
+                {
+                  "kind": "cell",
+                  "text": "400"
+                }
+              ],
+              "kind": "row"
+            }
+          ],
+          "kind": "table"
+        }
+      ],
+      "kind": "page"
+    },
+    {
+      "kind": "page"
+    },
+    {
+      "children": [
+        {
+          "kind": "heading",
+          "text": "4. Transaction Log"
+        },
+        {
+          "kind": "paragraph",
+          "text": "All 50 transactions; header row repeats on each continuation page."
+        },
+        {
+          "children": [
+            {
+              "children": [
+                {
+                  "kind": "cell",
+                  "text": "ID"
+                },
+                {
+                  "kind": "cell",
+                  "text": "Description"
+                },
+                {
+                  "kind": "cell",
+                  "text": "Value"
+                }
+              ],
+              "kind": "row"
+            },
+            {
+              "children": [
+                {
+                  "kind": "cell",
+                  "text": "1"
+                },
+                {
+                  "kind": "cell",
+                  "text": "Transaction item 1"
+                },
+                {
+                  "kind": "cell",
+                  "text": "$2.75"
+                }
+              ],
+              "kind": "row"
+            },
+            {
+              "children": [
+                {
+                  "kind": "cell",
+                  "text": "2"
+                },
+                {
+                  "kind": "cell",
+                  "text": "Transaction item 2"
+                },
+                {
+                  "kind": "cell",
+                  "text": "$5.50"
+                }
+              ],
+              "kind": "row"
+            },
+            {
+              "children": [
+                {
+                  "kind": "cell",
+                  "text": "3"
+                },
+                {
+                  "kind": "cell",
+                  "text": "Transaction item 3"
+                },
+                {
+                  "kind": "cell",
+                  "text": "$8.25"
+                }
+              ],
+              "kind": "row"
+            },
+            {
+              "children": [
+                {
+                  "kind": "cell",
+                  "text": "4"
+                },
+                {
+                  "kind": "cell",
+                  "text": "Transaction item 4"
+                },
+                {
+                  "kind": "cell",
+                  "text": "$11.00"
+                }
+              ],
+              "kind": "row"
+            },
+            {
+              "children": [
+                {
+                  "kind": "cell",
+                  "text": "5"
+                },
+                {
+                  "kind": "cell",
+                  "text": "Transaction item 5"
+                },
+                {
+                  "kind": "cell",
+                  "text": "$13.75"
+                }
+              ],
+              "kind": "row"
+            },
+            {
+              "children": [
+                {
+                  "kind": "cell",
+                  "text": "6"
+                },
+                {
+                  "kind": "cell",
+                  "text": "Transaction item 6"
+                },
+                {
+                  "kind": "cell",
+                  "text": "$16.50"
+                }
+              ],
+              "kind": "row"
+            },
+            {
+              "children": [
+                {
+                  "kind": "cell",
+                  "text": "7"
+                },
+                {
+                  "kind": "cell",
+                  "text": "Transaction item 7"
+                },
+                {
+                  "kind": "cell",
+                  "text": "$19.25"
+                }
+              ],
+              "kind": "row"
+            },
+            {
+              "children": [
+                {
+                  "kind": "cell",
+                  "text": "8"
+                },
+                {
+                  "kind": "cell",
+                  "text": "Transaction item 8"
+                },
+                {
+                  "kind": "cell",
+                  "text": "$22.00"
+                }
+              ],
+              "kind": "row"
+            },
+            {
+              "children": [
+                {
+                  "kind": "cell",
+                  "text": "9"
+                },
+                {
+                  "kind": "cell",
+                  "text": "Transaction item 9"
+                },
+                {
+                  "kind": "cell",
+                  "text": "$24.75"
+                }
+              ],
+              "kind": "row"
+            },
+            {
+              "children": [
+                {
+                  "kind": "cell",
+                  "text": "10"
+                },
+                {
+                  "kind": "cell",
+                  "text": "Transaction item 10"
+                },
+                {
+                  "kind": "cell",
+                  "text": "$27.50"
+                }
+              ],
+              "kind": "row"
+            },
+            {
+              "children": [
+                {
+                  "kind": "cell",
+                  "text": "11"
+                },
+                {
+                  "kind": "cell",
+                  "text": "Transaction item 11"
+                },
+                {
+                  "kind": "cell",
+                  "text": "$30.25"
+                }
+              ],
+              "kind": "row"
+            },
+            {
+              "children": [
+                {
+                  "kind": "cell",
+                  "text": "12"
+                },
+                {
+                  "kind": "cell",
+                  "text": "Transaction item 12"
+                },
+                {
+                  "kind": "cell",
+                  "text": "$33.00"
+                }
+              ],
+              "kind": "row"
+            },
+            {
+              "children": [
+                {
+                  "kind": "cell",
+                  "text": "13"
+                },
+                {
+                  "kind": "cell",
+                  "text": "Transaction item 13"
+                },
+                {
+                  "kind": "cell",
+                  "text": "$35.75"
+                }
+              ],
+              "kind": "row"
+            },
+            {
+              "children": [
+                {
+                  "kind": "cell",
+                  "text": "14"
+                },
+                {
+                  "kind": "cell",
+                  "text": "Transaction item 14"
+                },
+                {
+                  "kind": "cell",
+                  "text": "$38.50"
+                }
+              ],
+              "kind": "row"
+            },
+            {
+              "children": [
+                {
+                  "kind": "cell",
+                  "text": "15"
+                },
+                {
+                  "kind": "cell",
+                  "text": "Transaction item 15"
+                },
+                {
+                  "kind": "cell",
+                  "text": "$41.25"
+                }
+              ],
+              "kind": "row"
+            },
+            {
+              "children": [
+                {
+                  "kind": "cell",
+                  "text": "16"
+                },
+                {
+                  "kind": "cell",
+                  "text": "Transaction item 16"
+                },
+                {
+                  "kind": "cell",
+                  "text": "$44.00"
+                }
+              ],
+              "kind": "row"
+            },
+            {
+              "children": [
+                {
+                  "kind": "cell",
+                  "text": "17"
+                },
+                {
+                  "kind": "cell",
+                  "text": "Transaction item 17"
+                },
+                {
+                  "kind": "cell",
+                  "text": "$46.75"
+                }
+              ],
+              "kind": "row"
+            },
+            {
+              "children": [
+                {
+                  "kind": "cell",
+                  "text": "18"
+                },
+                {
+                  "kind": "cell",
+                  "text": "Transaction item 18"
+                },
+                {
+                  "kind": "cell",
+                  "text": "$49.50"
+                }
+              ],
+              "kind": "row"
+            },
+            {
+              "children": [
+                {
+                  "kind": "cell",
+                  "text": "19"
+                },
+                {
+                  "kind": "cell",
+                  "text": "Transaction item 19"
+                },
+                {
+                  "kind": "cell",
+                  "text": "$52.25"
+                }
+              ],
+              "kind": "row"
+            },
+            {
+              "children": [
+                {
+                  "kind": "cell",
+                  "text": "20"
+                },
+                {
+                  "kind": "cell",
+                  "text": "Transaction item 20"
+                },
+                {
+                  "kind": "cell",
+                  "text": "$55.00"
+                }
+              ],
+              "kind": "row"
+            },
+            {
+              "children": [
+                {
+                  "kind": "cell",
+                  "text": "21"
+                },
+                {
+                  "kind": "cell",
+                  "text": "Transaction item 21"
+                },
+                {
+                  "kind": "cell",
+                  "text": "$57.75"
+                }
+              ],
+              "kind": "row"
+            },
+            {
+              "children": [
+                {
+                  "kind": "cell",
+                  "text": "22"
+                },
+                {
+                  "kind": "cell",
+                  "text": "Transaction item 22"
+                },
+                {
+                  "kind": "cell",
+                  "text": "$60.50"
+                }
+              ],
+              "kind": "row"
+            },
+            {
+              "children": [
+                {
+                  "kind": "cell",
+                  "text": "23"
+                },
+                {
+                  "kind": "cell",
+                  "text": "Transaction item 23"
+                },
+                {
+                  "kind": "cell",
+                  "text": "$63.25"
+                }
+              ],
+              "kind": "row"
+            },
+            {
+              "children": [
+                {
+                  "kind": "cell",
+                  "text": "24"
+                },
+                {
+                  "kind": "cell",
+                  "text": "Transaction item 24"
+                },
+                {
+                  "kind": "cell",
+                  "text": "$66.00"
+                }
+              ],
+              "kind": "row"
+            },
+            {
+              "children": [
+                {
+                  "kind": "cell",
+                  "text": "25"
+                },
+                {
+                  "kind": "cell",
+                  "text": "Transaction item 25"
+                },
+                {
+                  "kind": "cell",
+                  "text": "$68.75"
+                }
+              ],
+              "kind": "row"
+            },
+            {
+              "children": [
+                {
+                  "kind": "cell",
+                  "text": "26"
+                },
+                {
+                  "kind": "cell",
+                  "text": "Transaction item 26"
+                },
+                {
+                  "kind": "cell",
+                  "text": "$71.50"
+                }
+              ],
+              "kind": "row"
+            },
+            {
+              "children": [
+                {
+                  "kind": "cell",
+                  "text": "27"
+                },
+                {
+                  "kind": "cell",
+                  "text": "Transaction item 27"
+                },
+                {
+                  "kind": "cell",
+                  "text": "$74.25"
+                }
+              ],
+              "kind": "row"
+            },
+            {
+              "children": [
+                {
+                  "kind": "cell",
+                  "text": "28"
+                },
+                {
+                  "kind": "cell",
+                  "text": "Transaction item 28"
+                },
+                {
+                  "kind": "cell",
+                  "text": "$77.00"
+                }
+              ],
+              "kind": "row"
+            },
+            {
+              "children": [
+                {
+                  "kind": "cell",
+                  "text": "29"
+                },
+                {
+                  "kind": "cell",
+                  "text": "Transaction item 29"
+                },
+                {
+                  "kind": "cell",
+                  "text": "$79.75"
+                }
+              ],
+              "kind": "row"
+            },
+            {
+              "children": [
+                {
+                  "kind": "cell",
+                  "text": "30"
+                },
+                {
+                  "kind": "cell",
+                  "text": "Transaction item 30"
+                },
+                {
+                  "kind": "cell",
+                  "text": "$82.50"
+                }
+              ],
+              "kind": "row"
+            },
+            {
+              "children": [
+                {
+                  "kind": "cell",
+                  "text": "31"
+                },
+                {
+                  "kind": "cell",
+                  "text": "Transaction item 31"
+                },
+                {
+                  "kind": "cell",
+                  "text": "$85.25"
+                }
+              ],
+              "kind": "row"
+            },
+            {
+              "children": [
+                {
+                  "kind": "cell",
+                  "text": "32"
+                },
+                {
+                  "kind": "cell",
+                  "text": "Transaction item 32"
+                },
+                {
+                  "kind": "cell",
+                  "text": "$88.00"
+                }
+              ],
+              "kind": "row"
+            },
+            {
+              "children": [
+                {
+                  "kind": "cell",
+                  "text": "33"
+                },
+                {
+                  "kind": "cell",
+                  "text": "Transaction item 33"
+                },
+                {
+                  "kind": "cell",
+                  "text": "$90.75"
+                }
+              ],
+              "kind": "row"
+            },
+            {
+              "children": [
+                {
+                  "kind": "cell",
+                  "text": "34"
+                },
+                {
+                  "kind": "cell",
+                  "text": "Transaction item 34"
+                },
+                {
+                  "kind": "cell",
+                  "text": "$93.50"
+                }
+              ],
+              "kind": "row"
+            },
+            {
+              "children": [
+                {
+                  "kind": "cell",
+                  "text": "35"
+                },
+                {
+                  "kind": "cell",
+                  "text": "Transaction item 35"
+                },
+                {
+                  "kind": "cell",
+                  "text": "$96.25"
+                }
+              ],
+              "kind": "row"
+            },
+            {
+              "children": [
+                {
+                  "kind": "cell",
+                  "text": "36"
+                },
+                {
+                  "kind": "cell",
+                  "text": "Transaction item 36"
+                },
+                {
+                  "kind": "cell",
+                  "text": "$99.00"
+                }
+              ],
+              "kind": "row"
+            },
+            {
+              "children": [
+                {
+                  "kind": "cell",
+                  "text": "37"
+                },
+                {
+                  "kind": "cell",
+                  "text": "Transaction item 37"
+                },
+                {
+                  "kind": "cell",
+                  "text": "$101.75"
+                }
+              ],
+              "kind": "row"
+            },
+            {
+              "children": [
+                {
+                  "kind": "cell",
+                  "text": "38"
+                },
+                {
+                  "kind": "cell",
+                  "text": "Transaction item 38"
+                },
+                {
+                  "kind": "cell",
+                  "text": "$104.50"
+                }
+              ],
+              "kind": "row"
+            },
+            {
+              "children": [
+                {
+                  "kind": "cell",
+                  "text": "39"
+                },
+                {
+                  "kind": "cell",
+                  "text": "Transaction item 39"
+                },
+                {
+                  "kind": "cell",
+                  "text": "$107.25"
+                }
+              ],
+              "kind": "row"
+            },
+            {
+              "children": [
+                {
+                  "kind": "cell",
+                  "text": "40"
+                },
+                {
+                  "kind": "cell",
+                  "text": "Transaction item 40"
+                },
+                {
+                  "kind": "cell",
+                  "text": "$110.00"
+                }
+              ],
+              "kind": "row"
+            },
+            {
+              "children": [
+                {
+                  "kind": "cell",
+                  "text": "41"
+                },
+                {
+                  "kind": "cell",
+                  "text": "Transaction item 41"
+                },
+                {
+                  "kind": "cell",
+                  "text": "$112.75"
+                }
+              ],
+              "kind": "row"
+            },
+            {
+              "children": [
+                {
+                  "kind": "cell",
+                  "text": "42"
+                },
+                {
+                  "kind": "cell",
+                  "text": "Transaction item 42"
+                },
+                {
+                  "kind": "cell",
+                  "text": "$115.50"
+                }
+              ],
+              "kind": "row"
+            },
+            {
+              "children": [
+                {
+                  "kind": "cell",
+                  "text": "43"
+                },
+                {
+                  "kind": "cell",
+                  "text": "Transaction item 43"
+                },
+                {
+                  "kind": "cell",
+                  "text": "$118.25"
+                }
+              ],
+              "kind": "row"
+            },
+            {
+              "children": [
+                {
+                  "kind": "cell",
+                  "text": "44"
+                },
+                {
+                  "kind": "cell",
+                  "text": "Transaction item 44"
+                },
+                {
+                  "kind": "cell",
+                  "text": "$121.00"
+                }
+              ],
+              "kind": "row"
+            },
+            {
+              "children": [
+                {
+                  "kind": "cell",
+                  "text": "45"
+                },
+                {
+                  "kind": "cell",
+                  "text": "Transaction item 45"
+                },
+                {
+                  "kind": "cell",
+                  "text": "$123.75"
+                }
+              ],
+              "kind": "row"
+            },
+            {
+              "children": [
+                {
+                  "kind": "cell",
+                  "text": "46"
+                },
+                {
+                  "kind": "cell",
+                  "text": "Transaction item 46"
+                },
+                {
+                  "kind": "cell",
+                  "text": "$126.50"
+                }
+              ],
+              "kind": "row"
+            },
+            {
+              "children": [
+                {
+                  "kind": "cell",
+                  "text": "47"
+                },
+                {
+                  "kind": "cell",
+                  "text": "Transaction item 47"
+                },
+                {
+                  "kind": "cell",
+                  "text": "$129.25"
+                }
+              ],
+              "kind": "row"
+            },
+            {
+              "children": [
+                {
+                  "kind": "cell",
+                  "text": "48"
+                },
+                {
+                  "kind": "cell",
+                  "text": "Transaction item 48"
+                },
+                {
+                  "kind": "cell",
+                  "text": "$132.00"
+                }
+              ],
+              "kind": "row"
+            },
+            {
+              "children": [
+                {
+                  "kind": "cell",
+                  "text": "49"
+                },
+                {
+                  "kind": "cell",
+                  "text": "Transaction item 49"
+                },
+                {
+                  "kind": "cell",
+                  "text": "$134.75"
+                }
+              ],
+              "kind": "row"
+            },
+            {
+              "children": [
+                {
+                  "kind": "cell",
+                  "text": "50"
+                },
+                {
+                  "kind": "cell",
+                  "text": "Transaction item 50"
+                },
+                {
+                  "kind": "cell",
+                  "text": "$137.50"
+                }
+              ],
+              "kind": "row"
+            }
+          ],
+          "kind": "table"
+        }
+      ],
+      "kind": "page"
+    },
+    {
+      "kind": "page"
+    },
+    {
+      "children": [
+        {
+          "kind": "heading",
+          "text": "5. Operations Register"
+        },
+        {
+          "kind": "paragraph",
+          "text": "Operations log; header appears on page 1 only (no repeatRows)."
+        },
+        {
+          "children": [
+            {
+              "children": [
+                {
+                  "kind": "cell",
+                  "text": "ID"
+                },
+                {
+                  "kind": "cell",
+                  "text": "Operation"
+                },
+                {
+                  "kind": "cell",
+                  "text": "Cost"
+                }
+              ],
+              "kind": "row"
+            },
+            {
+              "children": [
+                {
+                  "kind": "cell",
+                  "text": "1"
+                },
+                {
+                  "kind": "cell",
+                  "text": "Operation step 1"
+                },
+                {
+                  "kind": "cell",
+                  "text": "$1.50"
+                }
+              ],
+              "kind": "row"
+            },
+            {
+              "children": [
+                {
+                  "kind": "cell",
+                  "text": "2"
+                },
+                {
+                  "kind": "cell",
+                  "text": "Operation step 2"
+                },
+                {
+                  "kind": "cell",
+                  "text": "$3.00"
+                }
+              ],
+              "kind": "row"
+            },
+            {
+              "children": [
+                {
+                  "kind": "cell",
+                  "text": "3"
+                },
+                {
+                  "kind": "cell",
+                  "text": "Operation step 3"
+                },
+                {
+                  "kind": "cell",
+                  "text": "$4.50"
+                }
+              ],
+              "kind": "row"
+            },
+            {
+              "children": [
+                {
+                  "kind": "cell",
+                  "text": "4"
+                },
+                {
+                  "kind": "cell",
+                  "text": "Operation step 4"
+                },
+                {
+                  "kind": "cell",
+                  "text": "$6.00"
+                }
+              ],
+              "kind": "row"
+            },
+            {
+              "children": [
+                {
+                  "kind": "cell",
+                  "text": "5"
+                },
+                {
+                  "kind": "cell",
+                  "text": "Operation step 5"
+                },
+                {
+                  "kind": "cell",
+                  "text": "$7.50"
+                }
+              ],
+              "kind": "row"
+            },
+            {
+              "children": [
+                {
+                  "kind": "cell",
+                  "text": "6"
+                },
+                {
+                  "kind": "cell",
+                  "text": "Operation step 6"
+                },
+                {
+                  "kind": "cell",
+                  "text": "$9.00"
+                }
+              ],
+              "kind": "row"
+            },
+            {
+              "children": [
+                {
+                  "kind": "cell",
+                  "text": "7"
+                },
+                {
+                  "kind": "cell",
+                  "text": "Operation step 7"
+                },
+                {
+                  "kind": "cell",
+                  "text": "$10.50"
+                }
+              ],
+              "kind": "row"
+            },
+            {
+              "children": [
+                {
+                  "kind": "cell",
+                  "text": "8"
+                },
+                {
+                  "kind": "cell",
+                  "text": "Operation step 8"
+                },
+                {
+                  "kind": "cell",
+                  "text": "$12.00"
+                }
+              ],
+              "kind": "row"
+            },
+            {
+              "children": [
+                {
+                  "kind": "cell",
+                  "text": "9"
+                },
+                {
+                  "kind": "cell",
+                  "text": "Operation step 9"
+                },
+                {
+                  "kind": "cell",
+                  "text": "$13.50"
+                }
+              ],
+              "kind": "row"
+            },
+            {
+              "children": [
+                {
+                  "kind": "cell",
+                  "text": "10"
+                },
+                {
+                  "kind": "cell",
+                  "text": "Operation step 10"
+                },
+                {
+                  "kind": "cell",
+                  "text": "$15.00"
+                }
+              ],
+              "kind": "row"
+            },
+            {
+              "children": [
+                {
+                  "kind": "cell",
+                  "text": "11"
+                },
+                {
+                  "kind": "cell",
+                  "text": "Operation step 11"
+                },
+                {
+                  "kind": "cell",
+                  "text": "$16.50"
+                }
+              ],
+              "kind": "row"
+            },
+            {
+              "children": [
+                {
+                  "kind": "cell",
+                  "text": "12"
+                },
+                {
+                  "kind": "cell",
+                  "text": "Operation step 12"
+                },
+                {
+                  "kind": "cell",
+                  "text": "$18.00"
+                }
+              ],
+              "kind": "row"
+            },
+            {
+              "children": [
+                {
+                  "kind": "cell",
+                  "text": "13"
+                },
+                {
+                  "kind": "cell",
+                  "text": "Operation step 13"
+                },
+                {
+                  "kind": "cell",
+                  "text": "$19.50"
+                }
+              ],
+              "kind": "row"
+            },
+            {
+              "children": [
+                {
+                  "kind": "cell",
+                  "text": "14"
+                },
+                {
+                  "kind": "cell",
+                  "text": "Operation step 14"
+                },
+                {
+                  "kind": "cell",
+                  "text": "$21.00"
+                }
+              ],
+              "kind": "row"
+            },
+            {
+              "children": [
+                {
+                  "kind": "cell",
+                  "text": "15"
+                },
+                {
+                  "kind": "cell",
+                  "text": "Operation step 15"
+                },
+                {
+                  "kind": "cell",
+                  "text": "$22.50"
+                }
+              ],
+              "kind": "row"
+            },
+            {
+              "children": [
+                {
+                  "kind": "cell",
+                  "text": "16"
+                },
+                {
+                  "kind": "cell",
+                  "text": "Operation step 16"
+                },
+                {
+                  "kind": "cell",
+                  "text": "$24.00"
+                }
+              ],
+              "kind": "row"
+            },
+            {
+              "children": [
+                {
+                  "kind": "cell",
+                  "text": "17"
+                },
+                {
+                  "kind": "cell",
+                  "text": "Operation step 17"
+                },
+                {
+                  "kind": "cell",
+                  "text": "$25.50"
+                }
+              ],
+              "kind": "row"
+            },
+            {
+              "children": [
+                {
+                  "kind": "cell",
+                  "text": "18"
+                },
+                {
+                  "kind": "cell",
+                  "text": "Operation step 18"
+                },
+                {
+                  "kind": "cell",
+                  "text": "$27.00"
+                }
+              ],
+              "kind": "row"
+            },
+            {
+              "children": [
+                {
+                  "kind": "cell",
+                  "text": "19"
+                },
+                {
+                  "kind": "cell",
+                  "text": "Operation step 19"
+                },
+                {
+                  "kind": "cell",
+                  "text": "$28.50"
+                }
+              ],
+              "kind": "row"
+            },
+            {
+              "children": [
+                {
+                  "kind": "cell",
+                  "text": "20"
+                },
+                {
+                  "kind": "cell",
+                  "text": "Operation step 20"
+                },
+                {
+                  "kind": "cell",
+                  "text": "$30.00"
+                }
+              ],
+              "kind": "row"
+            },
+            {
+              "children": [
+                {
+                  "kind": "cell",
+                  "text": "21"
+                },
+                {
+                  "kind": "cell",
+                  "text": "Operation step 21"
+                },
+                {
+                  "kind": "cell",
+                  "text": "$31.50"
+                }
+              ],
+              "kind": "row"
+            },
+            {
+              "children": [
+                {
+                  "kind": "cell",
+                  "text": "22"
+                },
+                {
+                  "kind": "cell",
+                  "text": "Operation step 22"
+                },
+                {
+                  "kind": "cell",
+                  "text": "$33.00"
+                }
+              ],
+              "kind": "row"
+            },
+            {
+              "children": [
+                {
+                  "kind": "cell",
+                  "text": "23"
+                },
+                {
+                  "kind": "cell",
+                  "text": "Operation step 23"
+                },
+                {
+                  "kind": "cell",
+                  "text": "$34.50"
+                }
+              ],
+              "kind": "row"
+            },
+            {
+              "children": [
+                {
+                  "kind": "cell",
+                  "text": "24"
+                },
+                {
+                  "kind": "cell",
+                  "text": "Operation step 24"
+                },
+                {
+                  "kind": "cell",
+                  "text": "$36.00"
+                }
+              ],
+              "kind": "row"
+            },
+            {
+              "children": [
+                {
+                  "kind": "cell",
+                  "text": "25"
+                },
+                {
+                  "kind": "cell",
+                  "text": "Operation step 25"
+                },
+                {
+                  "kind": "cell",
+                  "text": "$37.50"
+                }
+              ],
+              "kind": "row"
+            },
+            {
+              "children": [
+                {
+                  "kind": "cell",
+                  "text": "26"
+                },
+                {
+                  "kind": "cell",
+                  "text": "Operation step 26"
+                },
+                {
+                  "kind": "cell",
+                  "text": "$39.00"
+                }
+              ],
+              "kind": "row"
+            },
+            {
+              "children": [
+                {
+                  "kind": "cell",
+                  "text": "27"
+                },
+                {
+                  "kind": "cell",
+                  "text": "Operation step 27"
+                },
+                {
+                  "kind": "cell",
+                  "text": "$40.50"
+                }
+              ],
+              "kind": "row"
+            },
+            {
+              "children": [
+                {
+                  "kind": "cell",
+                  "text": "28"
+                },
+                {
+                  "kind": "cell",
+                  "text": "Operation step 28"
+                },
+                {
+                  "kind": "cell",
+                  "text": "$42.00"
+                }
+              ],
+              "kind": "row"
+            },
+            {
+              "children": [
+                {
+                  "kind": "cell",
+                  "text": "29"
+                },
+                {
+                  "kind": "cell",
+                  "text": "Operation step 29"
+                },
+                {
+                  "kind": "cell",
+                  "text": "$43.50"
+                }
+              ],
+              "kind": "row"
+            },
+            {
+              "children": [
+                {
+                  "kind": "cell",
+                  "text": "30"
+                },
+                {
+                  "kind": "cell",
+                  "text": "Operation step 30"
+                },
+                {
+                  "kind": "cell",
+                  "text": "$45.00"
+                }
+              ],
+              "kind": "row"
+            },
+            {
+              "children": [
+                {
+                  "kind": "cell",
+                  "text": "31"
+                },
+                {
+                  "kind": "cell",
+                  "text": "Operation step 31"
+                },
+                {
+                  "kind": "cell",
+                  "text": "$46.50"
+                }
+              ],
+              "kind": "row"
+            },
+            {
+              "children": [
+                {
+                  "kind": "cell",
+                  "text": "32"
+                },
+                {
+                  "kind": "cell",
+                  "text": "Operation step 32"
+                },
+                {
+                  "kind": "cell",
+                  "text": "$48.00"
+                }
+              ],
+              "kind": "row"
+            },
+            {
+              "children": [
+                {
+                  "kind": "cell",
+                  "text": "33"
+                },
+                {
+                  "kind": "cell",
+                  "text": "Operation step 33"
+                },
+                {
+                  "kind": "cell",
+                  "text": "$49.50"
+                }
+              ],
+              "kind": "row"
+            },
+            {
+              "children": [
+                {
+                  "kind": "cell",
+                  "text": "34"
+                },
+                {
+                  "kind": "cell",
+                  "text": "Operation step 34"
+                },
+                {
+                  "kind": "cell",
+                  "text": "$51.00"
+                }
+              ],
+              "kind": "row"
+            },
+            {
+              "children": [
+                {
+                  "kind": "cell",
+                  "text": "35"
+                },
+                {
+                  "kind": "cell",
+                  "text": "Operation step 35"
+                },
+                {
+                  "kind": "cell",
+                  "text": "$52.50"
+                }
+              ],
+              "kind": "row"
+            },
+            {
+              "children": [
+                {
+                  "kind": "cell",
+                  "text": "36"
+                },
+                {
+                  "kind": "cell",
+                  "text": "Operation step 36"
+                },
+                {
+                  "kind": "cell",
+                  "text": "$54.00"
+                }
+              ],
+              "kind": "row"
+            },
+            {
+              "children": [
+                {
+                  "kind": "cell",
+                  "text": "37"
+                },
+                {
+                  "kind": "cell",
+                  "text": "Operation step 37"
+                },
+                {
+                  "kind": "cell",
+                  "text": "$55.50"
+                }
+              ],
+              "kind": "row"
+            },
+            {
+              "children": [
+                {
+                  "kind": "cell",
+                  "text": "38"
+                },
+                {
+                  "kind": "cell",
+                  "text": "Operation step 38"
+                },
+                {
+                  "kind": "cell",
+                  "text": "$57.00"
+                }
+              ],
+              "kind": "row"
+            },
+            {
+              "children": [
+                {
+                  "kind": "cell",
+                  "text": "39"
+                },
+                {
+                  "kind": "cell",
+                  "text": "Operation step 39"
+                },
+                {
+                  "kind": "cell",
+                  "text": "$58.50"
+                }
+              ],
+              "kind": "row"
+            },
+            {
+              "children": [
+                {
+                  "kind": "cell",
+                  "text": "40"
+                },
+                {
+                  "kind": "cell",
+                  "text": "Operation step 40"
+                },
+                {
+                  "kind": "cell",
+                  "text": "$60.00"
+                }
+              ],
+              "kind": "row"
+            },
+            {
+              "children": [
+                {
+                  "kind": "cell",
+                  "text": "41"
+                },
+                {
+                  "kind": "cell",
+                  "text": "Operation step 41"
+                },
+                {
+                  "kind": "cell",
+                  "text": "$61.50"
+                }
+              ],
+              "kind": "row"
+            },
+            {
+              "children": [
+                {
+                  "kind": "cell",
+                  "text": "42"
+                },
+                {
+                  "kind": "cell",
+                  "text": "Operation step 42"
+                },
+                {
+                  "kind": "cell",
+                  "text": "$63.00"
+                }
+              ],
+              "kind": "row"
+            },
+            {
+              "children": [
+                {
+                  "kind": "cell",
+                  "text": "43"
+                },
+                {
+                  "kind": "cell",
+                  "text": "Operation step 43"
+                },
+                {
+                  "kind": "cell",
+                  "text": "$64.50"
+                }
+              ],
+              "kind": "row"
+            },
+            {
+              "children": [
+                {
+                  "kind": "cell",
+                  "text": "44"
+                },
+                {
+                  "kind": "cell",
+                  "text": "Operation step 44"
+                },
+                {
+                  "kind": "cell",
+                  "text": "$66.00"
+                }
+              ],
+              "kind": "row"
+            },
+            {
+              "children": [
+                {
+                  "kind": "cell",
+                  "text": "45"
+                },
+                {
+                  "kind": "cell",
+                  "text": "Operation step 45"
+                },
+                {
+                  "kind": "cell",
+                  "text": "$67.50"
+                }
+              ],
+              "kind": "row"
+            },
+            {
+              "children": [
+                {
+                  "kind": "cell",
+                  "text": "46"
+                },
+                {
+                  "kind": "cell",
+                  "text": "Operation step 46"
+                },
+                {
+                  "kind": "cell",
+                  "text": "$69.00"
+                }
+              ],
+              "kind": "row"
+            },
+            {
+              "children": [
+                {
+                  "kind": "cell",
+                  "text": "47"
+                },
+                {
+                  "kind": "cell",
+                  "text": "Operation step 47"
+                },
+                {
+                  "kind": "cell",
+                  "text": "$70.50"
+                }
+              ],
+              "kind": "row"
+            },
+            {
+              "children": [
+                {
+                  "kind": "cell",
+                  "text": "48"
+                },
+                {
+                  "kind": "cell",
+                  "text": "Operation step 48"
+                },
+                {
+                  "kind": "cell",
+                  "text": "$72.00"
+                }
+              ],
+              "kind": "row"
+            },
+            {
+              "children": [
+                {
+                  "kind": "cell",
+                  "text": "49"
+                },
+                {
+                  "kind": "cell",
+                  "text": "Operation step 49"
+                },
+                {
+                  "kind": "cell",
+                  "text": "$73.50"
+                }
+              ],
+              "kind": "row"
+            },
+            {
+              "children": [
+                {
+                  "kind": "cell",
+                  "text": "50"
+                },
+                {
+                  "kind": "cell",
+                  "text": "Operation step 50"
+                },
+                {
+                  "kind": "cell",
+                  "text": "$75.00"
+                }
+              ],
+              "kind": "row"
+            }
+          ],
+          "kind": "table"
+        }
+      ],
+      "kind": "page"
+    },
+    {
+      "kind": "page"
+    },
+    {
+      "children": [
+        {
+          "kind": "heading",
+          "text": "6. Project Tracking"
+        },
+        {
+          "kind": "paragraph",
+          "text": "Project log with nested input tables on both continuation pages."
+        },
+        {
+          "children": [
+            {
+              "children": [
+                {
+                  "kind": "cell",
+                  "text": "Step"
+                },
+                {
+                  "kind": "cell",
+                  "text": "Inputs"
+                },
+                {
+                  "kind": "cell",
+                  "text": "Notes"
+                }
+              ],
+              "kind": "row"
+            },
+            {
+              "children": [
+                {
+                  "kind": "cell",
+                  "text": "1"
+                },
+                {
+                  "kind": "cell",
+                  "text": "input 1"
+                },
+                {
+                  "kind": "cell",
+                  "text": "note 1"
+                }
+              ],
+              "kind": "row"
+            },
+            {
+              "children": [
+                {
+                  "kind": "cell",
+                  "text": "2"
+                },
+                {
+                  "kind": "cell",
+                  "text": "input 2"
+                },
+                {
+                  "kind": "cell",
+                  "text": "note 2"
+                }
+              ],
+              "kind": "row"
+            },
+            {
+              "children": [
+                {
+                  "kind": "cell",
+                  "text": "3"
+                },
+                {
+                  "kind": "cell",
+                  "text": "input 3"
+                },
+                {
+                  "kind": "cell",
+                  "text": "note 3"
+                }
+              ],
+              "kind": "row"
+            },
+            {
+              "children": [
+                {
+                  "kind": "cell",
+                  "text": "4"
+                },
+                {
+                  "kind": "cell",
+                  "text": "input 4"
+                },
+                {
+                  "kind": "cell",
+                  "text": "note 4"
+                }
+              ],
+              "kind": "row"
+            },
+            {
+              "children": [
+                {
+                  "kind": "cell",
+                  "text": "5"
+                },
+                {
+                  "children": [
+                    {
+                      "children": [
+                        {
+                          "children": [
+                            {
+                              "kind": "cell",
+                              "text": "p1-A"
+                            },
+                            {
+                              "kind": "cell",
+                              "text": "p1-B"
+                            }
+                          ],
+                          "kind": "row"
+                        },
+                        {
+                          "children": [
+                            {
+                              "kind": "cell",
+                              "text": "1"
+                            },
+                            {
+                              "kind": "cell",
+                              "text": "2"
+                            }
+                          ],
+                          "kind": "row"
+                        }
+                      ],
+                      "kind": "table"
+                    }
+                  ],
+                  "kind": "cell"
+                },
+                {
+                  "kind": "cell",
+                  "text": "nested on pg1"
+                }
+              ],
+              "kind": "row"
+            },
+            {
+              "children": [
+                {
+                  "kind": "cell",
+                  "text": "6"
+                },
+                {
+                  "kind": "cell",
+                  "text": "input 6"
+                },
+                {
+                  "kind": "cell",
+                  "text": "note 6"
+                }
+              ],
+              "kind": "row"
+            },
+            {
+              "children": [
+                {
+                  "kind": "cell",
+                  "text": "7"
+                },
+                {
+                  "kind": "cell",
+                  "text": "input 7"
+                },
+                {
+                  "kind": "cell",
+                  "text": "note 7"
+                }
+              ],
+              "kind": "row"
+            },
+            {
+              "children": [
+                {
+                  "kind": "cell",
+                  "text": "8"
+                },
+                {
+                  "kind": "cell",
+                  "text": "input 8"
+                },
+                {
+                  "kind": "cell",
+                  "text": "note 8"
+                }
+              ],
+              "kind": "row"
+            },
+            {
+              "children": [
+                {
+                  "kind": "cell",
+                  "text": "9"
+                },
+                {
+                  "kind": "cell",
+                  "text": "input 9"
+                },
+                {
+                  "kind": "cell",
+                  "text": "note 9"
+                }
+              ],
+              "kind": "row"
+            },
+            {
+              "children": [
+                {
+                  "kind": "cell",
+                  "text": "10"
+                },
+                {
+                  "kind": "cell",
+                  "text": "input 10"
+                },
+                {
+                  "kind": "cell",
+                  "text": "note 10"
+                }
+              ],
+              "kind": "row"
+            },
+            {
+              "children": [
+                {
+                  "kind": "cell",
+                  "text": "11"
+                },
+                {
+                  "kind": "cell",
+                  "text": "input 11"
+                },
+                {
+                  "kind": "cell",
+                  "text": "note 11"
+                }
+              ],
+              "kind": "row"
+            },
+            {
+              "children": [
+                {
+                  "kind": "cell",
+                  "text": "12"
+                },
+                {
+                  "kind": "cell",
+                  "text": "input 12"
+                },
+                {
+                  "kind": "cell",
+                  "text": "note 12"
+                }
+              ],
+              "kind": "row"
+            },
+            {
+              "children": [
+                {
+                  "kind": "cell",
+                  "text": "13"
+                },
+                {
+                  "kind": "cell",
+                  "text": "input 13"
+                },
+                {
+                  "kind": "cell",
+                  "text": "note 13"
+                }
+              ],
+              "kind": "row"
+            },
+            {
+              "children": [
+                {
+                  "kind": "cell",
+                  "text": "14"
+                },
+                {
+                  "kind": "cell",
+                  "text": "input 14"
+                },
+                {
+                  "kind": "cell",
+                  "text": "note 14"
+                }
+              ],
+              "kind": "row"
+            },
+            {
+              "children": [
+                {
+                  "kind": "cell",
+                  "text": "15"
+                },
+                {
+                  "kind": "cell",
+                  "text": "input 15"
+                },
+                {
+                  "kind": "cell",
+                  "text": "note 15"
+                }
+              ],
+              "kind": "row"
+            },
+            {
+              "children": [
+                {
+                  "kind": "cell",
+                  "text": "16"
+                },
+                {
+                  "kind": "cell",
+                  "text": "input 16"
+                },
+                {
+                  "kind": "cell",
+                  "text": "note 16"
+                }
+              ],
+              "kind": "row"
+            },
+            {
+              "children": [
+                {
+                  "kind": "cell",
+                  "text": "17"
+                },
+                {
+                  "kind": "cell",
+                  "text": "input 17"
+                },
+                {
+                  "kind": "cell",
+                  "text": "note 17"
+                }
+              ],
+              "kind": "row"
+            },
+            {
+              "children": [
+                {
+                  "kind": "cell",
+                  "text": "18"
+                },
+                {
+                  "kind": "cell",
+                  "text": "input 18"
+                },
+                {
+                  "kind": "cell",
+                  "text": "note 18"
+                }
+              ],
+              "kind": "row"
+            },
+            {
+              "children": [
+                {
+                  "kind": "cell",
+                  "text": "19"
+                },
+                {
+                  "kind": "cell",
+                  "text": "input 19"
+                },
+                {
+                  "kind": "cell",
+                  "text": "note 19"
+                }
+              ],
+              "kind": "row"
+            },
+            {
+              "children": [
+                {
+                  "kind": "cell",
+                  "text": "20"
+                },
+                {
+                  "kind": "cell",
+                  "text": "input 20"
+                },
+                {
+                  "kind": "cell",
+                  "text": "note 20"
+                }
+              ],
+              "kind": "row"
+            },
+            {
+              "children": [
+                {
+                  "kind": "cell",
+                  "text": "21"
+                },
+                {
+                  "kind": "cell",
+                  "text": "input 21"
+                },
+                {
+                  "kind": "cell",
+                  "text": "note 21"
+                }
+              ],
+              "kind": "row"
+            },
+            {
+              "children": [
+                {
+                  "kind": "cell",
+                  "text": "22"
+                },
+                {
+                  "kind": "cell",
+                  "text": "input 22"
+                },
+                {
+                  "kind": "cell",
+                  "text": "note 22"
+                }
+              ],
+              "kind": "row"
+            },
+            {
+              "children": [
+                {
+                  "kind": "cell",
+                  "text": "23"
+                },
+                {
+                  "kind": "cell",
+                  "text": "input 23"
+                },
+                {
+                  "kind": "cell",
+                  "text": "note 23"
+                }
+              ],
+              "kind": "row"
+            },
+            {
+              "children": [
+                {
+                  "kind": "cell",
+                  "text": "24"
+                },
+                {
+                  "kind": "cell",
+                  "text": "input 24"
+                },
+                {
+                  "kind": "cell",
+                  "text": "note 24"
+                }
+              ],
+              "kind": "row"
+            },
+            {
+              "children": [
+                {
+                  "kind": "cell",
+                  "text": "25"
+                },
+                {
+                  "kind": "cell",
+                  "text": "input 25"
+                },
+                {
+                  "kind": "cell",
+                  "text": "note 25"
+                }
+              ],
+              "kind": "row"
+            },
+            {
+              "children": [
+                {
+                  "kind": "cell",
+                  "text": "26"
+                },
+                {
+                  "kind": "cell",
+                  "text": "input 26"
+                },
+                {
+                  "kind": "cell",
+                  "text": "note 26"
+                }
+              ],
+              "kind": "row"
+            },
+            {
+              "children": [
+                {
+                  "kind": "cell",
+                  "text": "27"
+                },
+                {
+                  "kind": "cell",
+                  "text": "input 27"
+                },
+                {
+                  "kind": "cell",
+                  "text": "note 27"
+                }
+              ],
+              "kind": "row"
+            },
+            {
+              "children": [
+                {
+                  "kind": "cell",
+                  "text": "28"
+                },
+                {
+                  "kind": "cell",
+                  "text": "input 28"
+                },
+                {
+                  "kind": "cell",
+                  "text": "note 28"
+                }
+              ],
+              "kind": "row"
+            },
+            {
+              "children": [
+                {
+                  "kind": "cell",
+                  "text": "29"
+                },
+                {
+                  "kind": "cell",
+                  "text": "input 29"
+                },
+                {
+                  "kind": "cell",
+                  "text": "note 29"
+                }
+              ],
+              "kind": "row"
+            },
+            {
+              "children": [
+                {
+                  "kind": "cell",
+                  "text": "30"
+                },
+                {
+                  "kind": "cell",
+                  "text": "input 30"
+                },
+                {
+                  "kind": "cell",
+                  "text": "note 30"
+                }
+              ],
+              "kind": "row"
+            },
+            {
+              "children": [
+                {
+                  "kind": "cell",
+                  "text": "31"
+                },
+                {
+                  "kind": "cell",
+                  "text": "input 31"
+                },
+                {
+                  "kind": "cell",
+                  "text": "note 31"
+                }
+              ],
+              "kind": "row"
+            },
+            {
+              "children": [
+                {
+                  "kind": "cell",
+                  "text": "32"
+                },
+                {
+                  "kind": "cell",
+                  "text": "input 32"
+                },
+                {
+                  "kind": "cell",
+                  "text": "note 32"
+                }
+              ],
+              "kind": "row"
+            },
+            {
+              "children": [
+                {
+                  "kind": "cell",
+                  "text": "33"
+                },
+                {
+                  "kind": "cell",
+                  "text": "input 33"
+                },
+                {
+                  "kind": "cell",
+                  "text": "note 33"
+                }
+              ],
+              "kind": "row"
+            },
+            {
+              "children": [
+                {
+                  "kind": "cell",
+                  "text": "34"
+                },
+                {
+                  "kind": "cell",
+                  "text": "input 34"
+                },
+                {
+                  "kind": "cell",
+                  "text": "note 34"
+                }
+              ],
+              "kind": "row"
+            },
+            {
+              "children": [
+                {
+                  "kind": "cell",
+                  "text": "35"
+                },
+                {
+                  "kind": "cell",
+                  "text": "input 35"
+                },
+                {
+                  "kind": "cell",
+                  "text": "note 35"
+                }
+              ],
+              "kind": "row"
+            },
+            {
+              "children": [
+                {
+                  "kind": "cell",
+                  "text": "36"
+                },
+                {
+                  "kind": "cell",
+                  "text": "input 36"
+                },
+                {
+                  "kind": "cell",
+                  "text": "note 36"
+                }
+              ],
+              "kind": "row"
+            },
+            {
+              "children": [
+                {
+                  "kind": "cell",
+                  "text": "37"
+                },
+                {
+                  "kind": "cell",
+                  "text": "input 37"
+                },
+                {
+                  "kind": "cell",
+                  "text": "note 37"
+                }
+              ],
+              "kind": "row"
+            },
+            {
+              "children": [
+                {
+                  "kind": "cell",
+                  "text": "38"
+                },
+                {
+                  "kind": "cell",
+                  "text": "input 38"
+                },
+                {
+                  "kind": "cell",
+                  "text": "note 38"
+                }
+              ],
+              "kind": "row"
+            },
+            {
+              "children": [
+                {
+                  "kind": "cell",
+                  "text": "39"
+                },
+                {
+                  "kind": "cell",
+                  "text": "input 39"
+                },
+                {
+                  "kind": "cell",
+                  "text": "note 39"
+                }
+              ],
+              "kind": "row"
+            },
+            {
+              "children": [
+                {
+                  "kind": "cell",
+                  "text": "40"
+                },
+                {
+                  "kind": "cell",
+                  "text": "input 40"
+                },
+                {
+                  "kind": "cell",
+                  "text": "note 40"
+                }
+              ],
+              "kind": "row"
+            },
+            {
+              "children": [
+                {
+                  "kind": "cell",
+                  "text": "41"
+                },
+                {
+                  "kind": "cell",
+                  "text": "input 41"
+                },
+                {
+                  "kind": "cell",
+                  "text": "note 41"
+                }
+              ],
+              "kind": "row"
+            },
+            {
+              "children": [
+                {
+                  "kind": "cell",
+                  "text": "42"
+                },
+                {
+                  "kind": "cell",
+                  "text": "input 42"
+                },
+                {
+                  "kind": "cell",
+                  "text": "note 42"
+                }
+              ],
+              "kind": "row"
+            },
+            {
+              "children": [
+                {
+                  "kind": "cell",
+                  "text": "43"
+                },
+                {
+                  "kind": "cell",
+                  "text": "input 43"
+                },
+                {
+                  "kind": "cell",
+                  "text": "note 43"
+                }
+              ],
+              "kind": "row"
+            },
+            {
+              "children": [
+                {
+                  "kind": "cell",
+                  "text": "44"
+                },
+                {
+                  "kind": "cell",
+                  "text": "input 44"
+                },
+                {
+                  "kind": "cell",
+                  "text": "note 44"
+                }
+              ],
+              "kind": "row"
+            },
+            {
+              "children": [
+                {
+                  "kind": "cell",
+                  "text": "45"
+                },
+                {
+                  "children": [
+                    {
+                      "children": [
+                        {
+                          "children": [
+                            {
+                              "kind": "cell",
+                              "text": "p2-A"
+                            },
+                            {
+                              "kind": "cell",
+                              "text": "p2-B"
+                            }
+                          ],
+                          "kind": "row"
+                        },
+                        {
+                          "children": [
+                            {
+                              "kind": "cell",
+                              "text": "1"
+                            },
+                            {
+                              "kind": "cell",
+                              "text": "2"
+                            }
+                          ],
+                          "kind": "row"
+                        }
+                      ],
+                      "kind": "table"
+                    }
+                  ],
+                  "kind": "cell"
+                },
+                {
+                  "kind": "cell",
+                  "text": "nested on pg2"
+                }
+              ],
+              "kind": "row"
+            },
+            {
+              "children": [
+                {
+                  "kind": "cell",
+                  "text": "46"
+                },
+                {
+                  "kind": "cell",
+                  "text": "input 46"
+                },
+                {
+                  "kind": "cell",
+                  "text": "note 46"
+                }
+              ],
+              "kind": "row"
+            },
+            {
+              "children": [
+                {
+                  "kind": "cell",
+                  "text": "47"
+                },
+                {
+                  "kind": "cell",
+                  "text": "input 47"
+                },
+                {
+                  "kind": "cell",
+                  "text": "note 47"
+                }
+              ],
+              "kind": "row"
+            },
+            {
+              "children": [
+                {
+                  "kind": "cell",
+                  "text": "48"
+                },
+                {
+                  "kind": "cell",
+                  "text": "input 48"
+                },
+                {
+                  "kind": "cell",
+                  "text": "note 48"
+                }
+              ],
+              "kind": "row"
+            },
+            {
+              "children": [
+                {
+                  "kind": "cell",
+                  "text": "49"
+                },
+                {
+                  "kind": "cell",
+                  "text": "input 49"
+                },
+                {
+                  "kind": "cell",
+                  "text": "note 49"
+                }
+              ],
+              "kind": "row"
+            },
+            {
+              "children": [
+                {
+                  "kind": "cell",
+                  "text": "50"
+                },
+                {
+                  "kind": "cell",
+                  "text": "input 50"
+                },
+                {
+                  "kind": "cell",
+                  "text": "note 50"
+                }
+              ],
+              "kind": "row"
+            }
+          ],
+          "kind": "table"
+        }
+      ],
+      "kind": "page"
+    },
+    {
+      "kind": "page"
+    },
+    {
+      "children": [
+        {
+          "kind": "heading",
+          "text": "7. Financial Results"
+        },
+        {
+          "kind": "heading",
+          "text": "Consolidated income statement ($000s unless noted)."
+        },
+        {
+          "children": [
+            {
+              "children": [
+                {
+                  "kind": "cell",
+                  "text": "Income Statement"
+                },
+                {
+                  "kind": "cell",
+                  "text": "FY2021"
+                },
+                {
+                  "kind": "cell",
+                  "text": "FY2022"
+                },
+                {
+                  "kind": "cell",
+                  "text": "FY2023"
+                },
+                {
+                  "kind": "cell",
+                  "text": "FY2024"
+                }
+              ],
+              "kind": "row"
+            },
+            {
+              "children": [
+                {
+                  "kind": "cell",
+                  "text": "Revenue"
+                },
+                {
+                  "kind": "cell"
+                },
+                {
+                  "kind": "cell"
+                },
+                {
+                  "kind": "cell"
+                },
+                {
+                  "kind": "cell"
+                }
+              ],
+              "kind": "row"
+            },
+            {
+              "children": [
+                {
+                  "kind": "cell",
+                  "text": "Product Revenue"
+                },
+                {
+                  "kind": "cell",
+                  "text": "12,450"
+                },
+                {
+                  "kind": "cell",
+                  "text": "15,320"
+                },
+                {
+                  "kind": "cell",
+                  "text": "18,760"
+                },
+                {
+                  "kind": "cell",
+                  "text": "22,140"
+                }
+              ],
+              "kind": "row"
+            },
+            {
+              "children": [
+                {
+                  "kind": "cell",
+                  "text": "Service Revenue"
+                },
+                {
+                  "kind": "cell",
+                  "text": "2,890"
+                },
+                {
+                  "kind": "cell",
+                  "text": "3,450"
+                },
+                {
+                  "kind": "cell",
+                  "text": "4,120"
+                },
+                {
+                  "kind": "cell",
+                  "text": "5,380"
+                }
+              ],
+              "kind": "row"
+            },
+            {
+              "children": [
+                {
+                  "kind": "cell",
+                  "text": "Other Revenue"
+                },
+                {
+                  "kind": "cell",
+                  "text": "480"
+                },
+                {
+                  "kind": "cell",
+                  "text": "620"
+                },
+                {
+                  "kind": "cell",
+                  "text": "710"
+                },
+                {
+                  "kind": "cell",
+                  "text": "850"
+                }
+              ],
+              "kind": "row"
+            },
+            {
+              "children": [
+                {
+                  "kind": "cell",
+                  "text": "Total Revenue"
+                },
+                {
+                  "kind": "cell",
+                  "text": "15,820"
+                },
+                {
+                  "kind": "cell",
+                  "text": "19,390"
+                },
+                {
+                  "kind": "cell",
+                  "text": "23,590"
+                },
+                {
+                  "kind": "cell",
+                  "text": "28,370"
+                }
+              ],
+              "kind": "row"
+            },
+            {
+              "children": [
+                {
+                  "kind": "cell",
+                  "text": "Cost of Revenue"
+                },
+                {
+                  "kind": "cell"
+                },
+                {
+                  "kind": "cell"
+                },
+                {
+                  "kind": "cell"
+                },
+                {
+                  "kind": "cell"
+                }
+              ],
+              "kind": "row"
+            },
+            {
+              "children": [
+                {
+                  "kind": "cell",
+                  "text": "Cost of Goods Sold"
+                },
+                {
+                  "kind": "cell",
+                  "text": "(8,240)"
+                },
+                {
+                  "kind": "cell",
+                  "text": "(9,950)"
+                },
+                {
+                  "kind": "cell",
+                  "text": "(11,820)"
+                },
+                {
+                  "kind": "cell",
+                  "text": "(13,760)"
+                }
+              ],
+              "kind": "row"
+            },
+            {
+              "children": [
+                {
+                  "kind": "cell",
+                  "text": "Depreciation & Amort."
+                },
+                {
+                  "kind": "cell",
+                  "text": "(320)"
+                },
+                {
+                  "kind": "cell",
+                  "text": "(380)"
+                },
+                {
+                  "kind": "cell",
+                  "text": "(430)"
+                },
+                {
+                  "kind": "cell",
+                  "text": "(480)"
+                }
+              ],
+              "kind": "row"
+            },
+            {
+              "children": [
+                {
+                  "kind": "cell",
+                  "text": "Total Cost of Revenue"
+                },
+                {
+                  "kind": "cell",
+                  "text": "(8,560)"
+                },
+                {
+                  "kind": "cell",
+                  "text": "(10,330)"
+                },
+                {
+                  "kind": "cell",
+                  "text": "(12,250)"
+                },
+                {
+                  "kind": "cell",
+                  "text": "(14,240)"
+                }
+              ],
+              "kind": "row"
+            },
+            {
+              "children": [
+                {
+                  "kind": "cell",
+                  "text": "Gross Profit"
+                },
+                {
+                  "kind": "cell",
+                  "text": "7,260"
+                },
+                {
+                  "kind": "cell",
+                  "text": "9,060"
+                },
+                {
+                  "kind": "cell",
+                  "text": "11,340"
+                },
+                {
+                  "kind": "cell",
+                  "text": "14,130"
+                }
+              ],
+              "kind": "row"
+            },
+            {
+              "children": [
+                {
+                  "kind": "cell",
+                  "text": "Gross Margin %"
+                },
+                {
+                  "kind": "cell",
+                  "text": "45.9%"
+                },
+                {
+                  "kind": "cell",
+                  "text": "46.7%"
+                },
+                {
+                  "kind": "cell",
+                  "text": "48.1%"
+                },
+                {
+                  "kind": "cell",
+                  "text": "49.8%"
+                }
+              ],
+              "kind": "row"
+            },
+            {
+              "children": [
+                {
+                  "kind": "cell",
+                  "text": "Operating Expenses"
+                },
+                {
+                  "kind": "cell"
+                },
+                {
+                  "kind": "cell"
+                },
+                {
+                  "kind": "cell"
+                },
+                {
+                  "kind": "cell"
+                }
+              ],
+              "kind": "row"
+            },
+            {
+              "children": [
+                {
+                  "kind": "cell",
+                  "text": "Research & Development"
+                },
+                {
+                  "kind": "cell",
+                  "text": "(2,140)"
+                },
+                {
+                  "kind": "cell",
+                  "text": "(2,660)"
+                },
+                {
+                  "kind": "cell",
+                  "text": "(3,180)"
+                },
+                {
+                  "kind": "cell",
+                  "text": "(3,720)"
+                }
+              ],
+              "kind": "row"
+            },
+            {
+              "children": [
+                {
+                  "kind": "cell",
+                  "text": "Sales & Marketing"
+                },
+                {
+                  "kind": "cell",
+                  "text": "(3,280)"
+                },
+                {
+                  "kind": "cell",
+                  "text": "(3,950)"
+                },
+                {
+                  "kind": "cell",
+                  "text": "(4,840)"
+                },
+                {
+                  "kind": "cell",
+                  "text": "(5,600)"
+                }
+              ],
+              "kind": "row"
+            },
+            {
+              "children": [
+                {
+                  "kind": "cell",
+                  "text": "General & Administrative"
+                },
+                {
+                  "kind": "cell",
+                  "text": "(1,120)"
+                },
+                {
+                  "kind": "cell",
+                  "text": "(1,280)"
+                },
+                {
+                  "kind": "cell",
+                  "text": "(1,460)"
+                },
+                {
+                  "kind": "cell",
+                  "text": "(1,640)"
+                }
+              ],
+              "kind": "row"
+            },
+            {
+              "children": [
+                {
+                  "kind": "cell",
+                  "text": "Total Operating Expenses"
+                },
+                {
+                  "kind": "cell",
+                  "text": "(6,540)"
+                },
+                {
+                  "kind": "cell",
+                  "text": "(7,890)"
+                },
+                {
+                  "kind": "cell",
+                  "text": "(9,480)"
+                },
+                {
+                  "kind": "cell",
+                  "text": "(10,960)"
+                }
+              ],
+              "kind": "row"
+            },
+            {
+              "children": [
+                {
+                  "kind": "cell",
+                  "text": "Operating Income (EBIT)"
+                },
+                {
+                  "kind": "cell",
+                  "text": "720"
+                },
+                {
+                  "kind": "cell",
+                  "text": "1,170"
+                },
+                {
+                  "kind": "cell",
+                  "text": "1,860"
+                },
+                {
+                  "kind": "cell",
+                  "text": "3,170"
+                }
+              ],
+              "kind": "row"
+            },
+            {
+              "children": [
+                {
+                  "kind": "cell",
+                  "text": "EBIT Margin %"
+                },
+                {
+                  "kind": "cell",
+                  "text": "4.6%"
+                },
+                {
+                  "kind": "cell",
+                  "text": "6.0%"
+                },
+                {
+                  "kind": "cell",
+                  "text": "7.9%"
+                },
+                {
+                  "kind": "cell",
+                  "text": "11.2%"
+                }
+              ],
+              "kind": "row"
+            },
+            {
+              "children": [
+                {
+                  "kind": "cell",
+                  "text": "Other Items"
+                },
+                {
+                  "kind": "cell"
+                },
+                {
+                  "kind": "cell"
+                },
+                {
+                  "kind": "cell"
+                },
+                {
+                  "kind": "cell"
+                }
+              ],
+              "kind": "row"
+            },
+            {
+              "children": [
+                {
+                  "kind": "cell",
+                  "text": "Interest Income"
+                },
+                {
+                  "kind": "cell",
+                  "text": "85"
+                },
+                {
+                  "kind": "cell",
+                  "text": "110"
+                },
+                {
+                  "kind": "cell",
+                  "text": "190"
+                },
+                {
+                  "kind": "cell",
+                  "text": "340"
+                }
+              ],
+              "kind": "row"
+            },
+            {
+              "children": [
+                {
+                  "kind": "cell",
+                  "text": "Interest Expense"
+                },
+                {
+                  "kind": "cell",
+                  "text": "(420)"
+                },
+                {
+                  "kind": "cell",
+                  "text": "(390)"
+                },
+                {
+                  "kind": "cell",
+                  "text": "(350)"
+                },
+                {
+                  "kind": "cell",
+                  "text": "(290)"
+                }
+              ],
+              "kind": "row"
+            },
+            {
+              "children": [
+                {
+                  "kind": "cell",
+                  "text": "Pre-Tax Income"
+                },
+                {
+                  "kind": "cell",
+                  "text": "385"
+                },
+                {
+                  "kind": "cell",
+                  "text": "890"
+                },
+                {
+                  "kind": "cell",
+                  "text": "1,700"
+                },
+                {
+                  "kind": "cell",
+                  "text": "3,220"
+                }
+              ],
+              "kind": "row"
+            },
+            {
+              "children": [
+                {
+                  "kind": "cell",
+                  "text": "Income Tax Provision"
+                },
+                {
+                  "kind": "cell",
+                  "text": "(78)"
+                },
+                {
+                  "kind": "cell",
+                  "text": "(178)"
+                },
+                {
+                  "kind": "cell",
+                  "text": "(340)"
+                },
+                {
+                  "kind": "cell",
+                  "text": "(644)"
+                }
+              ],
+              "kind": "row"
+            },
+            {
+              "children": [
+                {
+                  "kind": "cell",
+                  "text": "Net Income"
+                },
+                {
+                  "kind": "cell",
+                  "text": "307"
+                },
+                {
+                  "kind": "cell",
+                  "text": "712"
+                },
+                {
+                  "kind": "cell",
+                  "text": "1,360"
+                },
+                {
+                  "kind": "cell",
+                  "text": "2,576"
+                }
+              ],
+              "kind": "row"
+            },
+            {
+              "children": [
+                {
+                  "kind": "cell",
+                  "text": "Net Margin %"
+                },
+                {
+                  "kind": "cell",
+                  "text": "1.9%"
+                },
+                {
+                  "kind": "cell",
+                  "text": "3.7%"
+                },
+                {
+                  "kind": "cell",
+                  "text": "5.8%"
+                },
+                {
+                  "kind": "cell",
+                  "text": "9.1%"
+                }
+              ],
+              "kind": "row"
+            },
+            {
+              "children": [
+                {
+                  "kind": "cell",
+                  "text": "Per Share Data"
+                },
+                {
+                  "kind": "cell"
+                },
+                {
+                  "kind": "cell"
+                },
+                {
+                  "kind": "cell"
+                },
+                {
+                  "kind": "cell"
+                }
+              ],
+              "kind": "row"
+            },
+            {
+              "children": [
+                {
+                  "kind": "cell",
+                  "text": "Basic EPS"
+                },
+                {
+                  "kind": "cell",
+                  "text": "$0.31"
+                },
+                {
+                  "kind": "cell",
+                  "text": "$0.71"
+                },
+                {
+                  "kind": "cell",
+                  "text": "$1.36"
+                },
+                {
+                  "kind": "cell",
+                  "text": "$2.59"
+                }
+              ],
+              "kind": "row"
+            },
+            {
+              "children": [
+                {
+                  "kind": "cell",
+                  "text": "Diluted EPS"
+                },
+                {
+                  "kind": "cell",
+                  "text": "$0.30"
+                },
+                {
+                  "kind": "cell",
+                  "text": "$0.69"
+                },
+                {
+                  "kind": "cell",
+                  "text": "$1.32"
+                },
+                {
+                  "kind": "cell",
+                  "text": "$2.51"
+                }
+              ],
+              "kind": "row"
+            }
+          ],
+          "kind": "table"
+        }
+      ],
+      "kind": "page"
+    },
+    {
+      "children": [
+        {
+          "kind": "heading",
+          "text": "8. Conclusions"
+        },
+        {
+          "kind": "paragraph",
+          "text": "This section provides an in-depth analysis of the operational data collected during the assessment"
+        },
+        {
+          "kind": "paragraph",
+          "text": "period. The findings are presented in structured form to facilitate comparison across regions and time."
+        },
+        {
+          "kind": "heading",
+          "text": "\u2022"
+        },
+        {
+          "kind": "paragraph",
+          "text": "Revenue growth of 79.6% over four fiscal years demonstrates sustained demand."
+        },
+        {
+          "kind": "heading",
+          "text": "\u2022"
+        },
+        {
+          "kind": "paragraph",
+          "text": "Operating leverage improved as fixed costs spread over a larger revenue base."
+        },
+        {
+          "kind": "heading",
+          "text": "\u2022"
+        },
+        {
+          "kind": "paragraph",
+          "text": "Continued R&D; investment is expected to drive further margin expansion."
+        },
+        {
+          "kind": "heading",
+          "text": "\u2022"
+        },
+        {
+          "kind": "paragraph",
+          "text": "Regional diversification reduces concentration risk and opens new corridors."
+        },
+        {
+          "kind": "figure"
+        },
+        {
+          "kind": "paragraph",
+          "text": "Figure 3: Full-year revenue summary."
+        }
+      ],
+      "kind": "page"
+    }
+  ],
+  "kind": "document"
+}
