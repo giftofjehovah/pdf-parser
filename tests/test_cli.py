@@ -25,7 +25,7 @@ def test_parse_markdown():
 def test_parse_html():
     result = runner.invoke(app, ["parse", str(SIMPLE), "--format", "html"])
     assert result.exit_code == 0
-    assert "<article>" in result.stdout
+    assert "<!DOCTYPE html>" in result.stdout
 
 
 def test_parse_chunks():

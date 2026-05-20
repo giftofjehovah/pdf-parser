@@ -7,18 +7,40 @@ SIMPLE = Path("tests/golden/synthetic/01_simple_table/source.pdf")
 NESTED = Path("tests/golden/synthetic/02_nested_table/source.pdf")
 
 
-def test_html_has_article_root():
+def test_html_is_full_document():
     html = to_html(parse(SIMPLE))
-    assert html.startswith("<article")
+    assert html.startswith("<!DOCTYPE html>")
+    assert "<style>" in html
+    assert "</html>" in html
 
 
-def test_simple_table_renders_as_native_table():
+def test_simple_table_cells_present():
     html = to_html(parse(SIMPLE))
-    assert "<table>" in html
-    assert "<th>Name</th>" in html or "<td>Name</td>" in html
+    # Header row cell and a data cell must appear
+    assert "Name" in html
+    assert "Apple" in html
 
 
-def test_nested_html_table_is_native():
+def test_simple_table_has_grid_lines():
+    html = to_html(parse(SIMPLE))
+    # CSS must define cell border (grid lines)
+    assert "border:" in html or "border :" in html
+
+
+def test_nested_html_table_renders_inner_cells():
     html = to_html(parse(NESTED))
-    # Find an inner <table> nested inside a <td>
-    assert "<td><table>" in html.replace(" ", "")
+    # Both outer and inner cell text must be present
+    assert "Outer-Col-1" in html
+    assert "sub-A" in html
+
+
+def test_page_div_is_sized():
+    html = to_html(parse(SIMPLE))
+    # Absolute-layout pages carry explicit pixel dimensions
+    assert 'class="page"' in html
+    assert "width:" in html and "height:" in html
+
+
+def test_header_row_has_rH_class():
+    html = to_html(parse(SIMPLE))
+    assert "rH" in html
