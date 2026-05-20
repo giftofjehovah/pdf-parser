@@ -37,9 +37,11 @@ def check_table_shape(tree: DocNode) -> list[str]:
         if n.kind != "table" or not n.children:
             continue
         row_widths = [len(row.children) for row in n.children]
-        # Allow rows with colspan declared in attrs.
-        unique = {w for w in row_widths
-                  if not any(c.attrs.get("colspan") for c in n.children[row_widths.index(w)].children)}
+        # Skip rows whose cells declare a colspan; widths of those rows may legitimately differ.
+        unique = {
+            w for i, w in enumerate(row_widths)
+            if not any(c.attrs.get("colspan") for c in n.children[i].children)
+        }
         if len(unique) > 1:
             errs.append(f"table {n.id} has inconsistent row widths {row_widths}")
     return errs
