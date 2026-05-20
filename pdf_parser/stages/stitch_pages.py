@@ -50,11 +50,10 @@ def _merge_two(prev: DocNode, nxt: DocNode) -> DocNode:
         rows_next = rows_next[1:]  # drop duplicate header
     # Reindex row indices and ensure each row's attrs.page is set.
     rebuilt_rows: list[DocNode] = []
-    base = len(prev.children)
     for row in list(prev.children) + rows_next:
         new_attrs = dict(row.attrs)
         new_attrs["row_index"] = len(rebuilt_rows)
-        new_attrs.setdefault("page", _first_bbox(row).page if isinstance(row.bbox, BBox) else _first_bbox(row).page)
+        new_attrs.setdefault("page", _first_bbox(row).page)
         rebuilt_rows.append(DocNode(
             kind=row.kind, bbox=row.bbox, children=row.children, attrs=new_attrs,
             text=row.text, provenance=row.provenance,
