@@ -72,9 +72,28 @@ def build_02_nested_table(out: Path) -> None:
     doc.build(story)
 
 
+def build_03_page_spanning(out: Path) -> None:
+    doc = SimpleDocTemplate(str(out), pagesize=LETTER, topMargin=72, bottomMargin=72)
+    s = _styles()
+    header = ["ID", "Description", "Value"]
+    rows = [header] + [[str(i), f"Item number {i}", f"${i * 1.5:.2f}"] for i in range(1, 51)]
+    t = Table(
+        rows,
+        repeatRows=1,
+        style=TableStyle([
+            ("GRID", (0, 0), (-1, -1), 0.5, colors.black),
+            ("BACKGROUND", (0, 0), (-1, 0), colors.lightgrey),
+        ]),
+        colWidths=[60, 280, 80],
+    )
+    story = [Paragraph("Page-Spanning Table", s["Heading1"]), Spacer(1, 12), t]
+    doc.build(story)
+
+
 BUILDERS = {
     "01_simple_table": build_01_simple_table,
     "02_nested_table": build_02_nested_table,
+    "03_page_spanning": build_03_page_spanning,
 }
 
 

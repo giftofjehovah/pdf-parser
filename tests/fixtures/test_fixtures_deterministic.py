@@ -30,3 +30,11 @@ def test_nested_table_pdf_is_byte_stable(tmp_path):
     BUILDERS["02_nested_table"](a)
     BUILDERS["02_nested_table"](b)
     assert _digest(a) == _digest(b)
+
+
+def test_page_spanning_pdf_is_byte_stable(tmp_path):
+    a = tmp_path / "a.pdf"
+    b = tmp_path / "b.pdf"
+    BUILDERS["03_page_spanning"](a)
+    BUILDERS["03_page_spanning"](b)
+    assert _digest(a) == _digest(b)
