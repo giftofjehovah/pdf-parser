@@ -35,7 +35,7 @@ def _first_bbox(table: DocNode) -> BBox:
 def _can_merge(prev: DocNode, nxt: DocNode) -> bool:
     if not _anchors_match(_col_anchors(prev), _col_anchors(nxt)):
         return False
-    p_page = _first_bbox(prev).page
+    p_page = prev.bbox[-1].page if isinstance(prev.bbox, list) else prev.bbox.page
     n_page = _first_bbox(nxt).page
     if n_page != p_page + 1:
         return False
