@@ -26,13 +26,13 @@
           },
           "bbox": {
             "page": 0,
-            "x0": 78,
-            "x1": 268,
-            "y0": 77,
-            "y1": 102
+            "x0": 79,
+            "x1": 267,
+            "y0": 83,
+            "y1": 100
           },
           "children": [],
-          "id": "99ccc6ec374b",
+          "id": "e9f1b72ed168",
           "kind": "heading",
           "provenance": {
             "extractor": "segment",
@@ -45,12 +45,12 @@
           "bbox": {
             "page": 0,
             "x0": 78,
-            "x1": 236,
-            "y0": 123,
-            "y1": 137
+            "x1": 235,
+            "y0": 127,
+            "y1": 134
           },
           "children": [],
-          "id": "5b8957cf2e41",
+          "id": "00ce9f3cf0bf",
           "kind": "paragraph",
           "provenance": {
             "extractor": "segment",
@@ -92,7 +92,9 @@
               },
               "children": [
                 {
-                  "attrs": {},
+                  "attrs": {
+                    "align": "left"
+                  },
                   "bbox": {
                     "page": 0,
                     "x0": 240,
@@ -110,7 +112,9 @@
                   "text": "Name"
                 },
                 {
-                  "attrs": {},
+                  "attrs": {
+                    "align": "left"
+                  },
                   "bbox": {
                     "page": 0,
                     "x0": 286,
@@ -128,7 +132,9 @@
                   "text": "Quantity"
                 },
                 {
-                  "attrs": {},
+                  "attrs": {
+                    "align": "left"
+                  },
                   "bbox": {
                     "page": 0,
                     "x0": 335,
@@ -165,7 +171,9 @@
               },
               "children": [
                 {
-                  "attrs": {},
+                  "attrs": {
+                    "align": "left"
+                  },
                   "bbox": {
                     "page": 0,
                     "x0": 240,
@@ -183,7 +191,9 @@
                   "text": "Apple"
                 },
                 {
-                  "attrs": {},
+                  "attrs": {
+                    "align": "left"
+                  },
                   "bbox": {
                     "page": 0,
                     "x0": 286,
@@ -201,7 +211,9 @@
                   "text": "3"
                 },
                 {
-                  "attrs": {},
+                  "attrs": {
+                    "align": "left"
+                  },
                   "bbox": {
                     "page": 0,
                     "x0": 335,
@@ -238,7 +250,9 @@
               },
               "children": [
                 {
-                  "attrs": {},
+                  "attrs": {
+                    "align": "left"
+                  },
                   "bbox": {
                     "page": 0,
                     "x0": 240,
@@ -256,7 +270,9 @@
                   "text": "Banana"
                 },
                 {
-                  "attrs": {},
+                  "attrs": {
+                    "align": "left"
+                  },
                   "bbox": {
                     "page": 0,
                     "x0": 286,
@@ -274,7 +290,9 @@
                   "text": "6"
                 },
                 {
-                  "attrs": {},
+                  "attrs": {
+                    "align": "left"
+                  },
                   "bbox": {
                     "page": 0,
                     "x0": 335,
@@ -307,13 +325,13 @@
           "text": null
         }
       ],
-      "id": "738b643ae7f1",
+      "id": "3f8706c5092f",
       "kind": "page",
       "provenance": {},
       "text": null
     }
   ],
-  "id": "bd5447e3da19",
+  "id": "fa7598a0cd56",
   "kind": "document",
   "provenance": {},
   "text": null

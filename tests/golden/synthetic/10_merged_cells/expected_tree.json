@@ -26,13 +26,13 @@
           },
           "bbox": {
             "page": 0,
-            "x0": 78,
-            "x1": 269,
-            "y0": 77,
-            "y1": 102
+            "x0": 79,
+            "x1": 268,
+            "y0": 83,
+            "y1": 100
           },
           "children": [],
-          "id": "a744cb4cbd7c",
+          "id": "704b0dcea453",
           "kind": "heading",
           "provenance": {
             "extractor": "segment",
@@ -74,7 +74,9 @@
               },
               "children": [
                 {
-                  "attrs": {},
+                  "attrs": {
+                    "align": "left"
+                  },
                   "bbox": {
                     "page": 0,
                     "x0": 151,
@@ -93,6 +95,7 @@
                 },
                 {
                   "attrs": {
+                    "align": "left",
                     "covered": true
                   },
                   "bbox": {
@@ -113,6 +116,7 @@
                 },
                 {
                   "attrs": {
+                    "align": "left",
                     "covered": true
                   },
                   "bbox": {
@@ -151,7 +155,9 @@
               },
               "children": [
                 {
-                  "attrs": {},
+                  "attrs": {
+                    "align": "left"
+                  },
                   "bbox": {
                     "page": 0,
                     "x0": 151,
@@ -169,7 +175,9 @@
                   "text": "Region"
                 },
                 {
-                  "attrs": {},
+                  "attrs": {
+                    "align": "left"
+                  },
                   "bbox": {
                     "page": 0,
                     "x0": 301,
@@ -187,7 +195,9 @@
                   "text": "Q1"
                 },
                 {
-                  "attrs": {},
+                  "attrs": {
+                    "align": "left"
+                  },
                   "bbox": {
                     "page": 0,
                     "x0": 381,
@@ -224,7 +234,9 @@
               },
               "children": [
                 {
-                  "attrs": {},
+                  "attrs": {
+                    "align": "left"
+                  },
                   "bbox": {
                     "page": 0,
                     "x0": 151,
@@ -242,7 +254,9 @@
                   "text": "North"
                 },
                 {
-                  "attrs": {},
+                  "attrs": {
+                    "align": "left"
+                  },
                   "bbox": {
                     "page": 0,
                     "x0": 301,
@@ -260,7 +274,9 @@
                   "text": "100"
                 },
                 {
-                  "attrs": {},
+                  "attrs": {
+                    "align": "left"
+                  },
                   "bbox": {
                     "page": 0,
                     "x0": 381,
@@ -298,6 +314,7 @@
               "children": [
                 {
                   "attrs": {
+                    "align": "left",
                     "covered": true
                   },
                   "bbox": {
@@ -317,7 +334,9 @@
                   "text": ""
                 },
                 {
-                  "attrs": {},
+                  "attrs": {
+                    "align": "left"
+                  },
                   "bbox": {
                     "page": 0,
                     "x0": 301,
@@ -335,7 +354,9 @@
                   "text": "120"
                 },
                 {
-                  "attrs": {},
+                  "attrs": {
+                    "align": "left"
+                  },
                   "bbox": {
                     "page": 0,
                     "x0": 381,
@@ -372,7 +393,9 @@
               },
               "children": [
                 {
-                  "attrs": {},
+                  "attrs": {
+                    "align": "left"
+                  },
                   "bbox": {
                     "page": 0,
                     "x0": 151,
@@ -390,7 +413,9 @@
                   "text": "South"
                 },
                 {
-                  "attrs": {},
+                  "attrs": {
+                    "align": "left"
+                  },
                   "bbox": {
                     "page": 0,
                     "x0": 301,
@@ -408,7 +433,9 @@
                   "text": "300"
                 },
                 {
-                  "attrs": {},
+                  "attrs": {
+                    "align": "left"
+                  },
                   "bbox": {
                     "page": 0,
                     "x0": 381,
@@ -441,13 +468,13 @@
           "text": null
         }
       ],
-      "id": "2802267184ba",
+      "id": "205d771dcd91",
       "kind": "page",
       "provenance": {},
       "text": null
     }
   ],
-  "id": "128a7975a650",
+  "id": "9f6f967176da",
   "kind": "document",
   "provenance": {},
   "text": null

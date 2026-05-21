@@ -26,13 +26,13 @@
           },
           "bbox": {
             "page": 0,
-            "x0": 78,
-            "x1": 310,
-            "y0": 77,
-            "y1": 102
+            "x0": 79,
+            "x1": 309,
+            "y0": 83,
+            "y1": 100
           },
           "children": [],
-          "id": "1ac004605f9e",
+          "id": "a4b2f3b987b5",
           "kind": "heading",
           "provenance": {
             "extractor": "segment",
@@ -87,7 +87,9 @@
               },
               "children": [
                 {
-                  "attrs": {},
+                  "attrs": {
+                    "align": "left"
+                  },
                   "bbox": {
                     "page": 0,
                     "x0": 136,
@@ -105,7 +107,9 @@
                   "text": "Step"
                 },
                 {
-                  "attrs": {},
+                  "attrs": {
+                    "align": "left"
+                  },
                   "bbox": {
                     "page": 0,
                     "x0": 196,
@@ -123,7 +127,9 @@
                   "text": "Detail"
                 },
                 {
-                  "attrs": {},
+                  "attrs": {
+                    "align": "left"
+                  },
                   "bbox": {
                     "page": 0,
                     "x0": 396,
@@ -160,7 +166,9 @@
               },
               "children": [
                 {
-                  "attrs": {},
+                  "attrs": {
+                    "align": "left"
+                  },
                   "bbox": {
                     "page": 0,
                     "x0": 136,
@@ -178,7 +186,9 @@
                   "text": "1"
                 },
                 {
-                  "attrs": {},
+                  "attrs": {
+                    "align": "left"
+                  },
                   "bbox": {
                     "page": 0,
                     "x0": 196,
@@ -196,7 +206,9 @@
                   "text": "plain 1"
                 },
                 {
-                  "attrs": {},
+                  "attrs": {
+                    "align": "left"
+                  },
                   "bbox": {
                     "page": 0,
                     "x0": 396,
@@ -233,7 +245,9 @@
               },
               "children": [
                 {
-                  "attrs": {},
+                  "attrs": {
+                    "align": "left"
+                  },
                   "bbox": {
                     "page": 0,
                     "x0": 136,
@@ -251,7 +265,9 @@
                   "text": "2"
                 },
                 {
-                  "attrs": {},
+                  "attrs": {
+                    "align": "left"
+                  },
                   "bbox": {
                     "page": 0,
                     "x0": 196,
@@ -269,7 +285,9 @@
                   "text": "plain 2"
                 },
                 {
-                  "attrs": {},
+                  "attrs": {
+                    "align": "left"
+                  },
                   "bbox": {
                     "page": 0,
                     "x0": 396,
@@ -306,7 +324,9 @@
               },
               "children": [
                 {
-                  "attrs": {},
+                  "attrs": {
+                    "align": "left"
+                  },
                   "bbox": {
                     "page": 0,
                     "x0": 136,
@@ -324,7 +344,9 @@
                   "text": "3"
                 },
                 {
-                  "attrs": {},
+                  "attrs": {
+                    "align": "left"
+                  },
                   "bbox": {
                     "page": 0,
                     "x0": 196,
@@ -342,7 +364,9 @@
                   "text": "plain 3"
                 },
                 {
-                  "attrs": {},
+                  "attrs": {
+                    "align": "left"
+                  },
                   "bbox": {
                     "page": 0,
                     "x0": 396,
@@ -379,7 +403,9 @@
               },
               "children": [
                 {
-                  "attrs": {},
+                  "attrs": {
+                    "align": "left"
+                  },
                   "bbox": {
                     "page": 0,
                     "x0": 136,
@@ -397,7 +423,9 @@
                   "text": "4"
                 },
                 {
-                  "attrs": {},
+                  "attrs": {
+                    "align": "left"
+                  },
                   "bbox": {
                     "page": 0,
                     "x0": 196,
@@ -415,7 +443,9 @@
                   "text": "plain 4"
                 },
                 {
-                  "attrs": {},
+                  "attrs": {
+                    "align": "left"
+                  },
                   "bbox": {
                     "page": 0,
                     "x0": 396,
@@ -452,7 +482,9 @@
               },
               "children": [
                 {
-                  "attrs": {},
+                  "attrs": {
+                    "align": "left"
+                  },
                   "bbox": {
                     "page": 0,
                     "x0": 136,
@@ -470,7 +502,9 @@
                   "text": "5"
                 },
                 {
-                  "attrs": {},
+                  "attrs": {
+                    "align": "left"
+                  },
                   "bbox": {
                     "page": 0,
                     "x0": 196,
@@ -488,7 +522,9 @@
                   "text": "plain 5"
                 },
                 {
-                  "attrs": {},
+                  "attrs": {
+                    "align": "left"
+                  },
                   "bbox": {
                     "page": 0,
                     "x0": 396,
@@ -525,7 +561,9 @@
               },
               "children": [
                 {
-                  "attrs": {},
+                  "attrs": {
+                    "align": "left"
+                  },
                   "bbox": {
                     "page": 0,
                     "x0": 136,
@@ -543,7 +581,9 @@
                   "text": "6"
                 },
                 {
-                  "attrs": {},
+                  "attrs": {
+                    "align": "left"
+                  },
                   "bbox": {
                     "page": 0,
                     "x0": 196,
@@ -561,7 +601,9 @@
                   "text": "plain 6"
                 },
                 {
-                  "attrs": {},
+                  "attrs": {
+                    "align": "left"
+                  },
                   "bbox": {
                     "page": 0,
                     "x0": 396,
@@ -598,7 +640,9 @@
               },
               "children": [
                 {
-                  "attrs": {},
+                  "attrs": {
+                    "align": "left"
+                  },
                   "bbox": {
                     "page": 0,
                     "x0": 136,
@@ -616,7 +660,9 @@
                   "text": "7"
                 },
                 {
-                  "attrs": {},
+                  "attrs": {
+                    "align": "left"
+                  },
                   "bbox": {
                     "page": 0,
                     "x0": 196,
@@ -634,7 +680,9 @@
                   "text": "plain 7"
                 },
                 {
-                  "attrs": {},
+                  "attrs": {
+                    "align": "left"
+                  },
                   "bbox": {
                     "page": 0,
                     "x0": 396,
@@ -671,7 +719,9 @@
               },
               "children": [
                 {
-                  "attrs": {},
+                  "attrs": {
+                    "align": "left"
+                  },
                   "bbox": {
                     "page": 0,
                     "x0": 136,
@@ -689,7 +739,9 @@
                   "text": "8"
                 },
                 {
-                  "attrs": {},
+                  "attrs": {
+                    "align": "left"
+                  },
                   "bbox": {
                     "page": 0,
                     "x0": 196,
@@ -707,7 +759,9 @@
                   "text": "plain 8"
                 },
                 {
-                  "attrs": {},
+                  "attrs": {
+                    "align": "left"
+                  },
                   "bbox": {
                     "page": 0,
                     "x0": 396,
@@ -744,7 +798,9 @@
               },
               "children": [
                 {
-                  "attrs": {},
+                  "attrs": {
+                    "align": "left"
+                  },
                   "bbox": {
                     "page": 0,
                     "x0": 136,
@@ -762,7 +818,9 @@
                   "text": "9"
                 },
                 {
-                  "attrs": {},
+                  "attrs": {
+                    "align": "left"
+                  },
                   "bbox": {
                     "page": 0,
                     "x0": 196,
@@ -780,7 +838,9 @@
                   "text": "plain 9"
                 },
                 {
-                  "attrs": {},
+                  "attrs": {
+                    "align": "left"
+                  },
                   "bbox": {
                     "page": 0,
                     "x0": 396,
@@ -817,7 +877,9 @@
               },
               "children": [
                 {
-                  "attrs": {},
+                  "attrs": {
+                    "align": "left"
+                  },
                   "bbox": {
                     "page": 0,
                     "x0": 136,
@@ -835,7 +897,9 @@
                   "text": "10"
                 },
                 {
-                  "attrs": {},
+                  "attrs": {
+                    "align": "left"
+                  },
                   "bbox": {
                     "page": 0,
                     "x0": 196,
@@ -853,7 +917,9 @@
                   "text": "plain 10"
                 },
                 {
-                  "attrs": {},
+                  "attrs": {
+                    "align": "left"
+                  },
                   "bbox": {
                     "page": 0,
                     "x0": 396,
@@ -890,7 +956,9 @@
               },
               "children": [
                 {
-                  "attrs": {},
+                  "attrs": {
+                    "align": "left"
+                  },
                   "bbox": {
                     "page": 0,
                     "x0": 136,
@@ -908,7 +976,9 @@
                   "text": "11"
                 },
                 {
-                  "attrs": {},
+                  "attrs": {
+                    "align": "left"
+                  },
                   "bbox": {
                     "page": 0,
                     "x0": 196,
@@ -926,7 +996,9 @@
                   "text": "plain 11"
                 },
                 {
-                  "attrs": {},
+                  "attrs": {
+                    "align": "left"
+                  },
                   "bbox": {
                     "page": 0,
                     "x0": 396,
@@ -963,7 +1035,9 @@
               },
               "children": [
                 {
-                  "attrs": {},
+                  "attrs": {
+                    "align": "left"
+                  },
                   "bbox": {
                     "page": 0,
                     "x0": 136,
@@ -981,7 +1055,9 @@
                   "text": "12"
                 },
                 {
-                  "attrs": {},
+                  "attrs": {
+                    "align": "left"
+                  },
                   "bbox": {
                     "page": 0,
                     "x0": 196,
@@ -999,7 +1075,9 @@
                   "text": "plain 12"
                 },
                 {
-                  "attrs": {},
+                  "attrs": {
+                    "align": "left"
+                  },
                   "bbox": {
                     "page": 0,
                     "x0": 396,
@@ -1036,7 +1114,9 @@
               },
               "children": [
                 {
-                  "attrs": {},
+                  "attrs": {
+                    "align": "left"
+                  },
                   "bbox": {
                     "page": 0,
                     "x0": 136,
@@ -1054,7 +1134,9 @@
                   "text": "13"
                 },
                 {
-                  "attrs": {},
+                  "attrs": {
+                    "align": "left"
+                  },
                   "bbox": {
                     "page": 0,
                     "x0": 196,
@@ -1072,7 +1154,9 @@
                   "text": "plain 13"
                 },
                 {
-                  "attrs": {},
+                  "attrs": {
+                    "align": "left"
+                  },
                   "bbox": {
                     "page": 0,
                     "x0": 396,
@@ -1109,7 +1193,9 @@
               },
               "children": [
                 {
-                  "attrs": {},
+                  "attrs": {
+                    "align": "left"
+                  },
                   "bbox": {
                     "page": 0,
                     "x0": 136,
@@ -1127,7 +1213,9 @@
                   "text": "14"
                 },
                 {
-                  "attrs": {},
+                  "attrs": {
+                    "align": "left"
+                  },
                   "bbox": {
                     "page": 0,
                     "x0": 196,
@@ -1145,7 +1233,9 @@
                   "text": "plain 14"
                 },
                 {
-                  "attrs": {},
+                  "attrs": {
+                    "align": "left"
+                  },
                   "bbox": {
                     "page": 0,
                     "x0": 396,
@@ -1182,7 +1272,9 @@
               },
               "children": [
                 {
-                  "attrs": {},
+                  "attrs": {
+                    "align": "left"
+                  },
                   "bbox": {
                     "page": 0,
                     "x0": 136,
@@ -1200,7 +1292,9 @@
                   "text": "15"
                 },
                 {
-                  "attrs": {},
+                  "attrs": {
+                    "align": "left"
+                  },
                   "bbox": {
                     "page": 0,
                     "x0": 196,
@@ -1218,7 +1312,9 @@
                   "text": "plain 15"
                 },
                 {
-                  "attrs": {},
+                  "attrs": {
+                    "align": "left"
+                  },
                   "bbox": {
                     "page": 0,
                     "x0": 396,
@@ -1255,7 +1351,9 @@
               },
               "children": [
                 {
-                  "attrs": {},
+                  "attrs": {
+                    "align": "left"
+                  },
                   "bbox": {
                     "page": 0,
                     "x0": 136,
@@ -1273,7 +1371,9 @@
                   "text": "16"
                 },
                 {
-                  "attrs": {},
+                  "attrs": {
+                    "align": "left"
+                  },
                   "bbox": {
                     "page": 0,
                     "x0": 196,
@@ -1291,7 +1391,9 @@
                   "text": "plain 16"
                 },
                 {
-                  "attrs": {},
+                  "attrs": {
+                    "align": "left"
+                  },
                   "bbox": {
                     "page": 0,
                     "x0": 396,
@@ -1328,7 +1430,9 @@
               },
               "children": [
                 {
-                  "attrs": {},
+                  "attrs": {
+                    "align": "left"
+                  },
                   "bbox": {
                     "page": 0,
                     "x0": 136,
@@ -1346,7 +1450,9 @@
                   "text": "17"
                 },
                 {
-                  "attrs": {},
+                  "attrs": {
+                    "align": "left"
+                  },
                   "bbox": {
                     "page": 0,
                     "x0": 196,
@@ -1364,7 +1470,9 @@
                   "text": "plain 17"
                 },
                 {
-                  "attrs": {},
+                  "attrs": {
+                    "align": "left"
+                  },
                   "bbox": {
                     "page": 0,
                     "x0": 396,
@@ -1401,7 +1509,9 @@
               },
               "children": [
                 {
-                  "attrs": {},
+                  "attrs": {
+                    "align": "left"
+                  },
                   "bbox": {
                     "page": 0,
                     "x0": 136,
@@ -1419,7 +1529,9 @@
                   "text": "18"
                 },
                 {
-                  "attrs": {},
+                  "attrs": {
+                    "align": "left"
+                  },
                   "bbox": {
                     "page": 0,
                     "x0": 196,
@@ -1437,7 +1549,9 @@
                   "text": "plain 18"
                 },
                 {
-                  "attrs": {},
+                  "attrs": {
+                    "align": "left"
+                  },
                   "bbox": {
                     "page": 0,
                     "x0": 396,
@@ -1474,7 +1588,9 @@
               },
               "children": [
                 {
-                  "attrs": {},
+                  "attrs": {
+                    "align": "left"
+                  },
                   "bbox": {
                     "page": 0,
                     "x0": 136,
@@ -1492,7 +1608,9 @@
                   "text": "19"
                 },
                 {
-                  "attrs": {},
+                  "attrs": {
+                    "align": "left"
+                  },
                   "bbox": {
                     "page": 0,
                     "x0": 196,
@@ -1510,7 +1628,9 @@
                   "text": "plain 19"
                 },
                 {
-                  "attrs": {},
+                  "attrs": {
+                    "align": "left"
+                  },
                   "bbox": {
                     "page": 0,
                     "x0": 396,
@@ -1547,7 +1667,9 @@
               },
               "children": [
                 {
-                  "attrs": {},
+                  "attrs": {
+                    "align": "left"
+                  },
                   "bbox": {
                     "page": 0,
                     "x0": 136,
@@ -1565,7 +1687,9 @@
                   "text": "20"
                 },
                 {
-                  "attrs": {},
+                  "attrs": {
+                    "align": "left"
+                  },
                   "bbox": {
                     "page": 0,
                     "x0": 196,
@@ -1583,7 +1707,9 @@
                   "text": "plain 20"
                 },
                 {
-                  "attrs": {},
+                  "attrs": {
+                    "align": "left"
+                  },
                   "bbox": {
                     "page": 0,
                     "x0": 396,
@@ -1620,7 +1746,9 @@
               },
               "children": [
                 {
-                  "attrs": {},
+                  "attrs": {
+                    "align": "left"
+                  },
                   "bbox": {
                     "page": 0,
                     "x0": 136,
@@ -1638,7 +1766,9 @@
                   "text": "21"
                 },
                 {
-                  "attrs": {},
+                  "attrs": {
+                    "align": "left"
+                  },
                   "bbox": {
                     "page": 0,
                     "x0": 196,
@@ -1656,7 +1786,9 @@
                   "text": "plain 21"
                 },
                 {
-                  "attrs": {},
+                  "attrs": {
+                    "align": "left"
+                  },
                   "bbox": {
                     "page": 0,
                     "x0": 396,
@@ -1693,7 +1825,9 @@
               },
               "children": [
                 {
-                  "attrs": {},
+                  "attrs": {
+                    "align": "left"
+                  },
                   "bbox": {
                     "page": 0,
                     "x0": 136,
@@ -1711,7 +1845,9 @@
                   "text": "22"
                 },
                 {
-                  "attrs": {},
+                  "attrs": {
+                    "align": "left"
+                  },
                   "bbox": {
                     "page": 0,
                     "x0": 196,
@@ -1729,7 +1865,9 @@
                   "text": "plain 22"
                 },
                 {
-                  "attrs": {},
+                  "attrs": {
+                    "align": "left"
+                  },
                   "bbox": {
                     "page": 0,
                     "x0": 396,
@@ -1766,7 +1904,9 @@
               },
               "children": [
                 {
-                  "attrs": {},
+                  "attrs": {
+                    "align": "left"
+                  },
                   "bbox": {
                     "page": 0,
                     "x0": 136,
@@ -1784,7 +1924,9 @@
                   "text": "23"
                 },
                 {
-                  "attrs": {},
+                  "attrs": {
+                    "align": "left"
+                  },
                   "bbox": {
                     "page": 0,
                     "x0": 196,
@@ -1802,7 +1944,9 @@
                   "text": "plain 23"
                 },
                 {
-                  "attrs": {},
+                  "attrs": {
+                    "align": "left"
+                  },
                   "bbox": {
                     "page": 0,
                     "x0": 396,
@@ -1839,7 +1983,9 @@
               },
               "children": [
                 {
-                  "attrs": {},
+                  "attrs": {
+                    "align": "left"
+                  },
                   "bbox": {
                     "page": 0,
                     "x0": 136,
@@ -1857,7 +2003,9 @@
                   "text": "24"
                 },
                 {
-                  "attrs": {},
+                  "attrs": {
+                    "align": "left"
+                  },
                   "bbox": {
                     "page": 0,
                     "x0": 196,
@@ -1875,7 +2023,9 @@
                   "text": "plain 24"
                 },
                 {
-                  "attrs": {},
+                  "attrs": {
+                    "align": "left"
+                  },
                   "bbox": {
                     "page": 0,
                     "x0": 396,
@@ -1912,7 +2062,9 @@
               },
               "children": [
                 {
-                  "attrs": {},
+                  "attrs": {
+                    "align": "left"
+                  },
                   "bbox": {
                     "page": 0,
                     "x0": 136,
@@ -1930,7 +2082,9 @@
                   "text": "25"
                 },
                 {
-                  "attrs": {},
+                  "attrs": {
+                    "align": "left"
+                  },
                   "bbox": {
                     "page": 0,
                     "x0": 196,
@@ -1948,7 +2102,9 @@
                   "text": "plain 25"
                 },
                 {
-                  "attrs": {},
+                  "attrs": {
+                    "align": "left"
+                  },
                   "bbox": {
                     "page": 0,
                     "x0": 396,
@@ -1985,7 +2141,9 @@
               },
               "children": [
                 {
-                  "attrs": {},
+                  "attrs": {
+                    "align": "left"
+                  },
                   "bbox": {
                     "page": 0,
                     "x0": 136,
@@ -2003,7 +2161,9 @@
                   "text": "26"
                 },
                 {
-                  "attrs": {},
+                  "attrs": {
+                    "align": "left"
+                  },
                   "bbox": {
                     "page": 0,
                     "x0": 196,
@@ -2021,7 +2181,9 @@
                   "text": "plain 26"
                 },
                 {
-                  "attrs": {},
+                  "attrs": {
+                    "align": "left"
+                  },
                   "bbox": {
                     "page": 0,
                     "x0": 396,
@@ -2058,7 +2220,9 @@
               },
               "children": [
                 {
-                  "attrs": {},
+                  "attrs": {
+                    "align": "left"
+                  },
                   "bbox": {
                     "page": 0,
                     "x0": 136,
@@ -2076,7 +2240,9 @@
                   "text": "27"
                 },
                 {
-                  "attrs": {},
+                  "attrs": {
+                    "align": "left"
+                  },
                   "bbox": {
                     "page": 0,
                     "x0": 196,
@@ -2094,7 +2260,9 @@
                   "text": "plain 27"
                 },
                 {
-                  "attrs": {},
+                  "attrs": {
+                    "align": "left"
+                  },
                   "bbox": {
                     "page": 0,
                     "x0": 396,
@@ -2131,7 +2299,9 @@
               },
               "children": [
                 {
-                  "attrs": {},
+                  "attrs": {
+                    "align": "left"
+                  },
                   "bbox": {
                     "page": 0,
                     "x0": 136,
@@ -2149,7 +2319,9 @@
                   "text": "28"
                 },
                 {
-                  "attrs": {},
+                  "attrs": {
+                    "align": "left"
+                  },
                   "bbox": {
                     "page": 0,
                     "x0": 196,
@@ -2191,7 +2363,9 @@
                           },
                           "children": [
                             {
-                              "attrs": {},
+                              "attrs": {
+                                "align": "left"
+                              },
                               "bbox": {
                                 "page": 0,
                                 "x0": 202,
@@ -2209,7 +2383,9 @@
                               "text": "sub-H1"
                             },
                             {
-                              "attrs": {},
+                              "attrs": {
+                                "align": "left"
+                              },
                               "bbox": {
                                 "page": 0,
                                 "x0": 262,
@@ -2246,7 +2422,9 @@
                           },
                           "children": [
                             {
-                              "attrs": {},
+                              "attrs": {
+                                "align": "left"
+                              },
                               "bbox": {
                                 "page": 0,
                                 "x0": 202,
@@ -2264,7 +2442,9 @@
                               "text": "a"
                             },
                             {
-                              "attrs": {},
+                              "attrs": {
+                                "align": "left"
+                              },
                               "bbox": {
                                 "page": 0,
                                 "x0": 262,
@@ -2301,7 +2481,9 @@
                           },
                           "children": [
                             {
-                              "attrs": {},
+                              "attrs": {
+                                "align": "left"
+                              },
                               "bbox": {
                                 "page": 0,
                                 "x0": 202,
@@ -2319,7 +2501,9 @@
                               "text": "b"
                             },
                             {
-                              "attrs": {},
+                              "attrs": {
+                                "align": "left"
+                              },
                               "bbox": {
                                 "page": 0,
                                 "x0": 262,
@@ -2356,7 +2540,9 @@
                           },
                           "children": [
                             {
-                              "attrs": {},
+                              "attrs": {
+                                "align": "left"
+                              },
                               "bbox": {
                                 "page": 0,
                                 "x0": 202,
@@ -2374,7 +2560,9 @@
                               "text": "c"
                             },
                             {
-                              "attrs": {},
+                              "attrs": {
+                                "align": "left"
+                              },
                               "bbox": {
                                 "page": 0,
                                 "x0": 262,
@@ -2416,7 +2604,9 @@
                   "text": null
                 },
                 {
-                  "attrs": {},
+                  "attrs": {
+                    "align": "left"
+                  },
                   "bbox": {
                     "page": 0,
                     "x0": 396,
@@ -2453,7 +2643,9 @@
               },
               "children": [
                 {
-                  "attrs": {},
+                  "attrs": {
+                    "align": "left"
+                  },
                   "bbox": {
                     "page": 1,
                     "x0": 136,
@@ -2471,7 +2663,9 @@
                   "text": "29"
                 },
                 {
-                  "attrs": {},
+                  "attrs": {
+                    "align": "left"
+                  },
                   "bbox": {
                     "page": 1,
                     "x0": 196,
@@ -2513,7 +2707,9 @@
                           },
                           "children": [
                             {
-                              "attrs": {},
+                              "attrs": {
+                                "align": "left"
+                              },
                               "bbox": {
                                 "page": 1,
                                 "x0": 202,
@@ -2531,7 +2727,9 @@
                               "text": "d"
                             },
                             {
-                              "attrs": {},
+                              "attrs": {
+                                "align": "left"
+                              },
                               "bbox": {
                                 "page": 1,
                                 "x0": 262,
@@ -2568,7 +2766,9 @@
                           },
                           "children": [
                             {
-                              "attrs": {},
+                              "attrs": {
+                                "align": "left"
+                              },
                               "bbox": {
                                 "page": 1,
                                 "x0": 202,
@@ -2586,7 +2786,9 @@
                               "text": "e"
                             },
                             {
-                              "attrs": {},
+                              "attrs": {
+                                "align": "left"
+                              },
                               "bbox": {
                                 "page": 1,
                                 "x0": 262,
@@ -2623,7 +2825,9 @@
                           },
                           "children": [
                             {
-                              "attrs": {},
+                              "attrs": {
+                                "align": "left"
+                              },
                               "bbox": {
                                 "page": 1,
                                 "x0": 202,
@@ -2641,7 +2845,9 @@
                               "text": "f"
                             },
                             {
-                              "attrs": {},
+                              "attrs": {
+                                "align": "left"
+                              },
                               "bbox": {
                                 "page": 1,
                                 "x0": 262,
@@ -2683,7 +2889,9 @@
                   "text": null
                 },
                 {
-                  "attrs": {},
+                  "attrs": {
+                    "align": "left"
+                  },
                   "bbox": {
                     "page": 1,
                     "x0": 396,
@@ -2720,7 +2928,9 @@
               },
               "children": [
                 {
-                  "attrs": {},
+                  "attrs": {
+                    "align": "left"
+                  },
                   "bbox": {
                     "page": 1,
                     "x0": 136,
@@ -2738,7 +2948,9 @@
                   "text": "30"
                 },
                 {
-                  "attrs": {},
+                  "attrs": {
+                    "align": "left"
+                  },
                   "bbox": {
                     "page": 1,
                     "x0": 196,
@@ -2756,7 +2968,9 @@
                   "text": "plain 30"
                 },
                 {
-                  "attrs": {},
+                  "attrs": {
+                    "align": "left"
+                  },
                   "bbox": {
                     "page": 1,
                     "x0": 396,
@@ -2793,7 +3007,9 @@
               },
               "children": [
                 {
-                  "attrs": {},
+                  "attrs": {
+                    "align": "left"
+                  },
                   "bbox": {
                     "page": 1,
                     "x0": 136,
@@ -2811,7 +3027,9 @@
                   "text": "31"
                 },
                 {
-                  "attrs": {},
+                  "attrs": {
+                    "align": "left"
+                  },
                   "bbox": {
                     "page": 1,
                     "x0": 196,
@@ -2829,7 +3047,9 @@
                   "text": "plain 31"
                 },
                 {
-                  "attrs": {},
+                  "attrs": {
+                    "align": "left"
+                  },
                   "bbox": {
                     "page": 1,
                     "x0": 396,
@@ -2866,7 +3086,9 @@
               },
               "children": [
                 {
-                  "attrs": {},
+                  "attrs": {
+                    "align": "left"
+                  },
                   "bbox": {
                     "page": 1,
                     "x0": 136,
@@ -2884,7 +3106,9 @@
                   "text": "32"
                 },
                 {
-                  "attrs": {},
+                  "attrs": {
+                    "align": "left"
+                  },
                   "bbox": {
                     "page": 1,
                     "x0": 196,
@@ -2902,7 +3126,9 @@
                   "text": "plain 32"
                 },
                 {
-                  "attrs": {},
+                  "attrs": {
+                    "align": "left"
+                  },
                   "bbox": {
                     "page": 1,
                     "x0": 396,
@@ -2939,7 +3165,9 @@
               },
               "children": [
                 {
-                  "attrs": {},
+                  "attrs": {
+                    "align": "left"
+                  },
                   "bbox": {
                     "page": 1,
                     "x0": 136,
@@ -2957,7 +3185,9 @@
                   "text": "33"
                 },
                 {
-                  "attrs": {},
+                  "attrs": {
+                    "align": "left"
+                  },
                   "bbox": {
                     "page": 1,
                     "x0": 196,
@@ -2975,7 +3205,9 @@
                   "text": "plain 33"
                 },
                 {
-                  "attrs": {},
+                  "attrs": {
+                    "align": "left"
+                  },
                   "bbox": {
                     "page": 1,
                     "x0": 396,
@@ -3012,7 +3244,9 @@
               },
               "children": [
                 {
-                  "attrs": {},
+                  "attrs": {
+                    "align": "left"
+                  },
                   "bbox": {
                     "page": 1,
                     "x0": 136,
@@ -3030,7 +3264,9 @@
                   "text": "34"
                 },
                 {
-                  "attrs": {},
+                  "attrs": {
+                    "align": "left"
+                  },
                   "bbox": {
                     "page": 1,
                     "x0": 196,
@@ -3048,7 +3284,9 @@
                   "text": "plain 34"
                 },
                 {
-                  "attrs": {},
+                  "attrs": {
+                    "align": "left"
+                  },
                   "bbox": {
                     "page": 1,
                     "x0": 396,
@@ -3085,7 +3323,9 @@
               },
               "children": [
                 {
-                  "attrs": {},
+                  "attrs": {
+                    "align": "left"
+                  },
                   "bbox": {
                     "page": 1,
                     "x0": 136,
@@ -3103,7 +3343,9 @@
                   "text": "35"
                 },
                 {
-                  "attrs": {},
+                  "attrs": {
+                    "align": "left"
+                  },
                   "bbox": {
                     "page": 1,
                     "x0": 196,
@@ -3121,7 +3363,9 @@
                   "text": "plain 35"
                 },
                 {
-                  "attrs": {},
+                  "attrs": {
+                    "align": "left"
+                  },
                   "bbox": {
                     "page": 1,
                     "x0": 396,
@@ -3158,7 +3402,9 @@
               },
               "children": [
                 {
-                  "attrs": {},
+                  "attrs": {
+                    "align": "left"
+                  },
                   "bbox": {
                     "page": 1,
                     "x0": 136,
@@ -3176,7 +3422,9 @@
                   "text": "36"
                 },
                 {
-                  "attrs": {},
+                  "attrs": {
+                    "align": "left"
+                  },
                   "bbox": {
                     "page": 1,
                     "x0": 196,
@@ -3194,7 +3442,9 @@
                   "text": "plain 36"
                 },
                 {
-                  "attrs": {},
+                  "attrs": {
+                    "align": "left"
+                  },
                   "bbox": {
                     "page": 1,
                     "x0": 396,
@@ -3231,7 +3481,9 @@
               },
               "children": [
                 {
-                  "attrs": {},
+                  "attrs": {
+                    "align": "left"
+                  },
                   "bbox": {
                     "page": 1,
                     "x0": 136,
@@ -3249,7 +3501,9 @@
                   "text": "37"
                 },
                 {
-                  "attrs": {},
+                  "attrs": {
+                    "align": "left"
+                  },
                   "bbox": {
                     "page": 1,
                     "x0": 196,
@@ -3267,7 +3521,9 @@
                   "text": "plain 37"
                 },
                 {
-                  "attrs": {},
+                  "attrs": {
+                    "align": "left"
+                  },
                   "bbox": {
                     "page": 1,
                     "x0": 396,
@@ -3304,7 +3560,9 @@
               },
               "children": [
                 {
-                  "attrs": {},
+                  "attrs": {
+                    "align": "left"
+                  },
                   "bbox": {
                     "page": 1,
                     "x0": 136,
@@ -3322,7 +3580,9 @@
                   "text": "38"
                 },
                 {
-                  "attrs": {},
+                  "attrs": {
+                    "align": "left"
+                  },
                   "bbox": {
                     "page": 1,
                     "x0": 196,
@@ -3340,7 +3600,9 @@
                   "text": "plain 38"
                 },
                 {
-                  "attrs": {},
+                  "attrs": {
+                    "align": "left"
+                  },
                   "bbox": {
                     "page": 1,
                     "x0": 396,
@@ -3377,7 +3639,9 @@
               },
               "children": [
                 {
-                  "attrs": {},
+                  "attrs": {
+                    "align": "left"
+                  },
                   "bbox": {
                     "page": 1,
                     "x0": 136,
@@ -3395,7 +3659,9 @@
                   "text": "39"
                 },
                 {
-                  "attrs": {},
+                  "attrs": {
+                    "align": "left"
+                  },
                   "bbox": {
                     "page": 1,
                     "x0": 196,
@@ -3413,7 +3679,9 @@
                   "text": "plain 39"
                 },
                 {
-                  "attrs": {},
+                  "attrs": {
+                    "align": "left"
+                  },
                   "bbox": {
                     "page": 1,
                     "x0": 396,
@@ -3450,7 +3718,9 @@
               },
               "children": [
                 {
-                  "attrs": {},
+                  "attrs": {
+                    "align": "left"
+                  },
                   "bbox": {
                     "page": 1,
                     "x0": 136,
@@ -3468,7 +3738,9 @@
                   "text": "40"
                 },
                 {
-                  "attrs": {},
+                  "attrs": {
+                    "align": "left"
+                  },
                   "bbox": {
                     "page": 1,
                     "x0": 196,
@@ -3486,7 +3758,9 @@
                   "text": "plain 40"
                 },
                 {
-                  "attrs": {},
+                  "attrs": {
+                    "align": "left"
+                  },
                   "bbox": {
                     "page": 1,
                     "x0": 396,
@@ -3523,7 +3797,9 @@
               },
               "children": [
                 {
-                  "attrs": {},
+                  "attrs": {
+                    "align": "left"
+                  },
                   "bbox": {
                     "page": 1,
                     "x0": 136,
@@ -3541,7 +3817,9 @@
                   "text": "41"
                 },
                 {
-                  "attrs": {},
+                  "attrs": {
+                    "align": "left"
+                  },
                   "bbox": {
                     "page": 1,
                     "x0": 196,
@@ -3559,7 +3837,9 @@
                   "text": "plain 41"
                 },
                 {
-                  "attrs": {},
+                  "attrs": {
+                    "align": "left"
+                  },
                   "bbox": {
                     "page": 1,
                     "x0": 396,
@@ -3596,7 +3876,9 @@
               },
               "children": [
                 {
-                  "attrs": {},
+                  "attrs": {
+                    "align": "left"
+                  },
                   "bbox": {
                     "page": 1,
                     "x0": 136,
@@ -3614,7 +3896,9 @@
                   "text": "42"
                 },
                 {
-                  "attrs": {},
+                  "attrs": {
+                    "align": "left"
+                  },
                   "bbox": {
                     "page": 1,
                     "x0": 196,
@@ -3632,7 +3916,9 @@
                   "text": "plain 42"
                 },
                 {
-                  "attrs": {},
+                  "attrs": {
+                    "align": "left"
+                  },
                   "bbox": {
                     "page": 1,
                     "x0": 396,
@@ -3669,7 +3955,9 @@
               },
               "children": [
                 {
-                  "attrs": {},
+                  "attrs": {
+                    "align": "left"
+                  },
                   "bbox": {
                     "page": 1,
                     "x0": 136,
@@ -3687,7 +3975,9 @@
                   "text": "43"
                 },
                 {
-                  "attrs": {},
+                  "attrs": {
+                    "align": "left"
+                  },
                   "bbox": {
                     "page": 1,
                     "x0": 196,
@@ -3705,7 +3995,9 @@
                   "text": "plain 43"
                 },
                 {
-                  "attrs": {},
+                  "attrs": {
+                    "align": "left"
+                  },
                   "bbox": {
                     "page": 1,
                     "x0": 396,
@@ -3742,7 +4034,9 @@
               },
               "children": [
                 {
-                  "attrs": {},
+                  "attrs": {
+                    "align": "left"
+                  },
                   "bbox": {
                     "page": 1,
                     "x0": 136,
@@ -3760,7 +4054,9 @@
                   "text": "44"
                 },
                 {
-                  "attrs": {},
+                  "attrs": {
+                    "align": "left"
+                  },
                   "bbox": {
                     "page": 1,
                     "x0": 196,
@@ -3778,7 +4074,9 @@
                   "text": "plain 44"
                 },
                 {
-                  "attrs": {},
+                  "attrs": {
+                    "align": "left"
+                  },
                   "bbox": {
                     "page": 1,
                     "x0": 396,
@@ -3815,7 +4113,9 @@
               },
               "children": [
                 {
-                  "attrs": {},
+                  "attrs": {
+                    "align": "left"
+                  },
                   "bbox": {
                     "page": 1,
                     "x0": 136,
@@ -3833,7 +4133,9 @@
                   "text": "45"
                 },
                 {
-                  "attrs": {},
+                  "attrs": {
+                    "align": "left"
+                  },
                   "bbox": {
                     "page": 1,
                     "x0": 196,
@@ -3851,7 +4153,9 @@
                   "text": "plain 45"
                 },
                 {
-                  "attrs": {},
+                  "attrs": {
+                    "align": "left"
+                  },
                   "bbox": {
                     "page": 1,
                     "x0": 396,
@@ -3888,7 +4192,9 @@
               },
               "children": [
                 {
-                  "attrs": {},
+                  "attrs": {
+                    "align": "left"
+                  },
                   "bbox": {
                     "page": 1,
                     "x0": 136,
@@ -3906,7 +4212,9 @@
                   "text": "46"
                 },
                 {
-                  "attrs": {},
+                  "attrs": {
+                    "align": "left"
+                  },
                   "bbox": {
                     "page": 1,
                     "x0": 196,
@@ -3924,7 +4232,9 @@
                   "text": "plain 46"
                 },
                 {
-                  "attrs": {},
+                  "attrs": {
+                    "align": "left"
+                  },
                   "bbox": {
                     "page": 1,
                     "x0": 396,
@@ -3961,7 +4271,9 @@
               },
               "children": [
                 {
-                  "attrs": {},
+                  "attrs": {
+                    "align": "left"
+                  },
                   "bbox": {
                     "page": 1,
                     "x0": 136,
@@ -3979,7 +4291,9 @@
                   "text": "47"
                 },
                 {
-                  "attrs": {},
+                  "attrs": {
+                    "align": "left"
+                  },
                   "bbox": {
                     "page": 1,
                     "x0": 196,
@@ -3997,7 +4311,9 @@
                   "text": "plain 47"
                 },
                 {
-                  "attrs": {},
+                  "attrs": {
+                    "align": "left"
+                  },
                   "bbox": {
                     "page": 1,
                     "x0": 396,
@@ -4034,7 +4350,9 @@
               },
               "children": [
                 {
-                  "attrs": {},
+                  "attrs": {
+                    "align": "left"
+                  },
                   "bbox": {
                     "page": 1,
                     "x0": 136,
@@ -4052,7 +4370,9 @@
                   "text": "48"
                 },
                 {
-                  "attrs": {},
+                  "attrs": {
+                    "align": "left"
+                  },
                   "bbox": {
                     "page": 1,
                     "x0": 196,
@@ -4070,7 +4390,9 @@
                   "text": "plain 48"
                 },
                 {
-                  "attrs": {},
+                  "attrs": {
+                    "align": "left"
+                  },
                   "bbox": {
                     "page": 1,
                     "x0": 396,
@@ -4107,7 +4429,9 @@
               },
               "children": [
                 {
-                  "attrs": {},
+                  "attrs": {
+                    "align": "left"
+                  },
                   "bbox": {
                     "page": 1,
                     "x0": 136,
@@ -4125,7 +4449,9 @@
                   "text": "49"
                 },
                 {
-                  "attrs": {},
+                  "attrs": {
+                    "align": "left"
+                  },
                   "bbox": {
                     "page": 1,
                     "x0": 196,
@@ -4143,7 +4469,9 @@
                   "text": "plain 49"
                 },
                 {
-                  "attrs": {},
+                  "attrs": {
+                    "align": "left"
+                  },
                   "bbox": {
                     "page": 1,
                     "x0": 396,
@@ -4176,7 +4504,7 @@
           "text": null
         }
       ],
-      "id": "90a17eaa6d86",
+      "id": "1e885f779fb4",
       "kind": "page",
       "provenance": {},
       "text": null
@@ -4199,7 +4527,7 @@
       "text": null
     }
   ],
-  "id": "5bc8ad2dc899",
+  "id": "310486e3afab",
   "kind": "document",
   "provenance": {},
   "text": null

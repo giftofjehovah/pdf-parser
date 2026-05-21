@@ -13,6 +13,37 @@ from pdf_parser.stages.detect_tables import TableRegion, detect_tables
 _OVERLAP_TOL = 2.0  # points; guards against sub-pixel boundary mismatches
 
 
+def _cell_align(page_chars: list[dict], cbox: BBox) -> str:
+    """Return 'right' if cell text is right-aligned, 'left' otherwise.
+
+    Compares the gap between the text's left edge and the cell's left edge
+    against the gap between the text's right edge and the cell's right edge.
+    A text block that sits much closer to the right wall is right-aligned.
+    """
+    chars = [
+        c for c in page_chars
+        if c.get("x0", 0) >= cbox.x0 - 1
+        and c.get("x1", 0) <= cbox.x1 + 1
+        and c.get("top", 0) >= cbox.y0 - 1
+        and c.get("bottom", 0) <= cbox.y1 + 1
+        and c.get("text", "").strip()
+    ]
+    if not chars:
+        return "left"
+    cell_w = cbox.x1 - cbox.x0
+    if cell_w < 2:
+        return "left"
+    text_x0 = min(c["x0"] for c in chars)
+    text_x1 = max(c["x1"] for c in chars)
+    left_gap = text_x0 - cbox.x0
+    right_gap = cbox.x1 - text_x1
+    # Right-aligned: text sits markedly closer to the right wall.
+    # Threshold: right gap < 30 % of the left gap AND < 6 pt absolute.
+    if right_gap < left_gap * 0.30 and right_gap < 6.0:
+        return "right"
+    return "left"
+
+
 def _page_y(page_height: float, pdf_y: float) -> float:
     """Convert PDF y (bottom-origin) to pdfplumber page y (top-origin)."""
     return page_height - pdf_y
@@ -214,7 +245,7 @@ def _logical_grid_from_table(
 
 
 def _build_cell(text: str, bbox: BBox, pdf_path: Path, depth: int,
-                covered: bool = False) -> DocNode:
+                covered: bool = False, align: str = "left") -> DocNode:
     children: list[DocNode] = []
     if not covered and depth + 1 < MAX_DEPTH:
         shrunk = BBox(
@@ -232,7 +263,7 @@ def _build_cell(text: str, bbox: BBox, pdf_path: Path, depth: int,
                 if abs(region.bbox.x1 - region.bbox.x0) >= abs(bbox.x1 - bbox.x0) - 1:
                     continue
                 children.append(_build_table(region, pdf_path, depth + 1))
-    attrs: dict = {}
+    attrs: dict = {"align": align}
     if covered:
         attrs["covered"] = True
     return DocNode(
@@ -245,7 +276,10 @@ def _build_cell(text: str, bbox: BBox, pdf_path: Path, depth: int,
     )
 
 
-def _build_table(region: TableRegion, pdf_path: Path, depth: int) -> DocNode:
+def _build_table(
+    region: TableRegion, pdf_path: Path, depth: int,
+    page_chars: list[dict] | None = None,
+) -> DocNode:
     rows: list[DocNode] = []
     for r_idx, row_texts in enumerate(region.grid):
         cells: list[DocNode] = []
@@ -256,15 +290,14 @@ def _build_table(region: TableRegion, pdf_path: Path, depth: int) -> DocNode:
                 and c_idx < len(region.cell_bboxes[r_idx])
                 else region.bbox
             )
-            cells.append(_build_cell(text, cbox, pdf_path, depth))
-        rows.append(
-            DocNode(
-                kind="row",
-                bbox=region.bbox,
-                children=cells,
-                attrs={"page": region.page_index, "row_index": r_idx},
-            )
-        )
+            align = _cell_align(page_chars, cbox) if page_chars else "left"
+            cells.append(_build_cell(text, cbox, pdf_path, depth, align=align))
+        rows.append(DocNode(
+            kind="row",
+            bbox=region.bbox,
+            children=cells,
+            attrs={"page": region.page_index, "row_index": r_idx},
+        ))
     return DocNode(
         kind="table",
         bbox=region.bbox,
@@ -287,6 +320,7 @@ def _build_table_from_logical(
     pdf_path: Path,
     depth: int,
     covered: set[tuple[int, int]] | None = None,
+    page_chars: list[dict] | None = None,
 ) -> DocNode:
     """Build a DocNode table from a reconstructed logical (merged-cell) grid."""
     rows: list[DocNode] = []
@@ -299,15 +333,14 @@ def _build_table_from_logical(
                 else region.bbox
             )
             is_covered = covered is not None and (r_idx, c_idx) in covered
-            cells.append(_build_cell(text, cbox, pdf_path, depth, covered=is_covered))
-        rows.append(
-            DocNode(
-                kind="row",
-                bbox=region.bbox,
-                children=cells,
-                attrs={"page": region.page_index, "row_index": r_idx},
-            )
-        )
+            align = _cell_align(page_chars, cbox) if page_chars else "left"
+            cells.append(_build_cell(text, cbox, pdf_path, depth, covered=is_covered, align=align))
+        rows.append(DocNode(
+            kind="row",
+            bbox=region.bbox,
+            children=cells,
+            attrs={"page": region.page_index, "row_index": r_idx},
+        ))
     return DocNode(
         kind="table",
         bbox=region.bbox,
@@ -340,6 +373,7 @@ def extract_tables(pdf_path: Path) -> list[DocNode]:
     with pdfplumber.open(str(pdf_path)) as pdf:
         for region in regions:
             page = pdf.pages[region.page_index]
+            page_chars = page.chars  # used for cell alignment detection
             raw_rows = [r.cells for r in page.find_tables()[0].rows]
             # find_tables() may return multiple tables on the page; match by bbox
             page_tables = page.find_tables()
@@ -356,9 +390,12 @@ def extract_tables(pdf_path: Path) -> list[DocNode]:
             if logical is not None:
                 grid, bboxes, cov = logical
                 result.append(
-                    _build_table_from_logical(grid, bboxes, region, pdf_path, depth=0, covered=cov)
+                    _build_table_from_logical(
+                        grid, bboxes, region, pdf_path, depth=0, covered=cov,
+                        page_chars=page_chars,
+                    )
                 )
             else:
-                result.append(_build_table(region, pdf_path, depth=0))
+                result.append(_build_table(region, pdf_path, depth=0, page_chars=page_chars))
 
     return result

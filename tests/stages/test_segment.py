@@ -31,5 +31,8 @@ def test_paragraph_block_detected():
 def test_blocks_in_reading_order():
     pages = ingest(FIXTURE)
     segs = segment(pages)
-    ys = [b.bbox.y0 for b in segs[0].blocks]
-    assert ys == sorted(ys)
+    # Blocks are in reading order when their row buckets (2pt y-bands) are
+    # non-decreasing.  Using exact y0 is too strict: column-split produces
+    # same-row blocks whose per-glyph tight bboxes differ by a fraction of a pt.
+    buckets = [round(b.bbox.y0 / 2) for b in segs[0].blocks]
+    assert buckets == sorted(buckets)

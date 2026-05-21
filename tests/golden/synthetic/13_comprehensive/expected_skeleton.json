@@ -169,28 +169,21 @@
           "text": "1.1 Key Findings"
         },
         {
-          "kind": "heading",
-          "text": "\u2022"
-        },
-        {
-          "kind": "paragraph",
-          "text": "Product revenue grew 77.8% year-over-year to $22.14M in Q4."
-        },
-        {
-          "kind": "heading",
-          "text": "\u2022"
-        },
-        {
-          "kind": "paragraph",
-          "text": "Service revenue expanded 86.2% over the same period to $5.38M."
-        },
-        {
-          "kind": "heading",
-          "text": "\u2022"
-        },
-        {
-          "kind": "paragraph",
-          "text": "Combined operating expenses decreased as a percentage of revenue."
+          "children": [
+            {
+              "kind": "list_item",
+              "text": "\u2022 Product revenue grew 77.8% year-over-year to $22.14M in Q4."
+            },
+            {
+              "kind": "list_item",
+              "text": "\u2022 Service revenue expanded 86.2% over the same period to $5.38M."
+            },
+            {
+              "kind": "list_item",
+              "text": "\u2022 Combined operating expenses decreased as a percentage of revenue."
+            }
+          ],
+          "kind": "list"
         },
         {
           "kind": "heading",
@@ -198,27 +191,51 @@
         },
         {
           "kind": "paragraph",
-          "text": "North America accounts for the largest share of Europe and Asia-Pacific together represent the"
+          "text": "North America accounts for the largest share of"
         },
         {
           "kind": "paragraph",
-          "text": "total revenue, driven by strong product adoption fastest-growing segments, with combined"
+          "text": "Europe and Asia-Pacific together represent the"
         },
         {
           "kind": "paragraph",
-          "text": "and enterprise service contracts. Growth in this year-over-year growth exceeding 35 percent."
+          "text": "fastest-growing segments, with combined"
         },
         {
           "kind": "paragraph",
-          "text": "region is expected to continue at a compound Investments in regional distribution and localised"
+          "text": "total revenue, driven by strong product adoption"
         },
         {
           "kind": "paragraph",
-          "text": "annual rate of approximately 18 percent over the product variants are the primary drivers of this"
+          "text": "and enterprise service contracts. Growth in this"
         },
         {
           "kind": "paragraph",
-          "text": "next three years. expansion."
+          "text": "year-over-year growth exceeding 35 percent."
+        },
+        {
+          "kind": "paragraph",
+          "text": "region is expected to continue at a compound"
+        },
+        {
+          "kind": "paragraph",
+          "text": "Investments in regional distribution and localised"
+        },
+        {
+          "kind": "paragraph",
+          "text": "annual rate of approximately 18 percent over the"
+        },
+        {
+          "kind": "paragraph",
+          "text": "product variants are the primary drivers of this"
+        },
+        {
+          "kind": "paragraph",
+          "text": "next three years."
+        },
+        {
+          "kind": "paragraph",
+          "text": "expansion."
         },
         {
           "kind": "heading",
@@ -4050,36 +4067,25 @@
           "text": "period. The findings are presented in structured form to facilitate comparison across regions and time."
         },
         {
-          "kind": "heading",
-          "text": "\u2022"
-        },
-        {
-          "kind": "paragraph",
-          "text": "Revenue growth of 79.6% over four fiscal years demonstrates sustained demand."
-        },
-        {
-          "kind": "heading",
-          "text": "\u2022"
-        },
-        {
-          "kind": "paragraph",
-          "text": "Operating leverage improved as fixed costs spread over a larger revenue base."
-        },
-        {
-          "kind": "heading",
-          "text": "\u2022"
-        },
-        {
-          "kind": "paragraph",
-          "text": "Continued R&D; investment is expected to drive further margin expansion."
-        },
-        {
-          "kind": "heading",
-          "text": "\u2022"
-        },
-        {
-          "kind": "paragraph",
-          "text": "Regional diversification reduces concentration risk and opens new corridors."
+          "children": [
+            {
+              "kind": "list_item",
+              "text": "\u2022 Revenue growth of 79.6% over four fiscal years demonstrates sustained demand."
+            },
+            {
+              "kind": "list_item",
+              "text": "\u2022 Operating leverage improved as fixed costs spread over a larger revenue base."
+            },
+            {
+              "kind": "list_item",
+              "text": "\u2022 Continued R&D; investment is expected to drive further margin expansion."
+            },
+            {
+              "kind": "list_item",
+              "text": "\u2022 Regional diversification reduces concentration risk and opens new corridors."
+            }
+          ],
+          "kind": "list"
         },
         {
           "kind": "figure"

@@ -5,7 +5,7 @@ from __future__ import annotations
 from dataclasses import dataclass, field
 from pathlib import Path
 
-import pymupdf
+import pypdfium2 as pdfium
 
 from pdf_parser.model import DocNode
 from pdf_parser.validate.coverage import coverage_diff
@@ -22,11 +22,19 @@ class ValidationReport:
     coverage_missing: str = ""
     coverage_extra: str = ""
 
-
 def _raw_text(pdf_path: Path) -> str:
-    doc = pymupdf.open(str(pdf_path))
+    """Extract all text from *pdf_path* using the same engine as ingest (PDFium).
+
+    Using pdfminer here would cause coverage false-positives for characters that
+    pdfminer cannot decode (e.g. bullets → '(cid:127)') but PDFium decodes correctly.
+    """
+    doc = pdfium.PdfDocument(str(pdf_path))
     try:
-        return "".join(page.get_text() for page in doc)
+        parts: list[str] = []
+        for page in doc:
+            textpage = page.get_textpage()
+            parts.append(textpage.get_text_bounded())
+        return "".join(parts)
     finally:
         doc.close()
 

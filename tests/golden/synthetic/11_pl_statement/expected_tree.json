@@ -26,13 +26,13 @@
           },
           "bbox": {
             "page": 0,
-            "x0": 60,
-            "x1": 416,
-            "y0": 59,
-            "y1": 78
+            "x0": 61,
+            "x1": 415,
+            "y0": 63,
+            "y1": 77
           },
           "children": [],
-          "id": "7781a323dca6",
+          "id": "14d6957fadac",
           "kind": "heading",
           "provenance": {
             "extractor": "segment",
@@ -76,7 +76,9 @@
               },
               "children": [
                 {
-                  "attrs": {},
+                  "attrs": {
+                    "align": "left"
+                  },
                   "bbox": {
                     "page": 0,
                     "x0": 82,
@@ -94,7 +96,9 @@
                   "text": "Income Statement"
                 },
                 {
-                  "attrs": {},
+                  "attrs": {
+                    "align": "left"
+                  },
                   "bbox": {
                     "page": 0,
                     "x0": 278,
@@ -112,7 +116,9 @@
                   "text": "FY2021"
                 },
                 {
-                  "attrs": {},
+                  "attrs": {
+                    "align": "left"
+                  },
                   "bbox": {
                     "page": 0,
                     "x0": 340,
@@ -130,7 +136,9 @@
                   "text": "FY2022"
                 },
                 {
-                  "attrs": {},
+                  "attrs": {
+                    "align": "left"
+                  },
                   "bbox": {
                     "page": 0,
                     "x0": 404,
@@ -148,7 +156,9 @@
                   "text": "FY2023"
                 },
                 {
-                  "attrs": {},
+                  "attrs": {
+                    "align": "left"
+                  },
                   "bbox": {
                     "page": 0,
                     "x0": 466,
@@ -185,7 +195,9 @@
               },
               "children": [
                 {
-                  "attrs": {},
+                  "attrs": {
+                    "align": "left"
+                  },
                   "bbox": {
                     "page": 0,
                     "x0": 82,
@@ -203,7 +215,9 @@
                   "text": "Revenue"
                 },
                 {
-                  "attrs": {},
+                  "attrs": {
+                    "align": "left"
+                  },
                   "bbox": {
                     "page": 0,
                     "x0": 278,
@@ -221,7 +235,9 @@
                   "text": ""
                 },
                 {
-                  "attrs": {},
+                  "attrs": {
+                    "align": "left"
+                  },
                   "bbox": {
                     "page": 0,
                     "x0": 340,
@@ -239,7 +255,9 @@
                   "text": ""
                 },
                 {
-                  "attrs": {},
+                  "attrs": {
+                    "align": "left"
+                  },
                   "bbox": {
                     "page": 0,
                     "x0": 404,
@@ -257,7 +275,9 @@
                   "text": ""
                 },
                 {
-                  "attrs": {},
+                  "attrs": {
+                    "align": "left"
+                  },
                   "bbox": {
                     "page": 0,
                     "x0": 466,
@@ -294,7 +314,9 @@
               },
               "children": [
                 {
-                  "attrs": {},
+                  "attrs": {
+                    "align": "left"
+                  },
                   "bbox": {
                     "page": 0,
                     "x0": 82,
@@ -312,7 +334,9 @@
                   "text": "Product Revenue"
                 },
                 {
-                  "attrs": {},
+                  "attrs": {
+                    "align": "right"
+                  },
                   "bbox": {
                     "page": 0,
                     "x0": 278,
@@ -330,7 +354,9 @@
                   "text": "12,450"
                 },
                 {
-                  "attrs": {},
+                  "attrs": {
+                    "align": "right"
+                  },
                   "bbox": {
                     "page": 0,
                     "x0": 340,
@@ -348,7 +374,9 @@
                   "text": "15,320"
                 },
                 {
-                  "attrs": {},
+                  "attrs": {
+                    "align": "right"
+                  },
                   "bbox": {
                     "page": 0,
                     "x0": 404,
@@ -366,7 +394,9 @@
                   "text": "18,760"
                 },
                 {
-                  "attrs": {},
+                  "attrs": {
+                    "align": "right"
+                  },
                   "bbox": {
                     "page": 0,
                     "x0": 466,
@@ -403,7 +433,9 @@
               },
               "children": [
                 {
-                  "attrs": {},
+                  "attrs": {
+                    "align": "left"
+                  },
                   "bbox": {
                     "page": 0,
                     "x0": 82,
@@ -421,7 +453,9 @@
                   "text": "Service Revenue"
                 },
                 {
-                  "attrs": {},
+                  "attrs": {
+                    "align": "right"
+                  },
                   "bbox": {
                     "page": 0,
                     "x0": 278,
@@ -439,7 +473,9 @@
                   "text": "2,890"
                 },
                 {
-                  "attrs": {},
+                  "attrs": {
+                    "align": "right"
+                  },
                   "bbox": {
                     "page": 0,
                     "x0": 340,
@@ -457,7 +493,9 @@
                   "text": "3,450"
                 },
                 {
-                  "attrs": {},
+                  "attrs": {
+                    "align": "right"
+                  },
                   "bbox": {
                     "page": 0,
                     "x0": 404,
@@ -475,7 +513,9 @@
                   "text": "4,120"
                 },
                 {
-                  "attrs": {},
+                  "attrs": {
+                    "align": "right"
+                  },
                   "bbox": {
                     "page": 0,
                     "x0": 466,
@@ -512,7 +552,9 @@
               },
               "children": [
                 {
-                  "attrs": {},
+                  "attrs": {
+                    "align": "left"
+                  },
                   "bbox": {
                     "page": 0,
                     "x0": 82,
@@ -530,7 +572,9 @@
                   "text": "Other Revenue"
                 },
                 {
-                  "attrs": {},
+                  "attrs": {
+                    "align": "right"
+                  },
                   "bbox": {
                     "page": 0,
                     "x0": 278,
@@ -548,7 +592,9 @@
                   "text": "480"
                 },
                 {
-                  "attrs": {},
+                  "attrs": {
+                    "align": "right"
+                  },
                   "bbox": {
                     "page": 0,
                     "x0": 340,
@@ -566,7 +612,9 @@
                   "text": "620"
                 },
                 {
-                  "attrs": {},
+                  "attrs": {
+                    "align": "right"
+                  },
                   "bbox": {
                     "page": 0,
                     "x0": 404,
@@ -584,7 +632,9 @@
                   "text": "710"
                 },
                 {
-                  "attrs": {},
+                  "attrs": {
+                    "align": "right"
+                  },
                   "bbox": {
                     "page": 0,
                     "x0": 466,
@@ -621,7 +671,9 @@
               },
               "children": [
                 {
-                  "attrs": {},
+                  "attrs": {
+                    "align": "left"
+                  },
                   "bbox": {
                     "page": 0,
                     "x0": 82,
@@ -639,7 +691,9 @@
                   "text": "Total Revenue"
                 },
                 {
-                  "attrs": {},
+                  "attrs": {
+                    "align": "right"
+                  },
                   "bbox": {
                     "page": 0,
                     "x0": 278,
@@ -657,7 +711,9 @@
                   "text": "15,820"
                 },
                 {
-                  "attrs": {},
+                  "attrs": {
+                    "align": "right"
+                  },
                   "bbox": {
                     "page": 0,
                     "x0": 340,
@@ -675,7 +731,9 @@
                   "text": "19,390"
                 },
                 {
-                  "attrs": {},
+                  "attrs": {
+                    "align": "right"
+                  },
                   "bbox": {
                     "page": 0,
                     "x0": 404,
@@ -693,7 +751,9 @@
                   "text": "23,590"
                 },
                 {
-                  "attrs": {},
+                  "attrs": {
+                    "align": "right"
+                  },
                   "bbox": {
                     "page": 0,
                     "x0": 466,
@@ -730,7 +790,9 @@
               },
               "children": [
                 {
-                  "attrs": {},
+                  "attrs": {
+                    "align": "left"
+                  },
                   "bbox": {
                     "page": 0,
                     "x0": 82,
@@ -748,7 +810,9 @@
                   "text": "Cost of Revenue"
                 },
                 {
-                  "attrs": {},
+                  "attrs": {
+                    "align": "left"
+                  },
                   "bbox": {
                     "page": 0,
                     "x0": 278,
@@ -766,7 +830,9 @@
                   "text": ""
                 },
                 {
-                  "attrs": {},
+                  "attrs": {
+                    "align": "left"
+                  },
                   "bbox": {
                     "page": 0,
                     "x0": 340,
@@ -784,7 +850,9 @@
                   "text": ""
                 },
                 {
-                  "attrs": {},
+                  "attrs": {
+                    "align": "left"
+                  },
                   "bbox": {
                     "page": 0,
                     "x0": 404,
@@ -802,7 +870,9 @@
                   "text": ""
                 },
                 {
-                  "attrs": {},
+                  "attrs": {
+                    "align": "left"
+                  },
                   "bbox": {
                     "page": 0,
                     "x0": 466,
@@ -839,7 +909,9 @@
               },
               "children": [
                 {
-                  "attrs": {},
+                  "attrs": {
+                    "align": "left"
+                  },
                   "bbox": {
                     "page": 0,
                     "x0": 82,
@@ -857,7 +929,9 @@
                   "text": "Cost of Goods Sold"
                 },
                 {
-                  "attrs": {},
+                  "attrs": {
+                    "align": "right"
+                  },
                   "bbox": {
                     "page": 0,
                     "x0": 278,
@@ -875,7 +949,9 @@
                   "text": "(8,240)"
                 },
                 {
-                  "attrs": {},
+                  "attrs": {
+                    "align": "right"
+                  },
                   "bbox": {
                     "page": 0,
                     "x0": 340,
@@ -893,7 +969,9 @@
                   "text": "(9,950)"
                 },
                 {
-                  "attrs": {},
+                  "attrs": {
+                    "align": "right"
+                  },
                   "bbox": {
                     "page": 0,
                     "x0": 404,
@@ -911,7 +989,9 @@
                   "text": "(11,820)"
                 },
                 {
-                  "attrs": {},
+                  "attrs": {
+                    "align": "right"
+                  },
                   "bbox": {
                     "page": 0,
                     "x0": 466,
@@ -948,7 +1028,9 @@
               },
               "children": [
                 {
-                  "attrs": {},
+                  "attrs": {
+                    "align": "left"
+                  },
                   "bbox": {
                     "page": 0,
                     "x0": 82,
@@ -966,7 +1048,9 @@
                   "text": "Depreciation & Amort."
                 },
                 {
-                  "attrs": {},
+                  "attrs": {
+                    "align": "right"
+                  },
                   "bbox": {
                     "page": 0,
                     "x0": 278,
@@ -984,7 +1068,9 @@
                   "text": "(320)"
                 },
                 {
-                  "attrs": {},
+                  "attrs": {
+                    "align": "right"
+                  },
                   "bbox": {
                     "page": 0,
                     "x0": 340,
@@ -1002,7 +1088,9 @@
                   "text": "(380)"
                 },
                 {
-                  "attrs": {},
+                  "attrs": {
+                    "align": "right"
+                  },
                   "bbox": {
                     "page": 0,
                     "x0": 404,
@@ -1020,7 +1108,9 @@
                   "text": "(430)"
                 },
                 {
-                  "attrs": {},
+                  "attrs": {
+                    "align": "right"
+                  },
                   "bbox": {
                     "page": 0,
                     "x0": 466,
@@ -1057,7 +1147,9 @@
               },
               "children": [
                 {
-                  "attrs": {},
+                  "attrs": {
+                    "align": "left"
+                  },
                   "bbox": {
                     "page": 0,
                     "x0": 82,
@@ -1075,7 +1167,9 @@
                   "text": "Total Cost of Revenue"
                 },
                 {
-                  "attrs": {},
+                  "attrs": {
+                    "align": "right"
+                  },
                   "bbox": {
                     "page": 0,
                     "x0": 278,
@@ -1093,7 +1187,9 @@
                   "text": "(8,560)"
                 },
                 {
-                  "attrs": {},
+                  "attrs": {
+                    "align": "right"
+                  },
                   "bbox": {
                     "page": 0,
                     "x0": 340,
@@ -1111,7 +1207,9 @@
                   "text": "(10,330)"
                 },
                 {
-                  "attrs": {},
+                  "attrs": {
+                    "align": "right"
+                  },
                   "bbox": {
                     "page": 0,
                     "x0": 404,
@@ -1129,7 +1227,9 @@
                   "text": "(12,250)"
                 },
                 {
-                  "attrs": {},
+                  "attrs": {
+                    "align": "right"
+                  },
                   "bbox": {
                     "page": 0,
                     "x0": 466,
@@ -1166,7 +1266,9 @@
               },
               "children": [
                 {
-                  "attrs": {},
+                  "attrs": {
+                    "align": "left"
+                  },
                   "bbox": {
                     "page": 0,
                     "x0": 82,
@@ -1184,7 +1286,9 @@
                   "text": "Gross Profit"
                 },
                 {
-                  "attrs": {},
+                  "attrs": {
+                    "align": "right"
+                  },
                   "bbox": {
                     "page": 0,
                     "x0": 278,
@@ -1202,7 +1306,9 @@
                   "text": "7,260"
                 },
                 {
-                  "attrs": {},
+                  "attrs": {
+                    "align": "right"
+                  },
                   "bbox": {
                     "page": 0,
                     "x0": 340,
@@ -1220,7 +1326,9 @@
                   "text": "9,060"
                 },
                 {
-                  "attrs": {},
+                  "attrs": {
+                    "align": "right"
+                  },
                   "bbox": {
                     "page": 0,
                     "x0": 404,
@@ -1238,7 +1346,9 @@
                   "text": "11,340"
                 },
                 {
-                  "attrs": {},
+                  "attrs": {
+                    "align": "right"
+                  },
                   "bbox": {
                     "page": 0,
                     "x0": 466,
@@ -1275,7 +1385,9 @@
               },
               "children": [
                 {
-                  "attrs": {},
+                  "attrs": {
+                    "align": "left"
+                  },
                   "bbox": {
                     "page": 0,
                     "x0": 82,
@@ -1293,7 +1405,9 @@
                   "text": "Gross Margin %"
                 },
                 {
-                  "attrs": {},
+                  "attrs": {
+                    "align": "right"
+                  },
                   "bbox": {
                     "page": 0,
                     "x0": 278,
@@ -1311,7 +1425,9 @@
                   "text": "45.9%"
                 },
                 {
-                  "attrs": {},
+                  "attrs": {
+                    "align": "right"
+                  },
                   "bbox": {
                     "page": 0,
                     "x0": 340,
@@ -1329,7 +1445,9 @@
                   "text": "46.7%"
                 },
                 {
-                  "attrs": {},
+                  "attrs": {
+                    "align": "right"
+                  },
                   "bbox": {
                     "page": 0,
                     "x0": 404,
@@ -1347,7 +1465,9 @@
                   "text": "48.1%"
                 },
                 {
-                  "attrs": {},
+                  "attrs": {
+                    "align": "right"
+                  },
                   "bbox": {
                     "page": 0,
                     "x0": 466,
@@ -1384,7 +1504,9 @@
               },
               "children": [
                 {
-                  "attrs": {},
+                  "attrs": {
+                    "align": "left"
+                  },
                   "bbox": {
                     "page": 0,
                     "x0": 82,
@@ -1402,7 +1524,9 @@
                   "text": "Operating Expenses"
                 },
                 {
-                  "attrs": {},
+                  "attrs": {
+                    "align": "left"
+                  },
                   "bbox": {
                     "page": 0,
                     "x0": 278,
@@ -1420,7 +1544,9 @@
                   "text": ""
                 },
                 {
-                  "attrs": {},
+                  "attrs": {
+                    "align": "left"
+                  },
                   "bbox": {
                     "page": 0,
                     "x0": 340,
@@ -1438,7 +1564,9 @@
                   "text": ""
                 },
                 {
-                  "attrs": {},
+                  "attrs": {
+                    "align": "left"
+                  },
                   "bbox": {
                     "page": 0,
                     "x0": 404,
@@ -1456,7 +1584,9 @@
                   "text": ""
                 },
                 {
-                  "attrs": {},
+                  "attrs": {
+                    "align": "left"
+                  },
                   "bbox": {
                     "page": 0,
                     "x0": 466,
@@ -1493,7 +1623,9 @@
               },
               "children": [
                 {
-                  "attrs": {},
+                  "attrs": {
+                    "align": "left"
+                  },
                   "bbox": {
                     "page": 0,
                     "x0": 82,
@@ -1511,7 +1643,9 @@
                   "text": "Research & Development"
                 },
                 {
-                  "attrs": {},
+                  "attrs": {
+                    "align": "right"
+                  },
                   "bbox": {
                     "page": 0,
                     "x0": 278,
@@ -1529,7 +1663,9 @@
                   "text": "(2,140)"
                 },
                 {
-                  "attrs": {},
+                  "attrs": {
+                    "align": "right"
+                  },
                   "bbox": {
                     "page": 0,
                     "x0": 340,
@@ -1547,7 +1683,9 @@
                   "text": "(2,660)"
                 },
                 {
-                  "attrs": {},
+                  "attrs": {
+                    "align": "right"
+                  },
                   "bbox": {
                     "page": 0,
                     "x0": 404,
@@ -1565,7 +1703,9 @@
                   "text": "(3,180)"
                 },
                 {
-                  "attrs": {},
+                  "attrs": {
+                    "align": "right"
+                  },
                   "bbox": {
                     "page": 0,
                     "x0": 466,
@@ -1602,7 +1742,9 @@
               },
               "children": [
                 {
-                  "attrs": {},
+                  "attrs": {
+                    "align": "left"
+                  },
                   "bbox": {
                     "page": 0,
                     "x0": 82,
@@ -1620,7 +1762,9 @@
                   "text": "Sales & Marketing"
                 },
                 {
-                  "attrs": {},
+                  "attrs": {
+                    "align": "right"
+                  },
                   "bbox": {
                     "page": 0,
                     "x0": 278,
@@ -1638,7 +1782,9 @@
                   "text": "(3,280)"
                 },
                 {
-                  "attrs": {},
+                  "attrs": {
+                    "align": "right"
+                  },
                   "bbox": {
                     "page": 0,
                     "x0": 340,
@@ -1656,7 +1802,9 @@
                   "text": "(3,950)"
                 },
                 {
-                  "attrs": {},
+                  "attrs": {
+                    "align": "right"
+                  },
                   "bbox": {
                     "page": 0,
                     "x0": 404,
@@ -1674,7 +1822,9 @@
                   "text": "(4,840)"
                 },
                 {
-                  "attrs": {},
+                  "attrs": {
+                    "align": "right"
+                  },
                   "bbox": {
                     "page": 0,
                     "x0": 466,
@@ -1711,7 +1861,9 @@
               },
               "children": [
                 {
-                  "attrs": {},
+                  "attrs": {
+                    "align": "left"
+                  },
                   "bbox": {
                     "page": 0,
                     "x0": 82,
@@ -1729,7 +1881,9 @@
                   "text": "General & Administrative"
                 },
                 {
-                  "attrs": {},
+                  "attrs": {
+                    "align": "right"
+                  },
                   "bbox": {
                     "page": 0,
                     "x0": 278,
@@ -1747,7 +1901,9 @@
                   "text": "(1,120)"
                 },
                 {
-                  "attrs": {},
+                  "attrs": {
+                    "align": "right"
+                  },
                   "bbox": {
                     "page": 0,
                     "x0": 340,
@@ -1765,7 +1921,9 @@
                   "text": "(1,280)"
                 },
                 {
-                  "attrs": {},
+                  "attrs": {
+                    "align": "right"
+                  },
                   "bbox": {
                     "page": 0,
                     "x0": 404,
@@ -1783,7 +1941,9 @@
                   "text": "(1,460)"
                 },
                 {
-                  "attrs": {},
+                  "attrs": {
+                    "align": "right"
+                  },
                   "bbox": {
                     "page": 0,
                     "x0": 466,
@@ -1820,7 +1980,9 @@
               },
               "children": [
                 {
-                  "attrs": {},
+                  "attrs": {
+                    "align": "left"
+                  },
                   "bbox": {
                     "page": 0,
                     "x0": 82,
@@ -1838,7 +2000,9 @@
                   "text": "Stock-Based Compensation"
                 },
                 {
-                  "attrs": {},
+                  "attrs": {
+                    "align": "right"
+                  },
                   "bbox": {
                     "page": 0,
                     "x0": 278,
@@ -1856,7 +2020,9 @@
                   "text": "(890)"
                 },
                 {
-                  "attrs": {},
+                  "attrs": {
+                    "align": "right"
+                  },
                   "bbox": {
                     "page": 0,
                     "x0": 340,
@@ -1874,7 +2040,9 @@
                   "text": "(1,020)"
                 },
                 {
-                  "attrs": {},
+                  "attrs": {
+                    "align": "right"
+                  },
                   "bbox": {
                     "page": 0,
                     "x0": 404,
@@ -1892,7 +2060,9 @@
                   "text": "(1,190)"
                 },
                 {
-                  "attrs": {},
+                  "attrs": {
+                    "align": "right"
+                  },
                   "bbox": {
                     "page": 0,
                     "x0": 466,
@@ -1929,7 +2099,9 @@
               },
               "children": [
                 {
-                  "attrs": {},
+                  "attrs": {
+                    "align": "left"
+                  },
                   "bbox": {
                     "page": 0,
                     "x0": 82,
@@ -1947,7 +2119,9 @@
                   "text": "Total Operating Expenses"
                 },
                 {
-                  "attrs": {},
+                  "attrs": {
+                    "align": "right"
+                  },
                   "bbox": {
                     "page": 0,
                     "x0": 278,
@@ -1965,7 +2139,9 @@
                   "text": "(7,430)"
                 },
                 {
-                  "attrs": {},
+                  "attrs": {
+                    "align": "right"
+                  },
                   "bbox": {
                     "page": 0,
                     "x0": 340,
@@ -1983,7 +2159,9 @@
                   "text": "(8,910)"
                 },
                 {
-                  "attrs": {},
+                  "attrs": {
+                    "align": "right"
+                  },
                   "bbox": {
                     "page": 0,
                     "x0": 404,
@@ -2001,7 +2179,9 @@
                   "text": "(10,670)"
                 },
                 {
-                  "attrs": {},
+                  "attrs": {
+                    "align": "right"
+                  },
                   "bbox": {
                     "page": 0,
                     "x0": 466,
@@ -2038,7 +2218,9 @@
               },
               "children": [
                 {
-                  "attrs": {},
+                  "attrs": {
+                    "align": "left"
+                  },
                   "bbox": {
                     "page": 0,
                     "x0": 82,
@@ -2056,7 +2238,9 @@
                   "text": "Operating Income (EBIT)"
                 },
                 {
-                  "attrs": {},
+                  "attrs": {
+                    "align": "right"
+                  },
                   "bbox": {
                     "page": 0,
                     "x0": 278,
@@ -2074,7 +2258,9 @@
                   "text": "(170)"
                 },
                 {
-                  "attrs": {},
+                  "attrs": {
+                    "align": "right"
+                  },
                   "bbox": {
                     "page": 0,
                     "x0": 340,
@@ -2092,7 +2278,9 @@
                   "text": "150"
                 },
                 {
-                  "attrs": {},
+                  "attrs": {
+                    "align": "right"
+                  },
                   "bbox": {
                     "page": 0,
                     "x0": 404,
@@ -2110,7 +2298,9 @@
                   "text": "670"
                 },
                 {
-                  "attrs": {},
+                  "attrs": {
+                    "align": "right"
+                  },
                   "bbox": {
                     "page": 0,
                     "x0": 466,
@@ -2147,7 +2337,9 @@
               },
               "children": [
                 {
-                  "attrs": {},
+                  "attrs": {
+                    "align": "left"
+                  },
                   "bbox": {
                     "page": 0,
                     "x0": 82,
@@ -2165,7 +2357,9 @@
                   "text": "EBIT Margin %"
                 },
                 {
-                  "attrs": {},
+                  "attrs": {
+                    "align": "right"
+                  },
                   "bbox": {
                     "page": 0,
                     "x0": 278,
@@ -2183,7 +2377,9 @@
                   "text": "-1.1%"
                 },
                 {
-                  "attrs": {},
+                  "attrs": {
+                    "align": "right"
+                  },
                   "bbox": {
                     "page": 0,
                     "x0": 340,
@@ -2201,7 +2397,9 @@
                   "text": "0.8%"
                 },
                 {
-                  "attrs": {},
+                  "attrs": {
+                    "align": "right"
+                  },
                   "bbox": {
                     "page": 0,
                     "x0": 404,
@@ -2219,7 +2417,9 @@
                   "text": "2.8%"
                 },
                 {
-                  "attrs": {},
+                  "attrs": {
+                    "align": "right"
+                  },
                   "bbox": {
                     "page": 0,
                     "x0": 466,
@@ -2256,7 +2456,9 @@
               },
               "children": [
                 {
-                  "attrs": {},
+                  "attrs": {
+                    "align": "left"
+                  },
                   "bbox": {
                     "page": 0,
                     "x0": 82,
@@ -2274,7 +2476,9 @@
                   "text": "Other Items"
                 },
                 {
-                  "attrs": {},
+                  "attrs": {
+                    "align": "left"
+                  },
                   "bbox": {
                     "page": 0,
                     "x0": 278,
@@ -2292,7 +2496,9 @@
                   "text": ""
                 },
                 {
-                  "attrs": {},
+                  "attrs": {
+                    "align": "left"
+                  },
                   "bbox": {
                     "page": 0,
                     "x0": 340,
@@ -2310,7 +2516,9 @@
                   "text": ""
                 },
                 {
-                  "attrs": {},
+                  "attrs": {
+                    "align": "left"
+                  },
                   "bbox": {
                     "page": 0,
                     "x0": 404,
@@ -2328,7 +2536,9 @@
                   "text": ""
                 },
                 {
-                  "attrs": {},
+                  "attrs": {
+                    "align": "left"
+                  },
                   "bbox": {
                     "page": 0,
                     "x0": 466,
@@ -2365,7 +2575,9 @@
               },
               "children": [
                 {
-                  "attrs": {},
+                  "attrs": {
+                    "align": "left"
+                  },
                   "bbox": {
                     "page": 0,
                     "x0": 82,
@@ -2383,7 +2595,9 @@
                   "text": "Interest Income"
                 },
                 {
-                  "attrs": {},
+                  "attrs": {
+                    "align": "right"
+                  },
                   "bbox": {
                     "page": 0,
                     "x0": 278,
@@ -2401,7 +2615,9 @@
                   "text": "85"
                 },
                 {
-                  "attrs": {},
+                  "attrs": {
+                    "align": "right"
+                  },
                   "bbox": {
                     "page": 0,
                     "x0": 340,
@@ -2419,7 +2635,9 @@
                   "text": "110"
                 },
                 {
-                  "attrs": {},
+                  "attrs": {
+                    "align": "right"
+                  },
                   "bbox": {
                     "page": 0,
                     "x0": 404,
@@ -2437,7 +2655,9 @@
                   "text": "190"
                 },
                 {
-                  "attrs": {},
+                  "attrs": {
+                    "align": "right"
+                  },
                   "bbox": {
                     "page": 0,
                     "x0": 466,
@@ -2474,7 +2694,9 @@
               },
               "children": [
                 {
-                  "attrs": {},
+                  "attrs": {
+                    "align": "left"
+                  },
                   "bbox": {
                     "page": 0,
                     "x0": 82,
@@ -2492,7 +2714,9 @@
                   "text": "Interest Expense"
                 },
                 {
-                  "attrs": {},
+                  "attrs": {
+                    "align": "right"
+                  },
                   "bbox": {
                     "page": 0,
                     "x0": 278,
@@ -2510,7 +2734,9 @@
                   "text": "(420)"
                 },
                 {
-                  "attrs": {},
+                  "attrs": {
+                    "align": "right"
+                  },
                   "bbox": {
                     "page": 0,
                     "x0": 340,
@@ -2528,7 +2754,9 @@
                   "text": "(390)"
                 },
                 {
-                  "attrs": {},
+                  "attrs": {
+                    "align": "right"
+                  },
                   "bbox": {
                     "page": 0,
                     "x0": 404,
@@ -2546,7 +2774,9 @@
                   "text": "(350)"
                 },
                 {
-                  "attrs": {},
+                  "attrs": {
+                    "align": "right"
+                  },
                   "bbox": {
                     "page": 0,
                     "x0": 466,
@@ -2583,7 +2813,9 @@
               },
               "children": [
                 {
-                  "attrs": {},
+                  "attrs": {
+                    "align": "left"
+                  },
                   "bbox": {
                     "page": 0,
                     "x0": 82,
@@ -2601,7 +2833,9 @@
                   "text": "Other Income (Expense), net"
                 },
                 {
-                  "attrs": {},
+                  "attrs": {
+                    "align": "right"
+                  },
                   "bbox": {
                     "page": 0,
                     "x0": 278,
@@ -2619,7 +2853,9 @@
                   "text": "40"
                 },
                 {
-                  "attrs": {},
+                  "attrs": {
+                    "align": "right"
+                  },
                   "bbox": {
                     "page": 0,
                     "x0": 340,
@@ -2637,7 +2873,9 @@
                   "text": "25"
                 },
                 {
-                  "attrs": {},
+                  "attrs": {
+                    "align": "right"
+                  },
                   "bbox": {
                     "page": 0,
                     "x0": 404,
@@ -2655,7 +2893,9 @@
                   "text": "(30)"
                 },
                 {
-                  "attrs": {},
+                  "attrs": {
+                    "align": "right"
+                  },
                   "bbox": {
                     "page": 0,
                     "x0": 466,
@@ -2692,7 +2932,9 @@
               },
               "children": [
                 {
-                  "attrs": {},
+                  "attrs": {
+                    "align": "left"
+                  },
                   "bbox": {
                     "page": 0,
                     "x0": 82,
@@ -2710,7 +2952,9 @@
                   "text": "Total Other Items"
                 },
                 {
-                  "attrs": {},
+                  "attrs": {
+                    "align": "right"
+                  },
                   "bbox": {
                     "page": 0,
                     "x0": 278,
@@ -2728,7 +2972,9 @@
                   "text": "(295)"
                 },
                 {
-                  "attrs": {},
+                  "attrs": {
+                    "align": "right"
+                  },
                   "bbox": {
                     "page": 0,
                     "x0": 340,
@@ -2746,7 +2992,9 @@
                   "text": "(255)"
                 },
                 {
-                  "attrs": {},
+                  "attrs": {
+                    "align": "right"
+                  },
                   "bbox": {
                     "page": 0,
                     "x0": 404,
@@ -2764,7 +3012,9 @@
                   "text": "(190)"
                 },
                 {
-                  "attrs": {},
+                  "attrs": {
+                    "align": "right"
+                  },
                   "bbox": {
                     "page": 0,
                     "x0": 466,
@@ -2801,7 +3051,9 @@
               },
               "children": [
                 {
-                  "attrs": {},
+                  "attrs": {
+                    "align": "left"
+                  },
                   "bbox": {
                     "page": 0,
                     "x0": 82,
@@ -2819,7 +3071,9 @@
                   "text": "Pre-Tax Income (Loss)"
                 },
                 {
-                  "attrs": {},
+                  "attrs": {
+                    "align": "right"
+                  },
                   "bbox": {
                     "page": 0,
                     "x0": 278,
@@ -2837,7 +3091,9 @@
                   "text": "(465)"
                 },
                 {
-                  "attrs": {},
+                  "attrs": {
+                    "align": "right"
+                  },
                   "bbox": {
                     "page": 0,
                     "x0": 340,
@@ -2855,7 +3111,9 @@
                   "text": "(105)"
                 },
                 {
-                  "attrs": {},
+                  "attrs": {
+                    "align": "right"
+                  },
                   "bbox": {
                     "page": 0,
                     "x0": 404,
@@ -2873,7 +3131,9 @@
                   "text": "480"
                 },
                 {
-                  "attrs": {},
+                  "attrs": {
+                    "align": "right"
+                  },
                   "bbox": {
                     "page": 0,
                     "x0": 466,
@@ -2910,7 +3170,9 @@
               },
               "children": [
                 {
-                  "attrs": {},
+                  "attrs": {
+                    "align": "left"
+                  },
                   "bbox": {
                     "page": 0,
                     "x0": 82,
@@ -2928,7 +3190,9 @@
                   "text": "Income Tax Provision"
                 },
                 {
-                  "attrs": {},
+                  "attrs": {
+                    "align": "right"
+                  },
                   "bbox": {
                     "page": 0,
                     "x0": 278,
@@ -2946,7 +3210,9 @@
                   "text": "\u2014"
                 },
                 {
-                  "attrs": {},
+                  "attrs": {
+                    "align": "right"
+                  },
                   "bbox": {
                     "page": 0,
                     "x0": 340,
@@ -2964,7 +3230,9 @@
                   "text": "\u2014"
                 },
                 {
-                  "attrs": {},
+                  "attrs": {
+                    "align": "right"
+                  },
                   "bbox": {
                     "page": 0,
                     "x0": 404,
@@ -2982,7 +3250,9 @@
                   "text": "(96)"
                 },
                 {
-                  "attrs": {},
+                  "attrs": {
+                    "align": "right"
+                  },
                   "bbox": {
                     "page": 0,
                     "x0": 466,
@@ -3019,7 +3289,9 @@
               },
               "children": [
                 {
-                  "attrs": {},
+                  "attrs": {
+                    "align": "left"
+                  },
                   "bbox": {
                     "page": 0,
                     "x0": 82,
@@ -3037,7 +3309,9 @@
                   "text": "Net Income (Loss)"
                 },
                 {
-                  "attrs": {},
+                  "attrs": {
+                    "align": "right"
+                  },
                   "bbox": {
                     "page": 0,
                     "x0": 278,
@@ -3055,7 +3329,9 @@
                   "text": "(465)"
                 },
                 {
-                  "attrs": {},
+                  "attrs": {
+                    "align": "right"
+                  },
                   "bbox": {
                     "page": 0,
                     "x0": 340,
@@ -3073,7 +3349,9 @@
                   "text": "(105)"
                 },
                 {
-                  "attrs": {},
+                  "attrs": {
+                    "align": "right"
+                  },
                   "bbox": {
                     "page": 0,
                     "x0": 404,
@@ -3091,7 +3369,9 @@
                   "text": "384"
                 },
                 {
-                  "attrs": {},
+                  "attrs": {
+                    "align": "right"
+                  },
                   "bbox": {
                     "page": 0,
                     "x0": 466,
@@ -3128,7 +3408,9 @@
               },
               "children": [
                 {
-                  "attrs": {},
+                  "attrs": {
+                    "align": "left"
+                  },
                   "bbox": {
                     "page": 0,
                     "x0": 82,
@@ -3146,7 +3428,9 @@
                   "text": "Net Margin %"
                 },
                 {
-                  "attrs": {},
+                  "attrs": {
+                    "align": "right"
+                  },
                   "bbox": {
                     "page": 0,
                     "x0": 278,
@@ -3164,7 +3448,9 @@
                   "text": "-2.9%"
                 },
                 {
-                  "attrs": {},
+                  "attrs": {
+                    "align": "right"
+                  },
                   "bbox": {
                     "page": 0,
                     "x0": 340,
@@ -3182,7 +3468,9 @@
                   "text": "-0.5%"
                 },
                 {
-                  "attrs": {},
+                  "attrs": {
+                    "align": "right"
+                  },
                   "bbox": {
                     "page": 0,
                     "x0": 404,
@@ -3200,7 +3488,9 @@
                   "text": "1.6%"
                 },
                 {
-                  "attrs": {},
+                  "attrs": {
+                    "align": "right"
+                  },
                   "bbox": {
                     "page": 0,
                     "x0": 466,
@@ -3237,7 +3527,9 @@
               },
               "children": [
                 {
-                  "attrs": {},
+                  "attrs": {
+                    "align": "left"
+                  },
                   "bbox": {
                     "page": 0,
                     "x0": 82,
@@ -3255,7 +3547,9 @@
                   "text": "Per Share Data"
                 },
                 {
-                  "attrs": {},
+                  "attrs": {
+                    "align": "left"
+                  },
                   "bbox": {
                     "page": 0,
                     "x0": 278,
@@ -3273,7 +3567,9 @@
                   "text": ""
                 },
                 {
-                  "attrs": {},
+                  "attrs": {
+                    "align": "left"
+                  },
                   "bbox": {
                     "page": 0,
                     "x0": 340,
@@ -3291,7 +3587,9 @@
                   "text": ""
                 },
                 {
-                  "attrs": {},
+                  "attrs": {
+                    "align": "left"
+                  },
                   "bbox": {
                     "page": 0,
                     "x0": 404,
@@ -3309,7 +3607,9 @@
                   "text": ""
                 },
                 {
-                  "attrs": {},
+                  "attrs": {
+                    "align": "left"
+                  },
                   "bbox": {
                     "page": 0,
                     "x0": 466,
@@ -3346,7 +3646,9 @@
               },
               "children": [
                 {
-                  "attrs": {},
+                  "attrs": {
+                    "align": "left"
+                  },
                   "bbox": {
                     "page": 0,
                     "x0": 82,
@@ -3364,7 +3666,9 @@
                   "text": "Basic EPS"
                 },
                 {
-                  "attrs": {},
+                  "attrs": {
+                    "align": "right"
+                  },
                   "bbox": {
                     "page": 0,
                     "x0": 278,
@@ -3382,7 +3686,9 @@
                   "text": "$(0.47)"
                 },
                 {
-                  "attrs": {},
+                  "attrs": {
+                    "align": "right"
+                  },
                   "bbox": {
                     "page": 0,
                     "x0": 340,
@@ -3400,7 +3706,9 @@
                   "text": "$(0.11)"
                 },
                 {
-                  "attrs": {},
+                  "attrs": {
+                    "align": "right"
+                  },
                   "bbox": {
                     "page": 0,
                     "x0": 404,
@@ -3418,7 +3726,9 @@
                   "text": "$0.38"
                 },
                 {
-                  "attrs": {},
+                  "attrs": {
+                    "align": "right"
+                  },
                   "bbox": {
                     "page": 0,
                     "x0": 466,
@@ -3455,7 +3765,9 @@
               },
               "children": [
                 {
-                  "attrs": {},
+                  "attrs": {
+                    "align": "left"
+                  },
                   "bbox": {
                     "page": 0,
                     "x0": 82,
@@ -3473,7 +3785,9 @@
                   "text": "Diluted EPS"
                 },
                 {
-                  "attrs": {},
+                  "attrs": {
+                    "align": "right"
+                  },
                   "bbox": {
                     "page": 0,
                     "x0": 278,
@@ -3491,7 +3805,9 @@
                   "text": "$(0.47)"
                 },
                 {
-                  "attrs": {},
+                  "attrs": {
+                    "align": "right"
+                  },
                   "bbox": {
                     "page": 0,
                     "x0": 340,
@@ -3509,7 +3825,9 @@
                   "text": "$(0.11)"
                 },
                 {
-                  "attrs": {},
+                  "attrs": {
+                    "align": "right"
+                  },
                   "bbox": {
                     "page": 0,
                     "x0": 404,
@@ -3527,7 +3845,9 @@
                   "text": "$0.37"
                 },
                 {
-                  "attrs": {},
+                  "attrs": {
+                    "align": "right"
+                  },
                   "bbox": {
                     "page": 0,
                     "x0": 466,
@@ -3564,7 +3884,9 @@
               },
               "children": [
                 {
-                  "attrs": {},
+                  "attrs": {
+                    "align": "left"
+                  },
                   "bbox": {
                     "page": 0,
                     "x0": 82,
@@ -3582,7 +3904,9 @@
                   "text": "Wtd-Avg Shares, Basic (M)"
                 },
                 {
-                  "attrs": {},
+                  "attrs": {
+                    "align": "right"
+                  },
                   "bbox": {
                     "page": 0,
                     "x0": 278,
@@ -3600,7 +3924,9 @@
                   "text": "99.1"
                 },
                 {
-                  "attrs": {},
+                  "attrs": {
+                    "align": "right"
+                  },
                   "bbox": {
                     "page": 0,
                     "x0": 340,
@@ -3618,7 +3944,9 @@
                   "text": "99.8"
                 },
                 {
-                  "attrs": {},
+                  "attrs": {
+                    "align": "right"
+                  },
                   "bbox": {
                     "page": 0,
                     "x0": 404,
@@ -3636,7 +3964,9 @@
                   "text": "100.2"
                 },
                 {
-                  "attrs": {},
+                  "attrs": {
+                    "align": "right"
+                  },
                   "bbox": {
                     "page": 0,
                     "x0": 466,
@@ -3673,7 +4003,9 @@
               },
               "children": [
                 {
-                  "attrs": {},
+                  "attrs": {
+                    "align": "left"
+                  },
                   "bbox": {
                     "page": 0,
                     "x0": 82,
@@ -3691,7 +4023,9 @@
                   "text": "Wtd-Avg Shares, Diluted (M)"
                 },
                 {
-                  "attrs": {},
+                  "attrs": {
+                    "align": "right"
+                  },
                   "bbox": {
                     "page": 0,
                     "x0": 278,
@@ -3709,7 +4043,9 @@
                   "text": "103.4"
                 },
                 {
-                  "attrs": {},
+                  "attrs": {
+                    "align": "right"
+                  },
                   "bbox": {
                     "page": 0,
                     "x0": 340,
@@ -3727,7 +4063,9 @@
                   "text": "103.9"
                 },
                 {
-                  "attrs": {},
+                  "attrs": {
+                    "align": "right"
+                  },
                   "bbox": {
                     "page": 0,
                     "x0": 404,
@@ -3745,7 +4083,9 @@
                   "text": "104.1"
                 },
                 {
-                  "attrs": {},
+                  "attrs": {
+                    "align": "right"
+                  },
                   "bbox": {
                     "page": 0,
                     "x0": 466,
@@ -3778,13 +4118,13 @@
           "text": null
         }
       ],
-      "id": "cdb2e94a2bcf",
+      "id": "3002e2224e1a",
       "kind": "page",
       "provenance": {},
       "text": null
     }
   ],
-  "id": "cf0b09f00021",
+  "id": "d10948cce52d",
   "kind": "document",
   "provenance": {},
   "text": null

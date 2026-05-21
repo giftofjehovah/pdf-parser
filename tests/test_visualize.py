@@ -18,14 +18,14 @@ MULTI = Path("tests/golden/synthetic/03_page_spanning/source.pdf")
 
 
 def test_visualize_writes_single_pdf_when_target_is_pdf(tmp_path):
-    import pymupdf
+    import pypdfium2 as pdfium
 
     tree = parse(MULTI)
     out = tmp_path / "debug.pdf"
     render_overlays(MULTI, tree, out)
     assert out.is_file() and out.stat().st_size > 0
-    doc = pymupdf.open(str(out))
+    doc = pdfium.PdfDocument(str(out))
     try:
-        assert doc.page_count == 2
+        assert len(doc) == 2
     finally:
         doc.close()

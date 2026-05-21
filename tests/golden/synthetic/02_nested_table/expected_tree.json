@@ -26,13 +26,13 @@
           },
           "bbox": {
             "page": 0,
-            "x0": 78,
-            "x1": 269,
-            "y0": 77,
-            "y1": 102
+            "x0": 79,
+            "x1": 268,
+            "y0": 83,
+            "y1": 100
           },
           "children": [],
-          "id": "e5efb7dd54c1",
+          "id": "494ac7ccb7aa",
           "kind": "heading",
           "provenance": {
             "extractor": "segment",
@@ -74,7 +74,9 @@
               },
               "children": [
                 {
-                  "attrs": {},
+                  "attrs": {
+                    "align": "left"
+                  },
                   "bbox": {
                     "page": 0,
                     "x0": 156,
@@ -92,7 +94,9 @@
                   "text": "Outer-Col-1"
                 },
                 {
-                  "attrs": {},
+                  "attrs": {
+                    "align": "left"
+                  },
                   "bbox": {
                     "page": 0,
                     "x0": 256,
@@ -110,7 +114,9 @@
                   "text": "Outer-Col-2"
                 },
                 {
-                  "attrs": {},
+                  "attrs": {
+                    "align": "left"
+                  },
                   "bbox": {
                     "page": 0,
                     "x0": 356,
@@ -147,7 +153,9 @@
               },
               "children": [
                 {
-                  "attrs": {},
+                  "attrs": {
+                    "align": "left"
+                  },
                   "bbox": {
                     "page": 0,
                     "x0": 156,
@@ -165,7 +173,9 @@
                   "text": "row-1-a"
                 },
                 {
-                  "attrs": {},
+                  "attrs": {
+                    "align": "left"
+                  },
                   "bbox": {
                     "page": 0,
                     "x0": 256,
@@ -207,7 +217,9 @@
                           },
                           "children": [
                             {
-                              "attrs": {},
+                              "attrs": {
+                                "align": "left"
+                              },
                               "bbox": {
                                 "page": 0,
                                 "x0": 262,
@@ -225,7 +237,9 @@
                               "text": "sub-A"
                             },
                             {
-                              "attrs": {},
+                              "attrs": {
+                                "align": "left"
+                              },
                               "bbox": {
                                 "page": 0,
                                 "x0": 302,
@@ -262,7 +276,9 @@
                           },
                           "children": [
                             {
-                              "attrs": {},
+                              "attrs": {
+                                "align": "left"
+                              },
                               "bbox": {
                                 "page": 0,
                                 "x0": 262,
@@ -280,7 +296,9 @@
                               "text": "1"
                             },
                             {
-                              "attrs": {},
+                              "attrs": {
+                                "align": "left"
+                              },
                               "bbox": {
                                 "page": 0,
                                 "x0": 302,
@@ -317,7 +335,9 @@
                           },
                           "children": [
                             {
-                              "attrs": {},
+                              "attrs": {
+                                "align": "left"
+                              },
                               "bbox": {
                                 "page": 0,
                                 "x0": 262,
@@ -335,7 +355,9 @@
                               "text": "3"
                             },
                             {
-                              "attrs": {},
+                              "attrs": {
+                                "align": "left"
+                              },
                               "bbox": {
                                 "page": 0,
                                 "x0": 302,
@@ -377,7 +399,9 @@
                   "text": null
                 },
                 {
-                  "attrs": {},
+                  "attrs": {
+                    "align": "left"
+                  },
                   "bbox": {
                     "page": 0,
                     "x0": 356,
@@ -414,7 +438,9 @@
               },
               "children": [
                 {
-                  "attrs": {},
+                  "attrs": {
+                    "align": "left"
+                  },
                   "bbox": {
                     "page": 0,
                     "x0": 156,
@@ -432,7 +458,9 @@
                   "text": "row-2-a"
                 },
                 {
-                  "attrs": {},
+                  "attrs": {
+                    "align": "left"
+                  },
                   "bbox": {
                     "page": 0,
                     "x0": 256,
@@ -450,7 +478,9 @@
                   "text": "row-2-b"
                 },
                 {
-                  "attrs": {},
+                  "attrs": {
+                    "align": "left"
+                  },
                   "bbox": {
                     "page": 0,
                     "x0": 356,
@@ -483,13 +513,13 @@
           "text": null
         }
       ],
-      "id": "2e87ee6846f4",
+      "id": "55c98b2edd38",
       "kind": "page",
       "provenance": {},
       "text": null
     }
   ],
-  "id": "02476266c4d8",
+  "id": "ececd418063f",
   "kind": "document",
   "provenance": {},
   "text": null

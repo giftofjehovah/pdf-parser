@@ -75,8 +75,8 @@ def _build_page(
         DocNode(
             kind="figure",
             bbox=img.bbox,
-            attrs={"xref": img.xref, "width": img.width, "height": img.height},
-            provenance={"extractor": "pymupdf", "stage": "ingest"},
+            attrs={"image_id": img.image_id, "width": img.width, "height": img.height},
+            provenance={"extractor": "pdfplumber", "stage": "ingest"},
         )
         for img in seg.images
         if not any(_bbox_overlaps_tbox(img.bbox, tb) for tb in table_bboxes_on_page)

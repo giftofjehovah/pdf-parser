@@ -26,13 +26,13 @@
           },
           "bbox": {
             "page": 0,
-            "x0": 78,
-            "x1": 240,
-            "y0": 77,
-            "y1": 102
+            "x0": 79,
+            "x1": 239,
+            "y0": 83,
+            "y1": 96
           },
           "children": [],
-          "id": "cf6efe1475d0",
+          "id": "e3d91308f12e",
           "kind": "heading",
           "provenance": {
             "extractor": "segment",
@@ -46,13 +46,13 @@
           },
           "bbox": {
             "page": 0,
-            "x0": 78,
-            "x1": 175,
-            "y0": 125,
-            "y1": 144
+            "x0": 79,
+            "x1": 174,
+            "y0": 130,
+            "y1": 143
           },
           "children": [],
-          "id": "b29ef5dffd25",
+          "id": "a04f3d8fc863",
           "kind": "heading",
           "provenance": {
             "extractor": "segment",
@@ -65,12 +65,12 @@
           "bbox": {
             "page": 0,
             "x0": 78,
-            "x1": 230,
-            "y0": 149,
-            "y1": 163
+            "x1": 229,
+            "y0": 153,
+            "y1": 162
           },
           "children": [],
-          "id": "5dc8527624e9",
+          "id": "82474184483e",
           "kind": "paragraph",
           "provenance": {
             "extractor": "segment",
@@ -85,12 +85,12 @@
           "bbox": {
             "page": 0,
             "x0": 78,
-            "x1": 152,
-            "y0": 179,
-            "y1": 198
+            "x1": 151,
+            "y0": 184,
+            "y1": 197
           },
           "children": [],
-          "id": "3145f68f30ef",
+          "id": "4194bb1ee940",
           "kind": "heading",
           "provenance": {
             "extractor": "segment",
@@ -99,42 +99,74 @@
           "text": "2. Findings"
         },
         {
-          "attrs": {
-            "level": 3
-          },
-          "bbox": {
-            "page": 0,
-            "x0": 78,
-            "x1": 82,
-            "y0": 203,
-            "y1": 220
-          },
-          "children": [],
-          "id": "2ff1d63e15f7",
-          "kind": "heading",
-          "provenance": {
-            "extractor": "segment",
-            "stage": "build_tree"
-          },
-          "text": "\u2022"
-        },
-        {
           "attrs": {},
           "bbox": {
             "page": 0,
-            "x0": 96,
+            "x0": 79,
             "x1": 150,
-            "y0": 203,
-            "y1": 217
+            "y0": 207,
+            "y1": 216
           },
-          "children": [],
-          "id": "8c714c88fa40",
-          "kind": "paragraph",
-          "provenance": {
-            "extractor": "segment",
-            "stage": "build_tree"
-          },
-          "text": "First finding."
+          "children": [
+            {
+              "attrs": {},
+              "bbox": {
+                "page": 0,
+                "x0": 79,
+                "x1": 150,
+                "y0": 207,
+                "y1": 216
+              },
+              "children": [],
+              "id": "943f2540284f",
+              "kind": "list_item",
+              "provenance": {
+                "extractor": "segment",
+                "stage": "build_tree"
+              },
+              "text": "\u2022 First finding."
+            },
+            {
+              "attrs": {},
+              "bbox": {
+                "page": 0,
+                "x0": 79,
+                "x1": 164,
+                "y0": 225,
+                "y1": 234
+              },
+              "children": [],
+              "id": "8d17e0894c87",
+              "kind": "list_item",
+              "provenance": {
+                "extractor": "segment",
+                "stage": "build_tree"
+              },
+              "text": "\u2022 Second finding."
+            },
+            {
+              "attrs": {},
+              "bbox": {
+                "page": 0,
+                "x0": 79,
+                "x1": 153,
+                "y0": 243,
+                "y1": 252
+              },
+              "children": [],
+              "id": "819979f786ba",
+              "kind": "list_item",
+              "provenance": {
+                "extractor": "segment",
+                "stage": "build_tree"
+              },
+              "text": "\u2022 Third finding."
+            }
+          ],
+          "id": "2ca7d0e457c2",
+          "kind": "list",
+          "provenance": {},
+          "text": null
         },
         {
           "attrs": {
@@ -142,89 +174,13 @@
           },
           "bbox": {
             "page": 0,
-            "x0": 78,
-            "x1": 82,
-            "y0": 221,
-            "y1": 238
-          },
-          "children": [],
-          "id": "2d3e0d7a63e6",
-          "kind": "heading",
-          "provenance": {
-            "extractor": "segment",
-            "stage": "build_tree"
-          },
-          "text": "\u2022"
-        },
-        {
-          "attrs": {},
-          "bbox": {
-            "page": 0,
-            "x0": 96,
+            "x0": 79,
             "x1": 165,
-            "y0": 221,
-            "y1": 235
+            "y0": 275,
+            "y1": 284
           },
           "children": [],
-          "id": "5e70cb08a0e8",
-          "kind": "paragraph",
-          "provenance": {
-            "extractor": "segment",
-            "stage": "build_tree"
-          },
-          "text": "Second finding."
-        },
-        {
-          "attrs": {
-            "level": 3
-          },
-          "bbox": {
-            "page": 0,
-            "x0": 78,
-            "x1": 82,
-            "y0": 239,
-            "y1": 256
-          },
-          "children": [],
-          "id": "d270af31e9dc",
-          "kind": "heading",
-          "provenance": {
-            "extractor": "segment",
-            "stage": "build_tree"
-          },
-          "text": "\u2022"
-        },
-        {
-          "attrs": {},
-          "bbox": {
-            "page": 0,
-            "x0": 96,
-            "x1": 154,
-            "y0": 239,
-            "y1": 253
-          },
-          "children": [],
-          "id": "dd07accd1073",
-          "kind": "paragraph",
-          "provenance": {
-            "extractor": "segment",
-            "stage": "build_tree"
-          },
-          "text": "Third finding."
-        },
-        {
-          "attrs": {
-            "level": 3
-          },
-          "bbox": {
-            "page": 0,
-            "x0": 78,
-            "x1": 165,
-            "y0": 271,
-            "y1": 288
-          },
-          "children": [],
-          "id": "92c34d9bc751",
+          "id": "9c3c9c4acced",
           "kind": "heading",
           "provenance": {
             "extractor": "segment",
@@ -265,7 +221,9 @@
               },
               "children": [
                 {
-                  "attrs": {},
+                  "attrs": {
+                    "align": "left"
+                  },
                   "bbox": {
                     "page": 0,
                     "x0": 287,
@@ -283,7 +241,9 @@
                   "text": "A"
                 },
                 {
-                  "attrs": {},
+                  "attrs": {
+                    "align": "left"
+                  },
                   "bbox": {
                     "page": 0,
                     "x0": 306,
@@ -320,7 +280,9 @@
               },
               "children": [
                 {
-                  "attrs": {},
+                  "attrs": {
+                    "align": "left"
+                  },
                   "bbox": {
                     "page": 0,
                     "x0": 287,
@@ -338,7 +300,9 @@
                   "text": "1"
                 },
                 {
-                  "attrs": {},
+                  "attrs": {
+                    "align": "left"
+                  },
                   "bbox": {
                     "page": 0,
                     "x0": 306,
@@ -375,7 +339,9 @@
               },
               "children": [
                 {
-                  "attrs": {},
+                  "attrs": {
+                    "align": "left"
+                  },
                   "bbox": {
                     "page": 0,
                     "x0": 287,
@@ -393,7 +359,9 @@
                   "text": "3"
                 },
                 {
-                  "attrs": {},
+                  "attrs": {
+                    "align": "left"
+                  },
                   "bbox": {
                     "page": 0,
                     "x0": 306,
@@ -426,13 +394,13 @@
           "text": null
         }
       ],
-      "id": "49d96aa92055",
+      "id": "24f3211861d5",
       "kind": "page",
       "provenance": {},
       "text": null
     }
   ],
-  "id": "b6c83ab5ceb7",
+  "id": "8755e643ecec",
   "kind": "document",
   "provenance": {},
   "text": null

@@ -28,11 +28,11 @@
             "page": 0,
             "x0": 78,
             "x1": 251,
-            "y0": 77,
-            "y1": 102
+            "y0": 83,
+            "y1": 100
           },
           "children": [],
-          "id": "7ffe26d3b46b",
+          "id": "623c849e08ba",
           "kind": "heading",
           "provenance": {
             "extractor": "segment",
@@ -44,37 +44,73 @@
           "attrs": {},
           "bbox": {
             "page": 0,
-            "x0": 84,
-            "x1": 487,
-            "y0": 129,
-            "y1": 143
+            "x0": 85,
+            "x1": 262,
+            "y0": 133,
+            "y1": 142
           },
           "children": [],
-          "id": "3908e95e2d6e",
+          "id": "dfcab4d94425",
           "kind": "paragraph",
           "provenance": {
             "extractor": "segment",
             "stage": "build_tree"
           },
-          "text": "Lorem ipsum dolor sit amet, consectetur Lorem ipsum dolor sit amet, consectetur"
+          "text": "Lorem ipsum dolor sit amet, consectetur"
+        },
+        {
+          "attrs": {},
+          "bbox": {
+            "page": 0,
+            "x0": 310,
+            "x1": 487,
+            "y0": 133,
+            "y1": 142
+          },
+          "children": [],
+          "id": "8049ef2dba16",
+          "kind": "paragraph",
+          "provenance": {
+            "extractor": "segment",
+            "stage": "build_tree"
+          },
+          "text": "Lorem ipsum dolor sit amet, consectetur"
         },
         {
           "attrs": {},
           "bbox": {
             "page": 0,
             "x0": 84,
-            "x1": 498,
-            "y0": 141,
-            "y1": 155
+            "x1": 272,
+            "y0": 145,
+            "y1": 154
           },
           "children": [],
-          "id": "f096ac13ffc9",
+          "id": "8a8287243b09",
           "kind": "paragraph",
           "provenance": {
             "extractor": "segment",
             "stage": "build_tree"
           },
-          "text": "adipiscing elit. Lorem ipsum dolor sit amet, adipiscing elit. Lorem ipsum dolor sit amet,"
+          "text": "adipiscing elit. Lorem ipsum dolor sit amet,"
+        },
+        {
+          "attrs": {},
+          "bbox": {
+            "page": 0,
+            "x0": 309,
+            "x1": 497,
+            "y0": 145,
+            "y1": 154
+          },
+          "children": [],
+          "id": "3f161ee7627e",
+          "kind": "paragraph",
+          "provenance": {
+            "extractor": "segment",
+            "stage": "build_tree"
+          },
+          "text": "adipiscing elit. Lorem ipsum dolor sit amet,"
         },
         {
           "attrs": {},
@@ -82,11 +118,11 @@
             "page": 0,
             "x0": 84,
             "x1": 525,
-            "y0": 153,
-            "y1": 167
+            "y0": 157,
+            "y1": 166
           },
           "children": [],
-          "id": "46920fa70227",
+          "id": "222a5cc23d31",
           "kind": "paragraph",
           "provenance": {
             "extractor": "segment",
@@ -99,90 +135,180 @@
           "bbox": {
             "page": 0,
             "x0": 84,
-            "x1": 515,
-            "y0": 165,
-            "y1": 179
+            "x1": 289,
+            "y0": 169,
+            "y1": 178
           },
           "children": [],
-          "id": "2cc3e21c9f0c",
+          "id": "45377c288c68",
           "kind": "paragraph",
           "provenance": {
             "extractor": "segment",
             "stage": "build_tree"
           },
-          "text": "amet, consectetur adipiscing elit. Lorem ipsum amet, consectetur adipiscing elit. Lorem ipsum"
+          "text": "amet, consectetur adipiscing elit. Lorem ipsum"
+        },
+        {
+          "attrs": {},
+          "bbox": {
+            "page": 0,
+            "x0": 309,
+            "x1": 514,
+            "y0": 169,
+            "y1": 178
+          },
+          "children": [],
+          "id": "0bad1e12a0ee",
+          "kind": "paragraph",
+          "provenance": {
+            "extractor": "segment",
+            "stage": "build_tree"
+          },
+          "text": "amet, consectetur adipiscing elit. Lorem ipsum"
         },
         {
           "attrs": {},
           "bbox": {
             "page": 0,
             "x0": 84,
-            "x1": 523,
-            "y0": 177,
-            "y1": 191
+            "x1": 297,
+            "y0": 181,
+            "y1": 190
           },
           "children": [],
-          "id": "b62b817ac531",
+          "id": "d38eb11e3080",
           "kind": "paragraph",
           "provenance": {
             "extractor": "segment",
             "stage": "build_tree"
           },
-          "text": "dolor sit amet, consectetur adipiscing elit. Lorem dolor sit amet, consectetur adipiscing elit. Lorem"
+          "text": "dolor sit amet, consectetur adipiscing elit. Lorem"
         },
         {
           "attrs": {},
           "bbox": {
             "page": 0,
-            "x0": 84,
-            "x1": 521,
-            "y0": 189,
-            "y1": 203
+            "x0": 309,
+            "x1": 522,
+            "y0": 181,
+            "y1": 190
           },
           "children": [],
-          "id": "2c848c64ae7c",
+          "id": "d2577b1cdd7d",
           "kind": "paragraph",
           "provenance": {
             "extractor": "segment",
             "stage": "build_tree"
           },
-          "text": "ipsum dolor sit amet, consectetur adipiscing elit. ipsum dolor sit amet, consectetur adipiscing elit."
+          "text": "dolor sit amet, consectetur adipiscing elit. Lorem"
         },
         {
           "attrs": {},
           "bbox": {
             "page": 0,
-            "x0": 84,
+            "x0": 85,
+            "x1": 295,
+            "y0": 193,
+            "y1": 202
+          },
+          "children": [],
+          "id": "ef48c91b978a",
+          "kind": "paragraph",
+          "provenance": {
+            "extractor": "segment",
+            "stage": "build_tree"
+          },
+          "text": "ipsum dolor sit amet, consectetur adipiscing elit."
+        },
+        {
+          "attrs": {},
+          "bbox": {
+            "page": 0,
+            "x0": 310,
+            "x1": 520,
+            "y0": 193,
+            "y1": 202
+          },
+          "children": [],
+          "id": "0c8c193c3a3c",
+          "kind": "paragraph",
+          "provenance": {
+            "extractor": "segment",
+            "stage": "build_tree"
+          },
+          "text": "ipsum dolor sit amet, consectetur adipiscing elit."
+        },
+        {
+          "attrs": {},
+          "bbox": {
+            "page": 0,
+            "x0": 85,
+            "x1": 262,
+            "y0": 205,
+            "y1": 214
+          },
+          "children": [],
+          "id": "f994b15d2f16",
+          "kind": "paragraph",
+          "provenance": {
+            "extractor": "segment",
+            "stage": "build_tree"
+          },
+          "text": "Lorem ipsum dolor sit amet, consectetur"
+        },
+        {
+          "attrs": {},
+          "bbox": {
+            "page": 0,
+            "x0": 310,
             "x1": 487,
-            "y0": 201,
-            "y1": 215
+            "y0": 205,
+            "y1": 214
           },
           "children": [],
-          "id": "155866f8335e",
+          "id": "2d37c117cdb5",
           "kind": "paragraph",
           "provenance": {
             "extractor": "segment",
             "stage": "build_tree"
           },
-          "text": "Lorem ipsum dolor sit amet, consectetur Lorem ipsum dolor sit amet, consectetur"
+          "text": "Lorem ipsum dolor sit amet, consectetur"
         },
         {
           "attrs": {},
           "bbox": {
             "page": 0,
             "x0": 84,
-            "x1": 498,
-            "y0": 213,
-            "y1": 227
+            "x1": 272,
+            "y0": 217,
+            "y1": 226
           },
           "children": [],
-          "id": "6df6a54c7510",
+          "id": "8b1e67a16c85",
           "kind": "paragraph",
           "provenance": {
             "extractor": "segment",
             "stage": "build_tree"
           },
-          "text": "adipiscing elit. Lorem ipsum dolor sit amet, adipiscing elit. Lorem ipsum dolor sit amet,"
+          "text": "adipiscing elit. Lorem ipsum dolor sit amet,"
+        },
+        {
+          "attrs": {},
+          "bbox": {
+            "page": 0,
+            "x0": 309,
+            "x1": 497,
+            "y0": 217,
+            "y1": 226
+          },
+          "children": [],
+          "id": "c661c439ee68",
+          "kind": "paragraph",
+          "provenance": {
+            "extractor": "segment",
+            "stage": "build_tree"
+          },
+          "text": "adipiscing elit. Lorem ipsum dolor sit amet,"
         },
         {
           "attrs": {},
@@ -190,11 +316,11 @@
             "page": 0,
             "x0": 84,
             "x1": 525,
-            "y0": 225,
-            "y1": 239
+            "y0": 229,
+            "y1": 238
           },
           "children": [],
-          "id": "9ff38a8a4036",
+          "id": "607c13a4d65c",
           "kind": "paragraph",
           "provenance": {
             "extractor": "segment",
@@ -207,54 +333,108 @@
           "bbox": {
             "page": 0,
             "x0": 84,
-            "x1": 454,
-            "y0": 237,
-            "y1": 251
+            "x1": 228,
+            "y0": 241,
+            "y1": 250
           },
           "children": [],
-          "id": "cc17e47c1cde",
+          "id": "96797d01094b",
           "kind": "paragraph",
           "provenance": {
             "extractor": "segment",
             "stage": "build_tree"
           },
-          "text": "amet, consectetur adipiscing elit. amet, consectetur adipiscing elit."
+          "text": "amet, consectetur adipiscing elit."
         },
         {
           "attrs": {},
           "bbox": {
             "page": 0,
-            "x0": 84,
+            "x0": 309,
+            "x1": 453,
+            "y0": 241,
+            "y1": 250
+          },
+          "children": [],
+          "id": "2db9b8f2ba88",
+          "kind": "paragraph",
+          "provenance": {
+            "extractor": "segment",
+            "stage": "build_tree"
+          },
+          "text": "amet, consectetur adipiscing elit."
+        },
+        {
+          "attrs": {},
+          "bbox": {
+            "page": 0,
+            "x0": 85,
+            "x1": 262,
+            "y0": 259,
+            "y1": 268
+          },
+          "children": [],
+          "id": "cca0fa82e3a7",
+          "kind": "paragraph",
+          "provenance": {
+            "extractor": "segment",
+            "stage": "build_tree"
+          },
+          "text": "Lorem ipsum dolor sit amet, consectetur"
+        },
+        {
+          "attrs": {},
+          "bbox": {
+            "page": 0,
+            "x0": 310,
             "x1": 487,
-            "y0": 255,
-            "y1": 269
+            "y0": 259,
+            "y1": 268
           },
           "children": [],
-          "id": "e63f96f5861c",
+          "id": "36f8079bc7c7",
           "kind": "paragraph",
           "provenance": {
             "extractor": "segment",
             "stage": "build_tree"
           },
-          "text": "Lorem ipsum dolor sit amet, consectetur Lorem ipsum dolor sit amet, consectetur"
+          "text": "Lorem ipsum dolor sit amet, consectetur"
         },
         {
           "attrs": {},
           "bbox": {
             "page": 0,
             "x0": 84,
-            "x1": 498,
-            "y0": 267,
-            "y1": 281
+            "x1": 272,
+            "y0": 271,
+            "y1": 280
           },
           "children": [],
-          "id": "d008398c518b",
+          "id": "ba1e3b3cb17d",
           "kind": "paragraph",
           "provenance": {
             "extractor": "segment",
             "stage": "build_tree"
           },
-          "text": "adipiscing elit. Lorem ipsum dolor sit amet, adipiscing elit. Lorem ipsum dolor sit amet,"
+          "text": "adipiscing elit. Lorem ipsum dolor sit amet,"
+        },
+        {
+          "attrs": {},
+          "bbox": {
+            "page": 0,
+            "x0": 309,
+            "x1": 497,
+            "y0": 271,
+            "y1": 280
+          },
+          "children": [],
+          "id": "e2b06ef7c7fa",
+          "kind": "paragraph",
+          "provenance": {
+            "extractor": "segment",
+            "stage": "build_tree"
+          },
+          "text": "adipiscing elit. Lorem ipsum dolor sit amet,"
         },
         {
           "attrs": {},
@@ -262,11 +442,11 @@
             "page": 0,
             "x0": 84,
             "x1": 525,
-            "y0": 279,
-            "y1": 293
+            "y0": 283,
+            "y1": 292
           },
           "children": [],
-          "id": "cc478abbd746",
+          "id": "629622d943cf",
           "kind": "paragraph",
           "provenance": {
             "extractor": "segment",
@@ -279,90 +459,180 @@
           "bbox": {
             "page": 0,
             "x0": 84,
-            "x1": 515,
-            "y0": 291,
-            "y1": 305
+            "x1": 289,
+            "y0": 295,
+            "y1": 304
           },
           "children": [],
-          "id": "371e869cf364",
+          "id": "2c53e3e3f336",
           "kind": "paragraph",
           "provenance": {
             "extractor": "segment",
             "stage": "build_tree"
           },
-          "text": "amet, consectetur adipiscing elit. Lorem ipsum amet, consectetur adipiscing elit. Lorem ipsum"
+          "text": "amet, consectetur adipiscing elit. Lorem ipsum"
+        },
+        {
+          "attrs": {},
+          "bbox": {
+            "page": 0,
+            "x0": 309,
+            "x1": 514,
+            "y0": 295,
+            "y1": 304
+          },
+          "children": [],
+          "id": "d9908fd66fdf",
+          "kind": "paragraph",
+          "provenance": {
+            "extractor": "segment",
+            "stage": "build_tree"
+          },
+          "text": "amet, consectetur adipiscing elit. Lorem ipsum"
         },
         {
           "attrs": {},
           "bbox": {
             "page": 0,
             "x0": 84,
-            "x1": 523,
-            "y0": 303,
-            "y1": 317
+            "x1": 297,
+            "y0": 307,
+            "y1": 316
           },
           "children": [],
-          "id": "5168e1e03ead",
+          "id": "54b757dbb15d",
           "kind": "paragraph",
           "provenance": {
             "extractor": "segment",
             "stage": "build_tree"
           },
-          "text": "dolor sit amet, consectetur adipiscing elit. Lorem dolor sit amet, consectetur adipiscing elit. Lorem"
+          "text": "dolor sit amet, consectetur adipiscing elit. Lorem"
         },
         {
           "attrs": {},
           "bbox": {
             "page": 0,
-            "x0": 84,
-            "x1": 521,
-            "y0": 315,
-            "y1": 329
+            "x0": 309,
+            "x1": 522,
+            "y0": 307,
+            "y1": 316
           },
           "children": [],
-          "id": "4c6afcaf4d1f",
+          "id": "881a4745f0e4",
           "kind": "paragraph",
           "provenance": {
             "extractor": "segment",
             "stage": "build_tree"
           },
-          "text": "ipsum dolor sit amet, consectetur adipiscing elit. ipsum dolor sit amet, consectetur adipiscing elit."
+          "text": "dolor sit amet, consectetur adipiscing elit. Lorem"
         },
         {
           "attrs": {},
           "bbox": {
             "page": 0,
-            "x0": 84,
+            "x0": 85,
+            "x1": 295,
+            "y0": 319,
+            "y1": 328
+          },
+          "children": [],
+          "id": "68953b29f72c",
+          "kind": "paragraph",
+          "provenance": {
+            "extractor": "segment",
+            "stage": "build_tree"
+          },
+          "text": "ipsum dolor sit amet, consectetur adipiscing elit."
+        },
+        {
+          "attrs": {},
+          "bbox": {
+            "page": 0,
+            "x0": 310,
+            "x1": 520,
+            "y0": 319,
+            "y1": 328
+          },
+          "children": [],
+          "id": "3da45465a430",
+          "kind": "paragraph",
+          "provenance": {
+            "extractor": "segment",
+            "stage": "build_tree"
+          },
+          "text": "ipsum dolor sit amet, consectetur adipiscing elit."
+        },
+        {
+          "attrs": {},
+          "bbox": {
+            "page": 0,
+            "x0": 85,
+            "x1": 262,
+            "y0": 331,
+            "y1": 340
+          },
+          "children": [],
+          "id": "8540270fc376",
+          "kind": "paragraph",
+          "provenance": {
+            "extractor": "segment",
+            "stage": "build_tree"
+          },
+          "text": "Lorem ipsum dolor sit amet, consectetur"
+        },
+        {
+          "attrs": {},
+          "bbox": {
+            "page": 0,
+            "x0": 310,
             "x1": 487,
-            "y0": 327,
-            "y1": 341
+            "y0": 331,
+            "y1": 340
           },
           "children": [],
-          "id": "899246eded64",
+          "id": "d8d7e7a1e546",
           "kind": "paragraph",
           "provenance": {
             "extractor": "segment",
             "stage": "build_tree"
           },
-          "text": "Lorem ipsum dolor sit amet, consectetur Lorem ipsum dolor sit amet, consectetur"
+          "text": "Lorem ipsum dolor sit amet, consectetur"
         },
         {
           "attrs": {},
           "bbox": {
             "page": 0,
             "x0": 84,
-            "x1": 498,
-            "y0": 339,
-            "y1": 353
+            "x1": 272,
+            "y0": 343,
+            "y1": 352
           },
           "children": [],
-          "id": "ace7f4d6d67e",
+          "id": "3a709e83cf75",
           "kind": "paragraph",
           "provenance": {
             "extractor": "segment",
             "stage": "build_tree"
           },
-          "text": "adipiscing elit. Lorem ipsum dolor sit amet, adipiscing elit. Lorem ipsum dolor sit amet,"
+          "text": "adipiscing elit. Lorem ipsum dolor sit amet,"
+        },
+        {
+          "attrs": {},
+          "bbox": {
+            "page": 0,
+            "x0": 309,
+            "x1": 497,
+            "y0": 343,
+            "y1": 352
+          },
+          "children": [],
+          "id": "3fe346b294c0",
+          "kind": "paragraph",
+          "provenance": {
+            "extractor": "segment",
+            "stage": "build_tree"
+          },
+          "text": "adipiscing elit. Lorem ipsum dolor sit amet,"
         },
         {
           "attrs": {},
@@ -370,11 +640,11 @@
             "page": 0,
             "x0": 84,
             "x1": 525,
-            "y0": 351,
-            "y1": 365
+            "y0": 355,
+            "y1": 364
           },
           "children": [],
-          "id": "71492c7d924a",
+          "id": "dc5c18e48cc2",
           "kind": "paragraph",
           "provenance": {
             "extractor": "segment",
@@ -387,27 +657,45 @@
           "bbox": {
             "page": 0,
             "x0": 84,
-            "x1": 454,
-            "y0": 363,
-            "y1": 377
+            "x1": 228,
+            "y0": 367,
+            "y1": 376
           },
           "children": [],
-          "id": "f169cee2ccbe",
+          "id": "49906c702d65",
           "kind": "paragraph",
           "provenance": {
             "extractor": "segment",
             "stage": "build_tree"
           },
-          "text": "amet, consectetur adipiscing elit. amet, consectetur adipiscing elit."
+          "text": "amet, consectetur adipiscing elit."
+        },
+        {
+          "attrs": {},
+          "bbox": {
+            "page": 0,
+            "x0": 309,
+            "x1": 453,
+            "y0": 367,
+            "y1": 376
+          },
+          "children": [],
+          "id": "aa2d2cebe1ed",
+          "kind": "paragraph",
+          "provenance": {
+            "extractor": "segment",
+            "stage": "build_tree"
+          },
+          "text": "amet, consectetur adipiscing elit."
         }
       ],
-      "id": "38fa5869c90f",
+      "id": "74924539d531",
       "kind": "page",
       "provenance": {},
       "text": null
     }
   ],
-  "id": "24f10114e206",
+  "id": "7e20d9f76cbb",
   "kind": "document",
   "provenance": {},
   "text": null

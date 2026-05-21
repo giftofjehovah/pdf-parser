@@ -19,28 +19,21 @@
           "text": "2. Findings"
         },
         {
-          "kind": "heading",
-          "text": "\u2022"
-        },
-        {
-          "kind": "paragraph",
-          "text": "First finding."
-        },
-        {
-          "kind": "heading",
-          "text": "\u2022"
-        },
-        {
-          "kind": "paragraph",
-          "text": "Second finding."
-        },
-        {
-          "kind": "heading",
-          "text": "\u2022"
-        },
-        {
-          "kind": "paragraph",
-          "text": "Third finding."
+          "children": [
+            {
+              "kind": "list_item",
+              "text": "\u2022 First finding."
+            },
+            {
+              "kind": "list_item",
+              "text": "\u2022 Second finding."
+            },
+            {
+              "kind": "list_item",
+              "text": "\u2022 Third finding."
+            }
+          ],
+          "kind": "list"
         },
         {
           "kind": "heading",

@@ -51,10 +51,10 @@ body {{
   overflow: hidden;
   white-space: nowrap;
 }}
-.tb-h1 {{ font-size: {14 * _S:.2f}px; font-weight: bold; }}
-.tb-h2 {{ font-size: {12 * _S:.2f}px; font-weight: bold; }}
-.tb-h3 {{ font-size: {11 * _S:.2f}px; font-weight: bold; }}
-.tb-h4 {{ font-size: {10 * _S:.2f}px; font-weight: bold; }}
+.tb-h1 {{ font-size: {14 * _S:.2f}px; font-weight: bold; overflow: visible; }}
+.tb-h2 {{ font-size: {12 * _S:.2f}px; font-weight: bold; overflow: visible; }}
+.tb-h3 {{ font-size: {11 * _S:.2f}px; font-weight: bold; overflow: visible; }}
+.tb-h4 {{ font-size: {10 * _S:.2f}px; font-weight: bold; overflow: visible; }}
 .cell {{
   position: absolute;
   overflow: hidden;
@@ -165,32 +165,65 @@ def _load_rect_colors(pdf_path: Path) -> list[_RectEntry]:
     return entries
 
 
-# xref → "data:<mime>;base64,<b64>"
+# image_id → "data:<mime>;base64,<b64>"
 _ImageMap = dict[int, str]
+
+
+def _stream_to_uri(stream) -> str:
+    """Convert a pdfminer PDFStream to a base64 data URI string."""
+    import base64
+    import io
+
+    from PIL import Image as PilImage
+
+    filters = stream.attrs.get("Filter")
+    if filters is not None:
+        flist = filters if isinstance(filters, list) else [filters]
+        if any("DCTDecode" in str(f) for f in flist):
+            data = stream.get_data()
+            b64 = base64.b64encode(data).decode()
+            return f"data:image/jpeg;base64,{b64}"
+    # Decompress to raw pixels and re-encode as PNG via Pillow.
+    raw = stream.get_data()
+    width = int(stream.attrs.get("Width", 0))
+    height = int(stream.attrs.get("Height", 0))
+    cs = str(stream.attrs.get("ColorSpace", "DeviceRGB"))
+    mode = "L" if "Gray" in cs else "CMYK" if "CMYK" in cs else "RGB"
+    img = PilImage.frombytes(mode, (width, height), raw)
+    buf = io.BytesIO()
+    img.save(buf, format="PNG")
+    b64 = base64.b64encode(buf.getvalue()).decode()
+    return f"data:image/png;base64,{b64}"
 
 
 def _load_images(pdf_path: Path) -> _ImageMap:
     """Extract all embedded images from the PDF as base64 data URIs."""
-    import base64
-    import pymupdf
+    import pdfplumber
 
     data: _ImageMap = {}
-    doc = pymupdf.open(str(pdf_path))
-    try:
-        for page in doc:
-            for img_info in page.get_image_info(xrefs=True):
-                xref = img_info.get("xref", 0)
-                if not xref or xref in data:
+    stream_to_id: dict[int, int] = {}
+    image_counter = 0
+    seen_page_streams: set[tuple[int, int]] = set()
+
+    with pdfplumber.open(str(pdf_path)) as doc:
+        for page_idx, page in enumerate(doc.pages):
+            for img in page.images:
+                stream = img.get("stream")
+                if stream is None:
                     continue
-                img = doc.extract_image(xref)
-                if not img:
+                sid = id(stream)
+                if (page_idx, sid) in seen_page_streams:
                     continue
-                ext = img.get("ext", "png")
-                mime = "image/jpeg" if ext in ("jpg", "jpeg") else f"image/{ext}"
-                b64 = base64.b64encode(img["image"]).decode()
-                data[xref] = f"data:{mime};base64,{b64}"
-    finally:
-        doc.close()
+                seen_page_streams.add((page_idx, sid))
+                if sid not in stream_to_id:
+                    stream_to_id[sid] = image_counter
+                    image_counter += 1
+                image_id = stream_to_id[sid]
+                if image_id not in data:
+                    try:
+                        data[image_id] = _stream_to_uri(stream)
+                    except Exception:
+                        pass
     return data
 
 
@@ -305,10 +338,12 @@ def _render_table_rows(
                     extra_border = "border-top:1px solid #000;"
                 bg_css = f"background:{bg};" if bg else ""
                 style = f"{pos}{bg_css}{bold}{extra_border}"
-                tag_open = f'<div class="cell{"" if col_idx == 0 else " num"}" style="{style}'
+                is_right = cell.attrs.get("align") == "right"
+                tag_open = f'<div class="cell{" num" if is_right else ""}" style="{style}'
             else:
                 style = pos
-                num = "" if col_idx == 0 else " num"
+                is_right = cell.attrs.get("align") == "right"
+                num = " num" if is_right else ""
                 tag_open = f'<div class="cell r{rtype}{num}" style="{style}'
 
             # Italic for percentage rows (non-label cells only)
@@ -384,15 +419,17 @@ def _render_node(
     if kind == "table":
         return _render_table(node, rects, page_index)
 
-    if kind in ("list", "list_item"):
+    if kind == "list":
+        return "".join(_render_node(c, rects, page_index, extras, images) for c in node.children)
+
+    if kind == "list_item":
         b = _single_bbox(node)
-        bullet = "• " if kind == "list_item" else ""
-        return f'<div class="tb" style="{_bbox_pos(b)}">{bullet}{_esc(node.text)}</div>'
+        return f'<div class="tb" style="{_bbox_pos(b)}">{_esc(node.text)}</div>'
 
     if kind == "figure":
         b = _single_bbox(node)
-        xref = node.attrs.get("xref")
-        src = images.get(xref, "") if images and xref else ""
+        image_id = node.attrs.get("image_id")
+        src = images.get(image_id, "") if images and image_id is not None else ""
         if not src:
             src = _esc(node.attrs.get("path", ""))
         return (

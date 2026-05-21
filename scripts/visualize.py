@@ -11,7 +11,7 @@ from __future__ import annotations
 
 from pathlib import Path
 
-import pymupdf
+import pypdfium2 as pdfium
 from PIL import Image, ImageDraw
 
 from pdf_parser.model import BBox, DocNode
@@ -27,6 +27,9 @@ KIND_COLORS = {
     "figure": (200, 120, 30),
 }
 
+_DPI = 150
+_SCALE = _DPI / 72  # PDF points → pixels
+
 
 def _walk(node: DocNode):
     yield node
@@ -38,12 +41,12 @@ def _bboxes(node: DocNode) -> list[BBox]:
     return node.bbox if isinstance(node.bbox, list) else [node.bbox]
 
 
-def _render_page(page, page_index: int, tree: DocNode) -> Image.Image:
-    pix = page.get_pixmap(dpi=150)
-    img = Image.frombytes("RGB", (pix.width, pix.height), pix.samples)
+def _render_page(page: pdfium.PdfPage, page_index: int, tree: DocNode) -> Image.Image:
+    bitmap = page.render(scale=_SCALE)
+    img = bitmap.to_pil()
     draw = ImageDraw.Draw(img)
-    scale_x = pix.width / page.rect.width
-    scale_y = pix.height / page.rect.height
+    scale_x = img.width / page.get_width()
+    scale_y = img.height / page.get_height()
     for node in _walk(tree):
         color = KIND_COLORS.get(node.kind)
         if color is None:
@@ -66,15 +69,15 @@ def render_overlays(pdf_path: Path, tree: DocNode, out: Path) -> None:
     else:
         out.mkdir(parents=True, exist_ok=True)
 
-    doc = pymupdf.open(str(pdf_path))
+    doc = pdfium.PdfDocument(str(pdf_path))
     try:
         if as_pdf:
-            pages = [_render_page(page, idx, tree) for idx, page in enumerate(doc)]
+            pages = [_render_page(doc[idx], idx, tree) for idx in range(len(doc))]
             if not pages:
                 raise ValueError(f"{pdf_path} has no pages to render")
             pages[0].save(out, save_all=True, append_images=pages[1:])
         else:
-            for idx, page in enumerate(doc):
-                _render_page(page, idx, tree).save(out / f"page_{idx:03d}.png")
+            for idx in range(len(doc)):
+                _render_page(doc[idx], idx, tree).save(out / f"page_{idx:03d}.png")
     finally:
         doc.close()

@@ -4,7 +4,6 @@ version = "0.1.0"
 description = "Deterministic layout-first PDF parser with nested-table support."
 requires-python = ">=3.11,<3.14"
 dependencies = [
-    "pymupdf==1.24.10",
     "pdfplumber==0.11.4",
     "pydantic==2.9.2",
     "typer==0.12.5",

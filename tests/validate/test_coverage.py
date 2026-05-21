@@ -1,6 +1,6 @@
 from pathlib import Path
 
-import pymupdf
+import pypdfium2 as pdfium
 
 from pdf_parser.pipeline import parse
 from pdf_parser.validate.coverage import coverage_diff, coverage_ok
@@ -9,9 +9,9 @@ SIMPLE = Path("tests/golden/synthetic/01_simple_table/source.pdf")
 
 
 def _raw_text(pdf_path: Path) -> str:
-    doc = pymupdf.open(str(pdf_path))
+    doc = pdfium.PdfDocument(str(pdf_path))
     try:
-        return "".join(page.get_text() for page in doc)
+        return "".join(page.get_textpage().get_text_bounded() for page in doc)
     finally:
         doc.close()
 

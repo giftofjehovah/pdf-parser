@@ -26,13 +26,13 @@
           },
           "bbox": {
             "page": 0,
-            "x0": 78,
-            "x1": 472,
-            "y0": 77,
-            "y1": 102
+            "x0": 79,
+            "x1": 471,
+            "y0": 83,
+            "y1": 100
           },
           "children": [],
-          "id": "63b4e38bdb37",
+          "id": "669a0ec2df90",
           "kind": "heading",
           "provenance": {
             "extractor": "segment",
@@ -87,7 +87,9 @@
               },
               "children": [
                 {
-                  "attrs": {},
+                  "attrs": {
+                    "align": "left"
+                  },
                   "bbox": {
                     "page": 0,
                     "x0": 56,
@@ -105,7 +107,9 @@
                   "text": "Step"
                 },
                 {
-                  "attrs": {},
+                  "attrs": {
+                    "align": "left"
+                  },
                   "bbox": {
                     "page": 0,
                     "x0": 126,
@@ -123,7 +127,9 @@
                   "text": "Inputs"
                 },
                 {
-                  "attrs": {},
+                  "attrs": {
+                    "align": "left"
+                  },
                   "bbox": {
                     "page": 0,
                     "x0": 406,
@@ -160,7 +166,9 @@
               },
               "children": [
                 {
-                  "attrs": {},
+                  "attrs": {
+                    "align": "left"
+                  },
                   "bbox": {
                     "page": 0,
                     "x0": 56,
@@ -178,7 +186,9 @@
                   "text": "1"
                 },
                 {
-                  "attrs": {},
+                  "attrs": {
+                    "align": "left"
+                  },
                   "bbox": {
                     "page": 0,
                     "x0": 126,
@@ -196,7 +206,9 @@
                   "text": "plain input 1"
                 },
                 {
-                  "attrs": {},
+                  "attrs": {
+                    "align": "left"
+                  },
                   "bbox": {
                     "page": 0,
                     "x0": 406,
@@ -233,7 +245,9 @@
               },
               "children": [
                 {
-                  "attrs": {},
+                  "attrs": {
+                    "align": "left"
+                  },
                   "bbox": {
                     "page": 0,
                     "x0": 56,
@@ -251,7 +265,9 @@
                   "text": "2"
                 },
                 {
-                  "attrs": {},
+                  "attrs": {
+                    "align": "left"
+                  },
                   "bbox": {
                     "page": 0,
                     "x0": 126,
@@ -269,7 +285,9 @@
                   "text": "plain input 2"
                 },
                 {
-                  "attrs": {},
+                  "attrs": {
+                    "align": "left"
+                  },
                   "bbox": {
                     "page": 0,
                     "x0": 406,
@@ -306,7 +324,9 @@
               },
               "children": [
                 {
-                  "attrs": {},
+                  "attrs": {
+                    "align": "left"
+                  },
                   "bbox": {
                     "page": 0,
                     "x0": 56,
@@ -324,7 +344,9 @@
                   "text": "3"
                 },
                 {
-                  "attrs": {},
+                  "attrs": {
+                    "align": "left"
+                  },
                   "bbox": {
                     "page": 0,
                     "x0": 126,
@@ -342,7 +364,9 @@
                   "text": "plain input 3"
                 },
                 {
-                  "attrs": {},
+                  "attrs": {
+                    "align": "left"
+                  },
                   "bbox": {
                     "page": 0,
                     "x0": 406,
@@ -379,7 +403,9 @@
               },
               "children": [
                 {
-                  "attrs": {},
+                  "attrs": {
+                    "align": "left"
+                  },
                   "bbox": {
                     "page": 0,
                     "x0": 56,
@@ -397,7 +423,9 @@
                   "text": "4"
                 },
                 {
-                  "attrs": {},
+                  "attrs": {
+                    "align": "left"
+                  },
                   "bbox": {
                     "page": 0,
                     "x0": 126,
@@ -415,7 +443,9 @@
                   "text": "plain input 4"
                 },
                 {
-                  "attrs": {},
+                  "attrs": {
+                    "align": "left"
+                  },
                   "bbox": {
                     "page": 0,
                     "x0": 406,
@@ -452,7 +482,9 @@
               },
               "children": [
                 {
-                  "attrs": {},
+                  "attrs": {
+                    "align": "left"
+                  },
                   "bbox": {
                     "page": 0,
                     "x0": 56,
@@ -470,7 +502,9 @@
                   "text": "5"
                 },
                 {
-                  "attrs": {},
+                  "attrs": {
+                    "align": "left"
+                  },
                   "bbox": {
                     "page": 0,
                     "x0": 126,
@@ -512,7 +546,9 @@
                           },
                           "children": [
                             {
-                              "attrs": {},
+                              "attrs": {
+                                "align": "left"
+                              },
                               "bbox": {
                                 "page": 0,
                                 "x0": 132,
@@ -530,7 +566,9 @@
                               "text": "p1-A"
                             },
                             {
-                              "attrs": {},
+                              "attrs": {
+                                "align": "left"
+                              },
                               "bbox": {
                                 "page": 0,
                                 "x0": 182,
@@ -567,7 +605,9 @@
                           },
                           "children": [
                             {
-                              "attrs": {},
+                              "attrs": {
+                                "align": "left"
+                              },
                               "bbox": {
                                 "page": 0,
                                 "x0": 132,
@@ -585,7 +625,9 @@
                               "text": "1"
                             },
                             {
-                              "attrs": {},
+                              "attrs": {
+                                "align": "left"
+                              },
                               "bbox": {
                                 "page": 0,
                                 "x0": 182,
@@ -627,7 +669,9 @@
                   "text": null
                 },
                 {
-                  "attrs": {},
+                  "attrs": {
+                    "align": "left"
+                  },
                   "bbox": {
                     "page": 0,
                     "x0": 406,
@@ -664,7 +708,9 @@
               },
               "children": [
                 {
-                  "attrs": {},
+                  "attrs": {
+                    "align": "left"
+                  },
                   "bbox": {
                     "page": 0,
                     "x0": 56,
@@ -682,7 +728,9 @@
                   "text": "6"
                 },
                 {
-                  "attrs": {},
+                  "attrs": {
+                    "align": "left"
+                  },
                   "bbox": {
                     "page": 0,
                     "x0": 126,
@@ -700,7 +748,9 @@
                   "text": "plain input 6"
                 },
                 {
-                  "attrs": {},
+                  "attrs": {
+                    "align": "left"
+                  },
                   "bbox": {
                     "page": 0,
                     "x0": 406,
@@ -737,7 +787,9 @@
               },
               "children": [
                 {
-                  "attrs": {},
+                  "attrs": {
+                    "align": "left"
+                  },
                   "bbox": {
                     "page": 0,
                     "x0": 56,
@@ -755,7 +807,9 @@
                   "text": "7"
                 },
                 {
-                  "attrs": {},
+                  "attrs": {
+                    "align": "left"
+                  },
                   "bbox": {
                     "page": 0,
                     "x0": 126,
@@ -773,7 +827,9 @@
                   "text": "plain input 7"
                 },
                 {
-                  "attrs": {},
+                  "attrs": {
+                    "align": "left"
+                  },
                   "bbox": {
                     "page": 0,
                     "x0": 406,
@@ -810,7 +866,9 @@
               },
               "children": [
                 {
-                  "attrs": {},
+                  "attrs": {
+                    "align": "left"
+                  },
                   "bbox": {
                     "page": 0,
                     "x0": 56,
@@ -828,7 +886,9 @@
                   "text": "8"
                 },
                 {
-                  "attrs": {},
+                  "attrs": {
+                    "align": "left"
+                  },
                   "bbox": {
                     "page": 0,
                     "x0": 126,
@@ -846,7 +906,9 @@
                   "text": "plain input 8"
                 },
                 {
-                  "attrs": {},
+                  "attrs": {
+                    "align": "left"
+                  },
                   "bbox": {
                     "page": 0,
                     "x0": 406,
@@ -883,7 +945,9 @@
               },
               "children": [
                 {
-                  "attrs": {},
+                  "attrs": {
+                    "align": "left"
+                  },
                   "bbox": {
                     "page": 0,
                     "x0": 56,
@@ -901,7 +965,9 @@
                   "text": "9"
                 },
                 {
-                  "attrs": {},
+                  "attrs": {
+                    "align": "left"
+                  },
                   "bbox": {
                     "page": 0,
                     "x0": 126,
@@ -919,7 +985,9 @@
                   "text": "plain input 9"
                 },
                 {
-                  "attrs": {},
+                  "attrs": {
+                    "align": "left"
+                  },
                   "bbox": {
                     "page": 0,
                     "x0": 406,
@@ -956,7 +1024,9 @@
               },
               "children": [
                 {
-                  "attrs": {},
+                  "attrs": {
+                    "align": "left"
+                  },
                   "bbox": {
                     "page": 0,
                     "x0": 56,
@@ -974,7 +1044,9 @@
                   "text": "10"
                 },
                 {
-                  "attrs": {},
+                  "attrs": {
+                    "align": "left"
+                  },
                   "bbox": {
                     "page": 0,
                     "x0": 126,
@@ -992,7 +1064,9 @@
                   "text": "plain input 10"
                 },
                 {
-                  "attrs": {},
+                  "attrs": {
+                    "align": "left"
+                  },
                   "bbox": {
                     "page": 0,
                     "x0": 406,
@@ -1029,7 +1103,9 @@
               },
               "children": [
                 {
-                  "attrs": {},
+                  "attrs": {
+                    "align": "left"
+                  },
                   "bbox": {
                     "page": 0,
                     "x0": 56,
@@ -1047,7 +1123,9 @@
                   "text": "11"
                 },
                 {
-                  "attrs": {},
+                  "attrs": {
+                    "align": "left"
+                  },
                   "bbox": {
                     "page": 0,
                     "x0": 126,
@@ -1065,7 +1143,9 @@
                   "text": "plain input 11"
                 },
                 {
-                  "attrs": {},
+                  "attrs": {
+                    "align": "left"
+                  },
                   "bbox": {
                     "page": 0,
                     "x0": 406,
@@ -1102,7 +1182,9 @@
               },
               "children": [
                 {
-                  "attrs": {},
+                  "attrs": {
+                    "align": "left"
+                  },
                   "bbox": {
                     "page": 0,
                     "x0": 56,
@@ -1120,7 +1202,9 @@
                   "text": "12"
                 },
                 {
-                  "attrs": {},
+                  "attrs": {
+                    "align": "left"
+                  },
                   "bbox": {
                     "page": 0,
                     "x0": 126,
@@ -1138,7 +1222,9 @@
                   "text": "plain input 12"
                 },
                 {
-                  "attrs": {},
+                  "attrs": {
+                    "align": "left"
+                  },
                   "bbox": {
                     "page": 0,
                     "x0": 406,
@@ -1175,7 +1261,9 @@
               },
               "children": [
                 {
-                  "attrs": {},
+                  "attrs": {
+                    "align": "left"
+                  },
                   "bbox": {
                     "page": 0,
                     "x0": 56,
@@ -1193,7 +1281,9 @@
                   "text": "13"
                 },
                 {
-                  "attrs": {},
+                  "attrs": {
+                    "align": "left"
+                  },
                   "bbox": {
                     "page": 0,
                     "x0": 126,
@@ -1211,7 +1301,9 @@
                   "text": "plain input 13"
                 },
                 {
-                  "attrs": {},
+                  "attrs": {
+                    "align": "left"
+                  },
                   "bbox": {
                     "page": 0,
                     "x0": 406,
@@ -1248,7 +1340,9 @@
               },
               "children": [
                 {
-                  "attrs": {},
+                  "attrs": {
+                    "align": "left"
+                  },
                   "bbox": {
                     "page": 0,
                     "x0": 56,
@@ -1266,7 +1360,9 @@
                   "text": "14"
                 },
                 {
-                  "attrs": {},
+                  "attrs": {
+                    "align": "left"
+                  },
                   "bbox": {
                     "page": 0,
                     "x0": 126,
@@ -1284,7 +1380,9 @@
                   "text": "plain input 14"
                 },
                 {
-                  "attrs": {},
+                  "attrs": {
+                    "align": "left"
+                  },
                   "bbox": {
                     "page": 0,
                     "x0": 406,
@@ -1321,7 +1419,9 @@
               },
               "children": [
                 {
-                  "attrs": {},
+                  "attrs": {
+                    "align": "left"
+                  },
                   "bbox": {
                     "page": 0,
                     "x0": 56,
@@ -1339,7 +1439,9 @@
                   "text": "15"
                 },
                 {
-                  "attrs": {},
+                  "attrs": {
+                    "align": "left"
+                  },
                   "bbox": {
                     "page": 0,
                     "x0": 126,
@@ -1357,7 +1459,9 @@
                   "text": "plain input 15"
                 },
                 {
-                  "attrs": {},
+                  "attrs": {
+                    "align": "left"
+                  },
                   "bbox": {
                     "page": 0,
                     "x0": 406,
@@ -1394,7 +1498,9 @@
               },
               "children": [
                 {
-                  "attrs": {},
+                  "attrs": {
+                    "align": "left"
+                  },
                   "bbox": {
                     "page": 0,
                     "x0": 56,
@@ -1412,7 +1518,9 @@
                   "text": "16"
                 },
                 {
-                  "attrs": {},
+                  "attrs": {
+                    "align": "left"
+                  },
                   "bbox": {
                     "page": 0,
                     "x0": 126,
@@ -1430,7 +1538,9 @@
                   "text": "plain input 16"
                 },
                 {
-                  "attrs": {},
+                  "attrs": {
+                    "align": "left"
+                  },
                   "bbox": {
                     "page": 0,
                     "x0": 406,
@@ -1467,7 +1577,9 @@
               },
               "children": [
                 {
-                  "attrs": {},
+                  "attrs": {
+                    "align": "left"
+                  },
                   "bbox": {
                     "page": 0,
                     "x0": 56,
@@ -1485,7 +1597,9 @@
                   "text": "17"
                 },
                 {
-                  "attrs": {},
+                  "attrs": {
+                    "align": "left"
+                  },
                   "bbox": {
                     "page": 0,
                     "x0": 126,
@@ -1503,7 +1617,9 @@
                   "text": "plain input 17"
                 },
                 {
-                  "attrs": {},
+                  "attrs": {
+                    "align": "left"
+                  },
                   "bbox": {
                     "page": 0,
                     "x0": 406,
@@ -1540,7 +1656,9 @@
               },
               "children": [
                 {
-                  "attrs": {},
+                  "attrs": {
+                    "align": "left"
+                  },
                   "bbox": {
                     "page": 0,
                     "x0": 56,
@@ -1558,7 +1676,9 @@
                   "text": "18"
                 },
                 {
-                  "attrs": {},
+                  "attrs": {
+                    "align": "left"
+                  },
                   "bbox": {
                     "page": 0,
                     "x0": 126,
@@ -1576,7 +1696,9 @@
                   "text": "plain input 18"
                 },
                 {
-                  "attrs": {},
+                  "attrs": {
+                    "align": "left"
+                  },
                   "bbox": {
                     "page": 0,
                     "x0": 406,
@@ -1613,7 +1735,9 @@
               },
               "children": [
                 {
-                  "attrs": {},
+                  "attrs": {
+                    "align": "left"
+                  },
                   "bbox": {
                     "page": 0,
                     "x0": 56,
@@ -1631,7 +1755,9 @@
                   "text": "19"
                 },
                 {
-                  "attrs": {},
+                  "attrs": {
+                    "align": "left"
+                  },
                   "bbox": {
                     "page": 0,
                     "x0": 126,
@@ -1649,7 +1775,9 @@
                   "text": "plain input 19"
                 },
                 {
-                  "attrs": {},
+                  "attrs": {
+                    "align": "left"
+                  },
                   "bbox": {
                     "page": 0,
                     "x0": 406,
@@ -1686,7 +1814,9 @@
               },
               "children": [
                 {
-                  "attrs": {},
+                  "attrs": {
+                    "align": "left"
+                  },
                   "bbox": {
                     "page": 0,
                     "x0": 56,
@@ -1704,7 +1834,9 @@
                   "text": "20"
                 },
                 {
-                  "attrs": {},
+                  "attrs": {
+                    "align": "left"
+                  },
                   "bbox": {
                     "page": 0,
                     "x0": 126,
@@ -1722,7 +1854,9 @@
                   "text": "plain input 20"
                 },
                 {
-                  "attrs": {},
+                  "attrs": {
+                    "align": "left"
+                  },
                   "bbox": {
                     "page": 0,
                     "x0": 406,
@@ -1759,7 +1893,9 @@
               },
               "children": [
                 {
-                  "attrs": {},
+                  "attrs": {
+                    "align": "left"
+                  },
                   "bbox": {
                     "page": 0,
                     "x0": 56,
@@ -1777,7 +1913,9 @@
                   "text": "21"
                 },
                 {
-                  "attrs": {},
+                  "attrs": {
+                    "align": "left"
+                  },
                   "bbox": {
                     "page": 0,
                     "x0": 126,
@@ -1795,7 +1933,9 @@
                   "text": "plain input 21"
                 },
                 {
-                  "attrs": {},
+                  "attrs": {
+                    "align": "left"
+                  },
                   "bbox": {
                     "page": 0,
                     "x0": 406,
@@ -1832,7 +1972,9 @@
               },
               "children": [
                 {
-                  "attrs": {},
+                  "attrs": {
+                    "align": "left"
+                  },
                   "bbox": {
                     "page": 0,
                     "x0": 56,
@@ -1850,7 +1992,9 @@
                   "text": "22"
                 },
                 {
-                  "attrs": {},
+                  "attrs": {
+                    "align": "left"
+                  },
                   "bbox": {
                     "page": 0,
                     "x0": 126,
@@ -1868,7 +2012,9 @@
                   "text": "plain input 22"
                 },
                 {
-                  "attrs": {},
+                  "attrs": {
+                    "align": "left"
+                  },
                   "bbox": {
                     "page": 0,
                     "x0": 406,
@@ -1905,7 +2051,9 @@
               },
               "children": [
                 {
-                  "attrs": {},
+                  "attrs": {
+                    "align": "left"
+                  },
                   "bbox": {
                     "page": 0,
                     "x0": 56,
@@ -1923,7 +2071,9 @@
                   "text": "23"
                 },
                 {
-                  "attrs": {},
+                  "attrs": {
+                    "align": "left"
+                  },
                   "bbox": {
                     "page": 0,
                     "x0": 126,
@@ -1941,7 +2091,9 @@
                   "text": "plain input 23"
                 },
                 {
-                  "attrs": {},
+                  "attrs": {
+                    "align": "left"
+                  },
                   "bbox": {
                     "page": 0,
                     "x0": 406,
@@ -1978,7 +2130,9 @@
               },
               "children": [
                 {
-                  "attrs": {},
+                  "attrs": {
+                    "align": "left"
+                  },
                   "bbox": {
                     "page": 0,
                     "x0": 56,
@@ -1996,7 +2150,9 @@
                   "text": "24"
                 },
                 {
-                  "attrs": {},
+                  "attrs": {
+                    "align": "left"
+                  },
                   "bbox": {
                     "page": 0,
                     "x0": 126,
@@ -2014,7 +2170,9 @@
                   "text": "plain input 24"
                 },
                 {
-                  "attrs": {},
+                  "attrs": {
+                    "align": "left"
+                  },
                   "bbox": {
                     "page": 0,
                     "x0": 406,
@@ -2051,7 +2209,9 @@
               },
               "children": [
                 {
-                  "attrs": {},
+                  "attrs": {
+                    "align": "left"
+                  },
                   "bbox": {
                     "page": 0,
                     "x0": 56,
@@ -2069,7 +2229,9 @@
                   "text": "25"
                 },
                 {
-                  "attrs": {},
+                  "attrs": {
+                    "align": "left"
+                  },
                   "bbox": {
                     "page": 0,
                     "x0": 126,
@@ -2087,7 +2249,9 @@
                   "text": "plain input 25"
                 },
                 {
-                  "attrs": {},
+                  "attrs": {
+                    "align": "left"
+                  },
                   "bbox": {
                     "page": 0,
                     "x0": 406,
@@ -2124,7 +2288,9 @@
               },
               "children": [
                 {
-                  "attrs": {},
+                  "attrs": {
+                    "align": "left"
+                  },
                   "bbox": {
                     "page": 0,
                     "x0": 56,
@@ -2142,7 +2308,9 @@
                   "text": "26"
                 },
                 {
-                  "attrs": {},
+                  "attrs": {
+                    "align": "left"
+                  },
                   "bbox": {
                     "page": 0,
                     "x0": 126,
@@ -2160,7 +2328,9 @@
                   "text": "plain input 26"
                 },
                 {
-                  "attrs": {},
+                  "attrs": {
+                    "align": "left"
+                  },
                   "bbox": {
                     "page": 0,
                     "x0": 406,
@@ -2197,7 +2367,9 @@
               },
               "children": [
                 {
-                  "attrs": {},
+                  "attrs": {
+                    "align": "left"
+                  },
                   "bbox": {
                     "page": 0,
                     "x0": 56,
@@ -2215,7 +2387,9 @@
                   "text": "27"
                 },
                 {
-                  "attrs": {},
+                  "attrs": {
+                    "align": "left"
+                  },
                   "bbox": {
                     "page": 0,
                     "x0": 126,
@@ -2233,7 +2407,9 @@
                   "text": "plain input 27"
                 },
                 {
-                  "attrs": {},
+                  "attrs": {
+                    "align": "left"
+                  },
                   "bbox": {
                     "page": 0,
                     "x0": 406,
@@ -2270,7 +2446,9 @@
               },
               "children": [
                 {
-                  "attrs": {},
+                  "attrs": {
+                    "align": "left"
+                  },
                   "bbox": {
                     "page": 0,
                     "x0": 56,
@@ -2288,7 +2466,9 @@
                   "text": "28"
                 },
                 {
-                  "attrs": {},
+                  "attrs": {
+                    "align": "left"
+                  },
                   "bbox": {
                     "page": 0,
                     "x0": 126,
@@ -2306,7 +2486,9 @@
                   "text": "plain input 28"
                 },
                 {
-                  "attrs": {},
+                  "attrs": {
+                    "align": "left"
+                  },
                   "bbox": {
                     "page": 0,
                     "x0": 406,
@@ -2343,7 +2525,9 @@
               },
               "children": [
                 {
-                  "attrs": {},
+                  "attrs": {
+                    "align": "left"
+                  },
                   "bbox": {
                     "page": 0,
                     "x0": 56,
@@ -2361,7 +2545,9 @@
                   "text": "29"
                 },
                 {
-                  "attrs": {},
+                  "attrs": {
+                    "align": "left"
+                  },
                   "bbox": {
                     "page": 0,
                     "x0": 126,
@@ -2379,7 +2565,9 @@
                   "text": "plain input 29"
                 },
                 {
-                  "attrs": {},
+                  "attrs": {
+                    "align": "left"
+                  },
                   "bbox": {
                     "page": 0,
                     "x0": 406,
@@ -2416,7 +2604,9 @@
               },
               "children": [
                 {
-                  "attrs": {},
+                  "attrs": {
+                    "align": "left"
+                  },
                   "bbox": {
                     "page": 0,
                     "x0": 56,
@@ -2434,7 +2624,9 @@
                   "text": "30"
                 },
                 {
-                  "attrs": {},
+                  "attrs": {
+                    "align": "left"
+                  },
                   "bbox": {
                     "page": 0,
                     "x0": 126,
@@ -2452,7 +2644,9 @@
                   "text": "plain input 30"
                 },
                 {
-                  "attrs": {},
+                  "attrs": {
+                    "align": "left"
+                  },
                   "bbox": {
                     "page": 0,
                     "x0": 406,
@@ -2489,7 +2683,9 @@
               },
               "children": [
                 {
-                  "attrs": {},
+                  "attrs": {
+                    "align": "left"
+                  },
                   "bbox": {
                     "page": 1,
                     "x0": 56,
@@ -2507,7 +2703,9 @@
                   "text": "31"
                 },
                 {
-                  "attrs": {},
+                  "attrs": {
+                    "align": "left"
+                  },
                   "bbox": {
                     "page": 1,
                     "x0": 126,
@@ -2525,7 +2723,9 @@
                   "text": "plain input 31"
                 },
                 {
-                  "attrs": {},
+                  "attrs": {
+                    "align": "left"
+                  },
                   "bbox": {
                     "page": 1,
                     "x0": 406,
@@ -2562,7 +2762,9 @@
               },
               "children": [
                 {
-                  "attrs": {},
+                  "attrs": {
+                    "align": "left"
+                  },
                   "bbox": {
                     "page": 1,
                     "x0": 56,
@@ -2580,7 +2782,9 @@
                   "text": "32"
                 },
                 {
-                  "attrs": {},
+                  "attrs": {
+                    "align": "left"
+                  },
                   "bbox": {
                     "page": 1,
                     "x0": 126,
@@ -2598,7 +2802,9 @@
                   "text": "plain input 32"
                 },
                 {
-                  "attrs": {},
+                  "attrs": {
+                    "align": "left"
+                  },
                   "bbox": {
                     "page": 1,
                     "x0": 406,
@@ -2635,7 +2841,9 @@
               },
               "children": [
                 {
-                  "attrs": {},
+                  "attrs": {
+                    "align": "left"
+                  },
                   "bbox": {
                     "page": 1,
                     "x0": 56,
@@ -2653,7 +2861,9 @@
                   "text": "33"
                 },
                 {
-                  "attrs": {},
+                  "attrs": {
+                    "align": "left"
+                  },
                   "bbox": {
                     "page": 1,
                     "x0": 126,
@@ -2671,7 +2881,9 @@
                   "text": "plain input 33"
                 },
                 {
-                  "attrs": {},
+                  "attrs": {
+                    "align": "left"
+                  },
                   "bbox": {
                     "page": 1,
                     "x0": 406,
@@ -2708,7 +2920,9 @@
               },
               "children": [
                 {
-                  "attrs": {},
+                  "attrs": {
+                    "align": "left"
+                  },
                   "bbox": {
                     "page": 1,
                     "x0": 56,
@@ -2726,7 +2940,9 @@
                   "text": "34"
                 },
                 {
-                  "attrs": {},
+                  "attrs": {
+                    "align": "left"
+                  },
                   "bbox": {
                     "page": 1,
                     "x0": 126,
@@ -2744,7 +2960,9 @@
                   "text": "plain input 34"
                 },
                 {
-                  "attrs": {},
+                  "attrs": {
+                    "align": "left"
+                  },
                   "bbox": {
                     "page": 1,
                     "x0": 406,
@@ -2781,7 +2999,9 @@
               },
               "children": [
                 {
-                  "attrs": {},
+                  "attrs": {
+                    "align": "left"
+                  },
                   "bbox": {
                     "page": 1,
                     "x0": 56,
@@ -2799,7 +3019,9 @@
                   "text": "35"
                 },
                 {
-                  "attrs": {},
+                  "attrs": {
+                    "align": "left"
+                  },
                   "bbox": {
                     "page": 1,
                     "x0": 126,
@@ -2817,7 +3039,9 @@
                   "text": "plain input 35"
                 },
                 {
-                  "attrs": {},
+                  "attrs": {
+                    "align": "left"
+                  },
                   "bbox": {
                     "page": 1,
                     "x0": 406,
@@ -2854,7 +3078,9 @@
               },
               "children": [
                 {
-                  "attrs": {},
+                  "attrs": {
+                    "align": "left"
+                  },
                   "bbox": {
                     "page": 1,
                     "x0": 56,
@@ -2872,7 +3098,9 @@
                   "text": "36"
                 },
                 {
-                  "attrs": {},
+                  "attrs": {
+                    "align": "left"
+                  },
                   "bbox": {
                     "page": 1,
                     "x0": 126,
@@ -2890,7 +3118,9 @@
                   "text": "plain input 36"
                 },
                 {
-                  "attrs": {},
+                  "attrs": {
+                    "align": "left"
+                  },
                   "bbox": {
                     "page": 1,
                     "x0": 406,
@@ -2927,7 +3157,9 @@
               },
               "children": [
                 {
-                  "attrs": {},
+                  "attrs": {
+                    "align": "left"
+                  },
                   "bbox": {
                     "page": 1,
                     "x0": 56,
@@ -2945,7 +3177,9 @@
                   "text": "37"
                 },
                 {
-                  "attrs": {},
+                  "attrs": {
+                    "align": "left"
+                  },
                   "bbox": {
                     "page": 1,
                     "x0": 126,
@@ -2963,7 +3197,9 @@
                   "text": "plain input 37"
                 },
                 {
-                  "attrs": {},
+                  "attrs": {
+                    "align": "left"
+                  },
                   "bbox": {
                     "page": 1,
                     "x0": 406,
@@ -3000,7 +3236,9 @@
               },
               "children": [
                 {
-                  "attrs": {},
+                  "attrs": {
+                    "align": "left"
+                  },
                   "bbox": {
                     "page": 1,
                     "x0": 56,
@@ -3018,7 +3256,9 @@
                   "text": "38"
                 },
                 {
-                  "attrs": {},
+                  "attrs": {
+                    "align": "left"
+                  },
                   "bbox": {
                     "page": 1,
                     "x0": 126,
@@ -3036,7 +3276,9 @@
                   "text": "plain input 38"
                 },
                 {
-                  "attrs": {},
+                  "attrs": {
+                    "align": "left"
+                  },
                   "bbox": {
                     "page": 1,
                     "x0": 406,
@@ -3073,7 +3315,9 @@
               },
               "children": [
                 {
-                  "attrs": {},
+                  "attrs": {
+                    "align": "left"
+                  },
                   "bbox": {
                     "page": 1,
                     "x0": 56,
@@ -3091,7 +3335,9 @@
                   "text": "39"
                 },
                 {
-                  "attrs": {},
+                  "attrs": {
+                    "align": "left"
+                  },
                   "bbox": {
                     "page": 1,
                     "x0": 126,
@@ -3109,7 +3355,9 @@
                   "text": "plain input 39"
                 },
                 {
-                  "attrs": {},
+                  "attrs": {
+                    "align": "left"
+                  },
                   "bbox": {
                     "page": 1,
                     "x0": 406,
@@ -3146,7 +3394,9 @@
               },
               "children": [
                 {
-                  "attrs": {},
+                  "attrs": {
+                    "align": "left"
+                  },
                   "bbox": {
                     "page": 1,
                     "x0": 56,
@@ -3164,7 +3414,9 @@
                   "text": "40"
                 },
                 {
-                  "attrs": {},
+                  "attrs": {
+                    "align": "left"
+                  },
                   "bbox": {
                     "page": 1,
                     "x0": 126,
@@ -3182,7 +3434,9 @@
                   "text": "plain input 40"
                 },
                 {
-                  "attrs": {},
+                  "attrs": {
+                    "align": "left"
+                  },
                   "bbox": {
                     "page": 1,
                     "x0": 406,
@@ -3219,7 +3473,9 @@
               },
               "children": [
                 {
-                  "attrs": {},
+                  "attrs": {
+                    "align": "left"
+                  },
                   "bbox": {
                     "page": 1,
                     "x0": 56,
@@ -3237,7 +3493,9 @@
                   "text": "41"
                 },
                 {
-                  "attrs": {},
+                  "attrs": {
+                    "align": "left"
+                  },
                   "bbox": {
                     "page": 1,
                     "x0": 126,
@@ -3255,7 +3513,9 @@
                   "text": "plain input 41"
                 },
                 {
-                  "attrs": {},
+                  "attrs": {
+                    "align": "left"
+                  },
                   "bbox": {
                     "page": 1,
                     "x0": 406,
@@ -3292,7 +3552,9 @@
               },
               "children": [
                 {
-                  "attrs": {},
+                  "attrs": {
+                    "align": "left"
+                  },
                   "bbox": {
                     "page": 1,
                     "x0": 56,
@@ -3310,7 +3572,9 @@
                   "text": "42"
                 },
                 {
-                  "attrs": {},
+                  "attrs": {
+                    "align": "left"
+                  },
                   "bbox": {
                     "page": 1,
                     "x0": 126,
@@ -3328,7 +3592,9 @@
                   "text": "plain input 42"
                 },
                 {
-                  "attrs": {},
+                  "attrs": {
+                    "align": "left"
+                  },
                   "bbox": {
                     "page": 1,
                     "x0": 406,
@@ -3365,7 +3631,9 @@
               },
               "children": [
                 {
-                  "attrs": {},
+                  "attrs": {
+                    "align": "left"
+                  },
                   "bbox": {
                     "page": 1,
                     "x0": 56,
@@ -3383,7 +3651,9 @@
                   "text": "43"
                 },
                 {
-                  "attrs": {},
+                  "attrs": {
+                    "align": "left"
+                  },
                   "bbox": {
                     "page": 1,
                     "x0": 126,
@@ -3401,7 +3671,9 @@
                   "text": "plain input 43"
                 },
                 {
-                  "attrs": {},
+                  "attrs": {
+                    "align": "left"
+                  },
                   "bbox": {
                     "page": 1,
                     "x0": 406,
@@ -3438,7 +3710,9 @@
               },
               "children": [
                 {
-                  "attrs": {},
+                  "attrs": {
+                    "align": "left"
+                  },
                   "bbox": {
                     "page": 1,
                     "x0": 56,
@@ -3456,7 +3730,9 @@
                   "text": "44"
                 },
                 {
-                  "attrs": {},
+                  "attrs": {
+                    "align": "left"
+                  },
                   "bbox": {
                     "page": 1,
                     "x0": 126,
@@ -3474,7 +3750,9 @@
                   "text": "plain input 44"
                 },
                 {
-                  "attrs": {},
+                  "attrs": {
+                    "align": "left"
+                  },
                   "bbox": {
                     "page": 1,
                     "x0": 406,
@@ -3511,7 +3789,9 @@
               },
               "children": [
                 {
-                  "attrs": {},
+                  "attrs": {
+                    "align": "left"
+                  },
                   "bbox": {
                     "page": 1,
                     "x0": 56,
@@ -3529,7 +3809,9 @@
                   "text": "45"
                 },
                 {
-                  "attrs": {},
+                  "attrs": {
+                    "align": "left"
+                  },
                   "bbox": {
                     "page": 1,
                     "x0": 126,
@@ -3571,7 +3853,9 @@
                           },
                           "children": [
                             {
-                              "attrs": {},
+                              "attrs": {
+                                "align": "left"
+                              },
                               "bbox": {
                                 "page": 1,
                                 "x0": 132,
@@ -3589,7 +3873,9 @@
                               "text": "p2-A"
                             },
                             {
-                              "attrs": {},
+                              "attrs": {
+                                "align": "left"
+                              },
                               "bbox": {
                                 "page": 1,
                                 "x0": 182,
@@ -3626,7 +3912,9 @@
                           },
                           "children": [
                             {
-                              "attrs": {},
+                              "attrs": {
+                                "align": "left"
+                              },
                               "bbox": {
                                 "page": 1,
                                 "x0": 132,
@@ -3644,7 +3932,9 @@
                               "text": "1"
                             },
                             {
-                              "attrs": {},
+                              "attrs": {
+                                "align": "left"
+                              },
                               "bbox": {
                                 "page": 1,
                                 "x0": 182,
@@ -3686,7 +3976,9 @@
                   "text": null
                 },
                 {
-                  "attrs": {},
+                  "attrs": {
+                    "align": "left"
+                  },
                   "bbox": {
                     "page": 1,
                     "x0": 406,
@@ -3723,7 +4015,9 @@
               },
               "children": [
                 {
-                  "attrs": {},
+                  "attrs": {
+                    "align": "left"
+                  },
                   "bbox": {
                     "page": 1,
                     "x0": 56,
@@ -3741,7 +4035,9 @@
                   "text": "46"
                 },
                 {
-                  "attrs": {},
+                  "attrs": {
+                    "align": "left"
+                  },
                   "bbox": {
                     "page": 1,
                     "x0": 126,
@@ -3759,7 +4055,9 @@
                   "text": "plain input 46"
                 },
                 {
-                  "attrs": {},
+                  "attrs": {
+                    "align": "left"
+                  },
                   "bbox": {
                     "page": 1,
                     "x0": 406,
@@ -3796,7 +4094,9 @@
               },
               "children": [
                 {
-                  "attrs": {},
+                  "attrs": {
+                    "align": "left"
+                  },
                   "bbox": {
                     "page": 1,
                     "x0": 56,
@@ -3814,7 +4114,9 @@
                   "text": "47"
                 },
                 {
-                  "attrs": {},
+                  "attrs": {
+                    "align": "left"
+                  },
                   "bbox": {
                     "page": 1,
                     "x0": 126,
@@ -3832,7 +4134,9 @@
                   "text": "plain input 47"
                 },
                 {
-                  "attrs": {},
+                  "attrs": {
+                    "align": "left"
+                  },
                   "bbox": {
                     "page": 1,
                     "x0": 406,
@@ -3869,7 +4173,9 @@
               },
               "children": [
                 {
-                  "attrs": {},
+                  "attrs": {
+                    "align": "left"
+                  },
                   "bbox": {
                     "page": 1,
                     "x0": 56,
@@ -3887,7 +4193,9 @@
                   "text": "48"
                 },
                 {
-                  "attrs": {},
+                  "attrs": {
+                    "align": "left"
+                  },
                   "bbox": {
                     "page": 1,
                     "x0": 126,
@@ -3905,7 +4213,9 @@
                   "text": "plain input 48"
                 },
                 {
-                  "attrs": {},
+                  "attrs": {
+                    "align": "left"
+                  },
                   "bbox": {
                     "page": 1,
                     "x0": 406,
@@ -3942,7 +4252,9 @@
               },
               "children": [
                 {
-                  "attrs": {},
+                  "attrs": {
+                    "align": "left"
+                  },
                   "bbox": {
                     "page": 1,
                     "x0": 56,
@@ -3960,7 +4272,9 @@
                   "text": "49"
                 },
                 {
-                  "attrs": {},
+                  "attrs": {
+                    "align": "left"
+                  },
                   "bbox": {
                     "page": 1,
                     "x0": 126,
@@ -3978,7 +4292,9 @@
                   "text": "plain input 49"
                 },
                 {
-                  "attrs": {},
+                  "attrs": {
+                    "align": "left"
+                  },
                   "bbox": {
                     "page": 1,
                     "x0": 406,
@@ -4015,7 +4331,9 @@
               },
               "children": [
                 {
-                  "attrs": {},
+                  "attrs": {
+                    "align": "left"
+                  },
                   "bbox": {
                     "page": 1,
                     "x0": 56,
@@ -4033,7 +4351,9 @@
                   "text": "50"
                 },
                 {
-                  "attrs": {},
+                  "attrs": {
+                    "align": "left"
+                  },
                   "bbox": {
                     "page": 1,
                     "x0": 126,
@@ -4051,7 +4371,9 @@
                   "text": "plain input 50"
                 },
                 {
-                  "attrs": {},
+                  "attrs": {
+                    "align": "left"
+                  },
                   "bbox": {
                     "page": 1,
                     "x0": 406,
@@ -4084,7 +4406,7 @@
           "text": null
         }
       ],
-      "id": "9e48e45b2b41",
+      "id": "7615bf0ec0d1",
       "kind": "page",
       "provenance": {},
       "text": null
@@ -4107,7 +4429,7 @@
       "text": null
     }
   ],
-  "id": "bcd1bb219f2c",
+  "id": "b0b6a3582cba",
   "kind": "document",
   "provenance": {},
   "text": null
