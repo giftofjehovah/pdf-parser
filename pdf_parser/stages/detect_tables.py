@@ -31,6 +31,25 @@ _FALLBACK_TABLE_SETTINGS = {
     "min_words_horizontal": 1,
 }
 
+_MAX_CELL_TEXT_CHARS = 5  # average cell text longer than this = paragraph text, not table data
+
+
+def _is_text_strategy_table(table) -> bool:
+    """Return True if this text-strategy result looks like a real data table.
+
+    Paragraph text on multi-column pages can be misidentified as tables by the
+    text strategy.  The key discriminator: real data-table cells contain short
+    text (names, numbers, codes); paragraph-text 'cells' contain full sentences.
+    """
+    texts = table.extract()
+    if not texts:
+        return False
+    all_cells = [cell for row in texts for cell in (row or []) if cell and cell.strip()]
+    if not all_cells:
+        return False
+    avg_len = sum(len(c) for c in all_cells) / len(all_cells)
+    return avg_len <= _MAX_CELL_TEXT_CHARS
+
 
 @dataclass
 class TableRegion:
@@ -106,7 +125,7 @@ def detect_tables(
             # (Word exports, many financial PDFs).
             if not found and settings is None:
                 fallback = target.find_tables(table_settings=_FALLBACK_TABLE_SETTINGS)
-                found = fallback
+                found = [t for t in fallback if _is_text_strategy_table(t)]
 
             for t in found:
                 region = _extract_region(target, t, page_idx, page_height)

@@ -4055,295 +4055,44 @@
     {
       "children": [
         {
+          "kind": "heading",
+          "text": "8. Conclusions"
+        },
+        {
+          "kind": "paragraph",
+          "text": "This section provides an in-depth analysis of the operational data collected during the assessment"
+        },
+        {
+          "kind": "paragraph",
+          "text": "period. The findings are presented in structured form to facilitate comparison across regions and time."
+        },
+        {
           "children": [
             {
-              "children": [
-                {
-                  "kind": "cell",
-                  "text": "8. Conclu"
-                },
-                {
-                  "kind": "cell",
-                  "text": "sions"
-                },
-                {
-                  "kind": "cell"
-                },
-                {
-                  "kind": "cell"
-                },
-                {
-                  "kind": "cell"
-                },
-                {
-                  "kind": "cell"
-                },
-                {
-                  "kind": "cell"
-                },
-                {
-                  "kind": "cell"
-                }
-              ],
-              "kind": "row"
+              "kind": "list_item",
+              "text": "\u2022 Revenue growth of 79.6% over four fiscal years demonstrates sustained demand."
             },
             {
-              "children": [
-                {
-                  "kind": "cell",
-                  "text": "This section p"
-                },
-                {
-                  "kind": "cell",
-                  "text": "rovides an in-"
-                },
-                {
-                  "kind": "cell",
-                  "text": "depth"
-                },
-                {
-                  "kind": "cell",
-                  "text": "analysis of the"
-                },
-                {
-                  "kind": "cell",
-                  "text": "operati"
-                },
-                {
-                  "kind": "cell",
-                  "text": "onal data"
-                },
-                {
-                  "kind": "cell",
-                  "text": "collected d"
-                },
-                {
-                  "kind": "cell",
-                  "text": "uring the"
-                }
-              ],
-              "kind": "row"
+              "kind": "list_item",
+              "text": "\u2022 Operating leverage improved as fixed costs spread over a larger revenue base."
             },
             {
-              "children": [
-                {
-                  "kind": "cell",
-                  "text": "period. The fi"
-                },
-                {
-                  "kind": "cell",
-                  "text": "ndings are pre"
-                },
-                {
-                  "kind": "cell",
-                  "text": "sente"
-                },
-                {
-                  "kind": "cell",
-                  "text": "d in structured"
-                },
-                {
-                  "kind": "cell",
-                  "text": "form to"
-                },
-                {
-                  "kind": "cell",
-                  "text": "facilitate"
-                },
-                {
-                  "kind": "cell",
-                  "text": "comparison"
-                },
-                {
-                  "kind": "cell",
-                  "text": "across r"
-                }
-              ],
-              "kind": "row"
+              "kind": "list_item",
+              "text": "\u2022 Continued R&D; investment is expected to drive further margin expansion."
             },
             {
-              "children": [
-                {
-                  "kind": "cell",
-                  "text": "(cid:127) Revenue"
-                },
-                {
-                  "kind": "cell",
-                  "text": "growth of 79.6"
-                },
-                {
-                  "kind": "cell",
-                  "text": "% ove"
-                },
-                {
-                  "kind": "cell",
-                  "text": "r four fiscal ye"
-                },
-                {
-                  "kind": "cell",
-                  "text": "ars dem"
-                },
-                {
-                  "kind": "cell",
-                  "text": "onstrate"
-                },
-                {
-                  "kind": "cell",
-                  "text": "s sustained"
-                },
-                {
-                  "kind": "cell",
-                  "text": "demand."
-                }
-              ],
-              "kind": "row"
-            },
-            {
-              "children": [
-                {
-                  "kind": "cell",
-                  "text": "(cid:127) Operating"
-                },
-                {
-                  "kind": "cell",
-                  "text": "leverage imp"
-                },
-                {
-                  "kind": "cell",
-                  "text": "roved"
-                },
-                {
-                  "kind": "cell",
-                  "text": "as fixed costs"
-                },
-                {
-                  "kind": "cell",
-                  "text": "spread"
-                },
-                {
-                  "kind": "cell",
-                  "text": "over a la"
-                },
-                {
-                  "kind": "cell",
-                  "text": "rger revenue"
-                },
-                {
-                  "kind": "cell",
-                  "text": "base."
-                }
-              ],
-              "kind": "row"
-            },
-            {
-              "children": [
-                {
-                  "kind": "cell",
-                  "text": "(cid:127) Continue"
-                },
-                {
-                  "kind": "cell",
-                  "text": "d R&D; invest"
-                },
-                {
-                  "kind": "cell",
-                  "text": "ment is"
-                },
-                {
-                  "kind": "cell",
-                  "text": "expected to d"
-                },
-                {
-                  "kind": "cell",
-                  "text": "rive furt"
-                },
-                {
-                  "kind": "cell",
-                  "text": "her marg"
-                },
-                {
-                  "kind": "cell",
-                  "text": "in expansio"
-                },
-                {
-                  "kind": "cell",
-                  "text": "n."
-                }
-              ],
-              "kind": "row"
-            },
-            {
-              "children": [
-                {
-                  "kind": "cell",
-                  "text": "(cid:127) Regional"
-                },
-                {
-                  "kind": "cell",
-                  "text": "diversification"
-                },
-                {
-                  "kind": "cell",
-                  "text": "reduc"
-                },
-                {
-                  "kind": "cell",
-                  "text": "es concentrati"
-                },
-                {
-                  "kind": "cell",
-                  "text": "on risk a"
-                },
-                {
-                  "kind": "cell",
-                  "text": "nd open"
-                },
-                {
-                  "kind": "cell",
-                  "text": "s new corrid"
-                },
-                {
-                  "kind": "cell",
-                  "text": "ors."
-                }
-              ],
-              "kind": "row"
-            },
-            {
-              "children": [
-                {
-                  "kind": "cell",
-                  "text": "Figure 3: Full-"
-                },
-                {
-                  "kind": "cell",
-                  "text": "year revenue"
-                },
-                {
-                  "kind": "cell",
-                  "text": "summ"
-                },
-                {
-                  "kind": "cell",
-                  "text": "ary."
-                },
-                {
-                  "kind": "cell"
-                },
-                {
-                  "kind": "cell"
-                },
-                {
-                  "kind": "cell"
-                },
-                {
-                  "kind": "cell"
-                }
-              ],
-              "kind": "row"
+              "kind": "list_item",
+              "text": "\u2022 Regional diversification reduces concentration risk and opens new corridors."
             }
           ],
-          "kind": "table"
+          "kind": "list"
+        },
+        {
+          "kind": "figure"
+        },
+        {
+          "kind": "paragraph",
+          "text": "Figure 3: Full-year revenue summary."
         }
       ],
       "kind": "page"

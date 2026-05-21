@@ -19115,1478 +19115,196 @@
       "children": [
         {
           "attrs": {
-            "header_signature": [
-              "8. Conclu",
-              "sions",
-              "",
-              "",
-              "",
-              "",
-              "",
-              ""
-            ],
-            "n_cols": 8,
-            "n_rows": 8,
-            "page": 11,
-            "page_height": 792.0
+            "level": 2
           },
           "bbox": {
             "page": 11,
+            "x0": 79,
+            "x1": 177,
+            "y0": 82,
+            "y1": 92
+          },
+          "children": [],
+          "id": "c9da660879d7",
+          "kind": "heading",
+          "provenance": {
+            "extractor": "segment",
+            "stage": "build_tree"
+          },
+          "text": "8. Conclusions"
+        },
+        {
+          "attrs": {},
+          "bbox": {
+            "page": 11,
             "x0": 78,
-            "x1": 457,
-            "y0": 81,
-            "y1": 455
+            "x1": 511,
+            "y0": 119,
+            "y1": 128
+          },
+          "children": [],
+          "id": "64e6d0a7ee17",
+          "kind": "paragraph",
+          "provenance": {
+            "extractor": "segment",
+            "stage": "build_tree"
+          },
+          "text": "This section provides an in-depth analysis of the operational data collected during the assessment"
+        },
+        {
+          "attrs": {},
+          "bbox": {
+            "page": 11,
+            "x0": 79,
+            "x1": 527,
+            "y0": 131,
+            "y1": 140
+          },
+          "children": [],
+          "id": "7f8c916e516c",
+          "kind": "paragraph",
+          "provenance": {
+            "extractor": "segment",
+            "stage": "build_tree"
+          },
+          "text": "period. The findings are presented in structured form to facilitate comparison across regions and time."
+        },
+        {
+          "attrs": {},
+          "bbox": {
+            "page": 11,
+            "x0": 79,
+            "x1": 456,
+            "y0": 157,
+            "y1": 166
           },
           "children": [
             {
-              "attrs": {
-                "page": 11,
-                "row_index": 0
-              },
+              "attrs": {},
               "bbox": {
                 "page": 11,
-                "x0": 78,
-                "x1": 457,
-                "y0": 81,
-                "y1": 455
+                "x0": 79,
+                "x1": 456,
+                "y0": 157,
+                "y1": 166
               },
-              "children": [
-                {
-                  "attrs": {
-                    "align": "left"
-                  },
-                  "bbox": {
-                    "page": 11,
-                    "x0": 78,
-                    "x1": 138,
-                    "y0": 81,
-                    "y1": 95
-                  },
-                  "children": [],
-                  "id": "56fdd8a68e20",
-                  "kind": "cell",
-                  "provenance": {
-                    "extractor": "pdfplumber",
-                    "stage": "extract_tables"
-                  },
-                  "text": "8. Conclu"
-                },
-                {
-                  "attrs": {
-                    "align": "left"
-                  },
-                  "bbox": {
-                    "page": 11,
-                    "x0": 138,
-                    "x1": 201,
-                    "y0": 81,
-                    "y1": 95
-                  },
-                  "children": [],
-                  "id": "d727061c78c5",
-                  "kind": "cell",
-                  "provenance": {
-                    "extractor": "pdfplumber",
-                    "stage": "extract_tables"
-                  },
-                  "text": "sions"
-                },
-                {
-                  "attrs": {
-                    "align": "left"
-                  },
-                  "bbox": {
-                    "page": 11,
-                    "x0": 201,
-                    "x1": 228,
-                    "y0": 81,
-                    "y1": 95
-                  },
-                  "children": [],
-                  "id": "68d1f87e6bb4",
-                  "kind": "cell",
-                  "provenance": {
-                    "extractor": "pdfplumber",
-                    "stage": "extract_tables"
-                  },
-                  "text": ""
-                },
-                {
-                  "attrs": {
-                    "align": "left"
-                  },
-                  "bbox": {
-                    "page": 11,
-                    "x0": 228,
-                    "x1": 291,
-                    "y0": 81,
-                    "y1": 95
-                  },
-                  "children": [],
-                  "id": "d6938fc96d5c",
-                  "kind": "cell",
-                  "provenance": {
-                    "extractor": "pdfplumber",
-                    "stage": "extract_tables"
-                  },
-                  "text": ""
-                },
-                {
-                  "attrs": {
-                    "align": "left"
-                  },
-                  "bbox": {
-                    "page": 11,
-                    "x0": 291,
-                    "x1": 324,
-                    "y0": 81,
-                    "y1": 95
-                  },
-                  "children": [],
-                  "id": "3be16793aa63",
-                  "kind": "cell",
-                  "provenance": {
-                    "extractor": "pdfplumber",
-                    "stage": "extract_tables"
-                  },
-                  "text": ""
-                },
-                {
-                  "attrs": {
-                    "align": "left"
-                  },
-                  "bbox": {
-                    "page": 11,
-                    "x0": 324,
-                    "x1": 364,
-                    "y0": 81,
-                    "y1": 95
-                  },
-                  "children": [],
-                  "id": "c8cfe172dcef",
-                  "kind": "cell",
-                  "provenance": {
-                    "extractor": "pdfplumber",
-                    "stage": "extract_tables"
-                  },
-                  "text": ""
-                },
-                {
-                  "attrs": {
-                    "align": "left"
-                  },
-                  "bbox": {
-                    "page": 11,
-                    "x0": 364,
-                    "x1": 418,
-                    "y0": 81,
-                    "y1": 95
-                  },
-                  "children": [],
-                  "id": "33841dd22314",
-                  "kind": "cell",
-                  "provenance": {
-                    "extractor": "pdfplumber",
-                    "stage": "extract_tables"
-                  },
-                  "text": ""
-                },
-                {
-                  "attrs": {
-                    "align": "left"
-                  },
-                  "bbox": {
-                    "page": 11,
-                    "x0": 418,
-                    "x1": 457,
-                    "y0": 81,
-                    "y1": 95
-                  },
-                  "children": [],
-                  "id": "3f861bf7344a",
-                  "kind": "cell",
-                  "provenance": {
-                    "extractor": "pdfplumber",
-                    "stage": "extract_tables"
-                  },
-                  "text": ""
-                }
-              ],
-              "id": "c009680d2cdc",
-              "kind": "row",
-              "provenance": {},
-              "text": null
+              "children": [],
+              "id": "d02752bafd8d",
+              "kind": "list_item",
+              "provenance": {
+                "extractor": "segment",
+                "stage": "build_tree"
+              },
+              "text": "\u2022 Revenue growth of 79.6% over four fiscal years demonstrates sustained demand."
             },
             {
-              "attrs": {
-                "page": 11,
-                "row_index": 1
-              },
+              "attrs": {},
               "bbox": {
                 "page": 11,
-                "x0": 78,
-                "x1": 457,
-                "y0": 81,
-                "y1": 455
+                "x0": 79,
+                "x1": 446,
+                "y0": 175,
+                "y1": 184
               },
-              "children": [
-                {
-                  "attrs": {
-                    "align": "left"
-                  },
-                  "bbox": {
-                    "page": 11,
-                    "x0": 78,
-                    "x1": 138,
-                    "y0": 118,
-                    "y1": 129
-                  },
-                  "children": [],
-                  "id": "d47e3e7a3a1e",
-                  "kind": "cell",
-                  "provenance": {
-                    "extractor": "pdfplumber",
-                    "stage": "extract_tables"
-                  },
-                  "text": "This section p"
-                },
-                {
-                  "attrs": {
-                    "align": "left"
-                  },
-                  "bbox": {
-                    "page": 11,
-                    "x0": 138,
-                    "x1": 201,
-                    "y0": 118,
-                    "y1": 129
-                  },
-                  "children": [],
-                  "id": "bf26e1e27ee2",
-                  "kind": "cell",
-                  "provenance": {
-                    "extractor": "pdfplumber",
-                    "stage": "extract_tables"
-                  },
-                  "text": "rovides an in-"
-                },
-                {
-                  "attrs": {
-                    "align": "left"
-                  },
-                  "bbox": {
-                    "page": 11,
-                    "x0": 201,
-                    "x1": 228,
-                    "y0": 118,
-                    "y1": 129
-                  },
-                  "children": [],
-                  "id": "4c9629213543",
-                  "kind": "cell",
-                  "provenance": {
-                    "extractor": "pdfplumber",
-                    "stage": "extract_tables"
-                  },
-                  "text": "depth"
-                },
-                {
-                  "attrs": {
-                    "align": "right"
-                  },
-                  "bbox": {
-                    "page": 11,
-                    "x0": 228,
-                    "x1": 291,
-                    "y0": 118,
-                    "y1": 129
-                  },
-                  "children": [],
-                  "id": "f16219f29eb7",
-                  "kind": "cell",
-                  "provenance": {
-                    "extractor": "pdfplumber",
-                    "stage": "extract_tables"
-                  },
-                  "text": "analysis of the"
-                },
-                {
-                  "attrs": {
-                    "align": "right"
-                  },
-                  "bbox": {
-                    "page": 11,
-                    "x0": 291,
-                    "x1": 324,
-                    "y0": 118,
-                    "y1": 129
-                  },
-                  "children": [],
-                  "id": "1fd81ed00522",
-                  "kind": "cell",
-                  "provenance": {
-                    "extractor": "pdfplumber",
-                    "stage": "extract_tables"
-                  },
-                  "text": "operati"
-                },
-                {
-                  "attrs": {
-                    "align": "left"
-                  },
-                  "bbox": {
-                    "page": 11,
-                    "x0": 324,
-                    "x1": 364,
-                    "y0": 118,
-                    "y1": 129
-                  },
-                  "children": [],
-                  "id": "55de5970edf0",
-                  "kind": "cell",
-                  "provenance": {
-                    "extractor": "pdfplumber",
-                    "stage": "extract_tables"
-                  },
-                  "text": "onal data"
-                },
-                {
-                  "attrs": {
-                    "align": "right"
-                  },
-                  "bbox": {
-                    "page": 11,
-                    "x0": 364,
-                    "x1": 418,
-                    "y0": 118,
-                    "y1": 129
-                  },
-                  "children": [],
-                  "id": "21b534fa8b5c",
-                  "kind": "cell",
-                  "provenance": {
-                    "extractor": "pdfplumber",
-                    "stage": "extract_tables"
-                  },
-                  "text": "collected d"
-                },
-                {
-                  "attrs": {
-                    "align": "left"
-                  },
-                  "bbox": {
-                    "page": 11,
-                    "x0": 418,
-                    "x1": 457,
-                    "y0": 118,
-                    "y1": 129
-                  },
-                  "children": [],
-                  "id": "dc5e4fb958fc",
-                  "kind": "cell",
-                  "provenance": {
-                    "extractor": "pdfplumber",
-                    "stage": "extract_tables"
-                  },
-                  "text": "uring the"
-                }
-              ],
-              "id": "b70d025a20d1",
-              "kind": "row",
-              "provenance": {},
-              "text": null
+              "children": [],
+              "id": "b73455adb043",
+              "kind": "list_item",
+              "provenance": {
+                "extractor": "segment",
+                "stage": "build_tree"
+              },
+              "text": "\u2022 Operating leverage improved as fixed costs spread over a larger revenue base."
             },
             {
-              "attrs": {
-                "page": 11,
-                "row_index": 2
-              },
+              "attrs": {},
               "bbox": {
                 "page": 11,
-                "x0": 78,
-                "x1": 457,
-                "y0": 81,
-                "y1": 455
+                "x0": 79,
+                "x1": 424,
+                "y0": 193,
+                "y1": 202
               },
-              "children": [
-                {
-                  "attrs": {
-                    "align": "left"
-                  },
-                  "bbox": {
-                    "page": 11,
-                    "x0": 78,
-                    "x1": 138,
-                    "y0": 129,
-                    "y1": 140
-                  },
-                  "children": [],
-                  "id": "0eda9a62d874",
-                  "kind": "cell",
-                  "provenance": {
-                    "extractor": "pdfplumber",
-                    "stage": "extract_tables"
-                  },
-                  "text": "period. The fi"
-                },
-                {
-                  "attrs": {
-                    "align": "right"
-                  },
-                  "bbox": {
-                    "page": 11,
-                    "x0": 138,
-                    "x1": 201,
-                    "y0": 129,
-                    "y1": 140
-                  },
-                  "children": [],
-                  "id": "f4a218c2b137",
-                  "kind": "cell",
-                  "provenance": {
-                    "extractor": "pdfplumber",
-                    "stage": "extract_tables"
-                  },
-                  "text": "ndings are pre"
-                },
-                {
-                  "attrs": {
-                    "align": "left"
-                  },
-                  "bbox": {
-                    "page": 11,
-                    "x0": 201,
-                    "x1": 228,
-                    "y0": 129,
-                    "y1": 140
-                  },
-                  "children": [],
-                  "id": "81eecbf2e688",
-                  "kind": "cell",
-                  "provenance": {
-                    "extractor": "pdfplumber",
-                    "stage": "extract_tables"
-                  },
-                  "text": "sente"
-                },
-                {
-                  "attrs": {
-                    "align": "left"
-                  },
-                  "bbox": {
-                    "page": 11,
-                    "x0": 228,
-                    "x1": 291,
-                    "y0": 129,
-                    "y1": 140
-                  },
-                  "children": [],
-                  "id": "f2544aa61b45",
-                  "kind": "cell",
-                  "provenance": {
-                    "extractor": "pdfplumber",
-                    "stage": "extract_tables"
-                  },
-                  "text": "d in structured"
-                },
-                {
-                  "attrs": {
-                    "align": "left"
-                  },
-                  "bbox": {
-                    "page": 11,
-                    "x0": 291,
-                    "x1": 324,
-                    "y0": 129,
-                    "y1": 140
-                  },
-                  "children": [],
-                  "id": "ad50e61d547f",
-                  "kind": "cell",
-                  "provenance": {
-                    "extractor": "pdfplumber",
-                    "stage": "extract_tables"
-                  },
-                  "text": "form to"
-                },
-                {
-                  "attrs": {
-                    "align": "left"
-                  },
-                  "bbox": {
-                    "page": 11,
-                    "x0": 324,
-                    "x1": 364,
-                    "y0": 129,
-                    "y1": 140
-                  },
-                  "children": [],
-                  "id": "c15b8c0b8223",
-                  "kind": "cell",
-                  "provenance": {
-                    "extractor": "pdfplumber",
-                    "stage": "extract_tables"
-                  },
-                  "text": "facilitate"
-                },
-                {
-                  "attrs": {
-                    "align": "left"
-                  },
-                  "bbox": {
-                    "page": 11,
-                    "x0": 364,
-                    "x1": 418,
-                    "y0": 129,
-                    "y1": 140
-                  },
-                  "children": [],
-                  "id": "78d4269c8a14",
-                  "kind": "cell",
-                  "provenance": {
-                    "extractor": "pdfplumber",
-                    "stage": "extract_tables"
-                  },
-                  "text": "comparison"
-                },
-                {
-                  "attrs": {
-                    "align": "left"
-                  },
-                  "bbox": {
-                    "page": 11,
-                    "x0": 418,
-                    "x1": 457,
-                    "y0": 129,
-                    "y1": 140
-                  },
-                  "children": [],
-                  "id": "abaaf3cc864c",
-                  "kind": "cell",
-                  "provenance": {
-                    "extractor": "pdfplumber",
-                    "stage": "extract_tables"
-                  },
-                  "text": "across r"
-                }
-              ],
-              "id": "5808062f4eb4",
-              "kind": "row",
-              "provenance": {},
-              "text": null
+              "children": [],
+              "id": "3c7156003701",
+              "kind": "list_item",
+              "provenance": {
+                "extractor": "segment",
+                "stage": "build_tree"
+              },
+              "text": "\u2022 Continued R&D; investment is expected to drive further margin expansion."
             },
             {
-              "attrs": {
-                "page": 11,
-                "row_index": 3
-              },
+              "attrs": {},
               "bbox": {
                 "page": 11,
-                "x0": 78,
-                "x1": 457,
-                "y0": 81,
-                "y1": 455
+                "x0": 79,
+                "x1": 432,
+                "y0": 211,
+                "y1": 220
               },
-              "children": [
-                {
-                  "attrs": {
-                    "align": "left"
-                  },
-                  "bbox": {
-                    "page": 11,
-                    "x0": 78,
-                    "x1": 138,
-                    "y0": 156,
-                    "y1": 168
-                  },
-                  "children": [],
-                  "id": "ebe4997a2455",
-                  "kind": "cell",
-                  "provenance": {
-                    "extractor": "pdfplumber",
-                    "stage": "extract_tables"
-                  },
-                  "text": "(cid:127) Revenue"
-                },
-                {
-                  "attrs": {
-                    "align": "left"
-                  },
-                  "bbox": {
-                    "page": 11,
-                    "x0": 138,
-                    "x1": 201,
-                    "y0": 156,
-                    "y1": 168
-                  },
-                  "children": [],
-                  "id": "8f3b63962fda",
-                  "kind": "cell",
-                  "provenance": {
-                    "extractor": "pdfplumber",
-                    "stage": "extract_tables"
-                  },
-                  "text": "growth of 79.6"
-                },
-                {
-                  "attrs": {
-                    "align": "left"
-                  },
-                  "bbox": {
-                    "page": 11,
-                    "x0": 201,
-                    "x1": 228,
-                    "y0": 156,
-                    "y1": 168
-                  },
-                  "children": [],
-                  "id": "447ae081fd27",
-                  "kind": "cell",
-                  "provenance": {
-                    "extractor": "pdfplumber",
-                    "stage": "extract_tables"
-                  },
-                  "text": "% ove"
-                },
-                {
-                  "attrs": {
-                    "align": "left"
-                  },
-                  "bbox": {
-                    "page": 11,
-                    "x0": 228,
-                    "x1": 291,
-                    "y0": 156,
-                    "y1": 168
-                  },
-                  "children": [],
-                  "id": "7d8b7a2c0cef",
-                  "kind": "cell",
-                  "provenance": {
-                    "extractor": "pdfplumber",
-                    "stage": "extract_tables"
-                  },
-                  "text": "r four fiscal ye"
-                },
-                {
-                  "attrs": {
-                    "align": "left"
-                  },
-                  "bbox": {
-                    "page": 11,
-                    "x0": 291,
-                    "x1": 324,
-                    "y0": 156,
-                    "y1": 168
-                  },
-                  "children": [],
-                  "id": "4b530a6d40e6",
-                  "kind": "cell",
-                  "provenance": {
-                    "extractor": "pdfplumber",
-                    "stage": "extract_tables"
-                  },
-                  "text": "ars dem"
-                },
-                {
-                  "attrs": {
-                    "align": "right"
-                  },
-                  "bbox": {
-                    "page": 11,
-                    "x0": 324,
-                    "x1": 364,
-                    "y0": 156,
-                    "y1": 168
-                  },
-                  "children": [],
-                  "id": "b18c24938596",
-                  "kind": "cell",
-                  "provenance": {
-                    "extractor": "pdfplumber",
-                    "stage": "extract_tables"
-                  },
-                  "text": "onstrate"
-                },
-                {
-                  "attrs": {
-                    "align": "left"
-                  },
-                  "bbox": {
-                    "page": 11,
-                    "x0": 364,
-                    "x1": 418,
-                    "y0": 156,
-                    "y1": 168
-                  },
-                  "children": [],
-                  "id": "3fd9bbcd2952",
-                  "kind": "cell",
-                  "provenance": {
-                    "extractor": "pdfplumber",
-                    "stage": "extract_tables"
-                  },
-                  "text": "s sustained"
-                },
-                {
-                  "attrs": {
-                    "align": "left"
-                  },
-                  "bbox": {
-                    "page": 11,
-                    "x0": 418,
-                    "x1": 457,
-                    "y0": 156,
-                    "y1": 168
-                  },
-                  "children": [],
-                  "id": "3581fd5dde9b",
-                  "kind": "cell",
-                  "provenance": {
-                    "extractor": "pdfplumber",
-                    "stage": "extract_tables"
-                  },
-                  "text": "demand."
-                }
-              ],
-              "id": "95bbadcc052a",
-              "kind": "row",
-              "provenance": {},
-              "text": null
-            },
-            {
-              "attrs": {
-                "page": 11,
-                "row_index": 4
+              "children": [],
+              "id": "ec85d33f2d1f",
+              "kind": "list_item",
+              "provenance": {
+                "extractor": "segment",
+                "stage": "build_tree"
               },
-              "bbox": {
-                "page": 11,
-                "x0": 78,
-                "x1": 457,
-                "y0": 81,
-                "y1": 455
-              },
-              "children": [
-                {
-                  "attrs": {
-                    "align": "left"
-                  },
-                  "bbox": {
-                    "page": 11,
-                    "x0": 78,
-                    "x1": 138,
-                    "y0": 174,
-                    "y1": 186
-                  },
-                  "children": [],
-                  "id": "69ce2d2f6fc1",
-                  "kind": "cell",
-                  "provenance": {
-                    "extractor": "pdfplumber",
-                    "stage": "extract_tables"
-                  },
-                  "text": "(cid:127) Operating"
-                },
-                {
-                  "attrs": {
-                    "align": "right"
-                  },
-                  "bbox": {
-                    "page": 11,
-                    "x0": 138,
-                    "x1": 201,
-                    "y0": 174,
-                    "y1": 186
-                  },
-                  "children": [],
-                  "id": "d9fd6bc10109",
-                  "kind": "cell",
-                  "provenance": {
-                    "extractor": "pdfplumber",
-                    "stage": "extract_tables"
-                  },
-                  "text": "leverage imp"
-                },
-                {
-                  "attrs": {
-                    "align": "left"
-                  },
-                  "bbox": {
-                    "page": 11,
-                    "x0": 201,
-                    "x1": 228,
-                    "y0": 174,
-                    "y1": 186
-                  },
-                  "children": [],
-                  "id": "e6f826171946",
-                  "kind": "cell",
-                  "provenance": {
-                    "extractor": "pdfplumber",
-                    "stage": "extract_tables"
-                  },
-                  "text": "roved"
-                },
-                {
-                  "attrs": {
-                    "align": "left"
-                  },
-                  "bbox": {
-                    "page": 11,
-                    "x0": 228,
-                    "x1": 291,
-                    "y0": 174,
-                    "y1": 186
-                  },
-                  "children": [],
-                  "id": "7955b80f3300",
-                  "kind": "cell",
-                  "provenance": {
-                    "extractor": "pdfplumber",
-                    "stage": "extract_tables"
-                  },
-                  "text": "as fixed costs"
-                },
-                {
-                  "attrs": {
-                    "align": "left"
-                  },
-                  "bbox": {
-                    "page": 11,
-                    "x0": 291,
-                    "x1": 324,
-                    "y0": 174,
-                    "y1": 186
-                  },
-                  "children": [],
-                  "id": "d8f3ff189935",
-                  "kind": "cell",
-                  "provenance": {
-                    "extractor": "pdfplumber",
-                    "stage": "extract_tables"
-                  },
-                  "text": "spread"
-                },
-                {
-                  "attrs": {
-                    "align": "left"
-                  },
-                  "bbox": {
-                    "page": 11,
-                    "x0": 324,
-                    "x1": 364,
-                    "y0": 174,
-                    "y1": 186
-                  },
-                  "children": [],
-                  "id": "8ccdca0d10d4",
-                  "kind": "cell",
-                  "provenance": {
-                    "extractor": "pdfplumber",
-                    "stage": "extract_tables"
-                  },
-                  "text": "over a la"
-                },
-                {
-                  "attrs": {
-                    "align": "left"
-                  },
-                  "bbox": {
-                    "page": 11,
-                    "x0": 364,
-                    "x1": 418,
-                    "y0": 174,
-                    "y1": 186
-                  },
-                  "children": [],
-                  "id": "0f288454e735",
-                  "kind": "cell",
-                  "provenance": {
-                    "extractor": "pdfplumber",
-                    "stage": "extract_tables"
-                  },
-                  "text": "rger revenue"
-                },
-                {
-                  "attrs": {
-                    "align": "left"
-                  },
-                  "bbox": {
-                    "page": 11,
-                    "x0": 418,
-                    "x1": 457,
-                    "y0": 174,
-                    "y1": 186
-                  },
-                  "children": [],
-                  "id": "01c814e7e63a",
-                  "kind": "cell",
-                  "provenance": {
-                    "extractor": "pdfplumber",
-                    "stage": "extract_tables"
-                  },
-                  "text": "base."
-                }
-              ],
-              "id": "35f38092f9a5",
-              "kind": "row",
-              "provenance": {},
-              "text": null
-            },
-            {
-              "attrs": {
-                "page": 11,
-                "row_index": 5
-              },
-              "bbox": {
-                "page": 11,
-                "x0": 78,
-                "x1": 457,
-                "y0": 81,
-                "y1": 455
-              },
-              "children": [
-                {
-                  "attrs": {
-                    "align": "left"
-                  },
-                  "bbox": {
-                    "page": 11,
-                    "x0": 78,
-                    "x1": 138,
-                    "y0": 192,
-                    "y1": 204
-                  },
-                  "children": [],
-                  "id": "775954780648",
-                  "kind": "cell",
-                  "provenance": {
-                    "extractor": "pdfplumber",
-                    "stage": "extract_tables"
-                  },
-                  "text": "(cid:127) Continue"
-                },
-                {
-                  "attrs": {
-                    "align": "left"
-                  },
-                  "bbox": {
-                    "page": 11,
-                    "x0": 138,
-                    "x1": 201,
-                    "y0": 192,
-                    "y1": 204
-                  },
-                  "children": [],
-                  "id": "09fe3a89011e",
-                  "kind": "cell",
-                  "provenance": {
-                    "extractor": "pdfplumber",
-                    "stage": "extract_tables"
-                  },
-                  "text": "d R&D; invest"
-                },
-                {
-                  "attrs": {
-                    "align": "left"
-                  },
-                  "bbox": {
-                    "page": 11,
-                    "x0": 201,
-                    "x1": 228,
-                    "y0": 192,
-                    "y1": 204
-                  },
-                  "children": [],
-                  "id": "b45caaf00ac8",
-                  "kind": "cell",
-                  "provenance": {
-                    "extractor": "pdfplumber",
-                    "stage": "extract_tables"
-                  },
-                  "text": "ment is"
-                },
-                {
-                  "attrs": {
-                    "align": "left"
-                  },
-                  "bbox": {
-                    "page": 11,
-                    "x0": 228,
-                    "x1": 291,
-                    "y0": 192,
-                    "y1": 204
-                  },
-                  "children": [],
-                  "id": "7440e68f572b",
-                  "kind": "cell",
-                  "provenance": {
-                    "extractor": "pdfplumber",
-                    "stage": "extract_tables"
-                  },
-                  "text": "expected to d"
-                },
-                {
-                  "attrs": {
-                    "align": "left"
-                  },
-                  "bbox": {
-                    "page": 11,
-                    "x0": 291,
-                    "x1": 324,
-                    "y0": 192,
-                    "y1": 204
-                  },
-                  "children": [],
-                  "id": "5a4a0fcee85d",
-                  "kind": "cell",
-                  "provenance": {
-                    "extractor": "pdfplumber",
-                    "stage": "extract_tables"
-                  },
-                  "text": "rive furt"
-                },
-                {
-                  "attrs": {
-                    "align": "left"
-                  },
-                  "bbox": {
-                    "page": 11,
-                    "x0": 324,
-                    "x1": 364,
-                    "y0": 192,
-                    "y1": 204
-                  },
-                  "children": [],
-                  "id": "347ca6f1cb69",
-                  "kind": "cell",
-                  "provenance": {
-                    "extractor": "pdfplumber",
-                    "stage": "extract_tables"
-                  },
-                  "text": "her marg"
-                },
-                {
-                  "attrs": {
-                    "align": "left"
-                  },
-                  "bbox": {
-                    "page": 11,
-                    "x0": 364,
-                    "x1": 418,
-                    "y0": 192,
-                    "y1": 204
-                  },
-                  "children": [],
-                  "id": "ec3d09300bc1",
-                  "kind": "cell",
-                  "provenance": {
-                    "extractor": "pdfplumber",
-                    "stage": "extract_tables"
-                  },
-                  "text": "in expansio"
-                },
-                {
-                  "attrs": {
-                    "align": "left"
-                  },
-                  "bbox": {
-                    "page": 11,
-                    "x0": 418,
-                    "x1": 457,
-                    "y0": 192,
-                    "y1": 204
-                  },
-                  "children": [],
-                  "id": "6ab6c36ec3b1",
-                  "kind": "cell",
-                  "provenance": {
-                    "extractor": "pdfplumber",
-                    "stage": "extract_tables"
-                  },
-                  "text": "n."
-                }
-              ],
-              "id": "e61db85d9040",
-              "kind": "row",
-              "provenance": {},
-              "text": null
-            },
-            {
-              "attrs": {
-                "page": 11,
-                "row_index": 6
-              },
-              "bbox": {
-                "page": 11,
-                "x0": 78,
-                "x1": 457,
-                "y0": 81,
-                "y1": 455
-              },
-              "children": [
-                {
-                  "attrs": {
-                    "align": "left"
-                  },
-                  "bbox": {
-                    "page": 11,
-                    "x0": 78,
-                    "x1": 138,
-                    "y0": 210,
-                    "y1": 222
-                  },
-                  "children": [],
-                  "id": "00ba0717e9ef",
-                  "kind": "cell",
-                  "provenance": {
-                    "extractor": "pdfplumber",
-                    "stage": "extract_tables"
-                  },
-                  "text": "(cid:127) Regional"
-                },
-                {
-                  "attrs": {
-                    "align": "left"
-                  },
-                  "bbox": {
-                    "page": 11,
-                    "x0": 138,
-                    "x1": 201,
-                    "y0": 210,
-                    "y1": 222
-                  },
-                  "children": [],
-                  "id": "c52486ea863c",
-                  "kind": "cell",
-                  "provenance": {
-                    "extractor": "pdfplumber",
-                    "stage": "extract_tables"
-                  },
-                  "text": "diversification"
-                },
-                {
-                  "attrs": {
-                    "align": "left"
-                  },
-                  "bbox": {
-                    "page": 11,
-                    "x0": 201,
-                    "x1": 228,
-                    "y0": 210,
-                    "y1": 222
-                  },
-                  "children": [],
-                  "id": "9b4541174fe0",
-                  "kind": "cell",
-                  "provenance": {
-                    "extractor": "pdfplumber",
-                    "stage": "extract_tables"
-                  },
-                  "text": "reduc"
-                },
-                {
-                  "attrs": {
-                    "align": "left"
-                  },
-                  "bbox": {
-                    "page": 11,
-                    "x0": 228,
-                    "x1": 291,
-                    "y0": 210,
-                    "y1": 222
-                  },
-                  "children": [],
-                  "id": "1edc6b62eac6",
-                  "kind": "cell",
-                  "provenance": {
-                    "extractor": "pdfplumber",
-                    "stage": "extract_tables"
-                  },
-                  "text": "es concentrati"
-                },
-                {
-                  "attrs": {
-                    "align": "left"
-                  },
-                  "bbox": {
-                    "page": 11,
-                    "x0": 291,
-                    "x1": 324,
-                    "y0": 210,
-                    "y1": 222
-                  },
-                  "children": [],
-                  "id": "05da743092a8",
-                  "kind": "cell",
-                  "provenance": {
-                    "extractor": "pdfplumber",
-                    "stage": "extract_tables"
-                  },
-                  "text": "on risk a"
-                },
-                {
-                  "attrs": {
-                    "align": "left"
-                  },
-                  "bbox": {
-                    "page": 11,
-                    "x0": 324,
-                    "x1": 364,
-                    "y0": 210,
-                    "y1": 222
-                  },
-                  "children": [],
-                  "id": "9cb5e8373b6b",
-                  "kind": "cell",
-                  "provenance": {
-                    "extractor": "pdfplumber",
-                    "stage": "extract_tables"
-                  },
-                  "text": "nd open"
-                },
-                {
-                  "attrs": {
-                    "align": "right"
-                  },
-                  "bbox": {
-                    "page": 11,
-                    "x0": 364,
-                    "x1": 418,
-                    "y0": 210,
-                    "y1": 222
-                  },
-                  "children": [],
-                  "id": "db04f6479c23",
-                  "kind": "cell",
-                  "provenance": {
-                    "extractor": "pdfplumber",
-                    "stage": "extract_tables"
-                  },
-                  "text": "s new corrid"
-                },
-                {
-                  "attrs": {
-                    "align": "left"
-                  },
-                  "bbox": {
-                    "page": 11,
-                    "x0": 418,
-                    "x1": 457,
-                    "y0": 210,
-                    "y1": 222
-                  },
-                  "children": [],
-                  "id": "cd259974e30d",
-                  "kind": "cell",
-                  "provenance": {
-                    "extractor": "pdfplumber",
-                    "stage": "extract_tables"
-                  },
-                  "text": "ors."
-                }
-              ],
-              "id": "d9b1160a430b",
-              "kind": "row",
-              "provenance": {},
-              "text": null
-            },
-            {
-              "attrs": {
-                "page": 11,
-                "row_index": 7
-              },
-              "bbox": {
-                "page": 11,
-                "x0": 78,
-                "x1": 457,
-                "y0": 81,
-                "y1": 455
-              },
-              "children": [
-                {
-                  "attrs": {
-                    "align": "left"
-                  },
-                  "bbox": {
-                    "page": 11,
-                    "x0": 78,
-                    "x1": 138,
-                    "y0": 445,
-                    "y1": 455
-                  },
-                  "children": [],
-                  "id": "16266f8cd959",
-                  "kind": "cell",
-                  "provenance": {
-                    "extractor": "pdfplumber",
-                    "stage": "extract_tables"
-                  },
-                  "text": "Figure 3: Full-"
-                },
-                {
-                  "attrs": {
-                    "align": "left"
-                  },
-                  "bbox": {
-                    "page": 11,
-                    "x0": 138,
-                    "x1": 201,
-                    "y0": 445,
-                    "y1": 455
-                  },
-                  "children": [],
-                  "id": "b32a009f2840",
-                  "kind": "cell",
-                  "provenance": {
-                    "extractor": "pdfplumber",
-                    "stage": "extract_tables"
-                  },
-                  "text": "year revenue"
-                },
-                {
-                  "attrs": {
-                    "align": "right"
-                  },
-                  "bbox": {
-                    "page": 11,
-                    "x0": 201,
-                    "x1": 228,
-                    "y0": 445,
-                    "y1": 455
-                  },
-                  "children": [],
-                  "id": "04826ec0d4df",
-                  "kind": "cell",
-                  "provenance": {
-                    "extractor": "pdfplumber",
-                    "stage": "extract_tables"
-                  },
-                  "text": "summ"
-                },
-                {
-                  "attrs": {
-                    "align": "left"
-                  },
-                  "bbox": {
-                    "page": 11,
-                    "x0": 228,
-                    "x1": 291,
-                    "y0": 445,
-                    "y1": 455
-                  },
-                  "children": [],
-                  "id": "b2c9c7be35a9",
-                  "kind": "cell",
-                  "provenance": {
-                    "extractor": "pdfplumber",
-                    "stage": "extract_tables"
-                  },
-                  "text": "ary."
-                },
-                {
-                  "attrs": {
-                    "align": "left"
-                  },
-                  "bbox": {
-                    "page": 11,
-                    "x0": 291,
-                    "x1": 324,
-                    "y0": 445,
-                    "y1": 455
-                  },
-                  "children": [],
-                  "id": "74d5b8a5fa5c",
-                  "kind": "cell",
-                  "provenance": {
-                    "extractor": "pdfplumber",
-                    "stage": "extract_tables"
-                  },
-                  "text": ""
-                },
-                {
-                  "attrs": {
-                    "align": "left"
-                  },
-                  "bbox": {
-                    "page": 11,
-                    "x0": 324,
-                    "x1": 364,
-                    "y0": 445,
-                    "y1": 455
-                  },
-                  "children": [],
-                  "id": "37bea920cfc0",
-                  "kind": "cell",
-                  "provenance": {
-                    "extractor": "pdfplumber",
-                    "stage": "extract_tables"
-                  },
-                  "text": ""
-                },
-                {
-                  "attrs": {
-                    "align": "left"
-                  },
-                  "bbox": {
-                    "page": 11,
-                    "x0": 364,
-                    "x1": 418,
-                    "y0": 445,
-                    "y1": 455
-                  },
-                  "children": [],
-                  "id": "80ae09b8764c",
-                  "kind": "cell",
-                  "provenance": {
-                    "extractor": "pdfplumber",
-                    "stage": "extract_tables"
-                  },
-                  "text": ""
-                },
-                {
-                  "attrs": {
-                    "align": "left"
-                  },
-                  "bbox": {
-                    "page": 11,
-                    "x0": 418,
-                    "x1": 457,
-                    "y0": 445,
-                    "y1": 455
-                  },
-                  "children": [],
-                  "id": "552f9655787d",
-                  "kind": "cell",
-                  "provenance": {
-                    "extractor": "pdfplumber",
-                    "stage": "extract_tables"
-                  },
-                  "text": ""
-                }
-              ],
-              "id": "9f0e948fe4ef",
-              "kind": "row",
-              "provenance": {},
-              "text": null
+              "text": "\u2022 Regional diversification reduces concentration risk and opens new corridors."
             }
           ],
-          "id": "ce895f032bb0",
-          "kind": "table",
+          "id": "4d3a18756fef",
+          "kind": "list",
+          "provenance": {},
+          "text": null
+        },
+        {
+          "attrs": {
+            "height": 260,
+            "image_id": 0,
+            "width": 420
+          },
+          "bbox": {
+            "page": 11,
+            "x0": 144,
+            "x1": 468,
+            "y0": 236,
+            "y1": 437
+          },
+          "children": [],
+          "id": "05f89bd9f877",
+          "kind": "figure",
           "provenance": {
             "extractor": "pdfplumber",
-            "stage": "extract_tables"
+            "stage": "ingest"
           },
           "text": null
+        },
+        {
+          "attrs": {},
+          "bbox": {
+            "page": 11,
+            "x0": 79,
+            "x1": 244,
+            "y0": 446,
+            "y1": 455
+          },
+          "children": [],
+          "id": "0b5348bd1404",
+          "kind": "paragraph",
+          "provenance": {
+            "extractor": "segment",
+            "stage": "build_tree"
+          },
+          "text": "Figure 3: Full-year revenue summary."
         }
       ],
-      "id": "8b2ba1652fe1",
+      "id": "549ec770ca68",
       "kind": "page",
       "provenance": {},
       "text": null
     }
   ],
-  "id": "d518a1d1bdc3",
+  "id": "4f476818161c",
   "kind": "document",
   "provenance": {},
   "text": null
