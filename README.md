@@ -13,7 +13,7 @@ The parser is a six-stage deterministic pipeline (`pdf_parser/pipeline.py`):
 ```
 PDF file
   │
-  ▼  Stage 1 – Ingest         (pymupdf)
+  ▼  Stage 1 – Ingest         (pypdfium2 + pdfplumber)
   │  PDF → PageRaw list
   │  Extracts text spans (text, bbox, font name/size, bold, italic),
   │  vector drawings, and embedded images for every page.
@@ -64,7 +64,7 @@ Every node in the tree is a `DocNode` (pydantic, `model.py`):
 | `bbox` | `BBox \| list[BBox]` | Bounding box(es) in PDF points. A list means the node spans multiple pages. |
 | `text` | `str \| None` | Leaf text content (heading, paragraph, cell, list_item). |
 | `children` | `list[DocNode]` | Child nodes. `table` children must all be `row`; `row` children must all be `cell`. |
-| `attrs` | `dict` | Kind-specific metadata (e.g. `level` for headings, `n_rows` / `spans_pages` for tables). |
+| `attrs` | `dict` | Kind-specific metadata. E.g. `level` for headings; `n_rows` / `n_cols` / `spans_pages` for tables; `image_id` / `width` / `height` for figures; `covered: true` on merged cells that are spanned over by a prior cell. |
 | `provenance` | `dict` | Which extractor and stage produced the node. |
 | `id` | `str` | 12-hex SHA-256 fingerprint of kind + bbox + text + child ids. |
 
@@ -96,8 +96,8 @@ in memory at each stage boundary.
 
 **Stage 1 — Ingest** &nbsp;`PDF → list[PageRaw]`
 
-pymupdf extracts every text span with its bounding box and font metadata. Each page
-also carries the raw drawing paths and image descriptors.
+pypdfium2 extracts every text span with its bounding box and font metadata; pdfplumber
+handles image stream extraction. Each page also carries the raw drawing paths and image descriptors.
 
 ```python
 PageRaw(
@@ -349,7 +349,7 @@ Expected output: a single `# Nested Table Example` heading followed by a 3×3 ta
 
 - `json` — full `DocNode` tree (`pydantic` model_dump), pretty-printed with indent=2. Preserves hierarchy, bboxes, page numbers, and nested tables. Use this when you want the raw structured output.
 - `markdown` — flattened Markdown rendering: headings become `#`/`##`/…, tables become GitHub-style pipe tables, paragraphs become plain text. Lossy with respect to bboxes.
-- `html` — same content as `markdown`, emitted as semantic HTML (`<h1>`, `<table>`, `<p>`, …).
+- `html` — page-faithful absolute layout: each page becomes a white box sized to the PDF page dimensions (scaled 1.5×). Elements are absolutely positioned from their `BBox` coordinates so column widths, row heights, and reading flow match the source. Table fill colours are extracted directly from the PDF. Use this for visual spot-checking or human review.
 - `chunks` — RAG-ready chunks as a JSON array. Each chunk carries `text`, `breadcrumb` (heading path), page span, bbox span, and token estimate. Paragraphs are split at ~800 tokens with ~100-token overlap; tables are split row-wise with the header repeated on each piece.
 
 `-o, --output <path>` — write the rendered output to `<path>` instead of stdout. Parent directories are created if missing. Mutually composable with `--visualize`: you can write the parse tree to a file and the bbox overlay PDF in the same invocation.
