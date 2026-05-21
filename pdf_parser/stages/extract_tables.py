@@ -374,7 +374,6 @@ def extract_tables(pdf_path: Path) -> list[DocNode]:
         for region in regions:
             page = pdf.pages[region.page_index]
             page_chars = page.chars  # used for cell alignment detection
-            raw_rows = [r.cells for r in page.find_tables()[0].rows]
             # find_tables() may return multiple tables on the page; match by bbox
             page_tables = page.find_tables()
             matched_pt = None

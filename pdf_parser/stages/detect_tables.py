@@ -21,6 +21,15 @@ DEFAULT_TABLE_SETTINGS = {
 }
 
 MIN_TABLE_AREA = 100.0  # sq points; rejects two-span false-positives
+_FALLBACK_TABLE_SETTINGS = {
+    "vertical_strategy":    "text",
+    "horizontal_strategy":  "text",
+    "snap_tolerance":       3,
+    "join_tolerance":       3,
+    "edge_min_length":      3,
+    "min_words_vertical":   2,
+    "min_words_horizontal": 1,
+}
 
 
 @dataclass
@@ -69,16 +78,33 @@ def detect_tables(
     region_bbox: Optional[BBox] = None,
     settings: Optional[dict] = None,
 ) -> list[TableRegion]:
-    settings = {**DEFAULT_TABLE_SETTINGS, **(settings or {})}
+    primary = {**DEFAULT_TABLE_SETTINGS, **(settings or {})}
     out: list[TableRegion] = []
     with pdfplumber.open(str(pdf_path)) as pdf:
         pages = pdf.pages if region_bbox is None else [pdf.pages[region_bbox.page]]
         for page in pages:
             target = page
             if region_bbox is not None:
-                target = page.crop((region_bbox.x0, region_bbox.y0, region_bbox.x1, region_bbox.y1))
-            for t in target.find_tables(table_settings=settings):
-                region = _extract_region(target, t, page.page_number - 1, float(page.height))
+                target = page.crop(
+                    (region_bbox.x0, region_bbox.y0, region_bbox.x1, region_bbox.y1)
+                )
+            page_height = float(page.height)
+            page_idx   = page.page_number - 1
+
+            found = target.find_tables(table_settings=primary)
+            # If the line strategy found nothing and the caller did not supply
+            # custom settings, retry with the text strategy.  This catches
+            # tables that rely on whitespace alignment rather than vector borders
+            # (Word exports, many financial PDFs).
+            # Filter to exclude false positives: reject tables with excessive columns.
+            if not found and settings is None:
+                fallback = target.find_tables(table_settings=_FALLBACK_TABLE_SETTINGS)
+                # Keep only tables with reasonable dimensions (reject wide multi-column layouts)
+                # Borderless tables typically have 2-5 columns; >6 columns are usually false positives
+                found = [t for t in fallback if len(t.rows[0].cells) <= 5] if fallback and fallback[0].rows else []
+
+            for t in found:
+                region = _extract_region(target, t, page_idx, page_height)
                 if region is not None:
                     out.append(region)
     return out

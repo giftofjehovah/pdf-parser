@@ -1120,6 +1120,36 @@ def build_13_comprehensive(out: Path) -> None:
     ]
 
     doc.build(story)
+
+def build_14_borderless_table(out: Path) -> None:
+    """14_borderless_table: 4-row x 3-col table with no vector-line borders.
+
+    The line detection strategy finds no tables on this page; only the text
+    fallback can reconstruct the grid from word positions.
+    """
+    from reportlab.platypus import Spacer
+    doc = SimpleDocTemplate(str(out), pagesize=LETTER)
+    s = _styles()
+    data = [
+        ["Name",  "Score", "Grade"],
+        ["Alice", "95",    "A"],
+        ["Bob",   "82",    "B"],
+        ["Carol", "91",    "A-"],
+    ]
+    t = Table(data, colWidths=[120, 80, 80])
+    t.setStyle(TableStyle([
+        ("FONTNAME",      (0, 0), (-1, 0), "Helvetica-Bold"),
+        ("FONTSIZE",      (0, 0), (-1, -1), 10),
+        ("TOPPADDING",    (0, 0), (-1, -1), 4),
+        ("BOTTOMPADDING", (0, 0), (-1, -1), 4),
+        # Deliberately no GRID / BOX / LINEBELOW — no vector borders.
+    ]))
+    story = [
+        Paragraph("Borderless Table Example", s["Heading1"]),
+        Spacer(1, 12),
+        t,
+    ]
+    doc.build(story)
 BUILDERS = {
     "01_simple_table": build_01_simple_table,
     "02_nested_table": build_02_nested_table,
@@ -1134,6 +1164,7 @@ BUILDERS = {
     "11_pl_statement": build_11_pl_statement,
     "12_image_chart":   build_12_image_chart,
     "13_comprehensive": build_13_comprehensive,
+    "14_borderless_table": build_14_borderless_table,
 }
 
 
