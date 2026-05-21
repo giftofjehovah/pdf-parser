@@ -19,6 +19,7 @@ dev = [
 ]
 llm = [
     "anthropic==0.39.0",
+    "pillow>=10.0",
 ]
 
 [project.scripts]

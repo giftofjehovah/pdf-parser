@@ -48,12 +48,12 @@ def parse(
     enable_llm_fallback: bool = typer.Option(False, "--enable-llm-fallback"),
     visualize: Optional[Path] = typer.Option(None, "--visualize"),
 ) -> None:
-    tree = parse_pdf(path)
-
+    fb = None
     if enable_llm_fallback:
-        # Wired in Task 25; for now warn that this is a no-op.
-        typer.echo("warning: --enable-llm-fallback set but fallback module not invoked in v1",
-                   err=True)
+        from pdf_parser.fallback.llm import AnthropicLLMClient, LLMFallback
+        fb = LLMFallback(enabled=True, client=AnthropicLLMClient())
+
+    tree = parse_pdf(path, llm_fallback=fb)
 
     if validate_only:
         report = validate(tree, path)
