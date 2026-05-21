@@ -40,15 +40,34 @@ def cmd_add(name: str, pdf_path: Path) -> None:
     if not pdf_path.exists():
         raise SystemExit(f"PDF not found: {pdf_path}")
     case_dir = REAL_DIR / name
-    if case_dir.exists():
+    if (case_dir / "source.pdf").exists():
         raise SystemExit(
-            f"{case_dir} already exists.  Use --update to refresh its goldens."
+            f"{case_dir}/source.pdf already exists. Use --update to refresh its goldens."
         )
-    case_dir.mkdir(parents=True)
-    shutil.copy2(pdf_path, case_dir / "source.pdf")
-    _write_case(case_dir)
+    # Parse before touching the final destination so a bad PDF leaves no trace.
+    import tempfile
+    tmp_dir = Path(tempfile.mkdtemp())
+    try:
+        tmp_pdf = tmp_dir / "source.pdf"
+        shutil.copy2(pdf_path, tmp_pdf)
+        tree = parse(tmp_pdf)
+        full = _strip_bbox_noise(json.loads(to_json(tree)))
+        # Commit to disk only after a successful parse.
+        case_dir.mkdir(parents=True, exist_ok=True)
+        shutil.copy2(pdf_path, case_dir / "source.pdf")
+        (case_dir / "expected_tree.json").write_text(
+            json.dumps(full, indent=2, sort_keys=True) + "\n"
+        )
+        (case_dir / "expected_skeleton.json").write_text(
+            json.dumps(_skeleton(full), indent=2, sort_keys=True) + "\n"
+        )
+    except Exception:
+        shutil.rmtree(case_dir, ignore_errors=True)
+        raise
+    finally:
+        shutil.rmtree(tmp_dir, ignore_errors=True)
     print(f"Added fixture '{name}'.")
-    print("Review the skeleton before committing:")
+    print("Inspect the skeleton before committing:")
     print(f"  python scripts/add_real_world_fixture.py --inspect {name}")
 
 
@@ -89,8 +108,12 @@ def main() -> None:
             ap.error("--add requires a PDF path argument")
         cmd_add(args.add, args.pdf)
     elif args.update:
+        if args.pdf:
+            ap.error("pdf path is only valid with --add")
         cmd_update(args.update)
     elif args.inspect:
+        if args.pdf:
+            ap.error("pdf path is only valid with --add")
         cmd_inspect(args.inspect)
 
 
