@@ -38,9 +38,7 @@ def test_borderless_table_detected_via_text_fallback():
     regions = detect_tables(FIXTURE_14)
     assert len(regions) == 1, f"expected 1 table region, got {len(regions)}"
     assert regions[0].grid[0] == ["Name", "Score", "Grade"]
-    # Text strategy may include padding rows; verify data rows exist
-    grid_text = [row for row in regions[0].grid if any(cell.strip() for cell in row)]
-    assert len(grid_text) == 4  # 1 header + 3 data rows
+    assert len(regions[0].grid) == 4  # 1 header + 3 data rows
 
 
 def test_borderless_table_has_correct_column_count():

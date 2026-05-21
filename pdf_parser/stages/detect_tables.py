@@ -51,14 +51,22 @@ def _extract_region(plumber_page, table, page_index: int, page_height: float = 0
         return None
     grid = _cell_text(rows)
 
-    # table.rows returns Row objects; each Row has .cells (list of bbox tuples or None)
-    cell_bboxes: list[list[BBox]] = []
+    # Drop rows where every cell is blank (text-strategy can emit empty spacer rows).
+    keep = [i for i, row in enumerate(grid) if any(cell.strip() for cell in row)]
+    grid = [grid[i] for i in keep]
+    if not grid:
+        return None
+
+    # Build cell bboxes for all rows first
+    cell_bboxes_raw: list[list[BBox]] = []
     for row in table.rows:
-        cell_bboxes.append([
+        cell_bboxes_raw.append([
             BBox(page=page_index, x0=c[0], y0=c[1], x1=c[2], y1=c[3]) if c is not None else
             BBox(page=page_index, x0=0, y0=0, x1=0, y1=0)
             for c in row.cells
         ])
+    # Keep only the rows we retained.
+    cell_bboxes = [cell_bboxes_raw[i] for i in keep]
 
     x0, y0, x1, y1 = table.bbox
     area = (x1 - x0) * (y1 - y0)
@@ -96,12 +104,9 @@ def detect_tables(
             # custom settings, retry with the text strategy.  This catches
             # tables that rely on whitespace alignment rather than vector borders
             # (Word exports, many financial PDFs).
-            # Filter to exclude false positives: reject tables with excessive columns.
             if not found and settings is None:
                 fallback = target.find_tables(table_settings=_FALLBACK_TABLE_SETTINGS)
-                # Keep only tables with reasonable dimensions (reject wide multi-column layouts)
-                # Borderless tables typically have 2-5 columns; >6 columns are usually false positives
-                found = [t for t in fallback if len(t.rows[0].cells) <= 5] if fallback and fallback[0].rows else []
+                found = fallback
 
             for t in found:
                 region = _extract_region(target, t, page_idx, page_height)

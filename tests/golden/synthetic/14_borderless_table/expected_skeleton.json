@@ -28,20 +28,6 @@
             {
               "children": [
                 {
-                  "kind": "cell"
-                },
-                {
-                  "kind": "cell"
-                },
-                {
-                  "kind": "cell"
-                }
-              ],
-              "kind": "row"
-            },
-            {
-              "children": [
-                {
                   "kind": "cell",
                   "text": "Alice"
                 },
@@ -59,20 +45,6 @@
             {
               "children": [
                 {
-                  "kind": "cell"
-                },
-                {
-                  "kind": "cell"
-                },
-                {
-                  "kind": "cell"
-                }
-              ],
-              "kind": "row"
-            },
-            {
-              "children": [
-                {
                   "kind": "cell",
                   "text": "Bob"
                 },
@@ -83,20 +55,6 @@
                 {
                   "kind": "cell",
                   "text": "B"
-                }
-              ],
-              "kind": "row"
-            },
-            {
-              "children": [
-                {
-                  "kind": "cell"
-                },
-                {
-                  "kind": "cell"
-                },
-                {
-                  "kind": "cell"
                 }
               ],
               "kind": "row"

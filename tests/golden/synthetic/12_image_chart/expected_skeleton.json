@@ -3,31 +3,196 @@
     {
       "children": [
         {
-          "kind": "heading",
-          "text": "Quarterly Revenue Report"
-        },
-        {
-          "kind": "paragraph",
-          "text": "The chart below shows product and service revenue for each quarter of the current fiscal year. Product"
-        },
-        {
-          "kind": "paragraph",
-          "text": "revenue (blue) consistently outpaces service revenue (orange) across all four quarters."
-        },
-        {
-          "kind": "figure"
-        },
-        {
-          "kind": "paragraph",
-          "text": "Product revenue grew 77.8 % year-over-year, reaching $22.14 M in Q4. Service revenue expanded"
-        },
-        {
-          "kind": "paragraph",
-          "text": "86.2 % over the same period to $5.38 M. Combined Q4 revenue of $27.52 M represents a 74.0 %"
-        },
-        {
-          "kind": "paragraph",
-          "text": "increase over Q1."
+          "children": [
+            {
+              "children": [
+                {
+                  "kind": "cell",
+                  "text": "Quarterly R"
+                },
+                {
+                  "kind": "cell",
+                  "text": "even"
+                },
+                {
+                  "kind": "cell",
+                  "text": "ue Report"
+                },
+                {
+                  "kind": "cell"
+                },
+                {
+                  "kind": "cell"
+                },
+                {
+                  "kind": "cell"
+                },
+                {
+                  "kind": "cell"
+                }
+              ],
+              "kind": "row"
+            },
+            {
+              "children": [
+                {
+                  "kind": "cell",
+                  "text": "The chart below shows"
+                },
+                {
+                  "kind": "cell",
+                  "text": "product"
+                },
+                {
+                  "kind": "cell",
+                  "text": "and service revenue"
+                },
+                {
+                  "kind": "cell",
+                  "text": "for"
+                },
+                {
+                  "kind": "cell",
+                  "text": "each quarter of the curre"
+                },
+                {
+                  "kind": "cell",
+                  "text": "nt fiscal"
+                },
+                {
+                  "kind": "cell",
+                  "text": "year. Prod"
+                }
+              ],
+              "kind": "row"
+            },
+            {
+              "children": [
+                {
+                  "kind": "cell",
+                  "text": "revenue (blue) consist"
+                },
+                {
+                  "kind": "cell",
+                  "text": "ently outp"
+                },
+                {
+                  "kind": "cell",
+                  "text": "aces service revenu"
+                },
+                {
+                  "kind": "cell",
+                  "text": "e (o"
+                },
+                {
+                  "kind": "cell",
+                  "text": "range) across all four qu"
+                },
+                {
+                  "kind": "cell",
+                  "text": "arters."
+                },
+                {
+                  "kind": "cell"
+                }
+              ],
+              "kind": "row"
+            },
+            {
+              "children": [
+                {
+                  "kind": "cell",
+                  "text": "Product revenue grew"
+                },
+                {
+                  "kind": "cell",
+                  "text": "77.8 % y"
+                },
+                {
+                  "kind": "cell",
+                  "text": "ear-over-year, reachi"
+                },
+                {
+                  "kind": "cell",
+                  "text": "ng"
+                },
+                {
+                  "kind": "cell",
+                  "text": "$22.14 M in Q4. Service"
+                },
+                {
+                  "kind": "cell",
+                  "text": "revenue"
+                },
+                {
+                  "kind": "cell",
+                  "text": "expanded"
+                }
+              ],
+              "kind": "row"
+            },
+            {
+              "children": [
+                {
+                  "kind": "cell",
+                  "text": "86.2 % over the same"
+                },
+                {
+                  "kind": "cell",
+                  "text": "period to"
+                },
+                {
+                  "kind": "cell",
+                  "text": "$5.38 M. Combined"
+                },
+                {
+                  "kind": "cell",
+                  "text": "Q4"
+                },
+                {
+                  "kind": "cell",
+                  "text": "revenue of $27.52 M rep"
+                },
+                {
+                  "kind": "cell",
+                  "text": "resents"
+                },
+                {
+                  "kind": "cell",
+                  "text": "a 74.0 %"
+                }
+              ],
+              "kind": "row"
+            },
+            {
+              "children": [
+                {
+                  "kind": "cell",
+                  "text": "increase over Q1."
+                },
+                {
+                  "kind": "cell"
+                },
+                {
+                  "kind": "cell"
+                },
+                {
+                  "kind": "cell"
+                },
+                {
+                  "kind": "cell"
+                },
+                {
+                  "kind": "cell"
+                },
+                {
+                  "kind": "cell"
+                }
+              ],
+              "kind": "row"
+            }
+          ],
+          "kind": "table"
         }
       ],
       "kind": "page"
