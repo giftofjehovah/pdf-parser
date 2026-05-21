@@ -377,3 +377,14 @@ When a parse change shifts a golden tree intentionally:
 (pinned `reportlab`). To regenerate:
 
     python -m tests.fixtures.build_pdfs
+
+### Real-world fixtures
+
+`tests/golden/real_world/` holds golden fixtures derived from real PDFs (Word exports, LaTeX papers, financial reports). The corpus starts empty; add cases with:
+
+    python scripts/add_real_world_fixture.py --add <name> <path-to-pdf>
+
+Inspect the skeleton output before committing. Quality bar: all expected headings present, no floating paragraph text where a table node should be, no duplicate text blocks.
+
+    # Update after an intentional parser change
+    python scripts/add_real_world_fixture.py --update <name>
