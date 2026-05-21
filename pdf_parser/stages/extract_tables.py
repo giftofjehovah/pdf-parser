@@ -244,9 +244,95 @@ def _logical_grid_from_table(
     return logical_grid, logical_cell_bboxes, covered
 
 
+def _between_text_nodes(
+    page_chars: list[dict],
+    cell_bbox: BBox,
+    nested_bboxes: list[BBox],
+    tol: float = 2.0,
+) -> list[DocNode]:
+    """Return paragraph DocNodes for text in *cell_bbox* that falls outside all *nested_bboxes*.
+
+    When a cell contains multiple nested sub-tables, text that lives between
+    those sub-tables (in the cell's y-range but not inside any sub-table's bbox)
+    is extracted here and returned as paragraph nodes, so callers can add them
+    as siblings to the sub-table nodes in the correct vertical order.
+    """
+    # Include all chars in cell (using c.get("text") to keep explicit space glyphs
+    # which pdfplumber may emit; they are included here and handled below).
+    cell_chars = [
+        c for c in page_chars
+        if (c.get("x0", 0) >= cell_bbox.x0 - tol
+            and c.get("x1", 0) <= cell_bbox.x1 + tol
+            and c.get("top", 0) >= cell_bbox.y0 - tol
+            and c.get("bottom", 0) <= cell_bbox.y1 + tol
+            and c.get("text"))
+    ]
+    # Remove chars that fall inside any nested table.
+    outside: list[dict] = [
+        c for c in cell_chars
+        if not any(
+            c.get("x0", 0) >= nb.x0 - tol
+            and c.get("x1", 0) <= nb.x1 + tol
+            and c.get("top", 0) >= nb.y0 - tol
+            and c.get("bottom", 0) <= nb.y1 + tol
+            for nb in nested_bboxes
+        )
+    ]
+    if not outside:
+        return []
+    # Group into visual lines by y-midpoint bucket (2-pt rounding matches segment.py).
+    lines: dict[int, list[dict]] = {}
+    for c in outside:
+        cy_mid = (c.get("top", 0) + c.get("bottom", 0)) / 2
+        lines.setdefault(round(cy_mid / 2), []).append(c)
+    nodes: list[DocNode] = []
+    for bucket in sorted(lines):
+        lc = sorted(lines[bucket], key=lambda c: c.get("x0", 0))
+        # Reconstruct inter-word spaces from horizontal gaps between chars.
+        # Many PDFs encode spaces as positioning adjustments (not explicit space
+        # glyphs), so a naive join produces run-together text.  We insert a
+        # synthetic space whenever the gap between the previous char's x1 and
+        # the current char's x0 exceeds 40 % of the average char width.
+        non_space = [c for c in lc if c.get("text", "").strip()]
+        if not non_space:
+            continue
+        avg_w = sum(c.get("x1", 0) - c.get("x0", 0) for c in non_space) / len(non_space)
+        space_gap = max(avg_w * 0.4, 1.0)
+        parts: list[str] = []
+        prev_x1: float | None = None
+        for c in lc:
+            char_text = c.get("text", "")
+            if not char_text.strip():
+                continue  # explicit space glyph: handled via gap detection below
+            x0 = c.get("x0", 0)
+            if prev_x1 is not None and x0 - prev_x1 > space_gap:
+                parts.append(" ")
+            parts.append(char_text)
+            prev_x1 = c.get("x1", x0 + 1)
+        line_text = "".join(parts).strip()
+        if not line_text:
+            continue
+        line_bbox = BBox(
+            page=cell_bbox.page,
+            x0=min(c.get("x0", 0) for c in lc),
+            y0=min(c.get("top", 0) for c in lc),
+            x1=max(c.get("x1", 0) for c in lc),
+            y1=max(c.get("bottom", 0) for c in lc),
+        )
+        nodes.append(DocNode(
+            kind="paragraph",
+            bbox=line_bbox,
+            text=line_text,
+            provenance={"extractor": "pdfplumber", "stage": "extract_tables"},
+        ))
+    return nodes
+
+
 def _build_cell(text: str, bbox: BBox, pdf_path: Path, depth: int,
-                covered: bool = False, align: str = "left") -> DocNode:
+                covered: bool = False, align: str = "left",
+                page_chars: list[dict] | None = None) -> DocNode:
     children: list[DocNode] = []
+    nested_bboxes: list[BBox] = []
     if not covered and depth + 1 < MAX_DEPTH:
         shrunk = BBox(
             page=bbox.page,
@@ -262,7 +348,16 @@ def _build_cell(text: str, bbox: BBox, pdf_path: Path, depth: int,
                 # Skip if the detected region is as wide as the cell itself (echoed parent).
                 if abs(region.bbox.x1 - region.bbox.x0) >= abs(bbox.x1 - bbox.x0) - 1:
                     continue
-                children.append(_build_table(region, pdf_path, depth + 1))
+                children.append(_build_table(region, pdf_path, depth + 1, page_chars=page_chars))
+                nested_bboxes.append(region.bbox)
+    # Preserve text that lives between nested sub-tables in the same cell.
+    # Without this, `text=None` (set when children is non-empty) drops any
+    # paragraphs whose bbox is inside the cell but outside every sub-table.
+    if children and page_chars:
+        extra = _between_text_nodes(page_chars, bbox, nested_bboxes)
+        if extra:
+            children.extend(extra)
+            children.sort(key=lambda n: n.bbox.y0 if isinstance(n.bbox, BBox) else n.bbox[0].y0)
     attrs: dict = {"align": align}
     if covered:
         attrs["covered"] = True
@@ -291,7 +386,7 @@ def _build_table(
                 else region.bbox
             )
             align = _cell_align(page_chars, cbox) if page_chars else "left"
-            cells.append(_build_cell(text, cbox, pdf_path, depth, align=align))
+            cells.append(_build_cell(text, cbox, pdf_path, depth, align=align, page_chars=page_chars))
         rows.append(DocNode(
             kind="row",
             bbox=region.bbox,
@@ -334,7 +429,7 @@ def _build_table_from_logical(
             )
             is_covered = covered is not None and (r_idx, c_idx) in covered
             align = _cell_align(page_chars, cbox) if page_chars else "left"
-            cells.append(_build_cell(text, cbox, pdf_path, depth, covered=is_covered, align=align))
+            cells.append(_build_cell(text, cbox, pdf_path, depth, covered=is_covered, align=align, page_chars=page_chars))
         rows.append(DocNode(
             kind="row",
             bbox=region.bbox,
@@ -356,6 +451,37 @@ def _build_table_from_logical(
     )
 
 
+
+def _filter_outer_regions(regions: list) -> list:
+    """Return only outermost TableRegions, dropping any fully contained within another.
+
+    pdfplumber's line strategy detects nested sub-tables as independent top-level
+    tables alongside their outer table.  Without this filter those sub-tables
+    appear twice in the final tree: once nested inside the outer table's cell
+    (via the recursive _build_cell detection) and once as a top-level sibling.
+    """
+    tol = _OVERLAP_TOL
+    result = []
+    for r in regions:
+        rb = r.bbox
+        dominated = any(
+            other.bbox.page == rb.page
+            and other.bbox.x0 <= rb.x0 + tol
+            and other.bbox.y0 <= rb.y0 + tol
+            and other.bbox.x1 >= rb.x1 - tol
+            and other.bbox.y1 >= rb.y1 - tol
+            and other is not r
+            # 'other' must be strictly larger (not merely the same table).
+            and (other.bbox.x0 < rb.x0 - tol
+                 or other.bbox.y0 < rb.y0 - tol
+                 or other.bbox.x1 > rb.x1 + tol
+                 or other.bbox.y1 > rb.y1 + tol)
+            for other in regions
+        )
+        if not dominated:
+            result.append(r)
+    return result
+
 def extract_tables(pdf_path: Path) -> list[DocNode]:
     """
     Build a DocNode subtree for each top-level table in *pdf_path*.
@@ -368,7 +494,7 @@ def extract_tables(pdf_path: Path) -> list[DocNode]:
     cells carry ``text`` and ``children=[]``.
     """
     result: list[DocNode] = []
-    regions = detect_tables(pdf_path)
+    regions = _filter_outer_regions(detect_tables(pdf_path))
 
     with pdfplumber.open(str(pdf_path)) as pdf:
         for region in regions:

@@ -1170,6 +1170,70 @@ def build_15_multicolumn_text(out: Path) -> None:
         BalancedColumns(paragraphs, nCols=2, needed=72),
     ]
     doc.build(story)
+
+
+def build_16_text_between_subtables(out: Path) -> None:
+    """16_text_between_subtables: outer table whose middle cell contains two
+    sub-tables with a plain-text paragraph between them.
+
+    Fixture structure:
+      Outer table (1 column, GRID borders):
+        Row 0: "Section Header"              ← plain-text header cell
+        Row 1: [sub-table A, paragraph, sub-table B]  ← cell with 2 nested tables + text
+        Row 2: "Section Footer"              ← plain-text footer cell
+
+    This fixture tests that text situated between nested sub-tables inside a
+    single outer cell is preserved in the parsed output.  Before the fix, the
+    cell's ``text`` attribute was set to ``None`` when any ``children`` were
+    present, silently dropping the paragraph.
+    """
+    doc = SimpleDocTemplate(str(out), pagesize=LETTER)
+    s = _styles()
+
+    def _sub(header: list[str], rows: list[list[str]]) -> Table:
+        return Table(
+            [header] + rows,
+            style=TableStyle([
+                ("GRID",       (0, 0), (-1, -1), 0.5, colors.darkblue),
+                ("BACKGROUND", (0, 0), (-1, 0),  colors.lightblue),
+                ("FONTNAME",   (0, 0), (-1, 0),  "Helvetica-Bold"),
+                ("FONTSIZE",   (0, 0), (-1, -1), 8),
+            ]),
+            colWidths=[90, 90],
+        )
+
+    sub_a = _sub(["Item", "Qty"], [["Widget A", "10"], ["Widget B", "5"]])
+    sub_b = _sub(["Month", "Sales"], [["Jan", "$500"], ["Feb", "$700"]])
+
+    # List of flowables in one cell: sub-table, paragraph, sub-table.
+    between_para = Paragraph(
+        "NOTE: This paragraph sits between the two sub-tables and must be preserved.",
+        s["BodyText"],
+    )
+    cell_content = [sub_a, between_para, sub_b]
+
+    outer = Table(
+        [
+            ["Section Header"],
+            [cell_content],
+            ["Section Footer"],
+        ],
+        style=TableStyle([
+            ("GRID",       (0, 0), (-1, -1), 0.5, colors.black),
+            ("BACKGROUND", (0, 0), (0, 0),  colors.lightgrey),
+            ("FONTNAME",   (0, 0), (0, 0),  "Helvetica-Bold"),
+            ("VALIGN",     (0, 0), (-1, -1), "TOP"),
+            ("TOPPADDING", (0, 0), (-1, -1), 4),
+            ("BOTTOMPADDING", (0, 0), (-1, -1), 4),
+        ]),
+        colWidths=[300],
+    )
+    story = [
+        Paragraph("Text Between Sub-Tables", s["Heading1"]),
+        Spacer(1, 12),
+        outer,
+    ]
+    doc.build(story)
 BUILDERS = {
     "01_simple_table": build_01_simple_table,
     "02_nested_table": build_02_nested_table,
@@ -1186,6 +1250,7 @@ BUILDERS = {
     "13_comprehensive": build_13_comprehensive,
     "14_borderless_table": build_14_borderless_table,
     "15_multicolumn_text": build_15_multicolumn_text,
+    "16_text_between_subtables": build_16_text_between_subtables,
 }
 
 

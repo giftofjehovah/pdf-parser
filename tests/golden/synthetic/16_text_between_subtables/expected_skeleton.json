@@ -1,0 +1,207 @@
+{
+  "children": [
+    {
+      "children": [
+        {
+          "kind": "heading",
+          "text": "Text Between Sub-Tables"
+        },
+        {
+          "children": [
+            {
+              "children": [
+                {
+                  "kind": "cell",
+                  "text": "Section Header"
+                }
+              ],
+              "kind": "row"
+            },
+            {
+              "children": [
+                {
+                  "children": [
+                    {
+                      "children": [
+                        {
+                          "children": [
+                            {
+                              "kind": "cell",
+                              "text": "Item"
+                            },
+                            {
+                              "kind": "cell",
+                              "text": "Qty"
+                            }
+                          ],
+                          "kind": "row"
+                        },
+                        {
+                          "children": [
+                            {
+                              "kind": "cell",
+                              "text": "Widget A"
+                            },
+                            {
+                              "kind": "cell",
+                              "text": "10"
+                            }
+                          ],
+                          "kind": "row"
+                        },
+                        {
+                          "children": [
+                            {
+                              "kind": "cell",
+                              "text": "Widget B"
+                            },
+                            {
+                              "kind": "cell",
+                              "text": "5"
+                            }
+                          ],
+                          "kind": "row"
+                        }
+                      ],
+                      "kind": "table"
+                    },
+                    {
+                      "kind": "paragraph",
+                      "text": "NOTE: This paragraph sits between the two sub-tables and must"
+                    },
+                    {
+                      "kind": "paragraph",
+                      "text": "be preserved."
+                    },
+                    {
+                      "children": [
+                        {
+                          "children": [
+                            {
+                              "kind": "cell",
+                              "text": "Month"
+                            },
+                            {
+                              "kind": "cell",
+                              "text": "Sales"
+                            }
+                          ],
+                          "kind": "row"
+                        },
+                        {
+                          "children": [
+                            {
+                              "kind": "cell",
+                              "text": "Jan"
+                            },
+                            {
+                              "kind": "cell",
+                              "text": "$500"
+                            }
+                          ],
+                          "kind": "row"
+                        },
+                        {
+                          "children": [
+                            {
+                              "kind": "cell",
+                              "text": "Feb"
+                            },
+                            {
+                              "kind": "cell",
+                              "text": "$700"
+                            }
+                          ],
+                          "kind": "row"
+                        }
+                      ],
+                      "kind": "table"
+                    }
+                  ],
+                  "kind": "cell"
+                }
+              ],
+              "kind": "row"
+            },
+            {
+              "children": [
+                {
+                  "kind": "cell"
+                }
+              ],
+              "kind": "row"
+            },
+            {
+              "children": [
+                {
+                  "kind": "cell"
+                }
+              ],
+              "kind": "row"
+            },
+            {
+              "children": [
+                {
+                  "kind": "cell"
+                }
+              ],
+              "kind": "row"
+            },
+            {
+              "children": [
+                {
+                  "kind": "cell"
+                }
+              ],
+              "kind": "row"
+            },
+            {
+              "children": [
+                {
+                  "kind": "cell"
+                }
+              ],
+              "kind": "row"
+            },
+            {
+              "children": [
+                {
+                  "kind": "cell"
+                }
+              ],
+              "kind": "row"
+            },
+            {
+              "children": [
+                {
+                  "kind": "cell"
+                }
+              ],
+              "kind": "row"
+            },
+            {
+              "children": [
+                {
+                  "kind": "cell"
+                }
+              ],
+              "kind": "row"
+            },
+            {
+              "children": [
+                {
+                  "kind": "cell",
+                  "text": "Section Footer"
+                }
+              ],
+              "kind": "row"
+            }
+          ],
+          "kind": "table"
+        }
+      ],
+      "kind": "page"
+    }
+  ],
+  "kind": "document"
+}
