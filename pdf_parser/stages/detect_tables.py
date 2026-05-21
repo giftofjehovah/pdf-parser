@@ -82,7 +82,10 @@ def _extract_region(plumber_page, table, page_index: int, page_height: float = 0
         return None
     grid = _cell_text(rows)
 
-    # Drop rows where every cell is blank (text-strategy can emit empty spacer rows).
+    # Drop rows where every cell is blank.  Applies to both line-strategy and
+    # text-strategy tables: the text strategy can emit empty spacer rows, and
+    # line-strategy tables may have them as artefacts.  Intentional blank
+    # separator rows are not common in practice; revisit if they appear.
     keep = [i for i, row in enumerate(grid) if any(cell.strip() for cell in row)]
     grid = [grid[i] for i in keep]
     if not grid:
