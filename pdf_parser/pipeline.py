@@ -42,9 +42,13 @@ def _apply_llm_fallback(
     new_pages: list[DocNode] = []
     for page_node in tree.children:
         if not _has_leaf_text(page_node):
-            page_idx = page_node.attrs.get("page", 0)
-            width  = raw_pages[page_idx].width  if page_idx < len(raw_pages) else 612.0
-            height = raw_pages[page_idx].height if page_idx < len(raw_pages) else 792.0
+            page_idx = page_node.bbox.page
+            if page_idx >= len(raw_pages):  # should never happen; indicates build_tree/ingest mismatch
+                raise IndexError(
+                    f"page_idx={page_idx} out of range for raw_pages (len={len(raw_pages)})"
+                )
+            width  = raw_pages[page_idx].width
+            height = raw_pages[page_idx].height
             region = BBox(page=page_idx, x0=0, y0=0, x1=width, y1=height)
             fallback_page = fallback_for_region(fb, pdf_path, region)
             if fallback_page is not None:

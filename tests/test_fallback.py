@@ -76,7 +76,7 @@ def test_parse_invokes_fallback_for_empty_page():
     empty_page = DocNode(
         kind="page",
         bbox=BBox(page=0, x0=0, y0=0, x1=612, y1=792),
-        attrs={"page": 0},
+        attrs={"page_index": 0},  # what build_tree actually writes
     )
     empty_doc = DocNode(
         kind="document",
@@ -105,20 +105,66 @@ def test_anthropic_client_builds_docnode_from_response():
         ]
     })
 
-    mock_anthropic = MagicMock()
+    mock_client = MagicMock()
     mock_message = MagicMock()
-    mock_message.content = [MagicMock(text=fake_response_json)]
-    mock_anthropic.messages.create.return_value = mock_message
+    mock_message.content = [MagicMock(type="text", text=fake_response_json)]
+    mock_client.messages.create.return_value = mock_message
 
     region = BBox(page=0, x0=0, y0=0, x1=612, y1=792)
 
     with patch("pdf_parser.fallback.llm._render_page_png", return_value=b"\x89PNG"):
-        client = AnthropicLLMClient.__new__(AnthropicLLMClient)
-        client._anthropic = mock_anthropic
-        client._model = "claude-3-5-sonnet-20241022"
+        client = AnthropicLLMClient(client=mock_client)
         result = client.parse_region(SIMPLE, region)
 
     assert result.kind == "page"
     kinds = [c.kind for c in result.children]
     assert "heading" in kinds
     assert "paragraph" in kinds
+
+
+def test_parse_llm_response_no_duplicate_ids():
+    """Repeated text in LLM output must not produce colliding node ids."""
+    from pdf_parser.fallback.llm import _parse_llm_response
+    from pdf_parser.validate.invariants import check_well_formedness
+
+    region = BBox(page=0, x0=0, y0=0, x1=612, y1=792)
+    response_json = json.dumps({
+        "children": [
+            {"kind": "paragraph", "text": "same text"},
+            {"kind": "paragraph", "text": "same text"},
+            {"kind": "paragraph", "text": ""},
+            {"kind": "paragraph", "text": ""},
+        ]
+    })
+    page_node = _parse_llm_response(response_json, region)
+    ids = [c.id for c in page_node.children]
+    assert len(ids) == len(set(ids)), f"Duplicate ids: {ids}"
+    errors = check_well_formedness(page_node)
+    assert not errors, f"Invariant violations: {errors}"
+
+
+def test_anthropic_client_handles_table_response():
+    """_parse_llm_response correctly builds a table DocNode from LLM output."""
+    from pdf_parser.fallback.llm import _parse_llm_response
+
+    region = BBox(page=0, x0=0, y0=0, x1=612, y1=792)
+    response_json = json.dumps({
+        "children": [{
+            "kind": "table",
+            "n_rows": 2,
+            "n_cols": 3,
+            "rows": [["H1", "H2", "H3"], ["a", "b", "c"]],
+        }]
+    })
+    page_node = _parse_llm_response(response_json, region)
+    assert len(page_node.children) == 1
+    table = page_node.children[0]
+    assert table.kind == "table"
+    assert table.attrs["n_rows"] == 2
+    assert table.attrs["n_cols"] == 3
+    assert table.attrs["header_signature"] == ("H1", "H2", "H3")
+    assert len(table.children) == 2  # 2 rows
+    assert len(table.children[0].children) == 3  # 3 cells per row
+    # all ids must be unique
+    all_ids = [n.id for row in table.children for n in [row] + row.children]
+    assert len(all_ids) == len(set(all_ids)), f"Duplicate row/cell ids: {all_ids}"
