@@ -1127,7 +1127,6 @@ def build_14_borderless_table(out: Path) -> None:
     The line detection strategy finds no tables on this page; only the text
     fallback can reconstruct the grid from word positions.
     """
-    from reportlab.platypus import Spacer
     doc = SimpleDocTemplate(str(out), pagesize=LETTER)
     s = _styles()
     data = [
@@ -1150,6 +1149,27 @@ def build_14_borderless_table(out: Path) -> None:
         t,
     ]
     doc.build(story)
+
+def build_15_multicolumn_text(out: Path) -> None:
+    """15_multicolumn_text: two-column body text with no tables.
+
+    The text strategy must NOT misidentify this layout as a table.
+    Used as a negative fixture for the text-strategy fallback guard.
+    """
+    doc = SimpleDocTemplate(str(out), pagesize=LETTER)
+    s = _styles()
+    body = (
+        "Lorem ipsum dolor sit amet, consectetur adipiscing elit. "
+        "Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. "
+        "Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris."
+    )
+    paragraphs = [Paragraph(body, s["BodyText"]) for _ in range(6)]
+    story = [
+        Paragraph("Multi-Column Text Layout", s["Heading1"]),
+        Spacer(1, 12),
+        BalancedColumns(paragraphs, nCols=2, needed=72),
+    ]
+    doc.build(story)
 BUILDERS = {
     "01_simple_table": build_01_simple_table,
     "02_nested_table": build_02_nested_table,
@@ -1165,6 +1185,7 @@ BUILDERS = {
     "12_image_chart":   build_12_image_chart,
     "13_comprehensive": build_13_comprehensive,
     "14_borderless_table": build_14_borderless_table,
+    "15_multicolumn_text": build_15_multicolumn_text,
 }
 
 

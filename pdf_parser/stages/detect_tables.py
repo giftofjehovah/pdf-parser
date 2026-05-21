@@ -31,7 +31,19 @@ _FALLBACK_TABLE_SETTINGS = {
     "min_words_horizontal": 1,
 }
 
-_MAX_CELL_TEXT_CHARS = 5  # average cell text longer than this = paragraph text, not table data
+# Average cell-text length (characters) above which a text-strategy table is
+# treated as paragraph text misidentified as a table and discarded.
+#
+# Empirically:
+#   real data cells   (Name / Score / Grade, Alice / 95 / A)         avg ~3 chars
+#   business headers  (Product Name / Unit Price, Widget A / $25.99)  avg ~7 chars
+#   paragraph text    (pdfplumber text-strategy on body paragraphs)   avg ~20-25 chars
+#
+# 7 accepts typical data-table cell text (including business headers) while
+# rejecting paragraphs detected as 13-column pseudo-tables and multi-column
+# body-text layouts.  If real borderless tables with longer headers appear,
+# adjust upward; if false positives reappear, adjust downward.
+_MAX_CELL_TEXT_CHARS = 7
 
 
 def _is_text_strategy_table(table) -> bool:

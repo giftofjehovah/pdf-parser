@@ -375,6 +375,12 @@ def extract_tables(pdf_path: Path) -> list[DocNode]:
             page = pdf.pages[region.page_index]
             page_chars = page.chars  # used for cell alignment detection
             # find_tables() may return multiple tables on the page; match by bbox
+            # Always uses the default (line) strategy.  If `detect_tables`
+            # found this region via the text-strategy fallback, this call
+            # returns an empty list and `matched_pt` stays None, so the
+            # logical-grid path is skipped.  Borderless tables therefore
+            # rely on the pre-extracted `region.grid`; colspan/rowspan
+            # detection is not available for them.
             page_tables = page.find_tables()
             matched_pt = None
             for pt in page_tables:

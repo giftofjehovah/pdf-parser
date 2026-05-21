@@ -1,0 +1,540 @@
+{
+  "attrs": {},
+  "bbox": {
+    "page": 0,
+    "x0": 0,
+    "x1": 0,
+    "y0": 0,
+    "y1": 0
+  },
+  "children": [
+    {
+      "attrs": {
+        "page_index": 0
+      },
+      "bbox": {
+        "page": 0,
+        "x0": 0,
+        "x1": 612,
+        "y0": 0,
+        "y1": 792
+      },
+      "children": [
+        {
+          "attrs": {
+            "level": 1
+          },
+          "bbox": {
+            "page": 0,
+            "x0": 79,
+            "x1": 299,
+            "y0": 83,
+            "y1": 100
+          },
+          "children": [],
+          "id": "5ec0e36c214c",
+          "kind": "heading",
+          "provenance": {
+            "extractor": "segment",
+            "stage": "build_tree"
+          },
+          "text": "Multi-Column Text Layout"
+        },
+        {
+          "attrs": {},
+          "bbox": {
+            "page": 0,
+            "x0": 85,
+            "x1": 262,
+            "y0": 133,
+            "y1": 142
+          },
+          "children": [],
+          "id": "dfcab4d94425",
+          "kind": "paragraph",
+          "provenance": {
+            "extractor": "segment",
+            "stage": "build_tree"
+          },
+          "text": "Lorem ipsum dolor sit amet, consectetur"
+        },
+        {
+          "attrs": {},
+          "bbox": {
+            "page": 0,
+            "x0": 310,
+            "x1": 487,
+            "y0": 133,
+            "y1": 142
+          },
+          "children": [],
+          "id": "8049ef2dba16",
+          "kind": "paragraph",
+          "provenance": {
+            "extractor": "segment",
+            "stage": "build_tree"
+          },
+          "text": "Lorem ipsum dolor sit amet, consectetur"
+        },
+        {
+          "attrs": {},
+          "bbox": {
+            "page": 0,
+            "x0": 84,
+            "x1": 526,
+            "y0": 145,
+            "y1": 154
+          },
+          "children": [],
+          "id": "335f2db1bdfc",
+          "kind": "paragraph",
+          "provenance": {
+            "extractor": "segment",
+            "stage": "build_tree"
+          },
+          "text": "adipiscing elit. Sed do eiusmod tempor incididunt adipiscing elit. Sed do eiusmod tempor incididunt"
+        },
+        {
+          "attrs": {},
+          "bbox": {
+            "page": 0,
+            "x0": 85,
+            "x1": 281,
+            "y0": 157,
+            "y1": 166
+          },
+          "children": [],
+          "id": "8209d7b3922f",
+          "kind": "paragraph",
+          "provenance": {
+            "extractor": "segment",
+            "stage": "build_tree"
+          },
+          "text": "ut labore et dolore magna aliqua. Ut enim ad"
+        },
+        {
+          "attrs": {},
+          "bbox": {
+            "page": 0,
+            "x0": 310,
+            "x1": 506,
+            "y0": 157,
+            "y1": 166
+          },
+          "children": [],
+          "id": "311307dc6b2a",
+          "kind": "paragraph",
+          "provenance": {
+            "extractor": "segment",
+            "stage": "build_tree"
+          },
+          "text": "ut labore et dolore magna aliqua. Ut enim ad"
+        },
+        {
+          "attrs": {},
+          "bbox": {
+            "page": 0,
+            "x0": 85,
+            "x1": 296,
+            "y0": 169,
+            "y1": 178
+          },
+          "children": [],
+          "id": "e7a281ef0343",
+          "kind": "paragraph",
+          "provenance": {
+            "extractor": "segment",
+            "stage": "build_tree"
+          },
+          "text": "minim veniam, quis nostrud exercitation ullamco"
+        },
+        {
+          "attrs": {},
+          "bbox": {
+            "page": 0,
+            "x0": 310,
+            "x1": 521,
+            "y0": 169,
+            "y1": 178
+          },
+          "children": [],
+          "id": "dbeb0adc48f1",
+          "kind": "paragraph",
+          "provenance": {
+            "extractor": "segment",
+            "stage": "build_tree"
+          },
+          "text": "minim veniam, quis nostrud exercitation ullamco"
+        },
+        {
+          "attrs": {},
+          "bbox": {
+            "page": 0,
+            "x0": 85,
+            "x1": 115,
+            "y0": 181,
+            "y1": 188
+          },
+          "children": [],
+          "id": "b151833a4fbc",
+          "kind": "paragraph",
+          "provenance": {
+            "extractor": "segment",
+            "stage": "build_tree"
+          },
+          "text": "laboris."
+        },
+        {
+          "attrs": {},
+          "bbox": {
+            "page": 0,
+            "x0": 310,
+            "x1": 340,
+            "y0": 181,
+            "y1": 188
+          },
+          "children": [],
+          "id": "0722b72da710",
+          "kind": "paragraph",
+          "provenance": {
+            "extractor": "segment",
+            "stage": "build_tree"
+          },
+          "text": "laboris."
+        },
+        {
+          "attrs": {},
+          "bbox": {
+            "page": 0,
+            "x0": 85,
+            "x1": 262,
+            "y0": 199,
+            "y1": 208
+          },
+          "children": [],
+          "id": "06fa229e3fe3",
+          "kind": "paragraph",
+          "provenance": {
+            "extractor": "segment",
+            "stage": "build_tree"
+          },
+          "text": "Lorem ipsum dolor sit amet, consectetur"
+        },
+        {
+          "attrs": {},
+          "bbox": {
+            "page": 0,
+            "x0": 310,
+            "x1": 487,
+            "y0": 199,
+            "y1": 208
+          },
+          "children": [],
+          "id": "99c4c1547e6f",
+          "kind": "paragraph",
+          "provenance": {
+            "extractor": "segment",
+            "stage": "build_tree"
+          },
+          "text": "Lorem ipsum dolor sit amet, consectetur"
+        },
+        {
+          "attrs": {},
+          "bbox": {
+            "page": 0,
+            "x0": 84,
+            "x1": 526,
+            "y0": 211,
+            "y1": 220
+          },
+          "children": [],
+          "id": "157039e91fa6",
+          "kind": "paragraph",
+          "provenance": {
+            "extractor": "segment",
+            "stage": "build_tree"
+          },
+          "text": "adipiscing elit. Sed do eiusmod tempor incididunt adipiscing elit. Sed do eiusmod tempor incididunt"
+        },
+        {
+          "attrs": {},
+          "bbox": {
+            "page": 0,
+            "x0": 85,
+            "x1": 281,
+            "y0": 223,
+            "y1": 232
+          },
+          "children": [],
+          "id": "c5770d9f2509",
+          "kind": "paragraph",
+          "provenance": {
+            "extractor": "segment",
+            "stage": "build_tree"
+          },
+          "text": "ut labore et dolore magna aliqua. Ut enim ad"
+        },
+        {
+          "attrs": {},
+          "bbox": {
+            "page": 0,
+            "x0": 310,
+            "x1": 506,
+            "y0": 223,
+            "y1": 232
+          },
+          "children": [],
+          "id": "70a2edb5fdce",
+          "kind": "paragraph",
+          "provenance": {
+            "extractor": "segment",
+            "stage": "build_tree"
+          },
+          "text": "ut labore et dolore magna aliqua. Ut enim ad"
+        },
+        {
+          "attrs": {},
+          "bbox": {
+            "page": 0,
+            "x0": 85,
+            "x1": 296,
+            "y0": 235,
+            "y1": 244
+          },
+          "children": [],
+          "id": "ced3f0b738e0",
+          "kind": "paragraph",
+          "provenance": {
+            "extractor": "segment",
+            "stage": "build_tree"
+          },
+          "text": "minim veniam, quis nostrud exercitation ullamco"
+        },
+        {
+          "attrs": {},
+          "bbox": {
+            "page": 0,
+            "x0": 310,
+            "x1": 521,
+            "y0": 235,
+            "y1": 244
+          },
+          "children": [],
+          "id": "1a2fdf59d10a",
+          "kind": "paragraph",
+          "provenance": {
+            "extractor": "segment",
+            "stage": "build_tree"
+          },
+          "text": "minim veniam, quis nostrud exercitation ullamco"
+        },
+        {
+          "attrs": {},
+          "bbox": {
+            "page": 0,
+            "x0": 85,
+            "x1": 115,
+            "y0": 247,
+            "y1": 254
+          },
+          "children": [],
+          "id": "b2e37c0f18d5",
+          "kind": "paragraph",
+          "provenance": {
+            "extractor": "segment",
+            "stage": "build_tree"
+          },
+          "text": "laboris."
+        },
+        {
+          "attrs": {},
+          "bbox": {
+            "page": 0,
+            "x0": 310,
+            "x1": 340,
+            "y0": 247,
+            "y1": 254
+          },
+          "children": [],
+          "id": "16605d5ab8c7",
+          "kind": "paragraph",
+          "provenance": {
+            "extractor": "segment",
+            "stage": "build_tree"
+          },
+          "text": "laboris."
+        },
+        {
+          "attrs": {},
+          "bbox": {
+            "page": 0,
+            "x0": 85,
+            "x1": 262,
+            "y0": 265,
+            "y1": 274
+          },
+          "children": [],
+          "id": "eb164435c114",
+          "kind": "paragraph",
+          "provenance": {
+            "extractor": "segment",
+            "stage": "build_tree"
+          },
+          "text": "Lorem ipsum dolor sit amet, consectetur"
+        },
+        {
+          "attrs": {},
+          "bbox": {
+            "page": 0,
+            "x0": 310,
+            "x1": 487,
+            "y0": 265,
+            "y1": 274
+          },
+          "children": [],
+          "id": "4c3857a323c5",
+          "kind": "paragraph",
+          "provenance": {
+            "extractor": "segment",
+            "stage": "build_tree"
+          },
+          "text": "Lorem ipsum dolor sit amet, consectetur"
+        },
+        {
+          "attrs": {},
+          "bbox": {
+            "page": 0,
+            "x0": 84,
+            "x1": 526,
+            "y0": 277,
+            "y1": 286
+          },
+          "children": [],
+          "id": "eaae54fb77f3",
+          "kind": "paragraph",
+          "provenance": {
+            "extractor": "segment",
+            "stage": "build_tree"
+          },
+          "text": "adipiscing elit. Sed do eiusmod tempor incididunt adipiscing elit. Sed do eiusmod tempor incididunt"
+        },
+        {
+          "attrs": {},
+          "bbox": {
+            "page": 0,
+            "x0": 85,
+            "x1": 281,
+            "y0": 289,
+            "y1": 298
+          },
+          "children": [],
+          "id": "b1d1481d466f",
+          "kind": "paragraph",
+          "provenance": {
+            "extractor": "segment",
+            "stage": "build_tree"
+          },
+          "text": "ut labore et dolore magna aliqua. Ut enim ad"
+        },
+        {
+          "attrs": {},
+          "bbox": {
+            "page": 0,
+            "x0": 310,
+            "x1": 506,
+            "y0": 289,
+            "y1": 298
+          },
+          "children": [],
+          "id": "e07cb2f7448e",
+          "kind": "paragraph",
+          "provenance": {
+            "extractor": "segment",
+            "stage": "build_tree"
+          },
+          "text": "ut labore et dolore magna aliqua. Ut enim ad"
+        },
+        {
+          "attrs": {},
+          "bbox": {
+            "page": 0,
+            "x0": 85,
+            "x1": 296,
+            "y0": 301,
+            "y1": 310
+          },
+          "children": [],
+          "id": "6b0d0687d3a9",
+          "kind": "paragraph",
+          "provenance": {
+            "extractor": "segment",
+            "stage": "build_tree"
+          },
+          "text": "minim veniam, quis nostrud exercitation ullamco"
+        },
+        {
+          "attrs": {},
+          "bbox": {
+            "page": 0,
+            "x0": 310,
+            "x1": 521,
+            "y0": 301,
+            "y1": 310
+          },
+          "children": [],
+          "id": "401d967dd86f",
+          "kind": "paragraph",
+          "provenance": {
+            "extractor": "segment",
+            "stage": "build_tree"
+          },
+          "text": "minim veniam, quis nostrud exercitation ullamco"
+        },
+        {
+          "attrs": {},
+          "bbox": {
+            "page": 0,
+            "x0": 85,
+            "x1": 115,
+            "y0": 313,
+            "y1": 320
+          },
+          "children": [],
+          "id": "3ce0a0aeea8f",
+          "kind": "paragraph",
+          "provenance": {
+            "extractor": "segment",
+            "stage": "build_tree"
+          },
+          "text": "laboris."
+        },
+        {
+          "attrs": {},
+          "bbox": {
+            "page": 0,
+            "x0": 310,
+            "x1": 340,
+            "y0": 313,
+            "y1": 320
+          },
+          "children": [],
+          "id": "d29059fcbb22",
+          "kind": "paragraph",
+          "provenance": {
+            "extractor": "segment",
+            "stage": "build_tree"
+          },
+          "text": "laboris."
+        }
+      ],
+      "id": "c045d75d5908",
+      "kind": "page",
+      "provenance": {},
+      "text": null
+    }
+  ],
+  "id": "045170177a92",
+  "kind": "document",
+  "provenance": {},
+  "text": null
+}
