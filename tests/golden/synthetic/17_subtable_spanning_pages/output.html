@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>PDF Preview</title>
+<style>
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+body {
+  background: #777;
+  padding: 24px;
+  font-family: Helvetica, Arial, sans-serif;
+  font-size: 11.25px;
+}
+.page {
+  position: relative;
+  background: white;
+  margin: 0 auto 32px;
+  box-shadow: 0 4px 24px rgba(0,0,0,.45);
+  overflow: hidden;
+}
+.tb {
+  position: absolute;
+  overflow: hidden;
+  white-space: nowrap;
+}
+.tb-h1 { font-size: 21.00px; font-weight: bold; overflow: visible; }
+.tb-h2 { font-size: 18.00px; font-weight: bold; overflow: visible; }
+.tb-h3 { font-size: 16.50px; font-weight: bold; overflow: visible; }
+.tb-h4 { font-size: 15.00px; font-weight: bold; overflow: visible; }
+.cell {
+  position: absolute;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  font-size: 11.25px;
+  line-height: 13.50px;
+  padding: 3.0px 4.5px;
+  border: 0.6px solid #AAAAAA;
+}
+/* heuristic fallback classes (used when no pdf_path is given) */
+.rH { background: #D0D0D0; font-weight: bold; justify-content: center; }
+.rS { background: #E8E8E8; font-weight: bold; font-size: 10.50px; }
+.rT { background: #F0F0F0; font-weight: bold; border-top-color: #000 !important; }
+.rK { background: #DDEEFF; font-weight: bold;
+       border-top: 1.2px solid #000 !important;
+       border-bottom: 1.2px solid #000 !important; }
+.rP { font-style: italic; color: #444; }
+.num { justify-content: flex-end; }
+
+</style>
+</head>
+<body>
+<div class="page" style="width:918px;height:1188px;"><div class="tb tb-h3" style="left:116.6px;top:30.2px;width:130.8px;height:15.3px;">Inventory Listing</div><div class="cell rH" style="left:115.5px;top:54.0px;width:300.0px;height:22.5px;">Item</div><div class="cell rH" style="left:415.5px;top:54.0px;width:150.0px;height:22.5px;">Value</div><div class="cell rK" style="left:115.5px;top:76.5px;width:300.0px;height:22.5px;">Item 01</div><div class="cell rK" style="left:415.5px;top:76.5px;width:150.0px;height:22.5px;">7</div><div class="cell rK" style="left:115.5px;top:99.0px;width:300.0px;height:22.5px;">Item 02</div><div class="cell rK" style="left:415.5px;top:99.0px;width:150.0px;height:22.5px;">14</div><div class="cell rK" style="left:115.5px;top:121.5px;width:300.0px;height:22.5px;">Item 03</div><div class="cell rK" style="left:415.5px;top:121.5px;width:150.0px;height:22.5px;">21</div><div class="cell rK" style="left:115.5px;top:144.0px;width:300.0px;height:22.5px;">Item 04</div><div class="cell rK" style="left:415.5px;top:144.0px;width:150.0px;height:22.5px;">28</div><div class="cell rK" style="left:115.5px;top:166.5px;width:300.0px;height:22.5px;">Item 05</div><div class="cell rK" style="left:415.5px;top:166.5px;width:150.0px;height:22.5px;">35</div><div class="cell rK" style="left:115.5px;top:189.0px;width:300.0px;height:22.5px;">Item 06</div><div class="cell rK" style="left:415.5px;top:189.0px;width:150.0px;height:22.5px;">42</div><div class="cell rK" style="left:115.5px;top:211.5px;width:300.0px;height:22.5px;">Item 07</div><div class="cell rK" style="left:415.5px;top:211.5px;width:150.0px;height:22.5px;">49</div><div class="cell rK" style="left:115.5px;top:234.0px;width:300.0px;height:22.5px;">Item 08</div><div class="cell rK" style="left:415.5px;top:234.0px;width:150.0px;height:22.5px;">56</div><div class="cell rK" style="left:115.5px;top:256.5px;width:300.0px;height:22.5px;">Item 09</div><div class="cell rK" style="left:415.5px;top:256.5px;width:150.0px;height:22.5px;">63</div><div class="cell rK" style="left:115.5px;top:279.0px;width:300.0px;height:22.5px;">Item 10</div><div class="cell rK" style="left:415.5px;top:279.0px;width:150.0px;height:22.5px;">70</div><div class="cell rK" style="left:115.5px;top:301.5px;width:300.0px;height:22.5px;">Item 11</div><div class="cell rK" style="left:415.5px;top:301.5px;width:150.0px;height:22.5px;">77</div><div class="cell rK" style="left:115.5px;top:324.0px;width:300.0px;height:22.5px;">Item 12</div><div class="cell rK" style="left:415.5px;top:324.0px;width:150.0px;height:22.5px;">84</div><div class="cell rK" style="left:115.5px;top:346.5px;width:300.0px;height:22.5px;">Item 13</div><div class="cell rK" style="left:415.5px;top:346.5px;width:150.0px;height:22.5px;">91</div><div class="cell rK" style="left:115.5px;top:369.0px;width:300.0px;height:22.5px;">Item 14</div><div class="cell rK" style="left:415.5px;top:369.0px;width:150.0px;height:22.5px;">98</div><div class="cell rK" style="left:115.5px;top:391.5px;width:300.0px;height:22.5px;">Item 15</div><div class="cell rK" style="left:415.5px;top:391.5px;width:150.0px;height:22.5px;">105</div><div class="cell rK" style="left:115.5px;top:414.0px;width:300.0px;height:22.5px;">Item 16</div><div class="cell rK" style="left:415.5px;top:414.0px;width:150.0px;height:22.5px;">112</div><div class="cell rK" style="left:115.5px;top:436.5px;width:300.0px;height:22.5px;">Item 17</div><div class="cell rK" style="left:415.5px;top:436.5px;width:150.0px;height:22.5px;">119</div><div class="cell rK" style="left:115.5px;top:459.0px;width:300.0px;height:22.5px;">Item 18</div><div class="cell rK" style="left:415.5px;top:459.0px;width:150.0px;height:22.5px;">126</div><div class="cell rK" style="left:115.5px;top:481.5px;width:300.0px;height:22.5px;">Item 19</div><div class="cell rK" style="left:415.5px;top:481.5px;width:150.0px;height:22.5px;">133</div><div class="cell rK" style="left:115.5px;top:504.0px;width:300.0px;height:22.5px;">Item 20</div><div class="cell rK" style="left:415.5px;top:504.0px;width:150.0px;height:22.5px;">140</div><div class="cell rK" style="left:115.5px;top:526.5px;width:300.0px;height:22.5px;">Item 21</div><div class="cell rK" style="left:415.5px;top:526.5px;width:150.0px;height:22.5px;">147</div><div class="cell rK" style="left:115.5px;top:549.0px;width:300.0px;height:22.5px;">Item 22</div><div class="cell rK" style="left:415.5px;top:549.0px;width:150.0px;height:22.5px;">154</div><div class="cell rK" style="left:115.5px;top:571.5px;width:300.0px;height:22.5px;">Item 23</div><div class="cell rK" style="left:415.5px;top:571.5px;width:150.0px;height:22.5px;">161</div><div class="cell rK" style="left:115.5px;top:594.0px;width:300.0px;height:22.5px;">Item 24</div><div class="cell rK" style="left:415.5px;top:594.0px;width:150.0px;height:22.5px;">168</div><div class="cell rK" style="left:115.5px;top:616.5px;width:300.0px;height:22.5px;">Item 25</div><div class="cell rK" style="left:415.5px;top:616.5px;width:150.0px;height:22.5px;">175</div></div>
+<div class="page" style="width:918px;height:1188px;"><div class="cell rH" style="left:115.5px;top:22.5px;width:300.0px;height:22.5px;">Item 26</div><div class="cell rH" style="left:415.5px;top:22.5px;width:150.0px;height:22.5px;">182</div><div class="cell rK" style="left:115.5px;top:45.0px;width:300.0px;height:22.5px;">Item 27</div><div class="cell rK" style="left:415.5px;top:45.0px;width:150.0px;height:22.5px;">189</div><div class="cell rK" style="left:115.5px;top:67.5px;width:300.0px;height:22.5px;">Item 28</div><div class="cell rK" style="left:415.5px;top:67.5px;width:150.0px;height:22.5px;">196</div><div class="cell rK" style="left:115.5px;top:90.0px;width:300.0px;height:22.5px;">Item 29</div><div class="cell rK" style="left:415.5px;top:90.0px;width:150.0px;height:22.5px;">203</div><div class="cell rK" style="left:115.5px;top:112.5px;width:300.0px;height:22.5px;">Item 30</div><div class="cell rK" style="left:415.5px;top:112.5px;width:150.0px;height:22.5px;">210</div><div class="cell rK" style="left:115.5px;top:135.0px;width:300.0px;height:22.5px;">Item 31</div><div class="cell rK" style="left:415.5px;top:135.0px;width:150.0px;height:22.5px;">217</div><div class="cell rK" style="left:115.5px;top:157.5px;width:300.0px;height:22.5px;">Item 32</div><div class="cell rK" style="left:415.5px;top:157.5px;width:150.0px;height:22.5px;">224</div><div class="cell rK" style="left:115.5px;top:180.0px;width:300.0px;height:22.5px;">Item 33</div><div class="cell rK" style="left:415.5px;top:180.0px;width:150.0px;height:22.5px;">231</div><div class="cell rK" style="left:115.5px;top:202.5px;width:300.0px;height:22.5px;">Item 34</div><div class="cell rK" style="left:415.5px;top:202.5px;width:150.0px;height:22.5px;">238</div><div class="cell rK" style="left:115.5px;top:225.0px;width:300.0px;height:22.5px;">Item 35</div><div class="cell rK" style="left:415.5px;top:225.0px;width:150.0px;height:22.5px;">245</div></div>
+
+</body>
+</html>

@@ -1,0 +1,497 @@
+{
+  "children": [
+    {
+      "children": [
+        {
+          "kind": "heading",
+          "text": "Inventory Listing"
+        },
+        {
+          "children": [
+            {
+              "children": [
+                {
+                  "kind": "cell",
+                  "text": "Item"
+                },
+                {
+                  "kind": "cell",
+                  "text": "Value"
+                }
+              ],
+              "kind": "row"
+            },
+            {
+              "children": [
+                {
+                  "kind": "cell",
+                  "text": "Item 01"
+                },
+                {
+                  "kind": "cell",
+                  "text": "7"
+                }
+              ],
+              "kind": "row"
+            },
+            {
+              "children": [
+                {
+                  "kind": "cell",
+                  "text": "Item 02"
+                },
+                {
+                  "kind": "cell",
+                  "text": "14"
+                }
+              ],
+              "kind": "row"
+            },
+            {
+              "children": [
+                {
+                  "kind": "cell",
+                  "text": "Item 03"
+                },
+                {
+                  "kind": "cell",
+                  "text": "21"
+                }
+              ],
+              "kind": "row"
+            },
+            {
+              "children": [
+                {
+                  "kind": "cell",
+                  "text": "Item 04"
+                },
+                {
+                  "kind": "cell",
+                  "text": "28"
+                }
+              ],
+              "kind": "row"
+            },
+            {
+              "children": [
+                {
+                  "kind": "cell",
+                  "text": "Item 05"
+                },
+                {
+                  "kind": "cell",
+                  "text": "35"
+                }
+              ],
+              "kind": "row"
+            },
+            {
+              "children": [
+                {
+                  "kind": "cell",
+                  "text": "Item 06"
+                },
+                {
+                  "kind": "cell",
+                  "text": "42"
+                }
+              ],
+              "kind": "row"
+            },
+            {
+              "children": [
+                {
+                  "kind": "cell",
+                  "text": "Item 07"
+                },
+                {
+                  "kind": "cell",
+                  "text": "49"
+                }
+              ],
+              "kind": "row"
+            },
+            {
+              "children": [
+                {
+                  "kind": "cell",
+                  "text": "Item 08"
+                },
+                {
+                  "kind": "cell",
+                  "text": "56"
+                }
+              ],
+              "kind": "row"
+            },
+            {
+              "children": [
+                {
+                  "kind": "cell",
+                  "text": "Item 09"
+                },
+                {
+                  "kind": "cell",
+                  "text": "63"
+                }
+              ],
+              "kind": "row"
+            },
+            {
+              "children": [
+                {
+                  "kind": "cell",
+                  "text": "Item 10"
+                },
+                {
+                  "kind": "cell",
+                  "text": "70"
+                }
+              ],
+              "kind": "row"
+            },
+            {
+              "children": [
+                {
+                  "kind": "cell",
+                  "text": "Item 11"
+                },
+                {
+                  "kind": "cell",
+                  "text": "77"
+                }
+              ],
+              "kind": "row"
+            },
+            {
+              "children": [
+                {
+                  "kind": "cell",
+                  "text": "Item 12"
+                },
+                {
+                  "kind": "cell",
+                  "text": "84"
+                }
+              ],
+              "kind": "row"
+            },
+            {
+              "children": [
+                {
+                  "kind": "cell",
+                  "text": "Item 13"
+                },
+                {
+                  "kind": "cell",
+                  "text": "91"
+                }
+              ],
+              "kind": "row"
+            },
+            {
+              "children": [
+                {
+                  "kind": "cell",
+                  "text": "Item 14"
+                },
+                {
+                  "kind": "cell",
+                  "text": "98"
+                }
+              ],
+              "kind": "row"
+            },
+            {
+              "children": [
+                {
+                  "kind": "cell",
+                  "text": "Item 15"
+                },
+                {
+                  "kind": "cell",
+                  "text": "105"
+                }
+              ],
+              "kind": "row"
+            },
+            {
+              "children": [
+                {
+                  "kind": "cell",
+                  "text": "Item 16"
+                },
+                {
+                  "kind": "cell",
+                  "text": "112"
+                }
+              ],
+              "kind": "row"
+            },
+            {
+              "children": [
+                {
+                  "kind": "cell",
+                  "text": "Item 17"
+                },
+                {
+                  "kind": "cell",
+                  "text": "119"
+                }
+              ],
+              "kind": "row"
+            },
+            {
+              "children": [
+                {
+                  "kind": "cell",
+                  "text": "Item 18"
+                },
+                {
+                  "kind": "cell",
+                  "text": "126"
+                }
+              ],
+              "kind": "row"
+            },
+            {
+              "children": [
+                {
+                  "kind": "cell",
+                  "text": "Item 19"
+                },
+                {
+                  "kind": "cell",
+                  "text": "133"
+                }
+              ],
+              "kind": "row"
+            },
+            {
+              "children": [
+                {
+                  "kind": "cell",
+                  "text": "Item 20"
+                },
+                {
+                  "kind": "cell",
+                  "text": "140"
+                }
+              ],
+              "kind": "row"
+            },
+            {
+              "children": [
+                {
+                  "kind": "cell",
+                  "text": "Item 21"
+                },
+                {
+                  "kind": "cell",
+                  "text": "147"
+                }
+              ],
+              "kind": "row"
+            },
+            {
+              "children": [
+                {
+                  "kind": "cell",
+                  "text": "Item 22"
+                },
+                {
+                  "kind": "cell",
+                  "text": "154"
+                }
+              ],
+              "kind": "row"
+            },
+            {
+              "children": [
+                {
+                  "kind": "cell",
+                  "text": "Item 23"
+                },
+                {
+                  "kind": "cell",
+                  "text": "161"
+                }
+              ],
+              "kind": "row"
+            },
+            {
+              "children": [
+                {
+                  "kind": "cell",
+                  "text": "Item 24"
+                },
+                {
+                  "kind": "cell",
+                  "text": "168"
+                }
+              ],
+              "kind": "row"
+            },
+            {
+              "children": [
+                {
+                  "kind": "cell",
+                  "text": "Item 25"
+                },
+                {
+                  "kind": "cell",
+                  "text": "175"
+                }
+              ],
+              "kind": "row"
+            }
+          ],
+          "kind": "table"
+        }
+      ],
+      "kind": "page"
+    },
+    {
+      "children": [
+        {
+          "children": [
+            {
+              "children": [
+                {
+                  "kind": "cell",
+                  "text": "Item 26"
+                },
+                {
+                  "kind": "cell",
+                  "text": "182"
+                }
+              ],
+              "kind": "row"
+            },
+            {
+              "children": [
+                {
+                  "kind": "cell",
+                  "text": "Item 27"
+                },
+                {
+                  "kind": "cell",
+                  "text": "189"
+                }
+              ],
+              "kind": "row"
+            },
+            {
+              "children": [
+                {
+                  "kind": "cell",
+                  "text": "Item 28"
+                },
+                {
+                  "kind": "cell",
+                  "text": "196"
+                }
+              ],
+              "kind": "row"
+            },
+            {
+              "children": [
+                {
+                  "kind": "cell",
+                  "text": "Item 29"
+                },
+                {
+                  "kind": "cell",
+                  "text": "203"
+                }
+              ],
+              "kind": "row"
+            },
+            {
+              "children": [
+                {
+                  "kind": "cell",
+                  "text": "Item 30"
+                },
+                {
+                  "kind": "cell",
+                  "text": "210"
+                }
+              ],
+              "kind": "row"
+            },
+            {
+              "children": [
+                {
+                  "kind": "cell",
+                  "text": "Item 31"
+                },
+                {
+                  "kind": "cell",
+                  "text": "217"
+                }
+              ],
+              "kind": "row"
+            },
+            {
+              "children": [
+                {
+                  "kind": "cell",
+                  "text": "Item 32"
+                },
+                {
+                  "kind": "cell",
+                  "text": "224"
+                }
+              ],
+              "kind": "row"
+            },
+            {
+              "children": [
+                {
+                  "kind": "cell",
+                  "text": "Item 33"
+                },
+                {
+                  "kind": "cell",
+                  "text": "231"
+                }
+              ],
+              "kind": "row"
+            },
+            {
+              "children": [
+                {
+                  "kind": "cell",
+                  "text": "Item 34"
+                },
+                {
+                  "kind": "cell",
+                  "text": "238"
+                }
+              ],
+              "kind": "row"
+            },
+            {
+              "children": [
+                {
+                  "kind": "cell",
+                  "text": "Item 35"
+                },
+                {
+                  "kind": "cell",
+                  "text": "245"
+                }
+              ],
+              "kind": "row"
+            }
+          ],
+          "kind": "table"
+        }
+      ],
+      "kind": "page"
+    }
+  ],
+  "kind": "document"
+}

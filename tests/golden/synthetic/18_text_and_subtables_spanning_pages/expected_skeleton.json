@@ -1,0 +1,579 @@
+{
+  "children": [
+    {
+      "children": [
+        {
+          "kind": "heading",
+          "text": "Combined Report"
+        },
+        {
+          "children": [
+            {
+              "children": [
+                {
+                  "kind": "cell",
+                  "text": "Item"
+                },
+                {
+                  "kind": "cell",
+                  "text": "Qty"
+                }
+              ],
+              "kind": "row"
+            },
+            {
+              "children": [
+                {
+                  "kind": "cell",
+                  "text": "A-row-1"
+                },
+                {
+                  "kind": "cell",
+                  "text": "3"
+                }
+              ],
+              "kind": "row"
+            },
+            {
+              "children": [
+                {
+                  "kind": "cell",
+                  "text": "A-row-2"
+                },
+                {
+                  "kind": "cell",
+                  "text": "6"
+                }
+              ],
+              "kind": "row"
+            },
+            {
+              "children": [
+                {
+                  "kind": "cell",
+                  "text": "A-row-3"
+                },
+                {
+                  "kind": "cell",
+                  "text": "9"
+                }
+              ],
+              "kind": "row"
+            },
+            {
+              "children": [
+                {
+                  "kind": "cell",
+                  "text": "A-row-4"
+                },
+                {
+                  "kind": "cell",
+                  "text": "12"
+                }
+              ],
+              "kind": "row"
+            },
+            {
+              "children": [
+                {
+                  "kind": "cell",
+                  "text": "A-row-5"
+                },
+                {
+                  "kind": "cell",
+                  "text": "15"
+                }
+              ],
+              "kind": "row"
+            },
+            {
+              "children": [
+                {
+                  "kind": "cell",
+                  "text": "A-row-6"
+                },
+                {
+                  "kind": "cell",
+                  "text": "18"
+                }
+              ],
+              "kind": "row"
+            },
+            {
+              "children": [
+                {
+                  "kind": "cell",
+                  "text": "A-row-7"
+                },
+                {
+                  "kind": "cell",
+                  "text": "21"
+                }
+              ],
+              "kind": "row"
+            },
+            {
+              "children": [
+                {
+                  "kind": "cell",
+                  "text": "A-row-8"
+                },
+                {
+                  "kind": "cell",
+                  "text": "24"
+                }
+              ],
+              "kind": "row"
+            },
+            {
+              "children": [
+                {
+                  "kind": "cell",
+                  "text": "A-row-9"
+                },
+                {
+                  "kind": "cell",
+                  "text": "27"
+                }
+              ],
+              "kind": "row"
+            },
+            {
+              "children": [
+                {
+                  "kind": "cell",
+                  "text": "A-row-10"
+                },
+                {
+                  "kind": "cell",
+                  "text": "30"
+                }
+              ],
+              "kind": "row"
+            },
+            {
+              "children": [
+                {
+                  "kind": "cell",
+                  "text": "A-row-11"
+                },
+                {
+                  "kind": "cell",
+                  "text": "33"
+                }
+              ],
+              "kind": "row"
+            },
+            {
+              "children": [
+                {
+                  "kind": "cell",
+                  "text": "A-row-12"
+                },
+                {
+                  "kind": "cell",
+                  "text": "36"
+                }
+              ],
+              "kind": "row"
+            },
+            {
+              "children": [
+                {
+                  "kind": "cell",
+                  "text": "A-row-13"
+                },
+                {
+                  "kind": "cell",
+                  "text": "39"
+                }
+              ],
+              "kind": "row"
+            },
+            {
+              "children": [
+                {
+                  "kind": "cell",
+                  "text": "A-row-14"
+                },
+                {
+                  "kind": "cell",
+                  "text": "42"
+                }
+              ],
+              "kind": "row"
+            },
+            {
+              "children": [
+                {
+                  "kind": "cell",
+                  "text": "A-row-15"
+                },
+                {
+                  "kind": "cell",
+                  "text": "45"
+                }
+              ],
+              "kind": "row"
+            },
+            {
+              "children": [
+                {
+                  "kind": "cell",
+                  "text": "A-row-16"
+                },
+                {
+                  "kind": "cell",
+                  "text": "48"
+                }
+              ],
+              "kind": "row"
+            },
+            {
+              "children": [
+                {
+                  "kind": "cell",
+                  "text": "A-row-17"
+                },
+                {
+                  "kind": "cell",
+                  "text": "51"
+                }
+              ],
+              "kind": "row"
+            },
+            {
+              "children": [
+                {
+                  "kind": "cell",
+                  "text": "A-row-18"
+                },
+                {
+                  "kind": "cell",
+                  "text": "54"
+                }
+              ],
+              "kind": "row"
+            },
+            {
+              "children": [
+                {
+                  "kind": "cell",
+                  "text": "A-row-19"
+                },
+                {
+                  "kind": "cell",
+                  "text": "57"
+                }
+              ],
+              "kind": "row"
+            },
+            {
+              "children": [
+                {
+                  "kind": "cell",
+                  "text": "A-row-20"
+                },
+                {
+                  "kind": "cell",
+                  "text": "60"
+                }
+              ],
+              "kind": "row"
+            }
+          ],
+          "kind": "table"
+        },
+        {
+          "kind": "paragraph",
+          "text": "NOTE: paragraph between sub-table A and sub-table B."
+        }
+      ],
+      "kind": "page"
+    },
+    {
+      "children": [
+        {
+          "children": [
+            {
+              "children": [
+                {
+                  "kind": "cell",
+                  "text": "Month"
+                },
+                {
+                  "kind": "cell",
+                  "text": "Revenue"
+                }
+              ],
+              "kind": "row"
+            },
+            {
+              "children": [
+                {
+                  "kind": "cell",
+                  "text": "B-row-1"
+                },
+                {
+                  "kind": "cell",
+                  "text": "3"
+                }
+              ],
+              "kind": "row"
+            },
+            {
+              "children": [
+                {
+                  "kind": "cell",
+                  "text": "B-row-2"
+                },
+                {
+                  "kind": "cell",
+                  "text": "6"
+                }
+              ],
+              "kind": "row"
+            },
+            {
+              "children": [
+                {
+                  "kind": "cell",
+                  "text": "B-row-3"
+                },
+                {
+                  "kind": "cell",
+                  "text": "9"
+                }
+              ],
+              "kind": "row"
+            },
+            {
+              "children": [
+                {
+                  "kind": "cell",
+                  "text": "B-row-4"
+                },
+                {
+                  "kind": "cell",
+                  "text": "12"
+                }
+              ],
+              "kind": "row"
+            },
+            {
+              "children": [
+                {
+                  "kind": "cell",
+                  "text": "B-row-5"
+                },
+                {
+                  "kind": "cell",
+                  "text": "15"
+                }
+              ],
+              "kind": "row"
+            },
+            {
+              "children": [
+                {
+                  "kind": "cell",
+                  "text": "B-row-6"
+                },
+                {
+                  "kind": "cell",
+                  "text": "18"
+                }
+              ],
+              "kind": "row"
+            },
+            {
+              "children": [
+                {
+                  "kind": "cell",
+                  "text": "B-row-7"
+                },
+                {
+                  "kind": "cell",
+                  "text": "21"
+                }
+              ],
+              "kind": "row"
+            },
+            {
+              "children": [
+                {
+                  "kind": "cell",
+                  "text": "B-row-8"
+                },
+                {
+                  "kind": "cell",
+                  "text": "24"
+                }
+              ],
+              "kind": "row"
+            },
+            {
+              "children": [
+                {
+                  "kind": "cell",
+                  "text": "B-row-9"
+                },
+                {
+                  "kind": "cell",
+                  "text": "27"
+                }
+              ],
+              "kind": "row"
+            },
+            {
+              "children": [
+                {
+                  "kind": "cell",
+                  "text": "B-row-10"
+                },
+                {
+                  "kind": "cell",
+                  "text": "30"
+                }
+              ],
+              "kind": "row"
+            },
+            {
+              "children": [
+                {
+                  "kind": "cell",
+                  "text": "B-row-11"
+                },
+                {
+                  "kind": "cell",
+                  "text": "33"
+                }
+              ],
+              "kind": "row"
+            },
+            {
+              "children": [
+                {
+                  "kind": "cell",
+                  "text": "B-row-12"
+                },
+                {
+                  "kind": "cell",
+                  "text": "36"
+                }
+              ],
+              "kind": "row"
+            },
+            {
+              "children": [
+                {
+                  "kind": "cell",
+                  "text": "B-row-13"
+                },
+                {
+                  "kind": "cell",
+                  "text": "39"
+                }
+              ],
+              "kind": "row"
+            },
+            {
+              "children": [
+                {
+                  "kind": "cell",
+                  "text": "B-row-14"
+                },
+                {
+                  "kind": "cell",
+                  "text": "42"
+                }
+              ],
+              "kind": "row"
+            },
+            {
+              "children": [
+                {
+                  "kind": "cell",
+                  "text": "B-row-15"
+                },
+                {
+                  "kind": "cell",
+                  "text": "45"
+                }
+              ],
+              "kind": "row"
+            },
+            {
+              "children": [
+                {
+                  "kind": "cell",
+                  "text": "B-row-16"
+                },
+                {
+                  "kind": "cell",
+                  "text": "48"
+                }
+              ],
+              "kind": "row"
+            },
+            {
+              "children": [
+                {
+                  "kind": "cell",
+                  "text": "B-row-17"
+                },
+                {
+                  "kind": "cell",
+                  "text": "51"
+                }
+              ],
+              "kind": "row"
+            },
+            {
+              "children": [
+                {
+                  "kind": "cell",
+                  "text": "B-row-18"
+                },
+                {
+                  "kind": "cell",
+                  "text": "54"
+                }
+              ],
+              "kind": "row"
+            },
+            {
+              "children": [
+                {
+                  "kind": "cell",
+                  "text": "B-row-19"
+                },
+                {
+                  "kind": "cell",
+                  "text": "57"
+                }
+              ],
+              "kind": "row"
+            },
+            {
+              "children": [
+                {
+                  "kind": "cell",
+                  "text": "B-row-20"
+                },
+                {
+                  "kind": "cell",
+                  "text": "60"
+                }
+              ],
+              "kind": "row"
+            }
+          ],
+          "kind": "table"
+        }
+      ],
+      "kind": "page"
+    }
+  ],
+  "kind": "document"
+}
