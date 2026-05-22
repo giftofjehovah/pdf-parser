@@ -716,10 +716,15 @@ def build_13_comprehensive(out: Path) -> None:
       - Page-spanning table with nested sub-tables on both pages (no header repeat)
       - Dense financial table (income statement style, small font, section rows)
       - Three embedded raster PNG images (bar chart ×2, line chart ×1)
+      - Annex A: ruled-header tables (open-body / framed-body / row-strips)
+      - Annex B: fully borderless table (no vector lines anywhere)
+      - Annex C: outer table with text between two nested sub-tables
+      - Annex D: same idiom as C, tall enough to span a page break
+      - Annex E: vertically merged column drawn with white "invisible" rules
     """
     import io
     from reportlab.lib.pagesizes import LETTER
-    from reportlab.lib.styles import getSampleStyleSheet
+    from reportlab.lib.styles import getSampleStyleSheet, ParagraphStyle
     from reportlab.lib.units import inch
     from reportlab.platypus import (
         Image as RLImage, ListFlowable, ListItem,
@@ -1118,6 +1123,265 @@ def build_13_comprehensive(out: Path) -> None:
         _img(bar_png),
         _p("Figure 3: Full-year revenue summary."),
     ]
+
+    # ----------------------------------------------------------------- annex A
+    # Border-style variants on a single annex page.  Each table exercises a
+    # different combination of ruled header vs unruled body that was carved
+    # out as fixtures 18 / 19 / 20.
+
+    annex_a_open_body = Table(
+        [["Name",  "Score", "Grade"],
+         ["Alice", "95",    "A"],
+         ["Bob",   "82",    "B-"],
+         ["Carol", "91",    "A-"],
+         ["Dave",  "76",    "C+"]],
+        colWidths=[120, 80, 80],
+        style=TableStyle([
+            ("FONTNAME",      (0, 0), (-1, 0),  "Helvetica-Bold"),
+            ("FONTSIZE",      (0, 0), (-1, -1), 10),
+            ("TOPPADDING",    (0, 0), (-1, -1), 4),
+            ("BOTTOMPADDING", (0, 0), (-1, -1), 4),
+            # Header-only frame: no internal verticals or rules in the body.
+            ("GRID",          (0, 0), (-1, 0),  0.5, colors.black),
+        ]),
+    )
+
+    annex_a_framed_body = Table(
+        [["Region",  "Q1",  "Q2",  "Q3",  "Q4"],
+         ["North",   "120", "135", "150", "162"],
+         ["South",   "98",  "104", "111", "120"],
+         ["East",    "87",  "92",  "101", "118"],
+         ["West",    "143", "149", "156", "171"]],
+        colWidths=[100, 60, 60, 60, 60],
+        style=TableStyle([
+            ("FONTNAME",      (0, 0), (-1, 0),  "Helvetica-Bold"),
+            ("FONTSIZE",      (0, 0), (-1, -1), 10),
+            ("TOPPADDING",    (0, 0), (-1, -1), 4),
+            ("BOTTOMPADDING", (0, 0), (-1, -1), 4),
+            ("BOX",           (0, 0), (-1, -1), 0.5, colors.black),
+            ("GRID",          (0, 0), (-1, 0),  0.5, colors.black),
+        ]),
+    )
+
+    annex_a_row_strips = Table(
+        [["Item",   "Qty", "Price"],
+         ["Apple",  "3",   "$1.00"],
+         ["Banana", "6",   "$0.50"],
+         ["Cherry", "12",  "$2.25"],
+         ["Date",   "4",   "$3.10"]],
+        colWidths=[120, 80, 80],
+        style=TableStyle([
+            ("FONTNAME",      (0, 0), (-1, 0),  "Helvetica-Bold"),
+            ("FONTSIZE",      (0, 0), (-1, -1), 10),
+            ("TOPPADDING",    (0, 0), (-1, -1), 4),
+            ("BOTTOMPADDING", (0, 0), (-1, -1), 4),
+            ("BOX",           (0, 0), (-1, -1), 0.5, colors.black),
+            ("GRID",          (0, 0), (-1, 0),  0.5, colors.black),
+            ("LINEBELOW",     (0, 1), (-1, -2), 0.5, colors.black),
+        ]),
+    )
+
+    story += [
+        PageBreak(),
+        _p("9. Border Style Variants", "Heading2"),
+        _sp(8),
+        _p("9.1 Open-Body Table", "Heading3"),
+        _sp(6),
+        annex_a_open_body,
+        _sp(12),
+        _p("9.2 Framed-Body Table", "Heading3"),
+        _sp(6),
+        annex_a_framed_body,
+        _sp(12),
+        _p("9.3 Row-Strips Table", "Heading3"),
+        _sp(6),
+        annex_a_row_strips,
+        PageBreak(),
+    ]
+
+    # ----------------------------------------------------------------- annex B
+    # Fully borderless 4-row × 3-col table (fixture 14): only the text-strategy
+    # fallback can recover the grid.
+
+    annex_b_borderless = Table(
+        [["Student", "Average", "Standing"],
+         ["Ellie",   "94",      "A"],
+         ["Finn",    "81",      "B"],
+         ["Gwen",    "88",      "B+"]],
+        colWidths=[120, 80, 80],
+        style=TableStyle([
+            ("FONTNAME",      (0, 0), (-1, 0),  "Helvetica-Bold"),
+            ("FONTSIZE",      (0, 0), (-1, -1), 10),
+            ("TOPPADDING",    (0, 0), (-1, -1), 4),
+            ("BOTTOMPADDING", (0, 0), (-1, -1), 4),
+            # Intentionally no GRID / BOX / LINE — no vector borders.
+        ]),
+    )
+
+    # No intro paragraph: the text-strategy fallback rejects pseudo-tables
+    # whose average cell-text length exceeds _MAX_CELL_TEXT_CHARS, so any prose
+    # near the table merges into the same region and disqualifies the whole
+    # block.  Heading + spacer + table mirrors the standalone fixture 14.
+    story += [
+        _p("10. Borderless Summary", "Heading2"),
+        _sp(12),
+        annex_b_borderless,
+        PageBreak(),
+    ]
+
+    # ----------------------------------------------------------------- annex C
+    # Outer table whose middle cell holds two sub-tables with a paragraph
+    # between them (fixture 16).  Header signatures are unique so the test
+    # suite can address them without colliding with annex D below.
+
+    def _annex_sub(header: list[str], rows: list[list[str]]) -> Table:
+        return Table(
+            [header] + rows,
+            style=TableStyle([
+                ("GRID",       (0, 0), (-1, -1), 0.5, colors.darkblue),
+                ("BACKGROUND", (0, 0), (-1, 0),  colors.lightblue),
+                ("FONTNAME",   (0, 0), (-1, 0),  "Helvetica-Bold"),
+                ("FONTSIZE",   (0, 0), (-1, -1), 8),
+            ]),
+            colWidths=[90, 90],
+        )
+
+    annex_c_sub_a = _annex_sub(["Part", "Count"],   [["Bolt", "12"], ["Screw", "30"]])
+    annex_c_sub_b = _annex_sub(["Quarter", "Revenue"], [["Q1", "$1,200"], ["Q2", "$1,650"]])
+    annex_c_between = _p(
+        "NOTE: This paragraph sits between the two sub-tables and must be preserved."
+    )
+
+    annex_c_outer = Table(
+        [
+            ["Annex C Header"],
+            [[annex_c_sub_a, annex_c_between, annex_c_sub_b]],
+            ["Annex C Footer"],
+        ],
+        style=TableStyle([
+            ("GRID",          (0, 0), (-1, -1), 0.5, colors.black),
+            ("BACKGROUND",    (0, 0), (0, 0),   colors.lightgrey),
+            ("FONTNAME",      (0, 0), (0, 0),   "Helvetica-Bold"),
+            ("VALIGN",        (0, 0), (-1, -1), "TOP"),
+            ("TOPPADDING",    (0, 0), (-1, -1), 4),
+            ("BOTTOMPADDING", (0, 0), (-1, -1), 4),
+        ]),
+        colWidths=[300],
+    )
+
+    story += [
+        _p("11. Notes Between Sub-Tables", "Heading2"),
+        _sp(8),
+        annex_c_outer,
+        PageBreak(),
+    ]
+
+    # ----------------------------------------------------------------- annex D
+    # Same idiom as annex C but tall enough to span a page break (fixture 17).
+    # Each between-paragraph is its own outer-table row so the split happens
+    # at a clean row boundary; the outer table draws horizontal lines only
+    # around header and footer, so the table reads as one continuous frame
+    # bridging the two pages.
+
+    annex_d_sub_a = _annex_sub(["Code", "Total"], [["AX-1", "100"], ["AX-2", "250"]])
+    annex_d_sub_b = _annex_sub(["Phase", "Status"], [["Init", "Done"], ["Build", "WIP"]])
+
+    # Local style — do NOT mutate the shared BodyText (would leak elsewhere).
+    annex_d_body = ParagraphStyle("AnnexDBody", parent=s["BodyText"], fontSize=9, leading=12)
+
+    annex_d_paras: list = [
+        Paragraph(
+            "NOTE: This paragraph sits between the two sub-tables and must "
+            "be preserved across the page break.",
+            annex_d_body,
+        ),
+    ]
+    for i in range(1, 28):
+        annex_d_paras.append(Paragraph(
+            f"Spanning-line {i:02d}: Lorem ipsum dolor sit amet, "
+            "consectetur adipiscing elit, sed do eiusmod tempor "
+            "incididunt ut labore et dolore magna aliqua.",
+            annex_d_body,
+        ))
+    annex_d_paras.append(Paragraph(
+        "END: This trailing sentence is the last paragraph between the two "
+        "sub-tables.",
+        annex_d_body,
+    ))
+
+    annex_d_rows: list[list] = [
+        ["Spanning Header"],
+        [[annex_d_sub_a]],
+        *[[para] for para in annex_d_paras],
+        [[annex_d_sub_b]],
+        ["Spanning Footer"],
+    ]
+    _AD_HEADER = 0
+    _AD_FOOTER = len(annex_d_rows) - 1
+
+    annex_d_outer = Table(
+        annex_d_rows,
+        style=TableStyle([
+            ("VALIGN",        (0, 0), (-1, -1), "TOP"),
+            ("TOPPADDING",    (0, 0), (-1, -1), 4),
+            ("BOTTOMPADDING", (0, 0), (-1, -1), 4),
+            ("BACKGROUND",    (0, _AD_HEADER), (0, _AD_HEADER), colors.lightgrey),
+            ("FONTNAME",      (0, _AD_HEADER), (0, _AD_HEADER), "Helvetica-Bold"),
+            # Vertical sides span every row so the frame reads continuous
+            # across the page boundary.
+            ("LINEBEFORE", (0, 0),  (0, -1),  0.5, colors.black),
+            ("LINEAFTER",  (-1, 0), (-1, -1), 0.5, colors.black),
+            # Horizontal rules ONLY around header and footer.
+            ("LINEABOVE", (0, _AD_HEADER), (-1, _AD_HEADER), 0.5, colors.black),
+            ("LINEBELOW", (0, _AD_HEADER), (-1, _AD_HEADER), 0.5, colors.black),
+            ("LINEABOVE", (0, _AD_FOOTER), (-1, _AD_FOOTER), 0.5, colors.black),
+            ("LINEBELOW", (0, _AD_FOOTER), (-1, _AD_FOOTER), 0.5, colors.black),
+        ]),
+        colWidths=[400],
+    )
+
+    story += [
+        _p("12. Extended Notes (Page Spanning)", "Heading2"),
+        _sp(8),
+        annex_d_outer,
+        PageBreak(),
+    ]
+
+    # ----------------------------------------------------------------- annex E
+    # Vertically merged column drawn with white "invisible" row separators
+    # (fixture 21).  Col-0 separators at rows 1/2 and 2/3 are overdrawn with
+    # white; a colour-aware parser must subtract those overdraws so col-0
+    # collapses into one cell spanning rows 1..3.
+
+    annex_e_table = Table(
+        [["Zone",        "Jan",  "Feb",  "Mar"],
+         ["Tropical",    "100",  "110",  "120"],
+         ["Subtropical", "200",  "210",  "220"],
+         ["Temperate",   "300",  "310",  "320"],
+         ["Polar",       "400",  "410",  "420"]],
+        colWidths=[100, 60, 60, 60],
+        rowHeights=[20, 20, 20, 20, 20],
+        style=TableStyle([
+            ("FONTNAME",  (0, 0), (-1, 0),  "Helvetica-Bold"),
+            ("FONTSIZE",  (0, 0), (-1, -1), 10),
+            ("VALIGN",    (0, 0), (-1, -1), "TOP"),
+            ("GRID",      (0, 0), (-1, -1), 0.5, colors.black),
+            ("LINEBELOW", (0, 1), (0, 1),   0.5, colors.white),
+            ("LINEBELOW", (0, 2), (0, 2),   0.5, colors.white),
+        ]),
+    )
+
+    story += [
+        _p("13. Vertical Merge", "Heading2"),
+        _sp(8),
+        _p(
+            "Inner row separators in column 0 are overdrawn with white; a "
+            "reader sees one merged cell containing three lines of text."
+        ),
+        _sp(8),
+        annex_e_table,
+    ]
+
 
     doc.build(story)
 

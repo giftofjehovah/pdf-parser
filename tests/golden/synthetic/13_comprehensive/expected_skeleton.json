@@ -4096,6 +4096,1084 @@
         }
       ],
       "kind": "page"
+    },
+    {
+      "children": [
+        {
+          "kind": "heading",
+          "text": "9. Border Style Variants"
+        },
+        {
+          "kind": "heading",
+          "text": "9.1 Open-Body Table"
+        },
+        {
+          "children": [
+            {
+              "children": [
+                {
+                  "kind": "cell",
+                  "text": "Name"
+                },
+                {
+                  "kind": "cell",
+                  "text": "Score"
+                },
+                {
+                  "kind": "cell",
+                  "text": "Grade"
+                }
+              ],
+              "kind": "row"
+            },
+            {
+              "children": [
+                {
+                  "kind": "cell",
+                  "text": "Alice"
+                },
+                {
+                  "kind": "cell",
+                  "text": "95"
+                },
+                {
+                  "kind": "cell",
+                  "text": "A"
+                }
+              ],
+              "kind": "row"
+            },
+            {
+              "children": [
+                {
+                  "kind": "cell",
+                  "text": "Bob"
+                },
+                {
+                  "kind": "cell",
+                  "text": "82"
+                },
+                {
+                  "kind": "cell",
+                  "text": "B-"
+                }
+              ],
+              "kind": "row"
+            },
+            {
+              "children": [
+                {
+                  "kind": "cell",
+                  "text": "Carol"
+                },
+                {
+                  "kind": "cell",
+                  "text": "91"
+                },
+                {
+                  "kind": "cell",
+                  "text": "A-"
+                }
+              ],
+              "kind": "row"
+            },
+            {
+              "children": [
+                {
+                  "kind": "cell",
+                  "text": "Dave"
+                },
+                {
+                  "kind": "cell",
+                  "text": "76"
+                },
+                {
+                  "kind": "cell",
+                  "text": "C+"
+                }
+              ],
+              "kind": "row"
+            }
+          ],
+          "kind": "table"
+        },
+        {
+          "kind": "heading",
+          "text": "9.2 Framed-Body Table"
+        },
+        {
+          "children": [
+            {
+              "children": [
+                {
+                  "kind": "cell",
+                  "text": "Region"
+                },
+                {
+                  "kind": "cell",
+                  "text": "Q1"
+                },
+                {
+                  "kind": "cell",
+                  "text": "Q2"
+                },
+                {
+                  "kind": "cell",
+                  "text": "Q3"
+                },
+                {
+                  "kind": "cell",
+                  "text": "Q4"
+                }
+              ],
+              "kind": "row"
+            },
+            {
+              "children": [
+                {
+                  "kind": "cell",
+                  "text": "North"
+                },
+                {
+                  "kind": "cell",
+                  "text": "120"
+                },
+                {
+                  "kind": "cell",
+                  "text": "135"
+                },
+                {
+                  "kind": "cell",
+                  "text": "150"
+                },
+                {
+                  "kind": "cell",
+                  "text": "162"
+                }
+              ],
+              "kind": "row"
+            },
+            {
+              "children": [
+                {
+                  "kind": "cell",
+                  "text": "South"
+                },
+                {
+                  "kind": "cell",
+                  "text": "98"
+                },
+                {
+                  "kind": "cell",
+                  "text": "104"
+                },
+                {
+                  "kind": "cell",
+                  "text": "111"
+                },
+                {
+                  "kind": "cell",
+                  "text": "120"
+                }
+              ],
+              "kind": "row"
+            },
+            {
+              "children": [
+                {
+                  "kind": "cell",
+                  "text": "East"
+                },
+                {
+                  "kind": "cell",
+                  "text": "87"
+                },
+                {
+                  "kind": "cell",
+                  "text": "92"
+                },
+                {
+                  "kind": "cell",
+                  "text": "101"
+                },
+                {
+                  "kind": "cell",
+                  "text": "118"
+                }
+              ],
+              "kind": "row"
+            },
+            {
+              "children": [
+                {
+                  "kind": "cell",
+                  "text": "West"
+                },
+                {
+                  "kind": "cell",
+                  "text": "143"
+                },
+                {
+                  "kind": "cell",
+                  "text": "149"
+                },
+                {
+                  "kind": "cell",
+                  "text": "156"
+                },
+                {
+                  "kind": "cell",
+                  "text": "171"
+                }
+              ],
+              "kind": "row"
+            }
+          ],
+          "kind": "table"
+        },
+        {
+          "kind": "heading",
+          "text": "9.3 Row-Strips Table"
+        },
+        {
+          "children": [
+            {
+              "children": [
+                {
+                  "kind": "cell",
+                  "text": "Item"
+                },
+                {
+                  "kind": "cell",
+                  "text": "Qty"
+                },
+                {
+                  "kind": "cell",
+                  "text": "Price"
+                }
+              ],
+              "kind": "row"
+            },
+            {
+              "children": [
+                {
+                  "kind": "cell",
+                  "text": "Apple"
+                },
+                {
+                  "kind": "cell",
+                  "text": "3"
+                },
+                {
+                  "kind": "cell",
+                  "text": "$1.00"
+                }
+              ],
+              "kind": "row"
+            },
+            {
+              "children": [
+                {
+                  "kind": "cell",
+                  "text": "Banana"
+                },
+                {
+                  "kind": "cell",
+                  "text": "6"
+                },
+                {
+                  "kind": "cell",
+                  "text": "$0.50"
+                }
+              ],
+              "kind": "row"
+            },
+            {
+              "children": [
+                {
+                  "kind": "cell",
+                  "text": "Cherry"
+                },
+                {
+                  "kind": "cell",
+                  "text": "12"
+                },
+                {
+                  "kind": "cell",
+                  "text": "$2.25"
+                }
+              ],
+              "kind": "row"
+            },
+            {
+              "children": [
+                {
+                  "kind": "cell",
+                  "text": "Date"
+                },
+                {
+                  "kind": "cell",
+                  "text": "4"
+                },
+                {
+                  "kind": "cell",
+                  "text": "$3.10"
+                }
+              ],
+              "kind": "row"
+            }
+          ],
+          "kind": "table"
+        }
+      ],
+      "kind": "page"
+    },
+    {
+      "children": [
+        {
+          "kind": "heading",
+          "text": "10. Borderless Summary"
+        },
+        {
+          "children": [
+            {
+              "children": [
+                {
+                  "kind": "cell",
+                  "text": "Student"
+                },
+                {
+                  "kind": "cell",
+                  "text": "Average"
+                },
+                {
+                  "kind": "cell",
+                  "text": "Standing"
+                }
+              ],
+              "kind": "row"
+            },
+            {
+              "children": [
+                {
+                  "kind": "cell",
+                  "text": "Ellie"
+                },
+                {
+                  "kind": "cell",
+                  "text": "94"
+                },
+                {
+                  "kind": "cell",
+                  "text": "A"
+                }
+              ],
+              "kind": "row"
+            },
+            {
+              "children": [
+                {
+                  "kind": "cell",
+                  "text": "Finn"
+                },
+                {
+                  "kind": "cell",
+                  "text": "81"
+                },
+                {
+                  "kind": "cell",
+                  "text": "B"
+                }
+              ],
+              "kind": "row"
+            },
+            {
+              "children": [
+                {
+                  "kind": "cell",
+                  "text": "Gwen"
+                },
+                {
+                  "kind": "cell",
+                  "text": "88"
+                },
+                {
+                  "kind": "cell",
+                  "text": "B+"
+                }
+              ],
+              "kind": "row"
+            }
+          ],
+          "kind": "table"
+        }
+      ],
+      "kind": "page"
+    },
+    {
+      "children": [
+        {
+          "kind": "heading",
+          "text": "11. Notes Between Sub-Tables"
+        },
+        {
+          "children": [
+            {
+              "children": [
+                {
+                  "kind": "cell",
+                  "text": "Annex C Header"
+                }
+              ],
+              "kind": "row"
+            },
+            {
+              "children": [
+                {
+                  "children": [
+                    {
+                      "children": [
+                        {
+                          "children": [
+                            {
+                              "kind": "cell",
+                              "text": "Part"
+                            },
+                            {
+                              "kind": "cell",
+                              "text": "Count"
+                            }
+                          ],
+                          "kind": "row"
+                        },
+                        {
+                          "children": [
+                            {
+                              "kind": "cell",
+                              "text": "Bolt"
+                            },
+                            {
+                              "kind": "cell",
+                              "text": "12"
+                            }
+                          ],
+                          "kind": "row"
+                        },
+                        {
+                          "children": [
+                            {
+                              "kind": "cell",
+                              "text": "Screw"
+                            },
+                            {
+                              "kind": "cell",
+                              "text": "30"
+                            }
+                          ],
+                          "kind": "row"
+                        }
+                      ],
+                      "kind": "table"
+                    },
+                    {
+                      "kind": "paragraph",
+                      "text": "NOTE: This paragraph sits between the two sub-tables and must"
+                    },
+                    {
+                      "kind": "paragraph",
+                      "text": "be preserved."
+                    },
+                    {
+                      "children": [
+                        {
+                          "children": [
+                            {
+                              "kind": "cell",
+                              "text": "Quarter"
+                            },
+                            {
+                              "kind": "cell",
+                              "text": "Revenue"
+                            }
+                          ],
+                          "kind": "row"
+                        },
+                        {
+                          "children": [
+                            {
+                              "kind": "cell",
+                              "text": "Q1"
+                            },
+                            {
+                              "kind": "cell",
+                              "text": "$1,200"
+                            }
+                          ],
+                          "kind": "row"
+                        },
+                        {
+                          "children": [
+                            {
+                              "kind": "cell",
+                              "text": "Q2"
+                            },
+                            {
+                              "kind": "cell",
+                              "text": "$1,650"
+                            }
+                          ],
+                          "kind": "row"
+                        }
+                      ],
+                      "kind": "table"
+                    }
+                  ],
+                  "kind": "cell"
+                }
+              ],
+              "kind": "row"
+            },
+            {
+              "children": [
+                {
+                  "kind": "cell"
+                }
+              ],
+              "kind": "row"
+            },
+            {
+              "children": [
+                {
+                  "kind": "cell"
+                }
+              ],
+              "kind": "row"
+            },
+            {
+              "children": [
+                {
+                  "kind": "cell"
+                }
+              ],
+              "kind": "row"
+            },
+            {
+              "children": [
+                {
+                  "kind": "cell"
+                }
+              ],
+              "kind": "row"
+            },
+            {
+              "children": [
+                {
+                  "kind": "cell"
+                }
+              ],
+              "kind": "row"
+            },
+            {
+              "children": [
+                {
+                  "kind": "cell"
+                }
+              ],
+              "kind": "row"
+            },
+            {
+              "children": [
+                {
+                  "kind": "cell"
+                }
+              ],
+              "kind": "row"
+            },
+            {
+              "children": [
+                {
+                  "kind": "cell"
+                }
+              ],
+              "kind": "row"
+            },
+            {
+              "children": [
+                {
+                  "kind": "cell",
+                  "text": "Annex C Footer"
+                }
+              ],
+              "kind": "row"
+            }
+          ],
+          "kind": "table"
+        }
+      ],
+      "kind": "page"
+    },
+    {
+      "children": [
+        {
+          "kind": "heading",
+          "text": "12. Extended Notes (Page Spanning)"
+        },
+        {
+          "kind": "heading",
+          "text": "Spanning Header"
+        },
+        {
+          "children": [
+            {
+              "children": [
+                {
+                  "kind": "cell",
+                  "text": "Code"
+                },
+                {
+                  "kind": "cell",
+                  "text": "Total"
+                }
+              ],
+              "kind": "row"
+            },
+            {
+              "children": [
+                {
+                  "kind": "cell",
+                  "text": "AX-1"
+                },
+                {
+                  "kind": "cell",
+                  "text": "100"
+                }
+              ],
+              "kind": "row"
+            },
+            {
+              "children": [
+                {
+                  "kind": "cell",
+                  "text": "AX-2"
+                },
+                {
+                  "kind": "cell",
+                  "text": "250"
+                }
+              ],
+              "kind": "row"
+            }
+          ],
+          "kind": "table"
+        },
+        {
+          "kind": "paragraph",
+          "text": "NOTE: This paragraph sits between the two sub-tables and must be preserved across the page"
+        },
+        {
+          "kind": "paragraph",
+          "text": "break."
+        },
+        {
+          "kind": "paragraph",
+          "text": "Spanning-line 01: Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor"
+        },
+        {
+          "kind": "paragraph",
+          "text": "incididunt ut labore et dolore magna aliqua."
+        },
+        {
+          "kind": "paragraph",
+          "text": "Spanning-line 02: Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor"
+        },
+        {
+          "kind": "paragraph",
+          "text": "incididunt ut labore et dolore magna aliqua."
+        },
+        {
+          "kind": "paragraph",
+          "text": "Spanning-line 03: Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor"
+        },
+        {
+          "kind": "paragraph",
+          "text": "incididunt ut labore et dolore magna aliqua."
+        },
+        {
+          "kind": "paragraph",
+          "text": "Spanning-line 04: Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor"
+        },
+        {
+          "kind": "paragraph",
+          "text": "incididunt ut labore et dolore magna aliqua."
+        },
+        {
+          "kind": "paragraph",
+          "text": "Spanning-line 05: Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor"
+        },
+        {
+          "kind": "paragraph",
+          "text": "incididunt ut labore et dolore magna aliqua."
+        },
+        {
+          "kind": "paragraph",
+          "text": "Spanning-line 06: Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor"
+        },
+        {
+          "kind": "paragraph",
+          "text": "incididunt ut labore et dolore magna aliqua."
+        },
+        {
+          "kind": "paragraph",
+          "text": "Spanning-line 07: Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor"
+        },
+        {
+          "kind": "paragraph",
+          "text": "incididunt ut labore et dolore magna aliqua."
+        },
+        {
+          "kind": "paragraph",
+          "text": "Spanning-line 08: Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor"
+        },
+        {
+          "kind": "paragraph",
+          "text": "incididunt ut labore et dolore magna aliqua."
+        },
+        {
+          "kind": "paragraph",
+          "text": "Spanning-line 09: Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor"
+        },
+        {
+          "kind": "paragraph",
+          "text": "incididunt ut labore et dolore magna aliqua."
+        },
+        {
+          "kind": "paragraph",
+          "text": "Spanning-line 10: Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor"
+        },
+        {
+          "kind": "paragraph",
+          "text": "incididunt ut labore et dolore magna aliqua."
+        },
+        {
+          "kind": "paragraph",
+          "text": "Spanning-line 11: Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor"
+        },
+        {
+          "kind": "paragraph",
+          "text": "incididunt ut labore et dolore magna aliqua."
+        },
+        {
+          "kind": "paragraph",
+          "text": "Spanning-line 12: Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor"
+        },
+        {
+          "kind": "paragraph",
+          "text": "incididunt ut labore et dolore magna aliqua."
+        },
+        {
+          "kind": "paragraph",
+          "text": "Spanning-line 13: Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor"
+        },
+        {
+          "kind": "paragraph",
+          "text": "incididunt ut labore et dolore magna aliqua."
+        },
+        {
+          "kind": "paragraph",
+          "text": "Spanning-line 14: Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor"
+        },
+        {
+          "kind": "paragraph",
+          "text": "incididunt ut labore et dolore magna aliqua."
+        },
+        {
+          "kind": "paragraph",
+          "text": "Spanning-line 15: Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor"
+        },
+        {
+          "kind": "paragraph",
+          "text": "incididunt ut labore et dolore magna aliqua."
+        }
+      ],
+      "kind": "page"
+    },
+    {
+      "children": [
+        {
+          "kind": "paragraph",
+          "text": "Spanning-line 16: Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor"
+        },
+        {
+          "kind": "paragraph",
+          "text": "incididunt ut labore et dolore magna aliqua."
+        },
+        {
+          "kind": "paragraph",
+          "text": "Spanning-line 17: Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor"
+        },
+        {
+          "kind": "paragraph",
+          "text": "incididunt ut labore et dolore magna aliqua."
+        },
+        {
+          "kind": "paragraph",
+          "text": "Spanning-line 18: Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor"
+        },
+        {
+          "kind": "paragraph",
+          "text": "incididunt ut labore et dolore magna aliqua."
+        },
+        {
+          "kind": "paragraph",
+          "text": "Spanning-line 19: Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor"
+        },
+        {
+          "kind": "paragraph",
+          "text": "incididunt ut labore et dolore magna aliqua."
+        },
+        {
+          "kind": "paragraph",
+          "text": "Spanning-line 20: Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor"
+        },
+        {
+          "kind": "paragraph",
+          "text": "incididunt ut labore et dolore magna aliqua."
+        },
+        {
+          "kind": "paragraph",
+          "text": "Spanning-line 21: Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor"
+        },
+        {
+          "kind": "paragraph",
+          "text": "incididunt ut labore et dolore magna aliqua."
+        },
+        {
+          "kind": "paragraph",
+          "text": "Spanning-line 22: Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor"
+        },
+        {
+          "kind": "paragraph",
+          "text": "incididunt ut labore et dolore magna aliqua."
+        },
+        {
+          "kind": "paragraph",
+          "text": "Spanning-line 23: Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor"
+        },
+        {
+          "kind": "paragraph",
+          "text": "incididunt ut labore et dolore magna aliqua."
+        },
+        {
+          "kind": "paragraph",
+          "text": "Spanning-line 24: Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor"
+        },
+        {
+          "kind": "paragraph",
+          "text": "incididunt ut labore et dolore magna aliqua."
+        },
+        {
+          "kind": "paragraph",
+          "text": "Spanning-line 25: Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor"
+        },
+        {
+          "kind": "paragraph",
+          "text": "incididunt ut labore et dolore magna aliqua."
+        },
+        {
+          "kind": "paragraph",
+          "text": "Spanning-line 26: Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor"
+        },
+        {
+          "kind": "paragraph",
+          "text": "incididunt ut labore et dolore magna aliqua."
+        },
+        {
+          "kind": "paragraph",
+          "text": "Spanning-line 27: Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor"
+        },
+        {
+          "kind": "paragraph",
+          "text": "incididunt ut labore et dolore magna aliqua."
+        },
+        {
+          "kind": "paragraph",
+          "text": "END: This trailing sentence is the last paragraph between the two sub-tables."
+        },
+        {
+          "children": [
+            {
+              "children": [
+                {
+                  "kind": "cell",
+                  "text": "Phase"
+                },
+                {
+                  "kind": "cell",
+                  "text": "Status"
+                }
+              ],
+              "kind": "row"
+            },
+            {
+              "children": [
+                {
+                  "kind": "cell",
+                  "text": "Init"
+                },
+                {
+                  "kind": "cell",
+                  "text": "Done"
+                }
+              ],
+              "kind": "row"
+            },
+            {
+              "children": [
+                {
+                  "kind": "cell",
+                  "text": "Build"
+                },
+                {
+                  "kind": "cell",
+                  "text": "WIP"
+                }
+              ],
+              "kind": "row"
+            }
+          ],
+          "kind": "table"
+        },
+        {
+          "kind": "paragraph",
+          "text": "Spanning Footer"
+        }
+      ],
+      "kind": "page"
+    },
+    {
+      "children": [
+        {
+          "kind": "heading",
+          "text": "13. Vertical Merge"
+        },
+        {
+          "kind": "paragraph",
+          "text": "Inner row separators in column 0 are overdrawn with white; a reader sees one merged cell containing"
+        },
+        {
+          "kind": "paragraph",
+          "text": "three lines of text."
+        },
+        {
+          "children": [
+            {
+              "children": [
+                {
+                  "kind": "cell",
+                  "text": "Zone"
+                },
+                {
+                  "kind": "cell",
+                  "text": "Jan"
+                },
+                {
+                  "kind": "cell",
+                  "text": "Feb"
+                },
+                {
+                  "kind": "cell",
+                  "text": "Mar"
+                }
+              ],
+              "kind": "row"
+            },
+            {
+              "children": [
+                {
+                  "kind": "cell",
+                  "text": "Tropical\nSubtropical\nTemperate"
+                },
+                {
+                  "kind": "cell",
+                  "text": "100"
+                },
+                {
+                  "kind": "cell",
+                  "text": "110"
+                },
+                {
+                  "kind": "cell",
+                  "text": "120"
+                }
+              ],
+              "kind": "row"
+            },
+            {
+              "children": [
+                {
+                  "kind": "cell"
+                },
+                {
+                  "kind": "cell",
+                  "text": "200"
+                },
+                {
+                  "kind": "cell",
+                  "text": "210"
+                },
+                {
+                  "kind": "cell",
+                  "text": "220"
+                }
+              ],
+              "kind": "row"
+            },
+            {
+              "children": [
+                {
+                  "kind": "cell"
+                },
+                {
+                  "kind": "cell",
+                  "text": "300"
+                },
+                {
+                  "kind": "cell",
+                  "text": "310"
+                },
+                {
+                  "kind": "cell",
+                  "text": "320"
+                }
+              ],
+              "kind": "row"
+            },
+            {
+              "children": [
+                {
+                  "kind": "cell",
+                  "text": "Polar"
+                },
+                {
+                  "kind": "cell",
+                  "text": "400"
+                },
+                {
+                  "kind": "cell",
+                  "text": "410"
+                },
+                {
+                  "kind": "cell",
+                  "text": "420"
+                }
+              ],
+              "kind": "row"
+            }
+          ],
+          "kind": "table"
+        }
+      ],
+      "kind": "page"
     }
   ],
   "kind": "document"

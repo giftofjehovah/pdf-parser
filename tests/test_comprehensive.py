@@ -12,6 +12,12 @@ every use-case exercised by the fixture in a single document:
   - Page-spanning table with nested sub-tables on both pages
   - Dense financial table
   - Three embedded figure nodes (raster images)
+  - Annex A: ruled-header tables (open-body / framed-body / row-strips)
+  - Annex B: fully borderless table (text-strategy fallback)
+  - Annex C: outer table with text between two nested sub-tables
+  - Annex D: same idiom as C, tall enough to span a page break
+  - Annex E: vertically merged column drawn with white "invisible" rules
+  - Multi-column body text must NOT be mis-detected as a table
   - Parse determinism (stable node IDs across two runs)
 """
 
@@ -48,7 +54,7 @@ def test_root_is_document(tree):
 
 def test_page_count(tree):
     pages = [n for n in _walk(tree) if n.kind == "page"]
-    assert len(pages) == 12
+    assert len(pages) == 18
 
 
 def test_all_heading_levels_present(tree):
@@ -275,6 +281,309 @@ def test_financial_table_row_count(tree):
     )
     assert pl is not None, "P&L table not found"
     assert len(pl.children) >= 25, "P&L table should have at least 25 rows"
+
+
+# ---------------------------------------------------------------------------
+# Annex helpers
+# ---------------------------------------------------------------------------
+
+def _table_by_sig(tree: DocNode, signature: tuple[str, ...]) -> DocNode | None:
+    """Locate the first table whose header_signature matches exactly."""
+    for n in _walk(tree):
+        if n.kind == "table" and tuple(n.attrs.get("header_signature", ())) == tuple(signature):
+            return n
+    return None
+
+
+def _body_grid(table: DocNode) -> list[list[str]]:
+    """Return the body rows (skipping the header) as a string grid."""
+    return [[(c.text or "") for c in row.children] for row in table.children[1:]]
+
+
+def _page_of(node: DocNode) -> int:
+    """Return the first page index covered by ``node``'s bbox."""
+    return node.bbox[0].page if isinstance(node.bbox, list) else node.bbox.page
+
+
+# ---------------------------------------------------------------------------
+# Annex A — ruled-header tables (fixtures 18 / 19 / 20)
+# ---------------------------------------------------------------------------
+
+def test_annex_a_open_body_table(tree):
+    """Fixture 18 idiom: header has borders, body has none.  Parser must still
+    surface a 5×3 grid with one atomic value per body cell."""
+    t = _table_by_sig(tree, ("Name", "Score", "Grade"))
+    assert t is not None, "Annex A open-body table missing"
+    assert t.attrs["n_rows"] == 5 and t.attrs["n_cols"] == 3
+    assert _body_grid(t) == [
+        ["Alice", "95", "A"],
+        ["Bob",   "82", "B-"],
+        ["Carol", "91", "A-"],
+        ["Dave",  "76", "C+"],
+    ]
+
+
+def test_annex_a_framed_body_table(tree):
+    """Fixture 19 idiom: outer box + header column dividers; body words are
+    redistributed across the five header columns."""
+    t = _table_by_sig(tree, ("Region", "Q1", "Q2", "Q3", "Q4"))
+    assert t is not None, "Annex A framed-body table missing"
+    assert t.attrs["n_rows"] == 5 and t.attrs["n_cols"] == 5
+    assert _body_grid(t) == [
+        ["North", "120", "135", "150", "162"],
+        ["South", "98",  "104", "111", "120"],
+        ["East",  "87",  "92",  "101", "118"],
+        ["West",  "143", "149", "156", "171"],
+    ]
+
+
+def test_annex_a_row_strips_table(tree):
+    """Fixture 20 idiom: each body row has its own horizontal rule but no
+    internal verticals.  Words must snap to header column bounds; '$' stays
+    attached to the Price column."""
+    t = _table_by_sig(tree, ("Item", "Qty", "Price"))
+    assert t is not None, "Annex A row-strips table missing"
+    assert t.attrs["n_rows"] == 5 and t.attrs["n_cols"] == 3
+    assert _body_grid(t) == [
+        ["Apple",  "3",  "$1.00"],
+        ["Banana", "6",  "$0.50"],
+        ["Cherry", "12", "$2.25"],
+        ["Date",   "4",  "$3.10"],
+    ]
+
+
+# ---------------------------------------------------------------------------
+# Annex B — fully borderless table (fixture 14)
+# ---------------------------------------------------------------------------
+
+def test_annex_b_borderless_table(tree):
+    """Fixture 14 idiom: zero vector borders.  Only the text-strategy fallback
+    can reconstruct the grid from word positions."""
+    t = _table_by_sig(tree, ("Student", "Average", "Standing"))
+    assert t is not None, "Annex B borderless table missing — text-fallback failed"
+    assert t.attrs["n_rows"] == 4 and t.attrs["n_cols"] == 3
+    assert _body_grid(t) == [
+        ["Ellie", "94", "A"],
+        ["Finn",  "81", "B"],
+        ["Gwen",  "88", "B+"],
+    ]
+
+
+# ---------------------------------------------------------------------------
+# Annex C — text between sub-tables (fixture 16)
+# ---------------------------------------------------------------------------
+
+def test_annex_c_outer_table_has_nested_subtables_and_note(tree):
+    """Fixture 16 idiom: outer table whose middle cell holds two sub-tables
+    with a paragraph between them.  Both sub-tables AND the paragraph must be
+    children of the same content cell."""
+    outer = _table_by_sig(tree, ("Annex C Header",))
+    assert outer is not None, "Annex C outer table missing"
+
+    content_cells = [
+        cell
+        for row in outer.children
+        for cell in row.children
+        if any(c.kind == "table" for c in cell.children)
+    ]
+    assert len(content_cells) == 1, (
+        f"expected exactly 1 content cell with nested tables, got {len(content_cells)}"
+    )
+    cell = content_cells[0]
+
+    nested_sigs = {
+        tuple(c.attrs.get("header_signature", ()))
+        for c in cell.children
+        if c.kind == "table"
+    }
+    assert nested_sigs == {("Part", "Count"), ("Quarter", "Revenue")}
+
+    note_paras = [
+        c for c in cell.children
+        if c.kind == "paragraph" and "NOTE:" in (c.text or "")
+    ]
+    assert note_paras, "NOTE paragraph missing from Annex C content cell"
+
+
+def test_annex_c_subtables_are_not_siblings_of_outer(tree):
+    """Sub-tables must NOT appear as top-level page children alongside the
+    Annex C outer.  Regression for the _filter_outer_regions duplicate-table
+    bug exposed by fixture 16."""
+    annex_c_page = next(
+        (
+            page for page in tree.children
+            if any(
+                n.kind == "table"
+                and tuple(n.attrs.get("header_signature", ())) == ("Annex C Header",)
+                for n in page.children
+            )
+        ),
+        None,
+    )
+    assert annex_c_page is not None, "Annex C page not found"
+    top_tables = [n for n in annex_c_page.children if n.kind == "table"]
+    assert len(top_tables) == 1, (
+        f"expected 1 top-level table on Annex C page, got {len(top_tables)}"
+    )
+
+
+# ---------------------------------------------------------------------------
+# Annex D — text between sub-tables, page-spanning (fixture 17)
+# ---------------------------------------------------------------------------
+#
+# NOTE: fixture 17 documents a known limitation — the outer frame, drawn only
+# along header / footer + vertical sides, is NOT recovered as a single
+# spanning table.  This suite mirrors that reality: the test asserts the two
+# sub-tables land on adjacent pages with all between-paragraphs preserved
+# across the page break.  When the parser closes the gap, an xpass on
+# fixture 17 will signal that this annex should grow a stricter assertion.
+
+def test_annex_d_subtables_on_adjacent_pages(tree):
+    """The two sub-tables of Annex D must land on consecutive pages — the
+    between-paragraphs span the page break between them."""
+    a = _table_by_sig(tree, ("Code", "Total"))
+    b = _table_by_sig(tree, ("Phase", "Status"))
+    assert a is not None and b is not None
+    a_page = _page_of(a)
+    b_page = _page_of(b)
+    assert b_page == a_page + 1, (
+        f"Annex D sub-tables on pages {a_page} and {b_page}; expected adjacent"
+    )
+
+
+def test_annex_d_between_text_bookends_preserved(tree):
+    """The NOTE: / END: bookends of the between-paragraphs both survive the
+    page break."""
+    combined = " ".join(n.text for n in _walk(tree) if n.text)
+    assert "NOTE: This paragraph sits between" in combined
+    assert "END: This trailing sentence" in combined
+
+
+def test_annex_d_between_text_spans_two_pages(tree):
+    """The numbered Spanning-line paragraphs must be partitioned across two
+    pages — neither side of the page break may swallow the entire block."""
+    pages_with_lines: set[int] = set()
+    for n in _walk(tree):
+        if n.kind == "paragraph" and n.text and "Spanning-line" in n.text:
+            if isinstance(n.bbox, list):
+                pages_with_lines.update(b.page for b in n.bbox)
+            else:
+                pages_with_lines.add(n.bbox.page)
+    assert len(pages_with_lines) >= 2, (
+        f"between-paragraphs concentrated on pages {pages_with_lines}"
+    )
+
+
+def test_annex_d_all_spanning_lines_preserved(tree):
+    """All 27 numbered Spanning-line paragraphs must survive parsing."""
+    combined = " ".join(n.text for n in _walk(tree) if n.text)
+    missing = [f"Spanning-line {i:02d}" for i in range(1, 28) if f"Spanning-line {i:02d}" not in combined]
+    assert not missing, f"missing between-paragraphs: {missing}"
+
+# ---------------------------------------------------------------------------
+# Annex E — vertical merge with invisible row separators (fixture 21)
+# ---------------------------------------------------------------------------
+
+def test_annex_e_merged_column_is_one_cell_with_three_lines(tree):
+    """Fixture 21 idiom: col-0 row separators at rows 1/2 and 2/3 are drawn
+    in white.  A colour-aware parser must subtract those overdraws so the
+    column collapses into one cell spanning rows 1..3 with newline-joined
+    text — matching what a reader sees."""
+    t = _table_by_sig(tree, ("Zone", "Jan", "Feb", "Mar"))
+    assert t is not None, "Annex E vertical-merge table missing"
+    assert t.attrs["n_rows"] == 5 and t.attrs["n_cols"] == 4
+    assert t.children[1].children[0].text == "Tropical\nSubtropical\nTemperate"
+
+
+def test_annex_e_continuation_rows_carry_covered_cells(tree):
+    """Rows 2 and 3 of the merged column must be marked ``covered`` — they
+    are continuations of the row-1 anchor cell."""
+    t = _table_by_sig(tree, ("Zone", "Jan", "Feb", "Mar"))
+    assert t is not None
+    for r in (2, 3):
+        assert t.children[r].children[0].attrs.get("covered") is True, (
+            f"row {r} col 0 is not marked as covered"
+        )
+
+
+def test_annex_e_row_four_is_independent(tree):
+    """The merge stops at row 3.  Row 4 (Polar) must remain its own row with
+    all four columns intact — the merge must not leak past its boundary."""
+    t = _table_by_sig(tree, ("Zone", "Jan", "Feb", "Mar"))
+    assert t is not None
+    assert [c.text for c in t.children[4].children] == ["Polar", "400", "410", "420"]
+
+
+def test_annex_e_adjacent_columns_stay_on_their_own_row(tree):
+    """Q1..Q3 values in rows 1..3 must remain in their original rows — they
+    must not be swept up into the merged anchor cell."""
+    t = _table_by_sig(tree, ("Zone", "Jan", "Feb", "Mar"))
+    assert t is not None
+    body = _body_grid(t)
+    # The col-0 anchor in row 1 carries the merged text; col-0 in rows 2..3
+    # is empty (covered).  Adjacent columns hold the per-row values.
+    assert body[0][1:] == ["100", "110", "120"]
+    assert body[1][1:] == ["200", "210", "220"]
+    assert body[2][1:] == ["300", "310", "320"]
+
+
+# ---------------------------------------------------------------------------
+# Multi-column body text must NOT be mis-detected as a table (fixture 15)
+# ---------------------------------------------------------------------------
+
+_KNOWN_TABLE_SIGS: set[tuple[str, ...]] = {
+    # Original sections 1-8.
+    ("Section", "Page"),
+    ("Region", "Revenue ($M)", "YoY Growth"),
+    ("Component", "Specifications", "Notes"),
+    ("cpu-X", "cpu-Y"),
+    ("disk-X", "disk-Y"),
+    ("Quarterly Report", "", ""),
+    ("ID", "Description", "Value"),
+    ("ID", "Operation", "Cost"),
+    ("Step", "Inputs", "Notes"),
+    ("p1-A", "p1-B"),
+    ("p2-A", "p2-B"),
+    ("Income Statement", "FY2021", "FY2022", "FY2023", "FY2024"),
+    # Annex A.
+    ("Name", "Score", "Grade"),
+    ("Region", "Q1", "Q2", "Q3", "Q4"),
+    ("Item", "Qty", "Price"),
+    # Annex B.
+    ("Student", "Average", "Standing"),
+    # Annex C.
+    ("Annex C Header",),
+    ("Part", "Count"),
+    ("Quarter", "Revenue"),
+    # Annex D (outer not detected; sub-tables only).
+    ("Code", "Total"),
+    ("Phase", "Status"),
+    # Annex E.
+    ("Zone", "Jan", "Feb", "Mar"),
+}
+
+
+def test_multicolumn_text_not_misidentified_as_table(tree):
+    """Section 1.2 uses BalancedColumns for two-column body text.  The text
+    fallback must NOT surface this region as a spurious table.  We enforce
+    that by enumerating every legitimate table signature; any extra entry
+    indicates a multi-column false positive or some other regression."""
+    sigs = {
+        tuple(t.attrs.get("header_signature", ()))
+        for t in _walk(tree)
+        if t.kind == "table"
+    }
+    extras = sigs - _KNOWN_TABLE_SIGS
+    assert not extras, f"unexpected table signatures detected: {extras}"
+
+
+def test_total_table_count(tree):
+    """The omnibus fixture contains exactly the tables we authored.  This
+    locks down the global inventory so a regression that splits or
+    duplicates any table is caught even when individual structural tests
+    still pass."""
+    tables = [n for n in _walk(tree) if n.kind == "table"]
+    assert len(tables) == 22, f"expected 22 tables, got {len(tables)}"
 
 
 # ---------------------------------------------------------------------------

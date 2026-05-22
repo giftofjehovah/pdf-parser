@@ -353,14 +353,34 @@ def _render_table_rows(
 
             tag_open += '">'
 
-            # Recurse into nested tables — offset coordinates by this cell's origin
-            nested_html = ""
-            if cell.children:
-                nested_html = "".join(
-                    _render_table_rows(c, c.children, rects,
-                                       x_off=b.x0, y_off=b.y0)
-                    for c in cell.children if c.kind == "table"
-                )
+            # Recurse into nested children — offset coordinates by this cell's
+            # origin so positions are relative to the parent cell.  Tables
+            # recurse into _render_table_rows; paragraphs / headings / list
+            # items (e.g. a NOTE paragraph between two nested sub-tables) are
+            # emitted as positioned text boxes so they don't get silently
+            # dropped.
+            nested_parts: list[str] = []
+            for c in cell.children:
+                if c.kind == "table":
+                    nested_parts.append(
+                        _render_table_rows(c, c.children, rects,
+                                           x_off=b.x0, y_off=b.y0)
+                    )
+                elif c.kind in ("paragraph", "list_item"):
+                    cb = _single_bbox(c)
+                    nested_parts.append(
+                        f'<div class="tb" style="{_bbox_pos(cb, b.x0, b.y0)}">'
+                        f'{_esc(c.text)}</div>'
+                    )
+                elif c.kind == "heading":
+                    cb = _single_bbox(c)
+                    lvl = max(1, min(4, c.attrs.get("level", 2)))
+                    nested_parts.append(
+                        f'<div class="tb tb-h{lvl}" '
+                        f'style="{_bbox_pos(cb, b.x0, b.y0)}">'
+                        f'{_esc(c.text)}</div>'
+                    )
+            nested_html = "".join(nested_parts)
 
             parts.append(f"{tag_open}{_esc(cell.text)}{nested_html}</div>")
 
