@@ -1,0 +1,680 @@
+{
+  "attrs": {},
+  "bbox": {
+    "page": 0,
+    "x0": 0,
+    "x1": 0,
+    "y0": 0,
+    "y1": 0
+  },
+  "children": [
+    {
+      "attrs": {
+        "page_index": 0
+      },
+      "bbox": {
+        "page": 0,
+        "x0": 0,
+        "x1": 612,
+        "y0": 0,
+        "y1": 792
+      },
+      "children": [
+        {
+          "attrs": {
+            "level": 1
+          },
+          "bbox": {
+            "page": 0,
+            "x0": 79,
+            "x1": 372,
+            "y0": 83,
+            "y1": 100
+          },
+          "children": [],
+          "id": "52c5c6703061",
+          "kind": "heading",
+          "provenance": {
+            "extractor": "segment",
+            "stage": "build_tree"
+          },
+          "text": "Ruled-Header, Framed-Body Table"
+        },
+        {
+          "attrs": {
+            "header_signature": [
+              "Region",
+              "Q1",
+              "Q2",
+              "Q3",
+              "Q4"
+            ],
+            "n_cols": 5,
+            "n_rows": 5,
+            "page": 0,
+            "page_height": 792.0
+          },
+          "bbox": {
+            "page": 0,
+            "x0": 136,
+            "x1": 476,
+            "y0": 118,
+            "y1": 214
+          },
+          "children": [
+            {
+              "attrs": {
+                "page": 0,
+                "row_index": 0
+              },
+              "bbox": {
+                "page": 0,
+                "x0": 136,
+                "x1": 476,
+                "y0": 118,
+                "y1": 214
+              },
+              "children": [
+                {
+                  "attrs": {
+                    "align": "left"
+                  },
+                  "bbox": {
+                    "page": 0,
+                    "x0": 136,
+                    "x1": 236,
+                    "y0": 118,
+                    "y1": 138
+                  },
+                  "children": [],
+                  "id": "df1fe53c1e06",
+                  "kind": "cell",
+                  "provenance": {
+                    "extractor": "pdfplumber",
+                    "stage": "extract_tables"
+                  },
+                  "text": "Region"
+                },
+                {
+                  "attrs": {
+                    "align": "left"
+                  },
+                  "bbox": {
+                    "page": 0,
+                    "x0": 236,
+                    "x1": 296,
+                    "y0": 118,
+                    "y1": 138
+                  },
+                  "children": [],
+                  "id": "3f6aebf54f84",
+                  "kind": "cell",
+                  "provenance": {
+                    "extractor": "pdfplumber",
+                    "stage": "extract_tables"
+                  },
+                  "text": "Q1"
+                },
+                {
+                  "attrs": {
+                    "align": "left"
+                  },
+                  "bbox": {
+                    "page": 0,
+                    "x0": 296,
+                    "x1": 356,
+                    "y0": 118,
+                    "y1": 138
+                  },
+                  "children": [],
+                  "id": "ad1c8e060bac",
+                  "kind": "cell",
+                  "provenance": {
+                    "extractor": "pdfplumber",
+                    "stage": "extract_tables"
+                  },
+                  "text": "Q2"
+                },
+                {
+                  "attrs": {
+                    "align": "left"
+                  },
+                  "bbox": {
+                    "page": 0,
+                    "x0": 356,
+                    "x1": 416,
+                    "y0": 118,
+                    "y1": 138
+                  },
+                  "children": [],
+                  "id": "fb5c3c742acb",
+                  "kind": "cell",
+                  "provenance": {
+                    "extractor": "pdfplumber",
+                    "stage": "extract_tables"
+                  },
+                  "text": "Q3"
+                },
+                {
+                  "attrs": {
+                    "align": "left"
+                  },
+                  "bbox": {
+                    "page": 0,
+                    "x0": 416,
+                    "x1": 476,
+                    "y0": 118,
+                    "y1": 138
+                  },
+                  "children": [],
+                  "id": "99380052ca15",
+                  "kind": "cell",
+                  "provenance": {
+                    "extractor": "pdfplumber",
+                    "stage": "extract_tables"
+                  },
+                  "text": "Q4"
+                }
+              ],
+              "id": "ca8e79d06d05",
+              "kind": "row",
+              "provenance": {},
+              "text": null
+            },
+            {
+              "attrs": {
+                "page": 0,
+                "row_index": 1
+              },
+              "bbox": {
+                "page": 0,
+                "x0": 136,
+                "x1": 476,
+                "y0": 118,
+                "y1": 214
+              },
+              "children": [
+                {
+                  "attrs": {
+                    "align": "left"
+                  },
+                  "bbox": {
+                    "page": 0,
+                    "x0": 136,
+                    "x1": 236,
+                    "y0": 144,
+                    "y1": 154
+                  },
+                  "children": [],
+                  "id": "9fb975a01564",
+                  "kind": "cell",
+                  "provenance": {
+                    "extractor": "pdfplumber",
+                    "stage": "extract_tables"
+                  },
+                  "text": "North"
+                },
+                {
+                  "attrs": {
+                    "align": "left"
+                  },
+                  "bbox": {
+                    "page": 0,
+                    "x0": 236,
+                    "x1": 296,
+                    "y0": 144,
+                    "y1": 154
+                  },
+                  "children": [],
+                  "id": "a6865d3d5397",
+                  "kind": "cell",
+                  "provenance": {
+                    "extractor": "pdfplumber",
+                    "stage": "extract_tables"
+                  },
+                  "text": "120"
+                },
+                {
+                  "attrs": {
+                    "align": "left"
+                  },
+                  "bbox": {
+                    "page": 0,
+                    "x0": 296,
+                    "x1": 356,
+                    "y0": 144,
+                    "y1": 154
+                  },
+                  "children": [],
+                  "id": "06cba5fc8677",
+                  "kind": "cell",
+                  "provenance": {
+                    "extractor": "pdfplumber",
+                    "stage": "extract_tables"
+                  },
+                  "text": "135"
+                },
+                {
+                  "attrs": {
+                    "align": "left"
+                  },
+                  "bbox": {
+                    "page": 0,
+                    "x0": 356,
+                    "x1": 416,
+                    "y0": 144,
+                    "y1": 154
+                  },
+                  "children": [],
+                  "id": "572c7bae4842",
+                  "kind": "cell",
+                  "provenance": {
+                    "extractor": "pdfplumber",
+                    "stage": "extract_tables"
+                  },
+                  "text": "150"
+                },
+                {
+                  "attrs": {
+                    "align": "left"
+                  },
+                  "bbox": {
+                    "page": 0,
+                    "x0": 416,
+                    "x1": 476,
+                    "y0": 144,
+                    "y1": 154
+                  },
+                  "children": [],
+                  "id": "d38195d787bf",
+                  "kind": "cell",
+                  "provenance": {
+                    "extractor": "pdfplumber",
+                    "stage": "extract_tables"
+                  },
+                  "text": "162"
+                }
+              ],
+              "id": "f973cd03fc7c",
+              "kind": "row",
+              "provenance": {},
+              "text": null
+            },
+            {
+              "attrs": {
+                "page": 0,
+                "row_index": 2
+              },
+              "bbox": {
+                "page": 0,
+                "x0": 136,
+                "x1": 476,
+                "y0": 118,
+                "y1": 214
+              },
+              "children": [
+                {
+                  "attrs": {
+                    "align": "left"
+                  },
+                  "bbox": {
+                    "page": 0,
+                    "x0": 136,
+                    "x1": 236,
+                    "y0": 164,
+                    "y1": 174
+                  },
+                  "children": [],
+                  "id": "e0a8784033ff",
+                  "kind": "cell",
+                  "provenance": {
+                    "extractor": "pdfplumber",
+                    "stage": "extract_tables"
+                  },
+                  "text": "South"
+                },
+                {
+                  "attrs": {
+                    "align": "left"
+                  },
+                  "bbox": {
+                    "page": 0,
+                    "x0": 236,
+                    "x1": 296,
+                    "y0": 164,
+                    "y1": 174
+                  },
+                  "children": [],
+                  "id": "125100700693",
+                  "kind": "cell",
+                  "provenance": {
+                    "extractor": "pdfplumber",
+                    "stage": "extract_tables"
+                  },
+                  "text": "98"
+                },
+                {
+                  "attrs": {
+                    "align": "left"
+                  },
+                  "bbox": {
+                    "page": 0,
+                    "x0": 296,
+                    "x1": 356,
+                    "y0": 164,
+                    "y1": 174
+                  },
+                  "children": [],
+                  "id": "4b436363307e",
+                  "kind": "cell",
+                  "provenance": {
+                    "extractor": "pdfplumber",
+                    "stage": "extract_tables"
+                  },
+                  "text": "104"
+                },
+                {
+                  "attrs": {
+                    "align": "left"
+                  },
+                  "bbox": {
+                    "page": 0,
+                    "x0": 356,
+                    "x1": 416,
+                    "y0": 164,
+                    "y1": 174
+                  },
+                  "children": [],
+                  "id": "978cb617e146",
+                  "kind": "cell",
+                  "provenance": {
+                    "extractor": "pdfplumber",
+                    "stage": "extract_tables"
+                  },
+                  "text": "111"
+                },
+                {
+                  "attrs": {
+                    "align": "left"
+                  },
+                  "bbox": {
+                    "page": 0,
+                    "x0": 416,
+                    "x1": 476,
+                    "y0": 164,
+                    "y1": 174
+                  },
+                  "children": [],
+                  "id": "f72fc0820cec",
+                  "kind": "cell",
+                  "provenance": {
+                    "extractor": "pdfplumber",
+                    "stage": "extract_tables"
+                  },
+                  "text": "120"
+                }
+              ],
+              "id": "7eb06db2e1da",
+              "kind": "row",
+              "provenance": {},
+              "text": null
+            },
+            {
+              "attrs": {
+                "page": 0,
+                "row_index": 3
+              },
+              "bbox": {
+                "page": 0,
+                "x0": 136,
+                "x1": 476,
+                "y0": 118,
+                "y1": 214
+              },
+              "children": [
+                {
+                  "attrs": {
+                    "align": "left"
+                  },
+                  "bbox": {
+                    "page": 0,
+                    "x0": 136,
+                    "x1": 236,
+                    "y0": 184,
+                    "y1": 194
+                  },
+                  "children": [],
+                  "id": "f30c69bb9d12",
+                  "kind": "cell",
+                  "provenance": {
+                    "extractor": "pdfplumber",
+                    "stage": "extract_tables"
+                  },
+                  "text": "East"
+                },
+                {
+                  "attrs": {
+                    "align": "left"
+                  },
+                  "bbox": {
+                    "page": 0,
+                    "x0": 236,
+                    "x1": 296,
+                    "y0": 184,
+                    "y1": 194
+                  },
+                  "children": [],
+                  "id": "01e938704609",
+                  "kind": "cell",
+                  "provenance": {
+                    "extractor": "pdfplumber",
+                    "stage": "extract_tables"
+                  },
+                  "text": "87"
+                },
+                {
+                  "attrs": {
+                    "align": "left"
+                  },
+                  "bbox": {
+                    "page": 0,
+                    "x0": 296,
+                    "x1": 356,
+                    "y0": 184,
+                    "y1": 194
+                  },
+                  "children": [],
+                  "id": "f7ba2c35067b",
+                  "kind": "cell",
+                  "provenance": {
+                    "extractor": "pdfplumber",
+                    "stage": "extract_tables"
+                  },
+                  "text": "92"
+                },
+                {
+                  "attrs": {
+                    "align": "left"
+                  },
+                  "bbox": {
+                    "page": 0,
+                    "x0": 356,
+                    "x1": 416,
+                    "y0": 184,
+                    "y1": 194
+                  },
+                  "children": [],
+                  "id": "30d548aa045a",
+                  "kind": "cell",
+                  "provenance": {
+                    "extractor": "pdfplumber",
+                    "stage": "extract_tables"
+                  },
+                  "text": "101"
+                },
+                {
+                  "attrs": {
+                    "align": "left"
+                  },
+                  "bbox": {
+                    "page": 0,
+                    "x0": 416,
+                    "x1": 476,
+                    "y0": 184,
+                    "y1": 194
+                  },
+                  "children": [],
+                  "id": "0d4ce44f2fbf",
+                  "kind": "cell",
+                  "provenance": {
+                    "extractor": "pdfplumber",
+                    "stage": "extract_tables"
+                  },
+                  "text": "118"
+                }
+              ],
+              "id": "ad26d8da10ee",
+              "kind": "row",
+              "provenance": {},
+              "text": null
+            },
+            {
+              "attrs": {
+                "page": 0,
+                "row_index": 4
+              },
+              "bbox": {
+                "page": 0,
+                "x0": 136,
+                "x1": 476,
+                "y0": 118,
+                "y1": 214
+              },
+              "children": [
+                {
+                  "attrs": {
+                    "align": "left"
+                  },
+                  "bbox": {
+                    "page": 0,
+                    "x0": 136,
+                    "x1": 236,
+                    "y0": 204,
+                    "y1": 214
+                  },
+                  "children": [],
+                  "id": "97b2ca580aca",
+                  "kind": "cell",
+                  "provenance": {
+                    "extractor": "pdfplumber",
+                    "stage": "extract_tables"
+                  },
+                  "text": "West"
+                },
+                {
+                  "attrs": {
+                    "align": "left"
+                  },
+                  "bbox": {
+                    "page": 0,
+                    "x0": 236,
+                    "x1": 296,
+                    "y0": 204,
+                    "y1": 214
+                  },
+                  "children": [],
+                  "id": "70411409b320",
+                  "kind": "cell",
+                  "provenance": {
+                    "extractor": "pdfplumber",
+                    "stage": "extract_tables"
+                  },
+                  "text": "143"
+                },
+                {
+                  "attrs": {
+                    "align": "left"
+                  },
+                  "bbox": {
+                    "page": 0,
+                    "x0": 296,
+                    "x1": 356,
+                    "y0": 204,
+                    "y1": 214
+                  },
+                  "children": [],
+                  "id": "7fc10f2d5b0e",
+                  "kind": "cell",
+                  "provenance": {
+                    "extractor": "pdfplumber",
+                    "stage": "extract_tables"
+                  },
+                  "text": "149"
+                },
+                {
+                  "attrs": {
+                    "align": "left"
+                  },
+                  "bbox": {
+                    "page": 0,
+                    "x0": 356,
+                    "x1": 416,
+                    "y0": 204,
+                    "y1": 214
+                  },
+                  "children": [],
+                  "id": "3c7e89182578",
+                  "kind": "cell",
+                  "provenance": {
+                    "extractor": "pdfplumber",
+                    "stage": "extract_tables"
+                  },
+                  "text": "156"
+                },
+                {
+                  "attrs": {
+                    "align": "left"
+                  },
+                  "bbox": {
+                    "page": 0,
+                    "x0": 416,
+                    "x1": 476,
+                    "y0": 204,
+                    "y1": 214
+                  },
+                  "children": [],
+                  "id": "4023fd8bacdd",
+                  "kind": "cell",
+                  "provenance": {
+                    "extractor": "pdfplumber",
+                    "stage": "extract_tables"
+                  },
+                  "text": "171"
+                }
+              ],
+              "id": "ec6ec5283dfc",
+              "kind": "row",
+              "provenance": {},
+              "text": null
+            }
+          ],
+          "id": "df2222d66464",
+          "kind": "table",
+          "provenance": {
+            "extractor": "pdfplumber",
+            "stage": "extract_tables"
+          },
+          "text": null
+        }
+      ],
+      "id": "4633c0a0550e",
+      "kind": "page",
+      "provenance": {},
+      "text": null
+    }
+  ],
+  "id": "132371a9a4c8",
+  "kind": "document",
+  "provenance": {},
+  "text": null
+}

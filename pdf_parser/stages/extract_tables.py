@@ -8,7 +8,7 @@ from typing import Optional
 import pdfplumber
 
 from pdf_parser.model import BBox, MAX_DEPTH, DocNode
-from pdf_parser.stages.detect_tables import TableRegion, detect_tables
+from pdf_parser.stages.detect_tables import TableRegion, detect_tables, find_tables_visible
 
 _OVERLAP_TOL = 2.0  # points; guards against sub-pixel boundary mismatches
 
@@ -507,7 +507,7 @@ def extract_tables(pdf_path: Path) -> list[DocNode]:
             # logical-grid path is skipped.  Borderless tables therefore
             # rely on the pre-extracted `region.grid`; colspan/rowspan
             # detection is not available for them.
-            page_tables = page.find_tables()
+            page_tables = find_tables_visible(page)
             matched_pt = None
             for pt in page_tables:
                 if abs(pt.bbox[0] - region.bbox.x0) < 2 and abs(pt.bbox[1] - region.bbox.y0) < 2:
@@ -515,7 +515,10 @@ def extract_tables(pdf_path: Path) -> list[DocNode]:
                     break
 
             logical = None
-            if matched_pt is not None:
+            # Redistributed regions (ruled-header / open-body tables) already
+            # carry the corrected grid; rebuilding via outer-line geometry would
+            # discard the body-row redistribution and re-merge the cells.
+            if matched_pt is not None and not region.redistributed:
                 logical = _logical_grid_from_table(page, matched_pt, region.page_index)
 
             if logical is not None:

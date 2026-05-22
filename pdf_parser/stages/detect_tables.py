@@ -70,6 +70,7 @@ class TableRegion:
     grid: list[list[str]]          # row-major text
     cell_bboxes: list[list[BBox]]  # parallel to grid
     page_height: float = 0.0       # original page height in points (for stitch proximity check)
+    redistributed: bool = False    # set by `_redistribute_ruled_header_body`; skips logical-grid rebuild
 
 
 def _cell_text(cells: list[list]) -> list[list[str]]:
@@ -115,12 +116,396 @@ def _extract_region(plumber_page, table, page_index: int, page_height: float = 0
     )
 
 
+# ---------------------------------------------------------------------------
+# Visible-edge filtering.
+#
+# Some PDFs draw a full grid in black and then *overdraw* selected segments in
+# the page background colour (typically white) to create a "visually merged"
+# region without removing the underlying cells from the PDF data stream.
+# pdfplumber's "lines" strategy is colour-blind: it sees both the black line
+# and the white overdraw as independent edges, leaving the merged region
+# fragmented into multiple rows or columns that don't exist visually.
+#
+# The fix is to subtract every background-coloured segment from the visible
+# edge set, then drive ``find_tables`` with ``explicit`` strategies bound to
+# the surviving segments.  When no background-coloured line is present the
+# pre-pass is a no-op and the default ``lines`` strategy still runs.
+# ---------------------------------------------------------------------------
+
+_BG_COLOR_TOL = 0.95   # >= this in every channel (RGB/Grey) or <= 0.05 in CMYK = "background"
+_LINE_SNAP_TOL = 1.0   # pt; group co-axial lines into the same "row of lines"
+_AXIS_TOL = 0.5        # pt; line is horizontal if |y0-y1| < this, vertical if |x0-x1| < this
+
+
+def _is_background_color(c) -> bool:
+    """True if ``c`` is at or near the page background (default: near-white).
+
+    Accepts the colour representations pdfplumber surfaces from PDF content
+    streams: a single Grey float, a 3-tuple RGB, or a 4-tuple CMYK.  ``None``
+    is treated as "not background" because the PDF spec defaults missing
+    stroking colour to black, which is visible.
+    """
+    if c is None:
+        return False
+    if isinstance(c, (int, float)):
+        return c >= _BG_COLOR_TOL
+    if isinstance(c, (tuple, list)):
+        if len(c) == 1:
+            return c[0] >= _BG_COLOR_TOL
+        if len(c) == 3:
+            return all(ch >= _BG_COLOR_TOL for ch in c)
+        if len(c) == 4:
+            return all(ch <= 1.0 - _BG_COLOR_TOL for ch in c)  # CMYK: (0,0,0,0) = white
+    return False
+
+
+def _interval_subtract(
+    base: list[tuple[float, float]], holes: list[tuple[float, float]]
+) -> list[tuple[float, float]]:
+    """Return ``base \\ union(holes)`` as a sorted list of disjoint intervals.
+
+    Both inputs may contain unsorted/overlapping intervals.  Holes are merged
+    first, then carved out of each base interval in a single linear sweep.
+    """
+    if not holes:
+        return [(min(a, b), max(a, b)) for a, b in base]
+    sorted_holes = sorted((min(a, b), max(a, b)) for a, b in holes)
+    merged_holes: list[tuple[float, float]] = []
+    for h in sorted_holes:
+        if merged_holes and h[0] <= merged_holes[-1][1]:
+            merged_holes[-1] = (merged_holes[-1][0], max(merged_holes[-1][1], h[1]))
+        else:
+            merged_holes.append(h)
+    out: list[tuple[float, float]] = []
+    for a, b in base:
+        a, b = min(a, b), max(a, b)
+        cur = a
+        for ha, hb in merged_holes:
+            if hb <= cur:
+                continue
+            if ha >= b:
+                break
+            if ha > cur:
+                out.append((cur, ha))
+            cur = max(cur, hb)
+            if cur >= b:
+                break
+        if cur < b:
+            out.append((cur, b))
+    return out
+
+
+def _clip_line(src: dict, *, x0=None, x1=None, top=None, bottom=None) -> dict:
+    """Clone a pdfplumber line dict, overriding endpoints and refreshing
+    ``width``/``height``.  ``y0``/``y1`` (bottom-origin) are left untouched
+    because pdfplumber's table engine only reads top/bottom/x0/x1/width/height.
+    """
+    d = dict(src)
+    if x0 is not None:
+        d["x0"] = x0
+    if x1 is not None:
+        d["x1"] = x1
+    if top is not None:
+        d["top"] = top
+    if bottom is not None:
+        d["bottom"] = bottom
+    d["width"] = d["x1"] - d["x0"]
+    d["height"] = d["bottom"] - d["top"]
+    return d
+
+
+def _visible_edges(page) -> tuple[list[dict], list[dict], bool]:
+    """Return ``(h_lines, v_lines, had_overdraws)``.
+
+    Groups each page line by its perpendicular coordinate (snapped to
+    :data:`_LINE_SNAP_TOL`), then for every group computes
+    ``union(visible) − union(background)`` along the line's axis.  When no
+    background-coloured line exists anywhere on the page, returns
+    ``([], [], False)`` so the caller can keep the default ``lines`` strategy.
+    """
+    h_raw = [ln for ln in page.lines if abs(ln["y0"] - ln["y1"]) < _AXIS_TOL]
+    v_raw = [ln for ln in page.lines if abs(ln["x0"] - ln["x1"]) < _AXIS_TOL]
+    had_overdraws = any(
+        _is_background_color(ln.get("stroking_color")) for ln in h_raw + v_raw
+    )
+    if not had_overdraws:
+        return [], [], False
+
+    def collect(raw, key_fn, seg_fn, rebuild_fn):
+        groups: dict[float, list[dict]] = {}
+        for ln in raw:
+            k = round(key_fn(ln) / _LINE_SNAP_TOL) * _LINE_SNAP_TOL
+            groups.setdefault(k, []).append(ln)
+        out: list[dict] = []
+        for grp in groups.values():
+            visible = [ln for ln in grp if not _is_background_color(ln.get("stroking_color"))]
+            holes = [seg_fn(ln) for ln in grp if _is_background_color(ln.get("stroking_color"))]
+            if not visible:
+                continue
+            spans = sorted(seg_fn(ln) for ln in visible)
+            merged: list[tuple[float, float]] = []
+            for s in spans:
+                s_norm = (min(s), max(s))
+                if merged and s_norm[0] <= merged[-1][1]:
+                    merged[-1] = (merged[-1][0], max(merged[-1][1], s_norm[1]))
+                else:
+                    merged.append(s_norm)
+            segs = _interval_subtract(merged, holes)
+            src = visible[0]
+            for a, b in segs:
+                out.append(rebuild_fn(src, a, b))
+        return out
+
+    horizontal = collect(
+        h_raw,
+        key_fn=lambda ln: ln["top"],
+        seg_fn=lambda ln: (ln["x0"], ln["x1"]),
+        rebuild_fn=lambda src, a, b: _clip_line(src, x0=a, x1=b),
+    )
+    vertical = collect(
+        v_raw,
+        key_fn=lambda ln: ln["x0"],
+        seg_fn=lambda ln: (ln["top"], ln["bottom"]),
+        rebuild_fn=lambda src, a, b: _clip_line(src, top=a, bottom=b),
+    )
+    return horizontal, vertical, True
+
+
+def find_tables_visible(target, settings: Optional[dict] = None):
+    """Find tables on ``target`` with background-coloured stroke overdraws
+    subtracted from the edge set.
+
+    Mirrors :func:`detect_tables`'s line-filtering policy so callers that need
+    the raw pdfplumber ``Table`` objects (e.g. ``extract_tables`` matching
+    bboxes for the logical-grid pass) see the same merged-cell view that
+    ``detect_tables`` produced.  Falls back to the default ``lines`` strategy
+    when no overdraws exist or the surviving segments are too sparse for
+    ``find_tables`` (which requires ≥ 2 per axis under ``explicit``).
+    """
+    base = {**DEFAULT_TABLE_SETTINGS, **(settings or {})}
+    if settings is None:
+        h_vis, v_vis, had_overdraws = _visible_edges(target)
+        if had_overdraws and len(h_vis) >= 2 and len(v_vis) >= 2:
+            base = {
+                **base,
+                "vertical_strategy": "explicit",
+                "horizontal_strategy": "explicit",
+                "explicit_vertical_lines": v_vis,
+                "explicit_horizontal_lines": h_vis,
+            }
+    return target.find_tables(table_settings=base)
+
+
+# ---------------------------------------------------------------------------
+# Ruled-header / open-body redistribution.
+#
+# Many real-world tables (financial reports, scientific papers, Word exports)
+# draw cell borders only on the header row, leaving body rows free-form.  In
+# the extreme case the header is the only row pdfplumber detects; more
+# commonly, pdfplumber recovers the header plus a sequence of "merged" body
+# rows where ``row.cells[0]`` spans the full header width and the remaining
+# slots are ``None``.  Either way the body words are present on the page —
+# they just need to be rebinned against the header's column x-bounds.
+# ---------------------------------------------------------------------------
+
+_MERGE_TOL = 1.0       # pt; bbox boundary slack when matching the merged-row pattern
+_BIN_TOL = 0.5         # pt; column-bound slack when assigning a word
+_LINE_GROUP_TOL = 2.0  # pt; words within this y-span are on the same line
+_GAP_MULTIPLIER = 2.5  # multiplier on median line height; gap above this ends the scan
+_MIN_GAP_PT = 6.0      # absolute floor for the gap threshold
+_MIN_COLS_PER_BODY_ROW = 2  # accept a scanned line only if ≥ N columns are non-empty
+
+
+def _is_merged_body_row(row_cells: list[BBox], header_x_range: tuple[float, float]) -> bool:
+    """A 'merged' body row: first cell spans the full header width, all other
+    cells are pdfplumber's empty-sentinel ``BBox(0,0,0,0)``.
+    """
+    if len(row_cells) < 2:
+        return False
+    first = row_cells[0]
+    hx0, hx1 = header_x_range
+    spans_full = first.x0 <= hx0 + _MERGE_TOL and first.x1 >= hx1 - _MERGE_TOL
+    rest_empty = all(rc.x0 == 0 and rc.x1 == 0 for rc in row_cells[1:])
+    return spans_full and rest_empty
+
+
+def _bin_words_to_columns(
+    words: list[dict], col_xs: list[tuple[float, float]]
+) -> list[str]:
+    """Bin words into header columns by word-center x.  Out-of-range words
+    snap to the nearest column by center distance.
+    """
+    bins: list[list[tuple[float, str]]] = [[] for _ in col_xs]
+    centers = [(cx0 + cx1) / 2 for cx0, cx1 in col_xs]
+    for w in words:
+        text = w.get("text", "").strip()
+        if not text:
+            continue
+        cx = (w["x0"] + w["x1"]) / 2
+        match = -1
+        for i, (cx0, cx1) in enumerate(col_xs):
+            if cx0 - _BIN_TOL <= cx <= cx1 + _BIN_TOL:
+                match = i
+                break
+        if match < 0:
+            match = min(range(len(centers)), key=lambda i: abs(centers[i] - cx))
+        bins[match].append((w["x0"], text))
+    return [" ".join(t for _, t in sorted(b)) for b in bins]
+
+
+def _group_words_into_lines(words: list[dict]) -> list[list[dict]]:
+    """Sort + bucket words into y-lines using :data:`_LINE_GROUP_TOL`."""
+    words = sorted(words, key=lambda w: (w["top"], w["x0"]))
+    lines: list[list[dict]] = []
+    for w in words:
+        cy = (w["top"] + w["bottom"]) / 2
+        if lines:
+            last_cy = (lines[-1][0]["top"] + lines[-1][0]["bottom"]) / 2
+            if abs(cy - last_cy) < _LINE_GROUP_TOL:
+                lines[-1].append(w)
+                continue
+        lines.append([w])
+    return lines
+
+
+def _lines_to_rows(
+    lines: list[list[dict]],
+    col_xs: list[tuple[float, float]],
+    page_idx: int,
+    enforce_gap: bool,
+) -> list[tuple[list[str], list[BBox]]]:
+    """Convert y-grouped lines into ``(grid_row, cell_bboxes)`` pairs.
+
+    When ``enforce_gap`` is true, stop at the first vertical gap >
+    ``_GAP_MULTIPLIER × median line height`` or the first line with
+    fewer than ``_MIN_COLS_PER_BODY_ROW`` non-empty columns.  Used by the
+    header-only extension scan to avoid swallowing unrelated text below
+    the table.  When false (within a confirmed merged cell), the cell's
+    bbox already bounds the search, so every grouped line becomes a row.
+    """
+    if not lines:
+        return []
+    heights = sorted(
+        (max(w["bottom"] for w in ln) - min(w["top"] for w in ln)) for ln in lines
+    )
+    median_h = heights[len(heights) // 2]
+    max_gap = max(median_h * _GAP_MULTIPLIER, _MIN_GAP_PT)
+    out: list[tuple[list[str], list[BBox]]] = []
+    prev_bottom: Optional[float] = None
+    for ln in lines:
+        top = min(w["top"] for w in ln)
+        bottom = max(w["bottom"] for w in ln)
+        if enforce_gap and prev_bottom is not None and (top - prev_bottom) > max_gap:
+            break
+        binned = _bin_words_to_columns(ln, col_xs)
+        if enforce_gap and sum(1 for b in binned if b.strip()) < _MIN_COLS_PER_BODY_ROW:
+            break
+        out.append((
+            binned,
+            [BBox(page=page_idx, x0=cx0, y0=top, x1=cx1, y1=bottom) for cx0, cx1 in col_xs],
+        ))
+        prev_bottom = bottom
+    return out
+
+
+def _scan_body_rows_below_header(
+    plumber_page,
+    header_x_range: tuple[float, float],
+    header_y_bottom: float,
+    col_xs: list[tuple[float, float]],
+    page_idx: int,
+) -> list[tuple[list[str], list[BBox]]]:
+    """Header-only table extension: collect body rows in the strip below the
+    header until a vertical gap or low-column-coverage line terminates the scan.
+    """
+    x0, x1 = header_x_range
+    crop = plumber_page.crop((x0, header_y_bottom, x1, plumber_page.height))
+    words = crop.extract_words(use_text_flow=True)
+    return _lines_to_rows(_group_words_into_lines(words), col_xs, page_idx, enforce_gap=True)
+
+
+def _scan_body_rows_in_cell(
+    plumber_page,
+    cell_bbox: BBox,
+    col_xs: list[tuple[float, float]],
+    page_idx: int,
+) -> list[tuple[list[str], list[BBox]]]:
+    """Within a merged body cell, group words into per-line rows.  No gap
+    enforcement: the cell's bbox already bounds the search.
+    """
+    crop = plumber_page.crop((cell_bbox.x0, cell_bbox.y0, cell_bbox.x1, cell_bbox.y1))
+    words = crop.extract_words(use_text_flow=True)
+    return _lines_to_rows(_group_words_into_lines(words), col_xs, page_idx, enforce_gap=False)
+
+
+def _redistribute_ruled_header_body(plumber_page, region: TableRegion) -> TableRegion:
+    """Rebuild a ``TableRegion`` whose body rows lack internal vertical
+    separators.  No-op if the header has < 2 columns or the body is already
+    populated cell-by-cell.
+    """
+    if not region.grid or len(region.cell_bboxes[0]) < 2:
+        return region
+    header_cells = region.cell_bboxes[0]
+    col_xs = [(c.x0, c.x1) for c in header_cells]
+    header_x_range = (col_xs[0][0], col_xs[-1][1])
+    page_idx = region.page_index
+
+    new_grid: list[list[str]] = [list(region.grid[0])]
+    new_cells: list[list[BBox]] = [list(header_cells)]
+    changed = False
+    for ridx in range(1, len(region.grid)):
+        row_cells = region.cell_bboxes[ridx]
+        if not _is_merged_body_row(row_cells, header_x_range):
+            new_grid.append(list(region.grid[ridx]))
+            new_cells.append(list(row_cells))
+            continue
+        rows = _scan_body_rows_in_cell(plumber_page, row_cells[0], col_xs, page_idx)
+        if not rows:
+            new_grid.append(list(region.grid[ridx]))
+            new_cells.append(list(row_cells))
+            continue
+        changed = True
+        for g, b in rows:
+            new_grid.append(g)
+            new_cells.append(b)
+
+    # Header-only table: try to extend downward.
+    if len(new_grid) == 1:
+        header_y_bottom = max(c.y1 for c in header_cells)
+        extension = _scan_body_rows_below_header(
+            plumber_page, header_x_range, header_y_bottom, col_xs, page_idx
+        )
+        if extension:
+            changed = True
+            for g, b in extension:
+                new_grid.append(g)
+                new_cells.append(b)
+
+    if not changed:
+        return region
+
+    new_bbox = BBox(
+        page=page_idx,
+        x0=region.bbox.x0,
+        y0=min(c.y0 for row in new_cells for c in row if c.x0 != 0 or c.x1 != 0),
+        x1=region.bbox.x1,
+        y1=max(c.y1 for row in new_cells for c in row if c.x0 != 0 or c.x1 != 0),
+    )
+    return TableRegion(
+        page_index=page_idx,
+        bbox=new_bbox,
+        grid=new_grid,
+        cell_bboxes=new_cells,
+        page_height=region.page_height,
+        redistributed=True,
+    )
+
+
 def detect_tables(
     pdf_path: Path,
     region_bbox: Optional[BBox] = None,
     settings: Optional[dict] = None,
 ) -> list[TableRegion]:
-    primary = {**DEFAULT_TABLE_SETTINGS, **(settings or {})}
     out: list[TableRegion] = []
     with pdfplumber.open(str(pdf_path)) as pdf:
         pages = pdf.pages if region_bbox is None else [pdf.pages[region_bbox.page]]
@@ -133,7 +518,7 @@ def detect_tables(
             page_height = float(page.height)
             page_idx   = page.page_number - 1
 
-            found = target.find_tables(table_settings=primary)
+            found = find_tables_visible(target, settings)
             # If the line strategy found nothing and the caller did not supply
             # custom settings, retry with the text strategy.  This catches
             # tables that rely on whitespace alignment rather than vector borders
@@ -144,6 +529,8 @@ def detect_tables(
 
             for t in found:
                 region = _extract_region(target, t, page_idx, page_height)
-                if region is not None:
-                    out.append(region)
+                if region is None:
+                    continue
+                region = _redistribute_ruled_header_body(target, region)
+                out.append(region)
     return out

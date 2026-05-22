@@ -1,0 +1,104 @@
+{
+  "children": [
+    {
+      "children": [
+        {
+          "kind": "heading",
+          "text": "Ruled-Header, Row-Strips Table"
+        },
+        {
+          "children": [
+            {
+              "children": [
+                {
+                  "kind": "cell",
+                  "text": "Item"
+                },
+                {
+                  "kind": "cell",
+                  "text": "Qty"
+                },
+                {
+                  "kind": "cell",
+                  "text": "Price"
+                }
+              ],
+              "kind": "row"
+            },
+            {
+              "children": [
+                {
+                  "kind": "cell",
+                  "text": "Apple"
+                },
+                {
+                  "kind": "cell",
+                  "text": "3"
+                },
+                {
+                  "kind": "cell",
+                  "text": "$1.00"
+                }
+              ],
+              "kind": "row"
+            },
+            {
+              "children": [
+                {
+                  "kind": "cell",
+                  "text": "Banana"
+                },
+                {
+                  "kind": "cell",
+                  "text": "6"
+                },
+                {
+                  "kind": "cell",
+                  "text": "$0.50"
+                }
+              ],
+              "kind": "row"
+            },
+            {
+              "children": [
+                {
+                  "kind": "cell",
+                  "text": "Cherry"
+                },
+                {
+                  "kind": "cell",
+                  "text": "12"
+                },
+                {
+                  "kind": "cell",
+                  "text": "$2.25"
+                }
+              ],
+              "kind": "row"
+            },
+            {
+              "children": [
+                {
+                  "kind": "cell",
+                  "text": "Date"
+                },
+                {
+                  "kind": "cell",
+                  "text": "4"
+                },
+                {
+                  "kind": "cell",
+                  "text": "$3.10"
+                }
+              ],
+              "kind": "row"
+            }
+          ],
+          "kind": "table"
+        }
+      ],
+      "kind": "page"
+    }
+  ],
+  "kind": "document"
+}

@@ -23,8 +23,41 @@ def _bbox_pages(node: DocNode) -> tuple[int, int]:
     return (min(pages), max(pages))
 
 
-def _row_to_md(row: DocNode) -> str:
-    return "| " + " | ".join((c.text or "").replace("|", "\\|") for c in row.children) + " |"
+def _md_cell_text(text: str) -> str:
+    """Normalise cell text for markdown emission: collapse internal whitespace
+    (including newlines introduced by rowspan'd multi-line cells) to single
+    spaces, then escape pipes.
+    """
+    return " ".join(text.split()).replace("|", "\\|")
+
+
+def _row_texts_filled(row: DocNode, fill_state: list[str]) -> list[str]:
+    """Return per-cell text for ``row``, filling rowspan continuations from
+    the most recent non-covered value at the same column index.
+
+    Mutates ``fill_state`` so subsequent calls in document order see the
+    updated last-seen values.  This is how the chunker carries merged-cell
+    context (e.g. ``Pacific Northwest Division``) into every continuation
+    row's markdown — without it, embeddings for the continuation rows lack
+    the merge label and vector retrieval misses by-row queries that mention
+    the merged value.
+    """
+    cells = [c for c in row.children if c.kind == "cell"]
+    while len(fill_state) < len(cells):
+        fill_state.append("")
+    out: list[str] = []
+    for c_idx, cell in enumerate(cells):
+        if cell.attrs.get("covered"):
+            out.append(fill_state[c_idx])
+        else:
+            text = cell.text or ""
+            out.append(text)
+            fill_state[c_idx] = text
+    return out
+
+
+def _row_to_md(row: DocNode, fill_state: list[str]) -> str:
+    return "| " + " | ".join(_md_cell_text(t) for t in _row_texts_filled(row, fill_state)) + " |"
 
 
 def _split_table(table: DocNode, max_tokens: int) -> list[Chunk]:
@@ -33,27 +66,35 @@ def _split_table(table: DocNode, max_tokens: int) -> list[Chunk]:
         return []
     header = rows[0]
     body = rows[1:]
-    header_md = _row_to_md(header)
+    # Fill-state threads through every row in document order so each emitted
+    # markdown line includes any rowspan source value above it.
+    fill_state: list[str] = []
+    header_md = _row_to_md(header, fill_state)
     n_cols = len(header.children)
 
     chunks: list[Chunk] = []
     buf: list[DocNode] = []
+    buf_lines: list[str] = []
     buf_tokens = _est_tokens(header_md)
     for row in body:
-        line = _row_to_md(row)
+        line = _row_to_md(row, fill_state)
         if buf_tokens + _est_tokens(line) > max_tokens and buf:
-            chunks.append(_table_chunk(table, header_md, buf, n_cols))
+            chunks.append(_table_chunk(table, header_md, buf, buf_lines, n_cols))
             buf = []
+            buf_lines = []
             buf_tokens = _est_tokens(header_md)
         buf.append(row)
+        buf_lines.append(line)
         buf_tokens += _est_tokens(line)
     if buf:
-        chunks.append(_table_chunk(table, header_md, buf, n_cols))
+        chunks.append(_table_chunk(table, header_md, buf, buf_lines, n_cols))
     return chunks
 
 
-def _table_chunk(table: DocNode, header_md: str, rows: list[DocNode], n_cols: int) -> Chunk:
-    body_md = "\n".join(_row_to_md(r) for r in rows)
+def _table_chunk(
+    table: DocNode, header_md: str, rows: list[DocNode], body_lines: list[str], n_cols: int,
+) -> Chunk:
+    body_md = "\n".join(body_lines)
     text = header_md + "\n" + body_md
     pages = sorted({_bbox_pages(r)[0] for r in rows})
     return Chunk(

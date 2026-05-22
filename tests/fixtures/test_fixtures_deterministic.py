@@ -125,3 +125,78 @@ def test_comprehensive_committed_fixture_matches_regeneration(tmp_path):
     regen = tmp_path / "regen.pdf"
     BUILDERS["13_comprehensive"](regen)
     assert _digest(committed) == _digest(regen)
+
+
+def test_text_between_subtables_spanning_pdf_is_byte_stable(tmp_path):
+    a = tmp_path / "a.pdf"; b = tmp_path / "b.pdf"
+    BUILDERS["17_text_between_subtables_spanning"](a)
+    BUILDERS["17_text_between_subtables_spanning"](b)
+    assert _digest(a) == _digest(b)
+
+
+def test_text_between_subtables_spanning_committed_fixture_matches_regeneration(tmp_path):
+    committed = GOLDEN_DIR / "17_text_between_subtables_spanning" / "source.pdf"
+    assert committed.exists(), "run `python -m tests.fixtures.build_pdfs` first"
+    regen = tmp_path / "regen.pdf"
+    BUILDERS["17_text_between_subtables_spanning"](regen)
+    assert _digest(committed) == _digest(regen)
+
+
+def test_ruled_header_open_body_pdf_is_byte_stable(tmp_path):
+    a = tmp_path / "a.pdf"; b = tmp_path / "b.pdf"
+    BUILDERS["18_ruled_header_open_body"](a)
+    BUILDERS["18_ruled_header_open_body"](b)
+    assert _digest(a) == _digest(b)
+
+
+def test_ruled_header_open_body_committed_fixture_matches_regeneration(tmp_path):
+    committed = GOLDEN_DIR / "18_ruled_header_open_body" / "source.pdf"
+    assert committed.exists(), "run `python -m tests.fixtures.build_pdfs` first"
+    regen = tmp_path / "regen.pdf"
+    BUILDERS["18_ruled_header_open_body"](regen)
+    assert _digest(committed) == _digest(regen)
+
+
+def test_ruled_header_framed_body_pdf_is_byte_stable(tmp_path):
+    a = tmp_path / "a.pdf"; b = tmp_path / "b.pdf"
+    BUILDERS["19_ruled_header_framed_body"](a)
+    BUILDERS["19_ruled_header_framed_body"](b)
+    assert _digest(a) == _digest(b)
+
+
+def test_ruled_header_framed_body_committed_fixture_matches_regeneration(tmp_path):
+    committed = GOLDEN_DIR / "19_ruled_header_framed_body" / "source.pdf"
+    assert committed.exists(), "run `python -m tests.fixtures.build_pdfs` first"
+    regen = tmp_path / "regen.pdf"
+    BUILDERS["19_ruled_header_framed_body"](regen)
+    assert _digest(committed) == _digest(regen)
+
+
+def test_ruled_header_row_strips_pdf_is_byte_stable(tmp_path):
+    a = tmp_path / "a.pdf"; b = tmp_path / "b.pdf"
+    BUILDERS["20_ruled_header_row_strips"](a)
+    BUILDERS["20_ruled_header_row_strips"](b)
+    assert _digest(a) == _digest(b)
+
+
+def test_ruled_header_row_strips_committed_fixture_matches_regeneration(tmp_path):
+    committed = GOLDEN_DIR / "20_ruled_header_row_strips" / "source.pdf"
+    assert committed.exists(), "run `python -m tests.fixtures.build_pdfs` first"
+    regen = tmp_path / "regen.pdf"
+    BUILDERS["20_ruled_header_row_strips"](regen)
+    assert _digest(committed) == _digest(regen)
+
+
+def test_vertical_merge_invisible_lines_pdf_is_byte_stable(tmp_path):
+    a = tmp_path / "a.pdf"; b = tmp_path / "b.pdf"
+    BUILDERS["21_vertical_merge_invisible_lines"](a)
+    BUILDERS["21_vertical_merge_invisible_lines"](b)
+    assert _digest(a) == _digest(b)
+
+
+def test_vertical_merge_invisible_lines_committed_fixture_matches_regeneration(tmp_path):
+    committed = GOLDEN_DIR / "21_vertical_merge_invisible_lines" / "source.pdf"
+    assert committed.exists(), "run `python -m tests.fixtures.build_pdfs` first"
+    regen = tmp_path / "regen.pdf"
+    BUILDERS["21_vertical_merge_invisible_lines"](regen)
+    assert _digest(committed) == _digest(regen)

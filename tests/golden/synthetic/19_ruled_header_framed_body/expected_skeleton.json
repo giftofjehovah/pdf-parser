@@ -1,0 +1,144 @@
+{
+  "children": [
+    {
+      "children": [
+        {
+          "kind": "heading",
+          "text": "Ruled-Header, Framed-Body Table"
+        },
+        {
+          "children": [
+            {
+              "children": [
+                {
+                  "kind": "cell",
+                  "text": "Region"
+                },
+                {
+                  "kind": "cell",
+                  "text": "Q1"
+                },
+                {
+                  "kind": "cell",
+                  "text": "Q2"
+                },
+                {
+                  "kind": "cell",
+                  "text": "Q3"
+                },
+                {
+                  "kind": "cell",
+                  "text": "Q4"
+                }
+              ],
+              "kind": "row"
+            },
+            {
+              "children": [
+                {
+                  "kind": "cell",
+                  "text": "North"
+                },
+                {
+                  "kind": "cell",
+                  "text": "120"
+                },
+                {
+                  "kind": "cell",
+                  "text": "135"
+                },
+                {
+                  "kind": "cell",
+                  "text": "150"
+                },
+                {
+                  "kind": "cell",
+                  "text": "162"
+                }
+              ],
+              "kind": "row"
+            },
+            {
+              "children": [
+                {
+                  "kind": "cell",
+                  "text": "South"
+                },
+                {
+                  "kind": "cell",
+                  "text": "98"
+                },
+                {
+                  "kind": "cell",
+                  "text": "104"
+                },
+                {
+                  "kind": "cell",
+                  "text": "111"
+                },
+                {
+                  "kind": "cell",
+                  "text": "120"
+                }
+              ],
+              "kind": "row"
+            },
+            {
+              "children": [
+                {
+                  "kind": "cell",
+                  "text": "East"
+                },
+                {
+                  "kind": "cell",
+                  "text": "87"
+                },
+                {
+                  "kind": "cell",
+                  "text": "92"
+                },
+                {
+                  "kind": "cell",
+                  "text": "101"
+                },
+                {
+                  "kind": "cell",
+                  "text": "118"
+                }
+              ],
+              "kind": "row"
+            },
+            {
+              "children": [
+                {
+                  "kind": "cell",
+                  "text": "West"
+                },
+                {
+                  "kind": "cell",
+                  "text": "143"
+                },
+                {
+                  "kind": "cell",
+                  "text": "149"
+                },
+                {
+                  "kind": "cell",
+                  "text": "156"
+                },
+                {
+                  "kind": "cell",
+                  "text": "171"
+                }
+              ],
+              "kind": "row"
+            }
+          ],
+          "kind": "table"
+        }
+      ],
+      "kind": "page"
+    }
+  ],
+  "kind": "document"
+}

@@ -1,0 +1,104 @@
+{
+  "children": [
+    {
+      "children": [
+        {
+          "kind": "heading",
+          "text": "Ruled-Header, Open-Body Table"
+        },
+        {
+          "children": [
+            {
+              "children": [
+                {
+                  "kind": "cell",
+                  "text": "Name"
+                },
+                {
+                  "kind": "cell",
+                  "text": "Score"
+                },
+                {
+                  "kind": "cell",
+                  "text": "Grade"
+                }
+              ],
+              "kind": "row"
+            },
+            {
+              "children": [
+                {
+                  "kind": "cell",
+                  "text": "Alice"
+                },
+                {
+                  "kind": "cell",
+                  "text": "95"
+                },
+                {
+                  "kind": "cell",
+                  "text": "A"
+                }
+              ],
+              "kind": "row"
+            },
+            {
+              "children": [
+                {
+                  "kind": "cell",
+                  "text": "Bob"
+                },
+                {
+                  "kind": "cell",
+                  "text": "82"
+                },
+                {
+                  "kind": "cell",
+                  "text": "B-"
+                }
+              ],
+              "kind": "row"
+            },
+            {
+              "children": [
+                {
+                  "kind": "cell",
+                  "text": "Carol"
+                },
+                {
+                  "kind": "cell",
+                  "text": "91"
+                },
+                {
+                  "kind": "cell",
+                  "text": "A-"
+                }
+              ],
+              "kind": "row"
+            },
+            {
+              "children": [
+                {
+                  "kind": "cell",
+                  "text": "Dave"
+                },
+                {
+                  "kind": "cell",
+                  "text": "76"
+                },
+                {
+                  "kind": "cell",
+                  "text": "C+"
+                }
+              ],
+              "kind": "row"
+            }
+          ],
+          "kind": "table"
+        }
+      ],
+      "kind": "page"
+    }
+  ],
+  "kind": "document"
+}

@@ -58,6 +58,7 @@ body {{
 .cell {{
   position: absolute;
   overflow: hidden;
+  white-space: pre-line;
   display: flex;
   align-items: center;
   font-size: {7.5 * _S:.2f}px;

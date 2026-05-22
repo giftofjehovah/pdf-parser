@@ -1236,6 +1236,346 @@ def build_16_text_between_subtables(out: Path) -> None:
     doc.build(story)
 
 
+def build_17_text_between_subtables_spanning(out: Path) -> None:
+    """17_text_between_subtables_spanning: page-spanning variant of fixture 16.
+
+    Same idiom as 16 (an outer table whose middle region holds two sub-tables
+    with text between them), but the outer table is tall enough that the
+    paragraphs between sub-table A and sub-table B straddle the page break.
+
+    Fixture structure (1-column outer table, partial borders):
+      Row 0:       "Section Header"   ← plain-text header cell, page 1
+      Row 1:       [ sub-table A ]    ← page 1
+      Rows 2..N+1: one Paragraph each ← splits cleanly between any two of
+                                       these rows at the page boundary
+      Row N+2:     [ sub-table B ]    ← page 2
+      Row N+3:     "Section Footer"   ← plain-text footer cell, page 2
+
+    Border choices and the rationale:
+      - Each between-paragraph is its own outer-table row so the table can
+        split at a clean row boundary (ReportLab's default ``splitByRow=1``).
+        That preserves the cell's TOPPADDING / BOTTOMPADDING on the rows
+        adjacent to the page break — text does not crash into the page edge.
+      - The outer table draws only the borders we *want* visible:
+        LINEABOVE+LINEBELOW around the Header and Footer rows, plus
+        LINEBEFORE+LINEAFTER down the left and right sides of every row.
+        There is NO horizontal line around sub-table A's row, the
+        paragraph rows, or sub-table B's row.  When the table splits, no
+        closing border is drawn beneath the page-1 fragment and no opening
+        border is drawn above the page-2 fragment, so the outer table reads
+        visually as a single continuous box that bridges the two pages.
+      - The sub-tables still live in their own outer rows (not in a single
+        cell with the paragraphs) because ReportLab cannot split a cell
+        whose flowable list contains nested Tables — :meth:`Table._splitCell`
+        crashes on ``Table.height`` lookup.
+
+    The fixture exercises:
+      - a multi-page outer table with nested sub-tables on both pages;
+      - between-paragraph text that lives inside the outer-table column on
+        both pages and respects the cell padding at the page seam;
+      - the parser's stitcher (the page-1 outer fragment now extends to the
+        bottom of the page, so the bottom-margin heuristic does not bail).
+    """
+    doc = SimpleDocTemplate(str(out), pagesize=LETTER, topMargin=72, bottomMargin=72)
+    s = _styles()
+
+    def _sub(header: list[str], rows: list[list[str]]) -> Table:
+        return Table(
+            [header] + rows,
+            style=TableStyle([
+                ("GRID",       (0, 0), (-1, -1), 0.5, colors.darkblue),
+                ("BACKGROUND", (0, 0), (-1, 0),  colors.lightblue),
+                ("FONTNAME",   (0, 0), (-1, 0),  "Helvetica-Bold"),
+                ("FONTSIZE",   (0, 0), (-1, -1), 8),
+            ]),
+            colWidths=[90, 90],
+        )
+
+    sub_a = _sub(["Item", "Qty"], [["Widget A", "10"], ["Widget B", "5"]])
+    sub_b = _sub(["Month", "Sales"], [["Jan", "$500"], ["Feb", "$700"]])
+
+    # Numbered, deterministic filler.  NOTE / END bookend the block so tests
+    # can pin the start and end of the "between" region.
+    body = s["BodyText"]
+    body.fontSize = 9
+    body.leading = 12
+    between_paras: list = [
+        Paragraph(
+            "NOTE: This paragraph sits between the two sub-tables and must "
+            "be preserved across the page break.",
+            body,
+        ),
+    ]
+    for i in range(1, 28):
+        between_paras.append(Paragraph(
+            f"Between-line {i:02d}: Lorem ipsum dolor sit amet, "
+            "consectetur adipiscing elit, sed do eiusmod tempor "
+            "incididunt ut labore et dolore magna aliqua.",
+            body,
+        ))
+    between_paras.append(Paragraph(
+        "END: This trailing sentence is the last paragraph between the two "
+        "sub-tables.",
+        body,
+    ))
+
+    # Row layout: header, sub_a, one row per between-paragraph, sub_b, footer.
+    data: list[list] = [
+        ["Section Header"],
+        [[sub_a]],
+        *[[para] for para in between_paras],
+        [[sub_b]],
+        ["Section Footer"],
+    ]
+    HEADER_ROW = 0
+    FOOTER_ROW = len(data) - 1
+
+    outer = Table(
+        data,
+        style=TableStyle([
+            ("VALIGN",        (0, 0), (-1, -1), "TOP"),
+            ("TOPPADDING",    (0, 0), (-1, -1), 4),
+            ("BOTTOMPADDING", (0, 0), (-1, -1), 4),
+            ("BACKGROUND",    (0, HEADER_ROW), (0, HEADER_ROW), colors.lightgrey),
+            ("FONTNAME",      (0, HEADER_ROW), (0, HEADER_ROW), "Helvetica-Bold"),
+            # Left and right edges run down every row.  When the table
+            # splits, these vertical lines extend to the page boundary on
+            # both halves, making the outer table read as continuous.
+            ("LINEBEFORE", (0, 0),  (0, -1),  0.5, colors.black),
+            ("LINEAFTER",  (-1, 0), (-1, -1), 0.5, colors.black),
+            # Horizontal lines ONLY around header and footer — no border
+            # encloses sub-table A, the paragraph rows, or sub-table B.
+            ("LINEABOVE", (0, HEADER_ROW), (-1, HEADER_ROW), 0.5, colors.black),
+            ("LINEBELOW", (0, HEADER_ROW), (-1, HEADER_ROW), 0.5, colors.black),
+            ("LINEABOVE", (0, FOOTER_ROW), (-1, FOOTER_ROW), 0.5, colors.black),
+            ("LINEBELOW", (0, FOOTER_ROW), (-1, FOOTER_ROW), 0.5, colors.black),
+        ]),
+        colWidths=[400],
+    )
+    story = [
+        Paragraph("Text Between Sub-Tables (Page Spanning)", s["Heading1"]),
+        Spacer(1, 12),
+        outer,
+    ]
+    doc.build(story)
+
+
+def build_18_ruled_header_open_body(out: Path) -> None:
+    """18_ruled_header_open_body: header has cell borders + a rule under it.
+
+    Body rows have *no* borders at all — neither vertical separators between
+    columns nor horizontal rules between rows.  Text in body rows is positioned
+    by ``colWidths`` so it visually aligns under the header columns, but
+    pdfplumber's line strategy sees no body cells: it can only recover the
+    header.
+
+    Visual::
+
+        | Name    | Score | Grade |
+        +---------+-------+-------+
+          Alice     95      A
+          Bob       82      B-
+          Carol     91      A-
+          Dave      76      C+
+
+    Goal: parser still surfaces a four-row, three-column table.  Body cells
+    must be reconstructed by snapping word positions to the header's column
+    x-bounds.
+    """
+    doc = SimpleDocTemplate(str(out), pagesize=LETTER)
+    s = _styles()
+    data = [
+        ["Name",  "Score", "Grade"],
+        ["Alice", "95",    "A"],
+        ["Bob",   "82",    "B-"],
+        ["Carol", "91",    "A-"],
+        ["Dave",  "76",    "C+"],
+    ]
+    t = Table(data, colWidths=[120, 80, 80])
+    t.setStyle(TableStyle([
+        ("FONTNAME",      (0, 0), (-1, 0), "Helvetica-Bold"),
+        ("FONTSIZE",      (0, 0), (-1, -1), 10),
+        ("TOPPADDING",    (0, 0), (-1, -1), 4),
+        ("BOTTOMPADDING", (0, 0), (-1, -1), 4),
+        # Header-only frame: cells visible only on row 0.
+        ("GRID",          (0, 0), (-1, 0), 0.5, colors.black),
+        # Deliberately no LINE* / BOX / GRID on body rows.
+    ]))
+    story = [
+        Paragraph("Ruled-Header, Open-Body Table", s["Heading1"]),
+        Spacer(1, 12),
+        t,
+    ]
+    doc.build(story)
+
+
+def build_19_ruled_header_framed_body(out: Path) -> None:
+    """19_ruled_header_framed_body: header has internal column separators,
+    plus an outer box around the entire table.  Body has no internal verticals.
+
+    Visual::
+
+        +---------+-------+-------+
+        | Name    | Score | Grade |
+        +---------+-------+-------+
+        | Alice     95      A      |
+        | Bob       82      B-     |
+        | Carol     91      A-     |
+        | Dave      76      C+     |
+        +-------------------------+
+
+    pdfplumber's line strategy sees vertical edges at the outer frame plus the
+    internal header dividers, and horizontal edges at the header rule plus the
+    outer top/bottom.  The naive grid extraction merges the body into one
+    column per row.  Goal: parser snaps body words to the header column bounds.
+    """
+    doc = SimpleDocTemplate(str(out), pagesize=LETTER)
+    s = _styles()
+    data = [
+        ["Region",  "Q1",   "Q2",   "Q3",   "Q4"],
+        ["North",   "120",  "135",  "150",  "162"],
+        ["South",   "98",   "104",  "111",  "120"],
+        ["East",    "87",   "92",   "101",  "118"],
+        ["West",    "143",  "149",  "156",  "171"],
+    ]
+    t = Table(data, colWidths=[100, 60, 60, 60, 60])
+    t.setStyle(TableStyle([
+        ("FONTNAME",      (0, 0), (-1, 0), "Helvetica-Bold"),
+        ("FONTSIZE",      (0, 0), (-1, -1), 10),
+        ("TOPPADDING",    (0, 0), (-1, -1), 4),
+        ("BOTTOMPADDING", (0, 0), (-1, -1), 4),
+        # Outer frame.
+        ("BOX",           (0, 0), (-1, -1), 0.5, colors.black),
+        # Header row: internal verticals + bottom rule.
+        ("GRID",          (0, 0), (-1, 0), 0.5, colors.black),
+    ]))
+    story = [
+        Paragraph("Ruled-Header, Framed-Body Table", s["Heading1"]),
+        Spacer(1, 12),
+        t,
+    ]
+    doc.build(story)
+
+
+def build_20_ruled_header_row_strips(out: Path) -> None:
+    """20_ruled_header_row_strips: outer frame + header column separators +
+    a horizontal rule between every body row.  Each body row is one full-width
+    bordered rectangle; no internal vertical separators in the body.
+
+    Visual::
+
+        +---------+-------+--------+
+        | Item    | Qty   | Price  |
+        +---------+-------+--------+
+        | Apple     3       $1.00   |
+        +--------------------------+
+        | Banana    6       $0.50   |
+        +--------------------------+
+        | Cherry    12      $2.25   |
+        +--------------------------+
+        | Date      4       $3.10   |
+        +--------------------------+
+
+    pdfplumber's line strategy sees a complete grid of horizontal lines but
+    only the header has internal verticals, so body rows extract as a single
+    merged column.  Goal: parser snaps body words to header column bounds.
+    """
+    doc = SimpleDocTemplate(str(out), pagesize=LETTER)
+    s = _styles()
+    data = [
+        ["Item",   "Qty", "Price"],
+        ["Apple",  "3",   "$1.00"],
+        ["Banana", "6",   "$0.50"],
+        ["Cherry", "12",  "$2.25"],
+        ["Date",   "4",   "$3.10"],
+    ]
+    t = Table(data, colWidths=[120, 80, 80])
+    t.setStyle(TableStyle([
+        ("FONTNAME",      (0, 0), (-1, 0), "Helvetica-Bold"),
+        ("FONTSIZE",      (0, 0), (-1, -1), 10),
+        ("TOPPADDING",    (0, 0), (-1, -1), 4),
+        ("BOTTOMPADDING", (0, 0), (-1, -1), 4),
+        # Outer frame.
+        ("BOX",           (0, 0), (-1, -1), 0.5, colors.black),
+        # Header: full grid (internal verticals + bottom rule).
+        ("GRID",          (0, 0), (-1, 0), 0.5, colors.black),
+        # Horizontal rules between every body row (excludes the outer bottom,
+        # which BOX already draws).  This draws under rows 0..-2 in data-row
+        # space; LINEBELOW on row N draws under that row.
+        ("LINEBELOW",     (0, 1), (-1, -2), 0.5, colors.black),
+    ]))
+    story = [
+        Paragraph("Ruled-Header, Row-Strips Table", s["Heading1"]),
+        Spacer(1, 12),
+        t,
+    ]
+    doc.build(story)
+
+
+def build_21_vertical_merge_invisible_lines(out: Path) -> None:
+    """21_vertical_merge_invisible_lines: a normal gridded table where the
+    horizontal row separators in *one column* are overdrawn with white, making
+    that column appear visually merged across three rows.
+
+    Visual::
+
+        +----------+-----+-----+-----+
+        | Region   | Q1  | Q2  | Q3  |
+        +----------+-----+-----+-----+
+        | Pacific    100   110   120 |
+        |            +-----+-----+-----+
+        | Northwest  200   210   220 |
+        |            +-----+-----+-----+
+        | Division   300   310   320 |
+        +----------+-----+-----+-----+
+        | Marketing  400   410   420 |
+        +----------+-----+-----+-----+
+
+    pdfplumber's "lines" strategy sees full-width black row separators *and*
+    the white overdraws as independent lines; without colour-aware filtering it
+    splits the merged column into three single-line rows whose adjacent-column
+    data leaks into the wrong row.  Goal: parser subtracts background-coloured
+    overdraws from the visible edge set so the column collapses into one cell
+    spanning rows 1–3, matching what the reader actually sees.
+    """
+    doc = SimpleDocTemplate(str(out), pagesize=LETTER)
+    s = _styles()
+    data = [
+        ["Region",    "Q1",  "Q2",  "Q3"],
+        ["Pacific",   "100", "110", "120"],
+        ["Northwest", "200", "210", "220"],
+        ["Division",  "300", "310", "320"],
+        ["Marketing", "400", "410", "420"],
+    ]
+    t = Table(data, colWidths=[100, 60, 60, 60], rowHeights=[20, 20, 20, 20, 20])
+    t.setStyle(TableStyle([
+        ("FONTNAME",   (0, 0), (-1, 0),  "Helvetica-Bold"),
+        ("FONTSIZE",   (0, 0), (-1, -1), 10),
+        ("VALIGN",     (0, 0), (-1, -1), "TOP"),
+        ("GRID",       (0, 0), (-1, -1), 0.5, colors.black),
+        # Overdraw the row-1/row-2 and row-2/row-3 separators in col 0 with
+        # white: visually those lines disappear, but pdfplumber still sees them
+        # as black + white edges at the same y.
+        ("LINEBELOW",  (0, 1), (0, 1),   0.5, colors.white),
+        ("LINEBELOW",  (0, 2), (0, 2),   0.5, colors.white),
+    ]))
+    story = [
+        Paragraph("Vertically Merged Cells (Invisible Row Separators)", s["Heading1"]),
+        Spacer(1, 12),
+        Paragraph(
+            "The first column visually merges three rows because the inner row "
+            "dividers are drawn in the page background colour.  A reader sees "
+            "one merged cell containing three lines of text; the PDF data, "
+            "however, still encodes three separate rows split by white-on-white "
+            "lines.  A colour-aware parser must honour the visual reading.",
+            s["BodyText"],
+        ),
+        Spacer(1, 12),
+        t,
+    ]
+    doc.build(story)
+
+
 BUILDERS = {
     "01_simple_table": build_01_simple_table,
     "02_nested_table": build_02_nested_table,
@@ -1253,6 +1593,11 @@ BUILDERS = {
     "14_borderless_table": build_14_borderless_table,
     "15_multicolumn_text": build_15_multicolumn_text,
     "16_text_between_subtables": build_16_text_between_subtables,
+    "17_text_between_subtables_spanning": build_17_text_between_subtables_spanning,
+    "18_ruled_header_open_body":          build_18_ruled_header_open_body,
+    "19_ruled_header_framed_body":        build_19_ruled_header_framed_body,
+    "20_ruled_header_row_strips":         build_20_ruled_header_row_strips,
+    "21_vertical_merge_invisible_lines":  build_21_vertical_merge_invisible_lines,
 }
 
 def build_all() -> None:
