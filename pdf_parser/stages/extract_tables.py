@@ -328,7 +328,7 @@ def _between_text_nodes(
     return nodes
 
 
-def _build_cell(text: str, bbox: BBox, pdf_path: Path, depth: int,
+def _build_cell(text: str, bbox: BBox, pdf, depth: int,
                 covered: bool = False, align: str = "left",
                 page_chars: list[dict] | None = None) -> DocNode:
     children: list[DocNode] = []
@@ -343,12 +343,12 @@ def _build_cell(text: str, bbox: BBox, pdf_path: Path, depth: int,
         )
         # Guard against degenerate (zero-area) cells after shrinking.
         if shrunk.x1 > shrunk.x0 and shrunk.y1 > shrunk.y0:
-            nested = detect_tables(pdf_path, region_bbox=shrunk)
+            nested = detect_tables(pdf=pdf, region_bbox=shrunk)
             for region in nested:
                 # Skip if the detected region is as wide as the cell itself (echoed parent).
                 if abs(region.bbox.x1 - region.bbox.x0) >= abs(bbox.x1 - bbox.x0) - 1:
                     continue
-                children.append(_build_table(region, pdf_path, depth + 1, page_chars=page_chars))
+                children.append(_build_table(region, pdf, depth + 1, page_chars=page_chars))
                 nested_bboxes.append(region.bbox)
     # Preserve text that lives between nested sub-tables in the same cell.
     # Without this, `text=None` (set when children is non-empty) drops any
@@ -372,7 +372,7 @@ def _build_cell(text: str, bbox: BBox, pdf_path: Path, depth: int,
 
 
 def _build_table(
-    region: TableRegion, pdf_path: Path, depth: int,
+    region: TableRegion, pdf, depth: int,
     page_chars: list[dict] | None = None,
 ) -> DocNode:
     rows: list[DocNode] = []
@@ -386,7 +386,7 @@ def _build_table(
                 else region.bbox
             )
             align = _cell_align(page_chars, cbox) if page_chars else "left"
-            cells.append(_build_cell(text, cbox, pdf_path, depth, align=align, page_chars=page_chars))
+            cells.append(_build_cell(text, cbox, pdf, depth, align=align, page_chars=page_chars))
         rows.append(DocNode(
             kind="row",
             bbox=region.bbox,
@@ -412,7 +412,7 @@ def _build_table_from_logical(
     logical_grid: list[list[str]],
     cell_bboxes: list[list[BBox]],
     region: TableRegion,
-    pdf_path: Path,
+    pdf,
     depth: int,
     covered: set[tuple[int, int]] | None = None,
     page_chars: list[dict] | None = None,
@@ -429,7 +429,7 @@ def _build_table_from_logical(
             )
             is_covered = covered is not None and (r_idx, c_idx) in covered
             align = _cell_align(page_chars, cbox) if page_chars else "left"
-            cells.append(_build_cell(text, cbox, pdf_path, depth, covered=is_covered, align=align, page_chars=page_chars))
+            cells.append(_build_cell(text, cbox, pdf, depth, covered=is_covered, align=align, page_chars=page_chars))
         rows.append(DocNode(
             kind="row",
             bbox=region.bbox,
@@ -494,20 +494,29 @@ def extract_tables(pdf_path: Path) -> list[DocNode]:
     cells carry ``text`` and ``children=[]``.
     """
     result: list[DocNode] = []
-    regions = _filter_outer_regions(detect_tables(pdf_path))
-
     with pdfplumber.open(str(pdf_path)) as pdf:
+        regions = _filter_outer_regions(detect_tables(pdf=pdf))
+        # Cache per-page state across all regions: pdfplumber's Page.chars and
+        # find_tables_visible(page) are both expensive to recompute, and a
+        # multi-table page would otherwise re-pay that cost once per region.
+        page_chars_cache: dict[int, list[dict]] = {}
+        page_tables_cache: dict[int, list] = {}
         for region in regions:
-            page = pdf.pages[region.page_index]
-            page_chars = page.chars  # used for cell alignment detection
-            # find_tables() may return multiple tables on the page; match by bbox
+            page_idx = region.page_index
+            page = pdf.pages[page_idx]
+            if page_idx not in page_chars_cache:
+                page_chars_cache[page_idx] = page.chars
+            page_chars = page_chars_cache[page_idx]
+            # find_tables() may return multiple tables on the page; match by bbox.
             # Always uses the default (line) strategy.  If `detect_tables`
             # found this region via the text-strategy fallback, this call
             # returns an empty list and `matched_pt` stays None, so the
             # logical-grid path is skipped.  Borderless tables therefore
             # rely on the pre-extracted `region.grid`; colspan/rowspan
             # detection is not available for them.
-            page_tables = find_tables_visible(page)
+            if page_idx not in page_tables_cache:
+                page_tables_cache[page_idx] = list(find_tables_visible(page))
+            page_tables = page_tables_cache[page_idx]
             matched_pt = None
             for pt in page_tables:
                 if abs(pt.bbox[0] - region.bbox.x0) < 2 and abs(pt.bbox[1] - region.bbox.y0) < 2:
@@ -525,11 +534,11 @@ def extract_tables(pdf_path: Path) -> list[DocNode]:
                 grid, bboxes, cov = logical
                 result.append(
                     _build_table_from_logical(
-                        grid, bboxes, region, pdf_path, depth=0, covered=cov,
+                        grid, bboxes, region, pdf, depth=0, covered=cov,
                         page_chars=page_chars,
                     )
                 )
             else:
-                result.append(_build_table(region, pdf_path, depth=0, page_chars=page_chars))
+                result.append(_build_table(region, pdf, depth=0, page_chars=page_chars))
 
     return result

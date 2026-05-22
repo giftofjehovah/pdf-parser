@@ -502,35 +502,56 @@ def _redistribute_ruled_header_body(plumber_page, region: TableRegion) -> TableR
 
 
 def detect_tables(
-    pdf_path: Path,
+    pdf_path: Optional[Path] = None,
     region_bbox: Optional[BBox] = None,
     settings: Optional[dict] = None,
+    *,
+    pdf=None,
+) -> list[TableRegion]:
+    """Detect tables in ``pdf_path`` (or in an already-open ``pdf``).
+
+    Passing ``pdf`` lets callers reuse a single ``pdfplumber.PDF`` across many
+    invocations — critical for recursive nested-table detection, where opening
+    the PDF afresh per cell otherwise dominates the runtime.  Exactly one of
+    ``pdf_path`` or ``pdf`` must be provided.
+    """
+    if pdf is not None:
+        return _detect_in_doc(pdf, region_bbox, settings)
+    if pdf_path is None:
+        raise TypeError("detect_tables requires either pdf_path or pdf=")
+    with pdfplumber.open(str(pdf_path)) as opened:
+        return _detect_in_doc(opened, region_bbox, settings)
+
+
+def _detect_in_doc(
+    pdf,
+    region_bbox: Optional[BBox],
+    settings: Optional[dict],
 ) -> list[TableRegion]:
     out: list[TableRegion] = []
-    with pdfplumber.open(str(pdf_path)) as pdf:
-        pages = pdf.pages if region_bbox is None else [pdf.pages[region_bbox.page]]
-        for page in pages:
-            target = page
-            if region_bbox is not None:
-                target = page.crop(
-                    (region_bbox.x0, region_bbox.y0, region_bbox.x1, region_bbox.y1)
-                )
-            page_height = float(page.height)
-            page_idx   = page.page_number - 1
+    pages = pdf.pages if region_bbox is None else [pdf.pages[region_bbox.page]]
+    for page in pages:
+        target = page
+        if region_bbox is not None:
+            target = page.crop(
+                (region_bbox.x0, region_bbox.y0, region_bbox.x1, region_bbox.y1)
+            )
+        page_height = float(page.height)
+        page_idx   = page.page_number - 1
 
-            found = find_tables_visible(target, settings)
-            # If the line strategy found nothing and the caller did not supply
-            # custom settings, retry with the text strategy.  This catches
-            # tables that rely on whitespace alignment rather than vector borders
-            # (Word exports, many financial PDFs).
-            if not found and settings is None:
-                fallback = target.find_tables(table_settings=_FALLBACK_TABLE_SETTINGS)
-                found = [t for t in fallback if _is_text_strategy_table(t)]
+        found = find_tables_visible(target, settings)
+        # If the line strategy found nothing and the caller did not supply
+        # custom settings, retry with the text strategy.  This catches
+        # tables that rely on whitespace alignment rather than vector borders
+        # (Word exports, many financial PDFs).
+        if not found and settings is None:
+            fallback = target.find_tables(table_settings=_FALLBACK_TABLE_SETTINGS)
+            found = [t for t in fallback if _is_text_strategy_table(t)]
 
-            for t in found:
-                region = _extract_region(target, t, page_idx, page_height)
-                if region is None:
-                    continue
-                region = _redistribute_ruled_header_body(target, region)
-                out.append(region)
+        for t in found:
+            region = _extract_region(target, t, page_idx, page_height)
+            if region is None:
+                continue
+            region = _redistribute_ruled_header_body(target, region)
+            out.append(region)
     return out
