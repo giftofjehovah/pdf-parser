@@ -8,19 +8,7 @@
         },
         {
           "kind": "paragraph",
-          "text": "The first column visually merges three rows because the inner row dividers are drawn in the page"
-        },
-        {
-          "kind": "paragraph",
-          "text": "background colour. A reader sees one merged cell containing three lines of text; the PDF data,"
-        },
-        {
-          "kind": "paragraph",
-          "text": "however, still encodes three separate rows split by white-on-white lines. A colour-aware parser must"
-        },
-        {
-          "kind": "paragraph",
-          "text": "honour the visual reading."
+          "text": "The first column visually merges three rows because the inner row dividers are drawn in the page background colour. A reader sees one merged cell containing three lines of text; the PDF data, however, still encodes three separate rows split by white-on-white lines. A colour-aware parser must honour the visual reading."
         },
         {
           "children": [

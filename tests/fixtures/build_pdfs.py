@@ -1840,6 +1840,183 @@ def build_21_vertical_merge_invisible_lines(out: Path) -> None:
     doc.build(story)
 
 
+def build_22_text_between_adjacent_tables(out: Path) -> None:
+    """22_text_between_adjacent_tables: two sub-tables nested inside one outer
+    cell with a rich mixed-content region between them (footnote, bullets,
+    paragraph, heading, outline bullets).
+
+    Extends fixtures 16/17 (which only had a single paragraph between the two
+    sub-tables) with the full range of between-content seen in real documents:
+
+      Outer table (1 col × 1 row, BOX border only — no horizontal divider
+      between sections) holds, in one cell, this flowable sequence:
+        Sub-table 1   ← 7 cols, 4 rows; first column visually merged (same
+                        text every row); one cell wraps a 2-line value;
+                        sub-category text carries asterisk footnote markers.
+        Footnote      ← starts with "*" directly under sub-table 1.
+        Dot bullets   ← two filled-disc list items, each multi-sentence.
+        Paragraph     ← plain text, no bullet.
+        Heading       ← bold inline section heading.
+        o-bullets     ← two outline ("o") list items, indented under heading.
+        Sub-table 2   ← 6 cols; headers wrap to two lines (label + "(%)");
+                        last column intentionally empty.
+
+    Content is synthetic (public-library collection metrics) and contains no
+    confidential information.
+    """
+    from reportlab.platypus import ListFlowable, ListItem
+
+    doc = SimpleDocTemplate(str(out), pagesize=LETTER)
+    s = _styles()
+
+    # ----- Table 1: 7 cols, merged first column visually repeated per row.
+    t1_data = [
+        ["Collection",   "Books",                 "32%", "28%", "30%", "28%", "or 50,000\nitems"],
+        ["Collection",   "Periodicals",           "8%",  "7%",  "5%",  "7%",  "Max 25%"],
+        ["Collection",   "Specialty Producers*",  "8%",  "10%", "8%",  "8%",  "NA"],
+        ["Collection",   "Other Producers*",      "11%", "10%", "10%", "8%",  "Max 15%"],
+    ]
+    t1 = Table(
+        t1_data,
+        colWidths=[80, 110, 50, 50, 50, 50, 70],
+        style=TableStyle([
+            ("GRID",          (0, 0), (-1, -1), 0.5, colors.black),
+            ("FONTSIZE",      (0, 0), (-1, -1), 9),
+            ("VALIGN",        (0, 0), (-1, -1), "MIDDLE"),
+            ("ALIGN",         (2, 0), (-1, -1), "CENTER"),
+            ("TOPPADDING",    (0, 0), (-1, -1), 4),
+            ("BOTTOMPADDING", (0, 0), (-1, -1), 4),
+        ]),
+    )
+
+    # ----- Between-region content (this is what disappeared in the real parse).
+    body = s["BodyText"]
+    body.fontSize = 9
+    body.leading = 12
+
+    footnote = Paragraph(
+        "* Specialty Producers and Other Producers are adjusted to reflect the "
+        "correct catalogue code at branch level. Reference works are aggregated "
+        "to other producers.",
+        body,
+    )
+
+    dot_bullets = ListFlowable(
+        [
+            ListItem(Paragraph(
+                "Given the continued strong digital lending performance and "
+                "regional opportunity, the Audio &amp; Digital cap is to be revised "
+                "to 20% from 15% to support eBook program expansion and to offset "
+                "the reduction in the overall Collection portfolio on the back of "
+                "lower Books sub-category exposures.",
+                body,
+            )),
+            ListItem(Paragraph(
+                "In recognising the change in the collection composition, "
+                "combined with the books category still grappling with print "
+                "decline, weakened demand and elevated storage costs, the Books "
+                "cap is being revised downward to a maximum of 40% (previously "
+                "55%) or 50,000 items (previously 65,000).",
+                body,
+            )),
+        ],
+        bulletType="bullet",
+        leftIndent=20,
+    )
+
+    plain_para = Paragraph(
+        "The Other Producers and Other Media cap is at 15% primarily to support "
+        "transition projects in Specialty Collections production not covered "
+        "under other sub-segment caps and as detailed under the "
+        "&ldquo;Preservation / Sustainability / Heritage Limits&rdquo; section8.",
+        body,
+    )
+
+    region_heading = Paragraph(
+        "<b>Branches (Breakdown by Service Area (&ldquo;SVC&rdquo;) Region):</b>",
+        body,
+    )
+
+    o_bullets = ListFlowable(
+        [
+            ListItem(Paragraph(
+                "North, Central, South are the top 3 areas in terms of circulation.",
+                body,
+            )),
+            ListItem(Paragraph(
+                "No specific area cap is proposed but the collection should "
+                "continue to be managed in a balanced manner.",
+                body,
+            )),
+        ],
+        bulletType="bullet",
+        start="o",
+        leftIndent=40,
+    )
+
+    # ----- Table 2: 6 cols, two-line column headers, last column empty.
+    t2_data = [
+        ["SVC Region", "Dec-24\n(%)", "Mar-25\n(%)", "Jun-25\n(%)", "Sep-25\n(%)", "Proposed PS"],
+        ["North",      "24%",         "26%",         "22%",         "22%",         ""],
+        ["Central",    "16%",         "15%",         "15%",         "14%",         ""],
+        ["South",      "13%",         "14%",         "13%",         "14%",         ""],
+    ]
+    t2 = Table(
+        t2_data,
+        colWidths=[90, 65, 65, 65, 65, 90],
+        style=TableStyle([
+            ("GRID",          (0, 0), (-1, -1), 0.5, colors.black),
+            ("BACKGROUND",    (0, 0), (-1, 0),  colors.lightgrey),
+            ("FONTNAME",      (0, 0), (-1, 0),  "Helvetica-Bold"),
+            ("FONTSIZE",      (0, 0), (-1, -1), 9),
+            ("ALIGN",         (0, 0), (-1, -1), "CENTER"),
+            ("VALIGN",        (0, 0), (-1, -1), "MIDDLE"),
+            ("TOPPADDING",    (0, 0), (-1, -1), 4),
+            ("BOTTOMPADDING", (0, 0), (-1, -1), 4),
+        ]),
+    )
+
+    # Outer table is a single 1-row, 1-column cell.  All inner content —
+    # sub-table 1, the mixed text region (footnote, bullets, paragraph,
+    # heading, o-bullets), and sub-table 2 — sits as a flat list of
+    # flowables inside that one cell.  There is no horizontal divider
+    # between the sub-tables and the text; only the outer BOX border.
+    inner_flowables = [
+        t1,
+        Spacer(1, 6),
+        footnote,
+        Spacer(1, 8),
+        dot_bullets,
+        Spacer(1, 8),
+        plain_para,
+        Spacer(1, 10),
+        region_heading,
+        Spacer(1, 4),
+        o_bullets,
+        Spacer(1, 10),
+        t2,
+    ]
+    outer = Table(
+        [[inner_flowables]],
+        colWidths=[490],
+        style=TableStyle([
+            ("BOX",           (0, 0), (-1, -1), 0.75, colors.black),
+            ("VALIGN",        (0, 0), (-1, -1), "TOP"),
+            ("LEFTPADDING",   (0, 0), (-1, -1), 6),
+            ("RIGHTPADDING",  (0, 0), (-1, -1), 6),
+            ("TOPPADDING",    (0, 0), (-1, -1), 8),
+            ("BOTTOMPADDING", (0, 0), (-1, -1), 8),
+        ]),
+    )
+
+    story = [
+        Paragraph("Text Between Adjacent Tables (Nested in Outer Cell)", s["Heading1"]),
+        Spacer(1, 12),
+        outer,
+    ]
+    doc.build(story)
+
+
 BUILDERS = {
     "01_simple_table": build_01_simple_table,
     "02_nested_table": build_02_nested_table,
@@ -1862,6 +2039,7 @@ BUILDERS = {
     "19_ruled_header_framed_body":        build_19_ruled_header_framed_body,
     "20_ruled_header_row_strips":         build_20_ruled_header_row_strips,
     "21_vertical_merge_invisible_lines":  build_21_vertical_merge_invisible_lines,
+    "22_text_between_adjacent_tables":    build_22_text_between_adjacent_tables,
 }
 
 def build_all() -> None:

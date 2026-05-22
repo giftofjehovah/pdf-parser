@@ -128,6 +128,80 @@ def _absorb_dangling_bullets(blocks: list[Block]) -> list[Block]:
         i += 1
     return out
 
+def _join_wrapped_lines(blocks: list[Block], body_size: float) -> list[Block]:
+    """Merge visual lines that continue the preceding paragraph or list_item.
+
+    The segmenter emits one Block per visual line.  Wrapped body text therefore
+    arrives as N adjacent blocks that all belong to the same logical paragraph
+    (or to the same list_item if the predecessor is a bullet).  This pass walks
+    the blocks in order and folds each "continuation" line into the block above
+    it when all of the following hold:
+
+      - the current block is a paragraph (no bullet);
+      - the previous block is a paragraph or list_item;
+      - the vertical gap between them is ≤ 1× body_size (i.e. they're on
+        consecutive printed lines, not separated by a paragraph break);
+      - the current block's x0 is aligned with the previous block's text
+        start: equal x0 within ~3 pt for paragraph→paragraph, or aligned with
+        the bullet's text-start indent for paragraph→list_item.
+
+    Headings, lone bullet glyphs, and column-split fragments are left alone.
+    """
+    if not blocks:
+        return blocks
+
+    Y_TOL = max(body_size * 1.0, 6.0)
+    X_TOL = 3.0
+
+    def _text_start_x(b: Block) -> float:
+        """For a list_item, x0 of the first non-bullet span (i.e. where the
+        wrapped continuation should align).  For other kinds, just b.bbox.x0."""
+        if b.kind_hint != "list_item":
+            return b.bbox.x0
+        for s in b.spans:
+            t = s.text.strip()
+            if t and t not in LIST_BULLETS and not (
+                len(t) == 1 and t in LIST_BULLETS
+            ):
+                # Skip a span that is *only* a bullet character (already covered
+                # by the tuple check above, but also catches " • " etc.).
+                if t.lstrip().startswith(LIST_BULLETS):
+                    continue
+                return s.bbox.x0
+        return b.bbox.x0
+
+    out: list[Block] = [blocks[0]]
+    for b in blocks[1:]:
+        prev = out[-1]
+        gap = b.bbox.y0 - prev.bbox.y1
+        prev_anchor_x = _text_start_x(prev)
+        x_aligned = abs(b.bbox.x0 - prev_anchor_x) <= X_TOL
+        can_merge = (
+            b.kind_hint == "paragraph"
+            and prev.kind_hint in ("paragraph", "list_item")
+            and 0 <= gap <= Y_TOL
+            and x_aligned
+        )
+        if can_merge:
+            merged_bbox = BBox(
+                page=prev.bbox.page,
+                x0=min(prev.bbox.x0, b.bbox.x0),
+                y0=min(prev.bbox.y0, b.bbox.y0),
+                x1=max(prev.bbox.x1, b.bbox.x1),
+                y1=max(prev.bbox.y1, b.bbox.y1),
+            )
+            out[-1] = Block(
+                bbox=merged_bbox,
+                text=prev.text + " " + b.text,
+                kind_hint=prev.kind_hint,
+                spans=prev.spans + b.spans,
+                level=prev.level,
+            )
+        else:
+            out.append(b)
+    return out
+
+
 def _join_text(spans: list[Span]) -> str:
     return " ".join(s.text.strip() for s in spans).strip()
 
@@ -196,8 +270,10 @@ def _segment_page(page: PageRaw) -> PageSegmented:
     # PDFium gives per-glyph tight bboxes so same-row cells have slightly
     # different y0 values; a 2pt bucket aligns them before sorting by x0.
     blocks.sort(key=lambda b: (round(b.bbox.y0 / 2), b.bbox.x0))
+    blocks = _absorb_dangling_bullets(blocks)
+    blocks = _join_wrapped_lines(blocks, body_size)
     return PageSegmented(index=page.index, width=page.width, height=page.height,
-                         blocks=_absorb_dangling_bullets(blocks))
+                         blocks=blocks)
 
 
 def segment(pages: list[PageRaw]) -> list[PageSegmented]:

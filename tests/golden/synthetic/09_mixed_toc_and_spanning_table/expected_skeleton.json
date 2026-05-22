@@ -8,27 +8,11 @@
         },
         {
           "kind": "paragraph",
-          "text": "This report summarises the deterministic synthetic corpus used to exercise the parser end-to-end. The"
+          "text": "This report summarises the deterministic synthetic corpus used to exercise the parser end-to-end. The text below is intentionally long enough to fill several lines so paragraph segmentation has real input to operate on."
         },
         {
           "kind": "paragraph",
-          "text": "text below is intentionally long enough to fill several lines so paragraph segmentation has real input to"
-        },
-        {
-          "kind": "paragraph",
-          "text": "operate on."
-        },
-        {
-          "kind": "paragraph",
-          "text": "This report summarises the deterministic synthetic corpus used to exercise the parser end-to-end. The"
-        },
-        {
-          "kind": "paragraph",
-          "text": "text below is intentionally long enough to fill several lines so paragraph segmentation has real input to"
-        },
-        {
-          "kind": "paragraph",
-          "text": "operate on."
+          "text": "This report summarises the deterministic synthetic corpus used to exercise the parser end-to-end. The text below is intentionally long enough to fill several lines so paragraph segmentation has real input to operate on."
         },
         {
           "kind": "heading",
@@ -36,15 +20,7 @@
         },
         {
           "kind": "paragraph",
-          "text": "1. Executive Summary ................................................. 2"
-        },
-        {
-          "kind": "paragraph",
-          "text": "2. Methodology ....................................................... 2"
-        },
-        {
-          "kind": "paragraph",
-          "text": "3. Detailed Results .................................................. 3"
+          "text": "1. Executive Summary ................................................. 2 2. Methodology ....................................................... 2 3. Detailed Results .................................................. 3"
         },
         {
           "kind": "paragraph",
@@ -61,15 +37,7 @@
         },
         {
           "kind": "paragraph",
-          "text": "This report summarises the deterministic synthetic corpus used to exercise the parser end-to-end. The"
-        },
-        {
-          "kind": "paragraph",
-          "text": "text below is intentionally long enough to fill several lines so paragraph segmentation has real input to"
-        },
-        {
-          "kind": "paragraph",
-          "text": "operate on."
+          "text": "This report summarises the deterministic synthetic corpus used to exercise the parser end-to-end. The text below is intentionally long enough to fill several lines so paragraph segmentation has real input to operate on."
         },
         {
           "kind": "heading",
@@ -77,15 +45,7 @@
         },
         {
           "kind": "paragraph",
-          "text": "This report summarises the deterministic synthetic corpus used to exercise the parser end-to-end. The"
-        },
-        {
-          "kind": "paragraph",
-          "text": "text below is intentionally long enough to fill several lines so paragraph segmentation has real input to"
-        },
-        {
-          "kind": "paragraph",
-          "text": "operate on."
+          "text": "This report summarises the deterministic synthetic corpus used to exercise the parser end-to-end. The text below is intentionally long enough to fill several lines so paragraph segmentation has real input to operate on."
         }
       ],
       "kind": "page"
@@ -98,11 +58,7 @@
         },
         {
           "kind": "paragraph",
-          "text": "The table below lists every observation. It is large enough to overflow onto the next page so the stitcher"
-        },
-        {
-          "kind": "paragraph",
-          "text": "must merge the two halves back into one table."
+          "text": "The table below lists every observation. It is large enough to overflow onto the next page so the stitcher must merge the two halves back into one table."
         },
         {
           "children": [
@@ -1401,15 +1357,7 @@
         },
         {
           "kind": "paragraph",
-          "text": "This report summarises the deterministic synthetic corpus used to exercise the parser end-to-end. The"
-        },
-        {
-          "kind": "paragraph",
-          "text": "text below is intentionally long enough to fill several lines so paragraph segmentation has real input to"
-        },
-        {
-          "kind": "paragraph",
-          "text": "operate on."
+          "text": "This report summarises the deterministic synthetic corpus used to exercise the parser end-to-end. The text below is intentionally long enough to fill several lines so paragraph segmentation has real input to operate on."
         }
       ],
       "kind": "page"

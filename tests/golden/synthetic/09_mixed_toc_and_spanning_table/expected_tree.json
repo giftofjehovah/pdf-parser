@@ -47,52 +47,16 @@
             "x0": 78,
             "x1": 530,
             "y0": 127,
-            "y1": 136
-          },
-          "children": [],
-          "id": "ba479f82fc4c",
-          "kind": "paragraph",
-          "provenance": {
-            "extractor": "segment",
-            "stage": "build_tree"
-          },
-          "text": "This report summarises the deterministic synthetic corpus used to exercise the parser end-to-end. The"
-        },
-        {
-          "attrs": {},
-          "bbox": {
-            "page": 0,
-            "x0": 78,
-            "x1": 526,
-            "y0": 139,
-            "y1": 148
-          },
-          "children": [],
-          "id": "00c9a3222245",
-          "kind": "paragraph",
-          "provenance": {
-            "extractor": "segment",
-            "stage": "build_tree"
-          },
-          "text": "text below is intentionally long enough to fill several lines so paragraph segmentation has real input to"
-        },
-        {
-          "attrs": {},
-          "bbox": {
-            "page": 0,
-            "x0": 78,
-            "x1": 128,
-            "y0": 151,
             "y1": 160
           },
           "children": [],
-          "id": "d8b40eb364d3",
+          "id": "545c0461fc53",
           "kind": "paragraph",
           "provenance": {
             "extractor": "segment",
             "stage": "build_tree"
           },
-          "text": "operate on."
+          "text": "This report summarises the deterministic synthetic corpus used to exercise the parser end-to-end. The text below is intentionally long enough to fill several lines so paragraph segmentation has real input to operate on."
         },
         {
           "attrs": {},
@@ -101,52 +65,16 @@
             "x0": 78,
             "x1": 530,
             "y0": 181,
-            "y1": 190
-          },
-          "children": [],
-          "id": "24e92f8411fa",
-          "kind": "paragraph",
-          "provenance": {
-            "extractor": "segment",
-            "stage": "build_tree"
-          },
-          "text": "This report summarises the deterministic synthetic corpus used to exercise the parser end-to-end. The"
-        },
-        {
-          "attrs": {},
-          "bbox": {
-            "page": 0,
-            "x0": 78,
-            "x1": 526,
-            "y0": 193,
-            "y1": 202
-          },
-          "children": [],
-          "id": "cc19b232c49b",
-          "kind": "paragraph",
-          "provenance": {
-            "extractor": "segment",
-            "stage": "build_tree"
-          },
-          "text": "text below is intentionally long enough to fill several lines so paragraph segmentation has real input to"
-        },
-        {
-          "attrs": {},
-          "bbox": {
-            "page": 0,
-            "x0": 78,
-            "x1": 128,
-            "y0": 205,
             "y1": 214
           },
           "children": [],
-          "id": "64cb30057047",
+          "id": "b4cea7c8fd01",
           "kind": "paragraph",
           "provenance": {
             "extractor": "segment",
             "stage": "build_tree"
           },
-          "text": "operate on."
+          "text": "This report summarises the deterministic synthetic corpus used to exercise the parser end-to-end. The text below is intentionally long enough to fill several lines so paragraph segmentation has real input to operate on."
         },
         {
           "attrs": {
@@ -172,55 +100,19 @@
           "attrs": {},
           "bbox": {
             "page": 0,
-            "x0": 79,
+            "x0": 78,
             "x1": 325,
             "y0": 285,
-            "y1": 294
-          },
-          "children": [],
-          "id": "6d6046345fe0",
-          "kind": "paragraph",
-          "provenance": {
-            "extractor": "segment",
-            "stage": "build_tree"
-          },
-          "text": "1. Executive Summary ................................................. 2"
-        },
-        {
-          "attrs": {},
-          "bbox": {
-            "page": 0,
-            "x0": 78,
-            "x1": 310,
-            "y0": 303,
-            "y1": 312
-          },
-          "children": [],
-          "id": "966c4713072a",
-          "kind": "paragraph",
-          "provenance": {
-            "extractor": "segment",
-            "stage": "build_tree"
-          },
-          "text": "2. Methodology ....................................................... 2"
-        },
-        {
-          "attrs": {},
-          "bbox": {
-            "page": 0,
-            "x0": 78,
-            "x1": 312,
-            "y0": 321,
             "y1": 328
           },
           "children": [],
-          "id": "137c49c3a3dd",
+          "id": "d1ae647ae298",
           "kind": "paragraph",
           "provenance": {
             "extractor": "segment",
             "stage": "build_tree"
           },
-          "text": "3. Detailed Results .................................................. 3"
+          "text": "1. Executive Summary ................................................. 2 2. Methodology ....................................................... 2 3. Detailed Results .................................................. 3"
         },
         {
           "attrs": {},
@@ -241,7 +133,7 @@
           "text": "4. Appendix .......................................................... 5"
         }
       ],
-      "id": "f0e16df7daaf",
+      "id": "62733a6814ca",
       "kind": "page",
       "provenance": {},
       "text": null
@@ -285,52 +177,16 @@
             "x0": 78,
             "x1": 530,
             "y0": 105,
-            "y1": 114
-          },
-          "children": [],
-          "id": "b60d5520e0a6",
-          "kind": "paragraph",
-          "provenance": {
-            "extractor": "segment",
-            "stage": "build_tree"
-          },
-          "text": "This report summarises the deterministic synthetic corpus used to exercise the parser end-to-end. The"
-        },
-        {
-          "attrs": {},
-          "bbox": {
-            "page": 1,
-            "x0": 78,
-            "x1": 526,
-            "y0": 117,
-            "y1": 126
-          },
-          "children": [],
-          "id": "297c5f789708",
-          "kind": "paragraph",
-          "provenance": {
-            "extractor": "segment",
-            "stage": "build_tree"
-          },
-          "text": "text below is intentionally long enough to fill several lines so paragraph segmentation has real input to"
-        },
-        {
-          "attrs": {},
-          "bbox": {
-            "page": 1,
-            "x0": 78,
-            "x1": 128,
-            "y0": 129,
             "y1": 138
           },
           "children": [],
-          "id": "6fc06991cae3",
+          "id": "1e2debefb70b",
           "kind": "paragraph",
           "provenance": {
             "extractor": "segment",
             "stage": "build_tree"
           },
-          "text": "operate on."
+          "text": "This report summarises the deterministic synthetic corpus used to exercise the parser end-to-end. The text below is intentionally long enough to fill several lines so paragraph segmentation has real input to operate on."
         },
         {
           "attrs": {
@@ -359,55 +215,19 @@
             "x0": 78,
             "x1": 530,
             "y0": 189,
-            "y1": 198
-          },
-          "children": [],
-          "id": "8215f4ecede7",
-          "kind": "paragraph",
-          "provenance": {
-            "extractor": "segment",
-            "stage": "build_tree"
-          },
-          "text": "This report summarises the deterministic synthetic corpus used to exercise the parser end-to-end. The"
-        },
-        {
-          "attrs": {},
-          "bbox": {
-            "page": 1,
-            "x0": 78,
-            "x1": 526,
-            "y0": 201,
-            "y1": 210
-          },
-          "children": [],
-          "id": "5def3e39ef7f",
-          "kind": "paragraph",
-          "provenance": {
-            "extractor": "segment",
-            "stage": "build_tree"
-          },
-          "text": "text below is intentionally long enough to fill several lines so paragraph segmentation has real input to"
-        },
-        {
-          "attrs": {},
-          "bbox": {
-            "page": 1,
-            "x0": 78,
-            "x1": 128,
-            "y0": 213,
             "y1": 222
           },
           "children": [],
-          "id": "646bef0c76e4",
+          "id": "b98e2e6a6c83",
           "kind": "paragraph",
           "provenance": {
             "extractor": "segment",
             "stage": "build_tree"
           },
-          "text": "operate on."
+          "text": "This report summarises the deterministic synthetic corpus used to exercise the parser end-to-end. The text below is intentionally long enough to fill several lines so paragraph segmentation has real input to operate on."
         }
       ],
-      "id": "b5c42f9eee78",
+      "id": "213731b75a44",
       "kind": "page",
       "provenance": {},
       "text": null
@@ -451,34 +271,16 @@
             "x0": 78,
             "x1": 534,
             "y0": 119,
-            "y1": 128
-          },
-          "children": [],
-          "id": "c3e7796b5ab5",
-          "kind": "paragraph",
-          "provenance": {
-            "extractor": "segment",
-            "stage": "build_tree"
-          },
-          "text": "The table below lists every observation. It is large enough to overflow onto the next page so the stitcher"
-        },
-        {
-          "attrs": {},
-          "bbox": {
-            "page": 2,
-            "x0": 79,
-            "x1": 286,
-            "y0": 131,
             "y1": 140
           },
           "children": [],
-          "id": "d274bf3184bc",
+          "id": "2b1f381e44e9",
           "kind": "paragraph",
           "provenance": {
             "extractor": "segment",
             "stage": "build_tree"
           },
-          "text": "must merge the two halves back into one table."
+          "text": "The table below lists every observation. It is large enough to overflow onto the next page so the stitcher must merge the two halves back into one table."
         },
         {
           "attrs": {
@@ -6563,7 +6365,7 @@
           "text": null
         }
       ],
-      "id": "14430adb575c",
+      "id": "20d0781d9dd7",
       "kind": "page",
       "provenance": {},
       "text": null
@@ -6607,61 +6409,25 @@
             "x0": 78,
             "x1": 530,
             "y0": 675,
-            "y1": 684
-          },
-          "children": [],
-          "id": "c113dab0fbb4",
-          "kind": "paragraph",
-          "provenance": {
-            "extractor": "segment",
-            "stage": "build_tree"
-          },
-          "text": "This report summarises the deterministic synthetic corpus used to exercise the parser end-to-end. The"
-        },
-        {
-          "attrs": {},
-          "bbox": {
-            "page": 3,
-            "x0": 78,
-            "x1": 526,
-            "y0": 687,
-            "y1": 696
-          },
-          "children": [],
-          "id": "189c6e78874a",
-          "kind": "paragraph",
-          "provenance": {
-            "extractor": "segment",
-            "stage": "build_tree"
-          },
-          "text": "text below is intentionally long enough to fill several lines so paragraph segmentation has real input to"
-        },
-        {
-          "attrs": {},
-          "bbox": {
-            "page": 3,
-            "x0": 78,
-            "x1": 128,
-            "y0": 699,
             "y1": 708
           },
           "children": [],
-          "id": "5f559c90c007",
+          "id": "d2eca6eb4327",
           "kind": "paragraph",
           "provenance": {
             "extractor": "segment",
             "stage": "build_tree"
           },
-          "text": "operate on."
+          "text": "This report summarises the deterministic synthetic corpus used to exercise the parser end-to-end. The text below is intentionally long enough to fill several lines so paragraph segmentation has real input to operate on."
         }
       ],
-      "id": "b1328a98c8dd",
+      "id": "4c2b9c4a9d31",
       "kind": "page",
       "provenance": {},
       "text": null
     }
   ],
-  "id": "8e07fdcc1443",
+  "id": "19a2afed5b03",
   "kind": "document",
   "provenance": {},
   "text": null

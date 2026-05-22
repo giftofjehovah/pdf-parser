@@ -45,36 +45,18 @@
           "bbox": {
             "page": 0,
             "x0": 78,
-            "x1": 511,
-            "y0": 127,
-            "y1": 136
-          },
-          "children": [],
-          "id": "2c42b524e162",
-          "kind": "paragraph",
-          "provenance": {
-            "extractor": "segment",
-            "stage": "build_tree"
-          },
-          "text": "This section provides an in-depth analysis of the operational data collected during the assessment"
-        },
-        {
-          "attrs": {},
-          "bbox": {
-            "page": 0,
-            "x0": 79,
             "x1": 527,
-            "y0": 139,
+            "y0": 127,
             "y1": 148
           },
           "children": [],
-          "id": "80dea1fd4fbc",
+          "id": "7483711a93bf",
           "kind": "paragraph",
           "provenance": {
             "extractor": "segment",
             "stage": "build_tree"
           },
-          "text": "period. The findings are presented in structured form to facilitate comparison across regions and time."
+          "text": "This section provides an in-depth analysis of the operational data collected during the assessment period. The findings are presented in structured form to facilitate comparison across regions and time."
         },
         {
           "attrs": {
@@ -696,7 +678,7 @@
           "text": "Figure 1: Quarterly revenue by product line."
         }
       ],
-      "id": "194d62b103b9",
+      "id": "4e42883159c3",
       "kind": "page",
       "provenance": {},
       "text": null
@@ -738,36 +720,18 @@
           "bbox": {
             "page": 1,
             "x0": 78,
-            "x1": 511,
-            "y0": 119,
-            "y1": 128
-          },
-          "children": [],
-          "id": "5a5b638108ee",
-          "kind": "paragraph",
-          "provenance": {
-            "extractor": "segment",
-            "stage": "build_tree"
-          },
-          "text": "This section provides an in-depth analysis of the operational data collected during the assessment"
-        },
-        {
-          "attrs": {},
-          "bbox": {
-            "page": 1,
-            "x0": 79,
             "x1": 527,
-            "y0": 131,
+            "y0": 119,
             "y1": 140
           },
           "children": [],
-          "id": "7a0316ae5175",
+          "id": "b9bfb56f57a1",
           "kind": "paragraph",
           "provenance": {
             "extractor": "segment",
             "stage": "build_tree"
           },
-          "text": "period. The findings are presented in structured form to facilitate comparison across regions and time."
+          "text": "This section provides an in-depth analysis of the operational data collected during the assessment period. The findings are presented in structured form to facilitate comparison across regions and time."
         },
         {
           "attrs": {
@@ -1540,7 +1504,7 @@
           "text": null
         }
       ],
-      "id": "b473be651b76",
+      "id": "4adc6b8c3d0a",
       "kind": "page",
       "provenance": {},
       "text": null
@@ -1642,36 +1606,18 @@
           "bbox": {
             "page": 2,
             "x0": 78,
-            "x1": 511,
-            "y0": 388,
-            "y1": 397
-          },
-          "children": [],
-          "id": "e55096358b4b",
-          "kind": "paragraph",
-          "provenance": {
-            "extractor": "segment",
-            "stage": "build_tree"
-          },
-          "text": "This section provides an in-depth analysis of the operational data collected during the assessment"
-        },
-        {
-          "attrs": {},
-          "bbox": {
-            "page": 2,
-            "x0": 79,
             "x1": 527,
-            "y0": 400,
+            "y0": 388,
             "y1": 409
           },
           "children": [],
-          "id": "b42abbbe908e",
+          "id": "2faa577b4ff6",
           "kind": "paragraph",
           "provenance": {
             "extractor": "segment",
             "stage": "build_tree"
           },
-          "text": "period. The findings are presented in structured form to facilitate comparison across regions and time."
+          "text": "This section provides an in-depth analysis of the operational data collected during the assessment period. The findings are presented in structured form to facilitate comparison across regions and time."
         },
         {
           "attrs": {
@@ -2813,7 +2759,7 @@
           "text": null
         }
       ],
-      "id": "c0a06f12339a",
+      "id": "cdebcef7852e",
       "kind": "page",
       "provenance": {},
       "text": null
@@ -19138,36 +19084,18 @@
           "bbox": {
             "page": 11,
             "x0": 78,
-            "x1": 511,
-            "y0": 119,
-            "y1": 128
-          },
-          "children": [],
-          "id": "64e6d0a7ee17",
-          "kind": "paragraph",
-          "provenance": {
-            "extractor": "segment",
-            "stage": "build_tree"
-          },
-          "text": "This section provides an in-depth analysis of the operational data collected during the assessment"
-        },
-        {
-          "attrs": {},
-          "bbox": {
-            "page": 11,
-            "x0": 79,
             "x1": 527,
-            "y0": 131,
+            "y0": 119,
             "y1": 140
           },
           "children": [],
-          "id": "7f8c916e516c",
+          "id": "7db733bc84d2",
           "kind": "paragraph",
           "provenance": {
             "extractor": "segment",
             "stage": "build_tree"
           },
-          "text": "period. The findings are presented in structured form to facilitate comparison across regions and time."
+          "text": "This section provides an in-depth analysis of the operational data collected during the assessment period. The findings are presented in structured form to facilitate comparison across regions and time."
         },
         {
           "attrs": {},
@@ -19298,7 +19226,7 @@
           "text": "Figure 3: Full-year revenue summary."
         }
       ],
-      "id": "549ec770ca68",
+      "id": "393a456697ae",
       "kind": "page",
       "provenance": {},
       "text": null
@@ -21584,34 +21512,16 @@
                         "x0": 162,
                         "x1": 449,
                         "y0": 196,
-                        "y1": 206
-                      },
-                      "children": [],
-                      "id": "e17b2327abcf",
-                      "kind": "paragraph",
-                      "provenance": {
-                        "extractor": "pdfplumber",
-                        "stage": "extract_tables"
-                      },
-                      "text": "NOTE: This paragraph sits between the two sub-tables and must"
-                    },
-                    {
-                      "attrs": {},
-                      "bbox": {
-                        "page": 14,
-                        "x0": 162,
-                        "x1": 223,
-                        "y0": 208,
                         "y1": 218
                       },
                       "children": [],
-                      "id": "abe82f9cf390",
+                      "id": "a63dc70a69ed",
                       "kind": "paragraph",
                       "provenance": {
                         "extractor": "pdfplumber",
                         "stage": "extract_tables"
                       },
-                      "text": "be preserved."
+                      "text": "NOTE: This paragraph sits between the two sub-tables and must be preserved."
                     },
                     {
                       "attrs": {
@@ -21819,7 +21729,7 @@
                       "text": null
                     }
                   ],
-                  "id": "74de230fda5f",
+                  "id": "a94a56e189b9",
                   "kind": "cell",
                   "provenance": {
                     "extractor": "pdfplumber",
@@ -21828,7 +21738,7 @@
                   "text": null
                 }
               ],
-              "id": "9110bf6ebc19",
+              "id": "8a6197005e2e",
               "kind": "row",
               "provenance": {},
               "text": null
@@ -22193,7 +22103,7 @@
               "text": null
             }
           ],
-          "id": "8e25aff7eb6c",
+          "id": "3075885982a0",
           "kind": "table",
           "provenance": {
             "extractor": "pdfplumber",
@@ -22202,7 +22112,7 @@
           "text": null
         }
       ],
-      "id": "274096077d75",
+      "id": "820607e377b9",
       "kind": "page",
       "provenance": {},
       "text": null
@@ -22544,579 +22454,21 @@
                       "bbox": {
                         "page": 15,
                         "x0": 112,
-                        "x1": 492,
+                        "x1": 500,
                         "y0": 198,
-                        "y1": 207
-                      },
-                      "children": [],
-                      "id": "b9c121f0d633",
-                      "kind": "paragraph",
-                      "provenance": {
-                        "extractor": "pdfplumber",
-                        "stage": "extract_tables"
-                      },
-                      "text": "NOTE: This paragraph sits between the two sub-tables and must be preserved across the page"
-                    },
-                    {
-                      "attrs": {},
-                      "bbox": {
-                        "page": 15,
-                        "x0": 112,
-                        "x1": 137,
-                        "y0": 210,
-                        "y1": 219
-                      },
-                      "children": [],
-                      "id": "b64181401b1d",
-                      "kind": "paragraph",
-                      "provenance": {
-                        "extractor": "pdfplumber",
-                        "stage": "extract_tables"
-                      },
-                      "text": "break."
-                    },
-                    {
-                      "attrs": {},
-                      "bbox": {
-                        "page": 15,
-                        "x0": 112,
-                        "x1": 500,
-                        "y0": 230,
-                        "y1": 239
-                      },
-                      "children": [],
-                      "id": "9ccab0cf9fc5",
-                      "kind": "paragraph",
-                      "provenance": {
-                        "extractor": "pdfplumber",
-                        "stage": "extract_tables"
-                      },
-                      "text": "Spanning-line 01: Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor"
-                    },
-                    {
-                      "attrs": {},
-                      "bbox": {
-                        "page": 15,
-                        "x0": 112,
-                        "x1": 284,
-                        "y0": 242,
-                        "y1": 251
-                      },
-                      "children": [],
-                      "id": "8b15973a8791",
-                      "kind": "paragraph",
-                      "provenance": {
-                        "extractor": "pdfplumber",
-                        "stage": "extract_tables"
-                      },
-                      "text": "incididunt ut labore et dolore magna aliqua."
-                    },
-                    {
-                      "attrs": {},
-                      "bbox": {
-                        "page": 15,
-                        "x0": 112,
-                        "x1": 500,
-                        "y0": 262,
-                        "y1": 271
-                      },
-                      "children": [],
-                      "id": "9bef5cc7f2f5",
-                      "kind": "paragraph",
-                      "provenance": {
-                        "extractor": "pdfplumber",
-                        "stage": "extract_tables"
-                      },
-                      "text": "Spanning-line 02: Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor"
-                    },
-                    {
-                      "attrs": {},
-                      "bbox": {
-                        "page": 15,
-                        "x0": 112,
-                        "x1": 284,
-                        "y0": 274,
-                        "y1": 283
-                      },
-                      "children": [],
-                      "id": "dee821be5b23",
-                      "kind": "paragraph",
-                      "provenance": {
-                        "extractor": "pdfplumber",
-                        "stage": "extract_tables"
-                      },
-                      "text": "incididunt ut labore et dolore magna aliqua."
-                    },
-                    {
-                      "attrs": {},
-                      "bbox": {
-                        "page": 15,
-                        "x0": 112,
-                        "x1": 500,
-                        "y0": 294,
-                        "y1": 303
-                      },
-                      "children": [],
-                      "id": "5360abc3326a",
-                      "kind": "paragraph",
-                      "provenance": {
-                        "extractor": "pdfplumber",
-                        "stage": "extract_tables"
-                      },
-                      "text": "Spanning-line 03: Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor"
-                    },
-                    {
-                      "attrs": {},
-                      "bbox": {
-                        "page": 15,
-                        "x0": 112,
-                        "x1": 284,
-                        "y0": 306,
-                        "y1": 315
-                      },
-                      "children": [],
-                      "id": "cf234af59de7",
-                      "kind": "paragraph",
-                      "provenance": {
-                        "extractor": "pdfplumber",
-                        "stage": "extract_tables"
-                      },
-                      "text": "incididunt ut labore et dolore magna aliqua."
-                    },
-                    {
-                      "attrs": {},
-                      "bbox": {
-                        "page": 15,
-                        "x0": 112,
-                        "x1": 500,
-                        "y0": 326,
-                        "y1": 335
-                      },
-                      "children": [],
-                      "id": "826d6b2fba76",
-                      "kind": "paragraph",
-                      "provenance": {
-                        "extractor": "pdfplumber",
-                        "stage": "extract_tables"
-                      },
-                      "text": "Spanning-line 04: Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor"
-                    },
-                    {
-                      "attrs": {},
-                      "bbox": {
-                        "page": 15,
-                        "x0": 112,
-                        "x1": 284,
-                        "y0": 338,
-                        "y1": 347
-                      },
-                      "children": [],
-                      "id": "999ef89b24d6",
-                      "kind": "paragraph",
-                      "provenance": {
-                        "extractor": "pdfplumber",
-                        "stage": "extract_tables"
-                      },
-                      "text": "incididunt ut labore et dolore magna aliqua."
-                    },
-                    {
-                      "attrs": {},
-                      "bbox": {
-                        "page": 15,
-                        "x0": 112,
-                        "x1": 500,
-                        "y0": 358,
-                        "y1": 367
-                      },
-                      "children": [],
-                      "id": "8c68f676d4a1",
-                      "kind": "paragraph",
-                      "provenance": {
-                        "extractor": "pdfplumber",
-                        "stage": "extract_tables"
-                      },
-                      "text": "Spanning-line 05: Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor"
-                    },
-                    {
-                      "attrs": {},
-                      "bbox": {
-                        "page": 15,
-                        "x0": 112,
-                        "x1": 284,
-                        "y0": 370,
-                        "y1": 379
-                      },
-                      "children": [],
-                      "id": "c7a3f4c519e2",
-                      "kind": "paragraph",
-                      "provenance": {
-                        "extractor": "pdfplumber",
-                        "stage": "extract_tables"
-                      },
-                      "text": "incididunt ut labore et dolore magna aliqua."
-                    },
-                    {
-                      "attrs": {},
-                      "bbox": {
-                        "page": 15,
-                        "x0": 112,
-                        "x1": 500,
-                        "y0": 390,
-                        "y1": 399
-                      },
-                      "children": [],
-                      "id": "7f831433b53d",
-                      "kind": "paragraph",
-                      "provenance": {
-                        "extractor": "pdfplumber",
-                        "stage": "extract_tables"
-                      },
-                      "text": "Spanning-line 06: Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor"
-                    },
-                    {
-                      "attrs": {},
-                      "bbox": {
-                        "page": 15,
-                        "x0": 112,
-                        "x1": 284,
-                        "y0": 402,
-                        "y1": 411
-                      },
-                      "children": [],
-                      "id": "392e65defc09",
-                      "kind": "paragraph",
-                      "provenance": {
-                        "extractor": "pdfplumber",
-                        "stage": "extract_tables"
-                      },
-                      "text": "incididunt ut labore et dolore magna aliqua."
-                    },
-                    {
-                      "attrs": {},
-                      "bbox": {
-                        "page": 15,
-                        "x0": 112,
-                        "x1": 500,
-                        "y0": 422,
-                        "y1": 431
-                      },
-                      "children": [],
-                      "id": "64ae8eb7afc3",
-                      "kind": "paragraph",
-                      "provenance": {
-                        "extractor": "pdfplumber",
-                        "stage": "extract_tables"
-                      },
-                      "text": "Spanning-line 07: Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor"
-                    },
-                    {
-                      "attrs": {},
-                      "bbox": {
-                        "page": 15,
-                        "x0": 112,
-                        "x1": 284,
-                        "y0": 434,
-                        "y1": 443
-                      },
-                      "children": [],
-                      "id": "f60db3e65d5a",
-                      "kind": "paragraph",
-                      "provenance": {
-                        "extractor": "pdfplumber",
-                        "stage": "extract_tables"
-                      },
-                      "text": "incididunt ut labore et dolore magna aliqua."
-                    },
-                    {
-                      "attrs": {},
-                      "bbox": {
-                        "page": 15,
-                        "x0": 112,
-                        "x1": 500,
-                        "y0": 454,
-                        "y1": 463
-                      },
-                      "children": [],
-                      "id": "c68a1e01948d",
-                      "kind": "paragraph",
-                      "provenance": {
-                        "extractor": "pdfplumber",
-                        "stage": "extract_tables"
-                      },
-                      "text": "Spanning-line 08: Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor"
-                    },
-                    {
-                      "attrs": {},
-                      "bbox": {
-                        "page": 15,
-                        "x0": 112,
-                        "x1": 284,
-                        "y0": 466,
-                        "y1": 475
-                      },
-                      "children": [],
-                      "id": "c30f0115b927",
-                      "kind": "paragraph",
-                      "provenance": {
-                        "extractor": "pdfplumber",
-                        "stage": "extract_tables"
-                      },
-                      "text": "incididunt ut labore et dolore magna aliqua."
-                    },
-                    {
-                      "attrs": {},
-                      "bbox": {
-                        "page": 15,
-                        "x0": 112,
-                        "x1": 500,
-                        "y0": 486,
-                        "y1": 495
-                      },
-                      "children": [],
-                      "id": "41068aaf44c7",
-                      "kind": "paragraph",
-                      "provenance": {
-                        "extractor": "pdfplumber",
-                        "stage": "extract_tables"
-                      },
-                      "text": "Spanning-line 09: Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor"
-                    },
-                    {
-                      "attrs": {},
-                      "bbox": {
-                        "page": 15,
-                        "x0": 112,
-                        "x1": 284,
-                        "y0": 498,
-                        "y1": 507
-                      },
-                      "children": [],
-                      "id": "df782cca71c2",
-                      "kind": "paragraph",
-                      "provenance": {
-                        "extractor": "pdfplumber",
-                        "stage": "extract_tables"
-                      },
-                      "text": "incididunt ut labore et dolore magna aliqua."
-                    },
-                    {
-                      "attrs": {},
-                      "bbox": {
-                        "page": 15,
-                        "x0": 112,
-                        "x1": 500,
-                        "y0": 518,
-                        "y1": 527
-                      },
-                      "children": [],
-                      "id": "20e4c344c5c3",
-                      "kind": "paragraph",
-                      "provenance": {
-                        "extractor": "pdfplumber",
-                        "stage": "extract_tables"
-                      },
-                      "text": "Spanning-line 10: Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor"
-                    },
-                    {
-                      "attrs": {},
-                      "bbox": {
-                        "page": 15,
-                        "x0": 112,
-                        "x1": 284,
-                        "y0": 530,
-                        "y1": 539
-                      },
-                      "children": [],
-                      "id": "09e7e2ebba41",
-                      "kind": "paragraph",
-                      "provenance": {
-                        "extractor": "pdfplumber",
-                        "stage": "extract_tables"
-                      },
-                      "text": "incididunt ut labore et dolore magna aliqua."
-                    },
-                    {
-                      "attrs": {},
-                      "bbox": {
-                        "page": 15,
-                        "x0": 112,
-                        "x1": 500,
-                        "y0": 550,
-                        "y1": 559
-                      },
-                      "children": [],
-                      "id": "406108962cd6",
-                      "kind": "paragraph",
-                      "provenance": {
-                        "extractor": "pdfplumber",
-                        "stage": "extract_tables"
-                      },
-                      "text": "Spanning-line 11: Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor"
-                    },
-                    {
-                      "attrs": {},
-                      "bbox": {
-                        "page": 15,
-                        "x0": 112,
-                        "x1": 284,
-                        "y0": 562,
-                        "y1": 571
-                      },
-                      "children": [],
-                      "id": "d553a58f83ee",
-                      "kind": "paragraph",
-                      "provenance": {
-                        "extractor": "pdfplumber",
-                        "stage": "extract_tables"
-                      },
-                      "text": "incididunt ut labore et dolore magna aliqua."
-                    },
-                    {
-                      "attrs": {},
-                      "bbox": {
-                        "page": 15,
-                        "x0": 112,
-                        "x1": 500,
-                        "y0": 582,
-                        "y1": 591
-                      },
-                      "children": [],
-                      "id": "3f3fd0db3cdb",
-                      "kind": "paragraph",
-                      "provenance": {
-                        "extractor": "pdfplumber",
-                        "stage": "extract_tables"
-                      },
-                      "text": "Spanning-line 12: Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor"
-                    },
-                    {
-                      "attrs": {},
-                      "bbox": {
-                        "page": 15,
-                        "x0": 112,
-                        "x1": 284,
-                        "y0": 594,
-                        "y1": 603
-                      },
-                      "children": [],
-                      "id": "6ea42a2b82bb",
-                      "kind": "paragraph",
-                      "provenance": {
-                        "extractor": "pdfplumber",
-                        "stage": "extract_tables"
-                      },
-                      "text": "incididunt ut labore et dolore magna aliqua."
-                    },
-                    {
-                      "attrs": {},
-                      "bbox": {
-                        "page": 15,
-                        "x0": 112,
-                        "x1": 500,
-                        "y0": 614,
-                        "y1": 623
-                      },
-                      "children": [],
-                      "id": "77533bfe4677",
-                      "kind": "paragraph",
-                      "provenance": {
-                        "extractor": "pdfplumber",
-                        "stage": "extract_tables"
-                      },
-                      "text": "Spanning-line 13: Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor"
-                    },
-                    {
-                      "attrs": {},
-                      "bbox": {
-                        "page": 15,
-                        "x0": 112,
-                        "x1": 284,
-                        "y0": 626,
-                        "y1": 635
-                      },
-                      "children": [],
-                      "id": "7f4eeae50731",
-                      "kind": "paragraph",
-                      "provenance": {
-                        "extractor": "pdfplumber",
-                        "stage": "extract_tables"
-                      },
-                      "text": "incididunt ut labore et dolore magna aliqua."
-                    },
-                    {
-                      "attrs": {},
-                      "bbox": {
-                        "page": 15,
-                        "x0": 112,
-                        "x1": 500,
-                        "y0": 646,
-                        "y1": 655
-                      },
-                      "children": [],
-                      "id": "6d2c4f1809d9",
-                      "kind": "paragraph",
-                      "provenance": {
-                        "extractor": "pdfplumber",
-                        "stage": "extract_tables"
-                      },
-                      "text": "Spanning-line 14: Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor"
-                    },
-                    {
-                      "attrs": {},
-                      "bbox": {
-                        "page": 15,
-                        "x0": 112,
-                        "x1": 284,
-                        "y0": 658,
-                        "y1": 667
-                      },
-                      "children": [],
-                      "id": "739b31e3516c",
-                      "kind": "paragraph",
-                      "provenance": {
-                        "extractor": "pdfplumber",
-                        "stage": "extract_tables"
-                      },
-                      "text": "incididunt ut labore et dolore magna aliqua."
-                    },
-                    {
-                      "attrs": {},
-                      "bbox": {
-                        "page": 15,
-                        "x0": 112,
-                        "x1": 500,
-                        "y0": 678,
-                        "y1": 687
-                      },
-                      "children": [],
-                      "id": "dcbb3266008b",
-                      "kind": "paragraph",
-                      "provenance": {
-                        "extractor": "pdfplumber",
-                        "stage": "extract_tables"
-                      },
-                      "text": "Spanning-line 15: Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor"
-                    },
-                    {
-                      "attrs": {},
-                      "bbox": {
-                        "page": 15,
-                        "x0": 112,
-                        "x1": 284,
-                        "y0": 690,
                         "y1": 699
                       },
                       "children": [],
-                      "id": "96aa6736588f",
+                      "id": "23d768771cd2",
                       "kind": "paragraph",
                       "provenance": {
                         "extractor": "pdfplumber",
                         "stage": "extract_tables"
                       },
-                      "text": "incididunt ut labore et dolore magna aliqua."
+                      "text": "NOTE: This paragraph sits between the two sub-tables and must be preserved across the page break. Spanning-line 01: Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Spanning-line 02: Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Spanning-line 03: Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Spanning-line 04: Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Spanning-line 05: Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Spanning-line 06: Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Spanning-line 07: Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Spanning-line 08: Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Spanning-line 09: Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Spanning-line 10: Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Spanning-line 11: Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Spanning-line 12: Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Spanning-line 13: Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Spanning-line 14: Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Spanning-line 15: Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."
                     }
                   ],
-                  "id": "d440b9d495cc",
+                  "id": "e16845de076a",
                   "kind": "cell",
                   "provenance": {
                     "extractor": "pdfplumber",
@@ -23125,7 +22477,7 @@
                   "text": null
                 }
               ],
-              "id": "d9f0d01f0117",
+              "id": "713057bf6086",
               "kind": "row",
               "provenance": {},
               "text": null
@@ -23162,448 +22514,16 @@
                         "x0": 112,
                         "x1": 500,
                         "y0": 84,
-                        "y1": 93
-                      },
-                      "children": [],
-                      "id": "a84d3568fa3a",
-                      "kind": "paragraph",
-                      "provenance": {
-                        "extractor": "pdfplumber",
-                        "stage": "extract_tables"
-                      },
-                      "text": "Spanning-line 16: Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor"
-                    },
-                    {
-                      "attrs": {},
-                      "bbox": {
-                        "page": 16,
-                        "x0": 112,
-                        "x1": 284,
-                        "y0": 96,
-                        "y1": 105
-                      },
-                      "children": [],
-                      "id": "e68e51f778d8",
-                      "kind": "paragraph",
-                      "provenance": {
-                        "extractor": "pdfplumber",
-                        "stage": "extract_tables"
-                      },
-                      "text": "incididunt ut labore et dolore magna aliqua."
-                    },
-                    {
-                      "attrs": {},
-                      "bbox": {
-                        "page": 16,
-                        "x0": 112,
-                        "x1": 500,
-                        "y0": 116,
-                        "y1": 125
-                      },
-                      "children": [],
-                      "id": "dc4693a6f6d1",
-                      "kind": "paragraph",
-                      "provenance": {
-                        "extractor": "pdfplumber",
-                        "stage": "extract_tables"
-                      },
-                      "text": "Spanning-line 17: Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor"
-                    },
-                    {
-                      "attrs": {},
-                      "bbox": {
-                        "page": 16,
-                        "x0": 112,
-                        "x1": 284,
-                        "y0": 128,
-                        "y1": 137
-                      },
-                      "children": [],
-                      "id": "8c3375db7b0c",
-                      "kind": "paragraph",
-                      "provenance": {
-                        "extractor": "pdfplumber",
-                        "stage": "extract_tables"
-                      },
-                      "text": "incididunt ut labore et dolore magna aliqua."
-                    },
-                    {
-                      "attrs": {},
-                      "bbox": {
-                        "page": 16,
-                        "x0": 112,
-                        "x1": 500,
-                        "y0": 148,
-                        "y1": 157
-                      },
-                      "children": [],
-                      "id": "7d700c024050",
-                      "kind": "paragraph",
-                      "provenance": {
-                        "extractor": "pdfplumber",
-                        "stage": "extract_tables"
-                      },
-                      "text": "Spanning-line 18: Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor"
-                    },
-                    {
-                      "attrs": {},
-                      "bbox": {
-                        "page": 16,
-                        "x0": 112,
-                        "x1": 284,
-                        "y0": 160,
-                        "y1": 169
-                      },
-                      "children": [],
-                      "id": "8beff9446ebd",
-                      "kind": "paragraph",
-                      "provenance": {
-                        "extractor": "pdfplumber",
-                        "stage": "extract_tables"
-                      },
-                      "text": "incididunt ut labore et dolore magna aliqua."
-                    },
-                    {
-                      "attrs": {},
-                      "bbox": {
-                        "page": 16,
-                        "x0": 112,
-                        "x1": 500,
-                        "y0": 180,
-                        "y1": 189
-                      },
-                      "children": [],
-                      "id": "7a1f0169f20a",
-                      "kind": "paragraph",
-                      "provenance": {
-                        "extractor": "pdfplumber",
-                        "stage": "extract_tables"
-                      },
-                      "text": "Spanning-line 19: Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor"
-                    },
-                    {
-                      "attrs": {},
-                      "bbox": {
-                        "page": 16,
-                        "x0": 112,
-                        "x1": 284,
-                        "y0": 192,
-                        "y1": 201
-                      },
-                      "children": [],
-                      "id": "87de87b3eab2",
-                      "kind": "paragraph",
-                      "provenance": {
-                        "extractor": "pdfplumber",
-                        "stage": "extract_tables"
-                      },
-                      "text": "incididunt ut labore et dolore magna aliqua."
-                    },
-                    {
-                      "attrs": {},
-                      "bbox": {
-                        "page": 16,
-                        "x0": 112,
-                        "x1": 500,
-                        "y0": 212,
-                        "y1": 221
-                      },
-                      "children": [],
-                      "id": "839070be8553",
-                      "kind": "paragraph",
-                      "provenance": {
-                        "extractor": "pdfplumber",
-                        "stage": "extract_tables"
-                      },
-                      "text": "Spanning-line 20: Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor"
-                    },
-                    {
-                      "attrs": {},
-                      "bbox": {
-                        "page": 16,
-                        "x0": 112,
-                        "x1": 284,
-                        "y0": 224,
-                        "y1": 233
-                      },
-                      "children": [],
-                      "id": "bc1fe3328906",
-                      "kind": "paragraph",
-                      "provenance": {
-                        "extractor": "pdfplumber",
-                        "stage": "extract_tables"
-                      },
-                      "text": "incididunt ut labore et dolore magna aliqua."
-                    },
-                    {
-                      "attrs": {},
-                      "bbox": {
-                        "page": 16,
-                        "x0": 112,
-                        "x1": 500,
-                        "y0": 244,
-                        "y1": 253
-                      },
-                      "children": [],
-                      "id": "726951b38c8f",
-                      "kind": "paragraph",
-                      "provenance": {
-                        "extractor": "pdfplumber",
-                        "stage": "extract_tables"
-                      },
-                      "text": "Spanning-line 21: Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor"
-                    },
-                    {
-                      "attrs": {},
-                      "bbox": {
-                        "page": 16,
-                        "x0": 112,
-                        "x1": 284,
-                        "y0": 256,
-                        "y1": 265
-                      },
-                      "children": [],
-                      "id": "6c5566a707cd",
-                      "kind": "paragraph",
-                      "provenance": {
-                        "extractor": "pdfplumber",
-                        "stage": "extract_tables"
-                      },
-                      "text": "incididunt ut labore et dolore magna aliqua."
-                    },
-                    {
-                      "attrs": {},
-                      "bbox": {
-                        "page": 16,
-                        "x0": 112,
-                        "x1": 500,
-                        "y0": 276,
-                        "y1": 285
-                      },
-                      "children": [],
-                      "id": "6a41545e26d5",
-                      "kind": "paragraph",
-                      "provenance": {
-                        "extractor": "pdfplumber",
-                        "stage": "extract_tables"
-                      },
-                      "text": "Spanning-line 22: Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor"
-                    },
-                    {
-                      "attrs": {},
-                      "bbox": {
-                        "page": 16,
-                        "x0": 112,
-                        "x1": 284,
-                        "y0": 288,
-                        "y1": 297
-                      },
-                      "children": [],
-                      "id": "9b4c3f86fd9e",
-                      "kind": "paragraph",
-                      "provenance": {
-                        "extractor": "pdfplumber",
-                        "stage": "extract_tables"
-                      },
-                      "text": "incididunt ut labore et dolore magna aliqua."
-                    },
-                    {
-                      "attrs": {},
-                      "bbox": {
-                        "page": 16,
-                        "x0": 112,
-                        "x1": 500,
-                        "y0": 308,
-                        "y1": 317
-                      },
-                      "children": [],
-                      "id": "48fcce5f4c56",
-                      "kind": "paragraph",
-                      "provenance": {
-                        "extractor": "pdfplumber",
-                        "stage": "extract_tables"
-                      },
-                      "text": "Spanning-line 23: Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor"
-                    },
-                    {
-                      "attrs": {},
-                      "bbox": {
-                        "page": 16,
-                        "x0": 112,
-                        "x1": 284,
-                        "y0": 320,
-                        "y1": 329
-                      },
-                      "children": [],
-                      "id": "a1fdfc53f53a",
-                      "kind": "paragraph",
-                      "provenance": {
-                        "extractor": "pdfplumber",
-                        "stage": "extract_tables"
-                      },
-                      "text": "incididunt ut labore et dolore magna aliqua."
-                    },
-                    {
-                      "attrs": {},
-                      "bbox": {
-                        "page": 16,
-                        "x0": 112,
-                        "x1": 500,
-                        "y0": 340,
-                        "y1": 349
-                      },
-                      "children": [],
-                      "id": "0800372786fb",
-                      "kind": "paragraph",
-                      "provenance": {
-                        "extractor": "pdfplumber",
-                        "stage": "extract_tables"
-                      },
-                      "text": "Spanning-line 24: Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor"
-                    },
-                    {
-                      "attrs": {},
-                      "bbox": {
-                        "page": 16,
-                        "x0": 112,
-                        "x1": 284,
-                        "y0": 352,
-                        "y1": 361
-                      },
-                      "children": [],
-                      "id": "a169b04eb7ee",
-                      "kind": "paragraph",
-                      "provenance": {
-                        "extractor": "pdfplumber",
-                        "stage": "extract_tables"
-                      },
-                      "text": "incididunt ut labore et dolore magna aliqua."
-                    },
-                    {
-                      "attrs": {},
-                      "bbox": {
-                        "page": 16,
-                        "x0": 112,
-                        "x1": 500,
-                        "y0": 372,
-                        "y1": 381
-                      },
-                      "children": [],
-                      "id": "2498c9a2d5e5",
-                      "kind": "paragraph",
-                      "provenance": {
-                        "extractor": "pdfplumber",
-                        "stage": "extract_tables"
-                      },
-                      "text": "Spanning-line 25: Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor"
-                    },
-                    {
-                      "attrs": {},
-                      "bbox": {
-                        "page": 16,
-                        "x0": 112,
-                        "x1": 284,
-                        "y0": 384,
-                        "y1": 393
-                      },
-                      "children": [],
-                      "id": "f5320cc5f467",
-                      "kind": "paragraph",
-                      "provenance": {
-                        "extractor": "pdfplumber",
-                        "stage": "extract_tables"
-                      },
-                      "text": "incididunt ut labore et dolore magna aliqua."
-                    },
-                    {
-                      "attrs": {},
-                      "bbox": {
-                        "page": 16,
-                        "x0": 112,
-                        "x1": 500,
-                        "y0": 404,
-                        "y1": 413
-                      },
-                      "children": [],
-                      "id": "3b523443b754",
-                      "kind": "paragraph",
-                      "provenance": {
-                        "extractor": "pdfplumber",
-                        "stage": "extract_tables"
-                      },
-                      "text": "Spanning-line 26: Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor"
-                    },
-                    {
-                      "attrs": {},
-                      "bbox": {
-                        "page": 16,
-                        "x0": 112,
-                        "x1": 284,
-                        "y0": 416,
-                        "y1": 425
-                      },
-                      "children": [],
-                      "id": "c3b496d6d97f",
-                      "kind": "paragraph",
-                      "provenance": {
-                        "extractor": "pdfplumber",
-                        "stage": "extract_tables"
-                      },
-                      "text": "incididunt ut labore et dolore magna aliqua."
-                    },
-                    {
-                      "attrs": {},
-                      "bbox": {
-                        "page": 16,
-                        "x0": 112,
-                        "x1": 500,
-                        "y0": 436,
-                        "y1": 445
-                      },
-                      "children": [],
-                      "id": "99a8abdc5fc2",
-                      "kind": "paragraph",
-                      "provenance": {
-                        "extractor": "pdfplumber",
-                        "stage": "extract_tables"
-                      },
-                      "text": "Spanning-line 27: Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor"
-                    },
-                    {
-                      "attrs": {},
-                      "bbox": {
-                        "page": 16,
-                        "x0": 112,
-                        "x1": 284,
-                        "y0": 448,
-                        "y1": 457
-                      },
-                      "children": [],
-                      "id": "b784a58f4274",
-                      "kind": "paragraph",
-                      "provenance": {
-                        "extractor": "pdfplumber",
-                        "stage": "extract_tables"
-                      },
-                      "text": "incididunt ut labore et dolore magna aliqua."
-                    },
-                    {
-                      "attrs": {},
-                      "bbox": {
-                        "page": 16,
-                        "x0": 112,
-                        "x1": 420,
-                        "y0": 468,
                         "y1": 477
                       },
                       "children": [],
-                      "id": "e3f3813b0a9d",
+                      "id": "24f87bbb6750",
                       "kind": "paragraph",
                       "provenance": {
                         "extractor": "pdfplumber",
                         "stage": "extract_tables"
                       },
-                      "text": "END: This trailing sentence is the last paragraph between the two sub-tables."
+                      "text": "Spanning-line 16: Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Spanning-line 17: Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Spanning-line 18: Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Spanning-line 19: Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Spanning-line 20: Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Spanning-line 21: Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Spanning-line 22: Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Spanning-line 23: Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Spanning-line 24: Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Spanning-line 25: Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Spanning-line 26: Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Spanning-line 27: Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. END: This trailing sentence is the last paragraph between the two sub-tables."
                     },
                     {
                       "attrs": {
@@ -23811,7 +22731,7 @@
                       "text": null
                     }
                   ],
-                  "id": "6b90cd38a6df",
+                  "id": "76a0ea5d36a0",
                   "kind": "cell",
                   "provenance": {
                     "extractor": "pdfplumber",
@@ -23820,7 +22740,7 @@
                   "text": null
                 }
               ],
-              "id": "00f288c31c7c",
+              "id": "8b035c11982f",
               "kind": "row",
               "provenance": {},
               "text": null
@@ -23865,7 +22785,7 @@
               "text": null
             }
           ],
-          "id": "9191889bf8a7",
+          "id": "d681f0f39de0",
           "kind": "table",
           "provenance": {
             "extractor": "pdfplumber+stitch",
@@ -23874,7 +22794,7 @@
           "text": null
         }
       ],
-      "id": "47c35d325921",
+      "id": "50d5676280df",
       "kind": "page",
       "provenance": {},
       "text": null
@@ -23932,37 +22852,19 @@
           "attrs": {},
           "bbox": {
             "page": 17,
-            "x0": 79,
+            "x0": 78,
             "x1": 525,
             "y0": 119,
-            "y1": 128
-          },
-          "children": [],
-          "id": "08caded5fc37",
-          "kind": "paragraph",
-          "provenance": {
-            "extractor": "segment",
-            "stage": "build_tree"
-          },
-          "text": "Inner row separators in column 0 are overdrawn with white; a reader sees one merged cell containing"
-        },
-        {
-          "attrs": {},
-          "bbox": {
-            "page": 17,
-            "x0": 78,
-            "x1": 156,
-            "y0": 131,
             "y1": 138
           },
           "children": [],
-          "id": "2e5c30aed53b",
+          "id": "aadcd5441483",
           "kind": "paragraph",
           "provenance": {
             "extractor": "segment",
             "stage": "build_tree"
           },
-          "text": "three lines of text."
+          "text": "Inner row separators in column 0 are overdrawn with white; a reader sees one merged cell containing three lines of text."
         },
         {
           "attrs": {
@@ -24492,13 +23394,13 @@
           "text": null
         }
       ],
-      "id": "5a196ee2dd5a",
+      "id": "829c9394035a",
       "kind": "page",
       "provenance": {},
       "text": null
     }
   ],
-  "id": "5104234d8c22",
+  "id": "4e5cdde66333",
   "kind": "document",
   "provenance": {},
   "text": null

@@ -83,34 +83,16 @@
             "x0": 84,
             "x1": 526,
             "y0": 145,
-            "y1": 154
-          },
-          "children": [],
-          "id": "335f2db1bdfc",
-          "kind": "paragraph",
-          "provenance": {
-            "extractor": "segment",
-            "stage": "build_tree"
-          },
-          "text": "adipiscing elit. Sed do eiusmod tempor incididunt adipiscing elit. Sed do eiusmod tempor incididunt"
-        },
-        {
-          "attrs": {},
-          "bbox": {
-            "page": 0,
-            "x0": 85,
-            "x1": 281,
-            "y0": 157,
             "y1": 166
           },
           "children": [],
-          "id": "8209d7b3922f",
+          "id": "3a79fa8570a9",
           "kind": "paragraph",
           "provenance": {
             "extractor": "segment",
             "stage": "build_tree"
           },
-          "text": "ut labore et dolore magna aliqua. Ut enim ad"
+          "text": "adipiscing elit. Sed do eiusmod tempor incididunt adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad"
         },
         {
           "attrs": {},
@@ -245,34 +227,16 @@
             "x0": 84,
             "x1": 526,
             "y0": 211,
-            "y1": 220
-          },
-          "children": [],
-          "id": "157039e91fa6",
-          "kind": "paragraph",
-          "provenance": {
-            "extractor": "segment",
-            "stage": "build_tree"
-          },
-          "text": "adipiscing elit. Sed do eiusmod tempor incididunt adipiscing elit. Sed do eiusmod tempor incididunt"
-        },
-        {
-          "attrs": {},
-          "bbox": {
-            "page": 0,
-            "x0": 85,
-            "x1": 281,
-            "y0": 223,
             "y1": 232
           },
           "children": [],
-          "id": "c5770d9f2509",
+          "id": "35d58fd943db",
           "kind": "paragraph",
           "provenance": {
             "extractor": "segment",
             "stage": "build_tree"
           },
-          "text": "ut labore et dolore magna aliqua. Ut enim ad"
+          "text": "adipiscing elit. Sed do eiusmod tempor incididunt adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad"
         },
         {
           "attrs": {},
@@ -407,34 +371,16 @@
             "x0": 84,
             "x1": 526,
             "y0": 277,
-            "y1": 286
-          },
-          "children": [],
-          "id": "eaae54fb77f3",
-          "kind": "paragraph",
-          "provenance": {
-            "extractor": "segment",
-            "stage": "build_tree"
-          },
-          "text": "adipiscing elit. Sed do eiusmod tempor incididunt adipiscing elit. Sed do eiusmod tempor incididunt"
-        },
-        {
-          "attrs": {},
-          "bbox": {
-            "page": 0,
-            "x0": 85,
-            "x1": 281,
-            "y0": 289,
             "y1": 298
           },
           "children": [],
-          "id": "b1d1481d466f",
+          "id": "de2d29831496",
           "kind": "paragraph",
           "provenance": {
             "extractor": "segment",
             "stage": "build_tree"
           },
-          "text": "ut labore et dolore magna aliqua. Ut enim ad"
+          "text": "adipiscing elit. Sed do eiusmod tempor incididunt adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad"
         },
         {
           "attrs": {},
@@ -527,13 +473,13 @@
           "text": "laboris."
         }
       ],
-      "id": "c045d75d5908",
+      "id": "8b23f5d71c71",
       "kind": "page",
       "provenance": {},
       "text": null
     }
   ],
-  "id": "045170177a92",
+  "id": "d11a2b7febf2",
   "kind": "document",
   "provenance": {},
   "text": null

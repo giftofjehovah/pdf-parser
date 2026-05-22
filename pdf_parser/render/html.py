@@ -48,8 +48,12 @@ body {{
 }}
 .tb {{
   position: absolute;
-  overflow: hidden;
-  white-space: nowrap;
+  /* Joined wrapped paragraphs use the union bbox of their visual lines:
+     width matches the column, height spans all lines.  Allow normal wrapping
+     so the joined text re-flows inside that bbox instead of being clipped. */
+  white-space: normal;
+  overflow: visible;
+  line-height: {9 * _S:.2f}px;
 }}
 .tb-h1 {{ font-size: {14 * _S:.2f}px; font-weight: bold; overflow: visible; }}
 .tb-h2 {{ font-size: {12 * _S:.2f}px; font-weight: bold; overflow: visible; }}

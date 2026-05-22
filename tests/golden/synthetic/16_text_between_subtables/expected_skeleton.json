@@ -67,11 +67,7 @@
                     },
                     {
                       "kind": "paragraph",
-                      "text": "NOTE: This paragraph sits between the two sub-tables and must"
-                    },
-                    {
-                      "kind": "paragraph",
-                      "text": "be preserved."
+                      "text": "NOTE: This paragraph sits between the two sub-tables and must be preserved."
                     },
                     {
                       "children": [

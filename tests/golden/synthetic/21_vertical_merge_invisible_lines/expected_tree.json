@@ -45,72 +45,18 @@
           "bbox": {
             "page": 0,
             "x0": 78,
-            "x1": 508,
-            "y0": 127,
-            "y1": 136
-          },
-          "children": [],
-          "id": "ad92710106f2",
-          "kind": "paragraph",
-          "provenance": {
-            "extractor": "segment",
-            "stage": "build_tree"
-          },
-          "text": "The first column visually merges three rows because the inner row dividers are drawn in the page"
-        },
-        {
-          "attrs": {},
-          "bbox": {
-            "page": 0,
-            "x0": 79,
-            "x1": 496,
-            "y0": 139,
-            "y1": 148
-          },
-          "children": [],
-          "id": "36e8fe608b08",
-          "kind": "paragraph",
-          "provenance": {
-            "extractor": "segment",
-            "stage": "build_tree"
-          },
-          "text": "background colour. A reader sees one merged cell containing three lines of text; the PDF data,"
-        },
-        {
-          "attrs": {},
-          "bbox": {
-            "page": 0,
-            "x0": 79,
             "x1": 520,
-            "y0": 151,
-            "y1": 160
-          },
-          "children": [],
-          "id": "da52804ea6cc",
-          "kind": "paragraph",
-          "provenance": {
-            "extractor": "segment",
-            "stage": "build_tree"
-          },
-          "text": "however, still encodes three separate rows split by white-on-white lines. A colour-aware parser must"
-        },
-        {
-          "attrs": {},
-          "bbox": {
-            "page": 0,
-            "x0": 79,
-            "x1": 192,
-            "y0": 163,
+            "y0": 127,
             "y1": 172
           },
           "children": [],
-          "id": "7d7a24447fb0",
+          "id": "099a317a0dee",
           "kind": "paragraph",
           "provenance": {
             "extractor": "segment",
             "stage": "build_tree"
           },
-          "text": "honour the visual reading."
+          "text": "The first column visually merges three rows because the inner row dividers are drawn in the page background colour. A reader sees one merged cell containing three lines of text; the PDF data, however, still encodes three separate rows split by white-on-white lines. A colour-aware parser must honour the visual reading."
         },
         {
           "attrs": {
@@ -640,13 +586,13 @@
           "text": null
         }
       ],
-      "id": "f0241062a1f8",
+      "id": "a7a21123c8cb",
       "kind": "page",
       "provenance": {},
       "text": null
     }
   ],
-  "id": "2bad0b10924b",
+  "id": "8ff250496a09",
   "kind": "document",
   "provenance": {},
   "text": null

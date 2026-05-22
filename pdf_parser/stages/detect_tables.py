@@ -425,7 +425,19 @@ def _find_borderless_frames(
             bot_caps = [t for t in caps_sorted if (y1 - t) <= _FRAME_CAP_NEAR_END]
             has_header = len(top_caps) >= 2
             has_footer = len(bot_caps) >= 2
-            if not (has_header or has_footer):
+            # A closed rectangle (single top border + single bottom border + two
+            # side rails) is also a frame.  Distinct from header/footer bands:
+            # there is no Header/Footer row to synthesise, just the wrapping
+            # Content cell.  Without this case, a plain BOX-styled outer table
+            # whose body holds inner sub-tables + free text gets dropped from
+            # the parse tree entirely (pdfplumber can't see a 1×1 cell either).
+            is_closed_rect = (
+                not has_header
+                and not has_footer
+                and len(top_caps) >= 1
+                and len(bot_caps) >= 1
+            )
+            if not (has_header or has_footer or is_closed_rect):
                 continue
 
             # Synthesise rows: Header? Content Footer? — always ≥ 1 row.

@@ -152,16 +152,20 @@ def test_between_text_spans_both_pages():
     Content cells), and together the two pages cover the full 1..27 range
     without gaps.
     """
+    import re
     tree = parse(PDF)
     pages: dict[int, set[int]] = {0: set(), 1: set()}
     for n in _walk(tree):
         if n.kind != "paragraph" or not n.text or "Between-line " not in n.text:
             continue
-        tok = n.text.split("Between-line ", 1)[1].split(":", 1)[0].strip()
-        if not tok.isdigit():
+        # Wrapped continuation lines are now merged into a single paragraph,
+        # so one node can carry several "Between-line N" tokens.  Collect them
+        # all rather than just the first.
+        nums = [int(m) for m in re.findall(r"Between-line (\d+):", n.text)]
+        if not nums:
             continue
         for pg in _bbox_pages(n):
-            pages.setdefault(pg, set()).add(int(tok))
+            pages.setdefault(pg, set()).update(nums)
 
     assert pages[0], "no Between-line N paragraphs on page 0"
     assert pages[1], "no Between-line N paragraphs on page 1 (split lost)"

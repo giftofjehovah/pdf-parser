@@ -47,34 +47,16 @@
             "x0": 78,
             "x1": 532,
             "y0": 125,
-            "y1": 134
-          },
-          "children": [],
-          "id": "1617b034b490",
-          "kind": "paragraph",
-          "provenance": {
-            "extractor": "segment",
-            "stage": "build_tree"
-          },
-          "text": "The chart below shows product and service revenue for each quarter of the current fiscal year. Product"
-        },
-        {
-          "attrs": {},
-          "bbox": {
-            "page": 0,
-            "x0": 79,
-            "x1": 461,
-            "y0": 137,
             "y1": 146
           },
           "children": [],
-          "id": "8899ad495b42",
+          "id": "17b6055108d2",
           "kind": "paragraph",
           "provenance": {
             "extractor": "segment",
             "stage": "build_tree"
           },
-          "text": "revenue (blue) consistently outpaces service revenue (orange) across all four quarters."
+          "text": "The chart below shows product and service revenue for each quarter of the current fiscal year. Product revenue (blue) consistently outpaces service revenue (orange) across all four quarters."
         },
         {
           "attrs": {
@@ -102,64 +84,28 @@
           "attrs": {},
           "bbox": {
             "page": 0,
-            "x0": 79,
+            "x0": 78,
             "x1": 516,
             "y0": 379,
-            "y1": 389
-          },
-          "children": [],
-          "id": "1fc5a688530d",
-          "kind": "paragraph",
-          "provenance": {
-            "extractor": "segment",
-            "stage": "build_tree"
-          },
-          "text": "Product revenue grew 77.8 % year-over-year, reaching $22.14 M in Q4. Service revenue expanded"
-        },
-        {
-          "attrs": {},
-          "bbox": {
-            "page": 0,
-            "x0": 78,
-            "x1": 509,
-            "y0": 391,
-            "y1": 401
-          },
-          "children": [],
-          "id": "552a73620559",
-          "kind": "paragraph",
-          "provenance": {
-            "extractor": "segment",
-            "stage": "build_tree"
-          },
-          "text": "86.2 % over the same period to $5.38 M. Combined Q4 revenue of $27.52 M represents a 74.0 %"
-        },
-        {
-          "attrs": {},
-          "bbox": {
-            "page": 0,
-            "x0": 79,
-            "x1": 156,
-            "y0": 404,
             "y1": 411
           },
           "children": [],
-          "id": "09ba3d946740",
+          "id": "0113a200289a",
           "kind": "paragraph",
           "provenance": {
             "extractor": "segment",
             "stage": "build_tree"
           },
-          "text": "increase over Q1."
+          "text": "Product revenue grew 77.8 % year-over-year, reaching $22.14 M in Q4. Service revenue expanded 86.2 % over the same period to $5.38 M. Combined Q4 revenue of $27.52 M represents a 74.0 % increase over Q1."
         }
       ],
-      "id": "0e18b39931e9",
+      "id": "d9ab9885e95d",
       "kind": "page",
       "provenance": {},
       "text": null
     }
   ],
-  "id": "301c7218ac57",
+  "id": "a516a5e96b51",
   "kind": "document",
   "provenance": {},
   "text": null

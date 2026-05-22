@@ -8,11 +8,7 @@
         },
         {
           "kind": "paragraph",
-          "text": "This section provides an in-depth analysis of the operational data collected during the assessment"
-        },
-        {
-          "kind": "paragraph",
-          "text": "period. The findings are presented in structured form to facilitate comparison across regions and time."
+          "text": "This section provides an in-depth analysis of the operational data collected during the assessment period. The findings are presented in structured form to facilitate comparison across regions and time."
         },
         {
           "kind": "heading",
@@ -158,11 +154,7 @@
         },
         {
           "kind": "paragraph",
-          "text": "This section provides an in-depth analysis of the operational data collected during the assessment"
-        },
-        {
-          "kind": "paragraph",
-          "text": "period. The findings are presented in structured form to facilitate comparison across regions and time."
+          "text": "This section provides an in-depth analysis of the operational data collected during the assessment period. The findings are presented in structured form to facilitate comparison across regions and time."
         },
         {
           "kind": "heading",
@@ -353,11 +345,7 @@
         },
         {
           "kind": "paragraph",
-          "text": "This section provides an in-depth analysis of the operational data collected during the assessment"
-        },
-        {
-          "kind": "paragraph",
-          "text": "period. The findings are presented in structured form to facilitate comparison across regions and time."
+          "text": "This section provides an in-depth analysis of the operational data collected during the assessment period. The findings are presented in structured form to facilitate comparison across regions and time."
         },
         {
           "kind": "heading",
@@ -4060,11 +4048,7 @@
         },
         {
           "kind": "paragraph",
-          "text": "This section provides an in-depth analysis of the operational data collected during the assessment"
-        },
-        {
-          "kind": "paragraph",
-          "text": "period. The findings are presented in structured form to facilitate comparison across regions and time."
+          "text": "This section provides an in-depth analysis of the operational data collected during the assessment period. The findings are presented in structured form to facilitate comparison across regions and time."
         },
         {
           "children": [
@@ -4577,11 +4561,7 @@
                     },
                     {
                       "kind": "paragraph",
-                      "text": "NOTE: This paragraph sits between the two sub-tables and must"
-                    },
-                    {
-                      "kind": "paragraph",
-                      "text": "be preserved."
+                      "text": "NOTE: This paragraph sits between the two sub-tables and must be preserved."
                     },
                     {
                       "children": [
@@ -4779,131 +4759,7 @@
                     },
                     {
                       "kind": "paragraph",
-                      "text": "NOTE: This paragraph sits between the two sub-tables and must be preserved across the page"
-                    },
-                    {
-                      "kind": "paragraph",
-                      "text": "break."
-                    },
-                    {
-                      "kind": "paragraph",
-                      "text": "Spanning-line 01: Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor"
-                    },
-                    {
-                      "kind": "paragraph",
-                      "text": "incididunt ut labore et dolore magna aliqua."
-                    },
-                    {
-                      "kind": "paragraph",
-                      "text": "Spanning-line 02: Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor"
-                    },
-                    {
-                      "kind": "paragraph",
-                      "text": "incididunt ut labore et dolore magna aliqua."
-                    },
-                    {
-                      "kind": "paragraph",
-                      "text": "Spanning-line 03: Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor"
-                    },
-                    {
-                      "kind": "paragraph",
-                      "text": "incididunt ut labore et dolore magna aliqua."
-                    },
-                    {
-                      "kind": "paragraph",
-                      "text": "Spanning-line 04: Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor"
-                    },
-                    {
-                      "kind": "paragraph",
-                      "text": "incididunt ut labore et dolore magna aliqua."
-                    },
-                    {
-                      "kind": "paragraph",
-                      "text": "Spanning-line 05: Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor"
-                    },
-                    {
-                      "kind": "paragraph",
-                      "text": "incididunt ut labore et dolore magna aliqua."
-                    },
-                    {
-                      "kind": "paragraph",
-                      "text": "Spanning-line 06: Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor"
-                    },
-                    {
-                      "kind": "paragraph",
-                      "text": "incididunt ut labore et dolore magna aliqua."
-                    },
-                    {
-                      "kind": "paragraph",
-                      "text": "Spanning-line 07: Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor"
-                    },
-                    {
-                      "kind": "paragraph",
-                      "text": "incididunt ut labore et dolore magna aliqua."
-                    },
-                    {
-                      "kind": "paragraph",
-                      "text": "Spanning-line 08: Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor"
-                    },
-                    {
-                      "kind": "paragraph",
-                      "text": "incididunt ut labore et dolore magna aliqua."
-                    },
-                    {
-                      "kind": "paragraph",
-                      "text": "Spanning-line 09: Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor"
-                    },
-                    {
-                      "kind": "paragraph",
-                      "text": "incididunt ut labore et dolore magna aliqua."
-                    },
-                    {
-                      "kind": "paragraph",
-                      "text": "Spanning-line 10: Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor"
-                    },
-                    {
-                      "kind": "paragraph",
-                      "text": "incididunt ut labore et dolore magna aliqua."
-                    },
-                    {
-                      "kind": "paragraph",
-                      "text": "Spanning-line 11: Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor"
-                    },
-                    {
-                      "kind": "paragraph",
-                      "text": "incididunt ut labore et dolore magna aliqua."
-                    },
-                    {
-                      "kind": "paragraph",
-                      "text": "Spanning-line 12: Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor"
-                    },
-                    {
-                      "kind": "paragraph",
-                      "text": "incididunt ut labore et dolore magna aliqua."
-                    },
-                    {
-                      "kind": "paragraph",
-                      "text": "Spanning-line 13: Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor"
-                    },
-                    {
-                      "kind": "paragraph",
-                      "text": "incididunt ut labore et dolore magna aliqua."
-                    },
-                    {
-                      "kind": "paragraph",
-                      "text": "Spanning-line 14: Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor"
-                    },
-                    {
-                      "kind": "paragraph",
-                      "text": "incididunt ut labore et dolore magna aliqua."
-                    },
-                    {
-                      "kind": "paragraph",
-                      "text": "Spanning-line 15: Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor"
-                    },
-                    {
-                      "kind": "paragraph",
-                      "text": "incididunt ut labore et dolore magna aliqua."
+                      "text": "NOTE: This paragraph sits between the two sub-tables and must be preserved across the page break. Spanning-line 01: Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Spanning-line 02: Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Spanning-line 03: Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Spanning-line 04: Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Spanning-line 05: Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Spanning-line 06: Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Spanning-line 07: Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Spanning-line 08: Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Spanning-line 09: Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Spanning-line 10: Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Spanning-line 11: Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Spanning-line 12: Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Spanning-line 13: Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Spanning-line 14: Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Spanning-line 15: Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."
                     }
                   ],
                   "kind": "cell"
@@ -4917,103 +4773,7 @@
                   "children": [
                     {
                       "kind": "paragraph",
-                      "text": "Spanning-line 16: Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor"
-                    },
-                    {
-                      "kind": "paragraph",
-                      "text": "incididunt ut labore et dolore magna aliqua."
-                    },
-                    {
-                      "kind": "paragraph",
-                      "text": "Spanning-line 17: Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor"
-                    },
-                    {
-                      "kind": "paragraph",
-                      "text": "incididunt ut labore et dolore magna aliqua."
-                    },
-                    {
-                      "kind": "paragraph",
-                      "text": "Spanning-line 18: Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor"
-                    },
-                    {
-                      "kind": "paragraph",
-                      "text": "incididunt ut labore et dolore magna aliqua."
-                    },
-                    {
-                      "kind": "paragraph",
-                      "text": "Spanning-line 19: Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor"
-                    },
-                    {
-                      "kind": "paragraph",
-                      "text": "incididunt ut labore et dolore magna aliqua."
-                    },
-                    {
-                      "kind": "paragraph",
-                      "text": "Spanning-line 20: Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor"
-                    },
-                    {
-                      "kind": "paragraph",
-                      "text": "incididunt ut labore et dolore magna aliqua."
-                    },
-                    {
-                      "kind": "paragraph",
-                      "text": "Spanning-line 21: Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor"
-                    },
-                    {
-                      "kind": "paragraph",
-                      "text": "incididunt ut labore et dolore magna aliqua."
-                    },
-                    {
-                      "kind": "paragraph",
-                      "text": "Spanning-line 22: Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor"
-                    },
-                    {
-                      "kind": "paragraph",
-                      "text": "incididunt ut labore et dolore magna aliqua."
-                    },
-                    {
-                      "kind": "paragraph",
-                      "text": "Spanning-line 23: Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor"
-                    },
-                    {
-                      "kind": "paragraph",
-                      "text": "incididunt ut labore et dolore magna aliqua."
-                    },
-                    {
-                      "kind": "paragraph",
-                      "text": "Spanning-line 24: Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor"
-                    },
-                    {
-                      "kind": "paragraph",
-                      "text": "incididunt ut labore et dolore magna aliqua."
-                    },
-                    {
-                      "kind": "paragraph",
-                      "text": "Spanning-line 25: Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor"
-                    },
-                    {
-                      "kind": "paragraph",
-                      "text": "incididunt ut labore et dolore magna aliqua."
-                    },
-                    {
-                      "kind": "paragraph",
-                      "text": "Spanning-line 26: Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor"
-                    },
-                    {
-                      "kind": "paragraph",
-                      "text": "incididunt ut labore et dolore magna aliqua."
-                    },
-                    {
-                      "kind": "paragraph",
-                      "text": "Spanning-line 27: Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor"
-                    },
-                    {
-                      "kind": "paragraph",
-                      "text": "incididunt ut labore et dolore magna aliqua."
-                    },
-                    {
-                      "kind": "paragraph",
-                      "text": "END: This trailing sentence is the last paragraph between the two sub-tables."
+                      "text": "Spanning-line 16: Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Spanning-line 17: Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Spanning-line 18: Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Spanning-line 19: Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Spanning-line 20: Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Spanning-line 21: Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Spanning-line 22: Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Spanning-line 23: Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Spanning-line 24: Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Spanning-line 25: Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Spanning-line 26: Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Spanning-line 27: Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. END: This trailing sentence is the last paragraph between the two sub-tables."
                     },
                     {
                       "children": [
@@ -5091,11 +4851,7 @@
         },
         {
           "kind": "paragraph",
-          "text": "Inner row separators in column 0 are overdrawn with white; a reader sees one merged cell containing"
-        },
-        {
-          "kind": "paragraph",
-          "text": "three lines of text."
+          "text": "Inner row separators in column 0 are overdrawn with white; a reader sees one merged cell containing three lines of text."
         },
         {
           "children": [

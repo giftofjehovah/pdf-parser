@@ -334,34 +334,16 @@
                         "x0": 162,
                         "x1": 449,
                         "y0": 204,
-                        "y1": 214
-                      },
-                      "children": [],
-                      "id": "b66a2be27ec1",
-                      "kind": "paragraph",
-                      "provenance": {
-                        "extractor": "pdfplumber",
-                        "stage": "extract_tables"
-                      },
-                      "text": "NOTE: This paragraph sits between the two sub-tables and must"
-                    },
-                    {
-                      "attrs": {},
-                      "bbox": {
-                        "page": 0,
-                        "x0": 162,
-                        "x1": 223,
-                        "y0": 216,
                         "y1": 226
                       },
                       "children": [],
-                      "id": "d8531cc4c20f",
+                      "id": "9abffe6ed3c4",
                       "kind": "paragraph",
                       "provenance": {
                         "extractor": "pdfplumber",
                         "stage": "extract_tables"
                       },
-                      "text": "be preserved."
+                      "text": "NOTE: This paragraph sits between the two sub-tables and must be preserved."
                     },
                     {
                       "attrs": {
@@ -569,7 +551,7 @@
                       "text": null
                     }
                   ],
-                  "id": "1a2cf88938fc",
+                  "id": "4f8e7c90f5a7",
                   "kind": "cell",
                   "provenance": {
                     "extractor": "pdfplumber",
@@ -578,7 +560,7 @@
                   "text": null
                 }
               ],
-              "id": "c6f42da2f058",
+              "id": "40f71281d482",
               "kind": "row",
               "provenance": {},
               "text": null
@@ -943,7 +925,7 @@
               "text": null
             }
           ],
-          "id": "93ac98c6c649",
+          "id": "ca3cb07bc9d8",
           "kind": "table",
           "provenance": {
             "extractor": "pdfplumber",
@@ -952,13 +934,13 @@
           "text": null
         }
       ],
-      "id": "bb6c1c164b01",
+      "id": "1a7f19f9ff01",
       "kind": "page",
       "provenance": {},
       "text": null
     }
   ],
-  "id": "3af6835a389d",
+  "id": "9de8ec30f1f5",
   "kind": "document",
   "provenance": {},
   "text": null
