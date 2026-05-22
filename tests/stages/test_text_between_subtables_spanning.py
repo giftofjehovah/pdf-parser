@@ -2,7 +2,7 @@
 
 The fixture extends fixture 16 (text between two nested sub-tables) to a
 page-spanning layout.  See ``build_pdfs.build_17_text_between_subtables_spanning``
-for the rendering choices.  Two visual properties matter to the test:
+for the rendering choices.  Two visual properties matter to the parse:
 
   * The outer "section" has continuous left/right side rails and no
     horizontal closing borders around the between-paragraphs, so it reads
@@ -10,14 +10,12 @@ for the rendering choices.  Two visual properties matter to the test:
   * Between-paragraphs sit in their own outer rows so each side of the
     page break retains the cell's TOPPADDING / BOTTOMPADDING.
 
-Parser consequence: pdfplumber's line-based table detection needs internal
-horizontal grid lines to identify the outer frame as a table.  With those
-removed, only the two inner sub-tables are detected as table nodes; the
-outer "Section Header / Section Footer" framing surfaces as a heading +
-paragraph and the between-text as page-level paragraphs.  All *content*
-is preserved on both pages — that's what the bulk of these tests assert.
-The two ``xfail`` cases at the bottom document the table-detection limit
-this layout exposes.
+The borderless-frame detector in :mod:`pdf_parser.stages.detect_tables`
+promotes the section frame to a single-column outer table (Header /
+Content per page / Footer) and the page-stitcher joins the per-page
+halves on matching column anchors.  The two inner sub-tables and the
+between-paragraphs are reachable as descendants of the outer table's
+Content cells.
 """
 from __future__ import annotations
 
@@ -71,21 +69,34 @@ def test_two_pages():
 
 
 def test_section_header_on_first_page():
-    """The 'Section Header' label is captured on page 0."""
+    """The 'Section Header' label is captured on page 0.
+
+    After the borderless-frame detector promotes the outer section to a
+    spanning table anchored on page 0, the Header cell lives inside that
+    table.  We assert by the cell's bbox-page rather than by walking only
+    one page node's descendants.
+    """
     tree = parse(PDF)
-    page0 = tree.children[0]
-    assert any("Section Header" in t for t in _all_texts(page0)), (
-        "'Section Header' missing from page 0"
-    )
+    hits = [
+        n for n in _walk(tree)
+        if n.text and "Section Header" in n.text and _bbox_pages(n) == {0}
+    ]
+    assert hits, "'Section Header' missing from page 0"
 
 
 def test_section_footer_on_second_page():
-    """The 'Section Footer' label is captured on page 1."""
+    """The 'Section Footer' label is captured on page 1.
+
+    The Footer cell is a descendant of the spanning outer table (anchored
+    on page 0), so walking ``tree.children[1]`` alone misses it.  Assert
+    via the cell's bbox-page instead.
+    """
     tree = parse(PDF)
-    page1 = tree.children[1]
-    assert any("Section Footer" in t for t in _all_texts(page1)), (
-        "'Section Footer' missing from page 1"
-    )
+    hits = [
+        n for n in _walk(tree)
+        if n.text and "Section Footer" in n.text and _bbox_pages(n) == {1}
+    ]
+    assert hits, "'Section Footer' missing from page 1"
 
 
 def test_subtable_a_on_first_page():
@@ -134,95 +145,99 @@ def test_between_text_bookends_preserved():
 def test_between_text_spans_both_pages():
     """Numbered between-lines are partitioned cleanly across the page break.
 
-    This is the real assertion the fixture exists for: the paragraph block
-    must not be silently truncated where the page splits it.  Each
-    Between-line N appears on exactly one page, and together the two pages
-    cover the full 1..27 range without gaps.
+    The real assertion the fixture exists for: the paragraph block must
+    not be silently truncated where the page splits it.  Each Between-line
+    N appears on exactly one page (asserted via the paragraph's bbox-page,
+    since the paragraphs now live inside the spanning outer table's two
+    Content cells), and together the two pages cover the full 1..27 range
+    without gaps.
     """
     tree = parse(PDF)
-    pages = [c for c in tree.children if c.kind == "page"]
-    assert len(pages) == 2
+    pages: dict[int, set[int]] = {0: set(), 1: set()}
+    for n in _walk(tree):
+        if n.kind != "paragraph" or not n.text or "Between-line " not in n.text:
+            continue
+        tok = n.text.split("Between-line ", 1)[1].split(":", 1)[0].strip()
+        if not tok.isdigit():
+            continue
+        for pg in _bbox_pages(n):
+            pages.setdefault(pg, set()).add(int(tok))
 
-    def _line_numbers_on(page: DocNode) -> set[int]:
-        nums: set[int] = set()
-        for t in _all_texts(page):
-            if "Between-line " in t:
-                tok = t.split("Between-line ", 1)[1].split(":", 1)[0].strip()
-                if tok.isdigit():
-                    nums.add(int(tok))
-        return nums
+    assert pages[0], "no Between-line N paragraphs on page 0"
+    assert pages[1], "no Between-line N paragraphs on page 1 (split lost)"
 
-    page0_lines = _line_numbers_on(pages[0])
-    page1_lines = _line_numbers_on(pages[1])
-
-    assert page0_lines, "no Between-line N paragraphs on page 0"
-    assert page1_lines, "no Between-line N paragraphs on page 1 (split lost)"
-
-    overlap = page0_lines & page1_lines
+    overlap = pages[0] & pages[1]
     assert not overlap, f"between-lines duplicated across pages: {sorted(overlap)}"
-    assert page0_lines | page1_lines == set(range(1, 28)), (
+    union = pages[0] | pages[1]
+    assert union == set(range(1, 28)), (
         f"between-lines lost at the page break: missing "
-        f"{sorted(set(range(1, 28)) - (page0_lines | page1_lines))}"
+        f"{sorted(set(range(1, 28)) - union)}"
     )
 
 
-def test_only_inner_sub_tables_are_detected():
-    """With the borderless outer frame, only the two inner sub-tables surface.
+def test_all_three_tables_present():
+    """Borderless-frame detection promotes the section frame to a table.
 
-    Pins what we *do* recognise so a future change that starts inventing
-    phantom outer tables (or loses the inner ones) is caught.
+    The full table inventory is now:
+      * the spanning outer 'Section Header' frame, and
+      * the two inner sub-tables nested inside its Content cells.
     """
     tree = parse(PDF)
     headers = sorted(tuple(_table_header_texts(t)) for t in _tables(tree))
-    assert headers == [("Item", "Qty"), ("Month", "Sales")], (
-        f"expected exactly the two inner sub-tables, got {headers}"
-    )
+    assert headers == [
+        ("Item", "Qty"),
+        ("Month", "Sales"),
+        ("Section Header",),
+    ], f"expected outer frame + two inner sub-tables, got {headers}"
 
 
 # ---------------------------------------------------------------------------
-# Known parser limitation exposed by this fixture (strict xfail so a
-# future improvement flips it to xpass and forces a follow-up).
+# Borderless-frame containment (the parser feature this fixture exercises).
 # ---------------------------------------------------------------------------
 
 
-@pytest.mark.xfail(
-    strict=True,
-    reason=(
-        "The outer 'section frame' (continuous left/right side rails, "
-        "horizontal lines only around the Header and Footer rows, and NO "
-        "horizontal lines anywhere across the between-paragraphs) does not "
-        "match pdfplumber's line-based table detection: with no internal "
-        "horizontal grid lines, the frame is not recognised as a table. "
-        "Consequence: the two inner sub-tables surface at the page top "
-        "level instead of being nested inside an outer-table cell, and "
-        "the between-paragraphs surface as page-level paragraphs. "
-        "Recovering the original containment would require a 'borderless "
-        "frame' heuristic that promotes a region bounded by vertical-only "
-        "rails into a table-like container."
-    ),
-)
-def test_outer_section_frame_is_detected_as_outer_table():
+def test_outer_section_frame_is_detected_as_spanning_table():
+    """The outer frame becomes a single spanning table.
+
+    Post-fix shape: ``stitch_pages`` joins the per-page frame halves into
+    one ``DocNode`` anchored on page 0 whose bbox is a 2-element list
+    covering both pages.  Page 0's top level contains exactly one table
+    (the outer frame); page 1's top level contains none (the frame is
+    anchored on page 0).  Both inner sub-tables are reachable as
+    descendants of the outer frame, not as page-level siblings.
+    """
     tree = parse(PDF)
     page0_top = [n for n in tree.children[0].children if n.kind == "table"]
     page1_top = [n for n in tree.children[1].children if n.kind == "table"]
-    # Ideal: one outer table per page (the page-1 and page-2 halves of the
-    # section frame), each containing its sub-table nested as a cell child,
-    # with the between-paragraphs also nested as cell children.
     assert len(page0_top) == 1, (
         f"expected one top-level outer table on page 0, got {len(page0_top)}"
     )
-    assert len(page1_top) == 1, (
-        f"expected one top-level outer table on page 1, got {len(page1_top)}"
+    assert len(page1_top) == 0, (
+        f"expected no top-level tables on page 1 (frame anchored on page 0), "
+        f"got {len(page1_top)}"
     )
-    # And the sub-tables should be reachable as cell descendants of the
-    # outer tables, not as top-level siblings.
-    sub_a_headers = {("Item", "Qty")}
-    sub_b_headers = {("Month", "Sales")}
-    page0_top_headers = {tuple(_table_header_texts(t)) for t in page0_top}
-    page1_top_headers = {tuple(_table_header_texts(t)) for t in page1_top}
-    assert page0_top_headers.isdisjoint(sub_a_headers), (
-        "sub-table A should be nested, not a top-level sibling"
+
+    outer = page0_top[0]
+    assert isinstance(outer.bbox, list) and len(outer.bbox) == 2, (
+        f"outer frame must span 2 pages, got bbox={outer.bbox!r}"
     )
-    assert page1_top_headers.isdisjoint(sub_b_headers), (
-        "sub-table B should be nested, not a top-level sibling"
+    assert {b.page for b in outer.bbox} == {0, 1}, (
+        f"outer frame must cover pages 0 and 1, got {[b.page for b in outer.bbox]}"
+    )
+    assert _table_header_texts(outer) == ["Section Header"], (
+        f"outer frame header row should read 'Section Header', got "
+        f"{_table_header_texts(outer)!r}"
+    )
+
+    # Both inner sub-tables nest inside the outer's descendants.
+    nested_headers = {
+        tuple(_table_header_texts(t))
+        for t in _tables(outer)
+        if t is not outer
+    }
+    assert ("Item", "Qty") in nested_headers, (
+        f"sub-table A must nest inside the outer frame, got {nested_headers}"
+    )
+    assert ("Month", "Sales") in nested_headers, (
+        f"sub-table B must nest inside the outer frame, got {nested_headers}"
     )

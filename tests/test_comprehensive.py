@@ -71,9 +71,12 @@ def test_three_figure_nodes(tree):
 # Tables: overall inventory
 # ---------------------------------------------------------------------------
 
-def test_has_exactly_four_spanning_tables(tree):
+def test_has_exactly_five_spanning_tables(tree):
+    """Quarterly Report, Transaction Log, Operations Register, Project
+    Tracking, plus Annex D's outer 'Spanning Header' frame (promoted by the
+    borderless-frame detector and stitched across pages 16-17)."""
     spanning = [n for n in _walk(tree) if n.kind == "table" and isinstance(n.bbox, list)]
-    assert len(spanning) == 4
+    assert len(spanning) == 5
 
 
 # ---------------------------------------------------------------------------
@@ -431,12 +434,11 @@ def test_annex_c_subtables_are_not_siblings_of_outer(tree):
 # Annex D — text between sub-tables, page-spanning (fixture 17)
 # ---------------------------------------------------------------------------
 #
-# NOTE: fixture 17 documents a known limitation — the outer frame, drawn only
-# along header / footer + vertical sides, is NOT recovered as a single
-# spanning table.  This suite mirrors that reality: the test asserts the two
-# sub-tables land on adjacent pages with all between-paragraphs preserved
-# across the page break.  When the parser closes the gap, an xpass on
-# fixture 17 will signal that this annex should grow a stricter assertion.
+# The outer 'Spanning Header' frame is recovered by the borderless-frame
+# detector: vertical side-rails plus tiny header/footer caps are promoted
+# to a single-column table, then ``stitch_pages`` joins the two per-page
+# halves on matching column anchors.  Both inner sub-tables nest inside
+# the outer's per-page Content cells and all between-paragraphs survive.
 
 def test_annex_d_subtables_on_adjacent_pages(tree):
     """The two sub-tables of Annex D must land on consecutive pages — the
@@ -479,6 +481,33 @@ def test_annex_d_all_spanning_lines_preserved(tree):
     combined = " ".join(n.text for n in _walk(tree) if n.text)
     missing = [f"Spanning-line {i:02d}" for i in range(1, 28) if f"Spanning-line {i:02d}" not in combined]
     assert not missing, f"missing between-paragraphs: {missing}"
+
+
+def test_annex_d_outer_frame_spans_two_pages(tree):
+    """The promoted Annex D outer frame is one ``DocNode`` whose bbox is a
+    2-element list covering pages 16 and 17, with both inner sub-tables
+    reachable as nested descendants."""
+    outer = _table_by_sig(tree, ("Spanning Header",))
+    assert outer is not None, "Annex D outer 'Spanning Header' frame missing"
+    assert isinstance(outer.bbox, list) and len(outer.bbox) == 2, (
+        f"outer frame must span 2 pages, got bbox={outer.bbox!r}"
+    )
+    assert {b.page for b in outer.bbox} == {15, 16}, (
+        f"outer frame must cover pages 15 and 16 (0-indexed), "
+        f"got {[b.page for b in outer.bbox]}"
+    )
+    nested_sigs = {
+        n.attrs.get("header_signature")
+        for n in _walk(outer)
+        if n.kind == "table" and n is not outer
+    }
+    assert ("Code", "Total") in nested_sigs, (
+        f"Code/Total sub-table must nest inside the outer frame, got {nested_sigs}"
+    )
+    assert ("Phase", "Status") in nested_sigs, (
+        f"Phase/Status sub-table must nest inside the outer frame, got {nested_sigs}"
+    )
+
 
 # ---------------------------------------------------------------------------
 # Annex E — vertical merge with invisible row separators (fixture 21)
@@ -555,7 +584,9 @@ _KNOWN_TABLE_SIGS: set[tuple[str, ...]] = {
     ("Annex C Header",),
     ("Part", "Count"),
     ("Quarter", "Revenue"),
-    # Annex D (outer not detected; sub-tables only).
+    # Annex D — outer 'Spanning Header' frame is now promoted by the
+    # borderless-frame detector and stitched across pages 16-17.
+    ("Spanning Header",),
     ("Code", "Total"),
     ("Phase", "Status"),
     # Annex E.
@@ -583,7 +614,7 @@ def test_total_table_count(tree):
     duplicates any table is caught even when individual structural tests
     still pass."""
     tables = [n for n in _walk(tree) if n.kind == "table"]
-    assert len(tables) == 22, f"expected 22 tables, got {len(tables)}"
+    assert len(tables) == 23, f"expected 23 tables, got {len(tables)}"
 
 
 # ---------------------------------------------------------------------------

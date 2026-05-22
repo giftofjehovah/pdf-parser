@@ -297,6 +297,179 @@ def find_tables_visible(target, settings: Optional[dict] = None):
 
 
 # ---------------------------------------------------------------------------
+# Borderless-frame detection.
+#
+# Many real-world documents draw a "section frame" — a rectangular outer box
+# whose visible borders are two vertical side-rails plus tiny horizontal caps
+# around an optional Header and/or Footer band.  The long middle stretch
+# (body paragraphs, nested sub-tables) has NO internal horizontal grid lines.
+# pdfplumber's line strategy needs intersecting horizontals + verticals, so
+# these frames slip through detection entirely: only the inner sub-tables get
+# found, the outer frame is lost, and any prose inside it surfaces as
+# page-level paragraphs siblings of the would-be outer table.
+#
+# This pass scans for pairs of long vertical rails on each page, promotes
+# each pair (plus its cap bands) to a single-column ``TableRegion`` with
+# Header / Content / Footer rows.  The Content cell is left text-empty so
+# the existing nested-detection in :mod:`extract_tables` can recurse, find
+# inner sub-tables, and pull paragraphs that fall between them via
+# :func:`_between_text_nodes`.  When the frame spans pages, the existing
+# :mod:`stitch_pages` pass joins the per-page halves on matching
+# single-column anchors — no special-casing required.
+#
+# Guards:
+#   * Rails must be at least :data:`_FRAME_MIN_RAIL_LEN` tall, so column
+#     dividers in multi-column body text don't qualify.
+#   * A pair must enclose at least :data:`_FRAME_MIN_WIDTH` of x-space.
+#   * At least one Header / Footer cap-band must exist, so unrelated parallel
+#     rules (decorative sidebars, etc.) don't get promoted.
+#   * Rails whose x-coordinates coincide with an already-detected table's
+#     left/right sides are skipped — that table is the frame, not a missed
+#     one.
+#   * The pass runs ONLY at top-level (``region_bbox is None``) so recursive
+#     nested-table detection inside the frame's own Content cell can't
+#     re-discover the frame.
+# ---------------------------------------------------------------------------
+
+_FRAME_MIN_RAIL_LEN = 100.0   # pt; vertical rail must span at least this much
+_FRAME_MIN_WIDTH    = 50.0    # pt; rails must be at least this far apart
+_FRAME_X_TOL        = 1.0     # pt; cap endpoint snap to rail x
+_FRAME_CAP_NEAR_END = 30.0    # pt; cap is "near" frame top/bottom if within this
+_FRAME_SIDE_X_TOL   = 1.5     # pt; rail-x match against an existing-table side
+
+
+def _is_full_width_cap(line: dict, lx: float, rx: float) -> bool:
+    """A horizontal line that spans the full width of the candidate frame."""
+    return (abs(line["x0"] - lx) <= _FRAME_X_TOL
+            and abs(line["x1"] - rx) <= _FRAME_X_TOL)
+
+
+def _band_text(page, lx: float, ty: float, rx: float, by: float) -> str:
+    """Extract collapsed text from a rectangular band on the page."""
+    if by <= ty or rx <= lx:
+        return ""
+    crop = page.crop((lx, ty, rx, by))
+    return (crop.extract_text() or "").strip()
+
+
+def _find_borderless_frames(
+    page,
+    page_index: int,
+    page_height: float,
+    existing: list["TableRegion"],
+) -> list["TableRegion"]:
+    """Promote vertical-rail-bounded section frames to single-column TableRegions."""
+    # Sides of already-detected tables on this page; rails coinciding with
+    # these belong to those tables, not to a missed frame.
+    existing_sides: list[tuple[float, float]] = [
+        (r.bbox.x0, r.bbox.x1) for r in existing if r.page_index == page_index
+    ]
+
+    def _is_existing_side_pair(lx: float, rx: float) -> bool:
+        return any(
+            abs(lx - sx0) <= _FRAME_SIDE_X_TOL and abs(rx - sx1) <= _FRAME_SIDE_X_TOL
+            for sx0, sx1 in existing_sides
+        )
+
+    # Candidate rails: long, axis-aligned, visible.
+    v_lines = [
+        ln for ln in page.lines
+        if abs(ln["x0"] - ln["x1"]) < _AXIS_TOL
+        and (ln["bottom"] - ln["top"]) >= _FRAME_MIN_RAIL_LEN
+        and not _is_background_color(ln.get("stroking_color"))
+    ]
+    if len(v_lines) < 2:
+        return []
+
+    # Bucket rails by x (snap to _FRAME_X_TOL); keep the longest per bucket.
+    by_x: dict[float, dict] = {}
+    for ln in v_lines:
+        kx = round(ln["x0"] / _FRAME_X_TOL) * _FRAME_X_TOL
+        cur = by_x.get(kx)
+        if cur is None or (ln["bottom"] - ln["top"]) > (cur["bottom"] - cur["top"]):
+            by_x[kx] = ln
+    if len(by_x) < 2:
+        return []
+
+    # Visible horizontal lines for cap detection.
+    h_lines = [
+        ln for ln in page.lines
+        if abs(ln["y0"] - ln["y1"]) < _AXIS_TOL
+        and not _is_background_color(ln.get("stroking_color"))
+    ]
+
+    sorted_xs = sorted(by_x)
+    frames: list[TableRegion] = []
+    consumed: set[float] = set()
+    for i, lx in enumerate(sorted_xs):
+        if lx in consumed:
+            continue
+        left = by_x[lx]
+        for rx in sorted_xs[i + 1:]:
+            if rx in consumed or (rx - lx) < _FRAME_MIN_WIDTH:
+                continue
+            right = by_x[rx]
+            y0 = max(left["top"], right["top"])
+            y1 = min(left["bottom"], right["bottom"])
+            if (y1 - y0) < _FRAME_MIN_RAIL_LEN:
+                continue
+            if _is_existing_side_pair(lx, rx):
+                consumed.add(lx); consumed.add(rx)
+                break
+
+            # Cap bands: full-width horizontal lines anchored to this rail pair.
+            caps_sorted = sorted(
+                (ln["top"] for ln in h_lines if _is_full_width_cap(ln, lx, rx))
+            )
+            top_caps = [t for t in caps_sorted if (t - y0) <= _FRAME_CAP_NEAR_END]
+            bot_caps = [t for t in caps_sorted if (y1 - t) <= _FRAME_CAP_NEAR_END]
+            has_header = len(top_caps) >= 2
+            has_footer = len(bot_caps) >= 2
+            if not (has_header or has_footer):
+                continue
+
+            # Synthesise rows: Header? Content Footer? — always ≥ 1 row.
+            grid: list[list[str]] = []
+            cell_bboxes: list[list[BBox]] = []
+            content_top, content_bot = y0, y1
+            if has_header:
+                hdr_top, hdr_bot = top_caps[0], top_caps[1]
+                grid.append([_band_text(page, lx, hdr_top, rx, hdr_bot)])
+                cell_bboxes.append([
+                    BBox(page=page_index, x0=lx, y0=hdr_top, x1=rx, y1=hdr_bot)
+                ])
+                content_top = hdr_bot
+            if has_footer:
+                ft_top, ft_bot = bot_caps[-2], bot_caps[-1]
+                content_bot = ft_top
+            # Content cell: text empty so _build_cell recurses into nested
+            # sub-tables and pulls between-text paragraphs via the existing
+            # extract_tables._between_text_nodes path.
+            grid.append([""])
+            cell_bboxes.append([
+                BBox(page=page_index, x0=lx, y0=content_top, x1=rx, y1=content_bot)
+            ])
+            if has_footer:
+                ft_top, ft_bot = bot_caps[-2], bot_caps[-1]
+                grid.append([_band_text(page, lx, ft_top, rx, ft_bot)])
+                cell_bboxes.append([
+                    BBox(page=page_index, x0=lx, y0=ft_top, x1=rx, y1=ft_bot)
+                ])
+
+            frames.append(TableRegion(
+                page_index=page_index,
+                bbox=BBox(page=page_index, x0=lx, y0=y0, x1=rx, y1=y1),
+                grid=grid,
+                cell_bboxes=cell_bboxes,
+                page_height=page_height,
+                redistributed=True,  # synthetic grid; skip logical-grid rebuild
+            ))
+            consumed.add(lx); consumed.add(rx)
+            break  # this left rail is now paired
+    return frames
+
+
+# ---------------------------------------------------------------------------
 # Ruled-header / open-body redistribution.
 #
 # Many real-world tables (financial reports, scientific papers, Word exports)
@@ -548,10 +721,21 @@ def _detect_in_doc(
             fallback = target.find_tables(table_settings=_FALLBACK_TABLE_SETTINGS)
             found = [t for t in fallback if _is_text_strategy_table(t)]
 
+        page_regions: list[TableRegion] = []
         for t in found:
             region = _extract_region(target, t, page_idx, page_height)
             if region is None:
                 continue
             region = _redistribute_ruled_header_body(target, region)
-            out.append(region)
+            page_regions.append(region)
+
+        # Borderless-frame pass: top-level only.  Recursive nested-table
+        # detection (region_bbox != None) inside a frame's own Content cell
+        # would otherwise re-discover the frame and infinitely nest it.
+        if region_bbox is None and settings is None:
+            page_regions.extend(
+                _find_borderless_frames(target, page_idx, page_height, page_regions)
+            )
+
+        out.extend(page_regions)
     return out

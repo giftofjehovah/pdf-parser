@@ -22241,42 +22241,34 @@
         },
         {
           "attrs": {
-            "level": 3
-          },
-          "bbox": {
-            "page": 15,
-            "x0": 112,
-            "x1": 194,
-            "y0": 117,
-            "y1": 126
-          },
-          "children": [],
-          "id": "9866e3b005b2",
-          "kind": "heading",
-          "provenance": {
-            "extractor": "segment",
-            "stage": "build_tree"
-          },
-          "text": "Spanning Header"
-        },
-        {
-          "attrs": {
             "header_signature": [
-              "Code",
-              "Total"
+              "Spanning Header"
             ],
-            "n_cols": 2,
-            "n_rows": 3,
+            "n_cols": 1,
+            "n_rows": 4,
             "page": 15,
-            "page_height": 792.0
+            "page_height": 792.0,
+            "spans_pages": [
+              15,
+              16
+            ]
           },
-          "bbox": {
-            "page": 15,
-            "x0": 112,
-            "x1": 292,
-            "y0": 134,
-            "y1": 188
-          },
+          "bbox": [
+            {
+              "page": 15,
+              "x0": 106,
+              "x1": 506,
+              "y0": 110,
+              "y1": 704
+            },
+            {
+              "page": 16,
+              "x0": 106,
+              "x1": 506,
+              "y0": 78,
+              "y1": 564
+            }
+          ],
           "children": [
             {
               "attrs": {
@@ -22285,10 +22277,10 @@
               },
               "bbox": {
                 "page": 15,
-                "x0": 112,
-                "x1": 292,
-                "y0": 134,
-                "y1": 188
+                "x0": 106,
+                "x1": 506,
+                "y0": 110,
+                "y1": 704
               },
               "children": [
                 {
@@ -22297,42 +22289,22 @@
                   },
                   "bbox": {
                     "page": 15,
-                    "x0": 112,
-                    "x1": 202,
-                    "y0": 134,
-                    "y1": 152
+                    "x0": 106,
+                    "x1": 506,
+                    "y0": 110,
+                    "y1": 130
                   },
                   "children": [],
-                  "id": "a199a29fa44f",
+                  "id": "8f2227414b30",
                   "kind": "cell",
                   "provenance": {
                     "extractor": "pdfplumber",
                     "stage": "extract_tables"
                   },
-                  "text": "Code"
-                },
-                {
-                  "attrs": {
-                    "align": "left"
-                  },
-                  "bbox": {
-                    "page": 15,
-                    "x0": 202,
-                    "x1": 292,
-                    "y0": 134,
-                    "y1": 152
-                  },
-                  "children": [],
-                  "id": "fbbd7845baa7",
-                  "kind": "cell",
-                  "provenance": {
-                    "extractor": "pdfplumber",
-                    "stage": "extract_tables"
-                  },
-                  "text": "Total"
+                  "text": "Spanning Header"
                 }
               ],
-              "id": "af53ca77ed90",
+              "id": "fdf55a39de0f",
               "kind": "row",
               "provenance": {},
               "text": null
@@ -22344,10 +22316,10 @@
               },
               "bbox": {
                 "page": 15,
-                "x0": 112,
-                "x1": 292,
-                "y0": 134,
-                "y1": 188
+                "x0": 106,
+                "x1": 506,
+                "y0": 110,
+                "y1": 704
               },
               "children": [
                 {
@@ -22356,57 +22328,819 @@
                   },
                   "bbox": {
                     "page": 15,
-                    "x0": 112,
-                    "x1": 202,
-                    "y0": 152,
-                    "y1": 170
+                    "x0": 106,
+                    "x1": 506,
+                    "y0": 130,
+                    "y1": 704
                   },
-                  "children": [],
-                  "id": "9a3eb594b0e3",
+                  "children": [
+                    {
+                      "attrs": {
+                        "header_signature": [
+                          "Code",
+                          "Total"
+                        ],
+                        "n_cols": 2,
+                        "n_rows": 3,
+                        "page": 15,
+                        "page_height": 792.0
+                      },
+                      "bbox": {
+                        "page": 15,
+                        "x0": 112,
+                        "x1": 292,
+                        "y0": 134,
+                        "y1": 188
+                      },
+                      "children": [
+                        {
+                          "attrs": {
+                            "page": 15,
+                            "row_index": 0
+                          },
+                          "bbox": {
+                            "page": 15,
+                            "x0": 112,
+                            "x1": 292,
+                            "y0": 134,
+                            "y1": 188
+                          },
+                          "children": [
+                            {
+                              "attrs": {
+                                "align": "left"
+                              },
+                              "bbox": {
+                                "page": 15,
+                                "x0": 112,
+                                "x1": 202,
+                                "y0": 134,
+                                "y1": 152
+                              },
+                              "children": [],
+                              "id": "a199a29fa44f",
+                              "kind": "cell",
+                              "provenance": {
+                                "extractor": "pdfplumber",
+                                "stage": "extract_tables"
+                              },
+                              "text": "Code"
+                            },
+                            {
+                              "attrs": {
+                                "align": "left"
+                              },
+                              "bbox": {
+                                "page": 15,
+                                "x0": 202,
+                                "x1": 292,
+                                "y0": 134,
+                                "y1": 152
+                              },
+                              "children": [],
+                              "id": "fbbd7845baa7",
+                              "kind": "cell",
+                              "provenance": {
+                                "extractor": "pdfplumber",
+                                "stage": "extract_tables"
+                              },
+                              "text": "Total"
+                            }
+                          ],
+                          "id": "af53ca77ed90",
+                          "kind": "row",
+                          "provenance": {},
+                          "text": null
+                        },
+                        {
+                          "attrs": {
+                            "page": 15,
+                            "row_index": 1
+                          },
+                          "bbox": {
+                            "page": 15,
+                            "x0": 112,
+                            "x1": 292,
+                            "y0": 134,
+                            "y1": 188
+                          },
+                          "children": [
+                            {
+                              "attrs": {
+                                "align": "left"
+                              },
+                              "bbox": {
+                                "page": 15,
+                                "x0": 112,
+                                "x1": 202,
+                                "y0": 152,
+                                "y1": 170
+                              },
+                              "children": [],
+                              "id": "9a3eb594b0e3",
+                              "kind": "cell",
+                              "provenance": {
+                                "extractor": "pdfplumber",
+                                "stage": "extract_tables"
+                              },
+                              "text": "AX-1"
+                            },
+                            {
+                              "attrs": {
+                                "align": "left"
+                              },
+                              "bbox": {
+                                "page": 15,
+                                "x0": 202,
+                                "x1": 292,
+                                "y0": 152,
+                                "y1": 170
+                              },
+                              "children": [],
+                              "id": "7278b54ac7ba",
+                              "kind": "cell",
+                              "provenance": {
+                                "extractor": "pdfplumber",
+                                "stage": "extract_tables"
+                              },
+                              "text": "100"
+                            }
+                          ],
+                          "id": "3b48f1a5786c",
+                          "kind": "row",
+                          "provenance": {},
+                          "text": null
+                        },
+                        {
+                          "attrs": {
+                            "page": 15,
+                            "row_index": 2
+                          },
+                          "bbox": {
+                            "page": 15,
+                            "x0": 112,
+                            "x1": 292,
+                            "y0": 134,
+                            "y1": 188
+                          },
+                          "children": [
+                            {
+                              "attrs": {
+                                "align": "left"
+                              },
+                              "bbox": {
+                                "page": 15,
+                                "x0": 112,
+                                "x1": 202,
+                                "y0": 170,
+                                "y1": 188
+                              },
+                              "children": [],
+                              "id": "6517621b0b1e",
+                              "kind": "cell",
+                              "provenance": {
+                                "extractor": "pdfplumber",
+                                "stage": "extract_tables"
+                              },
+                              "text": "AX-2"
+                            },
+                            {
+                              "attrs": {
+                                "align": "left"
+                              },
+                              "bbox": {
+                                "page": 15,
+                                "x0": 202,
+                                "x1": 292,
+                                "y0": 170,
+                                "y1": 188
+                              },
+                              "children": [],
+                              "id": "23d4a3082036",
+                              "kind": "cell",
+                              "provenance": {
+                                "extractor": "pdfplumber",
+                                "stage": "extract_tables"
+                              },
+                              "text": "250"
+                            }
+                          ],
+                          "id": "aa72a444ad90",
+                          "kind": "row",
+                          "provenance": {},
+                          "text": null
+                        }
+                      ],
+                      "id": "157c422b5f8a",
+                      "kind": "table",
+                      "provenance": {
+                        "extractor": "pdfplumber",
+                        "stage": "extract_tables"
+                      },
+                      "text": null
+                    },
+                    {
+                      "attrs": {},
+                      "bbox": {
+                        "page": 15,
+                        "x0": 112,
+                        "x1": 492,
+                        "y0": 198,
+                        "y1": 207
+                      },
+                      "children": [],
+                      "id": "b9c121f0d633",
+                      "kind": "paragraph",
+                      "provenance": {
+                        "extractor": "pdfplumber",
+                        "stage": "extract_tables"
+                      },
+                      "text": "NOTE: This paragraph sits between the two sub-tables and must be preserved across the page"
+                    },
+                    {
+                      "attrs": {},
+                      "bbox": {
+                        "page": 15,
+                        "x0": 112,
+                        "x1": 137,
+                        "y0": 210,
+                        "y1": 219
+                      },
+                      "children": [],
+                      "id": "b64181401b1d",
+                      "kind": "paragraph",
+                      "provenance": {
+                        "extractor": "pdfplumber",
+                        "stage": "extract_tables"
+                      },
+                      "text": "break."
+                    },
+                    {
+                      "attrs": {},
+                      "bbox": {
+                        "page": 15,
+                        "x0": 112,
+                        "x1": 500,
+                        "y0": 230,
+                        "y1": 239
+                      },
+                      "children": [],
+                      "id": "9ccab0cf9fc5",
+                      "kind": "paragraph",
+                      "provenance": {
+                        "extractor": "pdfplumber",
+                        "stage": "extract_tables"
+                      },
+                      "text": "Spanning-line 01: Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor"
+                    },
+                    {
+                      "attrs": {},
+                      "bbox": {
+                        "page": 15,
+                        "x0": 112,
+                        "x1": 284,
+                        "y0": 242,
+                        "y1": 251
+                      },
+                      "children": [],
+                      "id": "8b15973a8791",
+                      "kind": "paragraph",
+                      "provenance": {
+                        "extractor": "pdfplumber",
+                        "stage": "extract_tables"
+                      },
+                      "text": "incididunt ut labore et dolore magna aliqua."
+                    },
+                    {
+                      "attrs": {},
+                      "bbox": {
+                        "page": 15,
+                        "x0": 112,
+                        "x1": 500,
+                        "y0": 262,
+                        "y1": 271
+                      },
+                      "children": [],
+                      "id": "9bef5cc7f2f5",
+                      "kind": "paragraph",
+                      "provenance": {
+                        "extractor": "pdfplumber",
+                        "stage": "extract_tables"
+                      },
+                      "text": "Spanning-line 02: Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor"
+                    },
+                    {
+                      "attrs": {},
+                      "bbox": {
+                        "page": 15,
+                        "x0": 112,
+                        "x1": 284,
+                        "y0": 274,
+                        "y1": 283
+                      },
+                      "children": [],
+                      "id": "dee821be5b23",
+                      "kind": "paragraph",
+                      "provenance": {
+                        "extractor": "pdfplumber",
+                        "stage": "extract_tables"
+                      },
+                      "text": "incididunt ut labore et dolore magna aliqua."
+                    },
+                    {
+                      "attrs": {},
+                      "bbox": {
+                        "page": 15,
+                        "x0": 112,
+                        "x1": 500,
+                        "y0": 294,
+                        "y1": 303
+                      },
+                      "children": [],
+                      "id": "5360abc3326a",
+                      "kind": "paragraph",
+                      "provenance": {
+                        "extractor": "pdfplumber",
+                        "stage": "extract_tables"
+                      },
+                      "text": "Spanning-line 03: Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor"
+                    },
+                    {
+                      "attrs": {},
+                      "bbox": {
+                        "page": 15,
+                        "x0": 112,
+                        "x1": 284,
+                        "y0": 306,
+                        "y1": 315
+                      },
+                      "children": [],
+                      "id": "cf234af59de7",
+                      "kind": "paragraph",
+                      "provenance": {
+                        "extractor": "pdfplumber",
+                        "stage": "extract_tables"
+                      },
+                      "text": "incididunt ut labore et dolore magna aliqua."
+                    },
+                    {
+                      "attrs": {},
+                      "bbox": {
+                        "page": 15,
+                        "x0": 112,
+                        "x1": 500,
+                        "y0": 326,
+                        "y1": 335
+                      },
+                      "children": [],
+                      "id": "826d6b2fba76",
+                      "kind": "paragraph",
+                      "provenance": {
+                        "extractor": "pdfplumber",
+                        "stage": "extract_tables"
+                      },
+                      "text": "Spanning-line 04: Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor"
+                    },
+                    {
+                      "attrs": {},
+                      "bbox": {
+                        "page": 15,
+                        "x0": 112,
+                        "x1": 284,
+                        "y0": 338,
+                        "y1": 347
+                      },
+                      "children": [],
+                      "id": "999ef89b24d6",
+                      "kind": "paragraph",
+                      "provenance": {
+                        "extractor": "pdfplumber",
+                        "stage": "extract_tables"
+                      },
+                      "text": "incididunt ut labore et dolore magna aliqua."
+                    },
+                    {
+                      "attrs": {},
+                      "bbox": {
+                        "page": 15,
+                        "x0": 112,
+                        "x1": 500,
+                        "y0": 358,
+                        "y1": 367
+                      },
+                      "children": [],
+                      "id": "8c68f676d4a1",
+                      "kind": "paragraph",
+                      "provenance": {
+                        "extractor": "pdfplumber",
+                        "stage": "extract_tables"
+                      },
+                      "text": "Spanning-line 05: Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor"
+                    },
+                    {
+                      "attrs": {},
+                      "bbox": {
+                        "page": 15,
+                        "x0": 112,
+                        "x1": 284,
+                        "y0": 370,
+                        "y1": 379
+                      },
+                      "children": [],
+                      "id": "c7a3f4c519e2",
+                      "kind": "paragraph",
+                      "provenance": {
+                        "extractor": "pdfplumber",
+                        "stage": "extract_tables"
+                      },
+                      "text": "incididunt ut labore et dolore magna aliqua."
+                    },
+                    {
+                      "attrs": {},
+                      "bbox": {
+                        "page": 15,
+                        "x0": 112,
+                        "x1": 500,
+                        "y0": 390,
+                        "y1": 399
+                      },
+                      "children": [],
+                      "id": "7f831433b53d",
+                      "kind": "paragraph",
+                      "provenance": {
+                        "extractor": "pdfplumber",
+                        "stage": "extract_tables"
+                      },
+                      "text": "Spanning-line 06: Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor"
+                    },
+                    {
+                      "attrs": {},
+                      "bbox": {
+                        "page": 15,
+                        "x0": 112,
+                        "x1": 284,
+                        "y0": 402,
+                        "y1": 411
+                      },
+                      "children": [],
+                      "id": "392e65defc09",
+                      "kind": "paragraph",
+                      "provenance": {
+                        "extractor": "pdfplumber",
+                        "stage": "extract_tables"
+                      },
+                      "text": "incididunt ut labore et dolore magna aliqua."
+                    },
+                    {
+                      "attrs": {},
+                      "bbox": {
+                        "page": 15,
+                        "x0": 112,
+                        "x1": 500,
+                        "y0": 422,
+                        "y1": 431
+                      },
+                      "children": [],
+                      "id": "64ae8eb7afc3",
+                      "kind": "paragraph",
+                      "provenance": {
+                        "extractor": "pdfplumber",
+                        "stage": "extract_tables"
+                      },
+                      "text": "Spanning-line 07: Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor"
+                    },
+                    {
+                      "attrs": {},
+                      "bbox": {
+                        "page": 15,
+                        "x0": 112,
+                        "x1": 284,
+                        "y0": 434,
+                        "y1": 443
+                      },
+                      "children": [],
+                      "id": "f60db3e65d5a",
+                      "kind": "paragraph",
+                      "provenance": {
+                        "extractor": "pdfplumber",
+                        "stage": "extract_tables"
+                      },
+                      "text": "incididunt ut labore et dolore magna aliqua."
+                    },
+                    {
+                      "attrs": {},
+                      "bbox": {
+                        "page": 15,
+                        "x0": 112,
+                        "x1": 500,
+                        "y0": 454,
+                        "y1": 463
+                      },
+                      "children": [],
+                      "id": "c68a1e01948d",
+                      "kind": "paragraph",
+                      "provenance": {
+                        "extractor": "pdfplumber",
+                        "stage": "extract_tables"
+                      },
+                      "text": "Spanning-line 08: Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor"
+                    },
+                    {
+                      "attrs": {},
+                      "bbox": {
+                        "page": 15,
+                        "x0": 112,
+                        "x1": 284,
+                        "y0": 466,
+                        "y1": 475
+                      },
+                      "children": [],
+                      "id": "c30f0115b927",
+                      "kind": "paragraph",
+                      "provenance": {
+                        "extractor": "pdfplumber",
+                        "stage": "extract_tables"
+                      },
+                      "text": "incididunt ut labore et dolore magna aliqua."
+                    },
+                    {
+                      "attrs": {},
+                      "bbox": {
+                        "page": 15,
+                        "x0": 112,
+                        "x1": 500,
+                        "y0": 486,
+                        "y1": 495
+                      },
+                      "children": [],
+                      "id": "41068aaf44c7",
+                      "kind": "paragraph",
+                      "provenance": {
+                        "extractor": "pdfplumber",
+                        "stage": "extract_tables"
+                      },
+                      "text": "Spanning-line 09: Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor"
+                    },
+                    {
+                      "attrs": {},
+                      "bbox": {
+                        "page": 15,
+                        "x0": 112,
+                        "x1": 284,
+                        "y0": 498,
+                        "y1": 507
+                      },
+                      "children": [],
+                      "id": "df782cca71c2",
+                      "kind": "paragraph",
+                      "provenance": {
+                        "extractor": "pdfplumber",
+                        "stage": "extract_tables"
+                      },
+                      "text": "incididunt ut labore et dolore magna aliqua."
+                    },
+                    {
+                      "attrs": {},
+                      "bbox": {
+                        "page": 15,
+                        "x0": 112,
+                        "x1": 500,
+                        "y0": 518,
+                        "y1": 527
+                      },
+                      "children": [],
+                      "id": "20e4c344c5c3",
+                      "kind": "paragraph",
+                      "provenance": {
+                        "extractor": "pdfplumber",
+                        "stage": "extract_tables"
+                      },
+                      "text": "Spanning-line 10: Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor"
+                    },
+                    {
+                      "attrs": {},
+                      "bbox": {
+                        "page": 15,
+                        "x0": 112,
+                        "x1": 284,
+                        "y0": 530,
+                        "y1": 539
+                      },
+                      "children": [],
+                      "id": "09e7e2ebba41",
+                      "kind": "paragraph",
+                      "provenance": {
+                        "extractor": "pdfplumber",
+                        "stage": "extract_tables"
+                      },
+                      "text": "incididunt ut labore et dolore magna aliqua."
+                    },
+                    {
+                      "attrs": {},
+                      "bbox": {
+                        "page": 15,
+                        "x0": 112,
+                        "x1": 500,
+                        "y0": 550,
+                        "y1": 559
+                      },
+                      "children": [],
+                      "id": "406108962cd6",
+                      "kind": "paragraph",
+                      "provenance": {
+                        "extractor": "pdfplumber",
+                        "stage": "extract_tables"
+                      },
+                      "text": "Spanning-line 11: Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor"
+                    },
+                    {
+                      "attrs": {},
+                      "bbox": {
+                        "page": 15,
+                        "x0": 112,
+                        "x1": 284,
+                        "y0": 562,
+                        "y1": 571
+                      },
+                      "children": [],
+                      "id": "d553a58f83ee",
+                      "kind": "paragraph",
+                      "provenance": {
+                        "extractor": "pdfplumber",
+                        "stage": "extract_tables"
+                      },
+                      "text": "incididunt ut labore et dolore magna aliqua."
+                    },
+                    {
+                      "attrs": {},
+                      "bbox": {
+                        "page": 15,
+                        "x0": 112,
+                        "x1": 500,
+                        "y0": 582,
+                        "y1": 591
+                      },
+                      "children": [],
+                      "id": "3f3fd0db3cdb",
+                      "kind": "paragraph",
+                      "provenance": {
+                        "extractor": "pdfplumber",
+                        "stage": "extract_tables"
+                      },
+                      "text": "Spanning-line 12: Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor"
+                    },
+                    {
+                      "attrs": {},
+                      "bbox": {
+                        "page": 15,
+                        "x0": 112,
+                        "x1": 284,
+                        "y0": 594,
+                        "y1": 603
+                      },
+                      "children": [],
+                      "id": "6ea42a2b82bb",
+                      "kind": "paragraph",
+                      "provenance": {
+                        "extractor": "pdfplumber",
+                        "stage": "extract_tables"
+                      },
+                      "text": "incididunt ut labore et dolore magna aliqua."
+                    },
+                    {
+                      "attrs": {},
+                      "bbox": {
+                        "page": 15,
+                        "x0": 112,
+                        "x1": 500,
+                        "y0": 614,
+                        "y1": 623
+                      },
+                      "children": [],
+                      "id": "77533bfe4677",
+                      "kind": "paragraph",
+                      "provenance": {
+                        "extractor": "pdfplumber",
+                        "stage": "extract_tables"
+                      },
+                      "text": "Spanning-line 13: Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor"
+                    },
+                    {
+                      "attrs": {},
+                      "bbox": {
+                        "page": 15,
+                        "x0": 112,
+                        "x1": 284,
+                        "y0": 626,
+                        "y1": 635
+                      },
+                      "children": [],
+                      "id": "7f4eeae50731",
+                      "kind": "paragraph",
+                      "provenance": {
+                        "extractor": "pdfplumber",
+                        "stage": "extract_tables"
+                      },
+                      "text": "incididunt ut labore et dolore magna aliqua."
+                    },
+                    {
+                      "attrs": {},
+                      "bbox": {
+                        "page": 15,
+                        "x0": 112,
+                        "x1": 500,
+                        "y0": 646,
+                        "y1": 655
+                      },
+                      "children": [],
+                      "id": "6d2c4f1809d9",
+                      "kind": "paragraph",
+                      "provenance": {
+                        "extractor": "pdfplumber",
+                        "stage": "extract_tables"
+                      },
+                      "text": "Spanning-line 14: Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor"
+                    },
+                    {
+                      "attrs": {},
+                      "bbox": {
+                        "page": 15,
+                        "x0": 112,
+                        "x1": 284,
+                        "y0": 658,
+                        "y1": 667
+                      },
+                      "children": [],
+                      "id": "739b31e3516c",
+                      "kind": "paragraph",
+                      "provenance": {
+                        "extractor": "pdfplumber",
+                        "stage": "extract_tables"
+                      },
+                      "text": "incididunt ut labore et dolore magna aliqua."
+                    },
+                    {
+                      "attrs": {},
+                      "bbox": {
+                        "page": 15,
+                        "x0": 112,
+                        "x1": 500,
+                        "y0": 678,
+                        "y1": 687
+                      },
+                      "children": [],
+                      "id": "dcbb3266008b",
+                      "kind": "paragraph",
+                      "provenance": {
+                        "extractor": "pdfplumber",
+                        "stage": "extract_tables"
+                      },
+                      "text": "Spanning-line 15: Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor"
+                    },
+                    {
+                      "attrs": {},
+                      "bbox": {
+                        "page": 15,
+                        "x0": 112,
+                        "x1": 284,
+                        "y0": 690,
+                        "y1": 699
+                      },
+                      "children": [],
+                      "id": "96aa6736588f",
+                      "kind": "paragraph",
+                      "provenance": {
+                        "extractor": "pdfplumber",
+                        "stage": "extract_tables"
+                      },
+                      "text": "incididunt ut labore et dolore magna aliqua."
+                    }
+                  ],
+                  "id": "d440b9d495cc",
                   "kind": "cell",
                   "provenance": {
                     "extractor": "pdfplumber",
                     "stage": "extract_tables"
                   },
-                  "text": "AX-1"
-                },
-                {
-                  "attrs": {
-                    "align": "left"
-                  },
-                  "bbox": {
-                    "page": 15,
-                    "x0": 202,
-                    "x1": 292,
-                    "y0": 152,
-                    "y1": 170
-                  },
-                  "children": [],
-                  "id": "7278b54ac7ba",
-                  "kind": "cell",
-                  "provenance": {
-                    "extractor": "pdfplumber",
-                    "stage": "extract_tables"
-                  },
-                  "text": "100"
+                  "text": null
                 }
               ],
-              "id": "3b48f1a5786c",
+              "id": "d9f0d01f0117",
               "kind": "row",
               "provenance": {},
               "text": null
             },
             {
               "attrs": {
-                "page": 15,
+                "page": 16,
                 "row_index": 2
               },
               "bbox": {
-                "page": 15,
-                "x0": 112,
-                "x1": 292,
-                "y0": 134,
-                "y1": 188
+                "page": 16,
+                "x0": 106,
+                "x1": 506,
+                "y0": 78,
+                "y1": 564
               },
               "children": [
                 {
@@ -22414,634 +23148,733 @@
                     "align": "left"
                   },
                   "bbox": {
-                    "page": 15,
-                    "x0": 112,
-                    "x1": 202,
-                    "y0": 170,
-                    "y1": 188
+                    "page": 16,
+                    "x0": 106,
+                    "x1": 506,
+                    "y0": 78,
+                    "y1": 544
                   },
-                  "children": [],
-                  "id": "6517621b0b1e",
+                  "children": [
+                    {
+                      "attrs": {},
+                      "bbox": {
+                        "page": 16,
+                        "x0": 112,
+                        "x1": 500,
+                        "y0": 84,
+                        "y1": 93
+                      },
+                      "children": [],
+                      "id": "a84d3568fa3a",
+                      "kind": "paragraph",
+                      "provenance": {
+                        "extractor": "pdfplumber",
+                        "stage": "extract_tables"
+                      },
+                      "text": "Spanning-line 16: Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor"
+                    },
+                    {
+                      "attrs": {},
+                      "bbox": {
+                        "page": 16,
+                        "x0": 112,
+                        "x1": 284,
+                        "y0": 96,
+                        "y1": 105
+                      },
+                      "children": [],
+                      "id": "e68e51f778d8",
+                      "kind": "paragraph",
+                      "provenance": {
+                        "extractor": "pdfplumber",
+                        "stage": "extract_tables"
+                      },
+                      "text": "incididunt ut labore et dolore magna aliqua."
+                    },
+                    {
+                      "attrs": {},
+                      "bbox": {
+                        "page": 16,
+                        "x0": 112,
+                        "x1": 500,
+                        "y0": 116,
+                        "y1": 125
+                      },
+                      "children": [],
+                      "id": "dc4693a6f6d1",
+                      "kind": "paragraph",
+                      "provenance": {
+                        "extractor": "pdfplumber",
+                        "stage": "extract_tables"
+                      },
+                      "text": "Spanning-line 17: Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor"
+                    },
+                    {
+                      "attrs": {},
+                      "bbox": {
+                        "page": 16,
+                        "x0": 112,
+                        "x1": 284,
+                        "y0": 128,
+                        "y1": 137
+                      },
+                      "children": [],
+                      "id": "8c3375db7b0c",
+                      "kind": "paragraph",
+                      "provenance": {
+                        "extractor": "pdfplumber",
+                        "stage": "extract_tables"
+                      },
+                      "text": "incididunt ut labore et dolore magna aliqua."
+                    },
+                    {
+                      "attrs": {},
+                      "bbox": {
+                        "page": 16,
+                        "x0": 112,
+                        "x1": 500,
+                        "y0": 148,
+                        "y1": 157
+                      },
+                      "children": [],
+                      "id": "7d700c024050",
+                      "kind": "paragraph",
+                      "provenance": {
+                        "extractor": "pdfplumber",
+                        "stage": "extract_tables"
+                      },
+                      "text": "Spanning-line 18: Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor"
+                    },
+                    {
+                      "attrs": {},
+                      "bbox": {
+                        "page": 16,
+                        "x0": 112,
+                        "x1": 284,
+                        "y0": 160,
+                        "y1": 169
+                      },
+                      "children": [],
+                      "id": "8beff9446ebd",
+                      "kind": "paragraph",
+                      "provenance": {
+                        "extractor": "pdfplumber",
+                        "stage": "extract_tables"
+                      },
+                      "text": "incididunt ut labore et dolore magna aliqua."
+                    },
+                    {
+                      "attrs": {},
+                      "bbox": {
+                        "page": 16,
+                        "x0": 112,
+                        "x1": 500,
+                        "y0": 180,
+                        "y1": 189
+                      },
+                      "children": [],
+                      "id": "7a1f0169f20a",
+                      "kind": "paragraph",
+                      "provenance": {
+                        "extractor": "pdfplumber",
+                        "stage": "extract_tables"
+                      },
+                      "text": "Spanning-line 19: Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor"
+                    },
+                    {
+                      "attrs": {},
+                      "bbox": {
+                        "page": 16,
+                        "x0": 112,
+                        "x1": 284,
+                        "y0": 192,
+                        "y1": 201
+                      },
+                      "children": [],
+                      "id": "87de87b3eab2",
+                      "kind": "paragraph",
+                      "provenance": {
+                        "extractor": "pdfplumber",
+                        "stage": "extract_tables"
+                      },
+                      "text": "incididunt ut labore et dolore magna aliqua."
+                    },
+                    {
+                      "attrs": {},
+                      "bbox": {
+                        "page": 16,
+                        "x0": 112,
+                        "x1": 500,
+                        "y0": 212,
+                        "y1": 221
+                      },
+                      "children": [],
+                      "id": "839070be8553",
+                      "kind": "paragraph",
+                      "provenance": {
+                        "extractor": "pdfplumber",
+                        "stage": "extract_tables"
+                      },
+                      "text": "Spanning-line 20: Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor"
+                    },
+                    {
+                      "attrs": {},
+                      "bbox": {
+                        "page": 16,
+                        "x0": 112,
+                        "x1": 284,
+                        "y0": 224,
+                        "y1": 233
+                      },
+                      "children": [],
+                      "id": "bc1fe3328906",
+                      "kind": "paragraph",
+                      "provenance": {
+                        "extractor": "pdfplumber",
+                        "stage": "extract_tables"
+                      },
+                      "text": "incididunt ut labore et dolore magna aliqua."
+                    },
+                    {
+                      "attrs": {},
+                      "bbox": {
+                        "page": 16,
+                        "x0": 112,
+                        "x1": 500,
+                        "y0": 244,
+                        "y1": 253
+                      },
+                      "children": [],
+                      "id": "726951b38c8f",
+                      "kind": "paragraph",
+                      "provenance": {
+                        "extractor": "pdfplumber",
+                        "stage": "extract_tables"
+                      },
+                      "text": "Spanning-line 21: Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor"
+                    },
+                    {
+                      "attrs": {},
+                      "bbox": {
+                        "page": 16,
+                        "x0": 112,
+                        "x1": 284,
+                        "y0": 256,
+                        "y1": 265
+                      },
+                      "children": [],
+                      "id": "6c5566a707cd",
+                      "kind": "paragraph",
+                      "provenance": {
+                        "extractor": "pdfplumber",
+                        "stage": "extract_tables"
+                      },
+                      "text": "incididunt ut labore et dolore magna aliqua."
+                    },
+                    {
+                      "attrs": {},
+                      "bbox": {
+                        "page": 16,
+                        "x0": 112,
+                        "x1": 500,
+                        "y0": 276,
+                        "y1": 285
+                      },
+                      "children": [],
+                      "id": "6a41545e26d5",
+                      "kind": "paragraph",
+                      "provenance": {
+                        "extractor": "pdfplumber",
+                        "stage": "extract_tables"
+                      },
+                      "text": "Spanning-line 22: Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor"
+                    },
+                    {
+                      "attrs": {},
+                      "bbox": {
+                        "page": 16,
+                        "x0": 112,
+                        "x1": 284,
+                        "y0": 288,
+                        "y1": 297
+                      },
+                      "children": [],
+                      "id": "9b4c3f86fd9e",
+                      "kind": "paragraph",
+                      "provenance": {
+                        "extractor": "pdfplumber",
+                        "stage": "extract_tables"
+                      },
+                      "text": "incididunt ut labore et dolore magna aliqua."
+                    },
+                    {
+                      "attrs": {},
+                      "bbox": {
+                        "page": 16,
+                        "x0": 112,
+                        "x1": 500,
+                        "y0": 308,
+                        "y1": 317
+                      },
+                      "children": [],
+                      "id": "48fcce5f4c56",
+                      "kind": "paragraph",
+                      "provenance": {
+                        "extractor": "pdfplumber",
+                        "stage": "extract_tables"
+                      },
+                      "text": "Spanning-line 23: Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor"
+                    },
+                    {
+                      "attrs": {},
+                      "bbox": {
+                        "page": 16,
+                        "x0": 112,
+                        "x1": 284,
+                        "y0": 320,
+                        "y1": 329
+                      },
+                      "children": [],
+                      "id": "a1fdfc53f53a",
+                      "kind": "paragraph",
+                      "provenance": {
+                        "extractor": "pdfplumber",
+                        "stage": "extract_tables"
+                      },
+                      "text": "incididunt ut labore et dolore magna aliqua."
+                    },
+                    {
+                      "attrs": {},
+                      "bbox": {
+                        "page": 16,
+                        "x0": 112,
+                        "x1": 500,
+                        "y0": 340,
+                        "y1": 349
+                      },
+                      "children": [],
+                      "id": "0800372786fb",
+                      "kind": "paragraph",
+                      "provenance": {
+                        "extractor": "pdfplumber",
+                        "stage": "extract_tables"
+                      },
+                      "text": "Spanning-line 24: Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor"
+                    },
+                    {
+                      "attrs": {},
+                      "bbox": {
+                        "page": 16,
+                        "x0": 112,
+                        "x1": 284,
+                        "y0": 352,
+                        "y1": 361
+                      },
+                      "children": [],
+                      "id": "a169b04eb7ee",
+                      "kind": "paragraph",
+                      "provenance": {
+                        "extractor": "pdfplumber",
+                        "stage": "extract_tables"
+                      },
+                      "text": "incididunt ut labore et dolore magna aliqua."
+                    },
+                    {
+                      "attrs": {},
+                      "bbox": {
+                        "page": 16,
+                        "x0": 112,
+                        "x1": 500,
+                        "y0": 372,
+                        "y1": 381
+                      },
+                      "children": [],
+                      "id": "2498c9a2d5e5",
+                      "kind": "paragraph",
+                      "provenance": {
+                        "extractor": "pdfplumber",
+                        "stage": "extract_tables"
+                      },
+                      "text": "Spanning-line 25: Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor"
+                    },
+                    {
+                      "attrs": {},
+                      "bbox": {
+                        "page": 16,
+                        "x0": 112,
+                        "x1": 284,
+                        "y0": 384,
+                        "y1": 393
+                      },
+                      "children": [],
+                      "id": "f5320cc5f467",
+                      "kind": "paragraph",
+                      "provenance": {
+                        "extractor": "pdfplumber",
+                        "stage": "extract_tables"
+                      },
+                      "text": "incididunt ut labore et dolore magna aliqua."
+                    },
+                    {
+                      "attrs": {},
+                      "bbox": {
+                        "page": 16,
+                        "x0": 112,
+                        "x1": 500,
+                        "y0": 404,
+                        "y1": 413
+                      },
+                      "children": [],
+                      "id": "3b523443b754",
+                      "kind": "paragraph",
+                      "provenance": {
+                        "extractor": "pdfplumber",
+                        "stage": "extract_tables"
+                      },
+                      "text": "Spanning-line 26: Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor"
+                    },
+                    {
+                      "attrs": {},
+                      "bbox": {
+                        "page": 16,
+                        "x0": 112,
+                        "x1": 284,
+                        "y0": 416,
+                        "y1": 425
+                      },
+                      "children": [],
+                      "id": "c3b496d6d97f",
+                      "kind": "paragraph",
+                      "provenance": {
+                        "extractor": "pdfplumber",
+                        "stage": "extract_tables"
+                      },
+                      "text": "incididunt ut labore et dolore magna aliqua."
+                    },
+                    {
+                      "attrs": {},
+                      "bbox": {
+                        "page": 16,
+                        "x0": 112,
+                        "x1": 500,
+                        "y0": 436,
+                        "y1": 445
+                      },
+                      "children": [],
+                      "id": "99a8abdc5fc2",
+                      "kind": "paragraph",
+                      "provenance": {
+                        "extractor": "pdfplumber",
+                        "stage": "extract_tables"
+                      },
+                      "text": "Spanning-line 27: Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor"
+                    },
+                    {
+                      "attrs": {},
+                      "bbox": {
+                        "page": 16,
+                        "x0": 112,
+                        "x1": 284,
+                        "y0": 448,
+                        "y1": 457
+                      },
+                      "children": [],
+                      "id": "b784a58f4274",
+                      "kind": "paragraph",
+                      "provenance": {
+                        "extractor": "pdfplumber",
+                        "stage": "extract_tables"
+                      },
+                      "text": "incididunt ut labore et dolore magna aliqua."
+                    },
+                    {
+                      "attrs": {},
+                      "bbox": {
+                        "page": 16,
+                        "x0": 112,
+                        "x1": 420,
+                        "y0": 468,
+                        "y1": 477
+                      },
+                      "children": [],
+                      "id": "e3f3813b0a9d",
+                      "kind": "paragraph",
+                      "provenance": {
+                        "extractor": "pdfplumber",
+                        "stage": "extract_tables"
+                      },
+                      "text": "END: This trailing sentence is the last paragraph between the two sub-tables."
+                    },
+                    {
+                      "attrs": {
+                        "header_signature": [
+                          "Phase",
+                          "Status"
+                        ],
+                        "n_cols": 2,
+                        "n_rows": 3,
+                        "page": 16,
+                        "page_height": 792.0
+                      },
+                      "bbox": {
+                        "page": 16,
+                        "x0": 112,
+                        "x1": 292,
+                        "y0": 486,
+                        "y1": 540
+                      },
+                      "children": [
+                        {
+                          "attrs": {
+                            "page": 16,
+                            "row_index": 0
+                          },
+                          "bbox": {
+                            "page": 16,
+                            "x0": 112,
+                            "x1": 292,
+                            "y0": 486,
+                            "y1": 540
+                          },
+                          "children": [
+                            {
+                              "attrs": {
+                                "align": "left"
+                              },
+                              "bbox": {
+                                "page": 16,
+                                "x0": 112,
+                                "x1": 202,
+                                "y0": 486,
+                                "y1": 504
+                              },
+                              "children": [],
+                              "id": "d7e606e9e441",
+                              "kind": "cell",
+                              "provenance": {
+                                "extractor": "pdfplumber",
+                                "stage": "extract_tables"
+                              },
+                              "text": "Phase"
+                            },
+                            {
+                              "attrs": {
+                                "align": "left"
+                              },
+                              "bbox": {
+                                "page": 16,
+                                "x0": 202,
+                                "x1": 292,
+                                "y0": 486,
+                                "y1": 504
+                              },
+                              "children": [],
+                              "id": "4abb542cf094",
+                              "kind": "cell",
+                              "provenance": {
+                                "extractor": "pdfplumber",
+                                "stage": "extract_tables"
+                              },
+                              "text": "Status"
+                            }
+                          ],
+                          "id": "fe58246e6191",
+                          "kind": "row",
+                          "provenance": {},
+                          "text": null
+                        },
+                        {
+                          "attrs": {
+                            "page": 16,
+                            "row_index": 1
+                          },
+                          "bbox": {
+                            "page": 16,
+                            "x0": 112,
+                            "x1": 292,
+                            "y0": 486,
+                            "y1": 540
+                          },
+                          "children": [
+                            {
+                              "attrs": {
+                                "align": "left"
+                              },
+                              "bbox": {
+                                "page": 16,
+                                "x0": 112,
+                                "x1": 202,
+                                "y0": 504,
+                                "y1": 522
+                              },
+                              "children": [],
+                              "id": "33c036d60239",
+                              "kind": "cell",
+                              "provenance": {
+                                "extractor": "pdfplumber",
+                                "stage": "extract_tables"
+                              },
+                              "text": "Init"
+                            },
+                            {
+                              "attrs": {
+                                "align": "left"
+                              },
+                              "bbox": {
+                                "page": 16,
+                                "x0": 202,
+                                "x1": 292,
+                                "y0": 504,
+                                "y1": 522
+                              },
+                              "children": [],
+                              "id": "45fe6ff1e555",
+                              "kind": "cell",
+                              "provenance": {
+                                "extractor": "pdfplumber",
+                                "stage": "extract_tables"
+                              },
+                              "text": "Done"
+                            }
+                          ],
+                          "id": "8123b418fd15",
+                          "kind": "row",
+                          "provenance": {},
+                          "text": null
+                        },
+                        {
+                          "attrs": {
+                            "page": 16,
+                            "row_index": 2
+                          },
+                          "bbox": {
+                            "page": 16,
+                            "x0": 112,
+                            "x1": 292,
+                            "y0": 486,
+                            "y1": 540
+                          },
+                          "children": [
+                            {
+                              "attrs": {
+                                "align": "left"
+                              },
+                              "bbox": {
+                                "page": 16,
+                                "x0": 112,
+                                "x1": 202,
+                                "y0": 522,
+                                "y1": 540
+                              },
+                              "children": [],
+                              "id": "3df7d98181cb",
+                              "kind": "cell",
+                              "provenance": {
+                                "extractor": "pdfplumber",
+                                "stage": "extract_tables"
+                              },
+                              "text": "Build"
+                            },
+                            {
+                              "attrs": {
+                                "align": "left"
+                              },
+                              "bbox": {
+                                "page": 16,
+                                "x0": 202,
+                                "x1": 292,
+                                "y0": 522,
+                                "y1": 540
+                              },
+                              "children": [],
+                              "id": "c69982f4fdce",
+                              "kind": "cell",
+                              "provenance": {
+                                "extractor": "pdfplumber",
+                                "stage": "extract_tables"
+                              },
+                              "text": "WIP"
+                            }
+                          ],
+                          "id": "9ce9738e43a0",
+                          "kind": "row",
+                          "provenance": {},
+                          "text": null
+                        }
+                      ],
+                      "id": "c838672d62ce",
+                      "kind": "table",
+                      "provenance": {
+                        "extractor": "pdfplumber",
+                        "stage": "extract_tables"
+                      },
+                      "text": null
+                    }
+                  ],
+                  "id": "6b90cd38a6df",
                   "kind": "cell",
                   "provenance": {
                     "extractor": "pdfplumber",
                     "stage": "extract_tables"
                   },
-                  "text": "AX-2"
-                },
+                  "text": null
+                }
+              ],
+              "id": "00f288c31c7c",
+              "kind": "row",
+              "provenance": {},
+              "text": null
+            },
+            {
+              "attrs": {
+                "page": 16,
+                "row_index": 3
+              },
+              "bbox": {
+                "page": 16,
+                "x0": 106,
+                "x1": 506,
+                "y0": 78,
+                "y1": 564
+              },
+              "children": [
                 {
                   "attrs": {
                     "align": "left"
                   },
                   "bbox": {
-                    "page": 15,
-                    "x0": 202,
-                    "x1": 292,
-                    "y0": 170,
-                    "y1": 188
+                    "page": 16,
+                    "x0": 106,
+                    "x1": 506,
+                    "y0": 544,
+                    "y1": 564
                   },
                   "children": [],
-                  "id": "23d4a3082036",
+                  "id": "e53b2560db27",
                   "kind": "cell",
                   "provenance": {
                     "extractor": "pdfplumber",
                     "stage": "extract_tables"
                   },
-                  "text": "250"
+                  "text": "Spanning Footer"
                 }
               ],
-              "id": "aa72a444ad90",
+              "id": "cfe0e7cf32d9",
               "kind": "row",
               "provenance": {},
               "text": null
             }
           ],
-          "id": "157c422b5f8a",
+          "id": "9191889bf8a7",
           "kind": "table",
           "provenance": {
-            "extractor": "pdfplumber",
-            "stage": "extract_tables"
+            "extractor": "pdfplumber+stitch",
+            "stage": "stitch_pages"
           },
           "text": null
-        },
-        {
-          "attrs": {},
-          "bbox": {
-            "page": 15,
-            "x0": 113,
-            "x1": 491,
-            "y0": 198,
-            "y1": 207
-          },
-          "children": [],
-          "id": "328d544f5469",
-          "kind": "paragraph",
-          "provenance": {
-            "extractor": "segment",
-            "stage": "build_tree"
-          },
-          "text": "NOTE: This paragraph sits between the two sub-tables and must be preserved across the page"
-        },
-        {
-          "attrs": {},
-          "bbox": {
-            "page": 15,
-            "x0": 113,
-            "x1": 136,
-            "y0": 211,
-            "y1": 217
-          },
-          "children": [],
-          "id": "6be9751f6270",
-          "kind": "paragraph",
-          "provenance": {
-            "extractor": "segment",
-            "stage": "build_tree"
-          },
-          "text": "break."
-        },
-        {
-          "attrs": {},
-          "bbox": {
-            "page": 15,
-            "x0": 112,
-            "x1": 500,
-            "y0": 230,
-            "y1": 239
-          },
-          "children": [],
-          "id": "9ccab0cf9fc5",
-          "kind": "paragraph",
-          "provenance": {
-            "extractor": "segment",
-            "stage": "build_tree"
-          },
-          "text": "Spanning-line 01: Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor"
-        },
-        {
-          "attrs": {},
-          "bbox": {
-            "page": 15,
-            "x0": 113,
-            "x1": 283,
-            "y0": 243,
-            "y1": 251
-          },
-          "children": [],
-          "id": "c7f3ce538178",
-          "kind": "paragraph",
-          "provenance": {
-            "extractor": "segment",
-            "stage": "build_tree"
-          },
-          "text": "incididunt ut labore et dolore magna aliqua."
-        },
-        {
-          "attrs": {},
-          "bbox": {
-            "page": 15,
-            "x0": 112,
-            "x1": 500,
-            "y0": 262,
-            "y1": 271
-          },
-          "children": [],
-          "id": "9bef5cc7f2f5",
-          "kind": "paragraph",
-          "provenance": {
-            "extractor": "segment",
-            "stage": "build_tree"
-          },
-          "text": "Spanning-line 02: Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor"
-        },
-        {
-          "attrs": {},
-          "bbox": {
-            "page": 15,
-            "x0": 113,
-            "x1": 283,
-            "y0": 275,
-            "y1": 283
-          },
-          "children": [],
-          "id": "df1b2617655f",
-          "kind": "paragraph",
-          "provenance": {
-            "extractor": "segment",
-            "stage": "build_tree"
-          },
-          "text": "incididunt ut labore et dolore magna aliqua."
-        },
-        {
-          "attrs": {},
-          "bbox": {
-            "page": 15,
-            "x0": 112,
-            "x1": 500,
-            "y0": 294,
-            "y1": 303
-          },
-          "children": [],
-          "id": "5360abc3326a",
-          "kind": "paragraph",
-          "provenance": {
-            "extractor": "segment",
-            "stage": "build_tree"
-          },
-          "text": "Spanning-line 03: Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor"
-        },
-        {
-          "attrs": {},
-          "bbox": {
-            "page": 15,
-            "x0": 113,
-            "x1": 283,
-            "y0": 307,
-            "y1": 315
-          },
-          "children": [],
-          "id": "aedc9d6983dd",
-          "kind": "paragraph",
-          "provenance": {
-            "extractor": "segment",
-            "stage": "build_tree"
-          },
-          "text": "incididunt ut labore et dolore magna aliqua."
-        },
-        {
-          "attrs": {},
-          "bbox": {
-            "page": 15,
-            "x0": 112,
-            "x1": 500,
-            "y0": 326,
-            "y1": 335
-          },
-          "children": [],
-          "id": "826d6b2fba76",
-          "kind": "paragraph",
-          "provenance": {
-            "extractor": "segment",
-            "stage": "build_tree"
-          },
-          "text": "Spanning-line 04: Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor"
-        },
-        {
-          "attrs": {},
-          "bbox": {
-            "page": 15,
-            "x0": 113,
-            "x1": 283,
-            "y0": 339,
-            "y1": 347
-          },
-          "children": [],
-          "id": "5a07695718a1",
-          "kind": "paragraph",
-          "provenance": {
-            "extractor": "segment",
-            "stage": "build_tree"
-          },
-          "text": "incididunt ut labore et dolore magna aliqua."
-        },
-        {
-          "attrs": {},
-          "bbox": {
-            "page": 15,
-            "x0": 112,
-            "x1": 500,
-            "y0": 358,
-            "y1": 367
-          },
-          "children": [],
-          "id": "8c68f676d4a1",
-          "kind": "paragraph",
-          "provenance": {
-            "extractor": "segment",
-            "stage": "build_tree"
-          },
-          "text": "Spanning-line 05: Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor"
-        },
-        {
-          "attrs": {},
-          "bbox": {
-            "page": 15,
-            "x0": 113,
-            "x1": 283,
-            "y0": 371,
-            "y1": 379
-          },
-          "children": [],
-          "id": "0f741c5503b4",
-          "kind": "paragraph",
-          "provenance": {
-            "extractor": "segment",
-            "stage": "build_tree"
-          },
-          "text": "incididunt ut labore et dolore magna aliqua."
-        },
-        {
-          "attrs": {},
-          "bbox": {
-            "page": 15,
-            "x0": 112,
-            "x1": 500,
-            "y0": 390,
-            "y1": 399
-          },
-          "children": [],
-          "id": "7f831433b53d",
-          "kind": "paragraph",
-          "provenance": {
-            "extractor": "segment",
-            "stage": "build_tree"
-          },
-          "text": "Spanning-line 06: Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor"
-        },
-        {
-          "attrs": {},
-          "bbox": {
-            "page": 15,
-            "x0": 113,
-            "x1": 283,
-            "y0": 403,
-            "y1": 411
-          },
-          "children": [],
-          "id": "4dd5a3b85ecd",
-          "kind": "paragraph",
-          "provenance": {
-            "extractor": "segment",
-            "stage": "build_tree"
-          },
-          "text": "incididunt ut labore et dolore magna aliqua."
-        },
-        {
-          "attrs": {},
-          "bbox": {
-            "page": 15,
-            "x0": 112,
-            "x1": 500,
-            "y0": 422,
-            "y1": 431
-          },
-          "children": [],
-          "id": "64ae8eb7afc3",
-          "kind": "paragraph",
-          "provenance": {
-            "extractor": "segment",
-            "stage": "build_tree"
-          },
-          "text": "Spanning-line 07: Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor"
-        },
-        {
-          "attrs": {},
-          "bbox": {
-            "page": 15,
-            "x0": 113,
-            "x1": 283,
-            "y0": 435,
-            "y1": 443
-          },
-          "children": [],
-          "id": "b5bc1d501e6f",
-          "kind": "paragraph",
-          "provenance": {
-            "extractor": "segment",
-            "stage": "build_tree"
-          },
-          "text": "incididunt ut labore et dolore magna aliqua."
-        },
-        {
-          "attrs": {},
-          "bbox": {
-            "page": 15,
-            "x0": 112,
-            "x1": 500,
-            "y0": 454,
-            "y1": 463
-          },
-          "children": [],
-          "id": "c68a1e01948d",
-          "kind": "paragraph",
-          "provenance": {
-            "extractor": "segment",
-            "stage": "build_tree"
-          },
-          "text": "Spanning-line 08: Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor"
-        },
-        {
-          "attrs": {},
-          "bbox": {
-            "page": 15,
-            "x0": 113,
-            "x1": 283,
-            "y0": 467,
-            "y1": 475
-          },
-          "children": [],
-          "id": "f9cd1ce31e55",
-          "kind": "paragraph",
-          "provenance": {
-            "extractor": "segment",
-            "stage": "build_tree"
-          },
-          "text": "incididunt ut labore et dolore magna aliqua."
-        },
-        {
-          "attrs": {},
-          "bbox": {
-            "page": 15,
-            "x0": 112,
-            "x1": 500,
-            "y0": 486,
-            "y1": 495
-          },
-          "children": [],
-          "id": "41068aaf44c7",
-          "kind": "paragraph",
-          "provenance": {
-            "extractor": "segment",
-            "stage": "build_tree"
-          },
-          "text": "Spanning-line 09: Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor"
-        },
-        {
-          "attrs": {},
-          "bbox": {
-            "page": 15,
-            "x0": 113,
-            "x1": 283,
-            "y0": 499,
-            "y1": 507
-          },
-          "children": [],
-          "id": "1307369310cb",
-          "kind": "paragraph",
-          "provenance": {
-            "extractor": "segment",
-            "stage": "build_tree"
-          },
-          "text": "incididunt ut labore et dolore magna aliqua."
-        },
-        {
-          "attrs": {},
-          "bbox": {
-            "page": 15,
-            "x0": 112,
-            "x1": 500,
-            "y0": 518,
-            "y1": 527
-          },
-          "children": [],
-          "id": "20e4c344c5c3",
-          "kind": "paragraph",
-          "provenance": {
-            "extractor": "segment",
-            "stage": "build_tree"
-          },
-          "text": "Spanning-line 10: Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor"
-        },
-        {
-          "attrs": {},
-          "bbox": {
-            "page": 15,
-            "x0": 113,
-            "x1": 283,
-            "y0": 531,
-            "y1": 539
-          },
-          "children": [],
-          "id": "bb29cc80201d",
-          "kind": "paragraph",
-          "provenance": {
-            "extractor": "segment",
-            "stage": "build_tree"
-          },
-          "text": "incididunt ut labore et dolore magna aliqua."
-        },
-        {
-          "attrs": {},
-          "bbox": {
-            "page": 15,
-            "x0": 112,
-            "x1": 500,
-            "y0": 550,
-            "y1": 559
-          },
-          "children": [],
-          "id": "406108962cd6",
-          "kind": "paragraph",
-          "provenance": {
-            "extractor": "segment",
-            "stage": "build_tree"
-          },
-          "text": "Spanning-line 11: Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor"
-        },
-        {
-          "attrs": {},
-          "bbox": {
-            "page": 15,
-            "x0": 113,
-            "x1": 283,
-            "y0": 563,
-            "y1": 571
-          },
-          "children": [],
-          "id": "779f4326d476",
-          "kind": "paragraph",
-          "provenance": {
-            "extractor": "segment",
-            "stage": "build_tree"
-          },
-          "text": "incididunt ut labore et dolore magna aliqua."
-        },
-        {
-          "attrs": {},
-          "bbox": {
-            "page": 15,
-            "x0": 112,
-            "x1": 500,
-            "y0": 582,
-            "y1": 591
-          },
-          "children": [],
-          "id": "3f3fd0db3cdb",
-          "kind": "paragraph",
-          "provenance": {
-            "extractor": "segment",
-            "stage": "build_tree"
-          },
-          "text": "Spanning-line 12: Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor"
-        },
-        {
-          "attrs": {},
-          "bbox": {
-            "page": 15,
-            "x0": 113,
-            "x1": 283,
-            "y0": 595,
-            "y1": 603
-          },
-          "children": [],
-          "id": "a9faa7f2c24b",
-          "kind": "paragraph",
-          "provenance": {
-            "extractor": "segment",
-            "stage": "build_tree"
-          },
-          "text": "incididunt ut labore et dolore magna aliqua."
-        },
-        {
-          "attrs": {},
-          "bbox": {
-            "page": 15,
-            "x0": 112,
-            "x1": 500,
-            "y0": 614,
-            "y1": 623
-          },
-          "children": [],
-          "id": "77533bfe4677",
-          "kind": "paragraph",
-          "provenance": {
-            "extractor": "segment",
-            "stage": "build_tree"
-          },
-          "text": "Spanning-line 13: Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor"
-        },
-        {
-          "attrs": {},
-          "bbox": {
-            "page": 15,
-            "x0": 113,
-            "x1": 283,
-            "y0": 627,
-            "y1": 635
-          },
-          "children": [],
-          "id": "5d1ddd42f71a",
-          "kind": "paragraph",
-          "provenance": {
-            "extractor": "segment",
-            "stage": "build_tree"
-          },
-          "text": "incididunt ut labore et dolore magna aliqua."
-        },
-        {
-          "attrs": {},
-          "bbox": {
-            "page": 15,
-            "x0": 112,
-            "x1": 500,
-            "y0": 646,
-            "y1": 655
-          },
-          "children": [],
-          "id": "6d2c4f1809d9",
-          "kind": "paragraph",
-          "provenance": {
-            "extractor": "segment",
-            "stage": "build_tree"
-          },
-          "text": "Spanning-line 14: Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor"
-        },
-        {
-          "attrs": {},
-          "bbox": {
-            "page": 15,
-            "x0": 113,
-            "x1": 283,
-            "y0": 659,
-            "y1": 667
-          },
-          "children": [],
-          "id": "4b8d7ee3abc6",
-          "kind": "paragraph",
-          "provenance": {
-            "extractor": "segment",
-            "stage": "build_tree"
-          },
-          "text": "incididunt ut labore et dolore magna aliqua."
-        },
-        {
-          "attrs": {},
-          "bbox": {
-            "page": 15,
-            "x0": 112,
-            "x1": 500,
-            "y0": 678,
-            "y1": 687
-          },
-          "children": [],
-          "id": "dcbb3266008b",
-          "kind": "paragraph",
-          "provenance": {
-            "extractor": "segment",
-            "stage": "build_tree"
-          },
-          "text": "Spanning-line 15: Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor"
-        },
-        {
-          "attrs": {},
-          "bbox": {
-            "page": 15,
-            "x0": 113,
-            "x1": 283,
-            "y0": 691,
-            "y1": 699
-          },
-          "children": [],
-          "id": "e90bf144ccee",
-          "kind": "paragraph",
-          "provenance": {
-            "extractor": "segment",
-            "stage": "build_tree"
-          },
-          "text": "incididunt ut labore et dolore magna aliqua."
         }
       ],
-      "id": "e76b5195930b",
+      "id": "47c35d325921",
       "kind": "page",
       "provenance": {},
       "text": null
@@ -23057,682 +23890,8 @@
         "y0": 0,
         "y1": 792
       },
-      "children": [
-        {
-          "attrs": {},
-          "bbox": {
-            "page": 16,
-            "x0": 112,
-            "x1": 500,
-            "y0": 84,
-            "y1": 93
-          },
-          "children": [],
-          "id": "a84d3568fa3a",
-          "kind": "paragraph",
-          "provenance": {
-            "extractor": "segment",
-            "stage": "build_tree"
-          },
-          "text": "Spanning-line 16: Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor"
-        },
-        {
-          "attrs": {},
-          "bbox": {
-            "page": 16,
-            "x0": 113,
-            "x1": 283,
-            "y0": 97,
-            "y1": 105
-          },
-          "children": [],
-          "id": "9e4ddd4003f4",
-          "kind": "paragraph",
-          "provenance": {
-            "extractor": "segment",
-            "stage": "build_tree"
-          },
-          "text": "incididunt ut labore et dolore magna aliqua."
-        },
-        {
-          "attrs": {},
-          "bbox": {
-            "page": 16,
-            "x0": 112,
-            "x1": 500,
-            "y0": 116,
-            "y1": 125
-          },
-          "children": [],
-          "id": "dc4693a6f6d1",
-          "kind": "paragraph",
-          "provenance": {
-            "extractor": "segment",
-            "stage": "build_tree"
-          },
-          "text": "Spanning-line 17: Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor"
-        },
-        {
-          "attrs": {},
-          "bbox": {
-            "page": 16,
-            "x0": 113,
-            "x1": 283,
-            "y0": 129,
-            "y1": 137
-          },
-          "children": [],
-          "id": "130d478248bc",
-          "kind": "paragraph",
-          "provenance": {
-            "extractor": "segment",
-            "stage": "build_tree"
-          },
-          "text": "incididunt ut labore et dolore magna aliqua."
-        },
-        {
-          "attrs": {},
-          "bbox": {
-            "page": 16,
-            "x0": 112,
-            "x1": 500,
-            "y0": 148,
-            "y1": 157
-          },
-          "children": [],
-          "id": "7d700c024050",
-          "kind": "paragraph",
-          "provenance": {
-            "extractor": "segment",
-            "stage": "build_tree"
-          },
-          "text": "Spanning-line 18: Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor"
-        },
-        {
-          "attrs": {},
-          "bbox": {
-            "page": 16,
-            "x0": 113,
-            "x1": 283,
-            "y0": 161,
-            "y1": 169
-          },
-          "children": [],
-          "id": "74bd8796d9a3",
-          "kind": "paragraph",
-          "provenance": {
-            "extractor": "segment",
-            "stage": "build_tree"
-          },
-          "text": "incididunt ut labore et dolore magna aliqua."
-        },
-        {
-          "attrs": {},
-          "bbox": {
-            "page": 16,
-            "x0": 112,
-            "x1": 500,
-            "y0": 180,
-            "y1": 189
-          },
-          "children": [],
-          "id": "7a1f0169f20a",
-          "kind": "paragraph",
-          "provenance": {
-            "extractor": "segment",
-            "stage": "build_tree"
-          },
-          "text": "Spanning-line 19: Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor"
-        },
-        {
-          "attrs": {},
-          "bbox": {
-            "page": 16,
-            "x0": 113,
-            "x1": 283,
-            "y0": 193,
-            "y1": 201
-          },
-          "children": [],
-          "id": "3c5d2df0a1aa",
-          "kind": "paragraph",
-          "provenance": {
-            "extractor": "segment",
-            "stage": "build_tree"
-          },
-          "text": "incididunt ut labore et dolore magna aliqua."
-        },
-        {
-          "attrs": {},
-          "bbox": {
-            "page": 16,
-            "x0": 112,
-            "x1": 500,
-            "y0": 212,
-            "y1": 221
-          },
-          "children": [],
-          "id": "839070be8553",
-          "kind": "paragraph",
-          "provenance": {
-            "extractor": "segment",
-            "stage": "build_tree"
-          },
-          "text": "Spanning-line 20: Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor"
-        },
-        {
-          "attrs": {},
-          "bbox": {
-            "page": 16,
-            "x0": 113,
-            "x1": 283,
-            "y0": 225,
-            "y1": 233
-          },
-          "children": [],
-          "id": "a14da66d6d33",
-          "kind": "paragraph",
-          "provenance": {
-            "extractor": "segment",
-            "stage": "build_tree"
-          },
-          "text": "incididunt ut labore et dolore magna aliqua."
-        },
-        {
-          "attrs": {},
-          "bbox": {
-            "page": 16,
-            "x0": 112,
-            "x1": 500,
-            "y0": 244,
-            "y1": 253
-          },
-          "children": [],
-          "id": "726951b38c8f",
-          "kind": "paragraph",
-          "provenance": {
-            "extractor": "segment",
-            "stage": "build_tree"
-          },
-          "text": "Spanning-line 21: Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor"
-        },
-        {
-          "attrs": {},
-          "bbox": {
-            "page": 16,
-            "x0": 113,
-            "x1": 283,
-            "y0": 257,
-            "y1": 265
-          },
-          "children": [],
-          "id": "9bf8c8a55381",
-          "kind": "paragraph",
-          "provenance": {
-            "extractor": "segment",
-            "stage": "build_tree"
-          },
-          "text": "incididunt ut labore et dolore magna aliqua."
-        },
-        {
-          "attrs": {},
-          "bbox": {
-            "page": 16,
-            "x0": 112,
-            "x1": 500,
-            "y0": 276,
-            "y1": 285
-          },
-          "children": [],
-          "id": "6a41545e26d5",
-          "kind": "paragraph",
-          "provenance": {
-            "extractor": "segment",
-            "stage": "build_tree"
-          },
-          "text": "Spanning-line 22: Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor"
-        },
-        {
-          "attrs": {},
-          "bbox": {
-            "page": 16,
-            "x0": 113,
-            "x1": 283,
-            "y0": 289,
-            "y1": 297
-          },
-          "children": [],
-          "id": "898e108bbe01",
-          "kind": "paragraph",
-          "provenance": {
-            "extractor": "segment",
-            "stage": "build_tree"
-          },
-          "text": "incididunt ut labore et dolore magna aliqua."
-        },
-        {
-          "attrs": {},
-          "bbox": {
-            "page": 16,
-            "x0": 112,
-            "x1": 500,
-            "y0": 308,
-            "y1": 317
-          },
-          "children": [],
-          "id": "48fcce5f4c56",
-          "kind": "paragraph",
-          "provenance": {
-            "extractor": "segment",
-            "stage": "build_tree"
-          },
-          "text": "Spanning-line 23: Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor"
-        },
-        {
-          "attrs": {},
-          "bbox": {
-            "page": 16,
-            "x0": 113,
-            "x1": 283,
-            "y0": 321,
-            "y1": 329
-          },
-          "children": [],
-          "id": "a53fc039164b",
-          "kind": "paragraph",
-          "provenance": {
-            "extractor": "segment",
-            "stage": "build_tree"
-          },
-          "text": "incididunt ut labore et dolore magna aliqua."
-        },
-        {
-          "attrs": {},
-          "bbox": {
-            "page": 16,
-            "x0": 112,
-            "x1": 500,
-            "y0": 340,
-            "y1": 349
-          },
-          "children": [],
-          "id": "0800372786fb",
-          "kind": "paragraph",
-          "provenance": {
-            "extractor": "segment",
-            "stage": "build_tree"
-          },
-          "text": "Spanning-line 24: Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor"
-        },
-        {
-          "attrs": {},
-          "bbox": {
-            "page": 16,
-            "x0": 113,
-            "x1": 283,
-            "y0": 353,
-            "y1": 361
-          },
-          "children": [],
-          "id": "84098831d74b",
-          "kind": "paragraph",
-          "provenance": {
-            "extractor": "segment",
-            "stage": "build_tree"
-          },
-          "text": "incididunt ut labore et dolore magna aliqua."
-        },
-        {
-          "attrs": {},
-          "bbox": {
-            "page": 16,
-            "x0": 112,
-            "x1": 500,
-            "y0": 372,
-            "y1": 381
-          },
-          "children": [],
-          "id": "2498c9a2d5e5",
-          "kind": "paragraph",
-          "provenance": {
-            "extractor": "segment",
-            "stage": "build_tree"
-          },
-          "text": "Spanning-line 25: Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor"
-        },
-        {
-          "attrs": {},
-          "bbox": {
-            "page": 16,
-            "x0": 113,
-            "x1": 283,
-            "y0": 385,
-            "y1": 393
-          },
-          "children": [],
-          "id": "e4632dc0b76e",
-          "kind": "paragraph",
-          "provenance": {
-            "extractor": "segment",
-            "stage": "build_tree"
-          },
-          "text": "incididunt ut labore et dolore magna aliqua."
-        },
-        {
-          "attrs": {},
-          "bbox": {
-            "page": 16,
-            "x0": 112,
-            "x1": 500,
-            "y0": 404,
-            "y1": 413
-          },
-          "children": [],
-          "id": "3b523443b754",
-          "kind": "paragraph",
-          "provenance": {
-            "extractor": "segment",
-            "stage": "build_tree"
-          },
-          "text": "Spanning-line 26: Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor"
-        },
-        {
-          "attrs": {},
-          "bbox": {
-            "page": 16,
-            "x0": 113,
-            "x1": 283,
-            "y0": 417,
-            "y1": 425
-          },
-          "children": [],
-          "id": "3b9be6bbb0e5",
-          "kind": "paragraph",
-          "provenance": {
-            "extractor": "segment",
-            "stage": "build_tree"
-          },
-          "text": "incididunt ut labore et dolore magna aliqua."
-        },
-        {
-          "attrs": {},
-          "bbox": {
-            "page": 16,
-            "x0": 112,
-            "x1": 500,
-            "y0": 436,
-            "y1": 445
-          },
-          "children": [],
-          "id": "99a8abdc5fc2",
-          "kind": "paragraph",
-          "provenance": {
-            "extractor": "segment",
-            "stage": "build_tree"
-          },
-          "text": "Spanning-line 27: Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor"
-        },
-        {
-          "attrs": {},
-          "bbox": {
-            "page": 16,
-            "x0": 113,
-            "x1": 283,
-            "y0": 449,
-            "y1": 457
-          },
-          "children": [],
-          "id": "dfa761df8b2c",
-          "kind": "paragraph",
-          "provenance": {
-            "extractor": "segment",
-            "stage": "build_tree"
-          },
-          "text": "incididunt ut labore et dolore magna aliqua."
-        },
-        {
-          "attrs": {},
-          "bbox": {
-            "page": 16,
-            "x0": 113,
-            "x1": 419,
-            "y0": 469,
-            "y1": 477
-          },
-          "children": [],
-          "id": "12d4e349c5d6",
-          "kind": "paragraph",
-          "provenance": {
-            "extractor": "segment",
-            "stage": "build_tree"
-          },
-          "text": "END: This trailing sentence is the last paragraph between the two sub-tables."
-        },
-        {
-          "attrs": {
-            "header_signature": [
-              "Phase",
-              "Status"
-            ],
-            "n_cols": 2,
-            "n_rows": 3,
-            "page": 16,
-            "page_height": 792.0
-          },
-          "bbox": {
-            "page": 16,
-            "x0": 112,
-            "x1": 292,
-            "y0": 486,
-            "y1": 540
-          },
-          "children": [
-            {
-              "attrs": {
-                "page": 16,
-                "row_index": 0
-              },
-              "bbox": {
-                "page": 16,
-                "x0": 112,
-                "x1": 292,
-                "y0": 486,
-                "y1": 540
-              },
-              "children": [
-                {
-                  "attrs": {
-                    "align": "left"
-                  },
-                  "bbox": {
-                    "page": 16,
-                    "x0": 112,
-                    "x1": 202,
-                    "y0": 486,
-                    "y1": 504
-                  },
-                  "children": [],
-                  "id": "d7e606e9e441",
-                  "kind": "cell",
-                  "provenance": {
-                    "extractor": "pdfplumber",
-                    "stage": "extract_tables"
-                  },
-                  "text": "Phase"
-                },
-                {
-                  "attrs": {
-                    "align": "left"
-                  },
-                  "bbox": {
-                    "page": 16,
-                    "x0": 202,
-                    "x1": 292,
-                    "y0": 486,
-                    "y1": 504
-                  },
-                  "children": [],
-                  "id": "4abb542cf094",
-                  "kind": "cell",
-                  "provenance": {
-                    "extractor": "pdfplumber",
-                    "stage": "extract_tables"
-                  },
-                  "text": "Status"
-                }
-              ],
-              "id": "fe58246e6191",
-              "kind": "row",
-              "provenance": {},
-              "text": null
-            },
-            {
-              "attrs": {
-                "page": 16,
-                "row_index": 1
-              },
-              "bbox": {
-                "page": 16,
-                "x0": 112,
-                "x1": 292,
-                "y0": 486,
-                "y1": 540
-              },
-              "children": [
-                {
-                  "attrs": {
-                    "align": "left"
-                  },
-                  "bbox": {
-                    "page": 16,
-                    "x0": 112,
-                    "x1": 202,
-                    "y0": 504,
-                    "y1": 522
-                  },
-                  "children": [],
-                  "id": "33c036d60239",
-                  "kind": "cell",
-                  "provenance": {
-                    "extractor": "pdfplumber",
-                    "stage": "extract_tables"
-                  },
-                  "text": "Init"
-                },
-                {
-                  "attrs": {
-                    "align": "left"
-                  },
-                  "bbox": {
-                    "page": 16,
-                    "x0": 202,
-                    "x1": 292,
-                    "y0": 504,
-                    "y1": 522
-                  },
-                  "children": [],
-                  "id": "45fe6ff1e555",
-                  "kind": "cell",
-                  "provenance": {
-                    "extractor": "pdfplumber",
-                    "stage": "extract_tables"
-                  },
-                  "text": "Done"
-                }
-              ],
-              "id": "8123b418fd15",
-              "kind": "row",
-              "provenance": {},
-              "text": null
-            },
-            {
-              "attrs": {
-                "page": 16,
-                "row_index": 2
-              },
-              "bbox": {
-                "page": 16,
-                "x0": 112,
-                "x1": 292,
-                "y0": 486,
-                "y1": 540
-              },
-              "children": [
-                {
-                  "attrs": {
-                    "align": "left"
-                  },
-                  "bbox": {
-                    "page": 16,
-                    "x0": 112,
-                    "x1": 202,
-                    "y0": 522,
-                    "y1": 540
-                  },
-                  "children": [],
-                  "id": "3df7d98181cb",
-                  "kind": "cell",
-                  "provenance": {
-                    "extractor": "pdfplumber",
-                    "stage": "extract_tables"
-                  },
-                  "text": "Build"
-                },
-                {
-                  "attrs": {
-                    "align": "left"
-                  },
-                  "bbox": {
-                    "page": 16,
-                    "x0": 202,
-                    "x1": 292,
-                    "y0": 522,
-                    "y1": 540
-                  },
-                  "children": [],
-                  "id": "c69982f4fdce",
-                  "kind": "cell",
-                  "provenance": {
-                    "extractor": "pdfplumber",
-                    "stage": "extract_tables"
-                  },
-                  "text": "WIP"
-                }
-              ],
-              "id": "9ce9738e43a0",
-              "kind": "row",
-              "provenance": {},
-              "text": null
-            }
-          ],
-          "id": "c838672d62ce",
-          "kind": "table",
-          "provenance": {
-            "extractor": "pdfplumber",
-            "stage": "extract_tables"
-          },
-          "text": null
-        },
-        {
-          "attrs": {},
-          "bbox": {
-            "page": 16,
-            "x0": 112,
-            "x1": 186,
-            "y0": 551,
-            "y1": 560
-          },
-          "children": [],
-          "id": "15b505d14412",
-          "kind": "paragraph",
-          "provenance": {
-            "extractor": "segment",
-            "stage": "build_tree"
-          },
-          "text": "Spanning Footer"
-        }
-      ],
-      "id": "94ef96977607",
+      "children": [],
+      "id": "c4daf5c74042",
       "kind": "page",
       "provenance": {},
       "text": null
@@ -24339,7 +24498,7 @@
       "text": null
     }
   ],
-  "id": "a1e05623c345",
+  "id": "5104234d8c22",
   "kind": "document",
   "provenance": {},
   "text": null
