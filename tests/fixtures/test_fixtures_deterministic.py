@@ -200,3 +200,17 @@ def test_vertical_merge_invisible_lines_committed_fixture_matches_regeneration(t
     regen = tmp_path / "regen.pdf"
     BUILDERS["21_vertical_merge_invisible_lines"](regen)
     assert _digest(committed) == _digest(regen)
+
+def test_bordered_cell_with_bulleted_prose_pdf_is_byte_stable(tmp_path):
+    a = tmp_path / "a.pdf"; b = tmp_path / "b.pdf"
+    BUILDERS["23_bordered_cell_with_bulleted_prose"](a)
+    BUILDERS["23_bordered_cell_with_bulleted_prose"](b)
+    assert _digest(a) == _digest(b)
+
+
+def test_bordered_cell_with_bulleted_prose_committed_fixture_matches_regeneration(tmp_path):
+    committed = GOLDEN_DIR / "23_bordered_cell_with_bulleted_prose" / "source.pdf"
+    assert committed.exists(), "run `python -m tests.fixtures.build_pdfs` first"
+    regen = tmp_path / "regen.pdf"
+    BUILDERS["23_bordered_cell_with_bulleted_prose"](regen)
+    assert _digest(committed) == _digest(regen)

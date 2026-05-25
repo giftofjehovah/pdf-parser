@@ -45,13 +45,35 @@ _FALLBACK_TABLE_SETTINGS = {
 # adjust upward; if false positives reappear, adjust downward.
 _MAX_CELL_TEXT_CHARS = 7
 
+# A real data-table cell almost always starts with an uppercase letter, a
+# digit, or a punctuation/symbol character (e.g. "$25.99", "(123)", "—").
+# When pdfplumber's text-strategy slices through justified prose along
+# vertical whitespace lanes, it produces fragments that begin **mid-word**:
+# every wrapped line contributes cells like "tion", "or sit a", "ned future",
+# all starting with lowercase letters that continue from the previous cell.
+#
+# Threshold tuned to:
+#   * the worst real-table case (status/category columns with a handful of
+#     lowercase values) tops out around 0.20.
+#   * mid-word-split prose runs 0.50–0.75 in practice.
+# 0.40 leaves margin on both sides.
+_MAX_LOWERCASE_START_RATIO = 0.40
+
 
 def _is_text_strategy_table(table) -> bool:
     """Return True if this text-strategy result looks like a real data table.
 
-    Paragraph text on multi-column pages can be misidentified as tables by the
-    text strategy.  The key discriminator: real data-table cells contain short
-    text (names, numbers, codes); paragraph-text 'cells' contain full sentences.
+    Two complementary signals reject prose-mistaken-for-table:
+
+    * **Average cell length** (``_MAX_CELL_TEXT_CHARS``).  Paragraph text on
+      multi-column pages produces ``cells'' that are entire sentences.
+    * **Lowercase-start ratio** (``_MAX_LOWERCASE_START_RATIO``).  When
+      pdfplumber slices through wrapped justified prose along vertical
+      whitespace lanes, the resulting fragments split mid-word — a real
+      table cell starts at a word boundary (uppercase, digit, or symbol),
+      a shredded prose cell starts with a lowercase letter that continues
+      the previous cell.  Catches the case where average length sits just
+      under the 7-char threshold but the cells are clearly fragments.
     """
     texts = table.extract()
     if not texts:
@@ -60,7 +82,13 @@ def _is_text_strategy_table(table) -> bool:
     if not all_cells:
         return False
     avg_len = sum(len(c) for c in all_cells) / len(all_cells)
-    return avg_len <= _MAX_CELL_TEXT_CHARS
+    if avg_len > _MAX_CELL_TEXT_CHARS:
+        return False
+    stripped = [c.strip() for c in all_cells]
+    lowercase_starts = sum(1 for c in stripped if c[:1].islower())
+    if lowercase_starts / len(stripped) > _MAX_LOWERCASE_START_RATIO:
+        return False
+    return True
 
 
 @dataclass

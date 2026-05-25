@@ -1,0 +1,141 @@
+{
+  "attrs": {},
+  "bbox": {
+    "page": 0,
+    "x0": 0,
+    "x1": 0,
+    "y0": 0,
+    "y1": 0
+  },
+  "children": [
+    {
+      "attrs": {
+        "page_index": 0
+      },
+      "bbox": {
+        "page": 0,
+        "x0": 0,
+        "x1": 612,
+        "y0": 0,
+        "y1": 792
+      },
+      "children": [
+        {
+          "attrs": {
+            "level": 1
+          },
+          "bbox": {
+            "page": 0,
+            "x0": 79,
+            "x1": 367,
+            "y0": 83,
+            "y1": 96
+          },
+          "children": [],
+          "id": "9c6bfc377cca",
+          "kind": "heading",
+          "provenance": {
+            "extractor": "segment",
+            "stage": "build_tree"
+          },
+          "text": "Bordered Cell with Bulleted Prose"
+        },
+        {
+          "attrs": {
+            "header_signature": [
+              "Label",
+              "Section\nIntro:\n(cid:127) Lorem ipsum dolor sit amet consectetur\nadipiscing elit sed do eiusmod tempor\nincididunt ut labore et dolore magna aliqua\nUt enim ad minim veniam quis nostrud\nexercitation ullamco laboris nisi ut aliquip ex\nea commodo consequat Duis aute irure dolor\nin reprehenderit in voluptate velit esse cillum\ndolore eu fugiat nulla pariatur Excepteur sint\noccaecat cupidatat non proident sunt in culpa\nqui officia deserunt mollit anim id est\nlaborum.\n(cid:127) Lorem ipsum dolor sit amet consectetur\nadipiscing elit sed do eiusmod tempor\nincididunt ut labore et dolore magna aliqua\nUt enim ad minim veniam quis nostrud\nexercitation ullamco laboris nisi ut aliquip ex\nea commodo consequat Duis aute irure dolor\nin reprehenderit in voluptate velit esse cillum\ndolore eu fugiat nulla pariatur Excepteur sint\noccaecat cupidatat non proident sunt in culpa\nqui officia deserunt mollit anim id est\nlaborum.\n(cid:127) Lorem ipsum dolor sit amet consectetur\nadipiscing elit sed do eiusmod tempor\nincididunt ut labore et dolore magna aliqua\nUt enim ad minim veniam quis nostrud\nexercitation ullamco laboris nisi ut aliquip ex\nea commodo consequat Duis aute irure dolor\nin reprehenderit in voluptate velit esse cillum\ndolore eu fugiat nulla pariatur Excepteur sint\noccaecat cupidatat non proident sunt in culpa\nqui officia deserunt mollit anim id est\nlaborum.\n(cid:127) Lorem ipsum dolor sit amet consectetur\nadipiscing elit sed do eiusmod tempor\nincididunt ut labore et dolore magna aliqua\nUt enim ad minim veniam quis nostrud\nexercitation ullamco laboris nisi ut aliquip ex\nea commodo consequat Duis aute irure dolor\nin reprehenderit in voluptate velit esse cillum\ndolore eu fugiat nulla pariatur Excepteur sint\noccaecat cupidatat non proident sunt in culpa\nqui officia deserunt mollit anim id est\nlaborum."
+            ],
+            "n_cols": 2,
+            "n_rows": 1,
+            "page": 0,
+            "page_height": 792.0
+          },
+          "bbox": {
+            "page": 0,
+            "x0": 191,
+            "x1": 421,
+            "y0": 118,
+            "y1": 594
+          },
+          "children": [
+            {
+              "attrs": {
+                "page": 0,
+                "row_index": 0
+              },
+              "bbox": {
+                "page": 0,
+                "x0": 191,
+                "x1": 421,
+                "y0": 118,
+                "y1": 594
+              },
+              "children": [
+                {
+                  "attrs": {
+                    "align": "left"
+                  },
+                  "bbox": {
+                    "page": 0,
+                    "x0": 191,
+                    "x1": 241,
+                    "y0": 118,
+                    "y1": 594
+                  },
+                  "children": [],
+                  "id": "342146e343aa",
+                  "kind": "cell",
+                  "provenance": {
+                    "extractor": "pdfplumber",
+                    "stage": "extract_tables"
+                  },
+                  "text": "Label"
+                },
+                {
+                  "attrs": {
+                    "align": "left"
+                  },
+                  "bbox": {
+                    "page": 0,
+                    "x0": 241,
+                    "x1": 421,
+                    "y0": 118,
+                    "y1": 594
+                  },
+                  "children": [],
+                  "id": "31df2d38331c",
+                  "kind": "cell",
+                  "provenance": {
+                    "extractor": "pdfplumber",
+                    "stage": "extract_tables"
+                  },
+                  "text": "Section\nIntro:\n(cid:127) Lorem ipsum dolor sit amet consectetur\nadipiscing elit sed do eiusmod tempor\nincididunt ut labore et dolore magna aliqua\nUt enim ad minim veniam quis nostrud\nexercitation ullamco laboris nisi ut aliquip ex\nea commodo consequat Duis aute irure dolor\nin reprehenderit in voluptate velit esse cillum\ndolore eu fugiat nulla pariatur Excepteur sint\noccaecat cupidatat non proident sunt in culpa\nqui officia deserunt mollit anim id est\nlaborum.\n(cid:127) Lorem ipsum dolor sit amet consectetur\nadipiscing elit sed do eiusmod tempor\nincididunt ut labore et dolore magna aliqua\nUt enim ad minim veniam quis nostrud\nexercitation ullamco laboris nisi ut aliquip ex\nea commodo consequat Duis aute irure dolor\nin reprehenderit in voluptate velit esse cillum\ndolore eu fugiat nulla pariatur Excepteur sint\noccaecat cupidatat non proident sunt in culpa\nqui officia deserunt mollit anim id est\nlaborum.\n(cid:127) Lorem ipsum dolor sit amet consectetur\nadipiscing elit sed do eiusmod tempor\nincididunt ut labore et dolore magna aliqua\nUt enim ad minim veniam quis nostrud\nexercitation ullamco laboris nisi ut aliquip ex\nea commodo consequat Duis aute irure dolor\nin reprehenderit in voluptate velit esse cillum\ndolore eu fugiat nulla pariatur Excepteur sint\noccaecat cupidatat non proident sunt in culpa\nqui officia deserunt mollit anim id est\nlaborum.\n(cid:127) Lorem ipsum dolor sit amet consectetur\nadipiscing elit sed do eiusmod tempor\nincididunt ut labore et dolore magna aliqua\nUt enim ad minim veniam quis nostrud\nexercitation ullamco laboris nisi ut aliquip ex\nea commodo consequat Duis aute irure dolor\nin reprehenderit in voluptate velit esse cillum\ndolore eu fugiat nulla pariatur Excepteur sint\noccaecat cupidatat non proident sunt in culpa\nqui officia deserunt mollit anim id est\nlaborum."
+                }
+              ],
+              "id": "0b02dfdac4dc",
+              "kind": "row",
+              "provenance": {},
+              "text": null
+            }
+          ],
+          "id": "2c46492c8c48",
+          "kind": "table",
+          "provenance": {
+            "extractor": "pdfplumber",
+            "stage": "extract_tables"
+          },
+          "text": null
+        }
+      ],
+      "id": "0bd6430f65f4",
+      "kind": "page",
+      "provenance": {},
+      "text": null
+    }
+  ],
+  "id": "55dae5982625",
+  "kind": "document",
+  "provenance": {},
+  "text": null
+}

@@ -1,0 +1,32 @@
+{
+  "children": [
+    {
+      "children": [
+        {
+          "kind": "heading",
+          "text": "Bordered Cell with Bulleted Prose"
+        },
+        {
+          "children": [
+            {
+              "children": [
+                {
+                  "kind": "cell",
+                  "text": "Label"
+                },
+                {
+                  "kind": "cell",
+                  "text": "Section\nIntro:\n(cid:127) Lorem ipsum dolor sit amet consectetur\nadipiscing elit sed do eiusmod tempor\nincididunt ut labore et dolore magna aliqua\nUt enim ad minim veniam quis nostrud\nexercitation ullamco laboris nisi ut aliquip ex\nea commodo consequat Duis aute irure dolor\nin reprehenderit in voluptate velit esse cillum\ndolore eu fugiat nulla pariatur Excepteur sint\noccaecat cupidatat non proident sunt in culpa\nqui officia deserunt mollit anim id est\nlaborum.\n(cid:127) Lorem ipsum dolor sit amet consectetur\nadipiscing elit sed do eiusmod tempor\nincididunt ut labore et dolore magna aliqua\nUt enim ad minim veniam quis nostrud\nexercitation ullamco laboris nisi ut aliquip ex\nea commodo consequat Duis aute irure dolor\nin reprehenderit in voluptate velit esse cillum\ndolore eu fugiat nulla pariatur Excepteur sint\noccaecat cupidatat non proident sunt in culpa\nqui officia deserunt mollit anim id est\nlaborum.\n(cid:127) Lorem ipsum dolor sit amet consectetur\nadipiscing elit sed do eiusmod tempor\nincididunt ut labore et dolore magna aliqua\nUt enim ad minim veniam quis nostrud\nexercitation ullamco laboris nisi ut aliquip ex\nea commodo consequat Duis aute irure dolor\nin reprehenderit in voluptate velit esse cillum\ndolore eu fugiat nulla pariatur Excepteur sint\noccaecat cupidatat non proident sunt in culpa\nqui officia deserunt mollit anim id est\nlaborum.\n(cid:127) Lorem ipsum dolor sit amet consectetur\nadipiscing elit sed do eiusmod tempor\nincididunt ut labore et dolore magna aliqua\nUt enim ad minim veniam quis nostrud\nexercitation ullamco laboris nisi ut aliquip ex\nea commodo consequat Duis aute irure dolor\nin reprehenderit in voluptate velit esse cillum\ndolore eu fugiat nulla pariatur Excepteur sint\noccaecat cupidatat non proident sunt in culpa\nqui officia deserunt mollit anim id est\nlaborum."
+                }
+              ],
+              "kind": "row"
+            }
+          ],
+          "kind": "table"
+        }
+      ],
+      "kind": "page"
+    }
+  ],
+  "kind": "document"
+}

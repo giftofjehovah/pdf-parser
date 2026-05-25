@@ -2017,6 +2017,81 @@ def build_22_text_between_adjacent_tables(out: Path) -> None:
     doc.build(story)
 
 
+def build_23_bordered_cell_with_bulleted_prose(out: Path) -> None:
+    """23_bordered_cell_with_bulleted_prose: bordered 1x2 outer table where
+    the right cell contains a heading + intro + bulleted prose items.
+
+    Mirrors a real-world credit-underwriting PDF pattern (Growth Strategy /
+    Portfolio Thresholds row) that the text-strategy fallback used to shred
+    into a fake many-column "nested table" of mid-word fragments.  The
+    output must be a single 1x2 outer table — the right cell's content
+    must be preserved as text/list, NOT promoted into a phantom inner
+    table whose cells split inside individual words.
+
+    Adversarial parameters chosen to defeat ``_MAX_CELL_TEXT_CHARS = 7``
+    alone:
+
+      * narrow right column (2.5 in)  -> many short wrapped fragments,
+      * small justified font (Helvetica 8 pt) -> tight vertical lanes,
+      * Lorem-ipsum bullets x 4       -> ~50 lines of wrapped prose.
+
+    Together these push pdfplumber's text-strategy result to ~46x7 with
+    average cell length ~6.8 chars (under the 7-char floor), so the only
+    remaining signal that this is shredded prose is the dominant fraction
+    of cells starting with a lowercase letter — the
+    ``_MAX_LOWERCASE_START_RATIO`` check that the fixture pins.
+    """
+    from reportlab.lib.enums import TA_JUSTIFY
+    from reportlab.lib.styles import ParagraphStyle
+    from reportlab.lib.units import inch
+
+    body = ParagraphStyle(
+        "body23", fontName="Helvetica", fontSize=8, leading=10,
+        alignment=TA_JUSTIFY,
+    )
+    bullet = ParagraphStyle(
+        "bullet23", parent=body, leftIndent=12, bulletIndent=3,
+        spaceBefore=2, alignment=TA_JUSTIFY,
+    )
+    long_text = (
+        "Lorem ipsum dolor sit amet consectetur adipiscing elit sed do "
+        "eiusmod tempor incididunt ut labore et dolore magna aliqua Ut "
+        "enim ad minim veniam quis nostrud exercitation ullamco laboris "
+        "nisi ut aliquip ex ea commodo consequat Duis aute irure dolor in "
+        "reprehenderit in voluptate velit esse cillum dolore eu fugiat "
+        "nulla pariatur Excepteur sint occaecat cupidatat non proident "
+        "sunt in culpa qui officia deserunt mollit anim id est laborum."
+    )
+    right_cell = [
+        Paragraph("Section", body),
+        Paragraph("Intro:", body),
+    ]
+    for _ in range(4):
+        right_cell.append(Paragraph(long_text, bullet, bulletText="\u2022"))
+    left_cell = Paragraph("Label", body)
+
+    tbl = Table(
+        [[left_cell, right_cell]],
+        colWidths=[0.7 * inch, 2.5 * inch],
+        style=TableStyle([
+            ("BOX",           (0, 0), (-1, -1), 0.75, colors.black),
+            ("INNERGRID",     (0, 0), (-1, -1), 0.5,  colors.black),
+            ("VALIGN",        (0, 0), (-1, -1), "TOP"),
+            ("LEFTPADDING",   (0, 0), (-1, -1), 4),
+            ("RIGHTPADDING",  (0, 0), (-1, -1), 4),
+            ("TOPPADDING",    (0, 0), (-1, -1), 4),
+            ("BOTTOMPADDING", (0, 0), (-1, -1), 4),
+        ]),
+    )
+
+    doc = SimpleDocTemplate(str(out), pagesize=LETTER)
+    doc.build([
+        Paragraph("Bordered Cell with Bulleted Prose", _styles()["Heading1"]),
+        Spacer(1, 12),
+        tbl,
+    ])
+
+
 BUILDERS = {
     "01_simple_table": build_01_simple_table,
     "02_nested_table": build_02_nested_table,
@@ -2040,6 +2115,7 @@ BUILDERS = {
     "20_ruled_header_row_strips":         build_20_ruled_header_row_strips,
     "21_vertical_merge_invisible_lines":  build_21_vertical_merge_invisible_lines,
     "22_text_between_adjacent_tables":    build_22_text_between_adjacent_tables,
+    "23_bordered_cell_with_bulleted_prose": build_23_bordered_cell_with_bulleted_prose,
 }
 
 def build_all() -> None:
