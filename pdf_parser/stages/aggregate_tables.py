@@ -34,8 +34,91 @@ class CellTable:
     source: CellSource
 
 
+_ROW_Y_TOL = 2.0           # pt; two cells share a row if y-midpoints within this
+_TABLE_GAP_MULT = 2.5      # pt; row gap > N × median row height ends a table
+
+
+def _row_cluster(cells: list[Cell]) -> list[list[Cell]]:
+    """Bucket cells into rows by y-midpoint (page-aware)."""
+    by_page: dict[int, list[Cell]] = {}
+    for c in cells:
+        by_page.setdefault(c.bbox.page, []).append(c)
+    rows: list[list[Cell]] = []
+    for page_cells in by_page.values():
+        page_cells.sort(key=lambda c: (c.bbox.y0, c.bbox.x0))
+        current: list[Cell] = []
+        cur_y: float | None = None
+        for c in page_cells:
+            ymid = (c.bbox.y0 + c.bbox.y1) / 2.0
+            if cur_y is None or abs(ymid - cur_y) <= _ROW_Y_TOL:
+                current.append(c)
+                cur_y = ymid if cur_y is None else (cur_y + ymid) / 2.0
+            else:
+                rows.append(sorted(current, key=lambda c: c.bbox.x0))
+                current = [c]
+                cur_y = ymid
+        if current:
+            rows.append(sorted(current, key=lambda c: c.bbox.x0))
+    return rows
+
+
+def _split_into_tables(rows: list[list[Cell]]) -> list[list[list[Cell]]]:
+    """Adjacent rows with similar geometry form one table candidate."""
+    if not rows:
+        return []
+    tables: list[list[list[Cell]]] = [[rows[0]]]
+    for r in rows[1:]:
+        prev = tables[-1][-1]
+        same_page = prev[0].bbox.page == r[0].bbox.page
+        same_xrange = (abs(prev[0].bbox.x0 - r[0].bbox.x0) <= 4.0
+                       and abs(prev[-1].bbox.x1 - r[-1].bbox.x1) <= 4.0)
+        if same_page and same_xrange:
+            tables[-1].append(r)
+        else:
+            tables.append([r])
+    return tables
+
+
+def _rows_to_celltable(
+    rows: list[list[Cell]], page_height: float
+) -> CellTable | None:
+    if len(rows) < 2 or any(len(r) < 2 for r in rows):
+        return None
+    n_cols = max(len(r) for r in rows)
+    grid: list[list[str]] = [
+        [c.text for c in r] + [""] * (n_cols - len(r))
+        for r in rows
+    ]
+    cell_bboxes: list[list[BBox]] = [
+        [c.bbox for c in r]
+        + [r[-1].bbox] * (n_cols - len(r))     # padding bboxes for ragged rows
+        for r in rows
+    ]
+    page = rows[0][0].bbox.page
+    x0 = min(c.bbox.x0 for r in rows for c in r)
+    y0 = min(c.bbox.y0 for r in rows for c in r)
+    x1 = max(c.bbox.x1 for r in rows for c in r)
+    y1 = max(c.bbox.y1 for r in rows for c in r)
+    return CellTable(
+        page_index=page,
+        bbox=BBox(page=page, x0=x0, y0=y0, x1=x1, y1=y1),
+        grid=grid,
+        cell_bboxes=cell_bboxes,
+        covered=set(),
+        header_signature=tuple(grid[0]),
+        page_height=page_height,
+        nested=[],
+        source=rows[0][0].source,
+    )
+
+
 def aggregate(cells: list[Cell], page_height: float) -> list[CellTable]:
     """Group ``cells`` into tables. See module docstring."""
     if not cells:
         return []
-    return []  # Tasks 3.x fill this in
+    out: list[CellTable] = []
+    for table_rows in _split_into_tables(_row_cluster(cells)):
+        ct = _rows_to_celltable(table_rows, page_height)
+        if ct is not None:
+            out.append(ct)
+    return out
