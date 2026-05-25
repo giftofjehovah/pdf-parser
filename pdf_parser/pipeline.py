@@ -78,6 +78,7 @@ def parse(
     llm_fallback: Optional["LLMFallback"] = None,
     *,
     use_anchor: bool = True,
+    use_bottom_up: bool = False,
 ) -> DocNode:
     """Parse ``pdf_path`` and return the document tree.
 
@@ -97,15 +98,23 @@ def parse(
     A single ``pdfplumber.PDF`` handle is shared across ``extract_tables``
     and ``augment_with_anchor_tables`` so an anchor-enabled parse pays at
     most one PDF open per call.
+    ``use_bottom_up`` (default False) selects the bottom-up cell-clustering
+    extractor (:mod:`pdf_parser.stages.extract_tables_v2`) in place of the
+    legacy cascade.  When True, ``use_anchor`` is ignored — bottom-up
+    subsumes the anchor detector's borderless-table recovery.
     """
     pdf_path = Path(pdf_path)
     raw_pages = ingest(pdf_path)
     segments  = segment(raw_pages)
 
     with pdfplumber.open(str(pdf_path)) as pdf:
-        tables = extract_tables(pdf_path, pdf=pdf)
-        if use_anchor:
-            tables = augment_with_anchor_tables(tables, pdf_path, pdf=pdf)
+        if use_bottom_up:
+            from pdf_parser.stages.extract_tables_v2 import extract_tables as extract_tables_v2
+            tables = extract_tables_v2(pdf_path, pdf=pdf)
+        else:
+            tables = extract_tables(pdf_path, pdf=pdf)
+            if use_anchor:
+                tables = augment_with_anchor_tables(tables, pdf_path, pdf=pdf)
 
     tables = stitch_tables(tables)
     tree   = build_tree(segments, tables)
