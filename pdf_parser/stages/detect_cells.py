@@ -40,14 +40,23 @@ class Cell:
 
 
 def detect_cells(page, page_index: int) -> list[Cell]:
-    """Return cells from the first source that finds anything: line-bounded
-    if any, otherwise gutter-based, otherwise text-strategy fallback.  The
-    three sources are mutually exclusive for now; later phases may union
-    them on mixed-source pages.
+    """Return cells from the highest-confidence source(s) that find anything.
+
+    Line-bounded and borderless-frame promotion are unioned: ``_frame_cells``
+    augments the line output with synthesised outer-wrapper Cells on pages
+    where pdfplumber's line strategy emits the inner cells but not the
+    surrounding section frame (fixtures 17 / Annex D in 13_comprehensive).
+    Per-bbox dedupe happens downstream in
+    :func:`pdf_parser.stages.aggregate_tables._dedupe_cells`.
+
+    When neither line nor frame fires, fall back to gutter-based detection,
+    and finally to the pdfplumber text-strategy fallback (lowest confidence,
+    prose-guarded).
     """
     line = _line_cells(page, page_index)
-    if line:
-        return line
+    frame = _frame_cells(page, page_index, line_cells=line)
+    if line or frame:
+        return line + frame
     gutter = _gutter_cells(page, page_index)
     if gutter:
         return gutter
@@ -139,6 +148,182 @@ def _line_cells(page, page_index: int) -> list[Cell]:
                     source="line",
                     confidence=1.0,
                 ))
+    return out
+
+# ---------------------------------------------------------------------------
+# Borderless-frame promotion (Phase-10 prep, Residual D).
+#
+# Ported from the legacy ``detect_tables._find_borderless_frames``: a pair of
+# long vertical rails plus one or two horizontal cap bands defines a "section
+# frame" -- the outer wrapper of a multi-page or flush-edge table whose body
+# has no internal horizontal grid lines.  pdfplumber's line strategy needs
+# intersecting H+V edges, so these frames slip through detection entirely and
+# the inner sub-tables surface as page-level siblings instead of nesting.
+#
+# This pass synthesises ``Cell`` records (not a whole table) so the carve in
+# :func:`pdf_parser.stages.aggregate_tables._carve_container_frames` plus
+# :func:`pdf_parser.stages.aggregate_tables._build_single_col_wrapper` build
+# the 1xN outer wrapper downstream and ``stitch_pages`` joins per-page halves
+# on matching column anchors -- the same plug-in point that already supports
+# the line-detected wrapper of fixture 16 / Annex C.
+#
+# Gates (cheapest first):
+#   * Outermost rail pair MUST have no internal tall rail between it.  Internal
+#     tall rails are column dividers (e.g. fixtures 03/06/07/26), not frame
+#     side-rails; pairing them would synthesise a spurious wrapper around an
+#     ordinary multi-column table.
+#   * No existing line cell may already span the rail pair -- pdfplumber's
+#     line strategy already emitted the wrapper (fixtures 16, 19, 20) so a
+#     duplicate would either lose data on dedupe or pollute the row cluster.
+#   * At least one header / footer cap-band MUST exist (``has_header`` or
+#     ``has_footer``).  Pure closed_rect (one top + one bot cap) cannot form
+#     a multi-row wrapper from a single content cell -- documented Phase-10+
+#     residual for fixtures 22 / 25 (legacy reaches them via the megatable
+#     decomposition pass which is not in this port).
+#   * Resulting cell list must contain >=2 entries after zero-height bands
+#     are dropped, so ``_build_single_col_wrapper`` (len(rows) >= 2) accepts
+#     the candidate.
+# ---------------------------------------------------------------------------
+
+_FRAME_MIN_RAIL_LEN  = 100.0  # pt; vertical rail must span at least this much
+_FRAME_MIN_WIDTH     = 50.0   # pt; rails must be at least this far apart
+_FRAME_X_TOL         = 1.0    # pt; cap endpoint snap to rail x
+_FRAME_CAP_NEAR_END  = 30.0   # pt; cap is "near" frame top/bottom if within this
+_FRAME_SIDE_X_TOL    = 1.5    # pt; rail-x match against an existing line cell
+
+
+def _is_full_width_cap(ln, lx: float, rx: float, tol: float = _FRAME_X_TOL) -> bool:
+    return abs(ln["x0"] - lx) <= tol and abs(ln["x1"] - rx) <= tol
+
+
+def _band_text(page, lx: float, ty: float, rx: float, by: float) -> str:
+    """Collapsed text from a rectangular band on the page."""
+    if by <= ty or rx <= lx:
+        return ""
+    crop = page.crop((lx, ty, rx, by))
+    return (crop.extract_text() or "").strip()
+
+
+def _frame_cells(
+    page, page_index: int, line_cells: list[Cell] | None = None
+) -> list[Cell]:
+    """Synthesise outer-frame Cells from vertical rails + horizontal caps.
+
+    Recovers wrapper cells for layouts where pdfplumber's line strategy
+    cannot intersect the side rails with cap H-lines (fixtures 17 / Annex D
+    in 13_comprehensive).  Each surviving frame emits up to three Cells
+    stacked vertically -- header band, content (empty container), footer
+    band -- which feed the existing 1xN wrapper builder in
+    :mod:`aggregate_tables` without requiring any aggregate-stage change.
+
+    ``line_cells`` is the existing line-detector output for this page; pass
+    it explicitly to avoid re-running ``_line_cells`` when the caller has
+    already computed it.  When ``None`` the helper recomputes it (used by
+    unit tests that drive ``_frame_cells`` directly).
+    """
+    if line_cells is None:
+        line_cells = _line_cells(page, page_index)
+
+    # Candidate vertical rails: axis-aligned, long enough, not background.
+    v_lines = [
+        ln for ln in page.lines
+        if abs(ln["x0"] - ln["x1"]) < _LINE_AXIS_TOL
+        and (ln["bottom"] - ln["top"]) >= _FRAME_MIN_RAIL_LEN
+        and not _is_background_color(ln.get("stroking_color"))
+    ]
+    if len(v_lines) < 2:
+        return []
+
+    # Bucket rails by x (snap to ``_FRAME_X_TOL``); keep the longest per bucket.
+    by_x: dict[float, dict] = {}
+    for ln in v_lines:
+        kx = round(ln["x0"] / _FRAME_X_TOL) * _FRAME_X_TOL
+        cur = by_x.get(kx)
+        if cur is None or (ln["bottom"] - ln["top"]) > (cur["bottom"] - cur["top"]):
+            by_x[kx] = ln
+    sorted_xs = sorted(by_x)
+    if len(sorted_xs) < 2:
+        return []
+
+    # Internal tall rails between the outermost pair indicate column dividers,
+    # not a frame.  Reject -- the outermost pair is then NOT a section frame.
+    lx, rx = sorted_xs[0], sorted_xs[-1]
+    if any(lx < x < rx for x in sorted_xs):
+        return []
+    if (rx - lx) < _FRAME_MIN_WIDTH:
+        return []
+
+    left, right = by_x[lx], by_x[rx]
+    y0 = max(left["top"], right["top"])
+    y1 = min(left["bottom"], right["bottom"])
+    if (y1 - y0) < _FRAME_MIN_RAIL_LEN:
+        return []
+
+    # If an existing line cell already spans this rail pair, the wrapper was
+    # already emitted by pdfplumber's line strategy -- skip to avoid a
+    # duplicate that would either lose text on dedupe or split the row cluster.
+    if any(
+        abs(lx - c.bbox.x0) <= _FRAME_SIDE_X_TOL
+        and abs(rx - c.bbox.x1) <= _FRAME_SIDE_X_TOL
+        for c in line_cells
+    ):
+        return []
+
+    # Horizontal cap detection: full-width H-lines anchored to this rail pair.
+    h_lines = [
+        ln for ln in page.lines
+        if abs(ln["y0"] - ln["y1"]) < _LINE_AXIS_TOL
+        and not _is_background_color(ln.get("stroking_color"))
+    ]
+    cap_tops = sorted(
+        ln["top"] for ln in h_lines if _is_full_width_cap(ln, lx, rx)
+    )
+    top_caps = [t for t in cap_tops if (t - y0) <= _FRAME_CAP_NEAR_END]
+    bot_caps = [t for t in cap_tops if (y1 - t) <= _FRAME_CAP_NEAR_END]
+    has_header = len(top_caps) >= 2
+    has_footer = len(bot_caps) >= 2
+    if not (has_header or has_footer):
+        # Pure closed_rect (1 top + 1 bot cap) cannot form a multi-row
+        # wrapper from a single content cell.  Documented Phase-10+
+        # residual: fixtures 22 / 25 still xfail in parity.
+        return []
+
+    # Synthesise: [header band?] + content (empty) + [footer band?].
+    out: list[Cell] = []
+    content_top, content_bot = y0, y1
+    if has_header:
+        hdr_top, hdr_bot = top_caps[0], top_caps[1]
+        if hdr_bot > hdr_top:
+            out.append(Cell(
+                bbox=BBox(page=page_index, x0=lx, y0=hdr_top, x1=rx, y1=hdr_bot),
+                text=_band_text(page, lx, hdr_top, rx, hdr_bot),
+                source="line",
+                confidence=1.0,
+            ))
+        content_top = hdr_bot
+    if has_footer:
+        ft_top, ft_bot = bot_caps[-2], bot_caps[-1]
+        content_bot = ft_top
+    if content_bot > content_top:
+        out.append(Cell(
+            bbox=BBox(page=page_index, x0=lx, y0=content_top, x1=rx, y1=content_bot),
+            text="",
+            source="line",
+            confidence=1.0,
+        ))
+    if has_footer:
+        ft_top, ft_bot = bot_caps[-2], bot_caps[-1]
+        if ft_bot > ft_top:
+            out.append(Cell(
+                bbox=BBox(page=page_index, x0=lx, y0=ft_top, x1=rx, y1=ft_bot),
+                text=_band_text(page, lx, ft_top, rx, ft_bot),
+                source="line",
+                confidence=1.0,
+            ))
+
+    # Need >=2 cells for ``_build_single_col_wrapper`` to accept the candidate.
+    if len(out) < 2:
+        return []
     return out
 
 

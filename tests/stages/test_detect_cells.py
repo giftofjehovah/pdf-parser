@@ -4,7 +4,7 @@ from pathlib import Path
 import pdfplumber
 
 from pdf_parser.model import BBox
-from pdf_parser.stages.detect_cells import Cell, _line_cells, _group_words_into_lines, _find_column_gutters, _gutter_cells, detect_cells
+from pdf_parser.stages.detect_cells import Cell, _line_cells, _group_words_into_lines, _find_column_gutters, _gutter_cells, _frame_cells, detect_cells
 
 
 
@@ -117,3 +117,95 @@ def test_text_fallback_not_invoked_when_line_or_gutter_succeed():
         page = pdf.pages[0]
         cells = detect_cells(page, page_index=0)
     assert all(c.source == "line" for c in cells)
+
+
+def test_frame_cells_emits_header_and_content_on_fixture_17_page_0():
+    """Fixture 17 page 0: vertical rails at x=106..506 with two top caps at
+    y=118 and y=138 ("Section Header" band).  pdfplumber's line strategy
+    does NOT emit this outer wrapper because the side rails don't intersect
+    inner sub-table grid lines.  _frame_cells must synthesise it from the
+    rail+cap geometry so _carve_container_frames + _build_single_col_wrapper
+    can build the 1xN wrapper downstream.
+    """
+    pdf_path = Path("tests/golden/synthetic/17_text_between_subtables_spanning/source.pdf")
+    with pdfplumber.open(str(pdf_path)) as pdf:
+        page = pdf.pages[0]
+        cells = _frame_cells(page, page_index=0)
+    # Two cells: header band + content.
+    assert len(cells) == 2, [
+        (c.bbox.x0, c.bbox.y0, c.bbox.x1, c.bbox.y1, c.text) for c in cells
+    ]
+    header = next(c for c in cells if c.text)
+    content = next(c for c in cells if not c.text)
+    assert header.text == "Section Header"
+    # Header band: x = full rails (106..506), y = top_caps[0]..top_caps[1] (118..138).
+    assert header.bbox.x0 == 106.0 and header.bbox.x1 == 506.0
+    assert header.bbox.y0 == 118.0 and header.bbox.y1 == 138.0
+    # Content cell: spans below header to rail bottom (712 in top-relative coords).
+    assert content.bbox.x0 == 106.0 and content.bbox.x1 == 506.0
+    assert content.bbox.y0 == 138.0 and content.bbox.y1 == 712.0
+    assert all(c.source == "line" for c in cells)
+
+
+def test_frame_cells_emits_content_and_footer_on_fixture_17_page_1():
+    """Fixture 17 page 1: rails at x=106..506 with two bot caps at y=544
+    and y=564 ("Section Footer" band).  Symmetric to page 0."""
+    pdf_path = Path("tests/golden/synthetic/17_text_between_subtables_spanning/source.pdf")
+    with pdfplumber.open(str(pdf_path)) as pdf:
+        page = pdf.pages[1]
+        cells = _frame_cells(page, page_index=1)
+    assert len(cells) == 2
+    footer = next(c for c in cells if c.text)
+    content = next(c for c in cells if not c.text)
+    assert footer.text == "Section Footer"
+    assert footer.bbox.x0 == 106.0 and footer.bbox.x1 == 506.0
+    assert footer.bbox.y0 == 544.0 and footer.bbox.y1 == 564.0
+    assert content.bbox.y0 == 78.0 and content.bbox.y1 == 544.0
+
+
+def test_frame_cells_skips_when_internal_rail_present():
+    """Fixture 03 has rails at x=96, 156, 436, 516 (column dividers, not a
+    frame).  The outer pair (96, 516) has internal rails between it, so
+    _frame_cells must NOT promote it to a frame — that would wrongly wrap
+    the 3-column table.
+    """
+    pdf_path = Path("tests/golden/synthetic/03_page_spanning/source.pdf")
+    with pdfplumber.open(str(pdf_path)) as pdf:
+        for pidx, page in enumerate(pdf.pages):
+            cells = _frame_cells(page, page_index=pidx)
+            assert cells == [], f"page {pidx} promoted spurious frame: {cells}"
+
+
+def test_frame_cells_skips_when_existing_cell_spans_rails():
+    """Fixture 19 (ruled_header_framed_body): pdfplumber's line strategy
+    already emits an outer cell at the rail pair (136, 476).  _frame_cells
+    must not duplicate it — the existing-side check skips the frame when
+    any line cell already spans the candidate rail pair.
+    """
+    pdf_path = Path("tests/golden/synthetic/19_ruled_header_framed_body/source.pdf")
+    with pdfplumber.open(str(pdf_path)) as pdf:
+        page = pdf.pages[0]
+        cells = _frame_cells(page, page_index=0)
+    assert cells == [], f"fixture 19 promoted spurious frame: {cells}"
+
+
+def test_frame_cells_skips_pure_closed_rect():
+    """Fixture 25 page 0: rails with only 1 top and 1 bot cap (pure closed
+    rectangle).  Without header/footer band evidence we cannot build a
+    multi-row wrapper, so _frame_cells stays a no-op for now.  Fixture 25
+    parity remains a documented Phase-10+ residual.
+    """
+    pdf_path = Path("tests/golden/synthetic/25_subtable_flush_outer_vertical_only/source.pdf")
+    with pdfplumber.open(str(pdf_path)) as pdf:
+        page = pdf.pages[0]
+        cells = _frame_cells(page, page_index=0)
+    assert cells == [], f"fixture 25 promoted unexpected frame: {cells}"
+
+
+def test_frame_cells_no_op_on_multicolumn_prose():
+    """Fixture 15 has zero vector lines; _frame_cells must stay a no-op."""
+    pdf_path = Path("tests/golden/synthetic/15_multicolumn_text/source.pdf")
+    with pdfplumber.open(str(pdf_path)) as pdf:
+        page = pdf.pages[0]
+        cells = _frame_cells(page, page_index=0)
+    assert cells == []

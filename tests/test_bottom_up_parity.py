@@ -228,6 +228,42 @@ CASES_DIR = Path("tests/golden/synthetic")
 # Left as Phase-10+ parity-only residual; no behavioural test relies
 # on byte-identical y-bounds in the nested-row bands.
 #
+# Phase 10 prep outcome (Residual D — fixtures 17 + Annex D in 13_comprehensive):
+# ``detect_cells._frame_cells`` ports the legacy
+# ``detect_tables._find_borderless_frames`` pass: a pair of long vertical
+# rails plus one or two horizontal cap bands defines a "section frame".
+# Per-page synthesised Cells (header band, content container, footer band)
+# feed the existing ``_carve_container_frames`` + ``_build_single_col_wrapper``
+# infrastructure in ``aggregate_tables`` -- no aggregate-stage change required.
+# ``stitch_pages`` then joins per-page wrappers on matching column anchors,
+# producing the 4-row stitched outer "Spanning Header" wrapper for Annex D.
+#
+# Fixture 17 now reaches full id-set parity (per-page wrappers + inner
+# sub-tables structurally identical to legacy's pdfplumber+stitch output).
+# 13_comprehensive omnibus recovers two more assertions:
+# ``test_annex_d_outer_frame_spans_two_pages`` and
+# ``test_has_exactly_five_spanning_tables``.
+#
+# Gates that keep the port from regressing other fixtures:
+#   * Outermost rail pair must have NO internal tall rail between it --
+#     internal rails are column dividers (fixtures 03/06/07/08/11/26 +
+#     13_comprehensive pages 0/2/4-10/12/17) and the outer pair is then
+#     NOT a section frame.
+#   * No existing line cell may already span the rail pair -- pdfplumber's
+#     line strategy already emits the wrapper on fixtures 16/19/20 so
+#     duplicate promotion would either lose data on dedupe or split the
+#     row cluster.
+#   * Header / footer caps require >=2 full-width H-lines near the rail
+#     ends.  Pure closed_rect (one top + one bot cap) cannot form a
+#     multi-row wrapper from a single content cell -- left as Phase-10+
+#     residual for fixtures 22 / 25 (legacy reaches them via the
+#     megatable-decomposition pass not in this port).
+#
+# Fixtures 24 still xfail in parity: caps cluster to zero-height bands
+# (legacy collapses to a 1-row wrapper via megatable decomposition; the
+# port emits a multi-row wrapper with empty header/footer text), so id
+# divergence remains.  Parity-only -- behavioural tests are unaffected.
+#
 _XFAIL_CASES: set[str] = {
     "02_nested_table",
     "07_page_spanning_with_nested",
@@ -235,7 +271,6 @@ _XFAIL_CASES: set[str] = {
     "10_merged_cells",
     "13_comprehensive",
     "16_text_between_subtables",
-    "17_text_between_subtables_spanning",
     "18_ruled_header_open_body",
     "19_ruled_header_framed_body",
     "20_ruled_header_row_strips",

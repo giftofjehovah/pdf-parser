@@ -89,16 +89,20 @@ _REASON_PHASE_5 = (
 _REASON_PHASE_7 = (
     "Phase-7+ residual (1xN outer-frame without line-detected container): "
     "Phase 10 prep's _carve_container_frames recovers fixtures 16 / Annex C "
-    "where pdfplumber emits an outer wrapper cell, but Annex D's outer "
-    "'Spanning Header' frame has no per-page container cell (legacy uses the "
-    "anchor detector to promote it from gutter/text evidence).  See "
-    "tests/test_bottom_up_parity.py header."
+    "where pdfplumber emits an outer wrapper cell.  Phase 10 prep Residual D "
+    "(_frame_cells in detect_cells.py) further recovers fixtures 17 / Annex D "
+    "via vector-rail + cap-band frame promotion -- the corresponding "
+    "_xfail_bottom_up calls have been removed.  Remaining variant of the "
+    "residual: fixtures 24 / 25 (flush-edge sub-tables) where pdfplumber "
+    "fuses the line strategy on 24 and 25 is a pure closed_rect with no "
+    "cap-band evidence.  See tests/test_bottom_up_parity.py header."
 )
 _REASON_AGGREGATE = (
-    "Aggregate of Phase-5 (ruled-header) + Phase-7+ (Annex D outer "
-    "'Spanning Header' without line-detected container) residuals: "
-    "omnibus inventory/spanning counts include outputs from these "
-    "residual families. See tests/test_bottom_up_parity.py header."
+    "Phase-5 residual (Annex A open-body 'Name'/'Score'/'Grade'): bottom-up "
+    "still misses the ruled-header open-body table, leaving total table "
+    "count one short of 23.  Spanning count (5) is now reached via the "
+    "Phase-10-prep Residual D borderless-frame port that recovers Annex D's "
+    "'Spanning Header' outer.  See tests/test_bottom_up_parity.py header."
 )
 
 
@@ -134,11 +138,10 @@ def test_three_figure_nodes(tree):
 # Tables: overall inventory
 # ---------------------------------------------------------------------------
 
-def test_has_exactly_five_spanning_tables(tree, use_bottom_up):
+def test_has_exactly_five_spanning_tables(tree):
     """Quarterly Report, Transaction Log, Operations Register, Project
     Tracking, plus Annex D's outer 'Spanning Header' frame (promoted by the
     borderless-frame detector and stitched across pages 16-17)."""
-    _xfail_bottom_up(use_bottom_up, _REASON_AGGREGATE)
     spanning = [n for n in _walk(tree) if n.kind == "table" and isinstance(n.bbox, list)]
     assert len(spanning) == 5
 
@@ -550,11 +553,10 @@ def test_annex_d_all_spanning_lines_preserved(tree):
     assert not missing, f"missing between-paragraphs: {missing}"
 
 
-def test_annex_d_outer_frame_spans_two_pages(tree, use_bottom_up):
+def test_annex_d_outer_frame_spans_two_pages(tree):
     """The promoted Annex D outer frame is one ``DocNode`` whose bbox is a
     2-element list covering pages 16 and 17, with both inner sub-tables
     reachable as nested descendants."""
-    _xfail_bottom_up(use_bottom_up, _REASON_PHASE_7)
     outer = _table_by_sig(tree, ("Spanning Header",))
     assert outer is not None, "Annex D outer 'Spanning Header' frame missing"
     assert isinstance(outer.bbox, list) and len(outer.bbox) == 2, (
