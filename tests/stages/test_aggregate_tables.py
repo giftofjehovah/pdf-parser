@@ -37,3 +37,24 @@ def test_dedupe_prefers_line_over_gutter_over_text():
     assert len(out) == 1
     assert out[0].source == "line"
     assert out[0].text == "LINE"
+
+
+def test_split_breaks_on_large_vertical_gap():
+    """Two table candidates separated by > N×median row-gap split correctly."""
+    def bb(y0, y1, x0=10, x1=30):
+        return BBox(page=0, x0=x0, y0=y0, x1=x1, y1=y1)
+    cells = [
+        # Table A: rows at y=100, 120
+        Cell(bbox=bb(100, 110), text="a1", source="line", confidence=1.0),
+        Cell(bbox=bb(100, 110, 40, 60), text="a2", source="line", confidence=1.0),
+        Cell(bbox=bb(120, 130), text="a3", source="line", confidence=1.0),
+        Cell(bbox=bb(120, 130, 40, 60), text="a4", source="line", confidence=1.0),
+        # Big paragraph gap from y=130 to y=300
+        # Table B: rows at y=300, 320
+        Cell(bbox=bb(300, 310), text="b1", source="line", confidence=1.0),
+        Cell(bbox=bb(300, 310, 40, 60), text="b2", source="line", confidence=1.0),
+        Cell(bbox=bb(320, 330), text="b3", source="line", confidence=1.0),
+        Cell(bbox=bb(320, 330, 40, 60), text="b4", source="line", confidence=1.0),
+    ]
+    tables = aggregate(cells, page_height=792.0)
+    assert len(tables) == 2

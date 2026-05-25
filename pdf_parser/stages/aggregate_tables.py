@@ -15,6 +15,9 @@ Output: ``list[CellTable]`` per page.  The wiring layer
 """
 from __future__ import annotations
 
+import statistics
+
+
 from dataclasses import dataclass, field
 
 from pdf_parser.model import BBox
@@ -89,26 +92,52 @@ def _row_cluster(cells: list[Cell]) -> list[list[Cell]]:
     return rows
 
 
-def _split_into_tables(rows: list[list[Cell]]) -> list[list[list[Cell]]]:
-    """Adjacent rows with similar geometry form one table candidate.
+def _row_height(row: list[Cell]) -> float:
+    return max(c.bbox.y1 for c in row) - min(c.bbox.y0 for c in row)
 
-    Boundary checks: same page, same column count, and matching left edges.
-    Right-edge equality is NOT required: ``tight``-style cells (14b borderless
-    long-text) carry per-cell content widths, so the right edge varies by row
-    by 20pt+.  Column-count + left-edge anchor is the stable invariant.
+
+def _row_top(row: list[Cell]) -> float:
+    return min(c.bbox.y0 for c in row)
+
+
+# Floor on the gap-split threshold: even if the median row height is small
+# (single-line tables of 10pt), inter-row gaps under this never break the
+# table.  Paragraph leading on body prose is ~14pt; 12pt cleanly distinguishes
+# "next table row" from "paragraph below".
+_TABLE_GAP_FLOOR_PT = 12.0
+
+
+def _split_into_tables(rows: list[list[Cell]]) -> list[list[list[Cell]]]:
+    """Adjacent rows with similar geometry AND small inter-row gap form one
+    table candidate.
+
+    Boundary checks: same page, same column count, matching left edges, and a
+    gap-to-median-row-height ratio below ``_TABLE_GAP_MULT``.  Right-edge
+    equality is NOT required: ``tight``-style cells (14b borderless long-text)
+    carry per-cell content widths so the right edge varies by row by 20pt+.
+    The gap floor (``_TABLE_GAP_FLOOR_PT``) keeps single-line tables from
+    breaking on any inter-row gap; the median × multiplier dominates once
+    rows are tall enough.
     """
     if not rows:
         return []
     tables: list[list[list[Cell]]] = [[rows[0]]]
     for r in rows[1:]:
-        prev = tables[-1][-1]
+        prev_table = tables[-1]
+        prev = prev_table[-1]
         same_page = prev[0].bbox.page == r[0].bbox.page
         same_ncols = len(prev) == len(r)
         same_left = abs(prev[0].bbox.x0 - r[0].bbox.x0) <= 4.0
-        if same_page and same_ncols and same_left:
-            tables[-1].append(r)
-        else:
+        if not (same_page and same_ncols and same_left):
             tables.append([r])
+            continue
+        gap = _row_top(r) - max(c.bbox.y1 for c in prev)
+        heights = [_row_height(rr) for rr in prev_table]
+        median_h = statistics.median(heights) if heights else 0.0
+        if gap > max(_TABLE_GAP_MULT * median_h, _TABLE_GAP_FLOOR_PT):
+            tables.append([r])
+        else:
+            prev_table.append(r)
     return tables
 
 
