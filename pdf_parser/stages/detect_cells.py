@@ -123,3 +123,22 @@ def _line_cells(page, page_index: int) -> list[Cell]:
                     confidence=1.0,
                 ))
     return out
+
+def _group_words_into_lines(words: list[dict], tol: float = 2.0) -> list[list[dict]]:
+    """y-bucket pdfplumber word dicts into visual text lines."""
+    if not words:
+        return []
+    by_y: list[tuple[float, dict]] = sorted(
+        ((w["top"] + w["bottom"]) / 2.0, w) for w in words
+    )
+    lines: list[list[dict]] = [[by_y[0][1]]]
+    cur_y = by_y[0][0]
+    for ymid, w in by_y[1:]:
+        if abs(ymid - cur_y) <= tol:
+            lines[-1].append(w)
+        else:
+            lines.append([w])
+        cur_y = (cur_y + ymid) / 2.0
+    for ln in lines:
+        ln.sort(key=lambda w: w["x0"])
+    return lines
