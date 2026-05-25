@@ -32,13 +32,17 @@ class Cell:
 
 def detect_cells(page, page_index: int) -> list[Cell]:
     """Return cells from the first source that finds anything: line-bounded
-    if any, otherwise gutter-based.  The two sources are mutually exclusive
-    for now; later phases may union them on mixed-source pages.
+    if any, otherwise gutter-based, otherwise text-strategy fallback.  The
+    three sources are mutually exclusive for now; later phases may union
+    them on mixed-source pages.
     """
     line = _line_cells(page, page_index)
     if line:
-        return line  # Line-bounded wins; gutter is the borderless fallback.
-    return _gutter_cells(page, page_index)
+        return line
+    gutter = _gutter_cells(page, page_index)
+    if gutter:
+        return gutter
+    return _text_cells(page, page_index)
 
 
 # ---------------------------------------------------------------------------
@@ -353,3 +357,47 @@ def _gutter_cells(page, page_index: int) -> list[Cell]:
     if not _is_gutter_table_shape(candidate_rows):
         return []
     return candidate_cells
+
+# ---------------------------------------------------------------------------
+# Text-strategy cell detection (lowest-confidence fallback).
+#
+# pdfplumber's text-strategy table finding uses vertical/horizontal whitespace
+# lanes to segment words; tuned here for lowest-confidence prose-guarded
+# fallback when neither line-bounded nor gutter-based detection fires.
+# ---------------------------------------------------------------------------
+
+_TEXT_FALLBACK_SETTINGS = {
+    "vertical_strategy":    "text",
+    "horizontal_strategy":  "text",
+    "snap_tolerance":       3,
+    "join_tolerance":       3,
+    "edge_min_length":      3,
+    "min_words_vertical":   2,
+    "min_words_horizontal": 1,
+}
+_TEXT_CELL_CONFIDENCE = 0.4
+
+
+def _text_cells(page, page_index: int) -> list[Cell]:
+    """Return cells detected via pdfplumber's text-strategy table finding,
+    guarded by _is_gutter_table_shape to reject multi-column prose.
+    """
+    tables = page.find_tables(table_settings=_TEXT_FALLBACK_SETTINGS)
+    out: list[Cell] = []
+    for t in tables:
+        rows = t.extract()
+        if not _is_gutter_table_shape([[c.strip() for c in row if c] for row in rows]):
+            continue
+        for r_idx, row in enumerate(t.rows):
+            for c_idx, cbox in enumerate(row.cells):
+                if cbox is None:
+                    continue
+                x0, y0, x1, y1 = cbox
+                txt = (rows[r_idx][c_idx] or "").strip() if r_idx < len(rows) else ""
+                out.append(Cell(
+                    bbox=BBox(page=page_index, x0=x0, y0=y0, x1=x1, y1=y1),
+                    text=txt,
+                    source="text",
+                    confidence=_TEXT_CELL_CONFIDENCE,
+                ))
+    return out

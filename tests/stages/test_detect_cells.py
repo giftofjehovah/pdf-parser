@@ -4,7 +4,7 @@ from pathlib import Path
 import pdfplumber
 
 from pdf_parser.model import BBox
-from pdf_parser.stages.detect_cells import Cell, _line_cells, _group_words_into_lines, _find_column_gutters, _gutter_cells
+from pdf_parser.stages.detect_cells import Cell, _line_cells, _group_words_into_lines, _find_column_gutters, _gutter_cells, detect_cells
 
 
 
@@ -109,3 +109,11 @@ def test_gutter_cells_reject_multicolumn_prose():
         f"Multi-column prose was misclassified as table cells: "
         f"{[c.text[:30] for c in cells[:5]]}"
     )
+
+def test_text_fallback_not_invoked_when_line_or_gutter_succeed():
+    """01_simple_table is line-bounded; text fallback never runs."""
+    pdf_path = Path("tests/golden/synthetic/01_simple_table/source.pdf")
+    with pdfplumber.open(str(pdf_path)) as pdf:
+        page = pdf.pages[0]
+        cells = detect_cells(page, page_index=0)
+    assert all(c.source == "line" for c in cells)
