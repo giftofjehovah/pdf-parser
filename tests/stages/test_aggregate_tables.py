@@ -207,3 +207,28 @@ def test_column_anchors_union_cluster_recovers_missing_boundary():
     assert t.grid[1] == ["e", "f", "gh", ""]
     assert (0, 1) in t.covered
     assert (1, 3) in t.covered
+
+
+def test_covered_bbox_uses_spanning_cell_y_extent():
+    """A covered slot's y bounds come from the SPANNING cell, not the row's
+    min/max y across all cells.  Matches `_logical_grid_from_table` in the
+    legacy extractor — required for id-set parity on fixtures 10/21.
+
+    Row 0 here has a SHORT spanning cell ('header', y=10..30) plus a TALLER
+    non-spanning cell ('x', y=4..36).  Row min/max y = (4, 36); spanning
+    cell y = (10, 30).  The covered slot at (0, 1) must use (10, 30).
+    """
+    bb = lambda x0, x1, y0, y1: BBox(page=0, x0=x0, y0=y0, x1=x1, y1=y1)
+    cells = [
+        # Row 0 (ymids 20 and 20 → cluster together).
+        Cell(bbox=bb(  0, 200, 10, 30), text="header", source="line", confidence=1.0),
+        Cell(bbox=bb(200, 300,  4, 36), text="x",      source="line", confidence=1.0),
+        # Row 1: three narrow cells (ymid 50 → new row).
+        Cell(bbox=bb(  0, 100, 40, 60), text="a", source="line", confidence=1.0),
+        Cell(bbox=bb(100, 200, 40, 60), text="b", source="line", confidence=1.0),
+        Cell(bbox=bb(200, 300, 40, 60), text="c", source="line", confidence=1.0),
+    ]
+    [t] = aggregate(cells, page_height=792.0)
+    cov_bbox = t.cell_bboxes[0][1]
+    assert (cov_bbox.x0, cov_bbox.x1) == (100, 200)
+    assert (cov_bbox.y0, cov_bbox.y1) == (10, 30)

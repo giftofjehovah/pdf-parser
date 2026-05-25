@@ -208,7 +208,7 @@ def _column_anchors(rows: list[list[Cell]]) -> list[tuple[float, float]]:
 
 def _assign_row_to_columns(
     row: list[Cell], anchors: list[tuple[float, float]], tol: float = _ANCHOR_TOL
-) -> tuple[list[Cell | None], set[int]]:
+) -> tuple[list[Cell | None], dict[int, BBox]]:
     """Place each cell into the column where its LEFT edge sits; mark every
     additional column whose left edge is to the left of the cell's right
     edge as covered by a horizontal merge.
@@ -217,9 +217,16 @@ def _assign_row_to_columns(
     non-spanning cell from being misassigned to a slot covered by an earlier
     cell's colspan when the cell's left edge coincides with an anchor's
     right edge under ``tol``.
+
+    Returns ``(slots, covered_bboxes)``.  ``covered_bboxes[i]`` is the bbox
+    to record for slot ``i`` when that slot is covered by an earlier cell's
+    colspan in this row; it uses the SPANNING cell's own y-extent (the
+    legacy ``_logical_grid_from_table`` convention) so id-set parity holds
+    against the legacy path for fixtures whose rows have non-uniform cell
+    heights (10, 21).
     """
     slots: list[Cell | None] = [None] * len(anchors)
-    covered_idx: set[int] = set()
+    covered_bboxes: dict[int, BBox] = {}
     for c in row:
         start_i: int | None = None
         for i, (ax0, ax1) in enumerate(anchors):
@@ -234,14 +241,18 @@ def _assign_row_to_columns(
         if slots[start_i] is None:
             slots[start_i] = c
         # Determine colspan: subsequent anchors whose left edge sits to the
-        # left of the cell's right edge (with tol slack) are covered.
+        # left of the cell's right edge (with tol slack) are covered.  Use
+        # the spanning cell's own y-extent for the synthesised covered bbox.
         for i in range(start_i + 1, len(anchors)):
-            ax0, _ = anchors[i]
+            ax0, ax1 = anchors[i]
             if c.bbox.x1 > ax0 + tol:
-                covered_idx.add(i)
+                covered_bboxes[i] = BBox(
+                    page=c.bbox.page,
+                    x0=ax0, y0=c.bbox.y0, x1=ax1, y1=c.bbox.y1,
+                )
             else:
                 break
-    return slots, covered_idx
+    return slots, covered_bboxes
 
 
 def _rows_to_celltable(
@@ -249,7 +260,9 @@ def _rows_to_celltable(
 ) -> CellTable | None:
     """Build a CellTable from raw rows by aligning each row's cells to the
     canonical column anchors.  Slots not filled by any cell are emitted as
-    empty "covered" cells with bboxes synthesised from anchor x + row y."""
+    empty "covered" cells; cells covered by an earlier in-row colspan use
+    the spanning cell's y-extent for legacy parity, while sparse slots
+    (no spanning cell in this row) fall back to anchor x + row y."""
     if len(rows) < 2 or all(len(r) < 2 for r in rows):
         return None
     anchors = _column_anchors(rows)
@@ -260,7 +273,7 @@ def _rows_to_celltable(
     cell_bboxes: list[list[BBox]] = []
     covered: set[tuple[int, int]] = set()
     for r_idx, row in enumerate(rows):
-        slots, cov = _assign_row_to_columns(row, anchors)
+        slots, cov_bboxes = _assign_row_to_columns(row, anchors)
         row_top = min(c.bbox.y0 for c in row) if row else 0.0
         row_bot = max(c.bbox.y1 for c in row) if row else 0.0
         row_grid: list[str] = []
@@ -271,15 +284,18 @@ def _rows_to_celltable(
                 row_grid.append(cell.text)
                 row_bbs.append(cell.bbox)
             else:
-                ax0, ax1 = anchors[c_idx]
                 row_grid.append("")
-                row_bbs.append(BBox(
-                    page=row[0].bbox.page,
-                    x0=ax0, y0=row_top, x1=ax1, y1=row_bot,
-                ))
+                if c_idx in cov_bboxes:
+                    # Covered by a horizontal-merge in this row: spanning-cell y-extent.
+                    row_bbs.append(cov_bboxes[c_idx])
+                else:
+                    # Sparse slot (no spanning cell in this row): anchor x + row y.
+                    ax0, ax1 = anchors[c_idx]
+                    row_bbs.append(BBox(
+                        page=row[0].bbox.page,
+                        x0=ax0, y0=row_top, x1=ax1, y1=row_bot,
+                    ))
                 covered.add((r_idx, c_idx))
-        for c_idx in cov:
-            covered.add((r_idx, c_idx))
         grid.append(row_grid)
         cell_bboxes.append(row_bbs)
     page = rows[0][0].bbox.page
