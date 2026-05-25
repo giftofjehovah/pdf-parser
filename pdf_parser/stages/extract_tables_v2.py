@@ -8,6 +8,10 @@ import pdfplumber
 from pdf_parser.model import BBox, DocNode
 from pdf_parser.stages.aggregate_tables import CellTable, aggregate
 from pdf_parser.stages.detect_cells import detect_cells
+# ``_between_text_nodes`` is a pure function over (page_chars, cell_bbox,
+# nested_bboxes) → list[paragraph DocNode].  It does NOT belong to the
+# legacy cascade we replace; Phase 10 inlines it locally.
+from pdf_parser.stages.extract_tables import _between_text_nodes
 
 _PROVENANCE = {"extractor": "bottom_up", "stage": "extract_tables_v2"}
 
@@ -24,12 +28,15 @@ def _extract(pdf) -> list[DocNode]:
     for page_idx, page in enumerate(pdf.pages):
         cells = detect_cells(page, page_idx)
         tables = aggregate(cells, page_height=float(page.height))
+        page_chars = page.chars
         for t in tables:
-            out.append(_celltable_to_docnode(t))
+            out.append(_celltable_to_docnode(t, page_chars=page_chars))
     return out
 
 
-def _celltable_to_docnode(t: CellTable) -> DocNode:
+def _celltable_to_docnode(
+    t: CellTable, page_chars: list[dict] | None = None,
+) -> DocNode:
     rows: list[DocNode] = []
     for r_idx, row_texts in enumerate(t.grid):
         cells: list[DocNode] = []
@@ -41,13 +48,28 @@ def _celltable_to_docnode(t: CellTable) -> DocNode:
             attrs: dict = {"align": "left"}
             if is_covered:
                 attrs["covered"] = True
-            children = [_celltable_to_docnode(sub) for sub in t.nested
-                        if _bbox_inside(sub.bbox, cbox)]
+            nested_in_cell = [sub for sub in t.nested if _bbox_inside(sub.bbox, cbox)]
+            nested_children = [
+                _celltable_to_docnode(sub, page_chars=page_chars)
+                for sub in nested_in_cell
+            ]
+            # Between-text: paragraphs that sit in this cell's y-range but
+            # outside every nested sub-table.  Sorted with the nested
+            # children so vertical order is preserved.
+            extras: list[DocNode] = []
+            if nested_children and page_chars is not None:
+                extras = _between_text_nodes(
+                    page_chars, cbox, [sub.bbox for sub in nested_in_cell],
+                )
+            combined = sorted(
+                nested_children + extras,
+                key=lambda n: n.bbox.y0 if hasattr(n.bbox, "y0") else n.bbox[0].y0,
+            )
             cells.append(DocNode(
                 kind="cell",
                 bbox=cbox,
-                text=text if not children else None,
-                children=children,
+                text=text if not combined else None,
+                children=combined,
                 attrs=attrs,
                 provenance=_PROVENANCE,
             ))
