@@ -76,14 +76,73 @@ CASES_DIR = Path("tests/golden/synthetic")
 # carve out sub-clusters via recursive containment BEFORE union-clustering
 # column anchors so the main table's anchor set stays clean.  Left as
 # Phase-7+ residual; 26's stitching half is for Phase 8.
+#
+# Phase 8 residual (07/08/17/26): cross-page fixtures whose per-page output
+# never matches legacy, so ``stitch_pages`` (verified extractor-agnostic in
+# ``tests/stages/test_stitch_pages_bottom_up.py``) has nothing to stitch.
+# Task 8.2 confirmed only 09 and 14c reach parity at the phase boundary:
+#
+#  * 07_page_spanning_with_nested -- legacy emits one 51x3 main table
+#    p0 y=118..700 -> p1 carrying two nested 2x2 sub-tables (p0 y=210..248
+#    at row[5]; p1 y=332..370 at row[45]).  Bottom-up's gap-split fires
+#    at every tall row: the row containing a nested sub-table is taller
+#    than its neighbours, so ``aggregate_tables._split_into_tables``
+#    breaks the main table after y=248 on p0 (header drifts to
+#    "6/plain input 6/note 6") and again after y=370 on p1 (header
+#    "46/plain input 46/note 46").  Three orphan tables with diverging
+#    header signatures -- ``_can_merge``'s anchor+signature check
+#    rejects every adjacent pair, so stitching can't reassemble them.
+#    Real fix lives one step deeper: make the row-gap split threshold
+#    aware of nested sub-table heights (or carve sub-clusters out via
+#    recursive containment BEFORE gap-splitting the parent rows).
+#    Left as Phase-8+ residual.
+#
+#  * 08_page_spanning_subtable_split -- legacy emits one 50x3 main
+#    p0 y=118..698 -> p1 plus a nested 4x2 sub-table cut by the page
+#    break (p0 y=624..698 + p1 y=80..136).  Bottom-up emits four
+#    siblings instead of one nested span: main p0 29x3, sub-table p0
+#    y=643..698 (header 'a','1', emitted as sibling not nested),
+#    sub-table p1 y=80..136 (4 cols not 2 -- column-anchor pollution
+#    flowing in from union-clustered main anchors at x0=202/262/322),
+#    main p1 20x3 with header drifting to "30/plain 30/n30".  The
+#    interleaved sibling sub-table sits between the two main fragments
+#    in ``stitch_tables``'s adjacency walk, so ``_can_merge`` never
+#    even compares p0-main with p1-main.  Real fix lives one step
+#    deeper: nest sub-tables inside parent cells (Phase 7's outer-frame
+#    work) so they don't appear as same-level siblings between main
+#    fragments.  Left as Phase-8+ residual; subset of the Phase-7
+#    1xN-wrapper residual.
+#
+#  * 17_text_between_subtables_spanning -- legacy emits one 4x1 outer
+#    wrapper p0 y=118..712 -> p1 (header "Section Header") hosting both
+#    inner sub-tables and the inter-table paragraphs as its four cells.
+#    Bottom-up correctly emits the two inner sub-tables (p0 'Item','Qty'
+#    y=142..196 and p1 'Month','Sales' y=486..540) and the paragraphs,
+#    but lacks the 1xN outer-frame reconstruction (same root cause as
+#    24/25/26 -- ``_rows_to_celltable`` rejects single-column
+#    candidates).  Cross-page aspect is incidental: nothing per-page
+#    forms the outer wrapper, so stitching is moot.  Real fix is the
+#    Phase-7+ outer-frame work; this fixture is a pure Phase-7
+#    residual that happened to span pages.  Left as Phase-8+ residual.
+#
+#  * 26_spanning_subtable_flush_at_break -- already documented as a
+#    Phase-7 residual; Phase 8 adds two empirical findings.  (1) The
+#    continuation-page sub-table (legacy p1 y=78..116 header 'c','3')
+#    is NOT detected at all by bottom-up on p1 -- the would-be cell
+#    contents surface as loose paragraphs ("3", "c", "29",
+#    "starts pg n+1", "d", "4") because the flush-top edge of the
+#    sub-table abutting page-top y=78 leaves no horizontal evidence
+#    for ``detect_cells`` to anchor on.  (2) Header signatures of the
+#    two main fragments diverge identically to fixture 07
+#    ("Step/Detail/Notes" vs "30/plain 30/n30"), so even if (1) were
+#    fixed, ``_can_merge`` would still reject the main pair.  Left as
+#    Phase-8+ residual; superset of Phase-7's residual on this fixture.
 _XFAIL_CASES: set[str] = {
     "02_nested_table",
     "07_page_spanning_with_nested",
     "08_page_spanning_subtable_split",
-    "09_mixed_toc_and_spanning_table",
     "10_merged_cells",
     "13_comprehensive",
-    "14c_borderless_long_text_spanning",
     "16_text_between_subtables",
     "17_text_between_subtables_spanning",
     "18_ruled_header_open_body",
