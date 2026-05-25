@@ -124,21 +124,39 @@ def _line_cells(page, page_index: int) -> list[Cell]:
                 ))
     return out
 
+
+
+def _word_ymid(w: dict) -> float:
+    return (w["top"] + w["bottom"]) / 2.0
+
+
 def _group_words_into_lines(words: list[dict], tol: float = 2.0) -> list[list[dict]]:
-    """y-bucket pdfplumber word dicts into visual text lines."""
+    """y-bucket pdfplumber word dicts into visual text lines.
+
+    Bucketing rule: a word joins the current line when its y-midpoint is
+    within ``tol`` of the line's running-average y-midpoint.  When it falls
+    outside, a new line opens and the running average resets to that word's
+    y-midpoint (NOT the average of the new word and the previous line — that
+    would silently mis-bucket the next word in the new line if it sits within
+    ``tol`` of the new line but outside the contaminated midpoint).
+
+    Sort key uses (ymid, x0) so ties on y-midpoint (very common — same-line
+    words usually share top/bottom) compare on x0 rather than falling through
+    to a dict comparison (which raises ``TypeError``).
+    """
     if not words:
         return []
-    by_y: list[tuple[float, dict]] = sorted(
-        ((w["top"] + w["bottom"]) / 2.0, w) for w in words
-    )
-    lines: list[list[dict]] = [[by_y[0][1]]]
-    cur_y = by_y[0][0]
-    for ymid, w in by_y[1:]:
+    by_y = sorted(words, key=lambda w: (_word_ymid(w), w["x0"]))
+    lines: list[list[dict]] = [[by_y[0]]]
+    cur_y = _word_ymid(by_y[0])
+    for w in by_y[1:]:
+        ymid = _word_ymid(w)
         if abs(ymid - cur_y) <= tol:
             lines[-1].append(w)
+            cur_y = (cur_y + ymid) / 2.0
         else:
             lines.append([w])
-        cur_y = (cur_y + ymid) / 2.0
+            cur_y = ymid
     for ln in lines:
         ln.sort(key=lambda w: w["x0"])
     return lines

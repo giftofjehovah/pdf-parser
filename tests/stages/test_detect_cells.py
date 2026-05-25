@@ -45,3 +45,31 @@ def test_word_lines_y_bucketed():
     assert len(lines) == 2
     assert [w["text"] for w in lines[0]] == ["Hello", "world"]
     assert [w["text"] for w in lines[1]] == ["Next"]
+
+
+def test_word_lines_keeps_third_line_intact_after_line_break():
+    """After a line break, cur_y must reset so the next word in the new line
+    is bucketed correctly. Regression for the running-average bug where the
+    update fired in both branches and contaminated the new-line centroid."""
+    words = [
+        {"x0": 10, "x1": 30, "top": 100, "bottom": 100, "text": "A"},
+        {"x0": 10, "x1": 30, "top": 130, "bottom": 130, "text": "B1"},
+        {"x0": 40, "x1": 60, "top": 131, "bottom": 131, "text": "B2"},
+    ]
+    lines = _group_words_into_lines(words, tol=2.0)
+    assert len(lines) == 2
+    assert [w["text"] for w in lines[0]] == ["A"]
+    assert [w["text"] for w in lines[1]] == ["B1", "B2"]
+
+
+def test_word_lines_handles_identical_y_midpoints():
+    """Two words sharing top/bottom must not raise TypeError from a dict
+    comparison falling through the sort key. Regression for the
+    (ymid, dict) sort key."""
+    words = [
+        {"x0": 40, "x1": 60, "top": 100, "bottom": 110, "text": "B"},
+        {"x0": 10, "x1": 30, "top": 100, "bottom": 110, "text": "A"},
+    ]
+    lines = _group_words_into_lines(words, tol=2.0)
+    assert len(lines) == 1
+    assert [w["text"] for w in lines[0]] == ["A", "B"]
