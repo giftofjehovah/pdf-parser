@@ -31,7 +31,10 @@ class Cell:
 
 
 def detect_cells(page, page_index: int) -> list[Cell]:
-    """Return every candidate cell on ``page``.  Empty list = no tables here."""
+    """Return cells from the first source that finds anything: line-bounded
+    if any, otherwise gutter-based.  The two sources are mutually exclusive
+    for now; later phases may union them on mixed-source pages.
+    """
     line = _line_cells(page, page_index)
     if line:
         return line  # Line-bounded wins; gutter is the borderless fallback.
@@ -226,30 +229,47 @@ def _find_column_gutters(
                 seen.append(g)
     return sorted(out)
 
-_GUTTER_CONFIDENCE = 0.7
-_GUTTER_LINE_TOL   = 2.0
+_GUTTER_CONFIDENCE  = 0.7
+_GUTTER_LINE_TOL    = 2.0
+# Bounds within this distance collapse to one entry; gutter ranges within
+# this distance of a candidate column are recognised as the gutter itself
+# (i.e. dropped, not emitted as a sliver column).
+_GUTTER_MATCH_TOL   = 0.5
+# Words whose x-midpoint sits within this slack of a column edge bin into
+# that column.  Cheap robustness against PDF coordinate drift.
+_BIN_MIDPOINT_TOL   = 0.5
 
 
 def _column_ranges_from_gutters(
     page_x0: float, page_x1: float, gutters: list[tuple[float, float]]
 ) -> list[tuple[float, float]]:
-    """Convert gutters → list of column x-ranges spanning [page_x0, page_x1]."""
+    """Convert gutters → list of column x-ranges spanning [page_x0, page_x1].
+
+    Bounds are merged within ``_GUTTER_MATCH_TOL`` so FP drift in the source
+    PDF (e.g. ``199.23000000000002``) collapses to one boundary instead of
+    emitting an epsilon-wide sliver column. Adjacent gutters whose facing
+    edges sit within the same tolerance collapse the same way, so a gap of
+    ``0.3pt`` between two near-touching gutters does not become its own
+    column either.
+    """
     if not gutters:
         return [(page_x0, page_x1)]
-    bounds = [page_x0]
+    raw = [page_x0]
     for g in gutters:
-        bounds.extend(g)
-    bounds.append(page_x1)
-    bounds = sorted(set(bounds))
+        raw.extend(g)
+    raw.append(page_x1)
+    raw.sort()
+    bounds: list[float] = [raw[0]]
+    for v in raw[1:]:
+        if v - bounds[-1] > _GUTTER_MATCH_TOL:
+            bounds.append(v)
     cols: list[tuple[float, float]] = []
-    skip_next = False
     for i in range(len(bounds) - 1):
-        if skip_next:
-            skip_next = False
-            continue
         a, b = bounds[i], bounds[i + 1]
-        # If (a, b) is itself a gutter, skip.
-        if any(abs(a - g[0]) < 0.5 and abs(b - g[1]) < 0.5 for g in gutters):
+        # If (a, b) lines up with a gutter, drop it — the column is the
+        # whitespace between two real columns, not a column itself.
+        if any(abs(a - g[0]) < _GUTTER_MATCH_TOL and abs(b - g[1]) < _GUTTER_MATCH_TOL
+               for g in gutters):
             continue
         cols.append((a, b))
     return cols
@@ -262,7 +282,7 @@ def _bin_words_to_columns(
     for w in words:
         xmid = (w["x0"] + w["x1"]) / 2.0
         for i, (cx0, cx1) in enumerate(cols):
-            if cx0 - 0.5 <= xmid <= cx1 + 0.5:
+            if cx0 - _BIN_MIDPOINT_TOL <= xmid <= cx1 + _BIN_MIDPOINT_TOL:
                 bins[i].append((w["x0"], w["text"]))
                 break
     return [" ".join(t for _, t in sorted(b)) for b in bins]
