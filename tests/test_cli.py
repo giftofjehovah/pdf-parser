@@ -49,10 +49,9 @@ def test_parse_output_flag_writes_to_path(tmp_path):
     assert result.stdout.strip() == ""  # nothing on stdout when -o set
     data = json.loads(out.read_text())
     assert data["kind"] == "document"
+
+
 def test_cli_bottom_up_flag_exists():
-    from typer.testing import CliRunner
-    from pdf_parser.cli import app
-    runner = CliRunner()
     result = runner.invoke(app, ["parse", "--help"])
     assert result.exit_code == 0
     assert "--bottom-up" in result.stdout
