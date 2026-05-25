@@ -35,11 +35,17 @@ def detect_cells(page, page_index: int) -> list[Cell]:
     cells: list[Cell] = []
     cells.extend(_line_cells(page, page_index))
     return cells
+
+
 # ---------------------------------------------------------------------------
 # Line-bounded cells: pdfplumber's line strategy + visible-edge overdraw
-# filtering (background-coloured strokes subtracted).  The overdraw logic is
-# vendored from the legacy ``detect_tables._visible_edges`` so we do not
-# import the to-be-deleted module.  When parity ships, the helpers live here.
+# filtering (background-coloured strokes subtracted).  The overdraw helper is
+# currently a thin wrapper around ``detect_tables._visible_edges``; Phase 10
+# inlines a port here so the bottom-up path stands alone.
+#
+# ``_LINE_AXIS_TOL``, ``_LINE_SNAP_TOL`` and ``_is_background_color`` are
+# reserved for that Phase-10 inline (the inlined ``_visible_edges`` port uses
+# them); kept here so the constant/helper set is stable across the cutover.
 # ---------------------------------------------------------------------------
 
 _LINE_AXIS_TOL  = 0.5
@@ -76,8 +82,9 @@ def _is_background_color(c) -> bool:
 def _visible_edges_local(page):
     """Return ``(h_lines, v_lines)`` with background-coloured overdraws removed.
 
-    Direct port of ``detect_tables._visible_edges``.  Kept here so the
-    bottom-up path stands alone.  See that module for the design notes.
+    Thin wrapper around ``detect_tables._visible_edges``.  Phase 10 inlines
+    a port here so the bottom-up path stands alone; see that module for the
+    design notes in the meantime.
     """
     from pdf_parser.stages.detect_tables import _visible_edges  # Phase 10 inlines this
     h, v, _ = _visible_edges(page)

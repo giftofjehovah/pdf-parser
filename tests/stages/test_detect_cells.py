@@ -4,7 +4,7 @@ from pathlib import Path
 import pdfplumber
 
 from pdf_parser.model import BBox
-from pdf_parser.stages.detect_cells import Cell, detect_cells, _line_cells
+from pdf_parser.stages.detect_cells import Cell, _line_cells
 
 
 def test_cell_holds_bbox_text_source_confidence():
@@ -20,6 +20,8 @@ def test_cell_source_is_constrained():
     bb = BBox(page=0, x0=0, y0=0, x1=10, y1=10)
     for src in ("line", "gutter", "text"):
         Cell(bbox=bb, text="", source=src, confidence=0.5)
+
+
 def test_line_cells_on_01_simple_table():
     pdf_path = Path("tests/golden/synthetic/01_simple_table/source.pdf")
     with pdfplumber.open(str(pdf_path)) as pdf:
