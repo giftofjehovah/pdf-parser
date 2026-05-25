@@ -4,7 +4,7 @@ from pathlib import Path
 import pdfplumber
 
 from pdf_parser.model import BBox
-from pdf_parser.stages.detect_cells import Cell, _line_cells, _group_words_into_lines, _find_column_gutters
+from pdf_parser.stages.detect_cells import Cell, _line_cells, _group_words_into_lines, _find_column_gutters, _gutter_cells
 
 
 
@@ -90,3 +90,11 @@ def test_gutters_three_columns():
     gutters = _find_column_gutters(line_words, min_run=3, min_gap_pt=8.0)
     # Two inter-column gutters → 3 column ranges.
     assert len(gutters) == 2
+
+def test_gutter_cells_on_14_borderless_table():
+    pdf_path = Path("tests/golden/synthetic/14_borderless_table/source.pdf")
+    with pdfplumber.open(str(pdf_path)) as pdf:
+        page = pdf.pages[0]
+        cells = _gutter_cells(page, page_index=0)
+    assert cells, "gutter detector must find cells on a borderless table"
+    assert all(c.source == "gutter" for c in cells)

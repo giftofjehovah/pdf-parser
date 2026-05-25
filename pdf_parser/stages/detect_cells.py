@@ -32,9 +32,10 @@ class Cell:
 
 def detect_cells(page, page_index: int) -> list[Cell]:
     """Return every candidate cell on ``page``.  Empty list = no tables here."""
-    cells: list[Cell] = []
-    cells.extend(_line_cells(page, page_index))
-    return cells
+    line = _line_cells(page, page_index)
+    if line:
+        return line  # Line-bounded wins; gutter is the borderless fallback.
+    return _gutter_cells(page, page_index)
 
 
 # ---------------------------------------------------------------------------
@@ -224,3 +225,76 @@ def _find_column_gutters(
                 out.append(g)
                 seen.append(g)
     return sorted(out)
+
+_GUTTER_CONFIDENCE = 0.7
+_GUTTER_LINE_TOL   = 2.0
+
+
+def _column_ranges_from_gutters(
+    page_x0: float, page_x1: float, gutters: list[tuple[float, float]]
+) -> list[tuple[float, float]]:
+    """Convert gutters → list of column x-ranges spanning [page_x0, page_x1]."""
+    if not gutters:
+        return [(page_x0, page_x1)]
+    bounds = [page_x0]
+    for g in gutters:
+        bounds.extend(g)
+    bounds.append(page_x1)
+    bounds = sorted(set(bounds))
+    cols: list[tuple[float, float]] = []
+    skip_next = False
+    for i in range(len(bounds) - 1):
+        if skip_next:
+            skip_next = False
+            continue
+        a, b = bounds[i], bounds[i + 1]
+        # If (a, b) is itself a gutter, skip.
+        if any(abs(a - g[0]) < 0.5 and abs(b - g[1]) < 0.5 for g in gutters):
+            continue
+        cols.append((a, b))
+    return cols
+
+
+def _bin_words_to_columns(
+    words: list[dict], cols: list[tuple[float, float]]
+) -> list[str]:
+    bins: list[list[tuple[float, str]]] = [[] for _ in cols]
+    for w in words:
+        xmid = (w["x0"] + w["x1"]) / 2.0
+        for i, (cx0, cx1) in enumerate(cols):
+            if cx0 - 0.5 <= xmid <= cx1 + 0.5:
+                bins[i].append((w["x0"], w["text"]))
+                break
+    return [" ".join(t for _, t in sorted(b)) for b in bins]
+
+
+def _gutter_cells(page, page_index: int) -> list[Cell]:
+    words = page.extract_words(keep_blank_chars=False, use_text_flow=False)
+    if not words:
+        return []
+    lines = _group_words_into_lines(words, tol=_GUTTER_LINE_TOL)
+    if len(lines) < _GUTTER_MIN_RUN_LINES:
+        return []
+    gutters = _find_column_gutters(lines)
+    if not gutters:
+        return []
+    page_x0 = float(page.bbox[0])
+    page_x1 = float(page.bbox[2])
+    cols = _column_ranges_from_gutters(page_x0, page_x1, gutters)
+    if len(cols) < 2:
+        return []
+    out: list[Cell] = []
+    for ln in lines:
+        texts = _bin_words_to_columns(ln, cols)
+        y0 = min(w["top"] for w in ln)
+        y1 = max(w["bottom"] for w in ln)
+        for (cx0, cx1), t in zip(cols, texts):
+            if not t:
+                continue
+            out.append(Cell(
+                bbox=BBox(page=page_index, x0=cx0, y0=y0, x1=cx1, y1=y1),
+                text=t.strip(),
+                source="gutter",
+                confidence=_GUTTER_CONFIDENCE,
+            ))
+    return out
