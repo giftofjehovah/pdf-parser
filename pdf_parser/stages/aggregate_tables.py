@@ -340,8 +340,137 @@ def aggregate(cells: list[Cell], page_height: float) -> list[CellTable]:
     return _aggregate_recursive(cells, page_height)
 
 
+def _find_bracketing_text_cells(
+    c: Cell, cells: list[Cell], tol: float = 2.0
+) -> tuple[Cell | None, Cell | None]:
+    """Return (L, R): closest text-bearing tall cells flanking ``c`` whose
+    y-range strictly extends beyond ``c``'s on at least one side.
+
+    Tall = same y-band as c (b.y0 ≤ cy0 AND b.y1 ≥ cy1) plus a strict
+    extension on at least one side.  Text-bearing = non-empty stripped text,
+    so empty lattice-fragment fillers around a sub-table do not qualify.
+    """
+    page = c.bbox.page
+    cy0, cy1 = c.bbox.y0, c.bbox.y1
+    cx0, cx1 = c.bbox.x0, c.bbox.x1
+    L: Cell | None = None
+    R: Cell | None = None
+    for other in cells:
+        if other is c or other.bbox.page != page:
+            continue
+        if not (other.text and other.text.strip()):
+            continue
+        b = other.bbox
+        if not (b.y0 <= cy0 + tol and b.y1 >= cy1 - tol):
+            continue
+        if not (b.y0 < cy0 - tol or b.y1 > cy1 + tol):
+            continue
+        if b.x1 <= cx0 + tol:
+            if L is None or b.x1 > L.bbox.x1:
+                L = other
+        elif b.x0 >= cx1 - tol:
+            if R is None or b.x0 < R.bbox.x0:
+                R = other
+    return L, R
+
+
+def _carve_subclusters(
+    cells: list[Cell],
+) -> tuple[list[Cell], list[Cell]]:
+    """Carve nested sub-clusters from ``cells`` using tall-cell brackets.
+
+    For each cell, identifies its closest text-bearing tall-cell brackets (L
+    and R).  Cells sharing the same (L, R) pair belong to one synthetic
+    parent region defined by (L.x1, max(L.y0, R.y0), R.x0, min(L.y1, R.y1)).
+    Regions containing ≥4 cells are carved: a synthetic empty parent cell
+    replaces all members in ``top_cells``, while sub-table members (those
+    with y-extent strictly less than the parent's, i.e. NOT lattice fillers)
+    are retained in ``nested_pool`` for the recursive nested attachment to
+    find.
+
+    Returns ``(top_cells, nested_pool)``:
+      * ``top_cells``: input cells with carved members removed plus synthetic
+        parents — feeds row-clustering and ``_rows_to_celltable``.
+      * ``nested_pool``: input cells with lattice fillers (full-height empty
+        cells inside a carved region) removed — feeds ``_cells_inside``
+        during nested attachment so sub-table cells participate but
+        non-content fillers do not pollute the recursive aggregation.
+
+    No-op when no parent region reaches the ≥4 threshold (returns the input
+    list as both outputs).
+    """
+    tol = 2.0
+    parent_members: dict[tuple, list[Cell]] = {}
+    for c in cells:
+        L, R = _find_bracketing_text_cells(c, cells, tol)
+        if L is None or R is None:
+            continue
+        py0 = max(L.bbox.y0, R.bbox.y0)
+        py1 = min(L.bbox.y1, R.bbox.y1)
+        if py1 <= py0:
+            continue
+        if not (c.bbox.y0 >= py0 - tol and c.bbox.y1 <= py1 + tol):
+            continue
+        key = (
+            c.bbox.page,
+            round(L.bbox.x1, 1),
+            round(py0, 1),
+            round(R.bbox.x0, 1),
+            round(py1, 1),
+        )
+        parent_members.setdefault(key, []).append(c)
+
+    valid = {k: v for k, v in parent_members.items() if len(v) >= 4}
+    if not valid:
+        return cells, cells
+
+    carved_ids: set[int] = set()
+    filler_ids: set[int] = set()
+    synthetic: list[Cell] = []
+    for key in valid:
+        page, x0, y0_, x1, y1_ = key
+        parent_h = y1_ - y0_
+        bbox = BBox(page=page, x0=float(x0), y0=float(y0_),
+                    x1=float(x1), y1=float(y1_))
+        for c in cells:
+            if c.bbox.page != page:
+                continue
+            b = c.bbox
+            inside = (
+                b.x0 >= x0 - tol and b.y0 >= y0_ - tol
+                and b.x1 <= x1 + tol and b.y1 <= y1_ + tol
+            )
+            if not inside:
+                continue
+            carved_ids.add(id(c))
+            # Cell with full parent height + empty text = lattice filler.
+            cell_h = b.y1 - b.y0
+            if cell_h >= parent_h - tol and not (c.text and c.text.strip()):
+                filler_ids.add(id(c))
+        synthetic.append(Cell(
+            bbox=bbox,
+            text="",
+            source="line",
+            confidence=1.0,
+            bbox_style="shared",
+        ))
+
+    top_cells = [c for c in cells if id(c) not in carved_ids]
+    top_cells.extend(synthetic)
+    nested_pool = [c for c in cells if id(c) not in filler_ids]
+    return top_cells, nested_pool
+
+
 def _aggregate_recursive(cells: list[Cell], page_height: float) -> list[CellTable]:
     """Produce top-level tables; attach contained sub-tables as ``nested``.
+
+    Sub-cluster carve-out (see :func:`_carve_subclusters`): nested sub-table
+    cells whose Inputs-style container is fragmented by the line detector
+    are identified via tall-cell brackets and replaced in ``top_cells`` by a
+    single synthetic parent cell.  Lattice-filler fragments (full-height
+    empty cells around the sub-table) are discarded from ``nested_pool`` so
+    they neither split the parent's row at the sub-table's ``x0`` nor
+    pollute the recursive sub-table aggregation.
 
     Iteration is over every ``_split_into_tables`` output, so the same
     sub-cluster of cells can appear both as the parent's ``nested`` entry and
@@ -350,13 +479,15 @@ def _aggregate_recursive(cells: list[Cell], page_height: float) -> list[CellTabl
     nested tree — eliminating the double appearance without losing the
     structural link.
     """
+    top_cells, nested_pool = _carve_subclusters(cells)
+
     top: list[CellTable] = []
-    for table_rows in _split_into_tables(_row_cluster(cells)):
+    for table_rows in _split_into_tables(_row_cluster(top_cells)):
         ct = _rows_to_celltable(table_rows, page_height)
         if ct is None:
             continue
         used = {c.bbox.rounded() for row in table_rows for c in row}
-        remaining = [c for c in cells if c.bbox.rounded() not in used]
+        remaining = [c for c in nested_pool if c.bbox.rounded() not in used]
         for r_idx, row in enumerate(table_rows):
             for c_idx, c in enumerate(row):
                 inside = _cells_inside(remaining, c.bbox)

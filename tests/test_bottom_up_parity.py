@@ -137,6 +137,27 @@ CASES_DIR = Path("tests/golden/synthetic")
 #    ("Step/Detail/Notes" vs "30/plain 30/n30"), so even if (1) were
 #    fixed, ``_can_merge`` would still reject the main pair.  Left as
 #    Phase-8+ residual; superset of Phase-7's residual on this fixture.
+# Phase 9 outcome (07/13): ``aggregate_tables._carve_subclusters`` carves
+# nested sub-cluster cells out of top-level row clustering using tall-cell
+# brackets + synthetic parent cells.  This recovers the page-spanning
+# nested Project Tracking table + Hardware Inventory nesting + the global
+# 5-spanning-tables count for the omnibus, unblocking 6 of the 21
+# previously-failing assertions in ``tests/test_comprehensive.py`` (all
+# project_table tests, hardware_inventory nested tables, and the
+# Quarterly Performance covered-cells count).  Strict id-set parity for
+# 07/08/13 still fails: synthetic-parent bboxes are not byte-identical to
+# legacy's per-cell bboxes (off by a few pt where legacy reconstructs the
+# outer container from full-width H-lines), so node IDs diverge even when
+# the tree's structural shape matches.  The remaining residuals (Phase-5
+# ruled-header, Phase-6 rowspan, Phase-7 1xN outer-frame) surface in
+# 13_comprehensive as 15 per-assertion bottom_up xfails — see the
+# residual constants in ``tests/test_comprehensive.py`` for the exact
+# upstream-fixture mapping.  Phase 10+ work: byte-identical synthetic
+# bboxes (would unblock 07/13 parity); 1xN wrapper support (would unblock
+# 16/17/24/25 + Annex C/D); rowspan detector (would unblock 10/21 +
+# Annex E + merged_cells); ruled-header source-union (would unblock
+# 18/19/20/23 + Annex A).
+#
 _XFAIL_CASES: set[str] = {
     "02_nested_table",
     "07_page_spanning_with_nested",
