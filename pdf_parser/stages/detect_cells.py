@@ -287,6 +287,25 @@ def _bin_words_to_columns(
                 break
     return [" ".join(t for _, t in sorted(b)) for b in bins]
 
+# Tuned narrower than the legacy text-strategy guard because line-bounded
+# detection already absorbs most real tables; gutter only fires on borderless
+# layouts where false positives (multi-column prose) are the dominant risk.
+_GUTTER_MAX_AVG_CELL_CHARS         = 12   # avg cell length must stay ≤ this
+_GUTTER_MAX_LOWERCASE_START_RATIO  = 0.40 # ≤40% of cells may start lowercase
+
+
+def _is_gutter_table_shape(grid: list[list[str]]) -> bool:
+    cells = [c.strip() for row in grid for c in row if c.strip()]
+    if len(cells) < 4:
+        return False
+    avg_len = sum(len(c) for c in cells) / len(cells)
+    if avg_len > _GUTTER_MAX_AVG_CELL_CHARS:
+        return False
+    lowercase_starts = sum(1 for c in cells if c[:1].islower())
+    if lowercase_starts / len(cells) > _GUTTER_MAX_LOWERCASE_START_RATIO:
+        return False
+    return True
+
 
 def _gutter_cells(page, page_index: int) -> list[Cell]:
     words = page.extract_words(keep_blank_chars=False, use_text_flow=False)
@@ -303,18 +322,25 @@ def _gutter_cells(page, page_index: int) -> list[Cell]:
     cols = _column_ranges_from_gutters(page_x0, page_x1, gutters)
     if len(cols) < 2:
         return []
-    out: list[Cell] = []
+    # Buffer rows first so we can run the prose guard on the candidate grid.
+    candidate_rows: list[list[str]] = []
+    candidate_cells: list[Cell] = []
     for ln in lines:
         texts = _bin_words_to_columns(ln, cols)
+        if not any(t for t in texts):
+            continue
         y0 = min(w["top"] for w in ln)
         y1 = max(w["bottom"] for w in ln)
         for (cx0, cx1), t in zip(cols, texts):
             if not t:
                 continue
-            out.append(Cell(
+            candidate_cells.append(Cell(
                 bbox=BBox(page=page_index, x0=cx0, y0=y0, x1=cx1, y1=y1),
                 text=t.strip(),
                 source="gutter",
                 confidence=_GUTTER_CONFIDENCE,
             ))
-    return out
+        candidate_rows.append(texts)
+    if not _is_gutter_table_shape(candidate_rows):
+        return []
+    return candidate_cells

@@ -98,3 +98,14 @@ def test_gutter_cells_on_14_borderless_table():
         cells = _gutter_cells(page, page_index=0)
     assert cells, "gutter detector must find cells on a borderless table"
     assert all(c.source == "gutter" for c in cells)
+
+def test_gutter_cells_reject_multicolumn_prose():
+    """15_multicolumn_text is body prose; gutter detector must NOT see a table."""
+    pdf_path = Path("tests/golden/synthetic/15_multicolumn_text/source.pdf")
+    with pdfplumber.open(str(pdf_path)) as pdf:
+        page = pdf.pages[0]
+        cells = _gutter_cells(page, page_index=0)
+    assert cells == [], (
+        f"Multi-column prose was misclassified as table cells: "
+        f"{[c.text[:30] for c in cells[:5]]}"
+    )
