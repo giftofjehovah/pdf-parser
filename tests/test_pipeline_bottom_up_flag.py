@@ -1,9 +1,6 @@
 """use_bottom_up flag is accepted by parse() and defaults to False (legacy path)."""
 import inspect
 from pathlib import Path
-
-import pytest
-
 from pdf_parser.pipeline import parse
 
 

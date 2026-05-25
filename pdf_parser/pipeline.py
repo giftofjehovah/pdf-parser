@@ -98,6 +98,7 @@ def parse(
     A single ``pdfplumber.PDF`` handle is shared across ``extract_tables``
     and ``augment_with_anchor_tables`` so an anchor-enabled parse pays at
     most one PDF open per call.
+
     ``use_bottom_up`` (default False) selects the bottom-up cell-clustering
     extractor (:mod:`pdf_parser.stages.extract_tables_v2`) in place of the
     legacy cascade.  When True, ``use_anchor`` is ignored — bottom-up
