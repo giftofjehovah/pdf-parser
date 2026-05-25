@@ -6,20 +6,18 @@ When a fixture starts passing (xpassed) the developer removes its xfail in the
 same commit as the implementation change, so future regressions surface as
 plain failures rather than silent xpasses.
 
-After all 27 cases pass, Phase 10 deletes this file and flips the pipeline
+After all 28 cases pass, Phase 10 deletes this file and flips the pipeline
 default.
 """
 from __future__ import annotations
 
-import json
 from pathlib import Path
 
 import pytest
 
 from pdf_parser.pipeline import parse
 from pdf_parser.model import DocNode
-from pdf_parser.render.json_ import to_json
-from scripts.update_goldens import _load_parser_config, _strip_bbox_noise
+from scripts.update_goldens import _load_parser_config
 
 CASES_DIR = Path("tests/golden/synthetic")
 
@@ -86,9 +84,9 @@ def _format_diff(a: DocNode, b: DocNode) -> str:
     crumbs_a, crumbs_b = _id_to_breadcrumb(a), _id_to_breadcrumb(b)
     lines = [
         f"  legacy_only ({len(only_a)}):",
-        *(f"    {nid}  {crumbs_a[nid]}" for nid in sorted(only_a)),
+        *(f"    {nid}  {crumbs_a[nid]}" for nid in sorted(only_a, key=crumbs_a.__getitem__)),
         f"  bottom_up_only ({len(only_b)}):",
-        *(f"    {nid}  {crumbs_b[nid]}" for nid in sorted(only_b)),
+        *(f"    {nid}  {crumbs_b[nid]}" for nid in sorted(only_b, key=crumbs_b.__getitem__)),
     ]
     return "\n".join(lines)
 
