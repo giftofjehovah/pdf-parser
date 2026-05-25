@@ -22,13 +22,9 @@ Plus two structural tests:
 
 from __future__ import annotations
 
-import tempfile
 from pathlib import Path
 
 import pytest
-from reportlab.lib.pagesizes import LETTER
-from reportlab.lib.styles import getSampleStyleSheet
-from reportlab.platypus import Paragraph, SimpleDocTemplate, Spacer, Table, TableStyle
 
 from pdf_parser.model import BBox, DocNode
 from pdf_parser.pipeline import parse as parse_pdf
@@ -55,7 +51,9 @@ def _all_tables(node: DocNode) -> list[DocNode]:
 
 
 def _anchor_tables(node: DocNode) -> list[DocNode]:
-    return [t for t in _all_tables(node) if t.provenance.get("extractor") == "anchor"]
+    # Stitched anchor tables carry ``anchor+stitch``; ``startswith`` covers both.
+    return [t for t in _all_tables(node)
+            if t.provenance.get("extractor", "").startswith("anchor")]
 
 
 # ---------------------------------------------------------------------------
@@ -73,22 +71,22 @@ def _anchor_tables(node: DocNode) -> list[DocNode]:
     "16_text_between_subtables",
     "17_text_between_subtables_spanning",
 ])
-def test_experimental_does_not_shadow_legacy(fixture: str) -> None:
-    """Experimental table count MUST equal legacy table count on these fixtures.
+def test_anchor_does_not_shadow_legacy(fixture: str) -> None:
+    """Anchor-enabled parse MUST yield the same table count as anchor-disabled
+    on every fixture the legacy cascade already handles.
 
-    Any extra table from the experimental path on a fixture the legacy
-    cascade already handles is a duplicate sub-region (the IoU bug) or a
-    list misidentified as a table (the list-shape bug).
+    Any extra table from the anchor path on a fixture legacy already handles
+    is a duplicate sub-region (the IoU bug) or a list misidentified as a
+    table (the list-shape bug).
     """
     pdf = GOLDEN / fixture / "source.pdf"
     if not pdf.exists():
         pytest.skip(f"missing fixture {fixture}")
-    legacy_count = len(_all_tables(parse_pdf(pdf)))
-    experimental_count = len(_all_tables(parse_pdf(pdf, table_detector="experimental")))
-    assert experimental_count == legacy_count, (
-        f"{fixture}: legacy={legacy_count}, experimental={experimental_count} — "
-        f"experimental path added phantom tables on a fixture the legacy "
-        f"cascade already handles."
+    no_anchor_count = len(_all_tables(parse_pdf(pdf, use_anchor=False)))
+    anchor_count    = len(_all_tables(parse_pdf(pdf)))  # anchor on by default
+    assert anchor_count == no_anchor_count, (
+        f"{fixture}: no_anchor={no_anchor_count}, anchor={anchor_count} — "
+        f"anchor added phantom tables on a fixture the legacy cascade already handles."
     )
 
 
@@ -137,60 +135,121 @@ def test_is_list_shape_handles_edge_cases() -> None:
 # Invariant 3: true positive on a borderless table with long-text cells.
 # ---------------------------------------------------------------------------
 
-def _build_long_text_borderless_pdf(out: Path) -> None:
-    """Borderless table whose avg cell length defeats _MAX_CELL_TEXT_CHARS=7."""
-    doc = SimpleDocTemplate(str(out), pagesize=LETTER)
-    styles = getSampleStyleSheet()
-    data = [
-        ["Customer Name",      "Order Description",            "Status Notes"],
-        ["Acme Corporation",   "Annual subscription renewal",  "Paid in Q3"],
-        ["Globex Industries",  "Hardware shipment delayed",    "Pending review"],
-        ["Initech Holdings",   "Consulting engagement closed", "Invoice sent"],
-        ["Umbrella Logistics", "Routine maintenance contract", "Awaiting reply"],
-    ]
-    t = Table(data, colWidths=[150, 200, 120])
-    t.setStyle(TableStyle([
-        ("FONTNAME",      (0, 0), (-1, 0),  "Helvetica-Bold"),
-        ("FONTSIZE",      (0, 0), (-1, -1), 10),
-        ("TOPPADDING",    (0, 0), (-1, -1), 4),
-        ("BOTTOMPADDING", (0, 0), (-1, -1), 4),
-        # No GRID / BOX / LINEBELOW — fully borderless.
-    ]))
-    doc.build([
-        Paragraph("Long-Cell Borderless Table", styles["Heading1"]),
-        Spacer(1, 12),
-        t,
-    ])
-
-
 def test_anchor_recovers_borderless_long_text_table_legacy_misses() -> None:
     """The detector's reason for existing: borderless tables with long-text
     cells that the legacy ``_MAX_CELL_TEXT_CHARS=7`` heuristic discards.
+
+    Consumes the committed ``14b_borderless_long_text`` golden fixture so the
+    detector is exercised against the exact PDF the golden suite pins.
     """
-    with tempfile.NamedTemporaryFile(suffix=".pdf", delete=False) as f:
-        tmp = Path(f.name)
-    try:
-        _build_long_text_borderless_pdf(tmp)
-        legacy_tree = parse_pdf(tmp)
-        experimental_tree = parse_pdf(tmp, table_detector="experimental")
+    pdf = GOLDEN / "14b_borderless_long_text" / "source.pdf"
+    if not pdf.exists():
+        pytest.skip("missing 14b_borderless_long_text fixture")
 
-        legacy_tables = _all_tables(legacy_tree)
-        anchor_extras = _anchor_tables(experimental_tree)
+    legacy_tree = parse_pdf(pdf, use_anchor=False)
+    experimental_tree = parse_pdf(pdf)  # anchor on by default
 
-        # Whether legacy returns 0 or some count, experimental must add at
-        # least one anchor-sourced table that legacy did not produce.
-        assert len(anchor_extras) >= 1, (
-            "Anchor detector failed to recover a borderless long-text table "
-            f"(legacy found {len(legacy_tables)}, anchor added 0)."
-        )
-        # The recovered table should be the 3-col, 5-row shape from the
-        # fixture.  Header row is the first emitted row.
-        t = anchor_extras[0]
-        assert t.attrs["n_cols"] == 3, t.attrs
-        assert t.attrs["n_rows"] >= 4, t.attrs  # tolerant of header detection variance
-        assert t.attrs["anchor_score"] >= 0.65
-    finally:
-        tmp.unlink(missing_ok=True)
+    legacy_tables = _all_tables(legacy_tree)
+    anchor_extras = _anchor_tables(experimental_tree)
+
+    # Whether legacy returns 0 or some count, experimental must add at
+    # least one anchor-sourced table that legacy did not produce.
+    assert len(anchor_extras) >= 1, (
+        "Anchor detector failed to recover a borderless long-text table "
+        f"(legacy found {len(legacy_tables)}, anchor added 0)."
+    )
+    # The recovered table should be the 3-col, 5-row shape from the
+    # fixture.  Header row is the first emitted row.
+    t = anchor_extras[0]
+    assert t.attrs["n_cols"] == 3, t.attrs
+    assert t.attrs["n_rows"] >= 4, t.attrs  # tolerant of header detection variance
+    assert t.attrs["anchor_score"] >= 0.65
+
+
+# ---------------------------------------------------------------------------
+# Invariant 4: cross-page anchor stitching.
+# ---------------------------------------------------------------------------
+
+def test_anchor_candidates_on_consecutive_pages_get_stitched() -> None:
+    """The 14c spanning fixture is a borderless long-text table that overflows
+    onto a second page.  After the pipeline reorder (anchor before stitch),
+    the two per-page anchor candidates MUST merge into a single table node:
+
+    * exactly one anchor-sourced table in the tree (not two)
+    * ``bbox`` is ``list[BBox]`` of length 2, one per spanned page
+    * ``provenance.extractor == "anchor+stitch"`` (preserves source extractor)
+    * ``attrs["spans_pages"] == [0, 1]``
+    * the duplicate header row from page 2 (``repeatRows=1``) is deduped
+
+    Without same-extractor stitching, two unrelated extractors would be free to
+    merge whenever column anchors happened to match within 4 pt — the guard in
+    :func:`pdf_parser.stages.stitch_pages._can_merge` prevents that.
+    """
+    pdf = GOLDEN / "14c_borderless_long_text_spanning" / "source.pdf"
+    if not pdf.exists():
+        pytest.skip("missing 14c_borderless_long_text_spanning fixture")
+
+    tree = parse_pdf(pdf)  # anchor on by default
+    anchor_extras = _anchor_tables(tree)
+
+    # One table only — stitched, not two fragments.
+    assert len(anchor_extras) == 1, (
+        f"Expected one stitched anchor table; got {len(anchor_extras)} "
+        f"(stitch did not merge consecutive-page anchor candidates)."
+    )
+
+    t = anchor_extras[0]
+    assert isinstance(t.bbox, list) and len(t.bbox) == 2, (
+        f"Expected list[BBox] of length 2 for cross-page stitch; got {t.bbox!r}"
+    )
+    assert [b.page for b in t.bbox] == [0, 1]
+    assert t.provenance.get("extractor") == "anchor+stitch", t.provenance
+    assert t.attrs.get("spans_pages") == [0, 1], t.attrs
+    assert t.attrs["n_cols"] == 3
+    # 50 data rows + 1 header (page-2 header deduped by _merge_two).
+    assert t.attrs["n_rows"] == 51, t.attrs
+
+
+def test_legacy_and_anchor_never_cross_stitch() -> None:
+    """Stitch is intra-extractor.  Hand-build a legacy fragment on page 0 and
+    an anchor fragment on page 1 whose column anchors deliberately match, then
+    call ``stitch_tables`` directly.  They MUST NOT merge — different source
+    extractors.
+    """
+    from pdf_parser.stages.stitch_pages import stitch_tables
+
+    cell_a = DocNode(kind="cell", bbox=BBox(page=0, x0=72, y0=700, x1=148, y1=710),
+                     attrs={"covered": False})
+    cell_b = DocNode(kind="cell", bbox=BBox(page=0, x0=222, y0=700, x1=307, y1=710),
+                     attrs={"covered": False})
+    legacy = DocNode(
+        kind="table",
+        bbox=BBox(page=0, x0=72, y0=124, x1=503, y1=710),
+        children=[DocNode(kind="row", bbox=BBox(page=0, x0=72, y0=700, x1=307, y1=710),
+                          children=[cell_a, cell_b])],
+        attrs={"page_height": 792.0, "header_signature": ("A", "B")},
+        provenance={"extractor": "pdfplumber", "stage": "extract_tables"},
+    )
+    cell_c = DocNode(kind="cell", bbox=BBox(page=1, x0=72, y0=100, x1=148, y1=110),
+                     attrs={"covered": False})
+    cell_d = DocNode(kind="cell", bbox=BBox(page=1, x0=222, y0=100, x1=307, y1=110),
+                     attrs={"covered": False})
+    anchor = DocNode(
+        kind="table",
+        bbox=BBox(page=1, x0=72, y0=100, x1=503, y1=300),
+        children=[DocNode(kind="row", bbox=BBox(page=1, x0=72, y0=100, x1=307, y1=110),
+                          children=[cell_c, cell_d])],
+        attrs={"page_height": 792.0, "header_signature": ("A", "B")},
+        provenance={"extractor": "anchor", "stage": "detect_tables_anchor"},
+    )
+
+    out = stitch_tables([legacy, anchor])
+    assert len(out) == 2, (
+        "Stitch merged a legacy fragment with an anchor fragment across pages; "
+        "intra-extractor guard is broken."
+    )
+    assert out[0].provenance["extractor"] == "pdfplumber"
+    assert out[1].provenance["extractor"] == "anchor"
 
 
 # ---------------------------------------------------------------------------
@@ -355,42 +414,39 @@ def test_augmenter_drops_anchor_that_encloses_legacy_table() -> None:
     duplicated in the final tree (once as legacy, once flattened inside the
     anchor's cell).
     """
-    with tempfile.NamedTemporaryFile(suffix=".pdf", delete=False) as f:
-        tmp = Path(f.name)
-    try:
-        _build_long_text_borderless_pdf(tmp)
+    pdf = GOLDEN / "14b_borderless_long_text" / "source.pdf"
+    if not pdf.exists():
+        pytest.skip("missing 14b_borderless_long_text fixture")
 
-        # Baseline: anchor produces at least one candidate when no legacy
-        # competitor exists.  Pins the precondition of the test.
-        baseline = augment_with_anchor_tables([], tmp)
-        baseline_anchors = [t for t in baseline if t.provenance.get("extractor") == "anchor"]
-        assert baseline_anchors, "precondition: anchor must emit at least one candidate"
+    # Baseline: anchor produces at least one candidate when no legacy
+    # competitor exists.  Pins the precondition of the test.
+    baseline = augment_with_anchor_tables([], pdf)
+    baseline_anchors = [t for t in baseline if t.provenance.get("extractor") == "anchor"]
+    assert baseline_anchors, "precondition: anchor must emit at least one candidate"
 
-        outer_bbox = baseline_anchors[0].bbox
-        outer = outer_bbox if isinstance(outer_bbox, BBox) else outer_bbox[0]
+    outer_bbox = baseline_anchors[0].bbox
+    outer = outer_bbox if isinstance(outer_bbox, BBox) else outer_bbox[0]
 
-        # Place a fake legacy table inside that anchor's region (small
-        # rectangle in the middle).  Any anchor candidate whose bbox
-        # encloses this rectangle must be dropped.
-        cx0 = outer.x0 + (outer.x1 - outer.x0) * 0.25
-        cx1 = outer.x0 + (outer.x1 - outer.x0) * 0.75
-        cy0 = outer.y0 + (outer.y1 - outer.y0) * 0.25
-        cy1 = outer.y0 + (outer.y1 - outer.y0) * 0.75
-        fake_inner = DocNode(
-            kind="table",
-            bbox=BBox(page=outer.page, x0=cx0, y0=cy0, x1=cx1, y1=cy1),
-            children=[],
+    # Place a fake legacy table inside that anchor's region (small
+    # rectangle in the middle).  Any anchor candidate whose bbox
+    # encloses this rectangle must be dropped.
+    cx0 = outer.x0 + (outer.x1 - outer.x0) * 0.25
+    cx1 = outer.x0 + (outer.x1 - outer.x0) * 0.75
+    cy0 = outer.y0 + (outer.y1 - outer.y0) * 0.25
+    cy1 = outer.y0 + (outer.y1 - outer.y0) * 0.75
+    fake_inner = DocNode(
+        kind="table",
+        bbox=BBox(page=outer.page, x0=cx0, y0=cy0, x1=cx1, y1=cy1),
+        children=[],
+    )
+
+    out = augment_with_anchor_tables([fake_inner], pdf)
+    survivors = [t for t in out if t.provenance.get("extractor") == "anchor"]
+    for t in survivors:
+        bb = t.bbox if isinstance(t.bbox, BBox) else t.bbox[0]
+        assert _containment_of_anchor(fake_inner.bbox, bb) <= CONTAINMENT_DROP_THRESHOLD, (
+            f"Anchor candidate at {bb} survived despite enclosing the legacy "
+            f"table at {fake_inner.bbox} "
+            f"(reverse containment="
+            f"{_containment_of_anchor(fake_inner.bbox, bb):.2f})."
         )
-
-        out = augment_with_anchor_tables([fake_inner], tmp)
-        survivors = [t for t in out if t.provenance.get("extractor") == "anchor"]
-        for t in survivors:
-            bb = t.bbox if isinstance(t.bbox, BBox) else t.bbox[0]
-            assert _containment_of_anchor(fake_inner.bbox, bb) <= CONTAINMENT_DROP_THRESHOLD, (
-                f"Anchor candidate at {bb} survived despite enclosing the legacy "
-                f"table at {fake_inner.bbox} "
-                f"(reverse containment="
-                f"{_containment_of_anchor(fake_inner.bbox, bb):.2f})."
-            )
-    finally:
-        tmp.unlink(missing_ok=True)

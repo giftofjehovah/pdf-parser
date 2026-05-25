@@ -1,0 +1,104 @@
+{
+  "children": [
+    {
+      "children": [
+        {
+          "kind": "heading",
+          "text": "Long-Cell Borderless Table"
+        },
+        {
+          "children": [
+            {
+              "children": [
+                {
+                  "kind": "cell",
+                  "text": "Customer Name"
+                },
+                {
+                  "kind": "cell",
+                  "text": "Order Description"
+                },
+                {
+                  "kind": "cell",
+                  "text": "Status Notes"
+                }
+              ],
+              "kind": "row"
+            },
+            {
+              "children": [
+                {
+                  "kind": "cell",
+                  "text": "Acme Corporation"
+                },
+                {
+                  "kind": "cell",
+                  "text": "Annual subscription renewal"
+                },
+                {
+                  "kind": "cell",
+                  "text": "Paid in Q3"
+                }
+              ],
+              "kind": "row"
+            },
+            {
+              "children": [
+                {
+                  "kind": "cell",
+                  "text": "Globex Industries"
+                },
+                {
+                  "kind": "cell",
+                  "text": "Hardware shipment delayed"
+                },
+                {
+                  "kind": "cell",
+                  "text": "Pending review"
+                }
+              ],
+              "kind": "row"
+            },
+            {
+              "children": [
+                {
+                  "kind": "cell",
+                  "text": "Initech Holdings"
+                },
+                {
+                  "kind": "cell",
+                  "text": "Consulting engagement closed"
+                },
+                {
+                  "kind": "cell",
+                  "text": "Invoice sent"
+                }
+              ],
+              "kind": "row"
+            },
+            {
+              "children": [
+                {
+                  "kind": "cell",
+                  "text": "Umbrella Logistics"
+                },
+                {
+                  "kind": "cell",
+                  "text": "Routine maintenance contract"
+                },
+                {
+                  "kind": "cell",
+                  "text": "Awaiting reply"
+                }
+              ],
+              "kind": "row"
+            }
+          ],
+          "kind": "table"
+        }
+      ],
+      "kind": "page"
+    }
+  ],
+  "kind": "document"
+}

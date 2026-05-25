@@ -1,8 +1,7 @@
 # Column-Anchor Table Detector
 
 **Module:** `pdf_parser/stages/detect_tables_anchor.py`
-**Status:** Experimental — opt-in via `--table-detector experimental`
-**Default path:** Unaffected (`--table-detector legacy`).
+**Status:** Default — disable via `--no-anchor` (CLI) or `use_anchor=False` (Python).
 
 ## 1. Purpose
 
@@ -30,23 +29,24 @@ that survive scoring + overlap checks. On every existing synthetic fixture
 (01 – 23) it contributes zero new tables — by design, since the legacy
 cascade already handles those shapes.
 
-## 2. How to enable it
+## 2. How to disable it
+
+Anchor is on by default.  Disable it when you need byte-equivalence with the
+pre-anchor legacy cascade or want to skip the per-parse overhead on documents
+known to have no borderless tables.
 
 ### CLI
 
 ```
-pdf-parser parse <path> --table-detector experimental
+pdf-parser parse <path> --no-anchor
 ```
 
 ### Python
 
 ```python
 from pdf_parser.pipeline import parse
-tree = parse(pdf_path, table_detector="experimental")
+tree = parse(pdf_path, use_anchor=False)
 ```
-
-The flag accepts `"legacy"` (default) or `"experimental"`. Any other value
-raises `ValueError`.
 
 ## 3. Algorithm
 
@@ -297,7 +297,7 @@ To support a new false-positive shape (analogous to bulleted lists):
 To support a new true-positive shape:
 
 1. Add the fixture under `tests/golden/synthetic/`.
-2. Run with `--table-detector experimental` and inspect the candidate
+2. Run with the default pipeline (anchor enabled) and inspect the candidate
    scores / signals.
 3. Tune weights or thresholds only after confirming the calibration run
    keeps the prose / table separation.
@@ -307,8 +307,8 @@ To support a new true-positive shape:
 | File | Role |
 |---|---|
 | `pdf_parser/stages/detect_tables_anchor.py` | This module. Public entry: `augment_with_anchor_tables`. |
-| `pdf_parser/pipeline.py` | Dispatch on `table_detector` arg; wires the augmenter in after `stitch_tables`. |
-| `pdf_parser/cli.py` | `--table-detector` flag. |
+| `pdf_parser/pipeline.py` | Opens the PDF, runs the augmenter when `use_anchor=True` (default), then stitches. |
+| `pdf_parser/cli.py` | `--no-anchor` escape-hatch flag. |
 | `pdf_parser/stages/detect_tables.py` | Legacy cascade. Anchor consumes its output as a black box. |
 | `tests/stages/test_detect_tables_anchor.py` | All anchor tests (21). |
 | `scripts/explore_anchor_detector.py` | Calibration / per-fixture score dump. |

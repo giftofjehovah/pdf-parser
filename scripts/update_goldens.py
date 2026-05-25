@@ -42,11 +42,17 @@ def _strip_bbox_noise(obj):
     return obj
 
 
+def _load_parser_config(case_dir: Path) -> dict:
+    """Per-fixture parser overrides. Absent file → empty dict (legacy defaults)."""
+    cfg = case_dir / "parser_config.json"
+    return json.loads(cfg.read_text()) if cfg.exists() else {}
+
+
 def update_case(case_dir: Path) -> None:
     pdf = case_dir / "source.pdf"
     if not pdf.exists():
         raise SystemExit(f"missing {pdf}")
-    tree = parse(pdf)
+    tree = parse(pdf, **_load_parser_config(case_dir))
     full = json.loads(to_json(tree))
     full = _strip_bbox_noise(full)
     (case_dir / "expected_tree.json").write_text(json.dumps(full, indent=2, sort_keys=True) + "\n")

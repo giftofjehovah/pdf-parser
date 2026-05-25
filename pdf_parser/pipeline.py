@@ -8,8 +8,11 @@ from __future__ import annotations
 from pathlib import Path
 from typing import TYPE_CHECKING, Optional
 
+import pdfplumber
+
 from pdf_parser.model import BBox, DocNode
 from pdf_parser.stages.build_tree import build_tree
+from pdf_parser.stages.detect_tables_anchor import augment_with_anchor_tables
 from pdf_parser.stages.extract_tables import extract_tables
 from pdf_parser.stages.ingest import ingest
 from pdf_parser.stages.segment import segment
@@ -73,34 +76,39 @@ def _apply_llm_fallback(
 def parse(
     pdf_path: Path | str,
     llm_fallback: Optional["LLMFallback"] = None,
-    table_detector: str = "legacy",
+    *,
+    use_anchor: bool = True,
 ) -> DocNode:
     """Parse ``pdf_path`` and return the document tree.
 
-    ``table_detector``:
+    ``use_anchor`` (default ``True``) controls the column-anchor table
+    detector (see :mod:`pdf_parser.stages.detect_tables_anchor`).  It runs
+    additively after the legacy ``detect_tables`` cascade and recovers
+    borderless tables with long-text cells that legacy's
+    ``_MAX_CELL_TEXT_CHARS`` heuristic rejects.  Set ``False`` to disable
+    (escape hatch for false positives or perf-sensitive callers).
 
-    * ``"legacy"`` (default) — current ``detect_tables`` cascade only.
-    * ``"experimental"`` — legacy cascade **plus** the column-anchor detector
-      (see :mod:`pdf_parser.stages.detect_tables_anchor`).  Anchor candidates
-      that overlap any legacy table are dropped, so this is purely additive
-      on fixtures where the legacy cascade is already correct.  Use it to
-      recover borderless tables with long-text cells that the legacy
-      ``_MAX_CELL_TEXT_CHARS`` heuristic rejects.
+    Pipeline order: ``extract_tables → augment_with_anchor → stitch_tables``.
+    Anchor runs before stitch so cross-page anchor candidates can be merged
+    into a single table node, matching legacy stitch behaviour.  The stitch
+    stage is intra-extractor: legacy fragments merge with legacy fragments,
+    anchor fragments merge with anchor fragments — they never cross.
+
+    A single ``pdfplumber.PDF`` handle is shared across ``extract_tables``
+    and ``augment_with_anchor_tables`` so an anchor-enabled parse pays at
+    most one PDF open per call.
     """
     pdf_path = Path(pdf_path)
     raw_pages = ingest(pdf_path)
     segments  = segment(raw_pages)
-    tables    = stitch_tables(extract_tables(pdf_path))
 
-    if table_detector == "experimental":
-        from pdf_parser.stages.detect_tables_anchor import augment_with_anchor_tables
-        tables = augment_with_anchor_tables(tables, pdf_path)
-    elif table_detector != "legacy":
-        raise ValueError(
-            f"unknown table_detector: {table_detector!r} (expected 'legacy' or 'experimental')"
-        )
+    with pdfplumber.open(str(pdf_path)) as pdf:
+        tables = extract_tables(pdf_path, pdf=pdf)
+        if use_anchor:
+            tables = augment_with_anchor_tables(tables, pdf_path, pdf=pdf)
 
-    tree      = build_tree(segments, tables)
+    tables = stitch_tables(tables)
+    tree   = build_tree(segments, tables)
 
     if llm_fallback is not None and llm_fallback.enabled:
         tree = _apply_llm_fallback(tree, pdf_path, llm_fallback, raw_pages)

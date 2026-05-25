@@ -453,6 +453,8 @@ def _overlaps_legacy(c: _Candidate, legacy: list[DocNode]) -> bool:
 def augment_with_anchor_tables(
     legacy_tables: list[DocNode],
     pdf_path: Path,
+    *,
+    pdf=None,
 ) -> list[DocNode]:
     """Run the anchor detector and append surviving candidates to ``legacy_tables``.
 
@@ -467,16 +469,16 @@ def augment_with_anchor_tables(
     appended to the legacy list. Order: legacy tables first (in their
     original order), then anchor tables in document reading order
     (page-index, then y0).
+
+    Pass ``pdf`` to reuse an already-open ``pdfplumber.PDF`` — eliminates the
+    redundant per-parse open this stage would otherwise pay on top of
+    :func:`pdf_parser.stages.extract_tables.extract_tables`.
     """
-    new_tables: list[DocNode] = []
-    with pdfplumber.open(str(pdf_path)) as pdf:
-        for idx, page in enumerate(pdf.pages):
-            for c in _column_anchor_detector(page, idx):
-                if c.score < MIN_SCORE:
-                    continue
-                if _overlaps_legacy(c, legacy_tables):
-                    continue
-                new_tables.append(_candidate_to_docnode(c, page_height=float(page.height)))
+    if pdf is not None:
+        new_tables = _collect_anchor_candidates(pdf, legacy_tables)
+    else:
+        with pdfplumber.open(str(pdf_path)) as opened:
+            new_tables = _collect_anchor_candidates(opened, legacy_tables)
 
     if not new_tables:
         return legacy_tables
@@ -490,3 +492,15 @@ def augment_with_anchor_tables(
 
     new_tables.sort(key=_anchor_sort_key)
     return list(legacy_tables) + new_tables
+
+
+def _collect_anchor_candidates(pdf, legacy_tables: list[DocNode]) -> list[DocNode]:
+    new_tables: list[DocNode] = []
+    for idx, page in enumerate(pdf.pages):
+        for c in _column_anchor_detector(page, idx):
+            if c.score < MIN_SCORE:
+                continue
+            if _overlaps_legacy(c, legacy_tables):
+                continue
+            new_tables.append(_candidate_to_docnode(c, page_height=float(page.height)))
+    return new_tables

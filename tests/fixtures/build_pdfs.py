@@ -1414,6 +1414,84 @@ def build_14_borderless_table(out: Path) -> None:
     ]
     doc.build(story)
 
+def build_14b_borderless_long_text(out: Path) -> None:
+    """14b_borderless_long_text: borderless table whose avg cell length exceeds
+    the legacy ``_MAX_CELL_TEXT_CHARS = 7`` heuristic.
+
+    Mirrors the shape of 14_borderless_table (no GRID/BOX) but with descriptive
+    headers and long-text status columns ("Annual subscription renewal" /
+    "Awaiting reply"). The legacy text-strategy fallback rejects this shape on
+    avg-cell-length; the experimental column-anchor detector recovers it.
+
+    Used by ``tests/stages/test_detect_tables_anchor.py`` and by the default
+    golden suite (anchor detector enabled by default since the flip).
+    """
+    doc = SimpleDocTemplate(str(out), pagesize=LETTER)
+    s = _styles()
+    data = [
+        ["Customer Name",      "Order Description",            "Status Notes"],
+        ["Acme Corporation",   "Annual subscription renewal",  "Paid in Q3"],
+        ["Globex Industries",  "Hardware shipment delayed",    "Pending review"],
+        ["Initech Holdings",   "Consulting engagement closed", "Invoice sent"],
+        ["Umbrella Logistics", "Routine maintenance contract", "Awaiting reply"],
+    ]
+    t = Table(data, colWidths=[150, 200, 120])
+    t.setStyle(TableStyle([
+        ("FONTNAME",      (0, 0), (-1, 0),  "Helvetica-Bold"),
+        ("FONTSIZE",      (0, 0), (-1, -1), 10),
+        ("TOPPADDING",    (0, 0), (-1, -1), 4),
+        ("BOTTOMPADDING", (0, 0), (-1, -1), 4),
+        # No GRID / BOX / LINEBELOW — fully borderless.
+    ]))
+    story = [
+        Paragraph("Long-Cell Borderless Table", s["Heading1"]),
+        Spacer(1, 12),
+        t,
+    ]
+    doc.build(story)
+
+def build_14c_borderless_long_text_spanning(out: Path) -> None:
+    """14c_borderless_long_text_spanning: 14b's shape, scaled to span two pages.
+
+    Same column structure as 14b (Customer / Order / Status) so the anchor
+    detector produces matching column signatures on both pages.  ``repeatRows=1``
+    re-emits the header on page 2, which the stitcher dedupes via header
+    signature.  Validates that anchor candidates on consecutive pages get
+    merged into a single ``DocNode(kind="table")`` with ``bbox: list[BBox]``.
+    """
+    doc = SimpleDocTemplate(str(out), pagesize=LETTER, topMargin=72, bottomMargin=72)
+    s = _styles()
+    header = ["Customer Name", "Order Description", "Status Notes"]
+    # 50 rows is enough to overflow one LETTER page at 10pt + borderless padding.
+    # Cell content uses hyphenated single tokens (no internal whitespace) so
+    # pdfplumber's text-strategy fallback cannot fragment cells along word
+    # boundaries (which would push the average cell length below the legacy
+    # ``_MAX_CELL_TEXT_CHARS = 7`` cutoff and produce a wrong-shape table).
+    # The anchor detector recovers the true 3-column structure.
+    rows = [
+        [
+            f"Customer-{i:02d}-Inc",
+            f"Order-{i:02d}-pending-review",
+            f"Status-{i:02d}-followup",
+        ]
+        for i in range(1, 51)
+    ]
+    t = Table([header] + rows, colWidths=[150, 220, 110], repeatRows=1)
+    t.setStyle(TableStyle([
+        ("FONTNAME",      (0, 0), (-1, 0),  "Helvetica-Bold"),
+        ("FONTSIZE",      (0, 0), (-1, -1), 10),
+        ("TOPPADDING",    (0, 0), (-1, -1), 4),
+        ("BOTTOMPADDING", (0, 0), (-1, -1), 4),
+        # No GRID / BOX / LINEBELOW — fully borderless.
+    ]))
+    story = [
+        Paragraph("Long-Cell Borderless Table (Spanning)", s["Heading1"]),
+        Spacer(1, 12),
+        t,
+    ]
+    doc.build(story)
+
+
 def build_15_multicolumn_text(out: Path) -> None:
     """15_multicolumn_text: two-column body text with no tables.
 
@@ -2107,6 +2185,8 @@ BUILDERS = {
     "12_image_chart":   build_12_image_chart,
     "13_comprehensive": build_13_comprehensive,
     "14_borderless_table": build_14_borderless_table,
+    "14b_borderless_long_text":           build_14b_borderless_long_text,
+    "14c_borderless_long_text_spanning":  build_14c_borderless_long_text_spanning,
     "15_multicolumn_text": build_15_multicolumn_text,
     "16_text_between_subtables": build_16_text_between_subtables,
     "17_text_between_subtables_spanning": build_17_text_between_subtables_spanning,

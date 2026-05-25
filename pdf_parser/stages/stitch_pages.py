@@ -50,7 +50,21 @@ def _first_bbox(node: DocNode) -> BBox:
     return node.bbox if isinstance(node.bbox, BBox) else node.bbox[0]
 
 
+def _source_extractor(node: DocNode) -> str:
+    """Source extractor name, ignoring any ``+stitch`` suffix from a prior merge."""
+    return node.provenance.get("extractor", "").removesuffix("+stitch")
+
+
 def _can_merge(prev: DocNode, nxt: DocNode) -> bool:
+    # Stitching is intra-extractor only: legacy fragments merge with other
+    # legacy fragments, anchor candidates merge with other anchor candidates.
+    # Without this, a legacy fragment ending near a page break could silently
+    # merge with an anchor candidate on the next page whose column anchors
+    # happen to match within COLUMN_ANCHOR_TOL — a real risk because the
+    # tolerance is loose (4 pt) and anchor candidates carry no header
+    # signature to fall back on.
+    if _source_extractor(prev) != _source_extractor(nxt):
+        return False
     if not _anchors_match(_col_anchors(prev), _col_anchors(nxt)):
         return False
     p_page = prev.bbox[-1].page if isinstance(prev.bbox, list) else prev.bbox.page
@@ -92,7 +106,7 @@ def _merge_two(prev: DocNode, nxt: DocNode) -> DocNode:
         bbox=prev_bboxes + [next_bbox],
         children=rebuilt_rows,
         attrs=merged_attrs,
-        provenance={"extractor": "pdfplumber+stitch", "stage": "stitch_pages"},
+        provenance={"extractor": f"{_source_extractor(prev)}+stitch", "stage": "stitch_pages"},
     )
 
 

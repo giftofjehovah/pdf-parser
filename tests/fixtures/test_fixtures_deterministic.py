@@ -214,3 +214,32 @@ def test_bordered_cell_with_bulleted_prose_committed_fixture_matches_regeneratio
     regen = tmp_path / "regen.pdf"
     BUILDERS["23_bordered_cell_with_bulleted_prose"](regen)
     assert _digest(committed) == _digest(regen)
+
+def test_borderless_long_text_pdf_is_byte_stable(tmp_path):
+    a = tmp_path / "a.pdf"; b = tmp_path / "b.pdf"
+    BUILDERS["14b_borderless_long_text"](a)
+    BUILDERS["14b_borderless_long_text"](b)
+    assert _digest(a) == _digest(b)
+
+
+def test_borderless_long_text_committed_fixture_matches_regeneration(tmp_path):
+    committed = GOLDEN_DIR / "14b_borderless_long_text" / "source.pdf"
+    assert committed.exists(), "run `python -m tests.fixtures.build_pdfs` first"
+    regen = tmp_path / "regen.pdf"
+    BUILDERS["14b_borderless_long_text"](regen)
+    assert _digest(committed) == _digest(regen)
+
+
+def test_borderless_long_text_spanning_pdf_is_byte_stable(tmp_path):
+    a = tmp_path / "a.pdf"; b = tmp_path / "b.pdf"
+    BUILDERS["14c_borderless_long_text_spanning"](a)
+    BUILDERS["14c_borderless_long_text_spanning"](b)
+    assert _digest(a) == _digest(b)
+
+
+def test_borderless_long_text_spanning_committed_fixture_matches_regeneration(tmp_path):
+    committed = GOLDEN_DIR / "14c_borderless_long_text_spanning" / "source.pdf"
+    assert committed.exists(), "run `python -m tests.fixtures.build_pdfs` first"
+    regen = tmp_path / "regen.pdf"
+    BUILDERS["14c_borderless_long_text_spanning"](regen)
+    assert _digest(committed) == _digest(regen)

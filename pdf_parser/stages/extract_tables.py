@@ -658,7 +658,7 @@ def _filter_outer_regions(regions: list) -> list:
             result.append(r)
     return result
 
-def extract_tables(pdf_path: Path) -> list[DocNode]:
+def extract_tables(pdf_path: Path, *, pdf=None) -> list[DocNode]:
     """
     Build a DocNode subtree for each top-level table in *pdf_path*.
 
@@ -668,53 +668,64 @@ def extract_tables(pdf_path: Path) -> list[DocNode]:
     default detection "flattens" inner grids into the parent.  Cells whose bbox
     contains an inner table are given ``text=None`` and a table child; leaf
     cells carry ``text`` and ``children=[]``.
+
+    Pass ``pdf`` to reuse an already-open ``pdfplumber.PDF`` (eliminates a
+    redundant open when the caller also runs other per-PDF stages — see
+    :func:`pdf_parser.pipeline.parse`).  ``pdf_path`` is still required for
+    diagnostics and for the path-only open branch.
     """
+    if pdf is not None:
+        return _extract_tables_with_pdf(pdf_path, pdf)
+    with pdfplumber.open(str(pdf_path)) as opened:
+        return _extract_tables_with_pdf(pdf_path, opened)
+
+
+def _extract_tables_with_pdf(pdf_path: Path, pdf) -> list[DocNode]:
     result: list[DocNode] = []
-    with pdfplumber.open(str(pdf_path)) as pdf:
-        regions = _filter_outer_regions(detect_tables(pdf=pdf))
-        # Cache per-page state across all regions: pdfplumber's Page.chars and
-        # find_tables_visible(page) are both expensive to recompute, and a
-        # multi-table page would otherwise re-pay that cost once per region.
-        page_chars_cache: dict[int, list[dict]] = {}
-        page_tables_cache: dict[int, list] = {}
-        for region in regions:
-            page_idx = region.page_index
-            page = pdf.pages[page_idx]
-            if page_idx not in page_chars_cache:
-                page_chars_cache[page_idx] = page.chars
-            page_chars = page_chars_cache[page_idx]
-            # find_tables() may return multiple tables on the page; match by bbox.
-            # Always uses the default (line) strategy.  If `detect_tables`
-            # found this region via the text-strategy fallback, this call
-            # returns an empty list and `matched_pt` stays None, so the
-            # logical-grid path is skipped.  Borderless tables therefore
-            # rely on the pre-extracted `region.grid`; colspan/rowspan
-            # detection is not available for them.
-            if page_idx not in page_tables_cache:
-                page_tables_cache[page_idx] = list(find_tables_visible(page))
-            page_tables = page_tables_cache[page_idx]
-            matched_pt = None
-            for pt in page_tables:
-                if abs(pt.bbox[0] - region.bbox.x0) < 2 and abs(pt.bbox[1] - region.bbox.y0) < 2:
-                    matched_pt = pt
-                    break
+    regions = _filter_outer_regions(detect_tables(pdf=pdf))
+    # Cache per-page state across all regions: pdfplumber's Page.chars and
+    # find_tables_visible(page) are both expensive to recompute, and a
+    # multi-table page would otherwise re-pay that cost once per region.
+    page_chars_cache: dict[int, list[dict]] = {}
+    page_tables_cache: dict[int, list] = {}
+    for region in regions:
+        page_idx = region.page_index
+        page = pdf.pages[page_idx]
+        if page_idx not in page_chars_cache:
+            page_chars_cache[page_idx] = page.chars
+        page_chars = page_chars_cache[page_idx]
+        # find_tables() may return multiple tables on the page; match by bbox.
+        # Always uses the default (line) strategy.  If `detect_tables`
+        # found this region via the text-strategy fallback, this call
+        # returns an empty list and `matched_pt` stays None, so the
+        # logical-grid path is skipped.  Borderless tables therefore
+        # rely on the pre-extracted `region.grid`; colspan/rowspan
+        # detection is not available for them.
+        if page_idx not in page_tables_cache:
+            page_tables_cache[page_idx] = list(find_tables_visible(page))
+        page_tables = page_tables_cache[page_idx]
+        matched_pt = None
+        for pt in page_tables:
+            if abs(pt.bbox[0] - region.bbox.x0) < 2 and abs(pt.bbox[1] - region.bbox.y0) < 2:
+                matched_pt = pt
+                break
 
-            logical = None
-            # Redistributed regions (ruled-header / open-body tables) already
-            # carry the corrected grid; rebuilding via outer-line geometry would
-            # discard the body-row redistribution and re-merge the cells.
-            if matched_pt is not None and not region.redistributed:
-                logical = _logical_grid_from_table(page, matched_pt, region.page_index)
+        logical = None
+        # Redistributed regions (ruled-header / open-body tables) already
+        # carry the corrected grid; rebuilding via outer-line geometry would
+        # discard the body-row redistribution and re-merge the cells.
+        if matched_pt is not None and not region.redistributed:
+            logical = _logical_grid_from_table(page, matched_pt, region.page_index)
 
-            if logical is not None:
-                grid, bboxes, cov = logical
-                result.append(
-                    _build_table_from_logical(
-                        grid, bboxes, region, pdf, depth=0, covered=cov,
-                        page_chars=page_chars,
-                    )
+        if logical is not None:
+            grid, bboxes, cov = logical
+            result.append(
+                _build_table_from_logical(
+                    grid, bboxes, region, pdf, depth=0, covered=cov,
+                    page_chars=page_chars,
                 )
-            else:
-                result.append(_build_table(region, pdf, depth=0, page_chars=page_chars))
+            )
+        else:
+            result.append(_build_table(region, pdf, depth=0, page_chars=page_chars))
 
     return result
