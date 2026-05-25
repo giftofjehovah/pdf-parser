@@ -25,14 +25,10 @@ CASES_DIR = Path("tests/golden/synthetic")
 # Phase 10 deletes the set (and this file) once it is empty.
 _XFAIL_CASES: set[str] = {
     "02_nested_table",
-    "03_page_spanning",
-    "04_multi_column",
-    "06_page_spanning_no_header_repeat",
     "07_page_spanning_with_nested",
     "08_page_spanning_subtable_split",
     "09_mixed_toc_and_spanning_table",
     "10_merged_cells",
-    "11_pl_statement",
     "13_comprehensive",
     "14c_borderless_long_text_spanning",
     "16_text_between_subtables",
