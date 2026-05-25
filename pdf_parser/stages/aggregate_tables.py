@@ -212,13 +212,52 @@ def _rows_to_celltable(
 
 
 def aggregate(cells: list[Cell], page_height: float) -> list[CellTable]:
-    """Group ``cells`` into tables. See module docstring."""
+    """Group ``cells`` into tables, attaching nested sub-tables via spatial
+    containment.  See module docstring.
+    """
     if not cells:
         return []
     cells = _dedupe_cells(cells)
-    out: list[CellTable] = []
+    return _aggregate_recursive(cells, page_height)
+
+
+def _aggregate_recursive(cells: list[Cell], page_height: float) -> list[CellTable]:
+    """Produce top-level tables; attach contained sub-tables as ``nested``.
+
+    Iteration is over every ``_split_into_tables`` output, so the same
+    sub-cluster of cells can appear both as the parent's ``nested`` entry and
+    as a stand-alone top-level table.  The post-loop prune removes any top
+    candidate whose rounded bbox already appears anywhere in the attached
+    nested tree — eliminating the double appearance without losing the
+    structural link.
+    """
+    top: list[CellTable] = []
     for table_rows in _split_into_tables(_row_cluster(cells)):
         ct = _rows_to_celltable(table_rows, page_height)
-        if ct is not None:
-            out.append(ct)
-    return out
+        if ct is None:
+            continue
+        used = {c.bbox.rounded() for row in table_rows for c in row}
+        remaining = [c for c in cells if c.bbox.rounded() not in used]
+        for r_idx, row in enumerate(table_rows):
+            for c_idx, c in enumerate(row):
+                inside = _cells_inside(remaining, c.bbox)
+                if len(inside) < 4:
+                    continue  # < 2×2 cannot form a table
+                sub_tables = _aggregate_recursive(inside, page_height)
+                if not sub_tables:
+                    continue
+                ct.nested.extend(sub_tables)
+                # Clear the parent cell's text — the nested table replaces it.
+                ct.grid[r_idx][c_idx] = ""
+        top.append(ct)
+
+    nested_bboxes: set = set()
+
+    def _collect(t: CellTable) -> None:
+        for sub in t.nested:
+            nested_bboxes.add(sub.bbox.rounded())
+            _collect(sub)
+
+    for t in top:
+        _collect(t)
+    return [t for t in top if t.bbox.rounded() not in nested_bboxes]

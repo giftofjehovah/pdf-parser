@@ -70,3 +70,35 @@ def test_cells_inside_filters_by_containment():
     ]
     inside = _cells_inside(cells, outer)
     assert [c.text for c in inside] == ["in"]
+
+
+def test_nested_table_detected_via_containment():
+    """A 2-row × 2-col outer table whose top-right cell contains a 2×2 inner table.
+
+    Outer cell layout (page 0):
+      [ A:0,0,50,20 ]  [ B:50,0,100,20 ]
+      [ C:0,20,50,60]  [ inner cell block 60-100 ]
+
+    Inner table inside cell at (50,20,100,60): four cells at corners.
+    """
+    def bb(x0, y0, x1, y1):
+        return BBox(page=0, x0=x0, y0=y0, x1=x1, y1=y1)
+    outer = [
+        Cell(bbox=bb(0,  0, 50, 20), text="A", source="line", confidence=1.0),
+        Cell(bbox=bb(50, 0,100, 20), text="B", source="line", confidence=1.0),
+        Cell(bbox=bb(0, 20, 50, 60), text="C", source="line", confidence=1.0),
+        Cell(bbox=bb(50,20,100, 60), text="",  source="line", confidence=1.0),
+    ]
+    inner = [
+        Cell(bbox=bb(50, 20, 75, 40), text="i1", source="line", confidence=1.0),
+        Cell(bbox=bb(75, 20,100, 40), text="i2", source="line", confidence=1.0),
+        Cell(bbox=bb(50, 40, 75, 60), text="i3", source="line", confidence=1.0),
+        Cell(bbox=bb(75, 40,100, 60), text="i4", source="line", confidence=1.0),
+    ]
+    tables = aggregate(outer + inner, page_height=792.0)
+    assert len(tables) == 1, f"expected one outer; got {len(tables)}"
+    outer_t = tables[0]
+    assert outer_t.grid[0] == ["A", "B"]
+    assert len(outer_t.nested) == 1
+    inner_t = outer_t.nested[0]
+    assert inner_t.grid == [["i1", "i2"], ["i3", "i4"]]
