@@ -232,3 +232,47 @@ def test_covered_bbox_uses_spanning_cell_y_extent():
     cov_bbox = t.cell_bboxes[0][1]
     assert (cov_bbox.x0, cov_bbox.x1) == (100, 200)
     assert (cov_bbox.y0, cov_bbox.y1) == (10, 30)
+
+
+def test_flush_subtable_inside_parent_cell():
+    """Inner 2x2 sub-table sharing edges with the parent cell on all sides.
+
+    Phase-7 sentinel for the flush-edge case (mirrors fixtures 24/25): the
+    inner cluster's union bbox equals the parent cell's bbox, and every inner
+    cell shares at least one edge with the parent (i1.x0 == D.x0, i1.y0 == D.y0,
+    i2.x1 == D.x1, i4.y1 == D.y1).  ``_cells_inside`` must still accept these
+    as contained — strict-smaller is per-cell on at least one axis, which holds
+    here (each inner cell is half-width AND half-height of the parent) but
+    flush edges must not be rejected by the containment-tolerance check.
+
+    The plan's original layout (outer 1-row x 2-col + a separate second outer
+    row at y=60..80) cannot form an outer table at all: the inner cells'
+    y-midpoints (15, 45) interleave the outer's (30), so ``_row_cluster``
+    fragments the outer rows.  This corrected layout stacks the inner table
+    INSIDE the bottom-right outer cell so the outer rows cluster cleanly.
+    """
+    bb = lambda x0, y0, x1, y1: BBox(page=0, x0=x0, y0=y0, x1=x1, y1=y1)
+    cells = [
+        # Outer 2x2: row 0 (A, B), row 1 (C, D).  D contains the inner table.
+        Cell(bbox=bb(  0,  0, 100, 30), text="A", source="line", confidence=1.0),
+        Cell(bbox=bb(100,  0, 200, 30), text="B", source="line", confidence=1.0),
+        Cell(bbox=bb(  0, 30, 100, 90), text="C", source="line", confidence=1.0),
+        Cell(bbox=bb(100, 30, 200, 90), text="",  source="line", confidence=1.0),
+        # Inner 2x2 flush with the parent on all four sides:
+        # i1.x0 == D.x0, i1.y0 == D.y0, i2.x1 == D.x1, i3.x0 == D.x0,
+        # i4.x1 == D.x1, i3.y1 == D.y1, i4.y1 == D.y1.
+        Cell(bbox=bb(100, 30, 150, 60), text="i1", source="line", confidence=1.0),
+        Cell(bbox=bb(150, 30, 200, 60), text="i2", source="line", confidence=1.0),
+        Cell(bbox=bb(100, 60, 150, 90), text="i3", source="line", confidence=1.0),
+        Cell(bbox=bb(150, 60, 200, 90), text="i4", source="line", confidence=1.0),
+    ]
+    [t] = aggregate(cells, page_height=792.0)
+    assert t.grid[0] == ["A", "B"]
+    assert t.grid[1][0] == "C"
+    # Parent cell's text cleared because nested table takes over.
+    assert t.grid[1][1] == ""
+    assert len(t.nested) == 1
+    sub = t.nested[0]
+    assert sub.grid == [["i1", "i2"], ["i3", "i4"]]
+    # Inner table's bbox equals the parent cell's bbox — the flush case.
+    assert (sub.bbox.x0, sub.bbox.y0, sub.bbox.x1, sub.bbox.y1) == (100, 30, 200, 90)
