@@ -125,6 +125,90 @@ def _row_top(row: list[Cell]) -> float:
     return min(c.bbox.y0 for c in row)
 
 
+# Rowspan-tall threshold: cells whose height exceeds ``_ROWSPAN_HEIGHT_MULT``
+# times the median multi-cell row height are treated as vertical-merge
+# (rowspan) cells.  1.5× discriminates a true rowspan (typically 2× or 3×
+# the per-row height) from harmless cell-content padding while staying
+# above the noise floor of pdfplumber's per-row y-bound rounding.
+_ROWSPAN_HEIGHT_MULT = 1.5
+
+
+def _apply_rowspan_merge(rows: list[list[Cell]]) -> list[list[Cell]]:
+    """Move tall single-cell rows into the FIRST multi-cell row whose y-mid
+    falls inside the tall cell's y-range.
+
+    ``_row_cluster`` buckets cells by y-midpoint; a tall rowspan cell whose
+    ymid diverges from its shorter neighbours' ends up alone in its own
+    narrow row sandwiched between the visual rows of its neighbours.
+    ``_split_into_tables`` then sees the left-edge change between the tall
+    cell's column and the shorter cells' column and splits the table
+    apart — yielding two unrelated CellTables instead of one with covered
+    rowspan slots (fixtures 10 / 21 + Annex E in 13_comprehensive,
+    + ``test_merged_cells_correct_structure``).
+
+    This pre-split pass relocates each such tall cell into the first row
+    it overlaps so the table stays whole; the rowspan-covered bookkeeping
+    happens later in :func:`_rows_to_celltable`'s post-pass, which
+    overwrites the covered slots' bboxes with the spanning cell's bbox.
+
+    No-op when there are fewer than 3 rows (a rowspan needs at least one
+    anchor row + one covered row beneath it) or no multi-cell row
+    exposes a non-zero median height to compare against.
+    """
+    if len(rows) < 3:
+        return rows
+    multi_cell_heights = [_row_height(r) for r in rows if len(r) >= 2]
+    if not multi_cell_heights:
+        return rows
+    median_h = statistics.median(multi_cell_heights)
+    if median_h <= 0:
+        return rows
+
+    # Identify tall single-cell rows.
+    tall_indices: list[int] = []
+    for i, r in enumerate(rows):
+        if len(r) != 1:
+            continue
+        if _row_height(r) > _ROWSPAN_HEIGHT_MULT * median_h:
+            tall_indices.append(i)
+    if not tall_indices:
+        return rows
+
+    rows_to_remove: set[int] = set()
+    rows_to_merge: dict[int, list[Cell]] = {}
+    for ti in tall_indices:
+        tall_cell = rows[ti][0]
+        tcy0, tcy1 = tall_cell.bbox.y0, tall_cell.bbox.y1
+        first_overlap: int | None = None
+        for j, r in enumerate(rows):
+            if j == ti or len(r) < 2 or r[0].bbox.page != tall_cell.bbox.page:
+                continue
+            row_ymid = statistics.fmean(
+                (c.bbox.y0 + c.bbox.y1) / 2.0 for c in r
+            )
+            if tcy0 - 2.0 <= row_ymid <= tcy1 + 2.0:
+                if first_overlap is None or j < first_overlap:
+                    first_overlap = j
+        if first_overlap is None:
+            continue
+        rows_to_merge.setdefault(first_overlap, []).append(tall_cell)
+        rows_to_remove.add(ti)
+
+    if not rows_to_remove:
+        return rows
+
+    adjusted: list[list[Cell]] = []
+    for i, r in enumerate(rows):
+        if i in rows_to_remove:
+            continue
+        merged = list(r)
+        if i in rows_to_merge:
+            merged.extend(rows_to_merge[i])
+            merged.sort(key=lambda c: c.bbox.x0)
+        adjusted.append(merged)
+    return adjusted
+
+
 # Floor on the gap-split threshold: even if the median row height is small
 # (single-line tables of ~3pt), inter-row gaps under this never break the
 # table.  8pt is the median-typography-leading lower bound — below it the
@@ -179,7 +263,32 @@ def _split_into_tables(
         prev_table = tables[-1]
         prev = prev_table[-1]
         same_page = prev[0].bbox.page == r[0].bbox.page
-        same_left = abs(prev[0].bbox.x0 - r[0].bbox.x0) <= 4.0
+        # Compare against the PREV TABLE's leftmost cell (over all its rows)
+        # rather than just the previous row's leftmost.  After rowspan
+        # merging (:func:`_apply_rowspan_merge`), an intermediate row may
+        # be MISSING its leftmost cell because a rowspan from above covers
+        # that column — using prev's leftmost would then mis-split the
+        # next row that DOES have a cell at the table's true left anchor.
+        table_left = min(c.bbox.x0 for prow in prev_table for c in prow)
+        same_left = abs(table_left - r[0].bbox.x0) <= 4.0
+        # Rowspan tolerance: a row missing its leftmost cell because a
+        # rowspan from an EARLIER row in the current table covers the
+        # leftmost column still belongs to that table.  The covering cell
+        # must (a) sit strictly left of this row's leftmost cell and (b)
+        # y-cover this row's y-range.
+        if not same_left and same_page:
+            r_y0 = _row_top(r)
+            r_y1 = max(c.bbox.y1 for c in r)
+            r_left = r[0].bbox.x0
+            for pr in prev_table:
+                for c in pr:
+                    if (c.bbox.x0 < r_left - 4.0
+                            and c.bbox.y0 <= r_y0 + 2.0
+                            and c.bbox.y1 >= r_y1 - 2.0):
+                        same_left = True
+                        break
+                if same_left:
+                    break
         if not (same_page and same_left):
             tables.append([r])
             continue
@@ -282,8 +391,10 @@ def _rows_to_celltable(
     """Build a CellTable from raw rows by aligning each row's cells to the
     canonical column anchors.  Slots not filled by any cell are emitted as
     empty "covered" cells; cells covered by an earlier in-row colspan use
-    the spanning cell's y-extent for legacy parity, while sparse slots
-    (no spanning cell in this row) fall back to anchor x + row y."""
+    the spanning cell's y-extent for legacy parity, sparse slots
+    (no spanning cell in this row) fall back to anchor x + row y, and
+    slots whose y-range falls inside an earlier row's TALL cell at the
+    same column inherit the tall cell's bbox (rowspan covered)."""
     if len(rows) < 2 or all(len(r) < 2 for r in rows):
         return None
     anchors = _column_anchors(rows)
@@ -319,6 +430,47 @@ def _rows_to_celltable(
                 covered.add((r_idx, c_idx))
         grid.append(row_grid)
         cell_bboxes.append(row_bbs)
+
+    # Rowspan post-pass: for each non-trivially-tall cell whose y-extent
+    # extends into a SUBSEQUENT row's y-range, overwrite the covered slot
+    # in that subsequent row at the same column with the spanning cell's
+    # bbox.  Matches the legacy ``_logical_grid_from_table`` rowspan
+    # convention required on fixtures 10/21 (and
+    # ``test_merged_cells_correct_structure`` / Annex E in
+    # ``tests/test_comprehensive.py``).
+    multi_cell_heights = [_row_height(r) for r in rows if len(r) >= 2]
+    if multi_cell_heights:
+        median_h = statistics.median(multi_cell_heights)
+        if median_h > 0:
+            for r_idx, row in enumerate(rows):
+                for cell in row:
+                    cell_h = cell.bbox.y1 - cell.bbox.y0
+                    if cell_h <= 1.5 * median_h:
+                        continue
+                    # Locate the column this cell anchors in.
+                    col_idx = None
+                    for ci, (ax0, _ax1) in enumerate(anchors):
+                        if ax0 - _ANCHOR_TOL <= cell.bbox.x0 < ax0 + _ANCHOR_TOL:
+                            col_idx = ci
+                            break
+                    if col_idx is None:
+                        continue
+                    # Walk subsequent rows; any row whose y-mid falls inside
+                    # the spanning cell's y-range is rowspan-covered at this
+                    # column.  Break on the first non-overlapping row — once
+                    # the rowspan ends, later rows are independent.
+                    for sub_r in range(r_idx + 1, len(rows)):
+                        sub_row = rows[sub_r]
+                        if not sub_row:
+                            continue
+                        sub_ymid = statistics.fmean(
+                            (c.bbox.y0 + c.bbox.y1) / 2.0 for c in sub_row
+                        )
+                        if not (cell.bbox.y0 - 2.0 <= sub_ymid
+                                <= cell.bbox.y1 + 2.0):
+                            break
+                        if (sub_r, col_idx) in covered:
+                            cell_bboxes[sub_r][col_idx] = cell.bbox
     page = rows[0][0].bbox.page
     x0 = min(c.bbox.x0 for r in rows for c in r)
     y0 = min(c.bbox.y0 for r in rows for c in r)
@@ -633,7 +785,9 @@ def _aggregate_recursive(
     nested_pool = [c for c in nested_pool_sub if id(c) not in container_ids]
 
     top: list[CellTable] = []
-    for table_rows in _split_into_tables(_row_cluster(top_cells), gap_mult=gap_mult):
+    for table_rows in _split_into_tables(
+        _apply_rowspan_merge(_row_cluster(top_cells)), gap_mult=gap_mult,
+    ):
         ct = _rows_to_celltable(table_rows, page_height)
         if ct is None:
             # Fallback: 1xN outer wrapper.  Only emit when at least one cell

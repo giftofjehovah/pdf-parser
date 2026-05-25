@@ -334,3 +334,61 @@ def test_outer_frame_container_carves_nested_subtables():
     assert nested_sigs == {("Item", "Qty"), ("Month", "Sales")}, (
         f"expected both sub-tables nested, got {nested_sigs}"
     )
+
+def test_rowspan_tall_cell_marks_following_row_covered():
+    """A tall cell whose y-extent covers two visual rows below it must
+    cluster into the FIRST overlapping row, and the column it occupies
+    in the SECOND overlapping row must be emitted as ``covered`` with the
+    spanning cell's bbox.
+
+    Mirrors fixture 10 (Quarterly Report) and fixture 21 (Pacific
+    Northwest Division): col 0 carries a single tall text cell whose
+    y-extent equals the combined height of two short cells in cols 1+
+    of the same band.  ``_row_cluster``'s ymid divergence would otherwise
+    place the tall cell in its own narrow row (sandwiched between the two
+    visual rows of its shorter neighbours), and ``_split_into_tables``
+    would then split at the left-edge change between the tall cell's
+    column and the shorter cells' column — yielding two unrelated tables
+    instead of one with covered-cell rowspan semantics.
+    """
+    bb = lambda x0, y0, x1, y1: BBox(page=0, x0=x0, y0=y0, x1=x1, y1=y1)
+    cells = [
+        # Header row (y=0..20)
+        Cell(bbox=bb(  0,  0, 150, 20), text="Region", source="line", confidence=1.0),
+        Cell(bbox=bb(150,  0, 220, 20), text="Q1",     source="line", confidence=1.0),
+        Cell(bbox=bb(220,  0, 290, 20), text="Q2",     source="line", confidence=1.0),
+        # Tall col-0 cell spans rows 1+2 (y=20..56)
+        Cell(bbox=bb(  0, 20, 150, 56), text="North",  source="line", confidence=1.0),
+        # Row 1 (y=20..38)
+        Cell(bbox=bb(150, 20, 220, 38), text="100",    source="line", confidence=1.0),
+        Cell(bbox=bb(220, 20, 290, 38), text="200",    source="line", confidence=1.0),
+        # Row 2 (y=38..56) — short cells aligned with second half of "North"
+        Cell(bbox=bb(150, 38, 220, 56), text="120",    source="line", confidence=1.0),
+        Cell(bbox=bb(220, 38, 290, 56), text="180",    source="line", confidence=1.0),
+        # Row 3 (y=56..74) — independent row beyond the merge
+        Cell(bbox=bb(  0, 56, 150, 74), text="South",  source="line", confidence=1.0),
+        Cell(bbox=bb(150, 56, 220, 74), text="300",    source="line", confidence=1.0),
+        Cell(bbox=bb(220, 56, 290, 74), text="400",    source="line", confidence=1.0),
+    ]
+    tables = aggregate(cells, page_height=792.0)
+    assert len(tables) == 1, (
+        f"expected ONE table with rowspan covered slots, got {len(tables)}: "
+        f"sigs={[t.header_signature for t in tables]}"
+    )
+    t = tables[0]
+    assert t.header_signature == ("Region", "Q1", "Q2")
+    assert len(t.grid) == 4, f"expected 4 rows, got {len(t.grid)}"
+    # Row 1: tall cell anchored here.
+    assert t.grid[1] == ["North", "100", "200"]
+    # Row 2: col 0 covered by the rowspan, cols 1-2 are independent.
+    assert t.grid[2] == ["", "120", "180"]
+    assert (2, 0) in t.covered, "row 2 col 0 must be marked covered by the rowspan"
+    # Covered bbox at (2, 0) reuses the spanning cell's geometry.
+    cov_bbox = t.cell_bboxes[2][0]
+    assert (cov_bbox.x0, cov_bbox.x1) == (0, 150)
+    assert (cov_bbox.y0, cov_bbox.y1) == (20, 56), (
+        f"covered slot must reuse spanning cell's y-extent, got {(cov_bbox.y0, cov_bbox.y1)}"
+    )
+    # Row 3: independent, no rowspan leakage.
+    assert t.grid[3] == ["South", "300", "400"]
+    assert (3, 0) not in t.covered, "row 3 must not be marked covered"

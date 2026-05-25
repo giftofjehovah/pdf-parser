@@ -181,6 +181,25 @@ CASES_DIR = Path("tests/golden/synthetic")
 # synthesiser working on line geometry directly, or a port of the anchor
 # detector's borderless-frame promotion into ``detect_cells``.
 #
+# Phase 10 prep outcome (fixtures 10/21 rowspan):
+# ``_apply_rowspan_merge`` re-clusters tall single-cell rows whose ymid
+# diverges from their shorter neighbours into the first multi-cell row
+# they y-overlap; ``_split_into_tables`` then keeps the table whole by
+# tolerating a missing leftmost cell when an earlier row's rowspan
+# covers the missing column; and ``_rows_to_celltable``'s post-pass
+# overwrites those covered slots' bboxes with the spanning cell's bbox
+# so the rowspan semantics match legacy.  This unblocks the
+# ``test_merged_cells_*`` + ``test_annex_e_*`` assertions in
+# ``tests/test_comprehensive.py`` (6 assertions) and the
+# ``test_multicolumn_text_not_misidentified_as_table`` aggregate
+# (the rowspan split previously yielded spurious tables).  Strict
+# id-set parity for 10/21 still fails: covered-slot bboxes differ from
+# legacy's by ~1pt because legacy reconstructs them from the line
+# detector's per-column anchor x-ranges (Q1=[a, b)), while bottom-up
+# uses the spanning cell's own x-range (which matches the column anchor
+# in practice but rounds differently on the y-bounds).  Left as
+# Phase-10+ parity-only residual.
+#
 _XFAIL_CASES: set[str] = {
     "02_nested_table",
     "07_page_spanning_with_nested",

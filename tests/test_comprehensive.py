@@ -56,13 +56,18 @@ def tree(use_bottom_up: bool) -> DocNode:
 # individually.  Phase 9's sub-cluster carve-out in
 # ``aggregate_tables._carve_subclusters`` recovers the page-spanning nested
 # Project Tracking table + Hardware Inventory nesting (6 assertions) for
-# bottom_up.  Phase 10 prep's ``_carve_container_frames`` + the
-# nested-container gap-multiplier add Annex C's outer 1xN wrapper +
-# nested-sub-table separation (2 assertions).  The remaining residual
-# families are explicitly deferred (full analyses in
-# ``tests/test_bottom_up_parity.py`` header comment):
+# bottom_up.  Phase 10 prep adds two more passes:
+#   * ``_carve_container_frames`` + ``_build_single_col_wrapper`` +
+#     ``_NESTED_CONTAINER_GAP_MULT`` recover Annex C's outer 1xN wrapper
+#     + nested-sub-table separation (2 assertions).
+#   * ``_apply_rowspan_merge`` + ``_rows_to_celltable``'s rowspan post-pass
+#     + ``_split_into_tables``'s rowspan-tolerance recover the merged-cells
+#     + Annex E vertical-merge assertions (6 assertions) and remove the
+#     spurious-table false positive that drove the multicolumn check
+#     (1 assertion).
+# The remaining residual families are explicitly deferred (full analyses
+# in ``tests/test_bottom_up_parity.py`` header comment):
 #   - Phase-5 ruled-header (fixtures 18/19/20/23) — Annex A
-#   - Phase-6 rowspan (fixtures 10/21) — merged_cells + Annex E
 #   - Phase-7+ 1xN outer-frame without line-detected container (fixture 17
 #     + Annex D outer 'Spanning Header' frame) — bottom-up's line cells
 #     never carry the outer container on these layouts; legacy promotes it
@@ -81,11 +86,6 @@ _REASON_PHASE_5 = (
     "Phase-5 residual (ruled-header 18/19/20/23): detect_cells short-circuits "
     "to first non-empty source. See tests/test_bottom_up_parity.py header."
 )
-_REASON_PHASE_6 = (
-    "Phase-6 residual (rowspan 10/21): bottom-up has no tall-cell detector; "
-    "rowspan cells cluster as single-cell rows. See "
-    "tests/test_bottom_up_parity.py header."
-)
 _REASON_PHASE_7 = (
     "Phase-7+ residual (1xN outer-frame without line-detected container): "
     "Phase 10 prep's _carve_container_frames recovers fixtures 16 / Annex C "
@@ -95,9 +95,10 @@ _REASON_PHASE_7 = (
     "tests/test_bottom_up_parity.py header."
 )
 _REASON_AGGREGATE = (
-    "Aggregate of Phase-5/6/7 residuals: omnibus inventory/spanning counts "
-    "include outputs from the residual families above. See "
-    "tests/test_bottom_up_parity.py header."
+    "Aggregate of Phase-5 (ruled-header) + Phase-7+ (Annex D outer "
+    "'Spanning Header' without line-detected container) residuals: "
+    "omnibus inventory/spanning counts include outputs from these "
+    "residual families. See tests/test_bottom_up_parity.py header."
 )
 
 
@@ -305,10 +306,9 @@ def test_merged_cells_table_has_covered_cells(tree):
 
 
 
-def test_merged_cells_table_spans_pages(tree, use_bottom_up):
+def test_merged_cells_table_spans_pages(tree):
     """The Quarterly Performance table is large enough to split across a page break;
     the stitcher must reassemble it into one spanning table with all 5 rows."""
-    _xfail_bottom_up(use_bottom_up, _REASON_PHASE_6)
     mc = next(
         (n for n in _walk(tree)
          if n.kind == "table" and n.attrs.get("header_signature", ("",))[0] == "Quarterly Report"),
@@ -319,9 +319,8 @@ def test_merged_cells_table_spans_pages(tree, use_bottom_up):
     assert len(mc.children) == 5, f"expected 5 rows after stitch, got {len(mc.children)}"
 
 
-def test_merged_cells_correct_structure(tree, use_bottom_up):
+def test_merged_cells_correct_structure(tree):
     """Row 0 has a colspan (2 covered cells); row 3 has a rowspan continuation (1 covered cell)."""
-    _xfail_bottom_up(use_bottom_up, _REASON_PHASE_6)
     mc = next(
         (n for n in _walk(tree)
          if n.kind == "table" and n.attrs.get("header_signature", ("",))[0] == "Quarterly Report"),
@@ -582,22 +581,20 @@ def test_annex_d_outer_frame_spans_two_pages(tree, use_bottom_up):
 # Annex E — vertical merge with invisible row separators (fixture 21)
 # ---------------------------------------------------------------------------
 
-def test_annex_e_merged_column_is_one_cell_with_three_lines(tree, use_bottom_up):
+def test_annex_e_merged_column_is_one_cell_with_three_lines(tree):
     """Fixture 21 idiom: col-0 row separators at rows 1/2 and 2/3 are drawn
     in white.  A colour-aware parser must subtract those overdraws so the
     column collapses into one cell spanning rows 1..3 with newline-joined
     text — matching what a reader sees."""
-    _xfail_bottom_up(use_bottom_up, _REASON_PHASE_6)
     t = _table_by_sig(tree, ("Zone", "Jan", "Feb", "Mar"))
     assert t is not None, "Annex E vertical-merge table missing"
     assert t.attrs["n_rows"] == 5 and t.attrs["n_cols"] == 4
     assert t.children[1].children[0].text == "Tropical\nSubtropical\nTemperate"
 
 
-def test_annex_e_continuation_rows_carry_covered_cells(tree, use_bottom_up):
+def test_annex_e_continuation_rows_carry_covered_cells(tree):
     """Rows 2 and 3 of the merged column must be marked ``covered`` — they
     are continuations of the row-1 anchor cell."""
-    _xfail_bottom_up(use_bottom_up, _REASON_PHASE_6)
     t = _table_by_sig(tree, ("Zone", "Jan", "Feb", "Mar"))
     assert t is not None
     for r in (2, 3):
@@ -606,19 +603,17 @@ def test_annex_e_continuation_rows_carry_covered_cells(tree, use_bottom_up):
         )
 
 
-def test_annex_e_row_four_is_independent(tree, use_bottom_up):
+def test_annex_e_row_four_is_independent(tree):
     """The merge stops at row 3.  Row 4 (Polar) must remain its own row with
     all four columns intact — the merge must not leak past its boundary."""
-    _xfail_bottom_up(use_bottom_up, _REASON_PHASE_6)
     t = _table_by_sig(tree, ("Zone", "Jan", "Feb", "Mar"))
     assert t is not None
     assert [c.text for c in t.children[4].children] == ["Polar", "400", "410", "420"]
 
 
-def test_annex_e_adjacent_columns_stay_on_their_own_row(tree, use_bottom_up):
+def test_annex_e_adjacent_columns_stay_on_their_own_row(tree):
     """Q1..Q3 values in rows 1..3 must remain in their original rows — they
     must not be swept up into the merged anchor cell."""
-    _xfail_bottom_up(use_bottom_up, _REASON_PHASE_6)
     t = _table_by_sig(tree, ("Zone", "Jan", "Feb", "Mar"))
     assert t is not None
     body = _body_grid(t)
@@ -667,12 +662,11 @@ _KNOWN_TABLE_SIGS: set[tuple[str, ...]] = {
 }
 
 
-def test_multicolumn_text_not_misidentified_as_table(tree, use_bottom_up):
+def test_multicolumn_text_not_misidentified_as_table(tree):
     """Section 1.2 uses BalancedColumns for two-column body text.  The text
     fallback must NOT surface this region as a spurious table.  We enforce
     that by enumerating every legitimate table signature; any extra entry
     indicates a multi-column false positive or some other regression."""
-    _xfail_bottom_up(use_bottom_up, _REASON_AGGREGATE)
     sigs = {
         tuple(t.attrs.get("header_signature", ()))
         for t in _walk(tree)
