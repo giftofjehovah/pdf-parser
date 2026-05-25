@@ -102,3 +102,34 @@ def test_nested_table_detected_via_containment():
     assert len(outer_t.nested) == 1
     inner_t = outer_t.nested[0]
     assert inner_t.grid == [["i1", "i2"], ["i3", "i4"]]
+
+def test_header_columns_extend_below():
+    """Mixed source (line-bounded header + gutter body) on a single page must
+    cluster into one table with column structure inherited from the header.
+
+    This is the Phase-5 ruled-header-open-body sentinel: three line cells
+    on row 0 then four gutter rows at the same x-ranges below.  The
+    ``_split_into_tables`` gap-merge logic must keep them in one table even
+    when the header→first-body gap is tight (< 8pt).
+    """
+    def bb(x0, y0, x1, y1, src="line"):
+        return Cell(
+            bbox=BBox(page=0, x0=x0, y0=y0, x1=x1, y1=y1),
+            text="H" if src == "line" else "x",
+            source=src,
+            confidence=1.0 if src == "line" else 0.7,
+        )
+    cells = [
+        # Header (line-bounded): 3 cells at y=100..115
+        bb(50, 100, 100, 115),
+        bb(100, 100, 200, 115),
+        bb(200, 100, 280, 115),
+        # Body (gutter): 4 rows × 3 columns, same x-ranges, y=120..175
+        *[bb(50, 120 + 15*i, 100, 130 + 15*i, "gutter") for i in range(4)],
+        *[bb(100, 120 + 15*i, 200, 130 + 15*i, "gutter") for i in range(4)],
+        *[bb(200, 120 + 15*i, 280, 130 + 15*i, "gutter") for i in range(4)],
+    ]
+    tables = aggregate(cells, page_height=792.0)
+    assert len(tables) == 1
+    # 1 header row + 4 body rows = 5 rows in the merged table.
+    assert len(tables[0].grid) == 5

@@ -126,10 +126,13 @@ def _row_top(row: list[Cell]) -> float:
 
 
 # Floor on the gap-split threshold: even if the median row height is small
-# (single-line tables of 10pt), inter-row gaps under this never break the
-# table.  Paragraph leading on body prose is ~14pt; 12pt cleanly distinguishes
-# "next table row" from "paragraph below".
-_TABLE_GAP_FLOOR_PT = 12.0
+# (single-line tables of ~3pt), inter-row gaps under this never break the
+# table.  8pt is the median-typography-leading lower bound — below it the
+# gap is part of the table; above it, MULT × median_h takes over once rows
+# are tall enough.  Tightened from 12pt to 8pt in Phase 5 so single-line
+# header rows do not artificially merge prose lines below into the table
+# at the 8-12pt gap range.
+_TABLE_GAP_FLOOR_PT = 8.0
 
 
 def _split_into_tables(rows: list[list[Cell]]) -> list[list[list[Cell]]]:
