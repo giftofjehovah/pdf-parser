@@ -33,6 +33,22 @@ CASES_DIR = Path("tests/golden/synthetic")
 # column count diverges from the body's.  Real fix lives one step deeper:
 # either filter gutter cells inside any line cell's bbox, or run the
 # gutter detector below the header band only.  Left as Phase-5+ residual.
+#
+# Phase 6 residual (10/21): the merged-cell fixtures remain xfailed.  Tasks
+# 6.1-6.3 added column-anchor alignment, union-clustered anchors, and
+# legacy-faithful covered-cell bboxes for in-row colspans, but vertical
+# merges (rowspan) need a separate detector that bottom-up does not yet
+# have.  A rowspan cell ("North" at y=154..190 in fixture 10, "Pacific
+# Northwest Division" at y=204..264 in fixture 21) has a y-midpoint that
+# diverges from its neighbours' (which are short, half-height cells), so
+# ``_row_cluster`` puts it in its own single-cell row.  Legacy emits it
+# once in the first visual row of the span and adds ``covered`` slots in
+# the remaining visual rows; bottom-up has no equivalent step yet, so the
+# table splits at the rowspan boundary.  Real fix lives one step deeper:
+# detect tall cells whose y-extent covers multiple visual rows formed by
+# their shorter neighbours, place them once in the first such row, and
+# emit covered entries in the remaining rows under the same column anchor.
+# Left as Phase-6+ residual.
 _XFAIL_CASES: set[str] = {
     "02_nested_table",
     "07_page_spanning_with_nested",
