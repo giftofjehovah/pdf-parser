@@ -4,7 +4,8 @@ from pathlib import Path
 import pdfplumber
 
 from pdf_parser.model import BBox
-from pdf_parser.stages.detect_cells import Cell, _line_cells, _group_words_into_lines
+from pdf_parser.stages.detect_cells import Cell, _line_cells, _group_words_into_lines, _find_column_gutters
+
 
 
 def test_cell_holds_bbox_text_source_confidence():
@@ -73,3 +74,19 @@ def test_word_lines_handles_identical_y_midpoints():
     lines = _group_words_into_lines(words, tol=2.0)
     assert len(lines) == 1
     assert [w["text"] for w in lines[0]] == ["A", "B"]
+
+def test_gutters_three_columns():
+    """Three text columns with consistent inter-column whitespace.
+
+    Each row's words: [Name        Score   Grade] at fixed x-ranges.
+    """
+    line_words: list[list[dict]] = []
+    for y in (100.0, 120.0, 140.0, 160.0):
+        line_words.append([
+            {"x0": 50, "x1": 90, "top": y, "bottom": y + 8, "text": "Alice"},
+            {"x0": 150, "x1": 170, "top": y, "bottom": y + 8, "text": "95"},
+            {"x0": 220, "x1": 230, "top": y, "bottom": y + 8, "text": "A"},
+        ])
+    gutters = _find_column_gutters(line_words, min_run=3, min_gap_pt=8.0)
+    # Two inter-column gutters → 3 column ranges.
+    assert len(gutters) == 2
