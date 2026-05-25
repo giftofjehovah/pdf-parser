@@ -139,10 +139,14 @@ def _split_into_tables(rows: list[list[Cell]]) -> list[list[list[Cell]]]:
     """Adjacent rows with similar geometry AND small inter-row gap form one
     table candidate.
 
-    Boundary checks: same page, same column count, matching left edges, and a
+    Boundary checks: same page, matching left edges, and a
     gap-to-median-row-height ratio below ``_TABLE_GAP_MULT``.  Right-edge
     equality is NOT required: ``tight``-style cells (14b borderless long-text)
     carry per-cell content widths so the right edge varies by row by 20pt+.
+    Column-count equality is NOT required either: a colspan-heavy row (e.g.
+    a section subheader spanning the full width) carries fewer raw cells
+    than its sibling data rows, and ``_rows_to_celltable`` reconciles the
+    raggedness via column-anchor alignment.
     The gap floor (``_TABLE_GAP_FLOOR_PT``) keeps single-line tables from
     breaking on any inter-row gap; the median × multiplier dominates once
     rows are tall enough.
@@ -154,9 +158,8 @@ def _split_into_tables(rows: list[list[Cell]]) -> list[list[list[Cell]]]:
         prev_table = tables[-1]
         prev = prev_table[-1]
         same_page = prev[0].bbox.page == r[0].bbox.page
-        same_ncols = len(prev) == len(r)
         same_left = abs(prev[0].bbox.x0 - r[0].bbox.x0) <= 4.0
-        if not (same_page and same_ncols and same_left):
+        if not (same_page and same_left):
             tables.append([r])
             continue
         gap = _row_top(r) - max(c.bbox.y1 for c in prev)
@@ -169,21 +172,99 @@ def _split_into_tables(rows: list[list[Cell]]) -> list[list[list[Cell]]]:
     return tables
 
 
+# Column-anchor matching tolerance: cell x-positions drift sub-pt due to
+# floating-point coordinate arithmetic; 4pt covers every observed drift
+# in the 27 golden fixtures.
+_ANCHOR_TOL = 4.0
+
+
+def _column_anchors(rows: list[list[Cell]]) -> list[tuple[float, float]]:
+    """Use the widest row (most cells) as the canonical column set.
+
+    Replaced in Task 6.2 with a union-cluster across all rows so a
+    colspan-heavy "widest" row (e.g. section subheader with N>others cells)
+    cannot collapse the anchor set.
+    """
+    widest = max(rows, key=len)
+    return [(c.bbox.x0, c.bbox.x1) for c in widest]
+
+
+def _assign_row_to_columns(
+    row: list[Cell], anchors: list[tuple[float, float]], tol: float = _ANCHOR_TOL
+) -> tuple[list[Cell | None], set[int]]:
+    """Place each cell into the column where its LEFT edge sits; mark every
+    additional column whose left edge is to the left of the cell's right
+    edge as covered by a horizontal merge.
+
+    Left-edge anchoring (rather than first-overlapping-anchor) prevents a
+    non-spanning cell from being misassigned to a slot covered by an earlier
+    cell's colspan when the cell's left edge coincides with an anchor's
+    right edge under ``tol``.
+    """
+    slots: list[Cell | None] = [None] * len(anchors)
+    covered_idx: set[int] = set()
+    for c in row:
+        start_i: int | None = None
+        for i, (ax0, ax1) in enumerate(anchors):
+            # Cell's left edge falls inside this column's [ax0, ax1) range.
+            # The strict upper bound prevents a cell starting exactly at the
+            # next column's left edge from being placed in this column.
+            if ax0 - tol <= c.bbox.x0 < ax1 - tol:
+                start_i = i
+                break
+        if start_i is None:
+            continue
+        if slots[start_i] is None:
+            slots[start_i] = c
+        # Determine colspan: subsequent anchors whose left edge sits to the
+        # left of the cell's right edge (with tol slack) are covered.
+        for i in range(start_i + 1, len(anchors)):
+            ax0, _ = anchors[i]
+            if c.bbox.x1 > ax0 + tol:
+                covered_idx.add(i)
+            else:
+                break
+    return slots, covered_idx
+
+
 def _rows_to_celltable(
     rows: list[list[Cell]], page_height: float
 ) -> CellTable | None:
-    if len(rows) < 2 or any(len(r) < 2 for r in rows):
+    """Build a CellTable from raw rows by aligning each row's cells to the
+    canonical column anchors.  Slots not filled by any cell are emitted as
+    empty "covered" cells with bboxes synthesised from anchor x + row y."""
+    if len(rows) < 2 or all(len(r) < 2 for r in rows):
         return None
-    n_cols = max(len(r) for r in rows)
-    grid: list[list[str]] = [
-        [c.text for c in r] + [""] * (n_cols - len(r))
-        for r in rows
-    ]
-    cell_bboxes: list[list[BBox]] = [
-        [c.bbox for c in r]
-        + [r[-1].bbox] * (n_cols - len(r))     # padding bboxes for ragged rows
-        for r in rows
-    ]
+    anchors = _column_anchors(rows)
+    n_cols = len(anchors)
+    if n_cols < 2:
+        return None
+    grid: list[list[str]] = []
+    cell_bboxes: list[list[BBox]] = []
+    covered: set[tuple[int, int]] = set()
+    for r_idx, row in enumerate(rows):
+        slots, cov = _assign_row_to_columns(row, anchors)
+        row_top = min(c.bbox.y0 for c in row) if row else 0.0
+        row_bot = max(c.bbox.y1 for c in row) if row else 0.0
+        row_grid: list[str] = []
+        row_bbs: list[BBox] = []
+        for c_idx in range(n_cols):
+            cell = slots[c_idx]
+            if cell is not None:
+                row_grid.append(cell.text)
+                row_bbs.append(cell.bbox)
+            else:
+                ax0, ax1 = anchors[c_idx]
+                row_grid.append("")
+                row_bbs.append(BBox(
+                    page=row[0].bbox.page,
+                    x0=ax0, y0=row_top, x1=ax1, y1=row_bot,
+                ))
+                covered.add((r_idx, c_idx))
+        for c_idx in cov:
+            covered.add((r_idx, c_idx))
+        grid.append(row_grid)
+        cell_bboxes.append(row_bbs)
     page = rows[0][0].bbox.page
     x0 = min(c.bbox.x0 for r in rows for c in r)
     y0 = min(c.bbox.y0 for r in rows for c in r)
@@ -204,7 +285,7 @@ def _rows_to_celltable(
         bbox=BBox(page=page, x0=x0, y0=y0, x1=x1, y1=y1),
         grid=grid,
         cell_bboxes=cell_bboxes,
-        covered=set(),
+        covered=covered,
         header_signature=tuple(grid[0]),
         page_height=page_height,
         nested=[],
@@ -212,6 +293,8 @@ def _rows_to_celltable(
         bbox_style=rows[0][0].bbox_style,
         row_bboxes=row_bboxes,
     )
+
+
 
 
 def aggregate(cells: list[Cell], page_height: float) -> list[CellTable]:

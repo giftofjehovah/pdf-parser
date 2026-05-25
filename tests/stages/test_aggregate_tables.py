@@ -133,3 +133,26 @@ def test_header_columns_extend_below():
     assert len(tables) == 1
     # 1 header row + 4 body rows = 5 rows in the merged table.
     assert len(tables[0].grid) == 5
+
+
+def test_merged_cell_marks_covered():
+    """Row 0 has 3 cells; row 1 has 2 cells where the left one spans cols 0-1.
+
+    Logical layout:
+      row 0: [a] [b] [c]                                 (3 cells)
+      row 1: [d-spans-cols-0-and-1] [e]                  (2 cells)
+
+    Expected: the wide cell in row 1 is placed in slot (1,0); slot (1,1) is
+    an empty 'covered' cell pointing back to (1,0)'s bbox.
+    """
+    bb = lambda x0, x1, y0, y1: BBox(page=0, x0=x0, y0=y0, x1=x1, y1=y1)
+    cells = [
+        Cell(bbox=bb(  0, 100,  0, 20), text="a", source="line", confidence=1.0),
+        Cell(bbox=bb(100, 200,  0, 20), text="b", source="line", confidence=1.0),
+        Cell(bbox=bb(200, 300,  0, 20), text="c", source="line", confidence=1.0),
+        Cell(bbox=bb(  0, 200, 20, 40), text="d", source="line", confidence=1.0),
+        Cell(bbox=bb(200, 300, 20, 40), text="e", source="line", confidence=1.0),
+    ]
+    [t] = aggregate(cells, page_height=792.0)
+    assert (1, 1) in t.covered
+    assert t.grid[1] == ["d", "", "e"]
