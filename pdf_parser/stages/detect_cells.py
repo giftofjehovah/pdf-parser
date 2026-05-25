@@ -290,13 +290,22 @@ def _bin_words_to_columns(
 # Tuned narrower than the legacy text-strategy guard because line-bounded
 # detection already absorbs most real tables; gutter only fires on borderless
 # layouts where false positives (multi-column prose) are the dominant risk.
+_GUTTER_MIN_CELL_COUNT             = 4    # below this, not enough signal for a table
 _GUTTER_MAX_AVG_CELL_CHARS         = 12   # avg cell length must stay ≤ this
 _GUTTER_MAX_LOWERCASE_START_RATIO  = 0.40 # ≤40% of cells may start lowercase
 
 
 def _is_gutter_table_shape(grid: list[list[str]]) -> bool:
+    """True when ``grid`` looks like a table, not a slice of body prose.
+
+    Three predicates: ≥ ``_GUTTER_MIN_CELL_COUNT`` non-empty cells, average
+    cell length ≤ ``_GUTTER_MAX_AVG_CELL_CHARS``, lowercase-start ratio
+    ≤ ``_GUTTER_MAX_LOWERCASE_START_RATIO``.  Empty / whitespace-only cells
+    are filtered internally, so callers may pass either pre-filtered grids
+    or raw rows with empty placeholders.
+    """
     cells = [c.strip() for row in grid for c in row if c.strip()]
-    if len(cells) < 4:
+    if len(cells) < _GUTTER_MIN_CELL_COUNT:
         return False
     avg_len = sum(len(c) for c in cells) / len(cells)
     if avg_len > _GUTTER_MAX_AVG_CELL_CHARS:
