@@ -53,13 +53,24 @@ def parse(
              "Anchor recovers borderless tables with long-text cells; pass "
              "this flag to fall back to the legacy detect_tables cascade only.",
     ),
+    bottom_up: bool = typer.Option(
+        False, "--bottom-up/--no-bottom-up",
+        help="Use the bottom-up cell-clustering extractor instead of the "
+             "legacy detect_tables cascade. Default off; flip with --bottom-up "
+             "for parity testing.",
+    ),
 ) -> None:
     fb = None
     if enable_llm_fallback:
         from pdf_parser.fallback.llm import AnthropicLLMClient, LLMFallback
         fb = LLMFallback(enabled=True, client=AnthropicLLMClient())
 
-    tree = parse_pdf(path, llm_fallback=fb, use_anchor=not no_anchor)
+    tree = parse_pdf(
+        path,
+        llm_fallback=fb,
+        use_anchor=not no_anchor,
+        use_bottom_up=bottom_up,
+    )
 
     if validate_only:
         report = validate(tree, path)
