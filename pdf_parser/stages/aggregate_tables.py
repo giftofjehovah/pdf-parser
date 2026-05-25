@@ -15,8 +15,7 @@ Output: ``list[CellTable]`` per page.  The wiring layer
 """
 from __future__ import annotations
 
-from dataclasses import dataclass, field
-from typing import Literal
+from dataclasses import dataclass
 
 from pdf_parser.model import BBox
 from pdf_parser.stages.detect_cells import Cell, CellSource
@@ -31,7 +30,7 @@ class CellTable:
     covered: set[tuple[int, int]]
     header_signature: tuple[str, ...]
     page_height: float
-    nested: list["CellTable"]
+    nested: list[CellTable]
     source: CellSource
 
 
