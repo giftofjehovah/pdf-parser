@@ -1,7 +1,7 @@
 """CellTable dataclass shape + empty-input contract for aggregate()."""
 from pdf_parser.model import BBox
 from pdf_parser.stages.detect_cells import Cell
-from pdf_parser.stages.aggregate_tables import CellTable, aggregate, _dedupe_cells
+from pdf_parser.stages.aggregate_tables import CellTable, aggregate, _cells_inside, _dedupe_cells
 
 
 def test_celltable_fields():
@@ -58,3 +58,15 @@ def test_split_breaks_on_large_vertical_gap():
     ]
     tables = aggregate(cells, page_height=792.0)
     assert len(tables) == 2
+
+
+def test_cells_inside_filters_by_containment():
+    outer = BBox(page=0, x0=0, y0=0, x1=100, y1=100)
+    inside_bb = BBox(page=0, x0=10, y0=10, x1=30, y1=30)
+    outside_bb = BBox(page=0, x0=200, y0=200, x1=220, y1=220)
+    cells = [
+        Cell(bbox=inside_bb, text="in", source="line", confidence=1.0),
+        Cell(bbox=outside_bb, text="out", source="line", confidence=1.0),
+    ]
+    inside = _cells_inside(cells, outer)
+    assert [c.text for c in inside] == ["in"]

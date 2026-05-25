@@ -67,6 +67,31 @@ def _dedupe_cells(cells):
     return list(best.values())
 
 
+# Slack on containment checks: cell bboxes drift by sub-pt amounts due to
+# floating-point arithmetic on the underlying PDF coordinates, so a strict
+# ``inner.x0 >= outer.x0`` rejects legitimate containment.  2pt clears every
+# observed drift in the 27 golden fixtures.
+_CONTAIN_TOL = 2.0
+
+
+def _cells_inside(cells: list[Cell], outer: BBox) -> list[Cell]:
+    """Return cells whose bbox lies inside ``outer`` (with ``_CONTAIN_TOL``
+    slack).  Strict on size: at least one dimension must be smaller than the
+    outer's by the same tolerance — otherwise an outer cell would 'contain'
+    itself and we'd recurse forever.
+    """
+    return [
+        c for c in cells
+        if (c.bbox.page == outer.page
+            and c.bbox.x0 >= outer.x0 - _CONTAIN_TOL
+            and c.bbox.y0 >= outer.y0 - _CONTAIN_TOL
+            and c.bbox.x1 <= outer.x1 + _CONTAIN_TOL
+            and c.bbox.y1 <= outer.y1 + _CONTAIN_TOL
+            and (c.bbox.x1 - c.bbox.x0 < outer.x1 - outer.x0 - _CONTAIN_TOL
+                 or c.bbox.y1 - c.bbox.y0 < outer.y1 - outer.y0 - _CONTAIN_TOL))
+    ]
+
+
 
 def _row_cluster(cells: list[Cell]) -> list[list[Cell]]:
     """Bucket cells into rows by y-midpoint (page-aware)."""
