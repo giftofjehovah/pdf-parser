@@ -47,13 +47,18 @@ def parse(
     validate_only: bool = typer.Option(False, "--validate-only"),
     enable_llm_fallback: bool = typer.Option(False, "--enable-llm-fallback"),
     visualize: Optional[Path] = typer.Option(None, "--visualize"),
+    table_detector: str = typer.Option(
+        "legacy", "--table-detector",
+        help="legacy (default) | experimental — experimental adds column-anchor "
+             "detection for borderless tables that the legacy cascade misses.",
+    ),
 ) -> None:
     fb = None
     if enable_llm_fallback:
         from pdf_parser.fallback.llm import AnthropicLLMClient, LLMFallback
         fb = LLMFallback(enabled=True, client=AnthropicLLMClient())
 
-    tree = parse_pdf(path, llm_fallback=fb)
+    tree = parse_pdf(path, llm_fallback=fb, table_detector=table_detector)
 
     if validate_only:
         report = validate(tree, path)

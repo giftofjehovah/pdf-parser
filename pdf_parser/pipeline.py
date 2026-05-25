@@ -73,11 +73,33 @@ def _apply_llm_fallback(
 def parse(
     pdf_path: Path | str,
     llm_fallback: Optional["LLMFallback"] = None,
+    table_detector: str = "legacy",
 ) -> DocNode:
+    """Parse ``pdf_path`` and return the document tree.
+
+    ``table_detector``:
+
+    * ``"legacy"`` (default) — current ``detect_tables`` cascade only.
+    * ``"experimental"`` — legacy cascade **plus** the column-anchor detector
+      (see :mod:`pdf_parser.stages.detect_tables_anchor`).  Anchor candidates
+      that overlap any legacy table are dropped, so this is purely additive
+      on fixtures where the legacy cascade is already correct.  Use it to
+      recover borderless tables with long-text cells that the legacy
+      ``_MAX_CELL_TEXT_CHARS`` heuristic rejects.
+    """
     pdf_path = Path(pdf_path)
     raw_pages = ingest(pdf_path)
     segments  = segment(raw_pages)
     tables    = stitch_tables(extract_tables(pdf_path))
+
+    if table_detector == "experimental":
+        from pdf_parser.stages.detect_tables_anchor import augment_with_anchor_tables
+        tables = augment_with_anchor_tables(tables, pdf_path)
+    elif table_detector != "legacy":
+        raise ValueError(
+            f"unknown table_detector: {table_detector!r} (expected 'legacy' or 'experimental')"
+        )
+
     tree      = build_tree(segments, tables)
 
     if llm_fallback is not None and llm_fallback.enabled:
