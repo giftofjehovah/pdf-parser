@@ -51,9 +51,12 @@ def _celltable_to_docnode(t: CellTable) -> DocNode:
                 attrs=attrs,
                 provenance=_PROVENANCE,
             ))
+        row_bbox = (t.row_bboxes[r_idx]
+                    if t.bbox_style == "tight" and r_idx < len(t.row_bboxes)
+                    else t.bbox)
         rows.append(DocNode(
             kind="row",
-            bbox=t.bbox,
+            bbox=row_bbox,
             children=cells,
             attrs={"page": t.page_index, "row_index": r_idx},
         ))

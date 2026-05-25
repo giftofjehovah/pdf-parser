@@ -20,6 +20,13 @@ from typing import Literal
 from pdf_parser.model import BBox
 
 CellSource = Literal["line", "gutter", "text"]
+# How the cell's bbox relates to its column neighbours.
+#   * ``shared`` — col_i.x1 == col_{i+1}.x0 (pdfplumber text-strategy style).
+#     Row bbox spans the full table x-extent; all rows share that bbox.
+#   * ``tight``  — bbox tight to this cell's own word content (anchor-detector
+#     style).  Row bbox is per-row (min/max over its non-empty cells).
+# Drives row-bbox selection in ``extract_tables_v2._celltable_to_docnode``.
+CellBboxStyle = Literal["shared", "tight"]
 
 
 @dataclass(frozen=True)
@@ -28,6 +35,8 @@ class Cell:
     text: str
     source: CellSource
     confidence: float
+    bbox_style: CellBboxStyle = "shared"
+
 
 
 def detect_cells(page, page_index: int) -> list[Cell]:
@@ -208,10 +217,13 @@ def _find_column_gutters(
 ) -> list[tuple[float, float]]:
     """Return (x0, x1) gutter intervals that persist across ≥ ``min_run`` lines.
 
-    Dedup is positional: the reported interval is the FIRST row's gap at each
-    gutter position. If the gutter widens on a later row, the wider extent is
-    NOT reported; downstream code that needs exact column widths should
-    re-measure from the row it cares about.
+    Each reported interval is the INTERSECTION of every overlapping per-line
+    gap in the run — i.e. the x-range that is whitespace on every consecutive
+    line.  Using the first line's gap (or the union) over-narrows or
+    over-widens the column on tables with ragged right edges (e.g.
+    14b_borderless_long_text, where col1's right edge swings from 312pt on the
+    header row to 364pt on a data row): binning words into the first-line
+    range silently drops "renewal", "delayed", etc. from their cells.
     """
     if len(lines) < min_run:
         return []
@@ -222,15 +234,24 @@ def _find_column_gutters(
         for g in gaps_i:
             if any(_intervals_overlap(g, s) for s in seen):
                 continue
+            current = g
             run = 1
             for gaps_j in gaps_per_line[i + 1:]:
-                if any(_intervals_overlap(g, gj) for gj in gaps_j):
-                    run += 1
-                else:
+                # Pick the line's gap with widest intersection with ``current``.
+                best, best_w = None, -1.0
+                for gj in gaps_j:
+                    if not _intervals_overlap(current, gj):
+                        continue
+                    w = min(current[1], gj[1]) - max(current[0], gj[0])
+                    if w > best_w:
+                        best_w, best = w, gj
+                if best is None:
                     break
+                current = (max(current[0], best[0]), min(current[1], best[1]))
+                run += 1
             if run >= min_run:
-                out.append(g)
-                seen.append(g)
+                out.append(current)
+                seen.append(current)
     return sorted(out)
 
 _GUTTER_CONFIDENCE  = 0.7
@@ -279,24 +300,49 @@ def _column_ranges_from_gutters(
     return cols
 
 
-def _bin_words_to_columns(
+def _bin_words_per_col(
     words: list[dict], cols: list[tuple[float, float]]
-) -> list[str]:
-    bins: list[list[tuple[float, str]]] = [[] for _ in cols]
+) -> list[list[dict]]:
+    """Bin words into columns by x-midpoint; returns word lists per column.
+
+    Joined-text view: ``" ".join(w["text"] for w in sorted(bin, key=x0))``.
+    """
+    bins: list[list[dict]] = [[] for _ in cols]
     for w in words:
         xmid = (w["x0"] + w["x1"]) / 2.0
         for i, (cx0, cx1) in enumerate(cols):
             if cx0 - _BIN_MIDPOINT_TOL <= xmid <= cx1 + _BIN_MIDPOINT_TOL:
-                bins[i].append((w["x0"], w["text"]))
+                bins[i].append(w)
                 break
-    return [" ".join(t for _, t in sorted(b)) for b in bins]
+    for b in bins:
+        b.sort(key=lambda w: w["x0"])
+    return bins
+
+
+def _bin_to_text(bin_words: list[dict]) -> str:
+    return " ".join(w["text"] for w in bin_words)
+
+
+def _bin_words_to_columns(
+    words: list[dict], cols: list[tuple[float, float]]
+) -> list[str]:
+    """Joined-text view of :func:`_bin_words_per_col`."""
+    return [_bin_to_text(b) for b in _bin_words_per_col(words, cols)]
 
 # Tuned narrower than the legacy text-strategy guard because line-bounded
 # detection already absorbs most real tables; gutter only fires on borderless
 # layouts where false positives (multi-column prose) are the dominant risk.
 _GUTTER_MIN_CELL_COUNT             = 4    # below this, not enough signal for a table
-_GUTTER_MAX_AVG_CELL_CHARS         = 12   # avg cell length must stay ≤ this
+_GUTTER_MAX_AVG_CELL_CHARS         = 30   # avg cell length must stay ≤ this
 _GUTTER_MAX_LOWERCASE_START_RATIO  = 0.40 # ≤40% of cells may start lowercase
+# At or below this avg cell length the column-anchor / pdfplumber text-strategy
+# convention is used: cells share column boundaries (col_i.x1 == col_{i+1}.x0)
+# and all rows take the full table bbox.  Above it, ``tight`` per-cell bboxes
+# match the anchor-detector convention.  7 = the empirically calibrated knee
+# in ``detect_tables._MAX_CELL_TEXT_CHARS`` — short data cells vs longer
+# borderless descriptions — and preserves byte-identical id parity with the
+# two legacy producers (text-strategy + anchor) the bottom-up path replaces.
+_SHARED_LANE_AVG_CHARS_MAX = 7
 
 
 def _is_gutter_table_shape(grid: list[list[str]]) -> bool:
@@ -320,6 +366,31 @@ def _is_gutter_table_shape(grid: list[list[str]]) -> bool:
     return True
 
 
+def _longest_signature_run(
+    row_bins: list[list[list[dict]]],
+) -> tuple[int, int]:
+    """Return ``(start, end)`` half-open slice for the longest consecutive run
+    of lines sharing the same populated-column signature.
+
+    Filters out non-table lines (page headings, section labels) that bin into
+    a different column count than the dominant body — analogous to the
+    consecutive-run logic in ``detect_tables_anchor._column_anchor_detector``.
+    """
+    if not row_bins:
+        return (0, 0)
+    sigs = [tuple(bool(b) for b in row) for row in row_bins]
+    best_start, best_end = 0, 0
+    cur_start = 0
+    for i in range(1, len(sigs)):
+        if sigs[i] != sigs[cur_start]:
+            if i - cur_start > best_end - best_start:
+                best_start, best_end = cur_start, i
+            cur_start = i
+    if len(sigs) - cur_start > best_end - best_start:
+        best_start, best_end = cur_start, len(sigs)
+    return best_start, best_end
+
+
 def _gutter_cells(page, page_index: int) -> list[Cell]:
     words = page.extract_words(keep_blank_chars=False, use_text_flow=False)
     if not words:
@@ -335,28 +406,77 @@ def _gutter_cells(page, page_index: int) -> list[Cell]:
     cols = _column_ranges_from_gutters(page_x0, page_x1, gutters)
     if len(cols) < 2:
         return []
-    # Buffer rows first so we can run the prose guard on the candidate grid.
-    candidate_rows: list[list[str]] = []
-    candidate_cells: list[Cell] = []
+
+    # Per-line per-column word bins, dropping all-empty lines.
+    row_bins: list[list[list[dict]]] = []
     for ln in lines:
-        texts = _bin_words_to_columns(ln, cols)
-        if not any(t for t in texts):
-            continue
-        y0 = min(w["top"] for w in ln)
-        y1 = max(w["bottom"] for w in ln)
-        for (cx0, cx1), t in zip(cols, texts):
-            if not t:
-                continue
-            candidate_cells.append(Cell(
-                bbox=BBox(page=page_index, x0=cx0, y0=y0, x1=cx1, y1=y1),
-                text=t.strip(),
-                source="gutter",
-                confidence=_GUTTER_CONFIDENCE,
-            ))
-        candidate_rows.append(texts)
+        bins = _bin_words_per_col(ln, cols)
+        if any(bins):
+            row_bins.append(bins)
+
+    # Keep only the longest consecutive same-signature run so page-level
+    # headings ("Long-Cell Table" above 14b's body) don't pollute the table.
+    s, e = _longest_signature_run(row_bins)
+    row_bins = row_bins[s:e]
+    if len(row_bins) < _GUTTER_MIN_RUN_LINES:
+        return []
+
+    # Prose guard runs on the joined-text grid view.
+    candidate_rows = [[_bin_to_text(b) for b in row] for row in row_bins]
     if not _is_gutter_table_shape(candidate_rows):
         return []
-    return candidate_cells
+
+    # Decide bbox convention from the candidate's avg cell text length.
+    non_empty = [c.strip() for row in candidate_rows for c in row if c.strip()]
+    avg_len = sum(len(c) for c in non_empty) / len(non_empty)
+    style: CellBboxStyle = "shared" if avg_len <= _SHARED_LANE_AVG_CHARS_MAX else "tight"
+
+    # For shared style: per-column lane edges from word content, with adjacent
+    # columns sharing boundaries (col_i.x1 == col_{i+1}.x0) — matches the
+    # pdfplumber text-strategy lane geometry the legacy ``extract_tables``
+    # emits on 14_borderless_table.
+    if style == "shared":
+        lane_x0: list[float | None] = []
+        lane_x1: list[float | None] = []
+        for i in range(len(cols)):
+            col_words = [w for row in row_bins for w in row[i]]
+            if col_words:
+                lane_x0.append(min(w["x0"] for w in col_words))
+                lane_x1.append(max(w["x1"] for w in col_words))
+            else:
+                lane_x0.append(None)
+                lane_x1.append(None)
+        # Interior boundary collapses to the next column's left edge.
+        for i in range(len(cols) - 1):
+            if lane_x0[i + 1] is not None:
+                lane_x1[i] = lane_x0[i + 1]
+
+    out: list[Cell] = []
+    for row in row_bins:
+        line_words = [w for col in row for w in col]
+        if not line_words:
+            continue
+        y0 = min(w["top"] for w in line_words)
+        y1 = max(w["bottom"] for w in line_words)
+        for col_idx, bin_words in enumerate(row):
+            if not bin_words:
+                continue
+            if style == "shared":
+                cx0 = lane_x0[col_idx]
+                cx1 = lane_x1[col_idx]
+                if cx0 is None or cx1 is None:
+                    continue
+            else:
+                cx0 = min(w["x0"] for w in bin_words)
+                cx1 = max(w["x1"] for w in bin_words)
+            out.append(Cell(
+                bbox=BBox(page=page_index, x0=cx0, y0=y0, x1=cx1, y1=y1),
+                text=_bin_to_text(bin_words).strip(),
+                source="gutter",
+                confidence=_GUTTER_CONFIDENCE,
+                bbox_style=style,
+            ))
+    return out
 
 # ---------------------------------------------------------------------------
 # Text-strategy cell detection (lowest-confidence fallback).

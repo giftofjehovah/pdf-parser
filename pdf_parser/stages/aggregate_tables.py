@@ -15,10 +15,10 @@ Output: ``list[CellTable]`` per page.  The wiring layer
 """
 from __future__ import annotations
 
-from dataclasses import dataclass
+from dataclasses import dataclass, field
 
 from pdf_parser.model import BBox
-from pdf_parser.stages.detect_cells import Cell, CellSource
+from pdf_parser.stages.detect_cells import Cell, CellBboxStyle, CellSource
 
 
 @dataclass
@@ -32,6 +32,12 @@ class CellTable:
     page_height: float
     nested: list[CellTable]
     source: CellSource
+    # Bbox geometry — see ``pdf_parser.stages.detect_cells.CellBboxStyle``.
+    # Propagated from the row's first cell; downstream
+    # (``extract_tables_v2._celltable_to_docnode``) uses ``row_bboxes`` per row
+    # when ``tight`` and ``bbox`` for every row when ``shared``.
+    bbox_style: CellBboxStyle = "shared"
+    row_bboxes: list[BBox] = field(default_factory=list)
 
 
 _ROW_Y_TOL = 2.0           # pt; two cells share a row if y-midpoints within this
@@ -63,16 +69,22 @@ def _row_cluster(cells: list[Cell]) -> list[list[Cell]]:
 
 
 def _split_into_tables(rows: list[list[Cell]]) -> list[list[list[Cell]]]:
-    """Adjacent rows with similar geometry form one table candidate."""
+    """Adjacent rows with similar geometry form one table candidate.
+
+    Boundary checks: same page, same column count, and matching left edges.
+    Right-edge equality is NOT required: ``tight``-style cells (14b borderless
+    long-text) carry per-cell content widths, so the right edge varies by row
+    by 20pt+.  Column-count + left-edge anchor is the stable invariant.
+    """
     if not rows:
         return []
     tables: list[list[list[Cell]]] = [[rows[0]]]
     for r in rows[1:]:
         prev = tables[-1][-1]
         same_page = prev[0].bbox.page == r[0].bbox.page
-        same_xrange = (abs(prev[0].bbox.x0 - r[0].bbox.x0) <= 4.0
-                       and abs(prev[-1].bbox.x1 - r[-1].bbox.x1) <= 4.0)
-        if same_page and same_xrange:
+        same_ncols = len(prev) == len(r)
+        same_left = abs(prev[0].bbox.x0 - r[0].bbox.x0) <= 4.0
+        if same_page and same_ncols and same_left:
             tables[-1].append(r)
         else:
             tables.append([r])
@@ -99,6 +111,16 @@ def _rows_to_celltable(
     y0 = min(c.bbox.y0 for r in rows for c in r)
     x1 = max(c.bbox.x1 for r in rows for c in r)
     y1 = max(c.bbox.y1 for r in rows for c in r)
+    row_bboxes = [
+        BBox(
+            page=page,
+            x0=min(c.bbox.x0 for c in r),
+            y0=min(c.bbox.y0 for c in r),
+            x1=max(c.bbox.x1 for c in r),
+            y1=max(c.bbox.y1 for c in r),
+        )
+        for r in rows
+    ]
     return CellTable(
         page_index=page,
         bbox=BBox(page=page, x0=x0, y0=y0, x1=x1, y1=y1),
@@ -109,6 +131,8 @@ def _rows_to_celltable(
         page_height=page_height,
         nested=[],
         source=rows[0][0].source,
+        bbox_style=rows[0][0].bbox_style,
+        row_bboxes=row_bboxes,
     )
 
 
