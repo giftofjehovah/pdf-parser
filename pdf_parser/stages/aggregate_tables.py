@@ -42,6 +42,27 @@ class CellTable:
 
 _ROW_Y_TOL = 2.0           # pt; two cells share a row if y-midpoints within this
 _TABLE_GAP_MULT = 2.5      # pt; row gap > N × median row height ends a table
+# Cell-source precedence used by ``_dedupe_cells`` when multiple detectors
+# fire on the same rounded bbox.  Higher rank wins.  Line edges are visible
+# truth; gutter is a calibrated inference; text-strategy is a last resort.
+_SOURCE_RANK = {"line": 3, "gutter": 2, "text": 1}
+
+
+def _dedupe_cells(cells):
+    """Drop cells that share a rounded bbox with a higher-ranked source.
+
+    Mixed-source pages (e.g. ruled headers above an open body where both line
+    and gutter cells fire on the header row) need one cell per rounded bbox;
+    aggregation downstream assumes distinct cells per row/col slot.
+    """
+    best: dict[tuple[int, int, int, int, int], Cell] = {}
+    for c in cells:
+        key = c.bbox.rounded()
+        cur = best.get(key)
+        if cur is None or _SOURCE_RANK[c.source] > _SOURCE_RANK[cur.source]:
+            best[key] = c
+    return list(best.values())
+
 
 
 def _row_cluster(cells: list[Cell]) -> list[list[Cell]]:
@@ -140,6 +161,7 @@ def aggregate(cells: list[Cell], page_height: float) -> list[CellTable]:
     """Group ``cells`` into tables. See module docstring."""
     if not cells:
         return []
+    cells = _dedupe_cells(cells)
     out: list[CellTable] = []
     for table_rows in _split_into_tables(_row_cluster(cells)):
         ct = _rows_to_celltable(table_rows, page_height)
