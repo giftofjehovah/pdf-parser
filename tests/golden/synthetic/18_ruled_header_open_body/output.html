@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>PDF Preview</title>
+<style>
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+body {
+  background: #777;
+  padding: 24px;
+  font-family: Helvetica, Arial, sans-serif;
+  font-size: 11.25px;
+}
+.page {
+  position: relative;
+  background: white;
+  margin: 0 auto 32px;
+  box-shadow: 0 4px 24px rgba(0,0,0,.45);
+  overflow: hidden;
+}
+.tb {
+  position: absolute;
+  /* Joined wrapped paragraphs use the union bbox of their visual lines:
+     width matches the column, height spans all lines.  Allow normal wrapping
+     so the joined text re-flows inside that bbox instead of being clipped. */
+  white-space: normal;
+  overflow: visible;
+  line-height: 13.50px;
+}
+.tb-h1 { font-size: 21.00px; font-weight: bold; overflow: visible; }
+.tb-h2 { font-size: 18.00px; font-weight: bold; overflow: visible; }
+.tb-h3 { font-size: 16.50px; font-weight: bold; overflow: visible; }
+.tb-h4 { font-size: 15.00px; font-weight: bold; overflow: visible; }
+.cell {
+  position: absolute;
+  overflow: hidden;
+  white-space: pre-line;
+  display: flex;
+  align-items: center;
+  font-size: 11.25px;
+  line-height: 13.50px;
+  padding: 3.0px 4.5px;
+  border: 0.6px solid #AAAAAA;
+}
+/* heuristic fallback classes (used when no pdf_path is given) */
+.rH { background: #D0D0D0; font-weight: bold; justify-content: center; }
+.rS { background: #E8E8E8; font-weight: bold; font-size: 10.50px; }
+.rT { background: #F0F0F0; font-weight: bold; border-top-color: #000 !important; }
+.rK { background: #DDEEFF; font-weight: bold;
+       border-top: 1.2px solid #000 !important;
+       border-bottom: 1.2px solid #000 !important; }
+.rP { font-style: italic; color: #444; }
+.num { justify-content: flex-end; }
+
+</style>
+</head>
+<body>
+<div class="page" style="width:918px;height:1188px;"><div class="tb tb-h1" style="left:119.0px;top:124.3px;width:411.1px;height:25.3px;">Ruled-Header, Open-Body Table</div><div class="cell rH" style="left:249.0px;top:177.0px;width:180.0px;height:30.0px;">Name</div><div class="cell rH" style="left:429.0px;top:177.0px;width:120.0px;height:30.0px;">Score</div><div class="cell rH" style="left:549.0px;top:177.0px;width:120.0px;height:30.0px;">Grade</div><div class="cell rK" style="left:249.0px;top:216.1px;width:180.0px;height:15.0px;">Alice</div><div class="cell rK" style="left:429.0px;top:216.1px;width:120.0px;height:15.0px;">95</div><div class="cell rK" style="left:549.0px;top:216.1px;width:120.0px;height:15.0px;">A</div><div class="cell rK" style="left:249.0px;top:246.1px;width:180.0px;height:15.0px;">Bob</div><div class="cell rK" style="left:429.0px;top:246.1px;width:120.0px;height:15.0px;">82</div><div class="cell rK" style="left:549.0px;top:246.1px;width:120.0px;height:15.0px;">B-</div><div class="cell rK" style="left:249.0px;top:276.1px;width:180.0px;height:15.0px;">Carol</div><div class="cell rK" style="left:429.0px;top:276.1px;width:120.0px;height:15.0px;">91</div><div class="cell rK" style="left:549.0px;top:276.1px;width:120.0px;height:15.0px;">A-</div><div class="cell rK" style="left:249.0px;top:306.1px;width:180.0px;height:15.0px;">Dave</div><div class="cell rK" style="left:429.0px;top:306.1px;width:120.0px;height:15.0px;">76</div><div class="cell rK" style="left:549.0px;top:306.1px;width:120.0px;height:15.0px;">C+</div></div>
+
+</body>
+</html>
+

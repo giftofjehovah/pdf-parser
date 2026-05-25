@@ -2,7 +2,7 @@
 
 from __future__ import annotations
 
-from dataclasses import dataclass
+from dataclasses import dataclass, field
 from pathlib import Path
 from typing import Optional
 
@@ -99,6 +99,12 @@ class TableRegion:
     cell_bboxes: list[list[BBox]]  # parallel to grid
     page_height: float = 0.0       # original page height in points (for stitch proximity check)
     redistributed: bool = False    # set by `_redistribute_ruled_header_body`; skips logical-grid rebuild
+    # Pre-detected nested sub-tables: cluster sub-tables extracted by
+    # `_try_decompose_megatable` and attached to a synthesised outer frame so
+    # the cell builder can splice them in directly, bypassing the recursive
+    # `detect_tables(region_bbox=cell_bbox)` call that would crop away inner
+    # sub-table edges flush with the outer frame.
+    nested_regions: list["TableRegion"] = field(default_factory=list)
 
 
 def _cell_text(cells: list[list]) -> list[list[str]]:
@@ -510,6 +516,212 @@ def _find_borderless_frames(
 
 
 # ---------------------------------------------------------------------------
+# Clustered-mega-table decomposition.
+#
+# When two sibling sub-tables nested in a single outer cell share their
+# left/right vertical rails with the outer (and possibly with each other),
+# pdfplumber's line strategy fuses every visible line into one giant grid
+# and emits a single "mega-table" that interleaves the sub-tables' data
+# rows with a tall single-column "gap row" holding the between-text.  The
+# outer frame is lost, the two sub-tables are merged column-for-column,
+# and any text between them is sliced along the inner column dividers.
+#
+# Typical real-world trigger: a multi-page outer table cut at a page
+# boundary so that an inner sub-table sits flush against the top (or
+# bottom) of the outer frame on the continuation (or non-final) page —
+# both the outer's edge and the sub-table's edge end up at the same y.
+#
+# This pass detects the pattern via two signals:
+#   * the region's bbox is a closed visible rectangle (full-height side
+#     rails + full-width top/bottom horizontals);
+#   * the region's rows split into ≥ 2 dense clusters separated by a
+#     "gap row" whose height is several times the local median and whose
+#     content occupies only one column.
+#
+# On a match it returns a single replacement TableRegion: an outer frame
+# (1-row, 1-column, content-empty, `redistributed=True`) whose
+# `nested_regions` carry the per-cluster sub-tables already extracted
+# from the mega-table's grid.  The cell builder splices the nested
+# regions in directly — bypassing the recursive `detect_tables` call
+# that would crop the sub-tables' flush edges away.
+# ---------------------------------------------------------------------------
+
+_MEGATABLE_BOX_TOL          = 1.0   # pt; bbox-edge slack when matching closed-box lines
+_MEGATABLE_GAP_HEIGHT_MULT  = 2.5   # gap row height must exceed this × median row height
+_MEGATABLE_GAP_HEIGHT_MIN   = 20.0  # pt; absolute floor for a gap row height
+_MEGATABLE_MIN_CLUSTER_ROWS = 2     # each side cluster must hold ≥ this many rows
+
+
+def _has_closed_box(page, region: TableRegion) -> bool:
+    """True if the page has 4 visible (non-background) lines forming the
+    region's bounding rectangle: full-width top + bottom horizontals and
+    full-height left + right verticals.
+    """
+    tol = _MEGATABLE_BOX_TOL
+    x0, y0, x1, y1 = region.bbox.x0, region.bbox.y0, region.bbox.x1, region.bbox.y1
+
+    def _visible_h_at(y: float) -> bool:
+        for ln in page.lines:
+            if _is_background_color(ln.get("stroking_color")):
+                continue
+            if abs(ln["top"] - y) > tol or abs(ln["bottom"] - y) > tol:
+                continue
+            if ln["x0"] <= x0 + tol and ln["x1"] >= x1 - tol:
+                return True
+        return False
+
+    def _visible_v_at(x: float) -> bool:
+        for ln in page.lines:
+            if _is_background_color(ln.get("stroking_color")):
+                continue
+            if abs(ln["x0"] - x) > tol or abs(ln["x1"] - x) > tol:
+                continue
+            if ln["top"] <= y0 + tol and ln["bottom"] >= y1 - tol:
+                return True
+        return False
+
+    return (_visible_h_at(y0) and _visible_h_at(y1)
+            and _visible_v_at(x0) and _visible_v_at(x1))
+
+
+def _row_height(row_bboxes: list[BBox]) -> float:
+    """Height of a mega-table row.  All cells in a single row share the same
+    y0/y1; pick the first non-zero-area cell to read it from.  Returns 0.0
+    if every cell is degenerate (no valid bbox to draw from)."""
+    for b in row_bboxes:
+        if b.y1 > b.y0:
+            return b.y1 - b.y0
+    return 0.0
+
+
+def _cluster_row_indices(
+    cell_bboxes: list[list[BBox]], grid: list[list[str]]
+) -> list[list[int]] | None:
+    """Split row indices into clusters by detecting "gap rows" — rows whose
+    height vastly exceeds the median and whose content is in a single
+    column (a stretched cell holding between-tables paragraph text).
+
+    Returns the cluster groupings (a list of row-index lists, one per
+    cluster) when the split produces ≥ 2 clusters each holding
+    ``_MEGATABLE_MIN_CLUSTER_ROWS`` rows or more.  Returns None
+    otherwise.
+    """
+    heights = [_row_height(rb) for rb in cell_bboxes]
+    valid_heights = [h for h in heights if h > 0]
+    if not valid_heights:
+        return None
+    valid_sorted = sorted(valid_heights)
+    median = valid_sorted[len(valid_sorted) // 2]
+    if median <= 0:
+        return None
+    gap_threshold = max(_MEGATABLE_GAP_HEIGHT_MULT * median, _MEGATABLE_GAP_HEIGHT_MIN)
+
+    gap_indices: list[int] = []
+    for i, h in enumerate(heights):
+        if h < gap_threshold:
+            continue
+        # A real "gap row" carries text in a single column at most — the
+        # paragraph text between two sub-tables sits in whichever column
+        # word-binning placed it.  A tall but multi-column row is a real
+        # wrapped-prose data row and must NOT trigger decomposition.
+        nonempty = sum(1 for cell in grid[i] if cell and cell.strip())
+        if nonempty <= 1:
+            gap_indices.append(i)
+
+    if not gap_indices:
+        return None
+
+    clusters: list[list[int]] = []
+    start = 0
+    for g in gap_indices:
+        if g > start:
+            clusters.append(list(range(start, g)))
+        start = g + 1
+    if start < len(heights):
+        clusters.append(list(range(start, len(heights))))
+
+    clusters = [c for c in clusters if len(c) >= _MEGATABLE_MIN_CLUSTER_ROWS]
+    if len(clusters) < 2:
+        return None
+    return clusters
+
+
+def _cluster_subregion(
+    region: TableRegion, row_indices: list[int]
+) -> TableRegion:
+    """Slice ``region`` to the rows in ``row_indices``, computing a tight
+    bbox from those rows' cell bboxes."""
+    sub_grid = [region.grid[i] for i in row_indices]
+    sub_cell_bboxes = [region.cell_bboxes[i] for i in row_indices]
+
+    xs: list[float] = []
+    ys: list[float] = []
+    for row in sub_cell_bboxes:
+        for b in row:
+            if b.y1 <= b.y0:
+                continue
+            xs.extend((b.x0, b.x1))
+            ys.extend((b.y0, b.y1))
+    if not xs or not ys:
+        # Degenerate fallback: borrow the outer region's x-range and synthesise
+        # a y-band from the row heights so the sub-region still has a valid bbox.
+        cluster_bbox = BBox(
+            page=region.bbox.page,
+            x0=region.bbox.x0, y0=region.bbox.y0,
+            x1=region.bbox.x1, y1=region.bbox.y1,
+        )
+    else:
+        cluster_bbox = BBox(
+            page=region.bbox.page,
+            x0=min(xs), y0=min(ys),
+            x1=max(xs), y1=max(ys),
+        )
+
+    return TableRegion(
+        page_index=region.page_index,
+        bbox=cluster_bbox,
+        grid=sub_grid,
+        cell_bboxes=sub_cell_bboxes,
+        page_height=region.page_height,
+        # The slice already has the correct logical grid; the ruled-header
+        # redistribution pass would corrupt it by re-binning words against
+        # a header row we have not validated.
+        redistributed=True,
+    )
+
+
+def _try_decompose_megatable(page, region: TableRegion) -> TableRegion | None:
+    """Recognise the "outer frame + 2+ flush sub-tables" mega-table pattern
+    and return a replacement outer-frame TableRegion whose ``nested_regions``
+    carry the cluster sub-tables.  Return None when the pattern does not
+    match (region passed through to existing pipeline stages).
+    """
+    if len(region.grid) < 2 * _MEGATABLE_MIN_CLUSTER_ROWS + 1:
+        # Too few rows to host two clusters plus a gap row — fast-reject.
+        return None
+    if not _has_closed_box(page, region):
+        return None
+    clusters = _cluster_row_indices(region.cell_bboxes, region.grid)
+    if clusters is None:
+        return None
+
+    sub_regions = [_cluster_subregion(region, rows) for rows in clusters]
+
+    # Outer frame: single-cell, single-row, content-empty.  The cell bbox
+    # is the full mega-table bbox so `_between_text_nodes` can recover the
+    # gap-row paragraph as a child of this cell.
+    return TableRegion(
+        page_index=region.page_index,
+        bbox=region.bbox,
+        grid=[[""]],
+        cell_bboxes=[[region.bbox]],
+        page_height=region.page_height,
+        redistributed=True,
+        nested_regions=sub_regions,
+    )
+
+
+# ---------------------------------------------------------------------------
 # Ruled-header / open-body redistribution.
 #
 # Many real-world tables (financial reports, scientific papers, Word exports)
@@ -632,7 +844,14 @@ def _scan_body_rows_below_header(
     header until a vertical gap or low-column-coverage line terminates the scan.
     """
     x0, x1 = header_x_range
-    crop = plumber_page.crop((x0, header_y_bottom, x1, plumber_page.height))
+    # Cropped recursive calls pass a sub-page whose bbox is tighter than the
+    # parent.  When the header sits at (or below) the crop's bottom, the
+    # strip below has zero or negative height and pdfplumber's crop()
+    # raises — bail out instead of attempting an empty scan.
+    page_bottom = plumber_page.bbox[3]
+    if header_y_bottom >= page_bottom or x1 <= x0:
+        return []
+    crop = plumber_page.crop((x0, header_y_bottom, x1, page_bottom))
     words = crop.extract_words(use_text_flow=True)
     return _lines_to_rows(_group_words_into_lines(words), col_xs, page_idx, enforce_gap=True)
 
@@ -765,6 +984,14 @@ def _detect_in_doc(
         for t in found:
             region = _extract_region(target, t, page_idx, page_height)
             if region is None:
+                continue
+            # Clustered-mega-table decomposition runs BEFORE ruled-header
+            # redistribution: the latter rebuilds the grid by binning words
+            # against the assumed header, destroying the cell_bboxes the
+            # decomposer needs to spot the gap rows.
+            decomposed = _try_decompose_megatable(target, region)
+            if decomposed is not None:
+                page_regions.append(decomposed)
                 continue
             region = _redistribute_ruled_header_body(target, region)
             page_regions.append(region)

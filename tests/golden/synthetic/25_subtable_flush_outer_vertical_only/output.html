@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>PDF Preview</title>
+<style>
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+body {
+  background: #777;
+  padding: 24px;
+  font-family: Helvetica, Arial, sans-serif;
+  font-size: 11.25px;
+}
+.page {
+  position: relative;
+  background: white;
+  margin: 0 auto 32px;
+  box-shadow: 0 4px 24px rgba(0,0,0,.45);
+  overflow: hidden;
+}
+.tb {
+  position: absolute;
+  /* Joined wrapped paragraphs use the union bbox of their visual lines:
+     width matches the column, height spans all lines.  Allow normal wrapping
+     so the joined text re-flows inside that bbox instead of being clipped. */
+  white-space: normal;
+  overflow: visible;
+  line-height: 13.50px;
+}
+.tb-h1 { font-size: 21.00px; font-weight: bold; overflow: visible; }
+.tb-h2 { font-size: 18.00px; font-weight: bold; overflow: visible; }
+.tb-h3 { font-size: 16.50px; font-weight: bold; overflow: visible; }
+.tb-h4 { font-size: 15.00px; font-weight: bold; overflow: visible; }
+.cell {
+  position: absolute;
+  overflow: hidden;
+  white-space: pre-line;
+  display: flex;
+  align-items: center;
+  font-size: 11.25px;
+  line-height: 13.50px;
+  padding: 3.0px 4.5px;
+  border: 0.6px solid #AAAAAA;
+}
+/* heuristic fallback classes (used when no pdf_path is given) */
+.rH { background: #D0D0D0; font-weight: bold; justify-content: center; }
+.rS { background: #E8E8E8; font-weight: bold; font-size: 10.50px; }
+.rT { background: #F0F0F0; font-weight: bold; border-top-color: #000 !important; }
+.rK { background: #DDEEFF; font-weight: bold;
+       border-top: 1.2px solid #000 !important;
+       border-bottom: 1.2px solid #000 !important; }
+.rP { font-style: italic; color: #444; }
+.num { justify-content: flex-end; }
+
+</style>
+</head>
+<body>
+<div class="page" style="width:918px;height:1188px;"><div class="tb tb-h1" style="left:118.0px;top:124.3px;width:661.8px;height:20.0px;">Sub-Tables Flush With Outer Frame on One Vertical</div><div class="tb tb-h1" style="left:119.0px;top:157.6px;width:188.7px;height:25.1px;">Edge — Page 1</div><div class="cell" style="left:189.0px;top:210.0px;width:540.0px;height:261.0px;"><div class="tb" style="left:18.0px;top:2.8px;width:485.5px;height:49.5px;">NOTE-TOP: This paragraph sits at the top of the page-1 outer cell. Its top edge is flush with the outer frame's top edge; sub-table B below is flush with the outer frame's bottom edge.</div><div class="cell" style="left:18.0px;top:54.0px;width:165.0px;height:27.0px;background:#ADD8E6;font-weight:bold;">Item</div><div class="cell" style="left:183.0px;top:54.0px;width:165.0px;height:27.0px;background:#ADD8E6;font-weight:bold;">Qty</div><div class="cell" style="left:18.0px;top:81.0px;width:165.0px;height:27.0px;">Widget A</div><div class="cell" style="left:183.0px;top:81.0px;width:165.0px;height:27.0px;">10</div><div class="cell" style="left:18.0px;top:108.0px;width:165.0px;height:27.0px;">Widget B</div><div class="cell" style="left:183.0px;top:108.0px;width:165.0px;height:27.0px;">5</div><div class="tb" style="left:18.0px;top:146.8px;width:496.0px;height:31.5px;">NOTE-MID1: Between paragraph on page 1, separating sub-table A from sub-table B.</div><div class="cell" style="left:18.0px;top:180.0px;width:165.0px;height:27.0px;background:#ADD8E6;font-weight:bold;">Month</div><div class="cell" style="left:183.0px;top:180.0px;width:165.0px;height:27.0px;background:#ADD8E6;font-weight:bold;">Sales</div><div class="cell" style="left:18.0px;top:207.0px;width:165.0px;height:27.0px;">Jan</div><div class="cell" style="left:183.0px;top:207.0px;width:165.0px;height:27.0px;">$500</div><div class="cell" style="left:18.0px;top:234.0px;width:165.0px;height:27.0px;">Feb</div><div class="cell" style="left:183.0px;top:234.0px;width:165.0px;height:27.0px;">$700</div></div></div>
+<div class="page" style="width:918px;height:1188px;"><div class="tb tb-h1" style="left:118.0px;top:124.3px;width:661.8px;height:20.0px;">Sub-Tables Flush With Outer Frame on One Vertical</div><div class="tb tb-h1" style="left:119.0px;top:157.6px;width:191.8px;height:25.1px;">Edge — Page 2</div><div class="cell" style="left:189.0px;top:210.0px;width:540.0px;height:270.0px;background:#ADD8E6;font-weight:bold;"><div class="cell" style="left:18.0px;top:0.0px;width:165.0px;height:27.0px;background:#ADD8E6;font-weight:bold;">Step</div><div class="cell" style="left:183.0px;top:0.0px;width:165.0px;height:27.0px;background:#ADD8E6;font-weight:bold;">Owner</div><div class="cell" style="left:18.0px;top:27.0px;width:165.0px;height:27.0px;">1</div><div class="cell" style="left:183.0px;top:27.0px;width:165.0px;height:27.0px;">Alice</div><div class="cell" style="left:18.0px;top:54.0px;width:165.0px;height:27.0px;">2</div><div class="cell" style="left:183.0px;top:54.0px;width:165.0px;height:27.0px;">Bob</div><div class="tb" style="left:18.0px;top:92.8px;width:490.7px;height:31.5px;">NOTE-MID2: Between paragraph on page 2, separating sub-table C (flush against the outer frame's top edge) from sub-table D.</div><div class="cell" style="left:18.0px;top:126.0px;width:165.0px;height:27.0px;background:#ADD8E6;font-weight:bold;">City</div><div class="cell" style="left:183.0px;top:126.0px;width:165.0px;height:27.0px;background:#ADD8E6;font-weight:bold;">Zone</div><div class="cell" style="left:18.0px;top:153.0px;width:165.0px;height:27.0px;">NYC</div><div class="cell" style="left:183.0px;top:153.0px;width:165.0px;height:27.0px;">East</div><div class="cell" style="left:18.0px;top:180.0px;width:165.0px;height:27.0px;">LA</div><div class="cell" style="left:183.0px;top:180.0px;width:165.0px;height:27.0px;">West</div><div class="tb" style="left:18.0px;top:218.8px;width:500.1px;height:49.5px;">NOTE-BOT: This paragraph sits at the bottom of the page-2 outer cell. Its bottom edge is flush with the outer frame's bottom edge; sub-table C above is flush with the outer frame's top edge.</div></div></div>
+
+</body>
+</html>
+

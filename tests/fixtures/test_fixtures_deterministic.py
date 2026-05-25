@@ -243,3 +243,45 @@ def test_borderless_long_text_spanning_committed_fixture_matches_regeneration(tm
     regen = tmp_path / "regen.pdf"
     BUILDERS["14c_borderless_long_text_spanning"](regen)
     assert _digest(committed) == _digest(regen)
+
+def test_subtable_flush_outer_edges_pdf_is_byte_stable(tmp_path):
+    a = tmp_path / "a.pdf"; b = tmp_path / "b.pdf"
+    BUILDERS["24_subtable_flush_outer_edges"](a)
+    BUILDERS["24_subtable_flush_outer_edges"](b)
+    assert _digest(a) == _digest(b)
+
+
+def test_subtable_flush_outer_edges_committed_fixture_matches_regeneration(tmp_path):
+    committed = GOLDEN_DIR / "24_subtable_flush_outer_edges" / "source.pdf"
+    assert committed.exists(), "run `python -m tests.fixtures.build_pdfs` first"
+    regen = tmp_path / "regen.pdf"
+    BUILDERS["24_subtable_flush_outer_edges"](regen)
+    assert _digest(committed) == _digest(regen)
+
+def test_subtable_flush_outer_vertical_only_pdf_is_byte_stable(tmp_path):
+    a = tmp_path / "a.pdf"; b = tmp_path / "b.pdf"
+    BUILDERS["25_subtable_flush_outer_vertical_only"](a)
+    BUILDERS["25_subtable_flush_outer_vertical_only"](b)
+    assert _digest(a) == _digest(b)
+
+
+def test_subtable_flush_outer_vertical_only_committed_fixture_matches_regeneration(tmp_path):
+    committed = GOLDEN_DIR / "25_subtable_flush_outer_vertical_only" / "source.pdf"
+    assert committed.exists(), "run `python -m tests.fixtures.build_pdfs` first"
+    regen = tmp_path / "regen.pdf"
+    BUILDERS["25_subtable_flush_outer_vertical_only"](regen)
+    assert _digest(committed) == _digest(regen)
+
+def test_spanning_subtable_flush_at_break_pdf_is_byte_stable(tmp_path):
+    a = tmp_path / "a.pdf"; b = tmp_path / "b.pdf"
+    BUILDERS["26_spanning_subtable_flush_at_break"](a)
+    BUILDERS["26_spanning_subtable_flush_at_break"](b)
+    assert _digest(a) == _digest(b)
+
+
+def test_spanning_subtable_flush_at_break_committed_fixture_matches_regeneration(tmp_path):
+    committed = GOLDEN_DIR / "26_spanning_subtable_flush_at_break" / "source.pdf"
+    assert committed.exists(), "run `python -m tests.fixtures.build_pdfs` first"
+    regen = tmp_path / "regen.pdf"
+    BUILDERS["26_spanning_subtable_flush_at_break"](regen)
+    assert _digest(committed) == _digest(regen)

@@ -1,0 +1,253 @@
+{
+  "children": [
+    {
+      "children": [
+        {
+          "kind": "heading",
+          "text": "Sub-Tables Flush With Outer Frame on One Vertical"
+        },
+        {
+          "kind": "heading",
+          "text": "Edge \u2014 Page 1"
+        },
+        {
+          "children": [
+            {
+              "children": [
+                {
+                  "children": [
+                    {
+                      "kind": "paragraph",
+                      "text": "NOTE-TOP: This paragraph sits at the top of the page-1 outer cell. Its top edge is flush with the outer frame's top edge; sub-table B below is flush with the outer frame's bottom edge."
+                    },
+                    {
+                      "children": [
+                        {
+                          "children": [
+                            {
+                              "kind": "cell",
+                              "text": "Item"
+                            },
+                            {
+                              "kind": "cell",
+                              "text": "Qty"
+                            }
+                          ],
+                          "kind": "row"
+                        },
+                        {
+                          "children": [
+                            {
+                              "kind": "cell",
+                              "text": "Widget A"
+                            },
+                            {
+                              "kind": "cell",
+                              "text": "10"
+                            }
+                          ],
+                          "kind": "row"
+                        },
+                        {
+                          "children": [
+                            {
+                              "kind": "cell",
+                              "text": "Widget B"
+                            },
+                            {
+                              "kind": "cell",
+                              "text": "5"
+                            }
+                          ],
+                          "kind": "row"
+                        }
+                      ],
+                      "kind": "table"
+                    },
+                    {
+                      "kind": "paragraph",
+                      "text": "NOTE-MID1: Between paragraph on page 1, separating sub-table A from sub-table B."
+                    },
+                    {
+                      "children": [
+                        {
+                          "children": [
+                            {
+                              "kind": "cell",
+                              "text": "Month"
+                            },
+                            {
+                              "kind": "cell",
+                              "text": "Sales"
+                            }
+                          ],
+                          "kind": "row"
+                        },
+                        {
+                          "children": [
+                            {
+                              "kind": "cell",
+                              "text": "Jan"
+                            },
+                            {
+                              "kind": "cell",
+                              "text": "$500"
+                            }
+                          ],
+                          "kind": "row"
+                        },
+                        {
+                          "children": [
+                            {
+                              "kind": "cell",
+                              "text": "Feb"
+                            },
+                            {
+                              "kind": "cell",
+                              "text": "$700"
+                            }
+                          ],
+                          "kind": "row"
+                        }
+                      ],
+                      "kind": "table"
+                    }
+                  ],
+                  "kind": "cell"
+                }
+              ],
+              "kind": "row"
+            }
+          ],
+          "kind": "table"
+        }
+      ],
+      "kind": "page"
+    },
+    {
+      "children": [
+        {
+          "kind": "heading",
+          "text": "Sub-Tables Flush With Outer Frame on One Vertical"
+        },
+        {
+          "kind": "heading",
+          "text": "Edge \u2014 Page 2"
+        },
+        {
+          "children": [
+            {
+              "children": [
+                {
+                  "children": [
+                    {
+                      "children": [
+                        {
+                          "children": [
+                            {
+                              "kind": "cell",
+                              "text": "Step"
+                            },
+                            {
+                              "kind": "cell",
+                              "text": "Owner"
+                            }
+                          ],
+                          "kind": "row"
+                        },
+                        {
+                          "children": [
+                            {
+                              "kind": "cell",
+                              "text": "1"
+                            },
+                            {
+                              "kind": "cell",
+                              "text": "Alice"
+                            }
+                          ],
+                          "kind": "row"
+                        },
+                        {
+                          "children": [
+                            {
+                              "kind": "cell",
+                              "text": "2"
+                            },
+                            {
+                              "kind": "cell",
+                              "text": "Bob"
+                            }
+                          ],
+                          "kind": "row"
+                        }
+                      ],
+                      "kind": "table"
+                    },
+                    {
+                      "kind": "paragraph",
+                      "text": "NOTE-MID2: Between paragraph on page 2, separating sub-table C (flush against the outer frame's top edge) from sub-table D."
+                    },
+                    {
+                      "children": [
+                        {
+                          "children": [
+                            {
+                              "kind": "cell",
+                              "text": "City"
+                            },
+                            {
+                              "kind": "cell",
+                              "text": "Zone"
+                            }
+                          ],
+                          "kind": "row"
+                        },
+                        {
+                          "children": [
+                            {
+                              "kind": "cell",
+                              "text": "NYC"
+                            },
+                            {
+                              "kind": "cell",
+                              "text": "East"
+                            }
+                          ],
+                          "kind": "row"
+                        },
+                        {
+                          "children": [
+                            {
+                              "kind": "cell",
+                              "text": "LA"
+                            },
+                            {
+                              "kind": "cell",
+                              "text": "West"
+                            }
+                          ],
+                          "kind": "row"
+                        }
+                      ],
+                      "kind": "table"
+                    },
+                    {
+                      "kind": "paragraph",
+                      "text": "NOTE-BOT: This paragraph sits at the bottom of the page-2 outer cell. Its bottom edge is flush with the outer frame's bottom edge; sub-table C above is flush with the outer frame's top edge."
+                    }
+                  ],
+                  "kind": "cell"
+                }
+              ],
+              "kind": "row"
+            }
+          ],
+          "kind": "table"
+        }
+      ],
+      "kind": "page"
+    }
+  ],
+  "kind": "document"
+}

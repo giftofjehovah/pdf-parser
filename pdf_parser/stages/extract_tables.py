@@ -249,6 +249,36 @@ def _logical_grid_from_table(
 # is missing for the disc-bullet character (typical for ReportLab output).
 _CELL_LIST_BULLETS = ("•", "-", "*", "◦", "▪", "o", "(cid:127)")
 
+# Unicode/CID bullet glyphs that are unambiguous prefixes — when a cell
+# line starts with one of these characters, it is definitely a bullet
+# regardless of what follows.  ASCII bullets share their lead character
+# with ordinary English words (e.g. "o" → "outer", "*" → "*footnote",
+# "-" → "-15%"), so they are matched via a stricter rule below.
+_CELL_UNAMBIGUOUS_BULLETS = ("•", "◦", "▪", "(cid:127)")
+
+# ASCII characters that act as bullets only when followed by whitespace
+# (the bullet glyph proper, not a word lead).  Without the trailing-space
+# guard, every wrapped cell line beginning with a word like "outer" or
+# "or" would be misclassified as a list_item.
+_CELL_ASCII_BULLETS = ("o", "-", "*")
+
+
+def _is_cell_bullet_lead(stripped: str) -> bool:
+    """True if ``stripped`` (already left-stripped) begins with a recognised
+    cell-level bullet glyph.  Unicode/CID bullets match as bare prefixes;
+    ASCII bullets ("o", "-", "*") must be followed by whitespace or the
+    end of the line so words starting with the same letter (``outer``,
+    ``older``, ``or``) do not flip to ``list_item``.
+    """
+    if stripped.startswith(_CELL_UNAMBIGUOUS_BULLETS):
+        return True
+    for b in _CELL_ASCII_BULLETS:
+        if stripped.startswith(b) and (
+            len(stripped) == len(b) or stripped[len(b)].isspace()
+        ):
+            return True
+    return False
+
 
 def _between_text_nodes(
     page_chars: list[dict],
@@ -330,7 +360,7 @@ def _between_text_nodes(
         # list_item; we also normalise the bullet to "•" so downstream
         # rendering doesn't show the raw CID.
         stripped = line_text.lstrip()
-        is_list_item = stripped.startswith(_CELL_LIST_BULLETS)
+        is_list_item = _is_cell_bullet_lead(stripped)
         if is_list_item and stripped.startswith("(cid:127)"):
             line_text = "• " + stripped[len("(cid:127)"):].lstrip()
         nodes.append(DocNode(
@@ -506,26 +536,48 @@ def _join_wrapped_cell_lines(nodes: list[DocNode]) -> list[DocNode]:
 
 def _build_cell(text: str, bbox: BBox, pdf, depth: int,
                 covered: bool = False, align: str = "left",
-                page_chars: list[dict] | None = None) -> DocNode:
+                page_chars: list[dict] | None = None,
+                pre_detected_nested: list[TableRegion] | None = None) -> DocNode:
     children: list[DocNode] = []
     nested_bboxes: list[BBox] = []
     if not covered and depth + 1 < MAX_DEPTH:
-        shrunk = BBox(
-            page=bbox.page,
-            x0=bbox.x0 + 1,
-            y0=bbox.y0 + 1,
-            x1=bbox.x1 - 1,
-            y1=bbox.y1 - 1,
-        )
-        # Guard against degenerate (zero-area) cells after shrinking.
-        if shrunk.x1 > shrunk.x0 and shrunk.y1 > shrunk.y0:
-            nested = detect_tables(pdf=pdf, region_bbox=shrunk)
-            for region in nested:
-                # Skip if the detected region is as wide as the cell itself (echoed parent).
-                if abs(region.bbox.x1 - region.bbox.x0) >= abs(bbox.x1 - bbox.x0) - 1:
-                    continue
+        if pre_detected_nested:
+            # Attached by the mega-table decomposer (`_try_decompose_megatable`):
+            # the sub-tables share their edges with this cell, so a recursive
+            # `detect_tables(region_bbox=shrunk_cell)` call would crop those
+            # edges away and lose the sub-tables entirely.  Use the
+            # pre-extracted regions directly instead.
+            for region in pre_detected_nested:
                 children.append(_build_table(region, pdf, depth + 1, page_chars=page_chars))
                 nested_bboxes.append(region.bbox)
+        else:
+            # Recurse into the full cell bbox WITHOUT shrinking.  An earlier
+            # implementation shrunk by 1 pt to "prevent re-detecting the
+            # parent's edges", but pdfplumber's line-strategy needs
+            # intersecting H+V to form a multi-cell table — a closed 4-line
+            # cell boundary alone yields at most a 1×1 region, which the
+            # width check below filters out as the echoed parent.  Skipping
+            # the shrink keeps inner sub-tables visible even when their grid
+            # edges sit flush against the cell boundary (the page-break
+            # flush pattern of fixtures 24 / 25 / 26).
+            target_bbox = bbox
+            # Defensive guard against a degenerate (zero-area) cell bbox.
+            if target_bbox.x1 > target_bbox.x0 and target_bbox.y1 > target_bbox.y0:
+                nested = detect_tables(pdf=pdf, region_bbox=target_bbox)
+                for region in nested:
+                    # pdfplumber sees the parent cell's vertical rails at the
+                    # un-shrunk crop edges and fuses them into the nested
+                    # sub-table's column set as empty "phantom" columns.
+                    # Strip them so the width-based echo filter below
+                    # measures the real sub-table, not cell-width-padded.
+                    region = _strip_phantom_edge_columns(region)
+                    # Skip if (post-strip) the detected region is still as
+                    # wide as the cell — that is the echoed parent, not a
+                    # real nested sub-table.
+                    if abs(region.bbox.x1 - region.bbox.x0) >= abs(bbox.x1 - bbox.x0) - 1:
+                        continue
+                    children.append(_build_table(region, pdf, depth + 1, page_chars=page_chars))
+                    nested_bboxes.append(region.bbox)
     # Preserve text that lives between nested sub-tables in the same cell.
     # Without this, `text=None` (set when children is non-empty) drops any
     # paragraphs whose bbox is inside the cell but outside every sub-table.
@@ -547,6 +599,96 @@ def _build_cell(text: str, bbox: BBox, pdf, depth: int,
     )
 
 
+def _nested_for_cell(region: TableRegion, cbox: BBox) -> list[TableRegion] | None:
+    """Return the pre-detected nested sub-tables (attached to ``region`` by
+    :func:`_try_decompose_megatable`) that fall inside ``cbox``.  Returns
+    ``None`` when ``region`` has no attached nested regions, so callers can
+    distinguish "no override" from "empty list" downstream.
+    """
+    if not region.nested_regions:
+        return None
+    tol = _OVERLAP_TOL
+    inside: list[TableRegion] = []
+    for sub in region.nested_regions:
+        if (sub.bbox.x0 >= cbox.x0 - tol
+            and sub.bbox.y0 >= cbox.y0 - tol
+            and sub.bbox.x1 <= cbox.x1 + tol
+            and sub.bbox.y1 <= cbox.y1 + tol):
+            inside.append(sub)
+    return inside or None
+
+
+def _strip_phantom_edge_columns(region: TableRegion) -> TableRegion:
+    """Trim leading / trailing all-empty columns from a recursively-detected
+    nested region.
+
+    pdfplumber's line strategy, when run on a cell crop without an edge
+    shrink, fuses the parent cell's vertical rails (at the crop's left and
+    right edges) into the inner sub-table's column set.  The result is a
+    grid whose first and last columns are entirely empty (the strip between
+    the cell rail and the inner sub-table's outermost rail) flanking the
+    real data columns.  Without stripping those phantom columns, the
+    region's reported width equals the cell width, which the parent-echo
+    filter in :func:`_build_cell` then misclassifies as the re-detected
+    parent and drops the entire nested table.
+
+    Conservative: only trim leading / trailing columns whose every cell is
+    empty.  Any column with non-empty content anywhere is preserved.
+    """
+    if not region.grid or not region.cell_bboxes:
+        return region
+    n_cols = len(region.grid[0]) if region.grid[0] else 0
+    if n_cols < 2:
+        return region
+
+    def _col_all_empty(c_idx: int) -> bool:
+        return all(
+            (c_idx >= len(row) or not row[c_idx].strip())
+            for row in region.grid
+        )
+
+    left = 0
+    while left < n_cols and _col_all_empty(left):
+        left += 1
+    right = n_cols - 1
+    while right >= left and _col_all_empty(right):
+        right -= 1
+    if left > right:
+        # Every column empty — let the caller's width filter still apply.
+        return region
+    if left == 0 and right == n_cols - 1:
+        return region  # no phantom edges
+
+    new_grid = [row[left:right + 1] for row in region.grid]
+    new_cells = [row[left:right + 1] for row in region.cell_bboxes]
+    xs: list[float] = []
+    ys: list[float] = []
+    for row in new_cells:
+        for c in row:
+            if c.x1 > c.x0 and c.y1 > c.y0:
+                xs.extend((c.x0, c.x1))
+                ys.extend((c.y0, c.y1))
+    if not xs or not ys:
+        return region
+    new_bbox = BBox(
+        page=region.bbox.page,
+        x0=min(xs), y0=min(ys),
+        x1=max(xs), y1=max(ys),
+    )
+    return TableRegion(
+        page_index=region.page_index,
+        bbox=new_bbox,
+        grid=new_grid,
+        cell_bboxes=new_cells,
+        page_height=region.page_height,
+        redistributed=region.redistributed,
+        nested_regions=region.nested_regions,
+    )
+
+
+
+
+
 def _build_table(
     region: TableRegion, pdf, depth: int,
     page_chars: list[dict] | None = None,
@@ -562,7 +704,11 @@ def _build_table(
                 else region.bbox
             )
             align = _cell_align(page_chars, cbox) if page_chars else "left"
-            cells.append(_build_cell(text, cbox, pdf, depth, align=align, page_chars=page_chars))
+            cells.append(_build_cell(
+                text, cbox, pdf, depth,
+                align=align, page_chars=page_chars,
+                pre_detected_nested=_nested_for_cell(region, cbox),
+            ))
         rows.append(DocNode(
             kind="row",
             bbox=region.bbox,
@@ -605,7 +751,11 @@ def _build_table_from_logical(
             )
             is_covered = covered is not None and (r_idx, c_idx) in covered
             align = _cell_align(page_chars, cbox) if page_chars else "left"
-            cells.append(_build_cell(text, cbox, pdf, depth, covered=is_covered, align=align, page_chars=page_chars))
+            cells.append(_build_cell(
+                text, cbox, pdf, depth,
+                covered=is_covered, align=align, page_chars=page_chars,
+                pre_detected_nested=_nested_for_cell(region, cbox),
+            ))
         rows.append(DocNode(
             kind="row",
             bbox=region.bbox,

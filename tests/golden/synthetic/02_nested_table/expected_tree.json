@@ -199,8 +199,8 @@
                         "page": 0,
                         "x0": 262,
                         "x1": 342,
-                        "y0": 139,
-                        "y1": 193
+                        "y0": 137,
+                        "y1": 194
                       },
                       "children": [
                         {
@@ -212,8 +212,8 @@
                             "page": 0,
                             "x0": 262,
                             "x1": 342,
-                            "y0": 139,
-                            "y1": 193
+                            "y0": 137,
+                            "y1": 194
                           },
                           "children": [
                             {
@@ -224,11 +224,11 @@
                                 "page": 0,
                                 "x0": 262,
                                 "x1": 302,
-                                "y0": 139,
+                                "y0": 137,
                                 "y1": 157
                               },
                               "children": [],
-                              "id": "66e7baa7d89f",
+                              "id": "ed570a777090",
                               "kind": "cell",
                               "provenance": {
                                 "extractor": "pdfplumber",
@@ -244,11 +244,11 @@
                                 "page": 0,
                                 "x0": 302,
                                 "x1": 342,
-                                "y0": 139,
+                                "y0": 137,
                                 "y1": 157
                               },
                               "children": [],
-                              "id": "4831a9904004",
+                              "id": "7ba827cd37d3",
                               "kind": "cell",
                               "provenance": {
                                 "extractor": "pdfplumber",
@@ -257,7 +257,7 @@
                               "text": "sub-B"
                             }
                           ],
-                          "id": "c612f8fb5e5e",
+                          "id": "3d25b4db6b89",
                           "kind": "row",
                           "provenance": {},
                           "text": null
@@ -271,8 +271,8 @@
                             "page": 0,
                             "x0": 262,
                             "x1": 342,
-                            "y0": 139,
-                            "y1": 193
+                            "y0": 137,
+                            "y1": 194
                           },
                           "children": [
                             {
@@ -316,7 +316,7 @@
                               "text": "2"
                             }
                           ],
-                          "id": "2732f90b3848",
+                          "id": "a0093992be52",
                           "kind": "row",
                           "provenance": {},
                           "text": null
@@ -330,8 +330,8 @@
                             "page": 0,
                             "x0": 262,
                             "x1": 342,
-                            "y0": 139,
-                            "y1": 193
+                            "y0": 137,
+                            "y1": 194
                           },
                           "children": [
                             {
@@ -343,10 +343,10 @@
                                 "x0": 262,
                                 "x1": 302,
                                 "y0": 175,
-                                "y1": 193
+                                "y1": 194
                               },
                               "children": [],
-                              "id": "6c48651804f8",
+                              "id": "8df021d76e4e",
                               "kind": "cell",
                               "provenance": {
                                 "extractor": "pdfplumber",
@@ -363,10 +363,10 @@
                                 "x0": 302,
                                 "x1": 342,
                                 "y0": 175,
-                                "y1": 193
+                                "y1": 194
                               },
                               "children": [],
-                              "id": "91bb2965e717",
+                              "id": "ab48c8556f9c",
                               "kind": "cell",
                               "provenance": {
                                 "extractor": "pdfplumber",
@@ -375,13 +375,13 @@
                               "text": "4"
                             }
                           ],
-                          "id": "c67bae84a564",
+                          "id": "c7a990d4776c",
                           "kind": "row",
                           "provenance": {},
                           "text": null
                         }
                       ],
-                      "id": "ac111de81ad8",
+                      "id": "befd9b868fd4",
                       "kind": "table",
                       "provenance": {
                         "extractor": "pdfplumber",
@@ -390,7 +390,7 @@
                       "text": null
                     }
                   ],
-                  "id": "b224ee32a8ff",
+                  "id": "5f0491e1de7b",
                   "kind": "cell",
                   "provenance": {
                     "extractor": "pdfplumber",
@@ -419,7 +419,7 @@
                   "text": "row-1-c"
                 }
               ],
-              "id": "b9ffe581d58f",
+              "id": "b0ab6d75a69f",
               "kind": "row",
               "provenance": {},
               "text": null
@@ -504,7 +504,7 @@
               "text": null
             }
           ],
-          "id": "2d631ff34ea0",
+          "id": "41ebe8f426b2",
           "kind": "table",
           "provenance": {
             "extractor": "pdfplumber",
@@ -513,13 +513,13 @@
           "text": null
         }
       ],
-      "id": "55c98b2edd38",
+      "id": "54bfb80cf150",
       "kind": "page",
       "provenance": {},
       "text": null
     }
   ],
-  "id": "ececd418063f",
+  "id": "6cbe105df4b4",
   "kind": "document",
   "provenance": {},
   "text": null

@@ -2169,6 +2169,333 @@ def build_23_bordered_cell_with_bulleted_prose(out: Path) -> None:
         tbl,
     ])
 
+def build_24_subtable_flush_outer_edges(out: Path) -> None:
+    """24_subtable_flush_outer_edges: nested sub-tables whose top/bottom
+    edges coincide exactly with the outer table's top/bottom edges.
+
+    Real-world manifestation: when a multi-page outer table is split at a
+    page boundary, the FIRST inner sub-table on a continuation page sits
+    flush against the top of the outer frame (no header row or padding
+    above it), and the LAST inner sub-table on a non-final page sits
+    flush against the bottom of the outer frame.  This fixture models the
+    worst case of that pattern in a single page so both edges can be
+    exercised together:
+
+      * outer.top_y    == sub_a.top_y        (shared horizontal edge)
+      * outer.left_x   == sub_a.left_x       (shared left vertical rail)
+      * outer.right_x  == sub_a.right_x      (shared right vertical rail)
+      * outer.bottom_y == sub_b.bottom_y     (shared horizontal edge)
+      * outer.left_x   == sub_b.left_x       (shared left vertical rail)
+      * outer.right_x  == sub_b.right_x      (shared right vertical rail)
+
+    Structure (single page):
+      Outer table: 1 col × 1 row, BOX border, ZERO padding on all sides,
+                   colWidth = 240 pt.
+      Inner cell flowables, in order:
+        Sub-table A   2 cols × 3 rows, GRID border, colWidths=[120, 120]
+                      (Item / Qty header + 2 data rows)
+        Paragraph     "NOTE: ..." between text
+        Sub-table B   2 cols × 3 rows, GRID border, colWidths=[120, 120]
+                      (Month / Sales header + 2 data rows)
+
+    Expected parse:
+      * Exactly one outer table at the top level.
+      * Both sub-tables nest INSIDE the outer's content cell.  Neither is
+        promoted to a top-level sibling.
+      * The "NOTE:" paragraph survives as a paragraph node inside the
+        outer cell, sandwiched between the two sub-table nodes.
+    """
+    doc = SimpleDocTemplate(str(out), pagesize=LETTER)
+    s = _styles()
+
+    def _sub(header: list[str], rows: list[list[str]]) -> Table:
+        return Table(
+            [header] + rows,
+            style=TableStyle([
+                ("GRID",       (0, 0), (-1, -1), 0.5, colors.darkblue),
+                ("BACKGROUND", (0, 0), (-1, 0),  colors.lightblue),
+                ("FONTNAME",   (0, 0), (-1, 0),  "Helvetica-Bold"),
+                ("FONTSIZE",   (0, 0), (-1, -1), 8),
+            ]),
+            colWidths=[120, 120],
+        )
+
+    sub_a = _sub(["Item", "Qty"], [["Widget A", "10"], ["Widget B", "5"]])
+    sub_b = _sub(["Month", "Sales"], [["Jan", "$500"], ["Feb", "$700"]])
+
+    body = s["BodyText"]
+    body.fontSize = 9
+    body.leading = 12
+    between_para = Paragraph(
+        "NOTE: This paragraph sits between two sub-tables that are flush "
+        "against the outer frame's top and bottom edges. It must survive "
+        "parsing as a paragraph node inside the outer cell.",
+        body,
+    )
+
+    inner_flowables = [sub_a, between_para, sub_b]
+
+    outer = Table(
+        [[inner_flowables]],
+        # Outer column width matches the sub-tables' total width so that
+        # the outer's left/right vertical rails coincide with the inner
+        # sub-tables' left/right vertical rails — the second axis of
+        # "flush against outer frame".
+        colWidths=[240],
+        style=TableStyle([
+            ("BOX",           (0, 0), (-1, -1), 0.75, colors.black),
+            ("VALIGN",        (0, 0), (-1, -1), "TOP"),
+            # Zero padding everywhere so sub_a.top == outer.top and
+            # sub_b.bottom == outer.bottom (the shared horizontal edges).
+            ("LEFTPADDING",   (0, 0), (-1, -1), 0),
+            ("RIGHTPADDING",  (0, 0), (-1, -1), 0),
+            ("TOPPADDING",    (0, 0), (-1, -1), 0),
+            ("BOTTOMPADDING", (0, 0), (-1, -1), 0),
+        ]),
+    )
+
+    story = [
+        Paragraph("Sub-Tables Flush With Outer Frame Edges", s["Heading1"]),
+        Spacer(1, 12),
+        outer,
+    ]
+    doc.build(story)
+
+
+def build_25_subtable_flush_outer_vertical_only(out: Path) -> None:
+    """25_subtable_flush_outer_vertical_only: two-page fixture where each
+    page hosts its own closed outer table.  Each outer has a sub-table
+    flush with ONE vertical edge (bottom on page 1, top on page 2) while
+    the sub-tables are inset HORIZONTALLY from the outer's rails (12 pt
+    of left/right padding).
+
+    This separates the two flush axes:
+
+      * Vertical flush  — sub_b.bottom == outer.bottom (page 1)
+                          sub_c.top    == outer.top    (page 2)
+      * Horizontal NOT  — sub_*.left   >  outer.left
+                          sub_*.right  <  outer.right
+
+    Fixture 24 covers the case where both axes are flush simultaneously;
+    this fixture covers the more common page-break manifestation where
+    only the vertical axis is flush (the inner sub-tables don't usually
+    fill the outer cell's full content width).
+
+    Each outer is independently closed (BOX border, top/bottom horizontals
+    drawn) — the two outers are NOT a single page-spanning table; they
+    are two separate frames placed on consecutive pages and must surface
+    as two top-level tables in the parsed tree.
+
+    Page 1 outer cell content (top → bottom):
+      paragraph     (intro, flush with outer.top)
+      sub_a         (Item / Qty,  not flush)
+      paragraph     (between)
+      sub_b         (Month / Sales, FLUSH with outer.bottom)
+
+    Page 2 outer cell content (top → bottom):
+      sub_c         (Step / Owner, FLUSH with outer.top)
+      paragraph     (between)
+      sub_d         (City / Zone,  not flush)
+      paragraph     (outro, flush with outer.bottom)
+    """
+    doc = SimpleDocTemplate(str(out), pagesize=LETTER)
+    s = _styles()
+
+    body = s["BodyText"]
+    body.fontSize = 9
+    body.leading = 12
+
+    def _sub(header: list[str], rows: list[list[str]]) -> Table:
+        return Table(
+            [header] + rows,
+            style=TableStyle([
+                ("GRID",       (0, 0), (-1, -1), 0.5, colors.darkblue),
+                ("BACKGROUND", (0, 0), (-1, 0),  colors.lightblue),
+                ("FONTNAME",   (0, 0), (-1, 0),  "Helvetica-Bold"),
+                ("FONTSIZE",   (0, 0), (-1, -1), 8),
+            ]),
+            colWidths=[110, 110],   # total 220 pt, inset from the 336 pt cell-content width
+        )
+
+    def _outer(inner_flowables: list) -> Table:
+        return Table(
+            [[inner_flowables]],
+            colWidths=[360],
+            style=TableStyle([
+                ("BOX",           (0, 0), (-1, -1), 0.75, colors.black),
+                ("VALIGN",        (0, 0), (-1, -1), "TOP"),
+                # 12 pt horizontal padding so sub-tables are inset from the
+                # outer's vertical rails (the "not flush horizontally" axis).
+                ("LEFTPADDING",   (0, 0), (-1, -1), 12),
+                ("RIGHTPADDING",  (0, 0), (-1, -1), 12),
+                # Zero vertical padding so the first and last inner flowables
+                # sit flush against the outer's top and bottom edges.
+                ("TOPPADDING",    (0, 0), (-1, -1), 0),
+                ("BOTTOMPADDING", (0, 0), (-1, -1), 0),
+            ]),
+        )
+
+    # ----- Page 1: paragraph → sub_a → paragraph → sub_b (flush bottom)
+    sub_a = _sub(["Item",  "Qty"],   [["Widget A", "10"], ["Widget B", "5"]])
+    sub_b = _sub(["Month", "Sales"], [["Jan",      "$500"], ["Feb",     "$700"]])
+
+    page1_intro = Paragraph(
+        "NOTE-TOP: This paragraph sits at the top of the page-1 outer cell. "
+        "Its top edge is flush with the outer frame's top edge; sub-table B "
+        "below is flush with the outer frame's bottom edge.",
+        body,
+    )
+    page1_between = Paragraph(
+        "NOTE-MID1: Between paragraph on page 1, separating sub-table A "
+        "from sub-table B.",
+        body,
+    )
+    page1_outer = _outer([page1_intro, sub_a, page1_between, sub_b])
+
+    # ----- Page 2: sub_c (flush top) → paragraph → sub_d → paragraph
+    sub_c = _sub(["Step", "Owner"], [["1", "Alice"], ["2", "Bob"]])
+    sub_d = _sub(["City", "Zone"],  [["NYC", "East"], ["LA",  "West"]])
+
+    page2_between = Paragraph(
+        "NOTE-MID2: Between paragraph on page 2, separating sub-table C "
+        "(flush against the outer frame's top edge) from sub-table D.",
+        body,
+    )
+    page2_outro = Paragraph(
+        "NOTE-BOT: This paragraph sits at the bottom of the page-2 outer cell. "
+        "Its bottom edge is flush with the outer frame's bottom edge; "
+        "sub-table C above is flush with the outer frame's top edge.",
+        body,
+    )
+    page2_outer = _outer([sub_c, page2_between, sub_d, page2_outro])
+
+    story = [
+        Paragraph(
+            "Sub-Tables Flush With Outer Frame on One Vertical Edge — Page 1",
+            s["Heading1"],
+        ),
+        Spacer(1, 12),
+        page1_outer,
+        PageBreak(),
+        Paragraph(
+            "Sub-Tables Flush With Outer Frame on One Vertical Edge — Page 2",
+            s["Heading1"],
+        ),
+        Spacer(1, 12),
+        page2_outer,
+    ]
+    doc.build(story)
+
+
+def build_26_spanning_subtable_flush_at_break(out: Path) -> None:
+    """26_spanning_subtable_flush_at_break: page-spanning outer table whose
+    nested sub-table is ALSO split across the page break, with the inner
+    halves sitting FLUSH against the outer's bottom edge on page n and
+    against the outer's top edge on page n+1.
+
+    The inner sub-table has 5 rows total:
+      Row 0 — header  ("sub-H1", "sub-H2")
+      Row 1 — data    ("a", "1")
+      Row 2 — data    ("b", "2")
+      Row 3 — data    ("c", "3")
+      Row 4 — data    ("d", "4")
+
+    Three rows (header + rows 1 + 2) render on page n; two rows
+    (rows 3 + 4) render on page n+1.  ReportLab cannot split a single
+    nested Table cleanly (``Table._splitCell`` crashes on ``Table.height``
+    lookup), so the sub-table is authored as two halves placed in adjacent
+    outer rows; both halves share identical column widths so the
+    extractor recognises them as one continued sub-table by matching
+    column anchors.
+
+    Flush placement:
+      * Outer row P (last row on page n) holds the 3-row top half.  The
+        outer row's BOTTOMPADDING is 0, so inner_top.bottom == outer row
+        P's bottom == outer's bottom edge on page n.
+      * Outer row P+1 (first row on page n+1) holds the 2-row bottom
+        half.  Its TOPPADDING is 0, so inner_bottom.top == outer row
+        P+1's top == outer's top edge on page n+1.
+
+    Together with the outer's GRID style, page n's last visible
+    horizontal is shared between the inner top-half's bottom edge and
+    the outer's bottom edge; page n+1's first visible horizontal is
+    shared between the inner bottom-half's top edge and the outer's
+    top edge.  The cell-builder must therefore detect inner sub-tables
+    even when their edge coincides with the parent cell's edge — the
+    1 pt shrink that normally guards against re-detecting the parent
+    would otherwise crop those flush edges and the inner halves would
+    lose their boundary rows.
+
+    Row counts engineered so:
+      * Total outer rows  = 35 (header + 34 data rows).
+      * Inner halves      = rows 28 and 29 (0-indexed) of the outer.
+      * Page break        = between rows 28 and 29.
+      * Row 28 contains the 3-row top half (last on page n).
+      * Row 29 contains the 2-row bottom half (first on page n+1).
+    """
+    doc = SimpleDocTemplate(str(out), pagesize=LETTER, topMargin=72, bottomMargin=72)
+    s = _styles()
+
+    def _inner(data: list[list[str]], with_header: bool) -> Table:
+        body = ([["sub-H1", "sub-H2"]] if with_header else []) + data
+        style = [("GRID", (0, 0), (-1, -1), 0.4, colors.grey)]
+        if with_header:
+            style.append(("BACKGROUND", (0, 0), (-1, 0), colors.lightgrey))
+        return Table(body, style=TableStyle(style), colWidths=[60, 60])
+
+    # Outer row index where the split happens.  The two halves live in
+    # consecutive outer rows.  Page-break occurs between them.
+    SPLIT_ROW = 28  # 0-indexed; "row 28" of outer is last on page n.
+    N_OUTER_ROWS = 35  # header + 34 data
+
+    rows: list[list] = [["Step", "Detail", "Notes"]]
+    for i in range(1, N_OUTER_ROWS):
+        if i == SPLIT_ROW:
+            # Top half: header + 2 data rows = 3 rows total on page n.
+            rows.append([
+                str(i),
+                _inner([["a", "1"], ["b", "2"]], with_header=True),
+                "ends pg n",
+            ])
+        elif i == SPLIT_ROW + 1:
+            # Bottom half: 2 data rows on page n+1 (no header repeat).
+            rows.append([
+                str(i),
+                _inner([["c", "3"], ["d", "4"]], with_header=False),
+                "starts pg n+1",
+            ])
+        else:
+            rows.append([str(i), f"plain {i}", f"n{i}"])
+
+    # Per-row paddings.  Default padding stays at the ReportLab default
+    # (6 pt) everywhere except the two halves' rows, where the relevant
+    # vertical padding is zeroed so the inner sub-tables sit flush.
+    style_ops = [
+        ("GRID", (0, 0), (-1, -1), 0.5, colors.black),
+        ("BACKGROUND", (0, 0), (-1, 0), colors.lightgrey),
+        ("VALIGN", (0, 0), (-1, -1), "MIDDLE"),
+        # Row SPLIT_ROW: bottom-flush inner half — zero bottom padding,
+        # standard top padding (the inner top half is NOT flush to its
+        # cell's top, only to the bottom).
+        ("BOTTOMPADDING", (0, SPLIT_ROW), (-1, SPLIT_ROW), 0),
+        # Row SPLIT_ROW+1: top-flush inner half — zero top padding,
+        # standard bottom padding.
+        ("TOPPADDING", (0, SPLIT_ROW + 1), (-1, SPLIT_ROW + 1), 0),
+    ]
+
+    t = Table(
+        rows,
+        style=TableStyle(style_ops),
+        colWidths=[60, 200, 80],
+    )
+    story = [
+        Paragraph("Spanning Sub-Table Flush At Page Break", s["Heading1"]),
+        Spacer(1, 12),
+        t,
+    ]
+    doc.build(story)
+
+
 
 BUILDERS = {
     "01_simple_table": build_01_simple_table,
@@ -2196,6 +2523,9 @@ BUILDERS = {
     "21_vertical_merge_invisible_lines":  build_21_vertical_merge_invisible_lines,
     "22_text_between_adjacent_tables":    build_22_text_between_adjacent_tables,
     "23_bordered_cell_with_bulleted_prose": build_23_bordered_cell_with_bulleted_prose,
+    "24_subtable_flush_outer_edges":      build_24_subtable_flush_outer_edges,
+    "25_subtable_flush_outer_vertical_only": build_25_subtable_flush_outer_vertical_only,
+    "26_spanning_subtable_flush_at_break": build_26_spanning_subtable_flush_at_break,
 }
 
 def build_all() -> None:
