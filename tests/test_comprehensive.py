@@ -53,15 +53,20 @@ def tree(use_bottom_up: bool) -> DocNode:
 # Per-assertion xfail for the bottom_up variant.
 #
 # 13_comprehensive surfaces every residual the prior 27 fixtures cover
-# individually.  Phase 8's sub-cluster carve-out in
+# individually.  Phase 9's sub-cluster carve-out in
 # ``aggregate_tables._carve_subclusters`` recovers the page-spanning nested
 # Project Tracking table + Hardware Inventory nesting (6 assertions) for
-# bottom_up.  The remaining residual families are explicitly deferred
-# (full analyses in ``tests/test_bottom_up_parity.py`` header comment):
+# bottom_up.  Phase 10 prep's ``_carve_container_frames`` + the
+# nested-container gap-multiplier add Annex C's outer 1xN wrapper +
+# nested-sub-table separation (2 assertions).  The remaining residual
+# families are explicitly deferred (full analyses in
+# ``tests/test_bottom_up_parity.py`` header comment):
 #   - Phase-5 ruled-header (fixtures 18/19/20/23) — Annex A
 #   - Phase-6 rowspan (fixtures 10/21) — merged_cells + Annex E
-#   - Phase-7 1xN outer-frame (fixtures 16/17/24/25) — Annex C + Annex D
-#     outer frame
+#   - Phase-7+ 1xN outer-frame without line-detected container (fixture 17
+#     + Annex D outer 'Spanning Header' frame) — bottom-up's line cells
+#     never carry the outer container on these layouts; legacy promotes it
+#     via the anchor detector instead
 #
 # Each affected assertion runtime-xfails its ``bottom_up`` variant with a
 # residual pointer; the ``legacy`` variants continue to assert exact
@@ -82,9 +87,12 @@ _REASON_PHASE_6 = (
     "tests/test_bottom_up_parity.py header."
 )
 _REASON_PHASE_7 = (
-    "Phase-7 residual (1xN outer-frame 16/17/24/25): _rows_to_celltable "
-    "rejects single-col candidates so outer 1xN wrappers are never emitted. "
-    "See tests/test_bottom_up_parity.py header."
+    "Phase-7+ residual (1xN outer-frame without line-detected container): "
+    "Phase 10 prep's _carve_container_frames recovers fixtures 16 / Annex C "
+    "where pdfplumber emits an outer wrapper cell, but Annex D's outer "
+    "'Spanning Header' frame has no per-page container cell (legacy uses the "
+    "anchor detector to promote it from gutter/text evidence).  See "
+    "tests/test_bottom_up_parity.py header."
 )
 _REASON_AGGREGATE = (
     "Aggregate of Phase-5/6/7 residuals: omnibus inventory/spanning counts "
@@ -436,11 +444,10 @@ def test_annex_b_borderless_table(tree):
 # Annex C — text between sub-tables (fixture 16)
 # ---------------------------------------------------------------------------
 
-def test_annex_c_outer_table_has_nested_subtables_and_note(tree, use_bottom_up):
+def test_annex_c_outer_table_has_nested_subtables_and_note(tree):
     """Fixture 16 idiom: outer table whose middle cell holds two sub-tables
     with a paragraph between them.  Both sub-tables AND the paragraph must be
     children of the same content cell."""
-    _xfail_bottom_up(use_bottom_up, _REASON_PHASE_7)
     outer = _table_by_sig(tree, ("Annex C Header",))
     assert outer is not None, "Annex C outer table missing"
 
@@ -469,11 +476,10 @@ def test_annex_c_outer_table_has_nested_subtables_and_note(tree, use_bottom_up):
     assert note_paras, "NOTE paragraph missing from Annex C content cell"
 
 
-def test_annex_c_subtables_are_not_siblings_of_outer(tree, use_bottom_up):
+def test_annex_c_subtables_are_not_siblings_of_outer(tree):
     """Sub-tables must NOT appear as top-level page children alongside the
     Annex C outer.  Regression for the _filter_outer_regions duplicate-table
     bug exposed by fixture 16."""
-    _xfail_bottom_up(use_bottom_up, _REASON_PHASE_7)
     annex_c_page = next(
         (
             page for page in tree.children

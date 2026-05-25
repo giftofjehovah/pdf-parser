@@ -158,6 +158,29 @@ CASES_DIR = Path("tests/golden/synthetic")
 # Annex E + merged_cells); ruled-header source-union (would unblock
 # 18/19/20/23 + Annex A).
 #
+# Phase 10 prep outcome (fixtures 16 / Annex C in 13_comprehensive):
+# ``aggregate_tables._carve_container_frames`` isolates cells that strictly
+# contain ≥4 others, ``_build_single_col_wrapper`` emits the rejected 1xN
+# candidate as a CellTable when at least one of its rows references such a
+# container, and the recursive nested aggregation uses a tighter
+# ``_NESTED_CONTAINER_GAP_MULT`` (1.2× instead of 2.5×) so sibling
+# sub-tables separated only by inter-table whitespace inside the container
+# split cleanly.  This unblocks the two ``test_annex_c_*`` assertions in
+# ``tests/test_comprehensive.py`` and the ``test_16_keeps_between_text``
+# regression in ``tests/stages/test_extract_tables_v2_between.py``.
+# Strict id-set parity for 16/17 still fails: legacy emits an 11x1 outer
+# wrapper with empty-placeholder rows whose y-extents mirror the inner
+# sub-table row boundaries, while bottom-up emits a 3x1 wrapper (header /
+# container / footer); IDs cascade-differ.  Fixtures 24/25 + Annex D
+# outer 'Spanning Header' have NO line-detected container cell at all —
+# pdfplumber's line strategy collapses 24's outer frame into a single
+# table sharing internal cells, while 25 and Annex D have no outer rule
+# evidence whatsoever.  Legacy promotes those wrappers via the anchor
+# detector instead; bottom-up has no equivalent gutter→frame promotion
+# yet.  Left as Phase-10+ residual; would need either an outer-rectangle
+# synthesiser working on line geometry directly, or a port of the anchor
+# detector's borderless-frame promotion into ``detect_cells``.
+#
 _XFAIL_CASES: set[str] = {
     "02_nested_table",
     "07_page_spanning_with_nested",

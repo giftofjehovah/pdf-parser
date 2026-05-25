@@ -276,3 +276,61 @@ def test_flush_subtable_inside_parent_cell():
     assert sub.grid == [["i1", "i2"], ["i3", "i4"]]
     # Inner table's bbox equals the parent cell's bbox — the flush case.
     assert (sub.bbox.x0, sub.bbox.y0, sub.bbox.x1, sub.bbox.y1) == (100, 30, 200, 90)
+
+
+def test_outer_frame_container_carves_nested_subtables():
+    """1xN outer-frame wrapper: header text-cell + empty big-middle container
+    + footer text-cell stack vertically, all sharing the outer x-extent.
+    The container strictly contains the two sub-tables.  Mirrors fixtures
+    16/17 + Annex C/D in 13_comprehensive: pdfplumber's line strategy
+    emits an outer 3x1 wrapper alongside two inner sub-tables.
+
+    Without the carve-out, the big container's y-range overlaps the
+    sub-table rows, causing ``_row_cluster`` to place the container in
+    its own row sandwiched between Header and the inner cells.  Then
+    ``_split_into_tables`` splits at the x0=156 → x0=162 left-edge change,
+    yielding a flat 6-row table from the fused sub-tables instead of a
+    1xN outer wrapper hosting the sub-tables as nested.
+
+    Expected behaviour: aggregate emits ONE top-level 3x1 outer table whose
+    middle cell hosts both sub-tables as nested children.  Header
+    signature is the first row's text.
+    """
+    bb = lambda x0, y0, x1, y1: BBox(page=0, x0=x0, y0=y0, x1=x1, y1=y1)
+    cells = [
+        # Outer 3x1 wrapper: header, container, footer (all share x0=156, x1=456).
+        Cell(bbox=bb(156, 118, 456, 138), text="Section Header", source="line", confidence=1.0),
+        Cell(bbox=bb(156, 138, 456, 284), text="",               source="line", confidence=1.0),
+        Cell(bbox=bb(156, 284, 456, 304), text="Section Footer", source="line", confidence=1.0),
+        # Sub-table A: 3x2 (header + 2 data rows) at y=142..196, x=162..342
+        Cell(bbox=bb(162, 142, 252, 160), text="Item",     source="line", confidence=1.0),
+        Cell(bbox=bb(252, 142, 342, 160), text="Qty",      source="line", confidence=1.0),
+        Cell(bbox=bb(162, 160, 252, 178), text="Widget A", source="line", confidence=1.0),
+        Cell(bbox=bb(252, 160, 342, 178), text="10",       source="line", confidence=1.0),
+        Cell(bbox=bb(162, 178, 252, 196), text="Widget B", source="line", confidence=1.0),
+        Cell(bbox=bb(252, 178, 342, 196), text="5",        source="line", confidence=1.0),
+        # Sub-table B: 3x2 at y=226..280
+        Cell(bbox=bb(162, 226, 252, 244), text="Month", source="line", confidence=1.0),
+        Cell(bbox=bb(252, 226, 342, 244), text="Sales", source="line", confidence=1.0),
+        Cell(bbox=bb(162, 244, 252, 262), text="Jan",   source="line", confidence=1.0),
+        Cell(bbox=bb(252, 244, 342, 262), text="$500",  source="line", confidence=1.0),
+        Cell(bbox=bb(162, 262, 252, 280), text="Feb",   source="line", confidence=1.0),
+        Cell(bbox=bb(252, 262, 342, 280), text="$700",  source="line", confidence=1.0),
+    ]
+    tables = aggregate(cells, page_height=792.0)
+    assert len(tables) == 1, (
+        f"expected ONE outer wrapper hosting both sub-tables, got {len(tables)}: "
+        f"{[(t.header_signature, t.attrs if hasattr(t, 'attrs') else (len(t.grid), len(t.grid[0])) ) for t in tables]}"
+    )
+    outer = tables[0]
+    assert outer.header_signature == ("Section Header",)
+    # 3x1 wrapper: Header, container (empty text), Footer.
+    assert len(outer.grid) == 3
+    assert all(len(r) == 1 for r in outer.grid)
+    assert outer.grid[0] == ["Section Header"]
+    assert outer.grid[2] == ["Section Footer"]
+    # Both sub-tables attached as nested.
+    nested_sigs = {t.header_signature for t in outer.nested}
+    assert nested_sigs == {("Item", "Qty"), ("Month", "Sales")}, (
+        f"expected both sub-tables nested, got {nested_sigs}"
+    )

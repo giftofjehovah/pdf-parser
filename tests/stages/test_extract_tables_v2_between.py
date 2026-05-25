@@ -2,22 +2,15 @@
 
 Targets ``16_text_between_subtables`` where a cell holds two sub-tables with a
 paragraph between them.  The between-text plumbing lives in
-``_celltable_to_docnode``; this test asserts the wiring runs end-to-end, not
-that 16 itself reaches parity — full outer-frame reconstruction is a
-follow-up.
+``_celltable_to_docnode``; this test locks the wiring end-to-end now that the
+outer-frame reconstruction (``aggregate_tables._carve_container_frames`` +
+``_build_single_col_wrapper`` in the Phase 10 prep step) emits the outer 1xN
+wrapper with the sub-tables and paragraph nested inside its content cell.
 """
 from pathlib import Path
 
-import pytest
-
 from pdf_parser.pipeline import parse
 
-
-@pytest.mark.xfail(
-    reason="16 outer-frame reconstruction is a separate follow-up; this test "
-           "locks the between-text plumbing once that lands.",
-    strict=False,
-)
 def test_16_keeps_between_text() -> None:
     pdf = Path("tests/golden/synthetic/16_text_between_subtables/source.pdf")
     tree = parse(pdf, use_bottom_up=True)

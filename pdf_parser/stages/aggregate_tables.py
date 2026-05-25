@@ -133,23 +133,44 @@ def _row_top(row: list[Cell]) -> float:
 # header rows do not artificially merge prose lines below into the table
 # at the 8-12pt gap range.
 _TABLE_GAP_FLOOR_PT = 8.0
+# Tighter multiplier used by ``_aggregate_recursive`` when descending into
+# the middle bay of a detected outer-frame container.  Inter-sub-table gaps
+# inside a container (fixtures 16/17 + Annex C/D in 13_comprehensive) sit
+# at ~1.5–2× the per-cell row height because the spacer between sub-tables
+# is pure whitespace, not a detectable spacer cell.  1.2× catches them
+# while still tolerating the small 0.5-row drift between a sub-table's
+# header and body rows.
+_NESTED_CONTAINER_GAP_MULT = 1.2
 
 
-def _split_into_tables(rows: list[list[Cell]]) -> list[list[list[Cell]]]:
+def _split_into_tables(
+    rows: list[list[Cell]],
+    *,
+    gap_mult: float = _TABLE_GAP_MULT,
+    gap_floor: float = _TABLE_GAP_FLOOR_PT,
+) -> list[list[list[Cell]]]:
     """Adjacent rows with similar geometry AND small inter-row gap form one
     table candidate.
 
     Boundary checks: same page, matching left edges, and a
-    gap-to-median-row-height ratio below ``_TABLE_GAP_MULT``.  Right-edge
+    gap-to-median-row-height ratio below ``gap_mult``.  Right-edge
     equality is NOT required: ``tight``-style cells (14b borderless long-text)
     carry per-cell content widths so the right edge varies by row by 20pt+.
     Column-count equality is NOT required either: a colspan-heavy row (e.g.
     a section subheader spanning the full width) carries fewer raw cells
     than its sibling data rows, and ``_rows_to_celltable`` reconciles the
     raggedness via column-anchor alignment.
-    The gap floor (``_TABLE_GAP_FLOOR_PT``) keeps single-line tables from
+    The gap floor (``gap_floor``) keeps single-line tables from
     breaking on any inter-row gap; the median × multiplier dominates once
     rows are tall enough.
+
+    ``gap_mult`` and ``gap_floor`` default to module-level constants; the
+    recursive aggregation passes tighter values when descending into a
+    detected container frame whose middle cell hosts multiple sibling
+    sub-tables separated only by inter-table whitespace (no detectable
+    spacer cell), as in fixtures 16/17 / Annex C-D of 13_comprehensive —
+    otherwise their 30pt inter-sub-table gap (~1.67× the 18pt row height)
+    sits below the default 2.5× threshold and the sub-tables fuse.
     """
     if not rows:
         return []
@@ -165,7 +186,7 @@ def _split_into_tables(rows: list[list[Cell]]) -> list[list[list[Cell]]]:
         gap = _row_top(r) - max(c.bbox.y1 for c in prev)
         heights = [_row_height(rr) for rr in prev_table]
         median_h = statistics.median(heights) if heights else 0.0
-        if gap > max(_TABLE_GAP_MULT * median_h, _TABLE_GAP_FLOOR_PT):
+        if gap > max(gap_mult * median_h, gap_floor):
             tables.append([r])
         else:
             prev_table.append(r)
@@ -461,7 +482,122 @@ def _carve_subclusters(
     return top_cells, nested_pool
 
 
-def _aggregate_recursive(cells: list[Cell], page_height: float) -> list[CellTable]:
+def _is_strictly_inside(inner: Cell, outer: Cell, tol: float = _CONTAIN_TOL) -> bool:
+    """True when ``inner`` is a *different* cell that fits inside ``outer``'s
+    bbox AND is strictly smaller on at least one axis.
+
+    Mirrors :func:`_cells_inside` but operates on cell pairs and is safe to
+    call across the full cell list (skips identity + cross-page comparisons).
+    """
+    if inner is outer or inner.bbox.page != outer.bbox.page:
+        return False
+    ib, ob = inner.bbox, outer.bbox
+    if not (
+        ib.x0 >= ob.x0 - tol and ib.y0 >= ob.y0 - tol
+        and ib.x1 <= ob.x1 + tol and ib.y1 <= ob.y1 + tol
+    ):
+        return False
+    return (
+        ib.x1 - ib.x0 < ob.x1 - ob.x0 - tol
+        or ib.y1 - ib.y0 < ob.y1 - ob.y0 - tol
+    )
+
+
+def _carve_container_frames(
+    cells: list[Cell],
+) -> tuple[list[Cell], list[Cell], set[int]]:
+    """Isolate 1xN outer-frame container cells from the top-level row pool.
+
+    Detects "container" cells — cells that strictly enclose ≥4 other cells
+    on the same page.  In the bottom-up pipeline these come from
+    pdfplumber's line strategy emitting an outer 3x1 wrapper (header /
+    middle-container / footer) alongside the per-cell rows of the inner
+    sub-tables, as in fixtures 16/17 and Annex C of 13_comprehensive.
+
+    Without isolation, the container's y-range overlaps the inner rows,
+    causing ``_row_cluster`` to place the container in its own row
+    sandwiched between header and the inner cells; ``_split_into_tables``
+    then splits on the left-edge change between the outer frame's x0 and
+    the inner sub-tables' x0, fusing the inner sub-tables into one flat
+    multi-row table and dropping the outer wrapper entirely (the residual
+    fragments are rejected by ``_rows_to_celltable``'s n_cols ≥ 2 check).
+
+    Returns ``(top_cells, nested_pool, container_ids)``:
+      * ``top_cells``: input cells with the strictly-inside cells of every
+        container removed.  Container cells themselves stay — they will
+        cluster into a clean 1xN wrapper candidate without the inner cells
+        bleeding into the same row pool.
+      * ``nested_pool``: input cells with the container cells themselves
+        removed — feeds ``_cells_inside`` for nested attachment so the
+        inner sub-tables surface as nested descendants of the wrapper's
+        middle cell (and the wrapper itself never attaches to itself).
+      * ``container_ids``: ``id(...)`` of every detected container cell,
+        used downstream by ``_aggregate_recursive`` to recognise rejected
+        single-column candidates that contain a container — these escape
+        the standard n_cols < 2 rejection via a 1xN wrapper builder.
+
+    No-op (returns the input list as both outputs + empty set) when no
+    cell strictly contains ≥4 others.
+    """
+    container_ids: set[int] = set()
+    inner_ids: set[int] = set()
+    for outer in cells:
+        contained = [c for c in cells if _is_strictly_inside(c, outer)]
+        if len(contained) < 4:
+            continue
+        container_ids.add(id(outer))
+        for c in contained:
+            inner_ids.add(id(c))
+    if not container_ids:
+        return cells, cells, container_ids
+    top_cells = [c for c in cells if id(c) not in inner_ids]
+    nested_pool = [c for c in cells if id(c) not in container_ids]
+    return top_cells, nested_pool, container_ids
+
+
+def _build_single_col_wrapper(
+    rows: list[list[Cell]], page_height: float
+) -> CellTable | None:
+    """Build a 1xN wrapper CellTable from rows that each carry exactly one cell.
+
+    Used by ``_aggregate_recursive`` to emit the outer frame of fixtures
+    16/17/Annex C/D when ``_rows_to_celltable`` rejects the candidate for
+    having no row with ≥2 cells.  The caller is responsible for verifying
+    that at least one row's cell strictly contains other (nested-pool)
+    cells — otherwise this would promote ordinary single-column rejects
+    (e.g. lone bordered text blocks) into spurious tables.
+    """
+    if len(rows) < 2 or any(len(r) != 1 for r in rows):
+        return None
+    page = rows[0][0].bbox.page
+    x0 = min(c.bbox.x0 for r in rows for c in r)
+    y0 = min(c.bbox.y0 for r in rows for c in r)
+    x1 = max(c.bbox.x1 for r in rows for c in r)
+    y1 = max(c.bbox.y1 for r in rows for c in r)
+    grid = [[r[0].text] for r in rows]
+    cell_bboxes = [[r[0].bbox] for r in rows]
+    row_bboxes = [r[0].bbox for r in rows]
+    return CellTable(
+        page_index=page,
+        bbox=BBox(page=page, x0=x0, y0=y0, x1=x1, y1=y1),
+        grid=grid,
+        cell_bboxes=cell_bboxes,
+        covered=set(),
+        header_signature=tuple(grid[0]),
+        page_height=page_height,
+        nested=[],
+        source=rows[0][0].source,
+        bbox_style=rows[0][0].bbox_style,
+        row_bboxes=row_bboxes,
+    )
+
+
+def _aggregate_recursive(
+    cells: list[Cell],
+    page_height: float,
+    *,
+    gap_mult: float = _TABLE_GAP_MULT,
+) -> list[CellTable]:
     """Produce top-level tables; attach contained sub-tables as ``nested``.
 
     Sub-cluster carve-out (see :func:`_carve_subclusters`): nested sub-table
@@ -472,6 +608,16 @@ def _aggregate_recursive(cells: list[Cell], page_height: float) -> list[CellTabl
     they neither split the parent's row at the sub-table's ``x0`` nor
     pollute the recursive sub-table aggregation.
 
+    Container-frame carve-out (see :func:`_carve_container_frames`): outer
+    1xN wrapper cells (header / middle-container / footer stacks emitted
+    by pdfplumber's line strategy alongside per-cell rows of inner
+    sub-tables, as in fixtures 16/17 + Annex C of 13_comprehensive) have
+    their strictly-inside cells stripped from ``top_cells`` so the wrapper
+    candidate forms cleanly.  When ``_rows_to_celltable`` then rejects the
+    candidate for having no row with ≥2 cells, the fallback
+    :func:`_build_single_col_wrapper` emits it as a 1xN CellTable provided
+    at least one of its rows references a carved container.
+
     Iteration is over every ``_split_into_tables`` output, so the same
     sub-cluster of cells can appear both as the parent's ``nested`` entry and
     as a stand-alone top-level table.  The post-loop prune removes any top
@@ -479,13 +625,30 @@ def _aggregate_recursive(cells: list[Cell], page_height: float) -> list[CellTabl
     nested tree — eliminating the double appearance without losing the
     structural link.
     """
-    top_cells, nested_pool = _carve_subclusters(cells)
+    top_after_sub, nested_pool_sub = _carve_subclusters(cells)
+    top_cells, _np_container, container_ids = _carve_container_frames(top_after_sub)
+    # Final nested pool: filler-removed (sub-cluster carve) AND container-removed
+    # (container carve).  Containers must not feed nested attachment because the
+    # outer wrapper would otherwise self-attach during the recursive descent.
+    nested_pool = [c for c in nested_pool_sub if id(c) not in container_ids]
 
     top: list[CellTable] = []
-    for table_rows in _split_into_tables(_row_cluster(top_cells)):
+    for table_rows in _split_into_tables(_row_cluster(top_cells), gap_mult=gap_mult):
         ct = _rows_to_celltable(table_rows, page_height)
         if ct is None:
-            continue
+            # Fallback: 1xN outer wrapper.  Only emit when at least one cell
+            # in the candidate is a known container — otherwise ordinary
+            # single-column rejects (lone bordered text blocks, footers
+            # split off by a left-edge change) would surface as spurious
+            # tables.
+            has_container = any(
+                id(c) in container_ids for r in table_rows for c in r
+            )
+            if not has_container:
+                continue
+            ct = _build_single_col_wrapper(table_rows, page_height)
+            if ct is None:
+                continue
         used = {c.bbox.rounded() for row in table_rows for c in row}
         remaining = [c for c in nested_pool if c.bbox.rounded() not in used]
         for r_idx, row in enumerate(table_rows):
@@ -493,7 +656,20 @@ def _aggregate_recursive(cells: list[Cell], page_height: float) -> list[CellTabl
                 inside = _cells_inside(remaining, c.bbox)
                 if len(inside) < 4:
                     continue  # < 2×2 cannot form a table
-                sub_tables = _aggregate_recursive(inside, page_height)
+                # When the parent cell is an explicit outer-frame container,
+                # its middle bay typically hosts multiple sibling sub-tables
+                # separated by inter-table whitespace only (no detectable
+                # spacer cell).  Tighten the gap multiplier so the recursive
+                # split breaks at gaps as small as ~1× the row height, instead
+                # of the default 2.5× that would fuse the sub-tables.
+                sub_gap_mult = (
+                    _NESTED_CONTAINER_GAP_MULT
+                    if id(c) in container_ids
+                    else _TABLE_GAP_MULT
+                )
+                sub_tables = _aggregate_recursive(
+                    inside, page_height, gap_mult=sub_gap_mult,
+                )
                 if not sub_tables:
                     continue
                 ct.nested.extend(sub_tables)
