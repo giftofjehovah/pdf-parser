@@ -181,7 +181,7 @@ _GUTTER_MIN_GAP_PT    = 8.0
 
 
 def _line_gaps(words: list[dict], min_gap_pt: float) -> list[tuple[float, float]]:
-    """Inter-word gaps wider than ``min_gap_pt`` as ``(x0, x1)`` intervals."""
+    """Inter-word gaps of at least ``min_gap_pt`` wide as ``(x0, x1)`` intervals."""
     gaps: list[tuple[float, float]] = []
     for prev, cur in zip(words, words[1:]):
         if cur["x0"] - prev["x1"] >= min_gap_pt:
@@ -189,26 +189,33 @@ def _line_gaps(words: list[dict], min_gap_pt: float) -> list[tuple[float, float]
     return gaps
 
 
+def _intervals_overlap(a: tuple[float, float], b: tuple[float, float]) -> bool:
+    return not (a[1] < b[0] or b[1] < a[0])
+
+
 def _find_column_gutters(
     lines: list[list[dict]],
     min_run: int = _GUTTER_MIN_RUN_LINES,
     min_gap_pt: float = _GUTTER_MIN_GAP_PT,
 ) -> list[tuple[float, float]]:
-    """Return (x0, x1) gutter intervals that persist across ≥ ``min_run`` lines."""
+    """Return (x0, x1) gutter intervals that persist across ≥ ``min_run`` lines.
+
+    Dedup is positional: the reported interval is the FIRST row's gap at each
+    gutter position. If the gutter widens on a later row, the wider extent is
+    NOT reported; downstream code that needs exact column widths should
+    re-measure from the row it cares about.
+    """
     if len(lines) < min_run:
         return []
-    # Per-line gap interval lists; we accumulate "support counts" per x-bucket.
-    line_gaps = [_line_gaps(ln, min_gap_pt) for ln in lines]
-    # Walk overlapping intervals: for each gap on the first line, see how many
-    # consecutive following lines also have an overlapping gap.
+    gaps_per_line = [_line_gaps(ln, min_gap_pt) for ln in lines]
     out: list[tuple[float, float]] = []
     seen: list[tuple[float, float]] = []
-    for i, gaps_i in enumerate(line_gaps):
+    for i, gaps_i in enumerate(gaps_per_line):
         for g in gaps_i:
             if any(_intervals_overlap(g, s) for s in seen):
                 continue
             run = 1
-            for gaps_j in line_gaps[i + 1:]:
+            for gaps_j in gaps_per_line[i + 1:]:
                 if any(_intervals_overlap(g, gj) for gj in gaps_j):
                     run += 1
                 else:
@@ -217,7 +224,3 @@ def _find_column_gutters(
                 out.append(g)
                 seen.append(g)
     return sorted(out)
-
-
-def _intervals_overlap(a: tuple[float, float], b: tuple[float, float]) -> bool:
-    return not (a[1] < b[0] or b[1] < a[0])
