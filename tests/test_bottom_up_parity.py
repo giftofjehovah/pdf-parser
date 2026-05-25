@@ -200,6 +200,34 @@ CASES_DIR = Path("tests/golden/synthetic")
 # in practice but rounds differently on the y-bounds).  Left as
 # Phase-10+ parity-only residual.
 #
+# Phase 10 prep deferred (07/13 synthetic-parent bbox parity):
+# pdfplumber's line-strategy ``find_tables`` runs with the default
+# ``snap_tolerance=3``, so H-lines within 3pt of each other (e.g. the
+# outer main-table row boundary at y=208 and the inner sub-table
+# top at y=211 in fixture 07's nested-row band) snap to their
+# midpoint (y=209.5).  Bottom-up's "5" cell at row[5] col[0] then
+# emits at y=209.5..248.5 while legacy uses the un-snapped outer
+# boundaries y=208..250 (legacy reconstructs row geometry from the
+# full-width H-line set directly, not from pdfplumber's snap-tolerant
+# table extraction).  All cells in rows 4/5/6 (and 44/45/46 on page
+# spanned) cascade-differ by 1.5pt on the shared boundary, driving
+# 27 of 27 id divergences in fixture 07 and a proportional share in
+# 13_comprehensive's nested-row bands.
+#
+# The Phase-9 ``_carve_subclusters`` synthetic parent inherits the
+# snapped y-extents from its bracket cells, so its bbox matches the
+# bracket cells' bbox — the divergence is upstream in ``detect_cells``,
+# not in the carve.  Reducing ``snap_tolerance`` below 3 would unblock
+# 07/13 parity but risks breaking sub-table detection on fixtures
+# where inner H-lines genuinely overdraw the outer row boundary
+# (fixtures 02/05/11 and the multi-cell rows of 14b).  A safer fix
+# would build line cells directly from the un-snapped visible-edge
+# intersections in a new helper, bypassing pdfplumber's snap heuristic
+# for the outer table boundary only — but that is a broader
+# ``detect_cells`` rewrite outside the allowed Phase-10-prep scope.
+# Left as Phase-10+ parity-only residual; no behavioural test relies
+# on byte-identical y-bounds in the nested-row bands.
+#
 _XFAIL_CASES: set[str] = {
     "02_nested_table",
     "07_page_spanning_with_nested",
