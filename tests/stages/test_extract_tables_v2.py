@@ -18,3 +18,9 @@ def test_v2_on_01_simple_table_returns_one_table():
     # row → cell hierarchy
     assert all(r.kind == "row" for r in t.children)
     assert all(c.kind == "cell" for r in t.children for c in r.children)
+
+
+def test_v2_emits_no_tables_on_text_only_pdf():
+    """12_image_chart has no tables — extractor returns []."""
+    pdf = Path("tests/golden/synthetic/12_image_chart/source.pdf")
+    assert extract_tables(pdf) == []
