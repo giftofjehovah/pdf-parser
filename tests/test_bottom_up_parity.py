@@ -23,6 +23,16 @@ CASES_DIR = Path("tests/golden/synthetic")
 
 # Fixtures move OUT of this set in the same commit that brings them to parity.
 # Phase 10 deletes the set (and this file) once it is empty.
+#
+# Phase 5 residual (18/19/20/23): the ruled-header / framed-body fixtures
+# remain xfailed.  ``detect_cells`` short-circuits to the first non-empty
+# source (line > gutter > text), so line-bounded header cells consume the
+# page and gutter body cells are never produced.  A naive line+gutter union
+# also fails: the header row carries both line and gutter cells at slightly
+# offset bboxes, so ``_dedupe_cells`` keeps both and the header row's
+# column count diverges from the body's.  Real fix lives one step deeper:
+# either filter gutter cells inside any line cell's bbox, or run the
+# gutter detector below the header band only.  Left as Phase-5+ residual.
 _XFAIL_CASES: set[str] = {
     "02_nested_table",
     "07_page_spanning_with_nested",
