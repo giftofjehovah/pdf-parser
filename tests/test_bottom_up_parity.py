@@ -1,0 +1,123 @@
+# tests/test_bottom_up_parity.py
+"""Per-fixture parity: parse(use_bottom_up=False) == parse(use_bottom_up=True).
+
+Each fixture is marked ``xfail(strict=False)`` until its phase reaches parity.
+When a fixture starts passing (xpassed) the developer removes its xfail in the
+same commit as the implementation change, so future regressions surface as
+plain failures rather than silent xpasses.
+
+After all 27 cases pass, Phase 10 deletes this file and flips the pipeline
+default.
+"""
+from __future__ import annotations
+
+import json
+from pathlib import Path
+
+import pytest
+
+from pdf_parser.pipeline import parse
+from pdf_parser.model import DocNode
+from pdf_parser.render.json_ import to_json
+from scripts.update_goldens import _load_parser_config, _strip_bbox_noise
+
+CASES_DIR = Path("tests/golden/synthetic")
+
+# Fixtures move OUT of this set in the same commit that brings them to parity.
+# Phase 10 deletes the set (and this file) once it is empty.
+_XFAIL_CASES: set[str] = {
+    "01_simple_table",
+    "02_nested_table",
+    "03_page_spanning",
+    "04_multi_column",
+    "05_sections_lists",
+    "06_page_spanning_no_header_repeat",
+    "07_page_spanning_with_nested",
+    "08_page_spanning_subtable_split",
+    "09_mixed_toc_and_spanning_table",
+    "10_merged_cells",
+    "11_pl_statement",
+    "12_image_chart",
+    "13_comprehensive",
+    "14_borderless_table",
+    "14b_borderless_long_text",
+    "14c_borderless_long_text_spanning",
+    "15_multicolumn_text",
+    "16_text_between_subtables",
+    "17_text_between_subtables_spanning",
+    "18_ruled_header_open_body",
+    "19_ruled_header_framed_body",
+    "20_ruled_header_row_strips",
+    "21_vertical_merge_invisible_lines",
+    "22_text_between_adjacent_tables",
+    "23_bordered_cell_with_bulleted_prose",
+    "24_subtable_flush_outer_edges",
+    "25_subtable_flush_outer_vertical_only",
+    "26_spanning_subtable_flush_at_break",
+}
+
+
+def _all_ids(tree: DocNode) -> set[str]:
+    out: set[str] = set()
+    stack = [tree]
+    while stack:
+        n = stack.pop()
+        out.add(n.id)
+        stack.extend(n.children)
+    return out
+
+
+def _id_to_breadcrumb(tree: DocNode) -> dict[str, str]:
+    """Map node.id → 'document>page[0]>table>row[2]>cell[1]' style path."""
+    out: dict[str, str] = {}
+
+    def walk(node: DocNode, crumbs: list[str]) -> None:
+        out[node.id] = ">".join(crumbs) or node.kind
+        for i, c in enumerate(node.children):
+            walk(c, crumbs + [f"{c.kind}[{i}]"])
+
+    walk(tree, [tree.kind])
+    return out
+
+
+def _format_diff(a: DocNode, b: DocNode) -> str:
+    a_ids, b_ids = _all_ids(a), _all_ids(b)
+    only_a, only_b = a_ids - b_ids, b_ids - a_ids
+    crumbs_a, crumbs_b = _id_to_breadcrumb(a), _id_to_breadcrumb(b)
+    lines = [
+        f"  legacy_only ({len(only_a)}):",
+        *(f"    {nid}  {crumbs_a[nid]}" for nid in sorted(only_a)),
+        f"  bottom_up_only ({len(only_b)}):",
+        *(f"    {nid}  {crumbs_b[nid]}" for nid in sorted(only_b)),
+    ]
+    return "\n".join(lines)
+
+
+def _all_cases() -> list:
+    cases = sorted(p.name for p in CASES_DIR.iterdir() if (p / "source.pdf").exists())
+    out = []
+    for c in cases:
+        if c in _XFAIL_CASES:
+            out.append(pytest.param(
+                c,
+                marks=pytest.mark.xfail(
+                    strict=False,
+                    reason=f"bottom-up parity pending for {c}",
+                ),
+            ))
+        else:
+            out.append(c)
+    return out
+
+
+@pytest.mark.parametrize("case", _all_cases())
+def test_bottom_up_matches_legacy(case: str) -> None:
+    case_dir = CASES_DIR / case
+    pdf = case_dir / "source.pdf"
+    cfg = _load_parser_config(case_dir)
+    legacy = parse(pdf, **{**cfg, "use_bottom_up": False})
+    new = parse(pdf, **{**cfg, "use_bottom_up": True})
+    legacy_ids, new_ids = _all_ids(legacy), _all_ids(new)
+    assert legacy_ids == new_ids, (
+        f"\nbottom-up parity failed for {case}:\n{_format_diff(legacy, new)}"
+    )
