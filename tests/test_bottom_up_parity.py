@@ -49,6 +49,33 @@ CASES_DIR = Path("tests/golden/synthetic")
 # their shorter neighbours, place them once in the first such row, and
 # emit covered entries in the remaining rows under the same column anchor.
 # Left as Phase-6+ residual.
+#
+# Phase 7 residual (24/25/26): the flush-edge sub-table fixtures remain
+# xfailed.  Task 7.1 verified that ``_cells_inside`` already accepts flush
+# edges (the ``_CONTAIN_TOL`` slack covers anti-aliasing, and strict-smaller
+# is per-cell on at least one axis -- always true for legitimate inner-table
+# cells), so unit-level containment is green.  The fixture-level gap is one
+# step deeper: legacy emits an outer 1x1 frame wrapping {paragraph + 2
+# nested tables}, while bottom-up fuses everything into a single multi-row
+# table because (a) ``_rows_to_celltable`` rejects single-row / single-col
+# candidates so the outer wrapper can never be emitted as a CellTable, and
+# (b) the outer rectangle's left/right vertical lines extend through the
+# inter-subtable paragraph band, so the line/gutter detector synthesises an
+# artificial cell-row for the paragraph at the parent's full width -- which
+# `_split_into_tables` then merges with the inner-table rows above and below
+# (same page, same x0, gap-under-threshold).  Result: a flat 7-row table on
+# 24, a flat 6-row table per page on 25, with the paragraph absorbed as a
+# row.  Fixture 26 layers two extra issues on top: the sub-table's column
+# boundaries (x0 = 202, 262, 322) pollute the main table's union-clustered
+# anchors (Task 6.2 side effect), splitting the parent cell at row 28 into
+# multiple narrow slots so the sub-table cluster no longer fits inside any
+# one parent cell for nesting; plus the cross-page continuation is not yet
+# stitched (Phase 8).  Real fix lives one step deeper: detect outer-frame
+# rectangles whose interior has no horizontal lines beyond the corners and
+# emit them as 1x1 wrappers hosting the detected inner sub-clusters; or
+# carve out sub-clusters via recursive containment BEFORE union-clustering
+# column anchors so the main table's anchor set stays clean.  Left as
+# Phase-7+ residual; 26's stitching half is for Phase 8.
 _XFAIL_CASES: set[str] = {
     "02_nested_table",
     "07_page_spanning_with_nested",
