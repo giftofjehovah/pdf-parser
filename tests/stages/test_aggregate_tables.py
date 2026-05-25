@@ -156,3 +156,54 @@ def test_merged_cell_marks_covered():
     [t] = aggregate(cells, page_height=792.0)
     assert (1, 1) in t.covered
     assert t.grid[1] == ["d", "", "e"]
+
+def test_column_anchors_survive_colspan_heavy_row():
+    """A row that is itself a partial colspan (e.g. section subheader)
+    must not collapse the anchor set. Anchors come from union-clustering
+    cell x0 positions across all rows."""
+    bb = lambda x0, x1, y0, y1: BBox(page=0, x0=x0, y0=y0, x1=x1, y1=y1)
+    cells = [
+        # Section header: 2 cells, each spanning 2 logical columns
+        Cell(bbox=bb(  0, 200,  0, 20), text="Group A", source="line", confidence=1.0),
+        Cell(bbox=bb(200, 400,  0, 20), text="Group B", source="line", confidence=1.0),
+        # Data row 1: 4 narrow cells (drive the column set)
+        Cell(bbox=bb(  0, 100, 20, 40), text="a", source="line", confidence=1.0),
+        Cell(bbox=bb(100, 200, 20, 40), text="b", source="line", confidence=1.0),
+        Cell(bbox=bb(200, 300, 20, 40), text="c", source="line", confidence=1.0),
+        Cell(bbox=bb(300, 400, 20, 40), text="d", source="line", confidence=1.0),
+        # Data row 2: same 4-column structure
+        Cell(bbox=bb(  0, 100, 40, 60), text="e", source="line", confidence=1.0),
+        Cell(bbox=bb(100, 200, 40, 60), text="f", source="line", confidence=1.0),
+        Cell(bbox=bb(200, 300, 40, 60), text="g", source="line", confidence=1.0),
+        Cell(bbox=bb(300, 400, 40, 60), text="h", source="line", confidence=1.0),
+    ]
+    [t] = aggregate(cells, page_height=792.0)
+    assert t.grid[0] == ["Group A", "", "Group B", ""]
+    assert (0, 1) in t.covered
+    assert (0, 3) in t.covered
+    assert t.grid[1] == ["a", "b", "c", "d"]
+    assert t.grid[2] == ["e", "f", "g", "h"]
+
+def test_column_anchors_union_cluster_recovers_missing_boundary():
+    """No single row carries all 4 column boundaries: row 0 merges cols 0+1,
+    row 1 merges cols 2+3.  Widest-row anchors (row 0 = 3 cells) yield only
+    3 columns, mis-binning row 1's narrow cells.  Union-clustering x0
+    positions across all rows recovers the 4-column truth.
+    """
+    bb = lambda x0, x1, y0, y1: BBox(page=0, x0=x0, y0=y0, x1=x1, y1=y1)
+    cells = [
+        # Row 0: cols 0+1 merged, cols 2 and 3 separate.
+        Cell(bbox=bb(  0, 200,  0, 20), text="ab", source="line", confidence=1.0),
+        Cell(bbox=bb(200, 300,  0, 20), text="c",  source="line", confidence=1.0),
+        Cell(bbox=bb(300, 400,  0, 20), text="d",  source="line", confidence=1.0),
+        # Row 1: cols 0 and 1 separate, cols 2+3 merged.
+        Cell(bbox=bb(  0, 100, 20, 40), text="e",  source="line", confidence=1.0),
+        Cell(bbox=bb(100, 200, 20, 40), text="f",  source="line", confidence=1.0),
+        Cell(bbox=bb(200, 400, 20, 40), text="gh", source="line", confidence=1.0),
+    ]
+    [t] = aggregate(cells, page_height=792.0)
+    # 4 logical columns total.
+    assert t.grid[0] == ["ab", "", "c", "d"]
+    assert t.grid[1] == ["e", "f", "gh", ""]
+    assert (0, 1) in t.covered
+    assert (1, 3) in t.covered

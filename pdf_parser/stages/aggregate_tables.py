@@ -179,14 +179,31 @@ _ANCHOR_TOL = 4.0
 
 
 def _column_anchors(rows: list[list[Cell]]) -> list[tuple[float, float]]:
-    """Use the widest row (most cells) as the canonical column set.
+    """Cluster cell ``x0`` positions across ALL rows to form the canonical column set.
 
-    Replaced in Task 6.2 with a union-cluster across all rows so a
-    colspan-heavy "widest" row (e.g. section subheader with N>others cells)
-    cannot collapse the anchor set.
+    The previous "widest row" heuristic failed when no single row carried the
+    full set of column boundaries — e.g. row A merges cols 0+1, row B merges
+    cols 2+3, so neither row alone exposes all 4 boundaries.  Union-clustering
+    x0 positions across every row recovers the full column set: each column
+    boundary that appears in any row contributes one anchor.
     """
-    widest = max(rows, key=len)
-    return [(c.bbox.x0, c.bbox.x1) for c in widest]
+    tol = _ANCHOR_TOL
+    positions = sorted({c.bbox.x0 for r in rows for c in r})
+    if not positions:
+        return []
+    clusters: list[list[float]] = [[positions[0]]]
+    for p in positions[1:]:
+        if p - clusters[-1][-1] <= tol:
+            clusters[-1].append(p)
+        else:
+            clusters.append([p])
+    cluster_x0 = [statistics.fmean(c) for c in clusters]
+    max_x1 = max(c.bbox.x1 for r in rows for c in r)
+    anchors: list[tuple[float, float]] = []
+    for i, x0 in enumerate(cluster_x0):
+        x1 = cluster_x0[i + 1] if i + 1 < len(cluster_x0) else max_x1
+        anchors.append((x0, x1))
+    return anchors
 
 
 def _assign_row_to_columns(
