@@ -338,8 +338,9 @@ def test_outer_frame_container_carves_nested_subtables():
 def test_rowspan_tall_cell_marks_following_row_covered():
     """A tall cell whose y-extent covers two visual rows below it must
     cluster into the FIRST overlapping row, and the column it occupies
-    in the SECOND overlapping row must be emitted as ``covered`` with the
-    spanning cell's bbox.
+    in the SECOND overlapping row must be emitted as ``covered`` with an
+    anchor-x + sub-row-y bbox (the legacy ``_logical_grid_from_table``
+    convention).
 
     Mirrors fixture 10 (Quarterly Report) and fixture 21 (Pacific
     Northwest Division): col 0 carries a single tall text cell whose
@@ -383,11 +384,15 @@ def test_rowspan_tall_cell_marks_following_row_covered():
     # Row 2: col 0 covered by the rowspan, cols 1-2 are independent.
     assert t.grid[2] == ["", "120", "180"]
     assert (2, 0) in t.covered, "row 2 col 0 must be marked covered by the rowspan"
-    # Covered bbox at (2, 0) reuses the spanning cell's geometry.
+    # Covered bbox at (2, 0) uses anchor x-range + sub-row y-range, matching
+    # legacy's ``_logical_grid_from_table`` convention for both colspan and
+    # rowspan covered slots (extract_tables.py lines 182-186).  The spanning
+    # cell's own y-extent is intentionally NOT used here: it would split into
+    # the rowspan's first visual band, but the slot lives in the SECOND band.
     cov_bbox = t.cell_bboxes[2][0]
     assert (cov_bbox.x0, cov_bbox.x1) == (0, 150)
-    assert (cov_bbox.y0, cov_bbox.y1) == (20, 56), (
-        f"covered slot must reuse spanning cell's y-extent, got {(cov_bbox.y0, cov_bbox.y1)}"
+    assert (cov_bbox.y0, cov_bbox.y1) == (38, 56), (
+        f"covered slot must use sub-row y-extent, got {(cov_bbox.y0, cov_bbox.y1)}"
     )
     # Row 3: independent, no rowspan leakage.
     assert t.grid[3] == ["South", "300", "400"]

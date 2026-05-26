@@ -431,46 +431,14 @@ def _rows_to_celltable(
         grid.append(row_grid)
         cell_bboxes.append(row_bbs)
 
-    # Rowspan post-pass: for each non-trivially-tall cell whose y-extent
-    # extends into a SUBSEQUENT row's y-range, overwrite the covered slot
-    # in that subsequent row at the same column with the spanning cell's
-    # bbox.  Matches the legacy ``_logical_grid_from_table`` rowspan
-    # convention required on fixtures 10/21 (and
-    # ``test_merged_cells_correct_structure`` / Annex E in
-    # ``tests/test_comprehensive.py``).
-    multi_cell_heights = [_row_height(r) for r in rows if len(r) >= 2]
-    if multi_cell_heights:
-        median_h = statistics.median(multi_cell_heights)
-        if median_h > 0:
-            for r_idx, row in enumerate(rows):
-                for cell in row:
-                    cell_h = cell.bbox.y1 - cell.bbox.y0
-                    if cell_h <= 1.5 * median_h:
-                        continue
-                    # Locate the column this cell anchors in.
-                    col_idx = None
-                    for ci, (ax0, _ax1) in enumerate(anchors):
-                        if ax0 - _ANCHOR_TOL <= cell.bbox.x0 < ax0 + _ANCHOR_TOL:
-                            col_idx = ci
-                            break
-                    if col_idx is None:
-                        continue
-                    # Walk subsequent rows; any row whose y-mid falls inside
-                    # the spanning cell's y-range is rowspan-covered at this
-                    # column.  Break on the first non-overlapping row — once
-                    # the rowspan ends, later rows are independent.
-                    for sub_r in range(r_idx + 1, len(rows)):
-                        sub_row = rows[sub_r]
-                        if not sub_row:
-                            continue
-                        sub_ymid = statistics.fmean(
-                            (c.bbox.y0 + c.bbox.y1) / 2.0 for c in sub_row
-                        )
-                        if not (cell.bbox.y0 - 2.0 <= sub_ymid
-                                <= cell.bbox.y1 + 2.0):
-                            break
-                        if (sub_r, col_idx) in covered:
-                            cell_bboxes[sub_r][col_idx] = cell.bbox
+    # Rowspan covered slots inherit their bboxes from the sparse-slot
+    # branch above (anchor x-range + sub-row y-range) -- legacy's
+    # ``_logical_grid_from_table`` uses exactly that shape for every
+    # covered slot (colspan AND rowspan), so no rowspan-aware post-pass
+    # is needed.  The earlier ``_assign_row_to_columns`` already marked
+    # the slot ``covered`` via ``covered.add((sub_r, col_idx))`` in the
+    # ``cell is None`` branch, which is the only structural fact the
+    # downstream renderer needs.
     page = rows[0][0].bbox.page
     x0 = min(c.bbox.x0 for r in rows for c in r)
     y0 = min(c.bbox.y0 for r in rows for c in r)

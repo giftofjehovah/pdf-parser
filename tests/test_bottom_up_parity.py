@@ -197,24 +197,24 @@ CASES_DIR = Path("tests/golden/synthetic")
 # synthesiser working on line geometry directly, or a port of the anchor
 # detector's borderless-frame promotion into ``detect_cells``.
 #
-# Phase 10 prep outcome (fixtures 10/21 rowspan):
+# Parity pass 1 outcome (fixtures 10/21 — full id-set parity):
 # ``_apply_rowspan_merge`` re-clusters tall single-cell rows whose ymid
 # diverges from their shorter neighbours into the first multi-cell row
 # they y-overlap; ``_split_into_tables`` then keeps the table whole by
 # tolerating a missing leftmost cell when an earlier row's rowspan
-# covers the missing column; and ``_rows_to_celltable``'s post-pass
-# overwrites those covered slots' bboxes with the spanning cell's bbox
-# so the rowspan semantics match legacy.  This unblocks the
-# ``test_merged_cells_*`` + ``test_annex_e_*`` assertions in
-# ``tests/test_comprehensive.py`` (6 assertions) and the
-# ``test_multicolumn_text_not_misidentified_as_table`` aggregate
-# (the rowspan split previously yielded spurious tables).  Strict
-# id-set parity for 10/21 still fails: covered-slot bboxes differ from
-# legacy's by ~1pt because legacy reconstructs them from the line
-# detector's per-column anchor x-ranges (Q1=[a, b)), while bottom-up
-# uses the spanning cell's own x-range (which matches the column anchor
-# in practice but rounds differently on the y-bounds).  Left as
-# Phase-10+ parity-only residual.
+# covers the missing column.  ``_rows_to_celltable``'s rowspan-covered
+# slots inherit the sparse-slot bbox (anchor x-range + sub-row y-range)
+# from the original column-assignment loop -- byte-identical to legacy's
+# ``_logical_grid_from_table`` convention for ALL covered slots, colspan
+# and rowspan alike (``extract_tables.py`` lines 184-186 use
+# ``(col_x0, row_y0, col_x1, row_y1)``).  The earlier Residual-B post-pass
+# that overwrote covered bboxes with the spanning cell's full y-extent
+# is removed: it was the residual ~1pt cause of the prior 10/21 parity
+# divergence (a rowspan span y=154..190 ends up in row[2] which lives at
+# y=154..172, so legacy emits the row[3] covered slot at y=172..190, not
+# the span's y=154..190).  Unblocks both fixtures + the
+# ``test_merged_cells_*`` and ``test_annex_e_*`` assertions in
+# ``tests/test_comprehensive.py`` (6 behavioural + 2 parity fixtures).
 #
 # Phase 10 prep deferred (07/13 synthetic-parent bbox parity):
 # pdfplumber's line-strategy ``find_tables`` runs with the default
@@ -284,10 +284,8 @@ _XFAIL_CASES: set[str] = {
     "02_nested_table",
     "07_page_spanning_with_nested",
     "08_page_spanning_subtable_split",
-    "10_merged_cells",
     "13_comprehensive",
     "16_text_between_subtables",
-    "21_vertical_merge_invisible_lines",
     "22_text_between_adjacent_tables",
     "23_bordered_cell_with_bulleted_prose",
     "24_subtable_flush_outer_edges",
