@@ -24,15 +24,31 @@ CASES_DIR = Path("tests/golden/synthetic")
 # Fixtures move OUT of this set in the same commit that brings them to parity.
 # Phase 10 deletes the set (and this file) once it is empty.
 #
-# Phase 5 residual (18/19/20/23): the ruled-header / framed-body fixtures
-# remain xfailed.  ``detect_cells`` short-circuits to the first non-empty
-# source (line > gutter > text), so line-bounded header cells consume the
-# page and gutter body cells are never produced.  A naive line+gutter union
-# also fails: the header row carries both line and gutter cells at slightly
-# offset bboxes, so ``_dedupe_cells`` keeps both and the header row's
-# column count diverges from the body's.  Real fix lives one step deeper:
-# either filter gutter cells inside any line cell's bbox, or run the
-# gutter detector below the header band only.  Left as Phase-5+ residual.
+# Phase 5 outcome (18/19/20 — Phase-10 prep Residual E): the ruled-header
+# fixtures reach full id-set parity.  ``detect_cells._ruled_header_body_cells``
+# runs per-page after ``_line_cells``: each y-band of >=2 side-by-side line
+# cells (the "ruled header") with NO multi-cell band above defines a column
+# template.  ``_classify_body`` walks adjacent bands below, accepting a
+# chain of single full-width "monster" line cells (fixtures 19/20 idiom) or
+# an open body (fixture 18 idiom); any adjacent multi-cell band signals a
+# column-structured body (fixture 01 idiom) and the band is skipped to
+# avoid duplication.  Body words are then re-binned into the header columns
+# with ``shared`` bbox style, monsters dropped, and the union flows into
+# ``aggregate_tables`` unchanged.  This handles 13_comprehensive page 12's
+# three concurrent ruled headers (Name/Score/Grade open + Region/Q1.. framed
+# + Item/Qty/Price strips) -- page-wide gutter detection cannot recover
+# them because the three idioms share no consistent column structure.
+#
+# Fixture 23 (bordered-cell-with-bulleted-prose) remains xfailed: its sole
+# table is a header band that fills the entire page with no body below,
+# so re-extraction collects zero words.  Legacy reaches it via the anchor
+# detector's borderless-frame promotion, not the bottom-up cell path.
+#
+# Comprehensive assertions un-xfailed under Residual E:
+#   * ``test_annex_a_open_body_table`` (Name/Score/Grade 5x3)
+#   * ``test_annex_a_framed_body_table`` (Region/Q1../Q4 5x5)
+#   * ``test_annex_a_row_strips_table`` (Item/Qty/Price 5x3)
+#   * ``test_total_table_count`` (22 -> 23)
 #
 # Phase 6 residual (10/21): the merged-cell fixtures remain xfailed.  Tasks
 # 6.1-6.3 added column-anchor alignment, union-clustered anchors, and
@@ -271,9 +287,6 @@ _XFAIL_CASES: set[str] = {
     "10_merged_cells",
     "13_comprehensive",
     "16_text_between_subtables",
-    "18_ruled_header_open_body",
-    "19_ruled_header_framed_body",
-    "20_ruled_header_row_strips",
     "21_vertical_merge_invisible_lines",
     "22_text_between_adjacent_tables",
     "23_bordered_cell_with_bulleted_prose",

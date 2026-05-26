@@ -209,3 +209,82 @@ def test_frame_cells_no_op_on_multicolumn_prose():
         page = pdf.pages[0]
         cells = _frame_cells(page, page_index=0)
     assert cells == []
+
+
+def test_detect_cells_emits_body_grid_on_open_body_ruled_header():
+    """Fixture 18 (open body): line strategy emits 3 header cells but zero
+    body cells.  detect_cells must re-bin the body words into the header's
+    column ranges so aggregate_tables can build the 5x3 grid that legacy's
+    text-strategy extractor produces.
+    """
+    pdf_path = Path("tests/golden/synthetic/18_ruled_header_open_body/source.pdf")
+    with pdfplumber.open(str(pdf_path)) as pdf:
+        page = pdf.pages[0]
+        cells = detect_cells(page, page_index=0)
+    texts = {c.text for c in cells}
+    # Header (line cells)
+    assert {"Name", "Score", "Grade"} <= texts
+    # Body cells re-extracted from words and bound to header columns
+    assert {"Alice", "95", "A", "Bob", "82", "B-", "Carol", "91", "A-",
+            "Dave", "76", "C+"} <= texts
+    # Body cells inherit the header's column x-ranges (shared style).
+    # Column 0: 166..286, column 1: 286..366, column 2: 366..446.
+    body_cells = [c for c in cells if c.text in {"Alice", "Bob", "Carol", "Dave"}]
+    assert body_cells and all(c.bbox.x0 == 166.0 and c.bbox.x1 == 286.0
+                              for c in body_cells), body_cells
+
+
+def test_detect_cells_replaces_monster_body_line_with_rebinned_cells():
+    """Fixture 19 (framed body): pdfplumber's line strategy collapses the
+    whole body into ONE full-width line cell ("North 120 135 150 162\\n..."),
+    masking the 5x5 grid.  detect_cells must drop that monster cell and
+    re-bin its words into the 5 header columns.
+    """
+    pdf_path = Path("tests/golden/synthetic/19_ruled_header_framed_body/source.pdf")
+    with pdfplumber.open(str(pdf_path)) as pdf:
+        page = pdf.pages[0]
+        cells = detect_cells(page, page_index=0)
+    texts = [c.text for c in cells]
+    # The monster body cell text must NOT appear.
+    assert not any("\n" in t for t in texts), \
+        f"monster body cell leaked into output: {texts!r}"
+    # Each Region body word must surface as its own cell.
+    for word in ("North", "South", "East", "West",
+                 "120", "135", "150", "162",
+                 "98", "104", "111", "143", "149", "156", "171"):
+        assert word in texts, f"missing body word {word!r}: {texts!r}"
+
+
+def test_detect_cells_replaces_row_strip_monsters_with_word_cells():
+    """Fixture 20 (row strips): each body row is a single full-width line
+    cell ("Apple 3 $1.00").  detect_cells must drop all 4 row-strip monsters
+    and re-bin their words into the 3 header columns.
+    """
+    pdf_path = Path("tests/golden/synthetic/20_ruled_header_row_strips/source.pdf")
+    with pdfplumber.open(str(pdf_path)) as pdf:
+        page = pdf.pages[0]
+        cells = detect_cells(page, page_index=0)
+    texts = [c.text for c in cells]
+    # Row-strip concatenated text must NOT appear ("Apple 3 $1.00" etc.).
+    for monster in ("Apple 3 $1.00", "Banana 6 $0.50",
+                    "Cherry 12 $2.25", "Date 4 $3.10"):
+        assert monster not in texts, \
+            f"row-strip monster leaked into output: {monster!r}"
+    # Each body word must surface as its own cell, with '$' attached to price.
+    assert {"Apple", "Banana", "Cherry", "Date"} <= set(texts)
+    assert {"3", "6", "12", "4"} <= set(texts)
+    assert {"$1.00", "$0.50", "$2.25", "$3.10"} <= set(texts)
+
+
+def test_detect_cells_leaves_column_structured_body_alone():
+    """Fixture 01 (simple_table): header AND body line cells already form
+    the column structure.  detect_cells must NOT re-extract — otherwise it
+    duplicates body cells and breaks column-anchor clustering.
+    """
+    pdf_path = Path("tests/golden/synthetic/01_simple_table/source.pdf")
+    with pdfplumber.open(str(pdf_path)) as pdf:
+        page = pdf.pages[0]
+        cells = detect_cells(page, page_index=0)
+    # Exactly the 9 line cells (3 header + 6 body), no re-binned duplicates.
+    assert len(cells) == 9, [c.text for c in cells]
+    assert all(c.source == "line" for c in cells)

@@ -49,6 +49,12 @@ def detect_cells(page, page_index: int) -> list[Cell]:
     Per-bbox dedupe happens downstream in
     :func:`pdf_parser.stages.aggregate_tables._dedupe_cells`.
 
+    Ruled-header re-extraction (``_ruled_header_body_cells``) augments line
+    output for tables with a line-bounded header band but body that line
+    strategy collapses into monster full-width cells -- or misses entirely.
+    Monsters are dropped from ``line``; re-binned per-column Cells take
+    their place (fixtures 18/19/20 + Annex A in 13_comprehensive).
+
     When neither line nor frame fires, fall back to gutter-based detection,
     and finally to the pdfplumber text-strategy fallback (lowest confidence,
     prose-guarded).
@@ -56,7 +62,11 @@ def detect_cells(page, page_index: int) -> list[Cell]:
     line = _line_cells(page, page_index)
     frame = _frame_cells(page, page_index, line_cells=line)
     if line or frame:
-        return line + frame
+        body_cells, monsters = _ruled_header_body_cells(page, page_index, line)
+        if monsters:
+            drop_ids = {id(c) for c in monsters}
+            line = [c for c in line if id(c) not in drop_ids]
+        return line + frame + body_cells
     gutter = _gutter_cells(page, page_index)
     if gutter:
         return gutter
@@ -662,6 +672,244 @@ def _gutter_cells(page, page_index: int) -> list[Cell]:
                 bbox_style=style,
             ))
     return out
+
+# ---------------------------------------------------------------------------
+# Ruled-header body re-extraction (Phase-10 prep, Residual E).
+#
+# Some tables carry a line-bounded header band but a body that pdfplumber's
+# line strategy collapses or misses entirely:
+#
+#   * Fixture 18 (open body): no body line cells -- only the header band.
+#   * Fixture 19 (framed body): body is ONE monster line cell spanning the
+#     full header width, hiding the 5x5 grid behind concatenated text.
+#   * Fixture 20 (row strips): each body row is its OWN monster line cell
+#     spanning the full header width, hiding the per-row column split.
+#
+# Page-wide ``_gutter_cells`` cannot recover these on the omnibus -- 13_compre-
+# hensive page 12 carries three different ruled headers, so the page-level
+# gutter detector finds at most one consistent column structure across the
+# body prose.  Header-driven re-extraction is the only viable bottom-up
+# approach: use the header band's column x-ranges as the canonical column
+# template; bin words below the header into those columns; emit one Cell
+# per (visual row, column) with ``shared`` bbox style.
+#
+# Gates (cheapest first):
+#   * Header band MUST have >=2 side-by-side line cells with non-overlapping
+#     x-ranges.
+#   * Header band MUST NOT have a >=2-cell band immediately above it (within
+#     ``_RHB_GAP_TOL``) -- such a band would mean THIS band is a body row,
+#     not a header.
+#   * Body MUST be either (a) open (no adjacent band below), or (b) a chain
+#     of adjacent single full-width "monster" line cells.  Any adjacent
+#     multi-cell band below means the body already has column structure
+#     (fixture 01 idiom) and re-extraction is skipped.
+# ---------------------------------------------------------------------------
+
+_RHB_GAP_TOL       = 5.0   # pt; adjacency tolerance between bands
+_RHB_X_TOL         = 2.0   # pt; column edge slack
+_RHB_WORD_BIN_TOL  = 2.0   # pt; word x-midpoint slack against column edges
+_RHB_OPEN_GAP_MULT = 1.5   # multiplier on median row height for open-body gap stop
+
+
+def _cluster_lines_by_y(cells: list[Cell]) -> list[list[Cell]]:
+    """Cluster cells into y-bands using y-midpoint clustering (tol=2pt).
+
+    A monster line cell spanning multiple visual rows lands in its own band
+    because its y-midpoint sits between the rows it visually encloses --
+    crucial for separating outer wrappers from their inner sub-table rows
+    (fixture 16's container at y=138..284 vs the Item/Qty band at y=142..160).
+    """
+    if not cells:
+        return []
+    by_ymid = sorted(cells, key=lambda c: ((c.bbox.y0 + c.bbox.y1) / 2.0, c.bbox.x0))
+    bands: list[list[Cell]] = [[by_ymid[0]]]
+    cur_y = (by_ymid[0].bbox.y0 + by_ymid[0].bbox.y1) / 2.0
+    for c in by_ymid[1:]:
+        y = (c.bbox.y0 + c.bbox.y1) / 2.0
+        if abs(y - cur_y) <= 2.0:
+            bands[-1].append(c)
+            cur_y = (cur_y + y) / 2.0
+        else:
+            bands.append([c])
+            cur_y = y
+    return bands
+
+
+def _is_side_by_side_header(band: list[Cell], tol: float = 1.0) -> bool:
+    """True when band cells form non-overlapping side-by-side columns."""
+    if len(band) < 2:
+        return False
+    s = sorted(band, key=lambda c: c.bbox.x0)
+    for i in range(len(s) - 1):
+        if s[i].bbox.x1 > s[i + 1].bbox.x0 + tol:
+            return False
+    return True
+
+
+def _band_above_is_multi_cell(
+    band: list[Cell],
+    all_bands: list[list[Cell]],
+    gap_tol: float = _RHB_GAP_TOL,
+) -> bool:
+    """True if there is a >=2-cell band whose y1 sits just above this band's y0."""
+    head_y0 = min(c.bbox.y0 for c in band)
+    for other in all_bands:
+        if other is band or len(other) < 2:
+            continue
+        other_y1 = max(c.bbox.y1 for c in other)
+        if -gap_tol <= head_y0 - other_y1 <= gap_tol:
+            return True
+    return False
+
+
+def _classify_body(
+    band: list[Cell],
+    all_bands: list[list[Cell]],
+    cols: list[tuple[float, float]],
+) -> tuple[list[Cell], float | None] | None:
+    """Classify the body region below a ruled-header band.
+
+    Returns ``(monster_cells, body_y_bound)``:
+      * ``monster_cells`` are body line cells to drop (single full-width
+        cells adjacent to the header, chained as long as they remain
+        adjacent and full-width).
+      * ``body_y_bound`` is the y-coordinate where the body ends.  ``None``
+        for an open-body band with no other line cells anywhere below
+        (re-extraction collects words to the page bottom, with a gap stop).
+
+    Returns ``None`` when the body already has column structure (the first
+    adjacent band below is multi-cell or single partial-width) -- skip
+    re-extraction so we don't duplicate cells.
+    """
+    head_y1 = max(c.bbox.y1 for c in band)
+    head_x0 = cols[0][0]
+    head_x1 = cols[-1][1]
+    other_below = sorted(
+        (b for b in all_bands
+         if b is not band and min(c.bbox.y0 for c in b) >= head_y1 - 1.0),
+        key=lambda b: min(c.bbox.y0 for c in b),
+    )
+    monsters: list[Cell] = []
+    cursor_y = head_y1
+    next_non_adjacent_y: float | None = None
+    for other in other_below:
+        other_y0 = min(c.bbox.y0 for c in other)
+        if other_y0 - cursor_y > _RHB_GAP_TOL:
+            # Adjacency chain ended; this band marks the body upper bound.
+            next_non_adjacent_y = other_y0
+            break
+        if len(other) == 1:
+            c = other[0]
+            if (c.bbox.x0 <= head_x0 + _RHB_X_TOL
+                    and c.bbox.x1 >= head_x1 - _RHB_X_TOL):
+                monsters.append(c)
+                cursor_y = c.bbox.y1
+                continue
+        # Adjacent body band that is not a single full-width monster:
+        # column-structured (or partial). Re-extraction would duplicate.
+        return None
+    if monsters:
+        body_y_bound: float | None = max(c.bbox.y1 for c in monsters)
+    else:
+        body_y_bound = next_non_adjacent_y
+    return monsters, body_y_bound
+
+
+def _ruled_header_body_cells(
+    page, page_index: int, line: list[Cell]
+) -> tuple[list[Cell], list[Cell]]:
+    """For each ruled-header band on ``page``, re-bin body words into the
+    header's column ranges.  Returns ``(new_body_cells, monsters_to_drop)``.
+
+    ``new_body_cells`` carry ``source="line"`` and ``bbox_style="shared"``
+    so they pair with the header line cells under aggregate_tables' shared
+    column-anchor convention.  ``monsters_to_drop`` is the list of body
+    line cells the caller must remove from ``line`` before unioning.
+    """
+    if len(line) < 2:
+        return [], []
+    bands = _cluster_lines_by_y(line)
+    new_cells: list[Cell] = []
+    monsters_to_drop: list[Cell] = []
+    page_y1 = float(page.bbox[3])
+    words: list[dict] | None = None  # extract lazily; one ruled header → one call
+    for band in bands:
+        if not _is_side_by_side_header(band):
+            continue
+        if _band_above_is_multi_cell(band, bands):
+            continue
+        sorted_band = sorted(band, key=lambda c: c.bbox.x0)
+        cols = [(c.bbox.x0, c.bbox.x1) for c in sorted_band]
+        head_y1 = max(c.bbox.y1 for c in sorted_band)
+        head_x0 = cols[0][0]
+        head_x1 = cols[-1][1]
+
+        classified = _classify_body(band, bands, cols)
+        if classified is None:
+            continue
+        monsters, body_y_bound = classified
+
+        if words is None:
+            words = page.extract_words(keep_blank_chars=False, use_text_flow=False)
+
+        # Collect body words: below the header, within the body y-bound,
+        # x-midpoint inside the header column range.
+        upper = body_y_bound if body_y_bound is not None else page_y1
+        candidate_words = [
+            w for w in words
+            if w["top"] >= head_y1 - 1.0
+            and w["bottom"] <= upper + 1.0
+            and head_x0 - _RHB_X_TOL <= (w["x0"] + w["x1"]) / 2.0 <= head_x1 + _RHB_X_TOL
+        ]
+        if not candidate_words:
+            monsters_to_drop.extend(monsters)
+            continue
+        word_lines = _group_words_into_lines(candidate_words, tol=2.0)
+        if not word_lines:
+            monsters_to_drop.extend(monsters)
+            continue
+
+        # Open body: stop at first row-gap > MULT × median row height so we
+        # don't sweep prose that follows the table into the grid.
+        if not monsters:
+            row_heights = [
+                max(w["bottom"] for w in ln) - min(w["top"] for w in ln)
+                for ln in word_lines
+            ]
+            sorted_h = sorted(row_heights)
+            median_h = sorted_h[len(sorted_h) // 2] if sorted_h else 10.0
+            kept = [word_lines[0]]
+            for prev, cur in zip(word_lines, word_lines[1:]):
+                prev_bot = max(w["bottom"] for w in prev)
+                cur_top = min(w["top"] for w in cur)
+                if cur_top - prev_bot > _RHB_OPEN_GAP_MULT * max(median_h, 1.0):
+                    break
+                kept.append(cur)
+            word_lines = kept
+
+        for ln in word_lines:
+            y0 = min(w["top"] for w in ln)
+            y1 = max(w["bottom"] for w in ln)
+            for cx0, cx1 in cols:
+                col_words = [
+                    w for w in ln
+                    if cx0 - _RHB_WORD_BIN_TOL
+                       <= (w["x0"] + w["x1"]) / 2.0
+                       < cx1 + _RHB_WORD_BIN_TOL
+                ]
+                if not col_words:
+                    continue
+                text = " ".join(w["text"] for w in col_words)
+                new_cells.append(Cell(
+                    bbox=BBox(page=page_index, x0=cx0, y0=y0, x1=cx1, y1=y1),
+                    text=text,
+                    source="line",
+                    confidence=1.0,
+                    bbox_style="shared",
+                ))
+        monsters_to_drop.extend(monsters)
+    return new_cells, monsters_to_drop
+
 
 # ---------------------------------------------------------------------------
 # Text-strategy cell detection (lowest-confidence fallback).

@@ -56,7 +56,7 @@ def tree(use_bottom_up: bool) -> DocNode:
 # individually.  Phase 9's sub-cluster carve-out in
 # ``aggregate_tables._carve_subclusters`` recovers the page-spanning nested
 # Project Tracking table + Hardware Inventory nesting (6 assertions) for
-# bottom_up.  Phase 10 prep adds two more passes:
+# bottom_up.  Phase 10 prep adds three more passes:
 #   * ``_carve_container_frames`` + ``_build_single_col_wrapper`` +
 #     ``_NESTED_CONTAINER_GAP_MULT`` recover Annex C's outer 1xN wrapper
 #     + nested-sub-table separation (2 assertions).
@@ -65,50 +65,31 @@ def tree(use_bottom_up: bool) -> DocNode:
 #     + Annex E vertical-merge assertions (6 assertions) and remove the
 #     spurious-table false positive that drove the multicolumn check
 #     (1 assertion).
-# The remaining residual families are explicitly deferred (full analyses
-# in ``tests/test_bottom_up_parity.py`` header comment):
-#   - Phase-5 ruled-header (fixtures 18/19/20/23) — Annex A
-#   - Phase-7+ 1xN outer-frame without line-detected container (fixture 17
-#     + Annex D outer 'Spanning Header' frame) — bottom-up's line cells
-#     never carry the outer container on these layouts; legacy promotes it
-#     via the anchor detector instead
+#   * ``detect_cells._frame_cells`` (Residual D) recovers Annex D's outer
+#     "Spanning Header" frame (2 assertions: Annex D + 5-spanning-tables).
+#   * ``detect_cells._ruled_header_body_cells`` (Residual E) re-bins body
+#     words into the line-detected header column template for ruled-header
+#     tables -- recovers Annex A open-body / framed-body / row-strips
+#     (3 assertions) and brings total table count from 22 to 23 (1 assertion).
 #
-# Each affected assertion runtime-xfails its ``bottom_up`` variant with a
-# residual pointer; the ``legacy`` variants continue to assert exact
-# behaviour.  Removing an xfail here MUST be paired with the upstream fix
-# landing (which removes the corresponding fixture from ``_XFAIL_CASES``
-# in the parity test) -- see Phase 10+ of
-# ``docs/superpowers/plans/2026-05-25-bottom-up-cell-detection.md``.
+# With Residual E landed every assertion in this file passes under bottom_up.
+# ``_REASON_PHASE_7`` is retained as documentation for the deferred
+# 1xN-outer-frame variants (fixtures 24/25 closed_rect / zero-height bands)
+# that have no behavioural assertion in this omnibus -- left for Phase 10
+# decision.  See ``docs/superpowers/plans/2026-05-25-bottom-up-cell-detection.md``.
 # ---------------------------------------------------------------------------
 
 
-_REASON_PHASE_5 = (
-    "Phase-5 residual (ruled-header 18/19/20/23): detect_cells short-circuits "
-    "to first non-empty source. See tests/test_bottom_up_parity.py header."
-)
 _REASON_PHASE_7 = (
     "Phase-7+ residual (1xN outer-frame without line-detected container): "
     "Phase 10 prep's _carve_container_frames recovers fixtures 16 / Annex C "
     "where pdfplumber emits an outer wrapper cell.  Phase 10 prep Residual D "
     "(_frame_cells in detect_cells.py) further recovers fixtures 17 / Annex D "
-    "via vector-rail + cap-band frame promotion -- the corresponding "
-    "_xfail_bottom_up calls have been removed.  Remaining variant of the "
+    "via vector-rail + cap-band frame promotion.  Remaining variant of the "
     "residual: fixtures 24 / 25 (flush-edge sub-tables) where pdfplumber "
     "fuses the line strategy on 24 and 25 is a pure closed_rect with no "
     "cap-band evidence.  See tests/test_bottom_up_parity.py header."
 )
-_REASON_AGGREGATE = (
-    "Phase-5 residual (Annex A open-body 'Name'/'Score'/'Grade'): bottom-up "
-    "still misses the ruled-header open-body table, leaving total table "
-    "count one short of 23.  Spanning count (5) is now reached via the "
-    "Phase-10-prep Residual D borderless-frame port that recovers Annex D's "
-    "'Spanning Header' outer.  See tests/test_bottom_up_parity.py header."
-)
-
-
-def _xfail_bottom_up(use_bottom_up: bool, reason: str) -> None:
-    if use_bottom_up:
-        pytest.xfail(reason)
 
 
 # ---------------------------------------------------------------------------
@@ -379,10 +360,9 @@ def _page_of(node: DocNode) -> int:
 # Annex A — ruled-header tables (fixtures 18 / 19 / 20)
 # ---------------------------------------------------------------------------
 
-def test_annex_a_open_body_table(tree, use_bottom_up):
+def test_annex_a_open_body_table(tree):
     """Fixture 18 idiom: header has borders, body has none.  Parser must still
     surface a 5×3 grid with one atomic value per body cell."""
-    _xfail_bottom_up(use_bottom_up, _REASON_PHASE_5)
     t = _table_by_sig(tree, ("Name", "Score", "Grade"))
     assert t is not None, "Annex A open-body table missing"
     assert t.attrs["n_rows"] == 5 and t.attrs["n_cols"] == 3
@@ -394,10 +374,9 @@ def test_annex_a_open_body_table(tree, use_bottom_up):
     ]
 
 
-def test_annex_a_framed_body_table(tree, use_bottom_up):
+def test_annex_a_framed_body_table(tree):
     """Fixture 19 idiom: outer box + header column dividers; body words are
     redistributed across the five header columns."""
-    _xfail_bottom_up(use_bottom_up, _REASON_PHASE_5)
     t = _table_by_sig(tree, ("Region", "Q1", "Q2", "Q3", "Q4"))
     assert t is not None, "Annex A framed-body table missing"
     assert t.attrs["n_rows"] == 5 and t.attrs["n_cols"] == 5
@@ -409,11 +388,10 @@ def test_annex_a_framed_body_table(tree, use_bottom_up):
     ]
 
 
-def test_annex_a_row_strips_table(tree, use_bottom_up):
+def test_annex_a_row_strips_table(tree):
     """Fixture 20 idiom: each body row has its own horizontal rule but no
     internal verticals.  Words must snap to header column bounds; '$' stays
     attached to the Price column."""
-    _xfail_bottom_up(use_bottom_up, _REASON_PHASE_5)
     t = _table_by_sig(tree, ("Item", "Qty", "Price"))
     assert t is not None, "Annex A row-strips table missing"
     assert t.attrs["n_rows"] == 5 and t.attrs["n_cols"] == 3
@@ -678,12 +656,11 @@ def test_multicolumn_text_not_misidentified_as_table(tree):
     assert not extras, f"unexpected table signatures detected: {extras}"
 
 
-def test_total_table_count(tree, use_bottom_up):
+def test_total_table_count(tree):
     """The omnibus fixture contains exactly the tables we authored.  This
     locks down the global inventory so a regression that splits or
     duplicates any table is caught even when individual structural tests
     still pass."""
-    _xfail_bottom_up(use_bottom_up, _REASON_AGGREGATE)
     tables = [n for n in _walk(tree) if n.kind == "table"]
     assert len(tables) == 23, f"expected 23 tables, got {len(tables)}"
 
