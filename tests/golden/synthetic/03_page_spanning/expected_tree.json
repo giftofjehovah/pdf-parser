@@ -101,8 +101,8 @@
                   "id": "accb54f96cbf",
                   "kind": "cell",
                   "provenance": {
-                    "extractor": "pdfplumber",
-                    "stage": "extract_tables"
+                    "extractor": "bottom_up",
+                    "stage": "extract_tables_v2"
                   },
                   "text": "ID"
                 },
@@ -121,8 +121,8 @@
                   "id": "0285d33c2f89",
                   "kind": "cell",
                   "provenance": {
-                    "extractor": "pdfplumber",
-                    "stage": "extract_tables"
+                    "extractor": "bottom_up",
+                    "stage": "extract_tables_v2"
                   },
                   "text": "Description"
                 },
@@ -141,8 +141,8 @@
                   "id": "c52a78cf4e16",
                   "kind": "cell",
                   "provenance": {
-                    "extractor": "pdfplumber",
-                    "stage": "extract_tables"
+                    "extractor": "bottom_up",
+                    "stage": "extract_tables_v2"
                   },
                   "text": "Value"
                 }
@@ -180,8 +180,8 @@
                   "id": "8f43bafac4a3",
                   "kind": "cell",
                   "provenance": {
-                    "extractor": "pdfplumber",
-                    "stage": "extract_tables"
+                    "extractor": "bottom_up",
+                    "stage": "extract_tables_v2"
                   },
                   "text": "1"
                 },
@@ -200,8 +200,8 @@
                   "id": "928d07993e7b",
                   "kind": "cell",
                   "provenance": {
-                    "extractor": "pdfplumber",
-                    "stage": "extract_tables"
+                    "extractor": "bottom_up",
+                    "stage": "extract_tables_v2"
                   },
                   "text": "Item number 1"
                 },
@@ -220,8 +220,8 @@
                   "id": "1009f3e2a30f",
                   "kind": "cell",
                   "provenance": {
-                    "extractor": "pdfplumber",
-                    "stage": "extract_tables"
+                    "extractor": "bottom_up",
+                    "stage": "extract_tables_v2"
                   },
                   "text": "$1.50"
                 }
@@ -259,8 +259,8 @@
                   "id": "c449337d55e3",
                   "kind": "cell",
                   "provenance": {
-                    "extractor": "pdfplumber",
-                    "stage": "extract_tables"
+                    "extractor": "bottom_up",
+                    "stage": "extract_tables_v2"
                   },
                   "text": "2"
                 },
@@ -279,8 +279,8 @@
                   "id": "375dbd15991d",
                   "kind": "cell",
                   "provenance": {
-                    "extractor": "pdfplumber",
-                    "stage": "extract_tables"
+                    "extractor": "bottom_up",
+                    "stage": "extract_tables_v2"
                   },
                   "text": "Item number 2"
                 },
@@ -299,8 +299,8 @@
                   "id": "5066efdfc3ce",
                   "kind": "cell",
                   "provenance": {
-                    "extractor": "pdfplumber",
-                    "stage": "extract_tables"
+                    "extractor": "bottom_up",
+                    "stage": "extract_tables_v2"
                   },
                   "text": "$3.00"
                 }
@@ -338,8 +338,8 @@
                   "id": "419427dd77a7",
                   "kind": "cell",
                   "provenance": {
-                    "extractor": "pdfplumber",
-                    "stage": "extract_tables"
+                    "extractor": "bottom_up",
+                    "stage": "extract_tables_v2"
                   },
                   "text": "3"
                 },
@@ -358,8 +358,8 @@
                   "id": "bed385c0d64e",
                   "kind": "cell",
                   "provenance": {
-                    "extractor": "pdfplumber",
-                    "stage": "extract_tables"
+                    "extractor": "bottom_up",
+                    "stage": "extract_tables_v2"
                   },
                   "text": "Item number 3"
                 },
@@ -378,8 +378,8 @@
                   "id": "8cae1f40d794",
                   "kind": "cell",
                   "provenance": {
-                    "extractor": "pdfplumber",
-                    "stage": "extract_tables"
+                    "extractor": "bottom_up",
+                    "stage": "extract_tables_v2"
                   },
                   "text": "$4.50"
                 }
@@ -417,8 +417,8 @@
                   "id": "ea705dca710c",
                   "kind": "cell",
                   "provenance": {
-                    "extractor": "pdfplumber",
-                    "stage": "extract_tables"
+                    "extractor": "bottom_up",
+                    "stage": "extract_tables_v2"
                   },
                   "text": "4"
                 },
@@ -437,8 +437,8 @@
                   "id": "574a853263c3",
                   "kind": "cell",
                   "provenance": {
-                    "extractor": "pdfplumber",
-                    "stage": "extract_tables"
+                    "extractor": "bottom_up",
+                    "stage": "extract_tables_v2"
                   },
                   "text": "Item number 4"
                 },
@@ -457,8 +457,8 @@
                   "id": "3bbe429fe97d",
                   "kind": "cell",
                   "provenance": {
-                    "extractor": "pdfplumber",
-                    "stage": "extract_tables"
+                    "extractor": "bottom_up",
+                    "stage": "extract_tables_v2"
                   },
                   "text": "$6.00"
                 }
@@ -496,8 +496,8 @@
                   "id": "42a0c918aaf5",
                   "kind": "cell",
                   "provenance": {
-                    "extractor": "pdfplumber",
-                    "stage": "extract_tables"
+                    "extractor": "bottom_up",
+                    "stage": "extract_tables_v2"
                   },
                   "text": "5"
                 },
@@ -516,8 +516,8 @@
                   "id": "f4ca7ae4178c",
                   "kind": "cell",
                   "provenance": {
-                    "extractor": "pdfplumber",
-                    "stage": "extract_tables"
+                    "extractor": "bottom_up",
+                    "stage": "extract_tables_v2"
                   },
                   "text": "Item number 5"
                 },
@@ -536,8 +536,8 @@
                   "id": "f0a1fc0f5f58",
                   "kind": "cell",
                   "provenance": {
-                    "extractor": "pdfplumber",
-                    "stage": "extract_tables"
+                    "extractor": "bottom_up",
+                    "stage": "extract_tables_v2"
                   },
                   "text": "$7.50"
                 }
@@ -575,8 +575,8 @@
                   "id": "d819a088a5f0",
                   "kind": "cell",
                   "provenance": {
-                    "extractor": "pdfplumber",
-                    "stage": "extract_tables"
+                    "extractor": "bottom_up",
+                    "stage": "extract_tables_v2"
                   },
                   "text": "6"
                 },
@@ -595,8 +595,8 @@
                   "id": "d773d186a870",
                   "kind": "cell",
                   "provenance": {
-                    "extractor": "pdfplumber",
-                    "stage": "extract_tables"
+                    "extractor": "bottom_up",
+                    "stage": "extract_tables_v2"
                   },
                   "text": "Item number 6"
                 },
@@ -615,8 +615,8 @@
                   "id": "7c6fce096c37",
                   "kind": "cell",
                   "provenance": {
-                    "extractor": "pdfplumber",
-                    "stage": "extract_tables"
+                    "extractor": "bottom_up",
+                    "stage": "extract_tables_v2"
                   },
                   "text": "$9.00"
                 }
@@ -654,8 +654,8 @@
                   "id": "5112bbd7d623",
                   "kind": "cell",
                   "provenance": {
-                    "extractor": "pdfplumber",
-                    "stage": "extract_tables"
+                    "extractor": "bottom_up",
+                    "stage": "extract_tables_v2"
                   },
                   "text": "7"
                 },
@@ -674,8 +674,8 @@
                   "id": "dc87857097b3",
                   "kind": "cell",
                   "provenance": {
-                    "extractor": "pdfplumber",
-                    "stage": "extract_tables"
+                    "extractor": "bottom_up",
+                    "stage": "extract_tables_v2"
                   },
                   "text": "Item number 7"
                 },
@@ -694,8 +694,8 @@
                   "id": "329fe6d666aa",
                   "kind": "cell",
                   "provenance": {
-                    "extractor": "pdfplumber",
-                    "stage": "extract_tables"
+                    "extractor": "bottom_up",
+                    "stage": "extract_tables_v2"
                   },
                   "text": "$10.50"
                 }
@@ -733,8 +733,8 @@
                   "id": "baa1714573ff",
                   "kind": "cell",
                   "provenance": {
-                    "extractor": "pdfplumber",
-                    "stage": "extract_tables"
+                    "extractor": "bottom_up",
+                    "stage": "extract_tables_v2"
                   },
                   "text": "8"
                 },
@@ -753,8 +753,8 @@
                   "id": "9ce33dcf6714",
                   "kind": "cell",
                   "provenance": {
-                    "extractor": "pdfplumber",
-                    "stage": "extract_tables"
+                    "extractor": "bottom_up",
+                    "stage": "extract_tables_v2"
                   },
                   "text": "Item number 8"
                 },
@@ -773,8 +773,8 @@
                   "id": "1afb04245f4f",
                   "kind": "cell",
                   "provenance": {
-                    "extractor": "pdfplumber",
-                    "stage": "extract_tables"
+                    "extractor": "bottom_up",
+                    "stage": "extract_tables_v2"
                   },
                   "text": "$12.00"
                 }
@@ -812,8 +812,8 @@
                   "id": "d8ad8e772daa",
                   "kind": "cell",
                   "provenance": {
-                    "extractor": "pdfplumber",
-                    "stage": "extract_tables"
+                    "extractor": "bottom_up",
+                    "stage": "extract_tables_v2"
                   },
                   "text": "9"
                 },
@@ -832,8 +832,8 @@
                   "id": "a335fed33556",
                   "kind": "cell",
                   "provenance": {
-                    "extractor": "pdfplumber",
-                    "stage": "extract_tables"
+                    "extractor": "bottom_up",
+                    "stage": "extract_tables_v2"
                   },
                   "text": "Item number 9"
                 },
@@ -852,8 +852,8 @@
                   "id": "9c1617fc3dc0",
                   "kind": "cell",
                   "provenance": {
-                    "extractor": "pdfplumber",
-                    "stage": "extract_tables"
+                    "extractor": "bottom_up",
+                    "stage": "extract_tables_v2"
                   },
                   "text": "$13.50"
                 }
@@ -891,8 +891,8 @@
                   "id": "afb7495c41c0",
                   "kind": "cell",
                   "provenance": {
-                    "extractor": "pdfplumber",
-                    "stage": "extract_tables"
+                    "extractor": "bottom_up",
+                    "stage": "extract_tables_v2"
                   },
                   "text": "10"
                 },
@@ -911,8 +911,8 @@
                   "id": "5174bd01ba51",
                   "kind": "cell",
                   "provenance": {
-                    "extractor": "pdfplumber",
-                    "stage": "extract_tables"
+                    "extractor": "bottom_up",
+                    "stage": "extract_tables_v2"
                   },
                   "text": "Item number 10"
                 },
@@ -931,8 +931,8 @@
                   "id": "c72780abb316",
                   "kind": "cell",
                   "provenance": {
-                    "extractor": "pdfplumber",
-                    "stage": "extract_tables"
+                    "extractor": "bottom_up",
+                    "stage": "extract_tables_v2"
                   },
                   "text": "$15.00"
                 }
@@ -970,8 +970,8 @@
                   "id": "8a42bcdbae87",
                   "kind": "cell",
                   "provenance": {
-                    "extractor": "pdfplumber",
-                    "stage": "extract_tables"
+                    "extractor": "bottom_up",
+                    "stage": "extract_tables_v2"
                   },
                   "text": "11"
                 },
@@ -990,8 +990,8 @@
                   "id": "2da7cbc8141d",
                   "kind": "cell",
                   "provenance": {
-                    "extractor": "pdfplumber",
-                    "stage": "extract_tables"
+                    "extractor": "bottom_up",
+                    "stage": "extract_tables_v2"
                   },
                   "text": "Item number 11"
                 },
@@ -1010,8 +1010,8 @@
                   "id": "39ad6825b2e9",
                   "kind": "cell",
                   "provenance": {
-                    "extractor": "pdfplumber",
-                    "stage": "extract_tables"
+                    "extractor": "bottom_up",
+                    "stage": "extract_tables_v2"
                   },
                   "text": "$16.50"
                 }
@@ -1049,8 +1049,8 @@
                   "id": "49a989f0d279",
                   "kind": "cell",
                   "provenance": {
-                    "extractor": "pdfplumber",
-                    "stage": "extract_tables"
+                    "extractor": "bottom_up",
+                    "stage": "extract_tables_v2"
                   },
                   "text": "12"
                 },
@@ -1069,8 +1069,8 @@
                   "id": "512001c79ed0",
                   "kind": "cell",
                   "provenance": {
-                    "extractor": "pdfplumber",
-                    "stage": "extract_tables"
+                    "extractor": "bottom_up",
+                    "stage": "extract_tables_v2"
                   },
                   "text": "Item number 12"
                 },
@@ -1089,8 +1089,8 @@
                   "id": "871998b2eb3b",
                   "kind": "cell",
                   "provenance": {
-                    "extractor": "pdfplumber",
-                    "stage": "extract_tables"
+                    "extractor": "bottom_up",
+                    "stage": "extract_tables_v2"
                   },
                   "text": "$18.00"
                 }
@@ -1128,8 +1128,8 @@
                   "id": "689347a16f98",
                   "kind": "cell",
                   "provenance": {
-                    "extractor": "pdfplumber",
-                    "stage": "extract_tables"
+                    "extractor": "bottom_up",
+                    "stage": "extract_tables_v2"
                   },
                   "text": "13"
                 },
@@ -1148,8 +1148,8 @@
                   "id": "4e574bb5b938",
                   "kind": "cell",
                   "provenance": {
-                    "extractor": "pdfplumber",
-                    "stage": "extract_tables"
+                    "extractor": "bottom_up",
+                    "stage": "extract_tables_v2"
                   },
                   "text": "Item number 13"
                 },
@@ -1168,8 +1168,8 @@
                   "id": "f88926e3f6f4",
                   "kind": "cell",
                   "provenance": {
-                    "extractor": "pdfplumber",
-                    "stage": "extract_tables"
+                    "extractor": "bottom_up",
+                    "stage": "extract_tables_v2"
                   },
                   "text": "$19.50"
                 }
@@ -1207,8 +1207,8 @@
                   "id": "7cc9900e5e47",
                   "kind": "cell",
                   "provenance": {
-                    "extractor": "pdfplumber",
-                    "stage": "extract_tables"
+                    "extractor": "bottom_up",
+                    "stage": "extract_tables_v2"
                   },
                   "text": "14"
                 },
@@ -1227,8 +1227,8 @@
                   "id": "f72b05099720",
                   "kind": "cell",
                   "provenance": {
-                    "extractor": "pdfplumber",
-                    "stage": "extract_tables"
+                    "extractor": "bottom_up",
+                    "stage": "extract_tables_v2"
                   },
                   "text": "Item number 14"
                 },
@@ -1247,8 +1247,8 @@
                   "id": "96aa81224e40",
                   "kind": "cell",
                   "provenance": {
-                    "extractor": "pdfplumber",
-                    "stage": "extract_tables"
+                    "extractor": "bottom_up",
+                    "stage": "extract_tables_v2"
                   },
                   "text": "$21.00"
                 }
@@ -1286,8 +1286,8 @@
                   "id": "def354435dcd",
                   "kind": "cell",
                   "provenance": {
-                    "extractor": "pdfplumber",
-                    "stage": "extract_tables"
+                    "extractor": "bottom_up",
+                    "stage": "extract_tables_v2"
                   },
                   "text": "15"
                 },
@@ -1306,8 +1306,8 @@
                   "id": "b7c187328bff",
                   "kind": "cell",
                   "provenance": {
-                    "extractor": "pdfplumber",
-                    "stage": "extract_tables"
+                    "extractor": "bottom_up",
+                    "stage": "extract_tables_v2"
                   },
                   "text": "Item number 15"
                 },
@@ -1326,8 +1326,8 @@
                   "id": "8585ca601c15",
                   "kind": "cell",
                   "provenance": {
-                    "extractor": "pdfplumber",
-                    "stage": "extract_tables"
+                    "extractor": "bottom_up",
+                    "stage": "extract_tables_v2"
                   },
                   "text": "$22.50"
                 }
@@ -1365,8 +1365,8 @@
                   "id": "4d2995ddd7a9",
                   "kind": "cell",
                   "provenance": {
-                    "extractor": "pdfplumber",
-                    "stage": "extract_tables"
+                    "extractor": "bottom_up",
+                    "stage": "extract_tables_v2"
                   },
                   "text": "16"
                 },
@@ -1385,8 +1385,8 @@
                   "id": "e72570c23aea",
                   "kind": "cell",
                   "provenance": {
-                    "extractor": "pdfplumber",
-                    "stage": "extract_tables"
+                    "extractor": "bottom_up",
+                    "stage": "extract_tables_v2"
                   },
                   "text": "Item number 16"
                 },
@@ -1405,8 +1405,8 @@
                   "id": "e5a40bc5beaf",
                   "kind": "cell",
                   "provenance": {
-                    "extractor": "pdfplumber",
-                    "stage": "extract_tables"
+                    "extractor": "bottom_up",
+                    "stage": "extract_tables_v2"
                   },
                   "text": "$24.00"
                 }
@@ -1444,8 +1444,8 @@
                   "id": "d0993e2cc082",
                   "kind": "cell",
                   "provenance": {
-                    "extractor": "pdfplumber",
-                    "stage": "extract_tables"
+                    "extractor": "bottom_up",
+                    "stage": "extract_tables_v2"
                   },
                   "text": "17"
                 },
@@ -1464,8 +1464,8 @@
                   "id": "c1da9ae1099a",
                   "kind": "cell",
                   "provenance": {
-                    "extractor": "pdfplumber",
-                    "stage": "extract_tables"
+                    "extractor": "bottom_up",
+                    "stage": "extract_tables_v2"
                   },
                   "text": "Item number 17"
                 },
@@ -1484,8 +1484,8 @@
                   "id": "fe0f431e537c",
                   "kind": "cell",
                   "provenance": {
-                    "extractor": "pdfplumber",
-                    "stage": "extract_tables"
+                    "extractor": "bottom_up",
+                    "stage": "extract_tables_v2"
                   },
                   "text": "$25.50"
                 }
@@ -1523,8 +1523,8 @@
                   "id": "2bc997d20bdd",
                   "kind": "cell",
                   "provenance": {
-                    "extractor": "pdfplumber",
-                    "stage": "extract_tables"
+                    "extractor": "bottom_up",
+                    "stage": "extract_tables_v2"
                   },
                   "text": "18"
                 },
@@ -1543,8 +1543,8 @@
                   "id": "3af00bbcc216",
                   "kind": "cell",
                   "provenance": {
-                    "extractor": "pdfplumber",
-                    "stage": "extract_tables"
+                    "extractor": "bottom_up",
+                    "stage": "extract_tables_v2"
                   },
                   "text": "Item number 18"
                 },
@@ -1563,8 +1563,8 @@
                   "id": "41a4b5a98e49",
                   "kind": "cell",
                   "provenance": {
-                    "extractor": "pdfplumber",
-                    "stage": "extract_tables"
+                    "extractor": "bottom_up",
+                    "stage": "extract_tables_v2"
                   },
                   "text": "$27.00"
                 }
@@ -1602,8 +1602,8 @@
                   "id": "fbe42feb0544",
                   "kind": "cell",
                   "provenance": {
-                    "extractor": "pdfplumber",
-                    "stage": "extract_tables"
+                    "extractor": "bottom_up",
+                    "stage": "extract_tables_v2"
                   },
                   "text": "19"
                 },
@@ -1622,8 +1622,8 @@
                   "id": "6263c262011d",
                   "kind": "cell",
                   "provenance": {
-                    "extractor": "pdfplumber",
-                    "stage": "extract_tables"
+                    "extractor": "bottom_up",
+                    "stage": "extract_tables_v2"
                   },
                   "text": "Item number 19"
                 },
@@ -1642,8 +1642,8 @@
                   "id": "568393c30e2a",
                   "kind": "cell",
                   "provenance": {
-                    "extractor": "pdfplumber",
-                    "stage": "extract_tables"
+                    "extractor": "bottom_up",
+                    "stage": "extract_tables_v2"
                   },
                   "text": "$28.50"
                 }
@@ -1681,8 +1681,8 @@
                   "id": "fdce2f386498",
                   "kind": "cell",
                   "provenance": {
-                    "extractor": "pdfplumber",
-                    "stage": "extract_tables"
+                    "extractor": "bottom_up",
+                    "stage": "extract_tables_v2"
                   },
                   "text": "20"
                 },
@@ -1701,8 +1701,8 @@
                   "id": "8a58c29fbe1f",
                   "kind": "cell",
                   "provenance": {
-                    "extractor": "pdfplumber",
-                    "stage": "extract_tables"
+                    "extractor": "bottom_up",
+                    "stage": "extract_tables_v2"
                   },
                   "text": "Item number 20"
                 },
@@ -1721,8 +1721,8 @@
                   "id": "a529380d865f",
                   "kind": "cell",
                   "provenance": {
-                    "extractor": "pdfplumber",
-                    "stage": "extract_tables"
+                    "extractor": "bottom_up",
+                    "stage": "extract_tables_v2"
                   },
                   "text": "$30.00"
                 }
@@ -1760,8 +1760,8 @@
                   "id": "6647ddbb0d80",
                   "kind": "cell",
                   "provenance": {
-                    "extractor": "pdfplumber",
-                    "stage": "extract_tables"
+                    "extractor": "bottom_up",
+                    "stage": "extract_tables_v2"
                   },
                   "text": "21"
                 },
@@ -1780,8 +1780,8 @@
                   "id": "b75eb0e87e1a",
                   "kind": "cell",
                   "provenance": {
-                    "extractor": "pdfplumber",
-                    "stage": "extract_tables"
+                    "extractor": "bottom_up",
+                    "stage": "extract_tables_v2"
                   },
                   "text": "Item number 21"
                 },
@@ -1800,8 +1800,8 @@
                   "id": "091d607cd325",
                   "kind": "cell",
                   "provenance": {
-                    "extractor": "pdfplumber",
-                    "stage": "extract_tables"
+                    "extractor": "bottom_up",
+                    "stage": "extract_tables_v2"
                   },
                   "text": "$31.50"
                 }
@@ -1839,8 +1839,8 @@
                   "id": "14bcdbe8933f",
                   "kind": "cell",
                   "provenance": {
-                    "extractor": "pdfplumber",
-                    "stage": "extract_tables"
+                    "extractor": "bottom_up",
+                    "stage": "extract_tables_v2"
                   },
                   "text": "22"
                 },
@@ -1859,8 +1859,8 @@
                   "id": "c8260b91c376",
                   "kind": "cell",
                   "provenance": {
-                    "extractor": "pdfplumber",
-                    "stage": "extract_tables"
+                    "extractor": "bottom_up",
+                    "stage": "extract_tables_v2"
                   },
                   "text": "Item number 22"
                 },
@@ -1879,8 +1879,8 @@
                   "id": "f25cb7022c0f",
                   "kind": "cell",
                   "provenance": {
-                    "extractor": "pdfplumber",
-                    "stage": "extract_tables"
+                    "extractor": "bottom_up",
+                    "stage": "extract_tables_v2"
                   },
                   "text": "$33.00"
                 }
@@ -1918,8 +1918,8 @@
                   "id": "4d3c1da6444a",
                   "kind": "cell",
                   "provenance": {
-                    "extractor": "pdfplumber",
-                    "stage": "extract_tables"
+                    "extractor": "bottom_up",
+                    "stage": "extract_tables_v2"
                   },
                   "text": "23"
                 },
@@ -1938,8 +1938,8 @@
                   "id": "4ac521b7bac7",
                   "kind": "cell",
                   "provenance": {
-                    "extractor": "pdfplumber",
-                    "stage": "extract_tables"
+                    "extractor": "bottom_up",
+                    "stage": "extract_tables_v2"
                   },
                   "text": "Item number 23"
                 },
@@ -1958,8 +1958,8 @@
                   "id": "6baa517a8707",
                   "kind": "cell",
                   "provenance": {
-                    "extractor": "pdfplumber",
-                    "stage": "extract_tables"
+                    "extractor": "bottom_up",
+                    "stage": "extract_tables_v2"
                   },
                   "text": "$34.50"
                 }
@@ -1997,8 +1997,8 @@
                   "id": "024721747132",
                   "kind": "cell",
                   "provenance": {
-                    "extractor": "pdfplumber",
-                    "stage": "extract_tables"
+                    "extractor": "bottom_up",
+                    "stage": "extract_tables_v2"
                   },
                   "text": "24"
                 },
@@ -2017,8 +2017,8 @@
                   "id": "e21ae54ab2a6",
                   "kind": "cell",
                   "provenance": {
-                    "extractor": "pdfplumber",
-                    "stage": "extract_tables"
+                    "extractor": "bottom_up",
+                    "stage": "extract_tables_v2"
                   },
                   "text": "Item number 24"
                 },
@@ -2037,8 +2037,8 @@
                   "id": "f277edc921af",
                   "kind": "cell",
                   "provenance": {
-                    "extractor": "pdfplumber",
-                    "stage": "extract_tables"
+                    "extractor": "bottom_up",
+                    "stage": "extract_tables_v2"
                   },
                   "text": "$36.00"
                 }
@@ -2076,8 +2076,8 @@
                   "id": "3cd6678e10d5",
                   "kind": "cell",
                   "provenance": {
-                    "extractor": "pdfplumber",
-                    "stage": "extract_tables"
+                    "extractor": "bottom_up",
+                    "stage": "extract_tables_v2"
                   },
                   "text": "25"
                 },
@@ -2096,8 +2096,8 @@
                   "id": "a282bf709386",
                   "kind": "cell",
                   "provenance": {
-                    "extractor": "pdfplumber",
-                    "stage": "extract_tables"
+                    "extractor": "bottom_up",
+                    "stage": "extract_tables_v2"
                   },
                   "text": "Item number 25"
                 },
@@ -2116,8 +2116,8 @@
                   "id": "3b70654b0cb4",
                   "kind": "cell",
                   "provenance": {
-                    "extractor": "pdfplumber",
-                    "stage": "extract_tables"
+                    "extractor": "bottom_up",
+                    "stage": "extract_tables_v2"
                   },
                   "text": "$37.50"
                 }
@@ -2155,8 +2155,8 @@
                   "id": "b771a45b2913",
                   "kind": "cell",
                   "provenance": {
-                    "extractor": "pdfplumber",
-                    "stage": "extract_tables"
+                    "extractor": "bottom_up",
+                    "stage": "extract_tables_v2"
                   },
                   "text": "26"
                 },
@@ -2175,8 +2175,8 @@
                   "id": "bfa9100f02b6",
                   "kind": "cell",
                   "provenance": {
-                    "extractor": "pdfplumber",
-                    "stage": "extract_tables"
+                    "extractor": "bottom_up",
+                    "stage": "extract_tables_v2"
                   },
                   "text": "Item number 26"
                 },
@@ -2195,8 +2195,8 @@
                   "id": "6237463ea5a6",
                   "kind": "cell",
                   "provenance": {
-                    "extractor": "pdfplumber",
-                    "stage": "extract_tables"
+                    "extractor": "bottom_up",
+                    "stage": "extract_tables_v2"
                   },
                   "text": "$39.00"
                 }
@@ -2234,8 +2234,8 @@
                   "id": "a97b15ab11c3",
                   "kind": "cell",
                   "provenance": {
-                    "extractor": "pdfplumber",
-                    "stage": "extract_tables"
+                    "extractor": "bottom_up",
+                    "stage": "extract_tables_v2"
                   },
                   "text": "27"
                 },
@@ -2254,8 +2254,8 @@
                   "id": "a345debe0994",
                   "kind": "cell",
                   "provenance": {
-                    "extractor": "pdfplumber",
-                    "stage": "extract_tables"
+                    "extractor": "bottom_up",
+                    "stage": "extract_tables_v2"
                   },
                   "text": "Item number 27"
                 },
@@ -2274,8 +2274,8 @@
                   "id": "43b62e5c19b1",
                   "kind": "cell",
                   "provenance": {
-                    "extractor": "pdfplumber",
-                    "stage": "extract_tables"
+                    "extractor": "bottom_up",
+                    "stage": "extract_tables_v2"
                   },
                   "text": "$40.50"
                 }
@@ -2313,8 +2313,8 @@
                   "id": "aabe290e225c",
                   "kind": "cell",
                   "provenance": {
-                    "extractor": "pdfplumber",
-                    "stage": "extract_tables"
+                    "extractor": "bottom_up",
+                    "stage": "extract_tables_v2"
                   },
                   "text": "28"
                 },
@@ -2333,8 +2333,8 @@
                   "id": "0a56e262a3f0",
                   "kind": "cell",
                   "provenance": {
-                    "extractor": "pdfplumber",
-                    "stage": "extract_tables"
+                    "extractor": "bottom_up",
+                    "stage": "extract_tables_v2"
                   },
                   "text": "Item number 28"
                 },
@@ -2353,8 +2353,8 @@
                   "id": "8113986b360b",
                   "kind": "cell",
                   "provenance": {
-                    "extractor": "pdfplumber",
-                    "stage": "extract_tables"
+                    "extractor": "bottom_up",
+                    "stage": "extract_tables_v2"
                   },
                   "text": "$42.00"
                 }
@@ -2392,8 +2392,8 @@
                   "id": "5ed77f34f033",
                   "kind": "cell",
                   "provenance": {
-                    "extractor": "pdfplumber",
-                    "stage": "extract_tables"
+                    "extractor": "bottom_up",
+                    "stage": "extract_tables_v2"
                   },
                   "text": "29"
                 },
@@ -2412,8 +2412,8 @@
                   "id": "6979fbe3a0ba",
                   "kind": "cell",
                   "provenance": {
-                    "extractor": "pdfplumber",
-                    "stage": "extract_tables"
+                    "extractor": "bottom_up",
+                    "stage": "extract_tables_v2"
                   },
                   "text": "Item number 29"
                 },
@@ -2432,8 +2432,8 @@
                   "id": "931c3ce34446",
                   "kind": "cell",
                   "provenance": {
-                    "extractor": "pdfplumber",
-                    "stage": "extract_tables"
+                    "extractor": "bottom_up",
+                    "stage": "extract_tables_v2"
                   },
                   "text": "$43.50"
                 }
@@ -2471,8 +2471,8 @@
                   "id": "ef42959d4da2",
                   "kind": "cell",
                   "provenance": {
-                    "extractor": "pdfplumber",
-                    "stage": "extract_tables"
+                    "extractor": "bottom_up",
+                    "stage": "extract_tables_v2"
                   },
                   "text": "30"
                 },
@@ -2491,8 +2491,8 @@
                   "id": "ab7d1bc77961",
                   "kind": "cell",
                   "provenance": {
-                    "extractor": "pdfplumber",
-                    "stage": "extract_tables"
+                    "extractor": "bottom_up",
+                    "stage": "extract_tables_v2"
                   },
                   "text": "Item number 30"
                 },
@@ -2511,8 +2511,8 @@
                   "id": "38d0750800fb",
                   "kind": "cell",
                   "provenance": {
-                    "extractor": "pdfplumber",
-                    "stage": "extract_tables"
+                    "extractor": "bottom_up",
+                    "stage": "extract_tables_v2"
                   },
                   "text": "$45.00"
                 }
@@ -2550,8 +2550,8 @@
                   "id": "41934e5d38a5",
                   "kind": "cell",
                   "provenance": {
-                    "extractor": "pdfplumber",
-                    "stage": "extract_tables"
+                    "extractor": "bottom_up",
+                    "stage": "extract_tables_v2"
                   },
                   "text": "31"
                 },
@@ -2570,8 +2570,8 @@
                   "id": "0e43550f25f7",
                   "kind": "cell",
                   "provenance": {
-                    "extractor": "pdfplumber",
-                    "stage": "extract_tables"
+                    "extractor": "bottom_up",
+                    "stage": "extract_tables_v2"
                   },
                   "text": "Item number 31"
                 },
@@ -2590,8 +2590,8 @@
                   "id": "c5062d193860",
                   "kind": "cell",
                   "provenance": {
-                    "extractor": "pdfplumber",
-                    "stage": "extract_tables"
+                    "extractor": "bottom_up",
+                    "stage": "extract_tables_v2"
                   },
                   "text": "$46.50"
                 }
@@ -2629,8 +2629,8 @@
                   "id": "e382c05e6cf0",
                   "kind": "cell",
                   "provenance": {
-                    "extractor": "pdfplumber",
-                    "stage": "extract_tables"
+                    "extractor": "bottom_up",
+                    "stage": "extract_tables_v2"
                   },
                   "text": "32"
                 },
@@ -2649,8 +2649,8 @@
                   "id": "3b0e6c4e4408",
                   "kind": "cell",
                   "provenance": {
-                    "extractor": "pdfplumber",
-                    "stage": "extract_tables"
+                    "extractor": "bottom_up",
+                    "stage": "extract_tables_v2"
                   },
                   "text": "Item number 32"
                 },
@@ -2669,8 +2669,8 @@
                   "id": "69a9f4516a09",
                   "kind": "cell",
                   "provenance": {
-                    "extractor": "pdfplumber",
-                    "stage": "extract_tables"
+                    "extractor": "bottom_up",
+                    "stage": "extract_tables_v2"
                   },
                   "text": "$48.00"
                 }
@@ -2708,8 +2708,8 @@
                   "id": "b5c66aa60355",
                   "kind": "cell",
                   "provenance": {
-                    "extractor": "pdfplumber",
-                    "stage": "extract_tables"
+                    "extractor": "bottom_up",
+                    "stage": "extract_tables_v2"
                   },
                   "text": "33"
                 },
@@ -2728,8 +2728,8 @@
                   "id": "23e7b2c03b42",
                   "kind": "cell",
                   "provenance": {
-                    "extractor": "pdfplumber",
-                    "stage": "extract_tables"
+                    "extractor": "bottom_up",
+                    "stage": "extract_tables_v2"
                   },
                   "text": "Item number 33"
                 },
@@ -2748,8 +2748,8 @@
                   "id": "f2af8d5df11c",
                   "kind": "cell",
                   "provenance": {
-                    "extractor": "pdfplumber",
-                    "stage": "extract_tables"
+                    "extractor": "bottom_up",
+                    "stage": "extract_tables_v2"
                   },
                   "text": "$49.50"
                 }
@@ -2787,8 +2787,8 @@
                   "id": "aaf4b8411e63",
                   "kind": "cell",
                   "provenance": {
-                    "extractor": "pdfplumber",
-                    "stage": "extract_tables"
+                    "extractor": "bottom_up",
+                    "stage": "extract_tables_v2"
                   },
                   "text": "34"
                 },
@@ -2807,8 +2807,8 @@
                   "id": "7afb5708c2f8",
                   "kind": "cell",
                   "provenance": {
-                    "extractor": "pdfplumber",
-                    "stage": "extract_tables"
+                    "extractor": "bottom_up",
+                    "stage": "extract_tables_v2"
                   },
                   "text": "Item number 34"
                 },
@@ -2827,8 +2827,8 @@
                   "id": "14d393473dbc",
                   "kind": "cell",
                   "provenance": {
-                    "extractor": "pdfplumber",
-                    "stage": "extract_tables"
+                    "extractor": "bottom_up",
+                    "stage": "extract_tables_v2"
                   },
                   "text": "$51.00"
                 }
@@ -2866,8 +2866,8 @@
                   "id": "e3c26f25b908",
                   "kind": "cell",
                   "provenance": {
-                    "extractor": "pdfplumber",
-                    "stage": "extract_tables"
+                    "extractor": "bottom_up",
+                    "stage": "extract_tables_v2"
                   },
                   "text": "35"
                 },
@@ -2886,8 +2886,8 @@
                   "id": "be2e39d67c81",
                   "kind": "cell",
                   "provenance": {
-                    "extractor": "pdfplumber",
-                    "stage": "extract_tables"
+                    "extractor": "bottom_up",
+                    "stage": "extract_tables_v2"
                   },
                   "text": "Item number 35"
                 },
@@ -2906,8 +2906,8 @@
                   "id": "27f8909446a6",
                   "kind": "cell",
                   "provenance": {
-                    "extractor": "pdfplumber",
-                    "stage": "extract_tables"
+                    "extractor": "bottom_up",
+                    "stage": "extract_tables_v2"
                   },
                   "text": "$52.50"
                 }
@@ -2945,8 +2945,8 @@
                   "id": "110e6234a977",
                   "kind": "cell",
                   "provenance": {
-                    "extractor": "pdfplumber",
-                    "stage": "extract_tables"
+                    "extractor": "bottom_up",
+                    "stage": "extract_tables_v2"
                   },
                   "text": "36"
                 },
@@ -2965,8 +2965,8 @@
                   "id": "500873b7d183",
                   "kind": "cell",
                   "provenance": {
-                    "extractor": "pdfplumber",
-                    "stage": "extract_tables"
+                    "extractor": "bottom_up",
+                    "stage": "extract_tables_v2"
                   },
                   "text": "Item number 36"
                 },
@@ -2985,8 +2985,8 @@
                   "id": "1b74e625dde7",
                   "kind": "cell",
                   "provenance": {
-                    "extractor": "pdfplumber",
-                    "stage": "extract_tables"
+                    "extractor": "bottom_up",
+                    "stage": "extract_tables_v2"
                   },
                   "text": "$54.00"
                 }
@@ -3024,8 +3024,8 @@
                   "id": "acbee9515a7d",
                   "kind": "cell",
                   "provenance": {
-                    "extractor": "pdfplumber",
-                    "stage": "extract_tables"
+                    "extractor": "bottom_up",
+                    "stage": "extract_tables_v2"
                   },
                   "text": "37"
                 },
@@ -3044,8 +3044,8 @@
                   "id": "054280484ade",
                   "kind": "cell",
                   "provenance": {
-                    "extractor": "pdfplumber",
-                    "stage": "extract_tables"
+                    "extractor": "bottom_up",
+                    "stage": "extract_tables_v2"
                   },
                   "text": "Item number 37"
                 },
@@ -3064,8 +3064,8 @@
                   "id": "3664112bf1ca",
                   "kind": "cell",
                   "provenance": {
-                    "extractor": "pdfplumber",
-                    "stage": "extract_tables"
+                    "extractor": "bottom_up",
+                    "stage": "extract_tables_v2"
                   },
                   "text": "$55.50"
                 }
@@ -3103,8 +3103,8 @@
                   "id": "e8b931884b4c",
                   "kind": "cell",
                   "provenance": {
-                    "extractor": "pdfplumber",
-                    "stage": "extract_tables"
+                    "extractor": "bottom_up",
+                    "stage": "extract_tables_v2"
                   },
                   "text": "38"
                 },
@@ -3123,8 +3123,8 @@
                   "id": "c3fd7cd19e4b",
                   "kind": "cell",
                   "provenance": {
-                    "extractor": "pdfplumber",
-                    "stage": "extract_tables"
+                    "extractor": "bottom_up",
+                    "stage": "extract_tables_v2"
                   },
                   "text": "Item number 38"
                 },
@@ -3143,8 +3143,8 @@
                   "id": "9a048497852a",
                   "kind": "cell",
                   "provenance": {
-                    "extractor": "pdfplumber",
-                    "stage": "extract_tables"
+                    "extractor": "bottom_up",
+                    "stage": "extract_tables_v2"
                   },
                   "text": "$57.00"
                 }
@@ -3182,8 +3182,8 @@
                   "id": "b317561999f6",
                   "kind": "cell",
                   "provenance": {
-                    "extractor": "pdfplumber",
-                    "stage": "extract_tables"
+                    "extractor": "bottom_up",
+                    "stage": "extract_tables_v2"
                   },
                   "text": "39"
                 },
@@ -3202,8 +3202,8 @@
                   "id": "6616023e4ae9",
                   "kind": "cell",
                   "provenance": {
-                    "extractor": "pdfplumber",
-                    "stage": "extract_tables"
+                    "extractor": "bottom_up",
+                    "stage": "extract_tables_v2"
                   },
                   "text": "Item number 39"
                 },
@@ -3222,8 +3222,8 @@
                   "id": "53300120d1da",
                   "kind": "cell",
                   "provenance": {
-                    "extractor": "pdfplumber",
-                    "stage": "extract_tables"
+                    "extractor": "bottom_up",
+                    "stage": "extract_tables_v2"
                   },
                   "text": "$58.50"
                 }
@@ -3261,8 +3261,8 @@
                   "id": "db4f0579687b",
                   "kind": "cell",
                   "provenance": {
-                    "extractor": "pdfplumber",
-                    "stage": "extract_tables"
+                    "extractor": "bottom_up",
+                    "stage": "extract_tables_v2"
                   },
                   "text": "40"
                 },
@@ -3281,8 +3281,8 @@
                   "id": "b5611ffde810",
                   "kind": "cell",
                   "provenance": {
-                    "extractor": "pdfplumber",
-                    "stage": "extract_tables"
+                    "extractor": "bottom_up",
+                    "stage": "extract_tables_v2"
                   },
                   "text": "Item number 40"
                 },
@@ -3301,8 +3301,8 @@
                   "id": "87ce934fc038",
                   "kind": "cell",
                   "provenance": {
-                    "extractor": "pdfplumber",
-                    "stage": "extract_tables"
+                    "extractor": "bottom_up",
+                    "stage": "extract_tables_v2"
                   },
                   "text": "$60.00"
                 }
@@ -3340,8 +3340,8 @@
                   "id": "d4aa0d17738c",
                   "kind": "cell",
                   "provenance": {
-                    "extractor": "pdfplumber",
-                    "stage": "extract_tables"
+                    "extractor": "bottom_up",
+                    "stage": "extract_tables_v2"
                   },
                   "text": "41"
                 },
@@ -3360,8 +3360,8 @@
                   "id": "de698ad63bc3",
                   "kind": "cell",
                   "provenance": {
-                    "extractor": "pdfplumber",
-                    "stage": "extract_tables"
+                    "extractor": "bottom_up",
+                    "stage": "extract_tables_v2"
                   },
                   "text": "Item number 41"
                 },
@@ -3380,8 +3380,8 @@
                   "id": "6295d411612c",
                   "kind": "cell",
                   "provenance": {
-                    "extractor": "pdfplumber",
-                    "stage": "extract_tables"
+                    "extractor": "bottom_up",
+                    "stage": "extract_tables_v2"
                   },
                   "text": "$61.50"
                 }
@@ -3419,8 +3419,8 @@
                   "id": "44d607c2c020",
                   "kind": "cell",
                   "provenance": {
-                    "extractor": "pdfplumber",
-                    "stage": "extract_tables"
+                    "extractor": "bottom_up",
+                    "stage": "extract_tables_v2"
                   },
                   "text": "42"
                 },
@@ -3439,8 +3439,8 @@
                   "id": "68f18420e442",
                   "kind": "cell",
                   "provenance": {
-                    "extractor": "pdfplumber",
-                    "stage": "extract_tables"
+                    "extractor": "bottom_up",
+                    "stage": "extract_tables_v2"
                   },
                   "text": "Item number 42"
                 },
@@ -3459,8 +3459,8 @@
                   "id": "6a9b4e3e090d",
                   "kind": "cell",
                   "provenance": {
-                    "extractor": "pdfplumber",
-                    "stage": "extract_tables"
+                    "extractor": "bottom_up",
+                    "stage": "extract_tables_v2"
                   },
                   "text": "$63.00"
                 }
@@ -3498,8 +3498,8 @@
                   "id": "dcdba7eeaee9",
                   "kind": "cell",
                   "provenance": {
-                    "extractor": "pdfplumber",
-                    "stage": "extract_tables"
+                    "extractor": "bottom_up",
+                    "stage": "extract_tables_v2"
                   },
                   "text": "43"
                 },
@@ -3518,8 +3518,8 @@
                   "id": "f8d837ebb2cb",
                   "kind": "cell",
                   "provenance": {
-                    "extractor": "pdfplumber",
-                    "stage": "extract_tables"
+                    "extractor": "bottom_up",
+                    "stage": "extract_tables_v2"
                   },
                   "text": "Item number 43"
                 },
@@ -3538,8 +3538,8 @@
                   "id": "627f958545a4",
                   "kind": "cell",
                   "provenance": {
-                    "extractor": "pdfplumber",
-                    "stage": "extract_tables"
+                    "extractor": "bottom_up",
+                    "stage": "extract_tables_v2"
                   },
                   "text": "$64.50"
                 }
@@ -3577,8 +3577,8 @@
                   "id": "b3b5d4f0acb0",
                   "kind": "cell",
                   "provenance": {
-                    "extractor": "pdfplumber",
-                    "stage": "extract_tables"
+                    "extractor": "bottom_up",
+                    "stage": "extract_tables_v2"
                   },
                   "text": "44"
                 },
@@ -3597,8 +3597,8 @@
                   "id": "d77c685bb460",
                   "kind": "cell",
                   "provenance": {
-                    "extractor": "pdfplumber",
-                    "stage": "extract_tables"
+                    "extractor": "bottom_up",
+                    "stage": "extract_tables_v2"
                   },
                   "text": "Item number 44"
                 },
@@ -3617,8 +3617,8 @@
                   "id": "b58a29199de5",
                   "kind": "cell",
                   "provenance": {
-                    "extractor": "pdfplumber",
-                    "stage": "extract_tables"
+                    "extractor": "bottom_up",
+                    "stage": "extract_tables_v2"
                   },
                   "text": "$66.00"
                 }
@@ -3656,8 +3656,8 @@
                   "id": "ed676691db78",
                   "kind": "cell",
                   "provenance": {
-                    "extractor": "pdfplumber",
-                    "stage": "extract_tables"
+                    "extractor": "bottom_up",
+                    "stage": "extract_tables_v2"
                   },
                   "text": "45"
                 },
@@ -3676,8 +3676,8 @@
                   "id": "f9bbd36ee221",
                   "kind": "cell",
                   "provenance": {
-                    "extractor": "pdfplumber",
-                    "stage": "extract_tables"
+                    "extractor": "bottom_up",
+                    "stage": "extract_tables_v2"
                   },
                   "text": "Item number 45"
                 },
@@ -3696,8 +3696,8 @@
                   "id": "1277a59642bf",
                   "kind": "cell",
                   "provenance": {
-                    "extractor": "pdfplumber",
-                    "stage": "extract_tables"
+                    "extractor": "bottom_up",
+                    "stage": "extract_tables_v2"
                   },
                   "text": "$67.50"
                 }
@@ -3735,8 +3735,8 @@
                   "id": "511569ffb264",
                   "kind": "cell",
                   "provenance": {
-                    "extractor": "pdfplumber",
-                    "stage": "extract_tables"
+                    "extractor": "bottom_up",
+                    "stage": "extract_tables_v2"
                   },
                   "text": "46"
                 },
@@ -3755,8 +3755,8 @@
                   "id": "2e451490165b",
                   "kind": "cell",
                   "provenance": {
-                    "extractor": "pdfplumber",
-                    "stage": "extract_tables"
+                    "extractor": "bottom_up",
+                    "stage": "extract_tables_v2"
                   },
                   "text": "Item number 46"
                 },
@@ -3775,8 +3775,8 @@
                   "id": "cb12d540372d",
                   "kind": "cell",
                   "provenance": {
-                    "extractor": "pdfplumber",
-                    "stage": "extract_tables"
+                    "extractor": "bottom_up",
+                    "stage": "extract_tables_v2"
                   },
                   "text": "$69.00"
                 }
@@ -3814,8 +3814,8 @@
                   "id": "c4e16fb34ab1",
                   "kind": "cell",
                   "provenance": {
-                    "extractor": "pdfplumber",
-                    "stage": "extract_tables"
+                    "extractor": "bottom_up",
+                    "stage": "extract_tables_v2"
                   },
                   "text": "47"
                 },
@@ -3834,8 +3834,8 @@
                   "id": "e45203756a6d",
                   "kind": "cell",
                   "provenance": {
-                    "extractor": "pdfplumber",
-                    "stage": "extract_tables"
+                    "extractor": "bottom_up",
+                    "stage": "extract_tables_v2"
                   },
                   "text": "Item number 47"
                 },
@@ -3854,8 +3854,8 @@
                   "id": "64d13c18cbba",
                   "kind": "cell",
                   "provenance": {
-                    "extractor": "pdfplumber",
-                    "stage": "extract_tables"
+                    "extractor": "bottom_up",
+                    "stage": "extract_tables_v2"
                   },
                   "text": "$70.50"
                 }
@@ -3893,8 +3893,8 @@
                   "id": "f5da2418032f",
                   "kind": "cell",
                   "provenance": {
-                    "extractor": "pdfplumber",
-                    "stage": "extract_tables"
+                    "extractor": "bottom_up",
+                    "stage": "extract_tables_v2"
                   },
                   "text": "48"
                 },
@@ -3913,8 +3913,8 @@
                   "id": "dc05a88a7ceb",
                   "kind": "cell",
                   "provenance": {
-                    "extractor": "pdfplumber",
-                    "stage": "extract_tables"
+                    "extractor": "bottom_up",
+                    "stage": "extract_tables_v2"
                   },
                   "text": "Item number 48"
                 },
@@ -3933,8 +3933,8 @@
                   "id": "466743ac0b60",
                   "kind": "cell",
                   "provenance": {
-                    "extractor": "pdfplumber",
-                    "stage": "extract_tables"
+                    "extractor": "bottom_up",
+                    "stage": "extract_tables_v2"
                   },
                   "text": "$72.00"
                 }
@@ -3972,8 +3972,8 @@
                   "id": "8004384f8708",
                   "kind": "cell",
                   "provenance": {
-                    "extractor": "pdfplumber",
-                    "stage": "extract_tables"
+                    "extractor": "bottom_up",
+                    "stage": "extract_tables_v2"
                   },
                   "text": "49"
                 },
@@ -3992,8 +3992,8 @@
                   "id": "573c09050594",
                   "kind": "cell",
                   "provenance": {
-                    "extractor": "pdfplumber",
-                    "stage": "extract_tables"
+                    "extractor": "bottom_up",
+                    "stage": "extract_tables_v2"
                   },
                   "text": "Item number 49"
                 },
@@ -4012,8 +4012,8 @@
                   "id": "d27d50ca6f9a",
                   "kind": "cell",
                   "provenance": {
-                    "extractor": "pdfplumber",
-                    "stage": "extract_tables"
+                    "extractor": "bottom_up",
+                    "stage": "extract_tables_v2"
                   },
                   "text": "$73.50"
                 }
@@ -4051,8 +4051,8 @@
                   "id": "47626a0b6b56",
                   "kind": "cell",
                   "provenance": {
-                    "extractor": "pdfplumber",
-                    "stage": "extract_tables"
+                    "extractor": "bottom_up",
+                    "stage": "extract_tables_v2"
                   },
                   "text": "50"
                 },
@@ -4071,8 +4071,8 @@
                   "id": "f3e74f5e1a31",
                   "kind": "cell",
                   "provenance": {
-                    "extractor": "pdfplumber",
-                    "stage": "extract_tables"
+                    "extractor": "bottom_up",
+                    "stage": "extract_tables_v2"
                   },
                   "text": "Item number 50"
                 },
@@ -4091,8 +4091,8 @@
                   "id": "cb43dfc613e4",
                   "kind": "cell",
                   "provenance": {
-                    "extractor": "pdfplumber",
-                    "stage": "extract_tables"
+                    "extractor": "bottom_up",
+                    "stage": "extract_tables_v2"
                   },
                   "text": "$75.00"
                 }
@@ -4106,7 +4106,7 @@
           "id": "021b77859a79",
           "kind": "table",
           "provenance": {
-            "extractor": "pdfplumber+stitch",
+            "extractor": "bottom_up+stitch",
             "stage": "stitch_pages"
           },
           "text": null

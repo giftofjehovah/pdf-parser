@@ -107,8 +107,8 @@
                   "id": "f165b34a77da",
                   "kind": "cell",
                   "provenance": {
-                    "extractor": "pdfplumber",
-                    "stage": "extract_tables"
+                    "extractor": "bottom_up",
+                    "stage": "extract_tables_v2"
                   },
                   "text": "Region"
                 },
@@ -127,8 +127,8 @@
                   "id": "e21c9755c25e",
                   "kind": "cell",
                   "provenance": {
-                    "extractor": "pdfplumber",
-                    "stage": "extract_tables"
+                    "extractor": "bottom_up",
+                    "stage": "extract_tables_v2"
                   },
                   "text": "Q1"
                 },
@@ -147,8 +147,8 @@
                   "id": "3d881dfcaff4",
                   "kind": "cell",
                   "provenance": {
-                    "extractor": "pdfplumber",
-                    "stage": "extract_tables"
+                    "extractor": "bottom_up",
+                    "stage": "extract_tables_v2"
                   },
                   "text": "Q2"
                 },
@@ -167,8 +167,8 @@
                   "id": "662a3f2ec808",
                   "kind": "cell",
                   "provenance": {
-                    "extractor": "pdfplumber",
-                    "stage": "extract_tables"
+                    "extractor": "bottom_up",
+                    "stage": "extract_tables_v2"
                   },
                   "text": "Q3"
                 }
@@ -206,8 +206,8 @@
                   "id": "87106d56ea6f",
                   "kind": "cell",
                   "provenance": {
-                    "extractor": "pdfplumber",
-                    "stage": "extract_tables"
+                    "extractor": "bottom_up",
+                    "stage": "extract_tables_v2"
                   },
                   "text": "Pacific\nNorthwest\nDivision"
                 },
@@ -226,8 +226,8 @@
                   "id": "4126bd6e7178",
                   "kind": "cell",
                   "provenance": {
-                    "extractor": "pdfplumber",
-                    "stage": "extract_tables"
+                    "extractor": "bottom_up",
+                    "stage": "extract_tables_v2"
                   },
                   "text": "100"
                 },
@@ -246,8 +246,8 @@
                   "id": "bb3b0a563d2f",
                   "kind": "cell",
                   "provenance": {
-                    "extractor": "pdfplumber",
-                    "stage": "extract_tables"
+                    "extractor": "bottom_up",
+                    "stage": "extract_tables_v2"
                   },
                   "text": "110"
                 },
@@ -266,8 +266,8 @@
                   "id": "5ef1fe2f446f",
                   "kind": "cell",
                   "provenance": {
-                    "extractor": "pdfplumber",
-                    "stage": "extract_tables"
+                    "extractor": "bottom_up",
+                    "stage": "extract_tables_v2"
                   },
                   "text": "120"
                 }
@@ -306,8 +306,8 @@
                   "id": "cb05633a8dec",
                   "kind": "cell",
                   "provenance": {
-                    "extractor": "pdfplumber",
-                    "stage": "extract_tables"
+                    "extractor": "bottom_up",
+                    "stage": "extract_tables_v2"
                   },
                   "text": ""
                 },
@@ -326,8 +326,8 @@
                   "id": "d6b65db7459e",
                   "kind": "cell",
                   "provenance": {
-                    "extractor": "pdfplumber",
-                    "stage": "extract_tables"
+                    "extractor": "bottom_up",
+                    "stage": "extract_tables_v2"
                   },
                   "text": "200"
                 },
@@ -346,8 +346,8 @@
                   "id": "6da2a087f18c",
                   "kind": "cell",
                   "provenance": {
-                    "extractor": "pdfplumber",
-                    "stage": "extract_tables"
+                    "extractor": "bottom_up",
+                    "stage": "extract_tables_v2"
                   },
                   "text": "210"
                 },
@@ -366,8 +366,8 @@
                   "id": "07f00823342d",
                   "kind": "cell",
                   "provenance": {
-                    "extractor": "pdfplumber",
-                    "stage": "extract_tables"
+                    "extractor": "bottom_up",
+                    "stage": "extract_tables_v2"
                   },
                   "text": "220"
                 }
@@ -406,8 +406,8 @@
                   "id": "84c7945fdfd7",
                   "kind": "cell",
                   "provenance": {
-                    "extractor": "pdfplumber",
-                    "stage": "extract_tables"
+                    "extractor": "bottom_up",
+                    "stage": "extract_tables_v2"
                   },
                   "text": ""
                 },
@@ -426,8 +426,8 @@
                   "id": "0ec446eb9c14",
                   "kind": "cell",
                   "provenance": {
-                    "extractor": "pdfplumber",
-                    "stage": "extract_tables"
+                    "extractor": "bottom_up",
+                    "stage": "extract_tables_v2"
                   },
                   "text": "300"
                 },
@@ -446,8 +446,8 @@
                   "id": "cd4e287fca73",
                   "kind": "cell",
                   "provenance": {
-                    "extractor": "pdfplumber",
-                    "stage": "extract_tables"
+                    "extractor": "bottom_up",
+                    "stage": "extract_tables_v2"
                   },
                   "text": "310"
                 },
@@ -466,8 +466,8 @@
                   "id": "0b6c2e0174ff",
                   "kind": "cell",
                   "provenance": {
-                    "extractor": "pdfplumber",
-                    "stage": "extract_tables"
+                    "extractor": "bottom_up",
+                    "stage": "extract_tables_v2"
                   },
                   "text": "320"
                 }
@@ -505,8 +505,8 @@
                   "id": "600b0ce339fc",
                   "kind": "cell",
                   "provenance": {
-                    "extractor": "pdfplumber",
-                    "stage": "extract_tables"
+                    "extractor": "bottom_up",
+                    "stage": "extract_tables_v2"
                   },
                   "text": "Marketing"
                 },
@@ -525,8 +525,8 @@
                   "id": "18ba80066602",
                   "kind": "cell",
                   "provenance": {
-                    "extractor": "pdfplumber",
-                    "stage": "extract_tables"
+                    "extractor": "bottom_up",
+                    "stage": "extract_tables_v2"
                   },
                   "text": "400"
                 },
@@ -545,8 +545,8 @@
                   "id": "e31b85406673",
                   "kind": "cell",
                   "provenance": {
-                    "extractor": "pdfplumber",
-                    "stage": "extract_tables"
+                    "extractor": "bottom_up",
+                    "stage": "extract_tables_v2"
                   },
                   "text": "410"
                 },
@@ -565,8 +565,8 @@
                   "id": "e39b982eecae",
                   "kind": "cell",
                   "provenance": {
-                    "extractor": "pdfplumber",
-                    "stage": "extract_tables"
+                    "extractor": "bottom_up",
+                    "stage": "extract_tables_v2"
                   },
                   "text": "420"
                 }
@@ -580,8 +580,8 @@
           "id": "cc0cdb5550fd",
           "kind": "table",
           "provenance": {
-            "extractor": "pdfplumber",
-            "stage": "extract_tables"
+            "extractor": "bottom_up",
+            "stage": "extract_tables_v2"
           },
           "text": null
         }

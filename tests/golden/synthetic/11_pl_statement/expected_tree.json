@@ -90,8 +90,8 @@
                   "id": "2a1ef58c3ccf",
                   "kind": "cell",
                   "provenance": {
-                    "extractor": "pdfplumber",
-                    "stage": "extract_tables"
+                    "extractor": "bottom_up",
+                    "stage": "extract_tables_v2"
                   },
                   "text": "Income Statement"
                 },
@@ -110,8 +110,8 @@
                   "id": "3cf224a360be",
                   "kind": "cell",
                   "provenance": {
-                    "extractor": "pdfplumber",
-                    "stage": "extract_tables"
+                    "extractor": "bottom_up",
+                    "stage": "extract_tables_v2"
                   },
                   "text": "FY2021"
                 },
@@ -130,8 +130,8 @@
                   "id": "7b786170a18e",
                   "kind": "cell",
                   "provenance": {
-                    "extractor": "pdfplumber",
-                    "stage": "extract_tables"
+                    "extractor": "bottom_up",
+                    "stage": "extract_tables_v2"
                   },
                   "text": "FY2022"
                 },
@@ -150,8 +150,8 @@
                   "id": "06927e688300",
                   "kind": "cell",
                   "provenance": {
-                    "extractor": "pdfplumber",
-                    "stage": "extract_tables"
+                    "extractor": "bottom_up",
+                    "stage": "extract_tables_v2"
                   },
                   "text": "FY2023"
                 },
@@ -170,8 +170,8 @@
                   "id": "664f69a30f20",
                   "kind": "cell",
                   "provenance": {
-                    "extractor": "pdfplumber",
-                    "stage": "extract_tables"
+                    "extractor": "bottom_up",
+                    "stage": "extract_tables_v2"
                   },
                   "text": "FY2024"
                 }
@@ -209,8 +209,8 @@
                   "id": "45001502c0c3",
                   "kind": "cell",
                   "provenance": {
-                    "extractor": "pdfplumber",
-                    "stage": "extract_tables"
+                    "extractor": "bottom_up",
+                    "stage": "extract_tables_v2"
                   },
                   "text": "Revenue"
                 },
@@ -229,8 +229,8 @@
                   "id": "f7b48461a67f",
                   "kind": "cell",
                   "provenance": {
-                    "extractor": "pdfplumber",
-                    "stage": "extract_tables"
+                    "extractor": "bottom_up",
+                    "stage": "extract_tables_v2"
                   },
                   "text": ""
                 },
@@ -249,8 +249,8 @@
                   "id": "21e726d3e42b",
                   "kind": "cell",
                   "provenance": {
-                    "extractor": "pdfplumber",
-                    "stage": "extract_tables"
+                    "extractor": "bottom_up",
+                    "stage": "extract_tables_v2"
                   },
                   "text": ""
                 },
@@ -269,8 +269,8 @@
                   "id": "f3b2d3a00d18",
                   "kind": "cell",
                   "provenance": {
-                    "extractor": "pdfplumber",
-                    "stage": "extract_tables"
+                    "extractor": "bottom_up",
+                    "stage": "extract_tables_v2"
                   },
                   "text": ""
                 },
@@ -289,8 +289,8 @@
                   "id": "6b4c5dacf1a1",
                   "kind": "cell",
                   "provenance": {
-                    "extractor": "pdfplumber",
-                    "stage": "extract_tables"
+                    "extractor": "bottom_up",
+                    "stage": "extract_tables_v2"
                   },
                   "text": ""
                 }
@@ -328,14 +328,14 @@
                   "id": "d91e8e6264cf",
                   "kind": "cell",
                   "provenance": {
-                    "extractor": "pdfplumber",
-                    "stage": "extract_tables"
+                    "extractor": "bottom_up",
+                    "stage": "extract_tables_v2"
                   },
                   "text": "Product Revenue"
                 },
                 {
                   "attrs": {
-                    "align": "right"
+                    "align": "left"
                   },
                   "bbox": {
                     "page": 0,
@@ -348,14 +348,14 @@
                   "id": "9320253035eb",
                   "kind": "cell",
                   "provenance": {
-                    "extractor": "pdfplumber",
-                    "stage": "extract_tables"
+                    "extractor": "bottom_up",
+                    "stage": "extract_tables_v2"
                   },
                   "text": "12,450"
                 },
                 {
                   "attrs": {
-                    "align": "right"
+                    "align": "left"
                   },
                   "bbox": {
                     "page": 0,
@@ -368,14 +368,14 @@
                   "id": "3547a0256b32",
                   "kind": "cell",
                   "provenance": {
-                    "extractor": "pdfplumber",
-                    "stage": "extract_tables"
+                    "extractor": "bottom_up",
+                    "stage": "extract_tables_v2"
                   },
                   "text": "15,320"
                 },
                 {
                   "attrs": {
-                    "align": "right"
+                    "align": "left"
                   },
                   "bbox": {
                     "page": 0,
@@ -388,14 +388,14 @@
                   "id": "fc239623f9c0",
                   "kind": "cell",
                   "provenance": {
-                    "extractor": "pdfplumber",
-                    "stage": "extract_tables"
+                    "extractor": "bottom_up",
+                    "stage": "extract_tables_v2"
                   },
                   "text": "18,760"
                 },
                 {
                   "attrs": {
-                    "align": "right"
+                    "align": "left"
                   },
                   "bbox": {
                     "page": 0,
@@ -408,8 +408,8 @@
                   "id": "874862ccebdf",
                   "kind": "cell",
                   "provenance": {
-                    "extractor": "pdfplumber",
-                    "stage": "extract_tables"
+                    "extractor": "bottom_up",
+                    "stage": "extract_tables_v2"
                   },
                   "text": "22,140"
                 }
@@ -447,14 +447,14 @@
                   "id": "3088538b378e",
                   "kind": "cell",
                   "provenance": {
-                    "extractor": "pdfplumber",
-                    "stage": "extract_tables"
+                    "extractor": "bottom_up",
+                    "stage": "extract_tables_v2"
                   },
                   "text": "Service Revenue"
                 },
                 {
                   "attrs": {
-                    "align": "right"
+                    "align": "left"
                   },
                   "bbox": {
                     "page": 0,
@@ -467,14 +467,14 @@
                   "id": "755e7f822a6e",
                   "kind": "cell",
                   "provenance": {
-                    "extractor": "pdfplumber",
-                    "stage": "extract_tables"
+                    "extractor": "bottom_up",
+                    "stage": "extract_tables_v2"
                   },
                   "text": "2,890"
                 },
                 {
                   "attrs": {
-                    "align": "right"
+                    "align": "left"
                   },
                   "bbox": {
                     "page": 0,
@@ -487,14 +487,14 @@
                   "id": "5ce150f02da4",
                   "kind": "cell",
                   "provenance": {
-                    "extractor": "pdfplumber",
-                    "stage": "extract_tables"
+                    "extractor": "bottom_up",
+                    "stage": "extract_tables_v2"
                   },
                   "text": "3,450"
                 },
                 {
                   "attrs": {
-                    "align": "right"
+                    "align": "left"
                   },
                   "bbox": {
                     "page": 0,
@@ -507,14 +507,14 @@
                   "id": "7f3894f5c2c0",
                   "kind": "cell",
                   "provenance": {
-                    "extractor": "pdfplumber",
-                    "stage": "extract_tables"
+                    "extractor": "bottom_up",
+                    "stage": "extract_tables_v2"
                   },
                   "text": "4,120"
                 },
                 {
                   "attrs": {
-                    "align": "right"
+                    "align": "left"
                   },
                   "bbox": {
                     "page": 0,
@@ -527,8 +527,8 @@
                   "id": "a97dc2ee842b",
                   "kind": "cell",
                   "provenance": {
-                    "extractor": "pdfplumber",
-                    "stage": "extract_tables"
+                    "extractor": "bottom_up",
+                    "stage": "extract_tables_v2"
                   },
                   "text": "5,380"
                 }
@@ -566,14 +566,14 @@
                   "id": "866abbb4f0b6",
                   "kind": "cell",
                   "provenance": {
-                    "extractor": "pdfplumber",
-                    "stage": "extract_tables"
+                    "extractor": "bottom_up",
+                    "stage": "extract_tables_v2"
                   },
                   "text": "Other Revenue"
                 },
                 {
                   "attrs": {
-                    "align": "right"
+                    "align": "left"
                   },
                   "bbox": {
                     "page": 0,
@@ -586,14 +586,14 @@
                   "id": "c0dcbbd6572b",
                   "kind": "cell",
                   "provenance": {
-                    "extractor": "pdfplumber",
-                    "stage": "extract_tables"
+                    "extractor": "bottom_up",
+                    "stage": "extract_tables_v2"
                   },
                   "text": "480"
                 },
                 {
                   "attrs": {
-                    "align": "right"
+                    "align": "left"
                   },
                   "bbox": {
                     "page": 0,
@@ -606,14 +606,14 @@
                   "id": "0d27fbcddf94",
                   "kind": "cell",
                   "provenance": {
-                    "extractor": "pdfplumber",
-                    "stage": "extract_tables"
+                    "extractor": "bottom_up",
+                    "stage": "extract_tables_v2"
                   },
                   "text": "620"
                 },
                 {
                   "attrs": {
-                    "align": "right"
+                    "align": "left"
                   },
                   "bbox": {
                     "page": 0,
@@ -626,14 +626,14 @@
                   "id": "004188b730d8",
                   "kind": "cell",
                   "provenance": {
-                    "extractor": "pdfplumber",
-                    "stage": "extract_tables"
+                    "extractor": "bottom_up",
+                    "stage": "extract_tables_v2"
                   },
                   "text": "710"
                 },
                 {
                   "attrs": {
-                    "align": "right"
+                    "align": "left"
                   },
                   "bbox": {
                     "page": 0,
@@ -646,8 +646,8 @@
                   "id": "4d5769397732",
                   "kind": "cell",
                   "provenance": {
-                    "extractor": "pdfplumber",
-                    "stage": "extract_tables"
+                    "extractor": "bottom_up",
+                    "stage": "extract_tables_v2"
                   },
                   "text": "850"
                 }
@@ -685,14 +685,14 @@
                   "id": "2df646f794e8",
                   "kind": "cell",
                   "provenance": {
-                    "extractor": "pdfplumber",
-                    "stage": "extract_tables"
+                    "extractor": "bottom_up",
+                    "stage": "extract_tables_v2"
                   },
                   "text": "Total Revenue"
                 },
                 {
                   "attrs": {
-                    "align": "right"
+                    "align": "left"
                   },
                   "bbox": {
                     "page": 0,
@@ -705,14 +705,14 @@
                   "id": "84d1f820c66d",
                   "kind": "cell",
                   "provenance": {
-                    "extractor": "pdfplumber",
-                    "stage": "extract_tables"
+                    "extractor": "bottom_up",
+                    "stage": "extract_tables_v2"
                   },
                   "text": "15,820"
                 },
                 {
                   "attrs": {
-                    "align": "right"
+                    "align": "left"
                   },
                   "bbox": {
                     "page": 0,
@@ -725,14 +725,14 @@
                   "id": "b0303954652a",
                   "kind": "cell",
                   "provenance": {
-                    "extractor": "pdfplumber",
-                    "stage": "extract_tables"
+                    "extractor": "bottom_up",
+                    "stage": "extract_tables_v2"
                   },
                   "text": "19,390"
                 },
                 {
                   "attrs": {
-                    "align": "right"
+                    "align": "left"
                   },
                   "bbox": {
                     "page": 0,
@@ -745,14 +745,14 @@
                   "id": "b0ad8d303fd7",
                   "kind": "cell",
                   "provenance": {
-                    "extractor": "pdfplumber",
-                    "stage": "extract_tables"
+                    "extractor": "bottom_up",
+                    "stage": "extract_tables_v2"
                   },
                   "text": "23,590"
                 },
                 {
                   "attrs": {
-                    "align": "right"
+                    "align": "left"
                   },
                   "bbox": {
                     "page": 0,
@@ -765,8 +765,8 @@
                   "id": "b9526f1412d8",
                   "kind": "cell",
                   "provenance": {
-                    "extractor": "pdfplumber",
-                    "stage": "extract_tables"
+                    "extractor": "bottom_up",
+                    "stage": "extract_tables_v2"
                   },
                   "text": "28,370"
                 }
@@ -804,8 +804,8 @@
                   "id": "481b8f11ea97",
                   "kind": "cell",
                   "provenance": {
-                    "extractor": "pdfplumber",
-                    "stage": "extract_tables"
+                    "extractor": "bottom_up",
+                    "stage": "extract_tables_v2"
                   },
                   "text": "Cost of Revenue"
                 },
@@ -824,8 +824,8 @@
                   "id": "1ab09ed6fc24",
                   "kind": "cell",
                   "provenance": {
-                    "extractor": "pdfplumber",
-                    "stage": "extract_tables"
+                    "extractor": "bottom_up",
+                    "stage": "extract_tables_v2"
                   },
                   "text": ""
                 },
@@ -844,8 +844,8 @@
                   "id": "529bb2d9e859",
                   "kind": "cell",
                   "provenance": {
-                    "extractor": "pdfplumber",
-                    "stage": "extract_tables"
+                    "extractor": "bottom_up",
+                    "stage": "extract_tables_v2"
                   },
                   "text": ""
                 },
@@ -864,8 +864,8 @@
                   "id": "7dd7dd4b4bf8",
                   "kind": "cell",
                   "provenance": {
-                    "extractor": "pdfplumber",
-                    "stage": "extract_tables"
+                    "extractor": "bottom_up",
+                    "stage": "extract_tables_v2"
                   },
                   "text": ""
                 },
@@ -884,8 +884,8 @@
                   "id": "0e199cc34447",
                   "kind": "cell",
                   "provenance": {
-                    "extractor": "pdfplumber",
-                    "stage": "extract_tables"
+                    "extractor": "bottom_up",
+                    "stage": "extract_tables_v2"
                   },
                   "text": ""
                 }
@@ -923,14 +923,14 @@
                   "id": "f418ff87e393",
                   "kind": "cell",
                   "provenance": {
-                    "extractor": "pdfplumber",
-                    "stage": "extract_tables"
+                    "extractor": "bottom_up",
+                    "stage": "extract_tables_v2"
                   },
                   "text": "Cost of Goods Sold"
                 },
                 {
                   "attrs": {
-                    "align": "right"
+                    "align": "left"
                   },
                   "bbox": {
                     "page": 0,
@@ -943,14 +943,14 @@
                   "id": "da1cbfc6616d",
                   "kind": "cell",
                   "provenance": {
-                    "extractor": "pdfplumber",
-                    "stage": "extract_tables"
+                    "extractor": "bottom_up",
+                    "stage": "extract_tables_v2"
                   },
                   "text": "(8,240)"
                 },
                 {
                   "attrs": {
-                    "align": "right"
+                    "align": "left"
                   },
                   "bbox": {
                     "page": 0,
@@ -963,14 +963,14 @@
                   "id": "bfaf6e5d5420",
                   "kind": "cell",
                   "provenance": {
-                    "extractor": "pdfplumber",
-                    "stage": "extract_tables"
+                    "extractor": "bottom_up",
+                    "stage": "extract_tables_v2"
                   },
                   "text": "(9,950)"
                 },
                 {
                   "attrs": {
-                    "align": "right"
+                    "align": "left"
                   },
                   "bbox": {
                     "page": 0,
@@ -983,14 +983,14 @@
                   "id": "3dd124345817",
                   "kind": "cell",
                   "provenance": {
-                    "extractor": "pdfplumber",
-                    "stage": "extract_tables"
+                    "extractor": "bottom_up",
+                    "stage": "extract_tables_v2"
                   },
                   "text": "(11,820)"
                 },
                 {
                   "attrs": {
-                    "align": "right"
+                    "align": "left"
                   },
                   "bbox": {
                     "page": 0,
@@ -1003,8 +1003,8 @@
                   "id": "883bbdd09c33",
                   "kind": "cell",
                   "provenance": {
-                    "extractor": "pdfplumber",
-                    "stage": "extract_tables"
+                    "extractor": "bottom_up",
+                    "stage": "extract_tables_v2"
                   },
                   "text": "(13,760)"
                 }
@@ -1042,14 +1042,14 @@
                   "id": "875362701f74",
                   "kind": "cell",
                   "provenance": {
-                    "extractor": "pdfplumber",
-                    "stage": "extract_tables"
+                    "extractor": "bottom_up",
+                    "stage": "extract_tables_v2"
                   },
                   "text": "Depreciation & Amort."
                 },
                 {
                   "attrs": {
-                    "align": "right"
+                    "align": "left"
                   },
                   "bbox": {
                     "page": 0,
@@ -1062,14 +1062,14 @@
                   "id": "3e33ef601b01",
                   "kind": "cell",
                   "provenance": {
-                    "extractor": "pdfplumber",
-                    "stage": "extract_tables"
+                    "extractor": "bottom_up",
+                    "stage": "extract_tables_v2"
                   },
                   "text": "(320)"
                 },
                 {
                   "attrs": {
-                    "align": "right"
+                    "align": "left"
                   },
                   "bbox": {
                     "page": 0,
@@ -1082,14 +1082,14 @@
                   "id": "6fd6b9f33baa",
                   "kind": "cell",
                   "provenance": {
-                    "extractor": "pdfplumber",
-                    "stage": "extract_tables"
+                    "extractor": "bottom_up",
+                    "stage": "extract_tables_v2"
                   },
                   "text": "(380)"
                 },
                 {
                   "attrs": {
-                    "align": "right"
+                    "align": "left"
                   },
                   "bbox": {
                     "page": 0,
@@ -1102,14 +1102,14 @@
                   "id": "46ab8e0d0ef7",
                   "kind": "cell",
                   "provenance": {
-                    "extractor": "pdfplumber",
-                    "stage": "extract_tables"
+                    "extractor": "bottom_up",
+                    "stage": "extract_tables_v2"
                   },
                   "text": "(430)"
                 },
                 {
                   "attrs": {
-                    "align": "right"
+                    "align": "left"
                   },
                   "bbox": {
                     "page": 0,
@@ -1122,8 +1122,8 @@
                   "id": "6b6a6243c8d8",
                   "kind": "cell",
                   "provenance": {
-                    "extractor": "pdfplumber",
-                    "stage": "extract_tables"
+                    "extractor": "bottom_up",
+                    "stage": "extract_tables_v2"
                   },
                   "text": "(480)"
                 }
@@ -1161,14 +1161,14 @@
                   "id": "378b31b926d3",
                   "kind": "cell",
                   "provenance": {
-                    "extractor": "pdfplumber",
-                    "stage": "extract_tables"
+                    "extractor": "bottom_up",
+                    "stage": "extract_tables_v2"
                   },
                   "text": "Total Cost of Revenue"
                 },
                 {
                   "attrs": {
-                    "align": "right"
+                    "align": "left"
                   },
                   "bbox": {
                     "page": 0,
@@ -1181,14 +1181,14 @@
                   "id": "8eaa73a739b9",
                   "kind": "cell",
                   "provenance": {
-                    "extractor": "pdfplumber",
-                    "stage": "extract_tables"
+                    "extractor": "bottom_up",
+                    "stage": "extract_tables_v2"
                   },
                   "text": "(8,560)"
                 },
                 {
                   "attrs": {
-                    "align": "right"
+                    "align": "left"
                   },
                   "bbox": {
                     "page": 0,
@@ -1201,14 +1201,14 @@
                   "id": "9eecc4eb8de7",
                   "kind": "cell",
                   "provenance": {
-                    "extractor": "pdfplumber",
-                    "stage": "extract_tables"
+                    "extractor": "bottom_up",
+                    "stage": "extract_tables_v2"
                   },
                   "text": "(10,330)"
                 },
                 {
                   "attrs": {
-                    "align": "right"
+                    "align": "left"
                   },
                   "bbox": {
                     "page": 0,
@@ -1221,14 +1221,14 @@
                   "id": "aeedcb7801e8",
                   "kind": "cell",
                   "provenance": {
-                    "extractor": "pdfplumber",
-                    "stage": "extract_tables"
+                    "extractor": "bottom_up",
+                    "stage": "extract_tables_v2"
                   },
                   "text": "(12,250)"
                 },
                 {
                   "attrs": {
-                    "align": "right"
+                    "align": "left"
                   },
                   "bbox": {
                     "page": 0,
@@ -1241,8 +1241,8 @@
                   "id": "82d71da59af7",
                   "kind": "cell",
                   "provenance": {
-                    "extractor": "pdfplumber",
-                    "stage": "extract_tables"
+                    "extractor": "bottom_up",
+                    "stage": "extract_tables_v2"
                   },
                   "text": "(14,240)"
                 }
@@ -1280,14 +1280,14 @@
                   "id": "74ce6712cf0a",
                   "kind": "cell",
                   "provenance": {
-                    "extractor": "pdfplumber",
-                    "stage": "extract_tables"
+                    "extractor": "bottom_up",
+                    "stage": "extract_tables_v2"
                   },
                   "text": "Gross Profit"
                 },
                 {
                   "attrs": {
-                    "align": "right"
+                    "align": "left"
                   },
                   "bbox": {
                     "page": 0,
@@ -1300,14 +1300,14 @@
                   "id": "3d5273f42bf6",
                   "kind": "cell",
                   "provenance": {
-                    "extractor": "pdfplumber",
-                    "stage": "extract_tables"
+                    "extractor": "bottom_up",
+                    "stage": "extract_tables_v2"
                   },
                   "text": "7,260"
                 },
                 {
                   "attrs": {
-                    "align": "right"
+                    "align": "left"
                   },
                   "bbox": {
                     "page": 0,
@@ -1320,14 +1320,14 @@
                   "id": "76e3239d962f",
                   "kind": "cell",
                   "provenance": {
-                    "extractor": "pdfplumber",
-                    "stage": "extract_tables"
+                    "extractor": "bottom_up",
+                    "stage": "extract_tables_v2"
                   },
                   "text": "9,060"
                 },
                 {
                   "attrs": {
-                    "align": "right"
+                    "align": "left"
                   },
                   "bbox": {
                     "page": 0,
@@ -1340,14 +1340,14 @@
                   "id": "208c3e8e75ba",
                   "kind": "cell",
                   "provenance": {
-                    "extractor": "pdfplumber",
-                    "stage": "extract_tables"
+                    "extractor": "bottom_up",
+                    "stage": "extract_tables_v2"
                   },
                   "text": "11,340"
                 },
                 {
                   "attrs": {
-                    "align": "right"
+                    "align": "left"
                   },
                   "bbox": {
                     "page": 0,
@@ -1360,8 +1360,8 @@
                   "id": "b760c8bf39e8",
                   "kind": "cell",
                   "provenance": {
-                    "extractor": "pdfplumber",
-                    "stage": "extract_tables"
+                    "extractor": "bottom_up",
+                    "stage": "extract_tables_v2"
                   },
                   "text": "14,130"
                 }
@@ -1399,14 +1399,14 @@
                   "id": "1610f006571d",
                   "kind": "cell",
                   "provenance": {
-                    "extractor": "pdfplumber",
-                    "stage": "extract_tables"
+                    "extractor": "bottom_up",
+                    "stage": "extract_tables_v2"
                   },
                   "text": "Gross Margin %"
                 },
                 {
                   "attrs": {
-                    "align": "right"
+                    "align": "left"
                   },
                   "bbox": {
                     "page": 0,
@@ -1419,14 +1419,14 @@
                   "id": "c17041bf073b",
                   "kind": "cell",
                   "provenance": {
-                    "extractor": "pdfplumber",
-                    "stage": "extract_tables"
+                    "extractor": "bottom_up",
+                    "stage": "extract_tables_v2"
                   },
                   "text": "45.9%"
                 },
                 {
                   "attrs": {
-                    "align": "right"
+                    "align": "left"
                   },
                   "bbox": {
                     "page": 0,
@@ -1439,14 +1439,14 @@
                   "id": "a3b469a92e8f",
                   "kind": "cell",
                   "provenance": {
-                    "extractor": "pdfplumber",
-                    "stage": "extract_tables"
+                    "extractor": "bottom_up",
+                    "stage": "extract_tables_v2"
                   },
                   "text": "46.7%"
                 },
                 {
                   "attrs": {
-                    "align": "right"
+                    "align": "left"
                   },
                   "bbox": {
                     "page": 0,
@@ -1459,14 +1459,14 @@
                   "id": "eb9c7713cb6c",
                   "kind": "cell",
                   "provenance": {
-                    "extractor": "pdfplumber",
-                    "stage": "extract_tables"
+                    "extractor": "bottom_up",
+                    "stage": "extract_tables_v2"
                   },
                   "text": "48.1%"
                 },
                 {
                   "attrs": {
-                    "align": "right"
+                    "align": "left"
                   },
                   "bbox": {
                     "page": 0,
@@ -1479,8 +1479,8 @@
                   "id": "ddfd94dfc519",
                   "kind": "cell",
                   "provenance": {
-                    "extractor": "pdfplumber",
-                    "stage": "extract_tables"
+                    "extractor": "bottom_up",
+                    "stage": "extract_tables_v2"
                   },
                   "text": "49.8%"
                 }
@@ -1518,8 +1518,8 @@
                   "id": "cb06000401ca",
                   "kind": "cell",
                   "provenance": {
-                    "extractor": "pdfplumber",
-                    "stage": "extract_tables"
+                    "extractor": "bottom_up",
+                    "stage": "extract_tables_v2"
                   },
                   "text": "Operating Expenses"
                 },
@@ -1538,8 +1538,8 @@
                   "id": "61d88691c3bf",
                   "kind": "cell",
                   "provenance": {
-                    "extractor": "pdfplumber",
-                    "stage": "extract_tables"
+                    "extractor": "bottom_up",
+                    "stage": "extract_tables_v2"
                   },
                   "text": ""
                 },
@@ -1558,8 +1558,8 @@
                   "id": "d0878f68d06e",
                   "kind": "cell",
                   "provenance": {
-                    "extractor": "pdfplumber",
-                    "stage": "extract_tables"
+                    "extractor": "bottom_up",
+                    "stage": "extract_tables_v2"
                   },
                   "text": ""
                 },
@@ -1578,8 +1578,8 @@
                   "id": "0850ac654c8d",
                   "kind": "cell",
                   "provenance": {
-                    "extractor": "pdfplumber",
-                    "stage": "extract_tables"
+                    "extractor": "bottom_up",
+                    "stage": "extract_tables_v2"
                   },
                   "text": ""
                 },
@@ -1598,8 +1598,8 @@
                   "id": "c16abcc60cf5",
                   "kind": "cell",
                   "provenance": {
-                    "extractor": "pdfplumber",
-                    "stage": "extract_tables"
+                    "extractor": "bottom_up",
+                    "stage": "extract_tables_v2"
                   },
                   "text": ""
                 }
@@ -1637,14 +1637,14 @@
                   "id": "38c84ed26f1f",
                   "kind": "cell",
                   "provenance": {
-                    "extractor": "pdfplumber",
-                    "stage": "extract_tables"
+                    "extractor": "bottom_up",
+                    "stage": "extract_tables_v2"
                   },
                   "text": "Research & Development"
                 },
                 {
                   "attrs": {
-                    "align": "right"
+                    "align": "left"
                   },
                   "bbox": {
                     "page": 0,
@@ -1657,14 +1657,14 @@
                   "id": "6d8200a49e88",
                   "kind": "cell",
                   "provenance": {
-                    "extractor": "pdfplumber",
-                    "stage": "extract_tables"
+                    "extractor": "bottom_up",
+                    "stage": "extract_tables_v2"
                   },
                   "text": "(2,140)"
                 },
                 {
                   "attrs": {
-                    "align": "right"
+                    "align": "left"
                   },
                   "bbox": {
                     "page": 0,
@@ -1677,14 +1677,14 @@
                   "id": "26fc46ef800b",
                   "kind": "cell",
                   "provenance": {
-                    "extractor": "pdfplumber",
-                    "stage": "extract_tables"
+                    "extractor": "bottom_up",
+                    "stage": "extract_tables_v2"
                   },
                   "text": "(2,660)"
                 },
                 {
                   "attrs": {
-                    "align": "right"
+                    "align": "left"
                   },
                   "bbox": {
                     "page": 0,
@@ -1697,14 +1697,14 @@
                   "id": "deb7e12ede8d",
                   "kind": "cell",
                   "provenance": {
-                    "extractor": "pdfplumber",
-                    "stage": "extract_tables"
+                    "extractor": "bottom_up",
+                    "stage": "extract_tables_v2"
                   },
                   "text": "(3,180)"
                 },
                 {
                   "attrs": {
-                    "align": "right"
+                    "align": "left"
                   },
                   "bbox": {
                     "page": 0,
@@ -1717,8 +1717,8 @@
                   "id": "39fbaa4c7076",
                   "kind": "cell",
                   "provenance": {
-                    "extractor": "pdfplumber",
-                    "stage": "extract_tables"
+                    "extractor": "bottom_up",
+                    "stage": "extract_tables_v2"
                   },
                   "text": "(3,720)"
                 }
@@ -1756,14 +1756,14 @@
                   "id": "ab7c5c5df749",
                   "kind": "cell",
                   "provenance": {
-                    "extractor": "pdfplumber",
-                    "stage": "extract_tables"
+                    "extractor": "bottom_up",
+                    "stage": "extract_tables_v2"
                   },
                   "text": "Sales & Marketing"
                 },
                 {
                   "attrs": {
-                    "align": "right"
+                    "align": "left"
                   },
                   "bbox": {
                     "page": 0,
@@ -1776,14 +1776,14 @@
                   "id": "17ba2d53e5f9",
                   "kind": "cell",
                   "provenance": {
-                    "extractor": "pdfplumber",
-                    "stage": "extract_tables"
+                    "extractor": "bottom_up",
+                    "stage": "extract_tables_v2"
                   },
                   "text": "(3,280)"
                 },
                 {
                   "attrs": {
-                    "align": "right"
+                    "align": "left"
                   },
                   "bbox": {
                     "page": 0,
@@ -1796,14 +1796,14 @@
                   "id": "184b4d7515df",
                   "kind": "cell",
                   "provenance": {
-                    "extractor": "pdfplumber",
-                    "stage": "extract_tables"
+                    "extractor": "bottom_up",
+                    "stage": "extract_tables_v2"
                   },
                   "text": "(3,950)"
                 },
                 {
                   "attrs": {
-                    "align": "right"
+                    "align": "left"
                   },
                   "bbox": {
                     "page": 0,
@@ -1816,14 +1816,14 @@
                   "id": "3a4134347184",
                   "kind": "cell",
                   "provenance": {
-                    "extractor": "pdfplumber",
-                    "stage": "extract_tables"
+                    "extractor": "bottom_up",
+                    "stage": "extract_tables_v2"
                   },
                   "text": "(4,840)"
                 },
                 {
                   "attrs": {
-                    "align": "right"
+                    "align": "left"
                   },
                   "bbox": {
                     "page": 0,
@@ -1836,8 +1836,8 @@
                   "id": "227f9767def9",
                   "kind": "cell",
                   "provenance": {
-                    "extractor": "pdfplumber",
-                    "stage": "extract_tables"
+                    "extractor": "bottom_up",
+                    "stage": "extract_tables_v2"
                   },
                   "text": "(5,600)"
                 }
@@ -1875,14 +1875,14 @@
                   "id": "60dc220dcd66",
                   "kind": "cell",
                   "provenance": {
-                    "extractor": "pdfplumber",
-                    "stage": "extract_tables"
+                    "extractor": "bottom_up",
+                    "stage": "extract_tables_v2"
                   },
                   "text": "General & Administrative"
                 },
                 {
                   "attrs": {
-                    "align": "right"
+                    "align": "left"
                   },
                   "bbox": {
                     "page": 0,
@@ -1895,14 +1895,14 @@
                   "id": "b8f5d7634b94",
                   "kind": "cell",
                   "provenance": {
-                    "extractor": "pdfplumber",
-                    "stage": "extract_tables"
+                    "extractor": "bottom_up",
+                    "stage": "extract_tables_v2"
                   },
                   "text": "(1,120)"
                 },
                 {
                   "attrs": {
-                    "align": "right"
+                    "align": "left"
                   },
                   "bbox": {
                     "page": 0,
@@ -1915,14 +1915,14 @@
                   "id": "284175fb0668",
                   "kind": "cell",
                   "provenance": {
-                    "extractor": "pdfplumber",
-                    "stage": "extract_tables"
+                    "extractor": "bottom_up",
+                    "stage": "extract_tables_v2"
                   },
                   "text": "(1,280)"
                 },
                 {
                   "attrs": {
-                    "align": "right"
+                    "align": "left"
                   },
                   "bbox": {
                     "page": 0,
@@ -1935,14 +1935,14 @@
                   "id": "7ff3fb23cd51",
                   "kind": "cell",
                   "provenance": {
-                    "extractor": "pdfplumber",
-                    "stage": "extract_tables"
+                    "extractor": "bottom_up",
+                    "stage": "extract_tables_v2"
                   },
                   "text": "(1,460)"
                 },
                 {
                   "attrs": {
-                    "align": "right"
+                    "align": "left"
                   },
                   "bbox": {
                     "page": 0,
@@ -1955,8 +1955,8 @@
                   "id": "68c1a8485347",
                   "kind": "cell",
                   "provenance": {
-                    "extractor": "pdfplumber",
-                    "stage": "extract_tables"
+                    "extractor": "bottom_up",
+                    "stage": "extract_tables_v2"
                   },
                   "text": "(1,640)"
                 }
@@ -1994,14 +1994,14 @@
                   "id": "13d444cae6e4",
                   "kind": "cell",
                   "provenance": {
-                    "extractor": "pdfplumber",
-                    "stage": "extract_tables"
+                    "extractor": "bottom_up",
+                    "stage": "extract_tables_v2"
                   },
                   "text": "Stock-Based Compensation"
                 },
                 {
                   "attrs": {
-                    "align": "right"
+                    "align": "left"
                   },
                   "bbox": {
                     "page": 0,
@@ -2014,14 +2014,14 @@
                   "id": "01b2a580fb2c",
                   "kind": "cell",
                   "provenance": {
-                    "extractor": "pdfplumber",
-                    "stage": "extract_tables"
+                    "extractor": "bottom_up",
+                    "stage": "extract_tables_v2"
                   },
                   "text": "(890)"
                 },
                 {
                   "attrs": {
-                    "align": "right"
+                    "align": "left"
                   },
                   "bbox": {
                     "page": 0,
@@ -2034,14 +2034,14 @@
                   "id": "09bbd8b1eb59",
                   "kind": "cell",
                   "provenance": {
-                    "extractor": "pdfplumber",
-                    "stage": "extract_tables"
+                    "extractor": "bottom_up",
+                    "stage": "extract_tables_v2"
                   },
                   "text": "(1,020)"
                 },
                 {
                   "attrs": {
-                    "align": "right"
+                    "align": "left"
                   },
                   "bbox": {
                     "page": 0,
@@ -2054,14 +2054,14 @@
                   "id": "455b8d39f04d",
                   "kind": "cell",
                   "provenance": {
-                    "extractor": "pdfplumber",
-                    "stage": "extract_tables"
+                    "extractor": "bottom_up",
+                    "stage": "extract_tables_v2"
                   },
                   "text": "(1,190)"
                 },
                 {
                   "attrs": {
-                    "align": "right"
+                    "align": "left"
                   },
                   "bbox": {
                     "page": 0,
@@ -2074,8 +2074,8 @@
                   "id": "46470e08ec15",
                   "kind": "cell",
                   "provenance": {
-                    "extractor": "pdfplumber",
-                    "stage": "extract_tables"
+                    "extractor": "bottom_up",
+                    "stage": "extract_tables_v2"
                   },
                   "text": "(1,380)"
                 }
@@ -2113,14 +2113,14 @@
                   "id": "598b03f5e609",
                   "kind": "cell",
                   "provenance": {
-                    "extractor": "pdfplumber",
-                    "stage": "extract_tables"
+                    "extractor": "bottom_up",
+                    "stage": "extract_tables_v2"
                   },
                   "text": "Total Operating Expenses"
                 },
                 {
                   "attrs": {
-                    "align": "right"
+                    "align": "left"
                   },
                   "bbox": {
                     "page": 0,
@@ -2133,14 +2133,14 @@
                   "id": "fb57e6b373cb",
                   "kind": "cell",
                   "provenance": {
-                    "extractor": "pdfplumber",
-                    "stage": "extract_tables"
+                    "extractor": "bottom_up",
+                    "stage": "extract_tables_v2"
                   },
                   "text": "(7,430)"
                 },
                 {
                   "attrs": {
-                    "align": "right"
+                    "align": "left"
                   },
                   "bbox": {
                     "page": 0,
@@ -2153,14 +2153,14 @@
                   "id": "9197b650777f",
                   "kind": "cell",
                   "provenance": {
-                    "extractor": "pdfplumber",
-                    "stage": "extract_tables"
+                    "extractor": "bottom_up",
+                    "stage": "extract_tables_v2"
                   },
                   "text": "(8,910)"
                 },
                 {
                   "attrs": {
-                    "align": "right"
+                    "align": "left"
                   },
                   "bbox": {
                     "page": 0,
@@ -2173,14 +2173,14 @@
                   "id": "e5355104d920",
                   "kind": "cell",
                   "provenance": {
-                    "extractor": "pdfplumber",
-                    "stage": "extract_tables"
+                    "extractor": "bottom_up",
+                    "stage": "extract_tables_v2"
                   },
                   "text": "(10,670)"
                 },
                 {
                   "attrs": {
-                    "align": "right"
+                    "align": "left"
                   },
                   "bbox": {
                     "page": 0,
@@ -2193,8 +2193,8 @@
                   "id": "3a11963e0fdc",
                   "kind": "cell",
                   "provenance": {
-                    "extractor": "pdfplumber",
-                    "stage": "extract_tables"
+                    "extractor": "bottom_up",
+                    "stage": "extract_tables_v2"
                   },
                   "text": "(12,340)"
                 }
@@ -2232,14 +2232,14 @@
                   "id": "53707d7072c8",
                   "kind": "cell",
                   "provenance": {
-                    "extractor": "pdfplumber",
-                    "stage": "extract_tables"
+                    "extractor": "bottom_up",
+                    "stage": "extract_tables_v2"
                   },
                   "text": "Operating Income (EBIT)"
                 },
                 {
                   "attrs": {
-                    "align": "right"
+                    "align": "left"
                   },
                   "bbox": {
                     "page": 0,
@@ -2252,14 +2252,14 @@
                   "id": "2d71884b00e3",
                   "kind": "cell",
                   "provenance": {
-                    "extractor": "pdfplumber",
-                    "stage": "extract_tables"
+                    "extractor": "bottom_up",
+                    "stage": "extract_tables_v2"
                   },
                   "text": "(170)"
                 },
                 {
                   "attrs": {
-                    "align": "right"
+                    "align": "left"
                   },
                   "bbox": {
                     "page": 0,
@@ -2272,14 +2272,14 @@
                   "id": "f83df326e28c",
                   "kind": "cell",
                   "provenance": {
-                    "extractor": "pdfplumber",
-                    "stage": "extract_tables"
+                    "extractor": "bottom_up",
+                    "stage": "extract_tables_v2"
                   },
                   "text": "150"
                 },
                 {
                   "attrs": {
-                    "align": "right"
+                    "align": "left"
                   },
                   "bbox": {
                     "page": 0,
@@ -2292,14 +2292,14 @@
                   "id": "5d923606e722",
                   "kind": "cell",
                   "provenance": {
-                    "extractor": "pdfplumber",
-                    "stage": "extract_tables"
+                    "extractor": "bottom_up",
+                    "stage": "extract_tables_v2"
                   },
                   "text": "670"
                 },
                 {
                   "attrs": {
-                    "align": "right"
+                    "align": "left"
                   },
                   "bbox": {
                     "page": 0,
@@ -2312,8 +2312,8 @@
                   "id": "4d6587c387e1",
                   "kind": "cell",
                   "provenance": {
-                    "extractor": "pdfplumber",
-                    "stage": "extract_tables"
+                    "extractor": "bottom_up",
+                    "stage": "extract_tables_v2"
                   },
                   "text": "1,790"
                 }
@@ -2351,14 +2351,14 @@
                   "id": "37ac1ee32141",
                   "kind": "cell",
                   "provenance": {
-                    "extractor": "pdfplumber",
-                    "stage": "extract_tables"
+                    "extractor": "bottom_up",
+                    "stage": "extract_tables_v2"
                   },
                   "text": "EBIT Margin %"
                 },
                 {
                   "attrs": {
-                    "align": "right"
+                    "align": "left"
                   },
                   "bbox": {
                     "page": 0,
@@ -2371,14 +2371,14 @@
                   "id": "61dde24d7397",
                   "kind": "cell",
                   "provenance": {
-                    "extractor": "pdfplumber",
-                    "stage": "extract_tables"
+                    "extractor": "bottom_up",
+                    "stage": "extract_tables_v2"
                   },
                   "text": "-1.1%"
                 },
                 {
                   "attrs": {
-                    "align": "right"
+                    "align": "left"
                   },
                   "bbox": {
                     "page": 0,
@@ -2391,14 +2391,14 @@
                   "id": "44c7d94f270b",
                   "kind": "cell",
                   "provenance": {
-                    "extractor": "pdfplumber",
-                    "stage": "extract_tables"
+                    "extractor": "bottom_up",
+                    "stage": "extract_tables_v2"
                   },
                   "text": "0.8%"
                 },
                 {
                   "attrs": {
-                    "align": "right"
+                    "align": "left"
                   },
                   "bbox": {
                     "page": 0,
@@ -2411,14 +2411,14 @@
                   "id": "10671de35c38",
                   "kind": "cell",
                   "provenance": {
-                    "extractor": "pdfplumber",
-                    "stage": "extract_tables"
+                    "extractor": "bottom_up",
+                    "stage": "extract_tables_v2"
                   },
                   "text": "2.8%"
                 },
                 {
                   "attrs": {
-                    "align": "right"
+                    "align": "left"
                   },
                   "bbox": {
                     "page": 0,
@@ -2431,8 +2431,8 @@
                   "id": "1af8ed930e25",
                   "kind": "cell",
                   "provenance": {
-                    "extractor": "pdfplumber",
-                    "stage": "extract_tables"
+                    "extractor": "bottom_up",
+                    "stage": "extract_tables_v2"
                   },
                   "text": "6.3%"
                 }
@@ -2470,8 +2470,8 @@
                   "id": "af216052f455",
                   "kind": "cell",
                   "provenance": {
-                    "extractor": "pdfplumber",
-                    "stage": "extract_tables"
+                    "extractor": "bottom_up",
+                    "stage": "extract_tables_v2"
                   },
                   "text": "Other Items"
                 },
@@ -2490,8 +2490,8 @@
                   "id": "de7ad6e427f1",
                   "kind": "cell",
                   "provenance": {
-                    "extractor": "pdfplumber",
-                    "stage": "extract_tables"
+                    "extractor": "bottom_up",
+                    "stage": "extract_tables_v2"
                   },
                   "text": ""
                 },
@@ -2510,8 +2510,8 @@
                   "id": "1ca2ec488118",
                   "kind": "cell",
                   "provenance": {
-                    "extractor": "pdfplumber",
-                    "stage": "extract_tables"
+                    "extractor": "bottom_up",
+                    "stage": "extract_tables_v2"
                   },
                   "text": ""
                 },
@@ -2530,8 +2530,8 @@
                   "id": "17a8d97d8455",
                   "kind": "cell",
                   "provenance": {
-                    "extractor": "pdfplumber",
-                    "stage": "extract_tables"
+                    "extractor": "bottom_up",
+                    "stage": "extract_tables_v2"
                   },
                   "text": ""
                 },
@@ -2550,8 +2550,8 @@
                   "id": "df84133a42a2",
                   "kind": "cell",
                   "provenance": {
-                    "extractor": "pdfplumber",
-                    "stage": "extract_tables"
+                    "extractor": "bottom_up",
+                    "stage": "extract_tables_v2"
                   },
                   "text": ""
                 }
@@ -2589,14 +2589,14 @@
                   "id": "614f10c4a477",
                   "kind": "cell",
                   "provenance": {
-                    "extractor": "pdfplumber",
-                    "stage": "extract_tables"
+                    "extractor": "bottom_up",
+                    "stage": "extract_tables_v2"
                   },
                   "text": "Interest Income"
                 },
                 {
                   "attrs": {
-                    "align": "right"
+                    "align": "left"
                   },
                   "bbox": {
                     "page": 0,
@@ -2609,14 +2609,14 @@
                   "id": "e5b5d79c9423",
                   "kind": "cell",
                   "provenance": {
-                    "extractor": "pdfplumber",
-                    "stage": "extract_tables"
+                    "extractor": "bottom_up",
+                    "stage": "extract_tables_v2"
                   },
                   "text": "85"
                 },
                 {
                   "attrs": {
-                    "align": "right"
+                    "align": "left"
                   },
                   "bbox": {
                     "page": 0,
@@ -2629,14 +2629,14 @@
                   "id": "de79b435cd78",
                   "kind": "cell",
                   "provenance": {
-                    "extractor": "pdfplumber",
-                    "stage": "extract_tables"
+                    "extractor": "bottom_up",
+                    "stage": "extract_tables_v2"
                   },
                   "text": "110"
                 },
                 {
                   "attrs": {
-                    "align": "right"
+                    "align": "left"
                   },
                   "bbox": {
                     "page": 0,
@@ -2649,14 +2649,14 @@
                   "id": "b454d14f526c",
                   "kind": "cell",
                   "provenance": {
-                    "extractor": "pdfplumber",
-                    "stage": "extract_tables"
+                    "extractor": "bottom_up",
+                    "stage": "extract_tables_v2"
                   },
                   "text": "190"
                 },
                 {
                   "attrs": {
-                    "align": "right"
+                    "align": "left"
                   },
                   "bbox": {
                     "page": 0,
@@ -2669,8 +2669,8 @@
                   "id": "5633b195cefd",
                   "kind": "cell",
                   "provenance": {
-                    "extractor": "pdfplumber",
-                    "stage": "extract_tables"
+                    "extractor": "bottom_up",
+                    "stage": "extract_tables_v2"
                   },
                   "text": "340"
                 }
@@ -2708,14 +2708,14 @@
                   "id": "7c43103e0e5c",
                   "kind": "cell",
                   "provenance": {
-                    "extractor": "pdfplumber",
-                    "stage": "extract_tables"
+                    "extractor": "bottom_up",
+                    "stage": "extract_tables_v2"
                   },
                   "text": "Interest Expense"
                 },
                 {
                   "attrs": {
-                    "align": "right"
+                    "align": "left"
                   },
                   "bbox": {
                     "page": 0,
@@ -2728,14 +2728,14 @@
                   "id": "3b4f94ceb719",
                   "kind": "cell",
                   "provenance": {
-                    "extractor": "pdfplumber",
-                    "stage": "extract_tables"
+                    "extractor": "bottom_up",
+                    "stage": "extract_tables_v2"
                   },
                   "text": "(420)"
                 },
                 {
                   "attrs": {
-                    "align": "right"
+                    "align": "left"
                   },
                   "bbox": {
                     "page": 0,
@@ -2748,14 +2748,14 @@
                   "id": "14d69bd9d830",
                   "kind": "cell",
                   "provenance": {
-                    "extractor": "pdfplumber",
-                    "stage": "extract_tables"
+                    "extractor": "bottom_up",
+                    "stage": "extract_tables_v2"
                   },
                   "text": "(390)"
                 },
                 {
                   "attrs": {
-                    "align": "right"
+                    "align": "left"
                   },
                   "bbox": {
                     "page": 0,
@@ -2768,14 +2768,14 @@
                   "id": "26287a1668fa",
                   "kind": "cell",
                   "provenance": {
-                    "extractor": "pdfplumber",
-                    "stage": "extract_tables"
+                    "extractor": "bottom_up",
+                    "stage": "extract_tables_v2"
                   },
                   "text": "(350)"
                 },
                 {
                   "attrs": {
-                    "align": "right"
+                    "align": "left"
                   },
                   "bbox": {
                     "page": 0,
@@ -2788,8 +2788,8 @@
                   "id": "b420221768aa",
                   "kind": "cell",
                   "provenance": {
-                    "extractor": "pdfplumber",
-                    "stage": "extract_tables"
+                    "extractor": "bottom_up",
+                    "stage": "extract_tables_v2"
                   },
                   "text": "(290)"
                 }
@@ -2827,14 +2827,14 @@
                   "id": "ec3fabc3edd7",
                   "kind": "cell",
                   "provenance": {
-                    "extractor": "pdfplumber",
-                    "stage": "extract_tables"
+                    "extractor": "bottom_up",
+                    "stage": "extract_tables_v2"
                   },
                   "text": "Other Income (Expense), net"
                 },
                 {
                   "attrs": {
-                    "align": "right"
+                    "align": "left"
                   },
                   "bbox": {
                     "page": 0,
@@ -2847,14 +2847,14 @@
                   "id": "92d1e19a47d0",
                   "kind": "cell",
                   "provenance": {
-                    "extractor": "pdfplumber",
-                    "stage": "extract_tables"
+                    "extractor": "bottom_up",
+                    "stage": "extract_tables_v2"
                   },
                   "text": "40"
                 },
                 {
                   "attrs": {
-                    "align": "right"
+                    "align": "left"
                   },
                   "bbox": {
                     "page": 0,
@@ -2867,14 +2867,14 @@
                   "id": "e4f5e2620918",
                   "kind": "cell",
                   "provenance": {
-                    "extractor": "pdfplumber",
-                    "stage": "extract_tables"
+                    "extractor": "bottom_up",
+                    "stage": "extract_tables_v2"
                   },
                   "text": "25"
                 },
                 {
                   "attrs": {
-                    "align": "right"
+                    "align": "left"
                   },
                   "bbox": {
                     "page": 0,
@@ -2887,14 +2887,14 @@
                   "id": "f6ca5cd88367",
                   "kind": "cell",
                   "provenance": {
-                    "extractor": "pdfplumber",
-                    "stage": "extract_tables"
+                    "extractor": "bottom_up",
+                    "stage": "extract_tables_v2"
                   },
                   "text": "(30)"
                 },
                 {
                   "attrs": {
-                    "align": "right"
+                    "align": "left"
                   },
                   "bbox": {
                     "page": 0,
@@ -2907,8 +2907,8 @@
                   "id": "c6223b2e3fce",
                   "kind": "cell",
                   "provenance": {
-                    "extractor": "pdfplumber",
-                    "stage": "extract_tables"
+                    "extractor": "bottom_up",
+                    "stage": "extract_tables_v2"
                   },
                   "text": "60"
                 }
@@ -2946,14 +2946,14 @@
                   "id": "e52f318f9df4",
                   "kind": "cell",
                   "provenance": {
-                    "extractor": "pdfplumber",
-                    "stage": "extract_tables"
+                    "extractor": "bottom_up",
+                    "stage": "extract_tables_v2"
                   },
                   "text": "Total Other Items"
                 },
                 {
                   "attrs": {
-                    "align": "right"
+                    "align": "left"
                   },
                   "bbox": {
                     "page": 0,
@@ -2966,14 +2966,14 @@
                   "id": "e124666728ca",
                   "kind": "cell",
                   "provenance": {
-                    "extractor": "pdfplumber",
-                    "stage": "extract_tables"
+                    "extractor": "bottom_up",
+                    "stage": "extract_tables_v2"
                   },
                   "text": "(295)"
                 },
                 {
                   "attrs": {
-                    "align": "right"
+                    "align": "left"
                   },
                   "bbox": {
                     "page": 0,
@@ -2986,14 +2986,14 @@
                   "id": "f020672b1723",
                   "kind": "cell",
                   "provenance": {
-                    "extractor": "pdfplumber",
-                    "stage": "extract_tables"
+                    "extractor": "bottom_up",
+                    "stage": "extract_tables_v2"
                   },
                   "text": "(255)"
                 },
                 {
                   "attrs": {
-                    "align": "right"
+                    "align": "left"
                   },
                   "bbox": {
                     "page": 0,
@@ -3006,14 +3006,14 @@
                   "id": "cfd70c512958",
                   "kind": "cell",
                   "provenance": {
-                    "extractor": "pdfplumber",
-                    "stage": "extract_tables"
+                    "extractor": "bottom_up",
+                    "stage": "extract_tables_v2"
                   },
                   "text": "(190)"
                 },
                 {
                   "attrs": {
-                    "align": "right"
+                    "align": "left"
                   },
                   "bbox": {
                     "page": 0,
@@ -3026,8 +3026,8 @@
                   "id": "10b5b03205ec",
                   "kind": "cell",
                   "provenance": {
-                    "extractor": "pdfplumber",
-                    "stage": "extract_tables"
+                    "extractor": "bottom_up",
+                    "stage": "extract_tables_v2"
                   },
                   "text": "110"
                 }
@@ -3065,14 +3065,14 @@
                   "id": "221f5a115174",
                   "kind": "cell",
                   "provenance": {
-                    "extractor": "pdfplumber",
-                    "stage": "extract_tables"
+                    "extractor": "bottom_up",
+                    "stage": "extract_tables_v2"
                   },
                   "text": "Pre-Tax Income (Loss)"
                 },
                 {
                   "attrs": {
-                    "align": "right"
+                    "align": "left"
                   },
                   "bbox": {
                     "page": 0,
@@ -3085,14 +3085,14 @@
                   "id": "8acdd7b50c0c",
                   "kind": "cell",
                   "provenance": {
-                    "extractor": "pdfplumber",
-                    "stage": "extract_tables"
+                    "extractor": "bottom_up",
+                    "stage": "extract_tables_v2"
                   },
                   "text": "(465)"
                 },
                 {
                   "attrs": {
-                    "align": "right"
+                    "align": "left"
                   },
                   "bbox": {
                     "page": 0,
@@ -3105,14 +3105,14 @@
                   "id": "37015354b1b1",
                   "kind": "cell",
                   "provenance": {
-                    "extractor": "pdfplumber",
-                    "stage": "extract_tables"
+                    "extractor": "bottom_up",
+                    "stage": "extract_tables_v2"
                   },
                   "text": "(105)"
                 },
                 {
                   "attrs": {
-                    "align": "right"
+                    "align": "left"
                   },
                   "bbox": {
                     "page": 0,
@@ -3125,14 +3125,14 @@
                   "id": "9810c12a8b16",
                   "kind": "cell",
                   "provenance": {
-                    "extractor": "pdfplumber",
-                    "stage": "extract_tables"
+                    "extractor": "bottom_up",
+                    "stage": "extract_tables_v2"
                   },
                   "text": "480"
                 },
                 {
                   "attrs": {
-                    "align": "right"
+                    "align": "left"
                   },
                   "bbox": {
                     "page": 0,
@@ -3145,8 +3145,8 @@
                   "id": "06bc1408c14a",
                   "kind": "cell",
                   "provenance": {
-                    "extractor": "pdfplumber",
-                    "stage": "extract_tables"
+                    "extractor": "bottom_up",
+                    "stage": "extract_tables_v2"
                   },
                   "text": "1,900"
                 }
@@ -3184,14 +3184,14 @@
                   "id": "35eddce5ce98",
                   "kind": "cell",
                   "provenance": {
-                    "extractor": "pdfplumber",
-                    "stage": "extract_tables"
+                    "extractor": "bottom_up",
+                    "stage": "extract_tables_v2"
                   },
                   "text": "Income Tax Provision"
                 },
                 {
                   "attrs": {
-                    "align": "right"
+                    "align": "left"
                   },
                   "bbox": {
                     "page": 0,
@@ -3204,14 +3204,14 @@
                   "id": "97b68a2ba7ac",
                   "kind": "cell",
                   "provenance": {
-                    "extractor": "pdfplumber",
-                    "stage": "extract_tables"
+                    "extractor": "bottom_up",
+                    "stage": "extract_tables_v2"
                   },
                   "text": "\u2014"
                 },
                 {
                   "attrs": {
-                    "align": "right"
+                    "align": "left"
                   },
                   "bbox": {
                     "page": 0,
@@ -3224,14 +3224,14 @@
                   "id": "d2518e61a25c",
                   "kind": "cell",
                   "provenance": {
-                    "extractor": "pdfplumber",
-                    "stage": "extract_tables"
+                    "extractor": "bottom_up",
+                    "stage": "extract_tables_v2"
                   },
                   "text": "\u2014"
                 },
                 {
                   "attrs": {
-                    "align": "right"
+                    "align": "left"
                   },
                   "bbox": {
                     "page": 0,
@@ -3244,14 +3244,14 @@
                   "id": "609228a6a174",
                   "kind": "cell",
                   "provenance": {
-                    "extractor": "pdfplumber",
-                    "stage": "extract_tables"
+                    "extractor": "bottom_up",
+                    "stage": "extract_tables_v2"
                   },
                   "text": "(96)"
                 },
                 {
                   "attrs": {
-                    "align": "right"
+                    "align": "left"
                   },
                   "bbox": {
                     "page": 0,
@@ -3264,8 +3264,8 @@
                   "id": "0775631df691",
                   "kind": "cell",
                   "provenance": {
-                    "extractor": "pdfplumber",
-                    "stage": "extract_tables"
+                    "extractor": "bottom_up",
+                    "stage": "extract_tables_v2"
                   },
                   "text": "(418)"
                 }
@@ -3303,14 +3303,14 @@
                   "id": "19d09c387ccc",
                   "kind": "cell",
                   "provenance": {
-                    "extractor": "pdfplumber",
-                    "stage": "extract_tables"
+                    "extractor": "bottom_up",
+                    "stage": "extract_tables_v2"
                   },
                   "text": "Net Income (Loss)"
                 },
                 {
                   "attrs": {
-                    "align": "right"
+                    "align": "left"
                   },
                   "bbox": {
                     "page": 0,
@@ -3323,14 +3323,14 @@
                   "id": "381fd614b6f8",
                   "kind": "cell",
                   "provenance": {
-                    "extractor": "pdfplumber",
-                    "stage": "extract_tables"
+                    "extractor": "bottom_up",
+                    "stage": "extract_tables_v2"
                   },
                   "text": "(465)"
                 },
                 {
                   "attrs": {
-                    "align": "right"
+                    "align": "left"
                   },
                   "bbox": {
                     "page": 0,
@@ -3343,14 +3343,14 @@
                   "id": "a078bfa33836",
                   "kind": "cell",
                   "provenance": {
-                    "extractor": "pdfplumber",
-                    "stage": "extract_tables"
+                    "extractor": "bottom_up",
+                    "stage": "extract_tables_v2"
                   },
                   "text": "(105)"
                 },
                 {
                   "attrs": {
-                    "align": "right"
+                    "align": "left"
                   },
                   "bbox": {
                     "page": 0,
@@ -3363,14 +3363,14 @@
                   "id": "cf683ec90477",
                   "kind": "cell",
                   "provenance": {
-                    "extractor": "pdfplumber",
-                    "stage": "extract_tables"
+                    "extractor": "bottom_up",
+                    "stage": "extract_tables_v2"
                   },
                   "text": "384"
                 },
                 {
                   "attrs": {
-                    "align": "right"
+                    "align": "left"
                   },
                   "bbox": {
                     "page": 0,
@@ -3383,8 +3383,8 @@
                   "id": "6721f056bf01",
                   "kind": "cell",
                   "provenance": {
-                    "extractor": "pdfplumber",
-                    "stage": "extract_tables"
+                    "extractor": "bottom_up",
+                    "stage": "extract_tables_v2"
                   },
                   "text": "1,482"
                 }
@@ -3422,14 +3422,14 @@
                   "id": "da6940d87f25",
                   "kind": "cell",
                   "provenance": {
-                    "extractor": "pdfplumber",
-                    "stage": "extract_tables"
+                    "extractor": "bottom_up",
+                    "stage": "extract_tables_v2"
                   },
                   "text": "Net Margin %"
                 },
                 {
                   "attrs": {
-                    "align": "right"
+                    "align": "left"
                   },
                   "bbox": {
                     "page": 0,
@@ -3442,14 +3442,14 @@
                   "id": "49cdc8fceef1",
                   "kind": "cell",
                   "provenance": {
-                    "extractor": "pdfplumber",
-                    "stage": "extract_tables"
+                    "extractor": "bottom_up",
+                    "stage": "extract_tables_v2"
                   },
                   "text": "-2.9%"
                 },
                 {
                   "attrs": {
-                    "align": "right"
+                    "align": "left"
                   },
                   "bbox": {
                     "page": 0,
@@ -3462,14 +3462,14 @@
                   "id": "50b30fa0fd49",
                   "kind": "cell",
                   "provenance": {
-                    "extractor": "pdfplumber",
-                    "stage": "extract_tables"
+                    "extractor": "bottom_up",
+                    "stage": "extract_tables_v2"
                   },
                   "text": "-0.5%"
                 },
                 {
                   "attrs": {
-                    "align": "right"
+                    "align": "left"
                   },
                   "bbox": {
                     "page": 0,
@@ -3482,14 +3482,14 @@
                   "id": "326ea688d48c",
                   "kind": "cell",
                   "provenance": {
-                    "extractor": "pdfplumber",
-                    "stage": "extract_tables"
+                    "extractor": "bottom_up",
+                    "stage": "extract_tables_v2"
                   },
                   "text": "1.6%"
                 },
                 {
                   "attrs": {
-                    "align": "right"
+                    "align": "left"
                   },
                   "bbox": {
                     "page": 0,
@@ -3502,8 +3502,8 @@
                   "id": "8cb1a60b23cd",
                   "kind": "cell",
                   "provenance": {
-                    "extractor": "pdfplumber",
-                    "stage": "extract_tables"
+                    "extractor": "bottom_up",
+                    "stage": "extract_tables_v2"
                   },
                   "text": "5.2%"
                 }
@@ -3541,8 +3541,8 @@
                   "id": "a501ff848c06",
                   "kind": "cell",
                   "provenance": {
-                    "extractor": "pdfplumber",
-                    "stage": "extract_tables"
+                    "extractor": "bottom_up",
+                    "stage": "extract_tables_v2"
                   },
                   "text": "Per Share Data"
                 },
@@ -3561,8 +3561,8 @@
                   "id": "de48b0a59bef",
                   "kind": "cell",
                   "provenance": {
-                    "extractor": "pdfplumber",
-                    "stage": "extract_tables"
+                    "extractor": "bottom_up",
+                    "stage": "extract_tables_v2"
                   },
                   "text": ""
                 },
@@ -3581,8 +3581,8 @@
                   "id": "c1143bf37d82",
                   "kind": "cell",
                   "provenance": {
-                    "extractor": "pdfplumber",
-                    "stage": "extract_tables"
+                    "extractor": "bottom_up",
+                    "stage": "extract_tables_v2"
                   },
                   "text": ""
                 },
@@ -3601,8 +3601,8 @@
                   "id": "55ca366dc89a",
                   "kind": "cell",
                   "provenance": {
-                    "extractor": "pdfplumber",
-                    "stage": "extract_tables"
+                    "extractor": "bottom_up",
+                    "stage": "extract_tables_v2"
                   },
                   "text": ""
                 },
@@ -3621,8 +3621,8 @@
                   "id": "941e9905bf23",
                   "kind": "cell",
                   "provenance": {
-                    "extractor": "pdfplumber",
-                    "stage": "extract_tables"
+                    "extractor": "bottom_up",
+                    "stage": "extract_tables_v2"
                   },
                   "text": ""
                 }
@@ -3660,14 +3660,14 @@
                   "id": "cc8396eb85f1",
                   "kind": "cell",
                   "provenance": {
-                    "extractor": "pdfplumber",
-                    "stage": "extract_tables"
+                    "extractor": "bottom_up",
+                    "stage": "extract_tables_v2"
                   },
                   "text": "Basic EPS"
                 },
                 {
                   "attrs": {
-                    "align": "right"
+                    "align": "left"
                   },
                   "bbox": {
                     "page": 0,
@@ -3680,14 +3680,14 @@
                   "id": "0a869c838d44",
                   "kind": "cell",
                   "provenance": {
-                    "extractor": "pdfplumber",
-                    "stage": "extract_tables"
+                    "extractor": "bottom_up",
+                    "stage": "extract_tables_v2"
                   },
                   "text": "$(0.47)"
                 },
                 {
                   "attrs": {
-                    "align": "right"
+                    "align": "left"
                   },
                   "bbox": {
                     "page": 0,
@@ -3700,14 +3700,14 @@
                   "id": "8b74c8f0c3b1",
                   "kind": "cell",
                   "provenance": {
-                    "extractor": "pdfplumber",
-                    "stage": "extract_tables"
+                    "extractor": "bottom_up",
+                    "stage": "extract_tables_v2"
                   },
                   "text": "$(0.11)"
                 },
                 {
                   "attrs": {
-                    "align": "right"
+                    "align": "left"
                   },
                   "bbox": {
                     "page": 0,
@@ -3720,14 +3720,14 @@
                   "id": "8c3c73e5b280",
                   "kind": "cell",
                   "provenance": {
-                    "extractor": "pdfplumber",
-                    "stage": "extract_tables"
+                    "extractor": "bottom_up",
+                    "stage": "extract_tables_v2"
                   },
                   "text": "$0.38"
                 },
                 {
                   "attrs": {
-                    "align": "right"
+                    "align": "left"
                   },
                   "bbox": {
                     "page": 0,
@@ -3740,8 +3740,8 @@
                   "id": "cb0ccc02e4b5",
                   "kind": "cell",
                   "provenance": {
-                    "extractor": "pdfplumber",
-                    "stage": "extract_tables"
+                    "extractor": "bottom_up",
+                    "stage": "extract_tables_v2"
                   },
                   "text": "$1.49"
                 }
@@ -3779,14 +3779,14 @@
                   "id": "8f1bfa4677b6",
                   "kind": "cell",
                   "provenance": {
-                    "extractor": "pdfplumber",
-                    "stage": "extract_tables"
+                    "extractor": "bottom_up",
+                    "stage": "extract_tables_v2"
                   },
                   "text": "Diluted EPS"
                 },
                 {
                   "attrs": {
-                    "align": "right"
+                    "align": "left"
                   },
                   "bbox": {
                     "page": 0,
@@ -3799,14 +3799,14 @@
                   "id": "e27d89f83be1",
                   "kind": "cell",
                   "provenance": {
-                    "extractor": "pdfplumber",
-                    "stage": "extract_tables"
+                    "extractor": "bottom_up",
+                    "stage": "extract_tables_v2"
                   },
                   "text": "$(0.47)"
                 },
                 {
                   "attrs": {
-                    "align": "right"
+                    "align": "left"
                   },
                   "bbox": {
                     "page": 0,
@@ -3819,14 +3819,14 @@
                   "id": "516a0c7dda14",
                   "kind": "cell",
                   "provenance": {
-                    "extractor": "pdfplumber",
-                    "stage": "extract_tables"
+                    "extractor": "bottom_up",
+                    "stage": "extract_tables_v2"
                   },
                   "text": "$(0.11)"
                 },
                 {
                   "attrs": {
-                    "align": "right"
+                    "align": "left"
                   },
                   "bbox": {
                     "page": 0,
@@ -3839,14 +3839,14 @@
                   "id": "0d8ecd03d210",
                   "kind": "cell",
                   "provenance": {
-                    "extractor": "pdfplumber",
-                    "stage": "extract_tables"
+                    "extractor": "bottom_up",
+                    "stage": "extract_tables_v2"
                   },
                   "text": "$0.37"
                 },
                 {
                   "attrs": {
-                    "align": "right"
+                    "align": "left"
                   },
                   "bbox": {
                     "page": 0,
@@ -3859,8 +3859,8 @@
                   "id": "1bc896593e52",
                   "kind": "cell",
                   "provenance": {
-                    "extractor": "pdfplumber",
-                    "stage": "extract_tables"
+                    "extractor": "bottom_up",
+                    "stage": "extract_tables_v2"
                   },
                   "text": "$1.44"
                 }
@@ -3898,14 +3898,14 @@
                   "id": "4cb194c281a6",
                   "kind": "cell",
                   "provenance": {
-                    "extractor": "pdfplumber",
-                    "stage": "extract_tables"
+                    "extractor": "bottom_up",
+                    "stage": "extract_tables_v2"
                   },
                   "text": "Wtd-Avg Shares, Basic (M)"
                 },
                 {
                   "attrs": {
-                    "align": "right"
+                    "align": "left"
                   },
                   "bbox": {
                     "page": 0,
@@ -3918,14 +3918,14 @@
                   "id": "70ce91f9343c",
                   "kind": "cell",
                   "provenance": {
-                    "extractor": "pdfplumber",
-                    "stage": "extract_tables"
+                    "extractor": "bottom_up",
+                    "stage": "extract_tables_v2"
                   },
                   "text": "99.1"
                 },
                 {
                   "attrs": {
-                    "align": "right"
+                    "align": "left"
                   },
                   "bbox": {
                     "page": 0,
@@ -3938,14 +3938,14 @@
                   "id": "0608cd08e40a",
                   "kind": "cell",
                   "provenance": {
-                    "extractor": "pdfplumber",
-                    "stage": "extract_tables"
+                    "extractor": "bottom_up",
+                    "stage": "extract_tables_v2"
                   },
                   "text": "99.8"
                 },
                 {
                   "attrs": {
-                    "align": "right"
+                    "align": "left"
                   },
                   "bbox": {
                     "page": 0,
@@ -3958,14 +3958,14 @@
                   "id": "bd07fe740c10",
                   "kind": "cell",
                   "provenance": {
-                    "extractor": "pdfplumber",
-                    "stage": "extract_tables"
+                    "extractor": "bottom_up",
+                    "stage": "extract_tables_v2"
                   },
                   "text": "100.2"
                 },
                 {
                   "attrs": {
-                    "align": "right"
+                    "align": "left"
                   },
                   "bbox": {
                     "page": 0,
@@ -3978,8 +3978,8 @@
                   "id": "507087275e8b",
                   "kind": "cell",
                   "provenance": {
-                    "extractor": "pdfplumber",
-                    "stage": "extract_tables"
+                    "extractor": "bottom_up",
+                    "stage": "extract_tables_v2"
                   },
                   "text": "99.5"
                 }
@@ -4017,14 +4017,14 @@
                   "id": "b643e4452d86",
                   "kind": "cell",
                   "provenance": {
-                    "extractor": "pdfplumber",
-                    "stage": "extract_tables"
+                    "extractor": "bottom_up",
+                    "stage": "extract_tables_v2"
                   },
                   "text": "Wtd-Avg Shares, Diluted (M)"
                 },
                 {
                   "attrs": {
-                    "align": "right"
+                    "align": "left"
                   },
                   "bbox": {
                     "page": 0,
@@ -4037,14 +4037,14 @@
                   "id": "9add2ac2a6e5",
                   "kind": "cell",
                   "provenance": {
-                    "extractor": "pdfplumber",
-                    "stage": "extract_tables"
+                    "extractor": "bottom_up",
+                    "stage": "extract_tables_v2"
                   },
                   "text": "103.4"
                 },
                 {
                   "attrs": {
-                    "align": "right"
+                    "align": "left"
                   },
                   "bbox": {
                     "page": 0,
@@ -4057,14 +4057,14 @@
                   "id": "c9809f45456c",
                   "kind": "cell",
                   "provenance": {
-                    "extractor": "pdfplumber",
-                    "stage": "extract_tables"
+                    "extractor": "bottom_up",
+                    "stage": "extract_tables_v2"
                   },
                   "text": "103.9"
                 },
                 {
                   "attrs": {
-                    "align": "right"
+                    "align": "left"
                   },
                   "bbox": {
                     "page": 0,
@@ -4077,14 +4077,14 @@
                   "id": "885557a72998",
                   "kind": "cell",
                   "provenance": {
-                    "extractor": "pdfplumber",
-                    "stage": "extract_tables"
+                    "extractor": "bottom_up",
+                    "stage": "extract_tables_v2"
                   },
                   "text": "104.1"
                 },
                 {
                   "attrs": {
-                    "align": "right"
+                    "align": "left"
                   },
                   "bbox": {
                     "page": 0,
@@ -4097,8 +4097,8 @@
                   "id": "52a5ebdaaf5f",
                   "kind": "cell",
                   "provenance": {
-                    "extractor": "pdfplumber",
-                    "stage": "extract_tables"
+                    "extractor": "bottom_up",
+                    "stage": "extract_tables_v2"
                   },
                   "text": "103.8"
                 }
@@ -4112,8 +4112,8 @@
           "id": "1325638515c6",
           "kind": "table",
           "provenance": {
-            "extractor": "pdfplumber",
-            "stage": "extract_tables"
+            "extractor": "bottom_up",
+            "stage": "extract_tables_v2"
           },
           "text": null
         }

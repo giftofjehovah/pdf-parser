@@ -99,8 +99,8 @@
                   "id": "8dcd22c84d62",
                   "kind": "cell",
                   "provenance": {
-                    "extractor": "pdfplumber",
-                    "stage": "extract_tables"
+                    "extractor": "bottom_up",
+                    "stage": "extract_tables_v2"
                   },
                   "text": "Section Header"
                 }
@@ -182,8 +182,8 @@
                               "id": "4418c6ead6d3",
                               "kind": "cell",
                               "provenance": {
-                                "extractor": "pdfplumber",
-                                "stage": "extract_tables"
+                                "extractor": "bottom_up",
+                                "stage": "extract_tables_v2"
                               },
                               "text": "Item"
                             },
@@ -202,8 +202,8 @@
                               "id": "afc398d5321a",
                               "kind": "cell",
                               "provenance": {
-                                "extractor": "pdfplumber",
-                                "stage": "extract_tables"
+                                "extractor": "bottom_up",
+                                "stage": "extract_tables_v2"
                               },
                               "text": "Qty"
                             }
@@ -241,8 +241,8 @@
                               "id": "4831cf1d8bea",
                               "kind": "cell",
                               "provenance": {
-                                "extractor": "pdfplumber",
-                                "stage": "extract_tables"
+                                "extractor": "bottom_up",
+                                "stage": "extract_tables_v2"
                               },
                               "text": "Widget A"
                             },
@@ -261,8 +261,8 @@
                               "id": "304c97fb4470",
                               "kind": "cell",
                               "provenance": {
-                                "extractor": "pdfplumber",
-                                "stage": "extract_tables"
+                                "extractor": "bottom_up",
+                                "stage": "extract_tables_v2"
                               },
                               "text": "10"
                             }
@@ -300,8 +300,8 @@
                               "id": "adf925094f97",
                               "kind": "cell",
                               "provenance": {
-                                "extractor": "pdfplumber",
-                                "stage": "extract_tables"
+                                "extractor": "bottom_up",
+                                "stage": "extract_tables_v2"
                               },
                               "text": "Widget B"
                             },
@@ -320,8 +320,8 @@
                               "id": "59974c154558",
                               "kind": "cell",
                               "provenance": {
-                                "extractor": "pdfplumber",
-                                "stage": "extract_tables"
+                                "extractor": "bottom_up",
+                                "stage": "extract_tables_v2"
                               },
                               "text": "5"
                             }
@@ -335,8 +335,8 @@
                       "id": "47767500dd0d",
                       "kind": "table",
                       "provenance": {
-                        "extractor": "pdfplumber",
-                        "stage": "extract_tables"
+                        "extractor": "bottom_up",
+                        "stage": "extract_tables_v2"
                       },
                       "text": null
                     },
@@ -362,8 +362,8 @@
                   "id": "5e1930b03c86",
                   "kind": "cell",
                   "provenance": {
-                    "extractor": "pdfplumber",
-                    "stage": "extract_tables"
+                    "extractor": "bottom_up",
+                    "stage": "extract_tables_v2"
                   },
                   "text": null
                 }
@@ -463,8 +463,8 @@
                               "id": "c6a9a9398fa1",
                               "kind": "cell",
                               "provenance": {
-                                "extractor": "pdfplumber",
-                                "stage": "extract_tables"
+                                "extractor": "bottom_up",
+                                "stage": "extract_tables_v2"
                               },
                               "text": "Month"
                             },
@@ -483,8 +483,8 @@
                               "id": "097d62cb98a3",
                               "kind": "cell",
                               "provenance": {
-                                "extractor": "pdfplumber",
-                                "stage": "extract_tables"
+                                "extractor": "bottom_up",
+                                "stage": "extract_tables_v2"
                               },
                               "text": "Sales"
                             }
@@ -522,8 +522,8 @@
                               "id": "df79ac9b4806",
                               "kind": "cell",
                               "provenance": {
-                                "extractor": "pdfplumber",
-                                "stage": "extract_tables"
+                                "extractor": "bottom_up",
+                                "stage": "extract_tables_v2"
                               },
                               "text": "Jan"
                             },
@@ -542,8 +542,8 @@
                               "id": "2fb7c2ae1080",
                               "kind": "cell",
                               "provenance": {
-                                "extractor": "pdfplumber",
-                                "stage": "extract_tables"
+                                "extractor": "bottom_up",
+                                "stage": "extract_tables_v2"
                               },
                               "text": "$500"
                             }
@@ -581,8 +581,8 @@
                               "id": "a35e07df99ac",
                               "kind": "cell",
                               "provenance": {
-                                "extractor": "pdfplumber",
-                                "stage": "extract_tables"
+                                "extractor": "bottom_up",
+                                "stage": "extract_tables_v2"
                               },
                               "text": "Feb"
                             },
@@ -601,8 +601,8 @@
                               "id": "6aa6abe0ce02",
                               "kind": "cell",
                               "provenance": {
-                                "extractor": "pdfplumber",
-                                "stage": "extract_tables"
+                                "extractor": "bottom_up",
+                                "stage": "extract_tables_v2"
                               },
                               "text": "$700"
                             }
@@ -616,8 +616,8 @@
                       "id": "71d1be75a329",
                       "kind": "table",
                       "provenance": {
-                        "extractor": "pdfplumber",
-                        "stage": "extract_tables"
+                        "extractor": "bottom_up",
+                        "stage": "extract_tables_v2"
                       },
                       "text": null
                     }
@@ -625,8 +625,8 @@
                   "id": "c2c1b6a5cc7a",
                   "kind": "cell",
                   "provenance": {
-                    "extractor": "pdfplumber",
-                    "stage": "extract_tables"
+                    "extractor": "bottom_up",
+                    "stage": "extract_tables_v2"
                   },
                   "text": null
                 }
@@ -664,8 +664,8 @@
                   "id": "5cec711941ca",
                   "kind": "cell",
                   "provenance": {
-                    "extractor": "pdfplumber",
-                    "stage": "extract_tables"
+                    "extractor": "bottom_up",
+                    "stage": "extract_tables_v2"
                   },
                   "text": "Section Footer"
                 }
@@ -679,7 +679,7 @@
           "id": "6db41c2dc38f",
           "kind": "table",
           "provenance": {
-            "extractor": "pdfplumber+stitch",
+            "extractor": "bottom_up+stitch",
             "stage": "stitch_pages"
           },
           "text": null

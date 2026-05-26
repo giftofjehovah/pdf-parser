@@ -88,8 +88,8 @@
                   "id": "c86ee245d499",
                   "kind": "cell",
                   "provenance": {
-                    "extractor": "pdfplumber",
-                    "stage": "extract_tables"
+                    "extractor": "bottom_up",
+                    "stage": "extract_tables_v2"
                   },
                   "text": "Name"
                 },
@@ -108,8 +108,8 @@
                   "id": "33cee944b4c4",
                   "kind": "cell",
                   "provenance": {
-                    "extractor": "pdfplumber",
-                    "stage": "extract_tables"
+                    "extractor": "bottom_up",
+                    "stage": "extract_tables_v2"
                   },
                   "text": "Score"
                 },
@@ -128,8 +128,8 @@
                   "id": "213a570943a2",
                   "kind": "cell",
                   "provenance": {
-                    "extractor": "pdfplumber",
-                    "stage": "extract_tables"
+                    "extractor": "bottom_up",
+                    "stage": "extract_tables_v2"
                   },
                   "text": "Grade"
                 }
@@ -167,8 +167,8 @@
                   "id": "5c62dbedcad1",
                   "kind": "cell",
                   "provenance": {
-                    "extractor": "pdfplumber",
-                    "stage": "extract_tables"
+                    "extractor": "bottom_up",
+                    "stage": "extract_tables_v2"
                   },
                   "text": "Alice"
                 },
@@ -187,8 +187,8 @@
                   "id": "a17ea35fd607",
                   "kind": "cell",
                   "provenance": {
-                    "extractor": "pdfplumber",
-                    "stage": "extract_tables"
+                    "extractor": "bottom_up",
+                    "stage": "extract_tables_v2"
                   },
                   "text": "95"
                 },
@@ -207,8 +207,8 @@
                   "id": "c59af5f9345b",
                   "kind": "cell",
                   "provenance": {
-                    "extractor": "pdfplumber",
-                    "stage": "extract_tables"
+                    "extractor": "bottom_up",
+                    "stage": "extract_tables_v2"
                   },
                   "text": "A"
                 }
@@ -246,8 +246,8 @@
                   "id": "4ac2679e8a22",
                   "kind": "cell",
                   "provenance": {
-                    "extractor": "pdfplumber",
-                    "stage": "extract_tables"
+                    "extractor": "bottom_up",
+                    "stage": "extract_tables_v2"
                   },
                   "text": "Bob"
                 },
@@ -266,8 +266,8 @@
                   "id": "16d5dd2b666a",
                   "kind": "cell",
                   "provenance": {
-                    "extractor": "pdfplumber",
-                    "stage": "extract_tables"
+                    "extractor": "bottom_up",
+                    "stage": "extract_tables_v2"
                   },
                   "text": "82"
                 },
@@ -286,8 +286,8 @@
                   "id": "57f920df469d",
                   "kind": "cell",
                   "provenance": {
-                    "extractor": "pdfplumber",
-                    "stage": "extract_tables"
+                    "extractor": "bottom_up",
+                    "stage": "extract_tables_v2"
                   },
                   "text": "B"
                 }
@@ -325,8 +325,8 @@
                   "id": "cfd7a89e4f30",
                   "kind": "cell",
                   "provenance": {
-                    "extractor": "pdfplumber",
-                    "stage": "extract_tables"
+                    "extractor": "bottom_up",
+                    "stage": "extract_tables_v2"
                   },
                   "text": "Carol"
                 },
@@ -345,8 +345,8 @@
                   "id": "6fa30fe0fb33",
                   "kind": "cell",
                   "provenance": {
-                    "extractor": "pdfplumber",
-                    "stage": "extract_tables"
+                    "extractor": "bottom_up",
+                    "stage": "extract_tables_v2"
                   },
                   "text": "91"
                 },
@@ -365,8 +365,8 @@
                   "id": "235bb5491a54",
                   "kind": "cell",
                   "provenance": {
-                    "extractor": "pdfplumber",
-                    "stage": "extract_tables"
+                    "extractor": "bottom_up",
+                    "stage": "extract_tables_v2"
                   },
                   "text": "A-"
                 }
@@ -380,8 +380,8 @@
           "id": "0c6d93904bcb",
           "kind": "table",
           "provenance": {
-            "extractor": "pdfplumber",
-            "stage": "extract_tables"
+            "extractor": "bottom_up",
+            "stage": "extract_tables_v2"
           },
           "text": null
         }

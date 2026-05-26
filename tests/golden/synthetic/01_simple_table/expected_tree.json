@@ -106,8 +106,8 @@
                   "id": "7cc49c35be4c",
                   "kind": "cell",
                   "provenance": {
-                    "extractor": "pdfplumber",
-                    "stage": "extract_tables"
+                    "extractor": "bottom_up",
+                    "stage": "extract_tables_v2"
                   },
                   "text": "Name"
                 },
@@ -126,8 +126,8 @@
                   "id": "5984719d8c18",
                   "kind": "cell",
                   "provenance": {
-                    "extractor": "pdfplumber",
-                    "stage": "extract_tables"
+                    "extractor": "bottom_up",
+                    "stage": "extract_tables_v2"
                   },
                   "text": "Quantity"
                 },
@@ -146,8 +146,8 @@
                   "id": "1d00bb54a46f",
                   "kind": "cell",
                   "provenance": {
-                    "extractor": "pdfplumber",
-                    "stage": "extract_tables"
+                    "extractor": "bottom_up",
+                    "stage": "extract_tables_v2"
                   },
                   "text": "Price"
                 }
@@ -185,8 +185,8 @@
                   "id": "9df466a6e15f",
                   "kind": "cell",
                   "provenance": {
-                    "extractor": "pdfplumber",
-                    "stage": "extract_tables"
+                    "extractor": "bottom_up",
+                    "stage": "extract_tables_v2"
                   },
                   "text": "Apple"
                 },
@@ -205,8 +205,8 @@
                   "id": "f9318109181c",
                   "kind": "cell",
                   "provenance": {
-                    "extractor": "pdfplumber",
-                    "stage": "extract_tables"
+                    "extractor": "bottom_up",
+                    "stage": "extract_tables_v2"
                   },
                   "text": "3"
                 },
@@ -225,8 +225,8 @@
                   "id": "df6cedbbc53d",
                   "kind": "cell",
                   "provenance": {
-                    "extractor": "pdfplumber",
-                    "stage": "extract_tables"
+                    "extractor": "bottom_up",
+                    "stage": "extract_tables_v2"
                   },
                   "text": "$1.00"
                 }
@@ -264,8 +264,8 @@
                   "id": "ceac38f51a78",
                   "kind": "cell",
                   "provenance": {
-                    "extractor": "pdfplumber",
-                    "stage": "extract_tables"
+                    "extractor": "bottom_up",
+                    "stage": "extract_tables_v2"
                   },
                   "text": "Banana"
                 },
@@ -284,8 +284,8 @@
                   "id": "a7965d6936aa",
                   "kind": "cell",
                   "provenance": {
-                    "extractor": "pdfplumber",
-                    "stage": "extract_tables"
+                    "extractor": "bottom_up",
+                    "stage": "extract_tables_v2"
                   },
                   "text": "6"
                 },
@@ -304,8 +304,8 @@
                   "id": "37627ab0b3f7",
                   "kind": "cell",
                   "provenance": {
-                    "extractor": "pdfplumber",
-                    "stage": "extract_tables"
+                    "extractor": "bottom_up",
+                    "stage": "extract_tables_v2"
                   },
                   "text": "$0.50"
                 }
@@ -319,8 +319,8 @@
           "id": "23b5a81424f2",
           "kind": "table",
           "provenance": {
-            "extractor": "pdfplumber",
-            "stage": "extract_tables"
+            "extractor": "bottom_up",
+            "stage": "extract_tables_v2"
           },
           "text": null
         }

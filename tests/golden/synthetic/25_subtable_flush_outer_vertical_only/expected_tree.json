@@ -61,20 +61,262 @@
           "text": "Edge \u2014 Page 1"
         },
         {
+          "attrs": {},
+          "bbox": {
+            "page": 0,
+            "x0": 138,
+            "x1": 461,
+            "y0": 142,
+            "y1": 175
+          },
+          "children": [],
+          "id": "31d497fe6a1c",
+          "kind": "paragraph",
+          "provenance": {
+            "extractor": "segment",
+            "stage": "build_tree"
+          },
+          "text": "NOTE-TOP: This paragraph sits at the top of the page-1 outer cell. Its top edge is flush with the outer frame's top edge; sub-table B below is flush with the outer frame's bottom edge."
+        },
+        {
           "attrs": {
             "header_signature": [
-              ""
+              "Item",
+              "Qty"
             ],
-            "n_cols": 1,
-            "n_rows": 1,
+            "n_cols": 2,
+            "n_rows": 3,
             "page": 0,
             "page_height": 792.0
           },
           "bbox": {
             "page": 0,
-            "x0": 126,
-            "x1": 486,
-            "y0": 140,
+            "x0": 138,
+            "x1": 358,
+            "y0": 176,
+            "y1": 230
+          },
+          "children": [
+            {
+              "attrs": {
+                "page": 0,
+                "row_index": 0
+              },
+              "bbox": {
+                "page": 0,
+                "x0": 138,
+                "x1": 358,
+                "y0": 176,
+                "y1": 230
+              },
+              "children": [
+                {
+                  "attrs": {
+                    "align": "left"
+                  },
+                  "bbox": {
+                    "page": 0,
+                    "x0": 138,
+                    "x1": 248,
+                    "y0": 176,
+                    "y1": 194
+                  },
+                  "children": [],
+                  "id": "f7ae3aaba6ad",
+                  "kind": "cell",
+                  "provenance": {
+                    "extractor": "bottom_up",
+                    "stage": "extract_tables_v2"
+                  },
+                  "text": "Item"
+                },
+                {
+                  "attrs": {
+                    "align": "left"
+                  },
+                  "bbox": {
+                    "page": 0,
+                    "x0": 248,
+                    "x1": 358,
+                    "y0": 176,
+                    "y1": 194
+                  },
+                  "children": [],
+                  "id": "787554d40e7a",
+                  "kind": "cell",
+                  "provenance": {
+                    "extractor": "bottom_up",
+                    "stage": "extract_tables_v2"
+                  },
+                  "text": "Qty"
+                }
+              ],
+              "id": "43714689069e",
+              "kind": "row",
+              "provenance": {},
+              "text": null
+            },
+            {
+              "attrs": {
+                "page": 0,
+                "row_index": 1
+              },
+              "bbox": {
+                "page": 0,
+                "x0": 138,
+                "x1": 358,
+                "y0": 176,
+                "y1": 230
+              },
+              "children": [
+                {
+                  "attrs": {
+                    "align": "left"
+                  },
+                  "bbox": {
+                    "page": 0,
+                    "x0": 138,
+                    "x1": 248,
+                    "y0": 194,
+                    "y1": 212
+                  },
+                  "children": [],
+                  "id": "6c58642056ab",
+                  "kind": "cell",
+                  "provenance": {
+                    "extractor": "bottom_up",
+                    "stage": "extract_tables_v2"
+                  },
+                  "text": "Widget A"
+                },
+                {
+                  "attrs": {
+                    "align": "left"
+                  },
+                  "bbox": {
+                    "page": 0,
+                    "x0": 248,
+                    "x1": 358,
+                    "y0": 194,
+                    "y1": 212
+                  },
+                  "children": [],
+                  "id": "19e0695e75b8",
+                  "kind": "cell",
+                  "provenance": {
+                    "extractor": "bottom_up",
+                    "stage": "extract_tables_v2"
+                  },
+                  "text": "10"
+                }
+              ],
+              "id": "8e44ff15054a",
+              "kind": "row",
+              "provenance": {},
+              "text": null
+            },
+            {
+              "attrs": {
+                "page": 0,
+                "row_index": 2
+              },
+              "bbox": {
+                "page": 0,
+                "x0": 138,
+                "x1": 358,
+                "y0": 176,
+                "y1": 230
+              },
+              "children": [
+                {
+                  "attrs": {
+                    "align": "left"
+                  },
+                  "bbox": {
+                    "page": 0,
+                    "x0": 138,
+                    "x1": 248,
+                    "y0": 212,
+                    "y1": 230
+                  },
+                  "children": [],
+                  "id": "974b70bbe348",
+                  "kind": "cell",
+                  "provenance": {
+                    "extractor": "bottom_up",
+                    "stage": "extract_tables_v2"
+                  },
+                  "text": "Widget B"
+                },
+                {
+                  "attrs": {
+                    "align": "left"
+                  },
+                  "bbox": {
+                    "page": 0,
+                    "x0": 248,
+                    "x1": 358,
+                    "y0": 212,
+                    "y1": 230
+                  },
+                  "children": [],
+                  "id": "637648e5402c",
+                  "kind": "cell",
+                  "provenance": {
+                    "extractor": "bottom_up",
+                    "stage": "extract_tables_v2"
+                  },
+                  "text": "5"
+                }
+              ],
+              "id": "aaf97730dd73",
+              "kind": "row",
+              "provenance": {},
+              "text": null
+            }
+          ],
+          "id": "48726a856cd9",
+          "kind": "table",
+          "provenance": {
+            "extractor": "bottom_up",
+            "stage": "extract_tables_v2"
+          },
+          "text": null
+        },
+        {
+          "attrs": {},
+          "bbox": {
+            "page": 0,
+            "x0": 139,
+            "x1": 468,
+            "y0": 238,
+            "y1": 257
+          },
+          "children": [],
+          "id": "49b193475a6d",
+          "kind": "paragraph",
+          "provenance": {
+            "extractor": "segment",
+            "stage": "build_tree"
+          },
+          "text": "NOTE-MID1: Between paragraph on page 1, separating sub-table A from sub-table B."
+        },
+        {
+          "attrs": {
+            "header_signature": [
+              "Month",
+              "Sales"
+            ],
+            "n_cols": 2,
+            "n_rows": 3,
+            "page": 0,
+            "page_height": 792.0
+          },
+          "bbox": {
+            "page": 0,
+            "x0": 138,
+            "x1": 358,
+            "y0": 260,
             "y1": 314
           },
           "children": [
@@ -85,9 +327,9 @@
               },
               "bbox": {
                 "page": 0,
-                "x0": 126,
-                "x1": 486,
-                "y0": 140,
+                "x0": 138,
+                "x1": 358,
+                "y0": 260,
                 "y1": 314
               },
               "children": [
@@ -97,484 +339,175 @@
                   },
                   "bbox": {
                     "page": 0,
-                    "x0": 126,
-                    "x1": 486,
-                    "y0": 140,
-                    "y1": 314
+                    "x0": 138,
+                    "x1": 248,
+                    "y0": 260,
+                    "y1": 278
                   },
-                  "children": [
-                    {
-                      "attrs": {},
-                      "bbox": {
-                        "page": 0,
-                        "x0": 138,
-                        "x1": 462,
-                        "y0": 142,
-                        "y1": 175
-                      },
-                      "children": [],
-                      "id": "5581cd754a46",
-                      "kind": "paragraph",
-                      "provenance": {
-                        "extractor": "pdfplumber",
-                        "stage": "extract_tables"
-                      },
-                      "text": "NOTE-TOP: This paragraph sits at the top of the page-1 outer cell. Its top edge is flush with the outer frame's top edge; sub-table B below is flush with the outer frame's bottom edge."
-                    },
-                    {
-                      "attrs": {
-                        "header_signature": [
-                          "Item",
-                          "Qty"
-                        ],
-                        "n_cols": 2,
-                        "n_rows": 3,
-                        "page": 0,
-                        "page_height": 792.0
-                      },
-                      "bbox": {
-                        "page": 0,
-                        "x0": 138,
-                        "x1": 358,
-                        "y0": 176,
-                        "y1": 230
-                      },
-                      "children": [
-                        {
-                          "attrs": {
-                            "page": 0,
-                            "row_index": 0
-                          },
-                          "bbox": {
-                            "page": 0,
-                            "x0": 138,
-                            "x1": 358,
-                            "y0": 176,
-                            "y1": 230
-                          },
-                          "children": [
-                            {
-                              "attrs": {
-                                "align": "left"
-                              },
-                              "bbox": {
-                                "page": 0,
-                                "x0": 138,
-                                "x1": 248,
-                                "y0": 176,
-                                "y1": 194
-                              },
-                              "children": [],
-                              "id": "f7ae3aaba6ad",
-                              "kind": "cell",
-                              "provenance": {
-                                "extractor": "pdfplumber",
-                                "stage": "extract_tables"
-                              },
-                              "text": "Item"
-                            },
-                            {
-                              "attrs": {
-                                "align": "left"
-                              },
-                              "bbox": {
-                                "page": 0,
-                                "x0": 248,
-                                "x1": 358,
-                                "y0": 176,
-                                "y1": 194
-                              },
-                              "children": [],
-                              "id": "787554d40e7a",
-                              "kind": "cell",
-                              "provenance": {
-                                "extractor": "pdfplumber",
-                                "stage": "extract_tables"
-                              },
-                              "text": "Qty"
-                            }
-                          ],
-                          "id": "43714689069e",
-                          "kind": "row",
-                          "provenance": {},
-                          "text": null
-                        },
-                        {
-                          "attrs": {
-                            "page": 0,
-                            "row_index": 1
-                          },
-                          "bbox": {
-                            "page": 0,
-                            "x0": 138,
-                            "x1": 358,
-                            "y0": 176,
-                            "y1": 230
-                          },
-                          "children": [
-                            {
-                              "attrs": {
-                                "align": "left"
-                              },
-                              "bbox": {
-                                "page": 0,
-                                "x0": 138,
-                                "x1": 248,
-                                "y0": 194,
-                                "y1": 212
-                              },
-                              "children": [],
-                              "id": "6c58642056ab",
-                              "kind": "cell",
-                              "provenance": {
-                                "extractor": "pdfplumber",
-                                "stage": "extract_tables"
-                              },
-                              "text": "Widget A"
-                            },
-                            {
-                              "attrs": {
-                                "align": "left"
-                              },
-                              "bbox": {
-                                "page": 0,
-                                "x0": 248,
-                                "x1": 358,
-                                "y0": 194,
-                                "y1": 212
-                              },
-                              "children": [],
-                              "id": "19e0695e75b8",
-                              "kind": "cell",
-                              "provenance": {
-                                "extractor": "pdfplumber",
-                                "stage": "extract_tables"
-                              },
-                              "text": "10"
-                            }
-                          ],
-                          "id": "8e44ff15054a",
-                          "kind": "row",
-                          "provenance": {},
-                          "text": null
-                        },
-                        {
-                          "attrs": {
-                            "page": 0,
-                            "row_index": 2
-                          },
-                          "bbox": {
-                            "page": 0,
-                            "x0": 138,
-                            "x1": 358,
-                            "y0": 176,
-                            "y1": 230
-                          },
-                          "children": [
-                            {
-                              "attrs": {
-                                "align": "left"
-                              },
-                              "bbox": {
-                                "page": 0,
-                                "x0": 138,
-                                "x1": 248,
-                                "y0": 212,
-                                "y1": 230
-                              },
-                              "children": [],
-                              "id": "974b70bbe348",
-                              "kind": "cell",
-                              "provenance": {
-                                "extractor": "pdfplumber",
-                                "stage": "extract_tables"
-                              },
-                              "text": "Widget B"
-                            },
-                            {
-                              "attrs": {
-                                "align": "left"
-                              },
-                              "bbox": {
-                                "page": 0,
-                                "x0": 248,
-                                "x1": 358,
-                                "y0": 212,
-                                "y1": 230
-                              },
-                              "children": [],
-                              "id": "637648e5402c",
-                              "kind": "cell",
-                              "provenance": {
-                                "extractor": "pdfplumber",
-                                "stage": "extract_tables"
-                              },
-                              "text": "5"
-                            }
-                          ],
-                          "id": "aaf97730dd73",
-                          "kind": "row",
-                          "provenance": {},
-                          "text": null
-                        }
-                      ],
-                      "id": "48726a856cd9",
-                      "kind": "table",
-                      "provenance": {
-                        "extractor": "pdfplumber",
-                        "stage": "extract_tables"
-                      },
-                      "text": null
-                    },
-                    {
-                      "attrs": {},
-                      "bbox": {
-                        "page": 0,
-                        "x0": 138,
-                        "x1": 469,
-                        "y0": 238,
-                        "y1": 259
-                      },
-                      "children": [],
-                      "id": "8c20fc35ee2e",
-                      "kind": "paragraph",
-                      "provenance": {
-                        "extractor": "pdfplumber",
-                        "stage": "extract_tables"
-                      },
-                      "text": "NOTE-MID1: Between paragraph on page 1, separating sub-table A from sub-table B."
-                    },
-                    {
-                      "attrs": {
-                        "header_signature": [
-                          "Month",
-                          "Sales"
-                        ],
-                        "n_cols": 2,
-                        "n_rows": 3,
-                        "page": 0,
-                        "page_height": 792.0
-                      },
-                      "bbox": {
-                        "page": 0,
-                        "x0": 138,
-                        "x1": 358,
-                        "y0": 260,
-                        "y1": 314
-                      },
-                      "children": [
-                        {
-                          "attrs": {
-                            "page": 0,
-                            "row_index": 0
-                          },
-                          "bbox": {
-                            "page": 0,
-                            "x0": 138,
-                            "x1": 358,
-                            "y0": 260,
-                            "y1": 314
-                          },
-                          "children": [
-                            {
-                              "attrs": {
-                                "align": "left"
-                              },
-                              "bbox": {
-                                "page": 0,
-                                "x0": 138,
-                                "x1": 248,
-                                "y0": 260,
-                                "y1": 278
-                              },
-                              "children": [],
-                              "id": "1af66129afd7",
-                              "kind": "cell",
-                              "provenance": {
-                                "extractor": "pdfplumber",
-                                "stage": "extract_tables"
-                              },
-                              "text": "Month"
-                            },
-                            {
-                              "attrs": {
-                                "align": "left"
-                              },
-                              "bbox": {
-                                "page": 0,
-                                "x0": 248,
-                                "x1": 358,
-                                "y0": 260,
-                                "y1": 278
-                              },
-                              "children": [],
-                              "id": "57dab80c7929",
-                              "kind": "cell",
-                              "provenance": {
-                                "extractor": "pdfplumber",
-                                "stage": "extract_tables"
-                              },
-                              "text": "Sales"
-                            }
-                          ],
-                          "id": "8a1bb7cf57c5",
-                          "kind": "row",
-                          "provenance": {},
-                          "text": null
-                        },
-                        {
-                          "attrs": {
-                            "page": 0,
-                            "row_index": 1
-                          },
-                          "bbox": {
-                            "page": 0,
-                            "x0": 138,
-                            "x1": 358,
-                            "y0": 260,
-                            "y1": 314
-                          },
-                          "children": [
-                            {
-                              "attrs": {
-                                "align": "left"
-                              },
-                              "bbox": {
-                                "page": 0,
-                                "x0": 138,
-                                "x1": 248,
-                                "y0": 278,
-                                "y1": 296
-                              },
-                              "children": [],
-                              "id": "59baef404aa8",
-                              "kind": "cell",
-                              "provenance": {
-                                "extractor": "pdfplumber",
-                                "stage": "extract_tables"
-                              },
-                              "text": "Jan"
-                            },
-                            {
-                              "attrs": {
-                                "align": "left"
-                              },
-                              "bbox": {
-                                "page": 0,
-                                "x0": 248,
-                                "x1": 358,
-                                "y0": 278,
-                                "y1": 296
-                              },
-                              "children": [],
-                              "id": "2f07aad60098",
-                              "kind": "cell",
-                              "provenance": {
-                                "extractor": "pdfplumber",
-                                "stage": "extract_tables"
-                              },
-                              "text": "$500"
-                            }
-                          ],
-                          "id": "90138fbfc596",
-                          "kind": "row",
-                          "provenance": {},
-                          "text": null
-                        },
-                        {
-                          "attrs": {
-                            "page": 0,
-                            "row_index": 2
-                          },
-                          "bbox": {
-                            "page": 0,
-                            "x0": 138,
-                            "x1": 358,
-                            "y0": 260,
-                            "y1": 314
-                          },
-                          "children": [
-                            {
-                              "attrs": {
-                                "align": "left"
-                              },
-                              "bbox": {
-                                "page": 0,
-                                "x0": 138,
-                                "x1": 248,
-                                "y0": 296,
-                                "y1": 314
-                              },
-                              "children": [],
-                              "id": "3320be6f3aa0",
-                              "kind": "cell",
-                              "provenance": {
-                                "extractor": "pdfplumber",
-                                "stage": "extract_tables"
-                              },
-                              "text": "Feb"
-                            },
-                            {
-                              "attrs": {
-                                "align": "left"
-                              },
-                              "bbox": {
-                                "page": 0,
-                                "x0": 248,
-                                "x1": 358,
-                                "y0": 296,
-                                "y1": 314
-                              },
-                              "children": [],
-                              "id": "b49176ec9134",
-                              "kind": "cell",
-                              "provenance": {
-                                "extractor": "pdfplumber",
-                                "stage": "extract_tables"
-                              },
-                              "text": "$700"
-                            }
-                          ],
-                          "id": "789af0ec150c",
-                          "kind": "row",
-                          "provenance": {},
-                          "text": null
-                        }
-                      ],
-                      "id": "b4fac0551f7c",
-                      "kind": "table",
-                      "provenance": {
-                        "extractor": "pdfplumber",
-                        "stage": "extract_tables"
-                      },
-                      "text": null
-                    }
-                  ],
-                  "id": "a9dfaa85d3df",
+                  "children": [],
+                  "id": "1af66129afd7",
                   "kind": "cell",
                   "provenance": {
-                    "extractor": "pdfplumber",
-                    "stage": "extract_tables"
+                    "extractor": "bottom_up",
+                    "stage": "extract_tables_v2"
                   },
-                  "text": null
+                  "text": "Month"
+                },
+                {
+                  "attrs": {
+                    "align": "left"
+                  },
+                  "bbox": {
+                    "page": 0,
+                    "x0": 248,
+                    "x1": 358,
+                    "y0": 260,
+                    "y1": 278
+                  },
+                  "children": [],
+                  "id": "57dab80c7929",
+                  "kind": "cell",
+                  "provenance": {
+                    "extractor": "bottom_up",
+                    "stage": "extract_tables_v2"
+                  },
+                  "text": "Sales"
                 }
               ],
-              "id": "885b0f5af92e",
+              "id": "8a1bb7cf57c5",
+              "kind": "row",
+              "provenance": {},
+              "text": null
+            },
+            {
+              "attrs": {
+                "page": 0,
+                "row_index": 1
+              },
+              "bbox": {
+                "page": 0,
+                "x0": 138,
+                "x1": 358,
+                "y0": 260,
+                "y1": 314
+              },
+              "children": [
+                {
+                  "attrs": {
+                    "align": "left"
+                  },
+                  "bbox": {
+                    "page": 0,
+                    "x0": 138,
+                    "x1": 248,
+                    "y0": 278,
+                    "y1": 296
+                  },
+                  "children": [],
+                  "id": "59baef404aa8",
+                  "kind": "cell",
+                  "provenance": {
+                    "extractor": "bottom_up",
+                    "stage": "extract_tables_v2"
+                  },
+                  "text": "Jan"
+                },
+                {
+                  "attrs": {
+                    "align": "left"
+                  },
+                  "bbox": {
+                    "page": 0,
+                    "x0": 248,
+                    "x1": 358,
+                    "y0": 278,
+                    "y1": 296
+                  },
+                  "children": [],
+                  "id": "2f07aad60098",
+                  "kind": "cell",
+                  "provenance": {
+                    "extractor": "bottom_up",
+                    "stage": "extract_tables_v2"
+                  },
+                  "text": "$500"
+                }
+              ],
+              "id": "90138fbfc596",
+              "kind": "row",
+              "provenance": {},
+              "text": null
+            },
+            {
+              "attrs": {
+                "page": 0,
+                "row_index": 2
+              },
+              "bbox": {
+                "page": 0,
+                "x0": 138,
+                "x1": 358,
+                "y0": 260,
+                "y1": 314
+              },
+              "children": [
+                {
+                  "attrs": {
+                    "align": "left"
+                  },
+                  "bbox": {
+                    "page": 0,
+                    "x0": 138,
+                    "x1": 248,
+                    "y0": 296,
+                    "y1": 314
+                  },
+                  "children": [],
+                  "id": "3320be6f3aa0",
+                  "kind": "cell",
+                  "provenance": {
+                    "extractor": "bottom_up",
+                    "stage": "extract_tables_v2"
+                  },
+                  "text": "Feb"
+                },
+                {
+                  "attrs": {
+                    "align": "left"
+                  },
+                  "bbox": {
+                    "page": 0,
+                    "x0": 248,
+                    "x1": 358,
+                    "y0": 296,
+                    "y1": 314
+                  },
+                  "children": [],
+                  "id": "b49176ec9134",
+                  "kind": "cell",
+                  "provenance": {
+                    "extractor": "bottom_up",
+                    "stage": "extract_tables_v2"
+                  },
+                  "text": "$700"
+                }
+              ],
+              "id": "789af0ec150c",
               "kind": "row",
               "provenance": {},
               "text": null
             }
           ],
-          "id": "1b703e093f76",
+          "id": "b4fac0551f7c",
           "kind": "table",
           "provenance": {
-            "extractor": "pdfplumber",
-            "stage": "extract_tables"
+            "extractor": "bottom_up",
+            "stage": "extract_tables_v2"
           },
           "text": null
         }
       ],
-      "id": "eebd0102be48",
+      "id": "8669878089eb",
       "kind": "page",
       "provenance": {},
       "text": null
@@ -634,19 +567,20 @@
         {
           "attrs": {
             "header_signature": [
-              ""
+              "Step",
+              "Owner"
             ],
-            "n_cols": 1,
-            "n_rows": 1,
+            "n_cols": 2,
+            "n_rows": 3,
             "page": 1,
             "page_height": 792.0
           },
           "bbox": {
             "page": 1,
-            "x0": 126,
-            "x1": 486,
+            "x0": 138,
+            "x1": 358,
             "y0": 140,
-            "y1": 320
+            "y1": 194
           },
           "children": [
             {
@@ -656,10 +590,10 @@
               },
               "bbox": {
                 "page": 1,
-                "x0": 126,
-                "x1": 486,
+                "x0": 138,
+                "x1": 358,
                 "y0": 140,
-                "y1": 320
+                "y1": 194
               },
               "children": [
                 {
@@ -668,490 +602,422 @@
                   },
                   "bbox": {
                     "page": 1,
-                    "x0": 126,
-                    "x1": 486,
+                    "x0": 138,
+                    "x1": 248,
                     "y0": 140,
-                    "y1": 320
+                    "y1": 158
                   },
-                  "children": [
-                    {
-                      "attrs": {
-                        "header_signature": [
-                          "Step",
-                          "Owner"
-                        ],
-                        "n_cols": 2,
-                        "n_rows": 3,
-                        "page": 1,
-                        "page_height": 792.0
-                      },
-                      "bbox": {
-                        "page": 1,
-                        "x0": 138,
-                        "x1": 358,
-                        "y0": 140,
-                        "y1": 194
-                      },
-                      "children": [
-                        {
-                          "attrs": {
-                            "page": 1,
-                            "row_index": 0
-                          },
-                          "bbox": {
-                            "page": 1,
-                            "x0": 138,
-                            "x1": 358,
-                            "y0": 140,
-                            "y1": 194
-                          },
-                          "children": [
-                            {
-                              "attrs": {
-                                "align": "left"
-                              },
-                              "bbox": {
-                                "page": 1,
-                                "x0": 138,
-                                "x1": 248,
-                                "y0": 140,
-                                "y1": 158
-                              },
-                              "children": [],
-                              "id": "9cf7f5629273",
-                              "kind": "cell",
-                              "provenance": {
-                                "extractor": "pdfplumber",
-                                "stage": "extract_tables"
-                              },
-                              "text": "Step"
-                            },
-                            {
-                              "attrs": {
-                                "align": "left"
-                              },
-                              "bbox": {
-                                "page": 1,
-                                "x0": 248,
-                                "x1": 358,
-                                "y0": 140,
-                                "y1": 158
-                              },
-                              "children": [],
-                              "id": "dc03066b6144",
-                              "kind": "cell",
-                              "provenance": {
-                                "extractor": "pdfplumber",
-                                "stage": "extract_tables"
-                              },
-                              "text": "Owner"
-                            }
-                          ],
-                          "id": "5180e96484f4",
-                          "kind": "row",
-                          "provenance": {},
-                          "text": null
-                        },
-                        {
-                          "attrs": {
-                            "page": 1,
-                            "row_index": 1
-                          },
-                          "bbox": {
-                            "page": 1,
-                            "x0": 138,
-                            "x1": 358,
-                            "y0": 140,
-                            "y1": 194
-                          },
-                          "children": [
-                            {
-                              "attrs": {
-                                "align": "left"
-                              },
-                              "bbox": {
-                                "page": 1,
-                                "x0": 138,
-                                "x1": 248,
-                                "y0": 158,
-                                "y1": 176
-                              },
-                              "children": [],
-                              "id": "cf96352a0aac",
-                              "kind": "cell",
-                              "provenance": {
-                                "extractor": "pdfplumber",
-                                "stage": "extract_tables"
-                              },
-                              "text": "1"
-                            },
-                            {
-                              "attrs": {
-                                "align": "left"
-                              },
-                              "bbox": {
-                                "page": 1,
-                                "x0": 248,
-                                "x1": 358,
-                                "y0": 158,
-                                "y1": 176
-                              },
-                              "children": [],
-                              "id": "559bc16f31a3",
-                              "kind": "cell",
-                              "provenance": {
-                                "extractor": "pdfplumber",
-                                "stage": "extract_tables"
-                              },
-                              "text": "Alice"
-                            }
-                          ],
-                          "id": "aaf47abe8298",
-                          "kind": "row",
-                          "provenance": {},
-                          "text": null
-                        },
-                        {
-                          "attrs": {
-                            "page": 1,
-                            "row_index": 2
-                          },
-                          "bbox": {
-                            "page": 1,
-                            "x0": 138,
-                            "x1": 358,
-                            "y0": 140,
-                            "y1": 194
-                          },
-                          "children": [
-                            {
-                              "attrs": {
-                                "align": "left"
-                              },
-                              "bbox": {
-                                "page": 1,
-                                "x0": 138,
-                                "x1": 248,
-                                "y0": 176,
-                                "y1": 194
-                              },
-                              "children": [],
-                              "id": "73a46bb6aedb",
-                              "kind": "cell",
-                              "provenance": {
-                                "extractor": "pdfplumber",
-                                "stage": "extract_tables"
-                              },
-                              "text": "2"
-                            },
-                            {
-                              "attrs": {
-                                "align": "left"
-                              },
-                              "bbox": {
-                                "page": 1,
-                                "x0": 248,
-                                "x1": 358,
-                                "y0": 176,
-                                "y1": 194
-                              },
-                              "children": [],
-                              "id": "280079c1cf86",
-                              "kind": "cell",
-                              "provenance": {
-                                "extractor": "pdfplumber",
-                                "stage": "extract_tables"
-                              },
-                              "text": "Bob"
-                            }
-                          ],
-                          "id": "5b9945037f43",
-                          "kind": "row",
-                          "provenance": {},
-                          "text": null
-                        }
-                      ],
-                      "id": "286022b03311",
-                      "kind": "table",
-                      "provenance": {
-                        "extractor": "pdfplumber",
-                        "stage": "extract_tables"
-                      },
-                      "text": null
-                    },
-                    {
-                      "attrs": {},
-                      "bbox": {
-                        "page": 1,
-                        "x0": 138,
-                        "x1": 465,
-                        "y0": 202,
-                        "y1": 223
-                      },
-                      "children": [],
-                      "id": "b4b3e097f921",
-                      "kind": "paragraph",
-                      "provenance": {
-                        "extractor": "pdfplumber",
-                        "stage": "extract_tables"
-                      },
-                      "text": "NOTE-MID2: Between paragraph on page 2, separating sub-table C (flush against the outer frame's top edge) from sub-table D."
-                    },
-                    {
-                      "attrs": {
-                        "header_signature": [
-                          "City",
-                          "Zone"
-                        ],
-                        "n_cols": 2,
-                        "n_rows": 3,
-                        "page": 1,
-                        "page_height": 792.0
-                      },
-                      "bbox": {
-                        "page": 1,
-                        "x0": 138,
-                        "x1": 358,
-                        "y0": 224,
-                        "y1": 278
-                      },
-                      "children": [
-                        {
-                          "attrs": {
-                            "page": 1,
-                            "row_index": 0
-                          },
-                          "bbox": {
-                            "page": 1,
-                            "x0": 138,
-                            "x1": 358,
-                            "y0": 224,
-                            "y1": 278
-                          },
-                          "children": [
-                            {
-                              "attrs": {
-                                "align": "left"
-                              },
-                              "bbox": {
-                                "page": 1,
-                                "x0": 138,
-                                "x1": 248,
-                                "y0": 224,
-                                "y1": 242
-                              },
-                              "children": [],
-                              "id": "a0b05f246f1f",
-                              "kind": "cell",
-                              "provenance": {
-                                "extractor": "pdfplumber",
-                                "stage": "extract_tables"
-                              },
-                              "text": "City"
-                            },
-                            {
-                              "attrs": {
-                                "align": "left"
-                              },
-                              "bbox": {
-                                "page": 1,
-                                "x0": 248,
-                                "x1": 358,
-                                "y0": 224,
-                                "y1": 242
-                              },
-                              "children": [],
-                              "id": "3492536efb51",
-                              "kind": "cell",
-                              "provenance": {
-                                "extractor": "pdfplumber",
-                                "stage": "extract_tables"
-                              },
-                              "text": "Zone"
-                            }
-                          ],
-                          "id": "2ed1f7b7f9d2",
-                          "kind": "row",
-                          "provenance": {},
-                          "text": null
-                        },
-                        {
-                          "attrs": {
-                            "page": 1,
-                            "row_index": 1
-                          },
-                          "bbox": {
-                            "page": 1,
-                            "x0": 138,
-                            "x1": 358,
-                            "y0": 224,
-                            "y1": 278
-                          },
-                          "children": [
-                            {
-                              "attrs": {
-                                "align": "left"
-                              },
-                              "bbox": {
-                                "page": 1,
-                                "x0": 138,
-                                "x1": 248,
-                                "y0": 242,
-                                "y1": 260
-                              },
-                              "children": [],
-                              "id": "2aa78f065349",
-                              "kind": "cell",
-                              "provenance": {
-                                "extractor": "pdfplumber",
-                                "stage": "extract_tables"
-                              },
-                              "text": "NYC"
-                            },
-                            {
-                              "attrs": {
-                                "align": "left"
-                              },
-                              "bbox": {
-                                "page": 1,
-                                "x0": 248,
-                                "x1": 358,
-                                "y0": 242,
-                                "y1": 260
-                              },
-                              "children": [],
-                              "id": "9366ea60528c",
-                              "kind": "cell",
-                              "provenance": {
-                                "extractor": "pdfplumber",
-                                "stage": "extract_tables"
-                              },
-                              "text": "East"
-                            }
-                          ],
-                          "id": "067de9eab31c",
-                          "kind": "row",
-                          "provenance": {},
-                          "text": null
-                        },
-                        {
-                          "attrs": {
-                            "page": 1,
-                            "row_index": 2
-                          },
-                          "bbox": {
-                            "page": 1,
-                            "x0": 138,
-                            "x1": 358,
-                            "y0": 224,
-                            "y1": 278
-                          },
-                          "children": [
-                            {
-                              "attrs": {
-                                "align": "left"
-                              },
-                              "bbox": {
-                                "page": 1,
-                                "x0": 138,
-                                "x1": 248,
-                                "y0": 260,
-                                "y1": 278
-                              },
-                              "children": [],
-                              "id": "4ffecfb44ca0",
-                              "kind": "cell",
-                              "provenance": {
-                                "extractor": "pdfplumber",
-                                "stage": "extract_tables"
-                              },
-                              "text": "LA"
-                            },
-                            {
-                              "attrs": {
-                                "align": "left"
-                              },
-                              "bbox": {
-                                "page": 1,
-                                "x0": 248,
-                                "x1": 358,
-                                "y0": 260,
-                                "y1": 278
-                              },
-                              "children": [],
-                              "id": "0065ec4af18a",
-                              "kind": "cell",
-                              "provenance": {
-                                "extractor": "pdfplumber",
-                                "stage": "extract_tables"
-                              },
-                              "text": "West"
-                            }
-                          ],
-                          "id": "4501144c08f0",
-                          "kind": "row",
-                          "provenance": {},
-                          "text": null
-                        }
-                      ],
-                      "id": "a61d253a7226",
-                      "kind": "table",
-                      "provenance": {
-                        "extractor": "pdfplumber",
-                        "stage": "extract_tables"
-                      },
-                      "text": null
-                    },
-                    {
-                      "attrs": {},
-                      "bbox": {
-                        "page": 1,
-                        "x0": 138,
-                        "x1": 471,
-                        "y0": 286,
-                        "y1": 319
-                      },
-                      "children": [],
-                      "id": "b679fb7a1617",
-                      "kind": "paragraph",
-                      "provenance": {
-                        "extractor": "pdfplumber",
-                        "stage": "extract_tables"
-                      },
-                      "text": "NOTE-BOT: This paragraph sits at the bottom of the page-2 outer cell. Its bottom edge is flush with the outer frame's bottom edge; sub-table C above is flush with the outer frame's top edge."
-                    }
-                  ],
-                  "id": "d7d93fe3443a",
+                  "children": [],
+                  "id": "9cf7f5629273",
                   "kind": "cell",
                   "provenance": {
-                    "extractor": "pdfplumber",
-                    "stage": "extract_tables"
+                    "extractor": "bottom_up",
+                    "stage": "extract_tables_v2"
                   },
-                  "text": null
+                  "text": "Step"
+                },
+                {
+                  "attrs": {
+                    "align": "left"
+                  },
+                  "bbox": {
+                    "page": 1,
+                    "x0": 248,
+                    "x1": 358,
+                    "y0": 140,
+                    "y1": 158
+                  },
+                  "children": [],
+                  "id": "dc03066b6144",
+                  "kind": "cell",
+                  "provenance": {
+                    "extractor": "bottom_up",
+                    "stage": "extract_tables_v2"
+                  },
+                  "text": "Owner"
                 }
               ],
-              "id": "b9e27761048a",
+              "id": "5180e96484f4",
+              "kind": "row",
+              "provenance": {},
+              "text": null
+            },
+            {
+              "attrs": {
+                "page": 1,
+                "row_index": 1
+              },
+              "bbox": {
+                "page": 1,
+                "x0": 138,
+                "x1": 358,
+                "y0": 140,
+                "y1": 194
+              },
+              "children": [
+                {
+                  "attrs": {
+                    "align": "left"
+                  },
+                  "bbox": {
+                    "page": 1,
+                    "x0": 138,
+                    "x1": 248,
+                    "y0": 158,
+                    "y1": 176
+                  },
+                  "children": [],
+                  "id": "cf96352a0aac",
+                  "kind": "cell",
+                  "provenance": {
+                    "extractor": "bottom_up",
+                    "stage": "extract_tables_v2"
+                  },
+                  "text": "1"
+                },
+                {
+                  "attrs": {
+                    "align": "left"
+                  },
+                  "bbox": {
+                    "page": 1,
+                    "x0": 248,
+                    "x1": 358,
+                    "y0": 158,
+                    "y1": 176
+                  },
+                  "children": [],
+                  "id": "559bc16f31a3",
+                  "kind": "cell",
+                  "provenance": {
+                    "extractor": "bottom_up",
+                    "stage": "extract_tables_v2"
+                  },
+                  "text": "Alice"
+                }
+              ],
+              "id": "aaf47abe8298",
+              "kind": "row",
+              "provenance": {},
+              "text": null
+            },
+            {
+              "attrs": {
+                "page": 1,
+                "row_index": 2
+              },
+              "bbox": {
+                "page": 1,
+                "x0": 138,
+                "x1": 358,
+                "y0": 140,
+                "y1": 194
+              },
+              "children": [
+                {
+                  "attrs": {
+                    "align": "left"
+                  },
+                  "bbox": {
+                    "page": 1,
+                    "x0": 138,
+                    "x1": 248,
+                    "y0": 176,
+                    "y1": 194
+                  },
+                  "children": [],
+                  "id": "73a46bb6aedb",
+                  "kind": "cell",
+                  "provenance": {
+                    "extractor": "bottom_up",
+                    "stage": "extract_tables_v2"
+                  },
+                  "text": "2"
+                },
+                {
+                  "attrs": {
+                    "align": "left"
+                  },
+                  "bbox": {
+                    "page": 1,
+                    "x0": 248,
+                    "x1": 358,
+                    "y0": 176,
+                    "y1": 194
+                  },
+                  "children": [],
+                  "id": "280079c1cf86",
+                  "kind": "cell",
+                  "provenance": {
+                    "extractor": "bottom_up",
+                    "stage": "extract_tables_v2"
+                  },
+                  "text": "Bob"
+                }
+              ],
+              "id": "5b9945037f43",
               "kind": "row",
               "provenance": {},
               "text": null
             }
           ],
-          "id": "b56936188418",
+          "id": "286022b03311",
           "kind": "table",
           "provenance": {
-            "extractor": "pdfplumber",
-            "stage": "extract_tables"
+            "extractor": "bottom_up",
+            "stage": "extract_tables_v2"
           },
           "text": null
+        },
+        {
+          "attrs": {},
+          "bbox": {
+            "page": 1,
+            "x0": 138,
+            "x1": 465,
+            "y0": 202,
+            "y1": 223
+          },
+          "children": [],
+          "id": "b4b3e097f921",
+          "kind": "paragraph",
+          "provenance": {
+            "extractor": "segment",
+            "stage": "build_tree"
+          },
+          "text": "NOTE-MID2: Between paragraph on page 2, separating sub-table C (flush against the outer frame's top edge) from sub-table D."
+        },
+        {
+          "attrs": {
+            "header_signature": [
+              "City",
+              "Zone"
+            ],
+            "n_cols": 2,
+            "n_rows": 3,
+            "page": 1,
+            "page_height": 792.0
+          },
+          "bbox": {
+            "page": 1,
+            "x0": 138,
+            "x1": 358,
+            "y0": 224,
+            "y1": 278
+          },
+          "children": [
+            {
+              "attrs": {
+                "page": 1,
+                "row_index": 0
+              },
+              "bbox": {
+                "page": 1,
+                "x0": 138,
+                "x1": 358,
+                "y0": 224,
+                "y1": 278
+              },
+              "children": [
+                {
+                  "attrs": {
+                    "align": "left"
+                  },
+                  "bbox": {
+                    "page": 1,
+                    "x0": 138,
+                    "x1": 248,
+                    "y0": 224,
+                    "y1": 242
+                  },
+                  "children": [],
+                  "id": "a0b05f246f1f",
+                  "kind": "cell",
+                  "provenance": {
+                    "extractor": "bottom_up",
+                    "stage": "extract_tables_v2"
+                  },
+                  "text": "City"
+                },
+                {
+                  "attrs": {
+                    "align": "left"
+                  },
+                  "bbox": {
+                    "page": 1,
+                    "x0": 248,
+                    "x1": 358,
+                    "y0": 224,
+                    "y1": 242
+                  },
+                  "children": [],
+                  "id": "3492536efb51",
+                  "kind": "cell",
+                  "provenance": {
+                    "extractor": "bottom_up",
+                    "stage": "extract_tables_v2"
+                  },
+                  "text": "Zone"
+                }
+              ],
+              "id": "2ed1f7b7f9d2",
+              "kind": "row",
+              "provenance": {},
+              "text": null
+            },
+            {
+              "attrs": {
+                "page": 1,
+                "row_index": 1
+              },
+              "bbox": {
+                "page": 1,
+                "x0": 138,
+                "x1": 358,
+                "y0": 224,
+                "y1": 278
+              },
+              "children": [
+                {
+                  "attrs": {
+                    "align": "left"
+                  },
+                  "bbox": {
+                    "page": 1,
+                    "x0": 138,
+                    "x1": 248,
+                    "y0": 242,
+                    "y1": 260
+                  },
+                  "children": [],
+                  "id": "2aa78f065349",
+                  "kind": "cell",
+                  "provenance": {
+                    "extractor": "bottom_up",
+                    "stage": "extract_tables_v2"
+                  },
+                  "text": "NYC"
+                },
+                {
+                  "attrs": {
+                    "align": "left"
+                  },
+                  "bbox": {
+                    "page": 1,
+                    "x0": 248,
+                    "x1": 358,
+                    "y0": 242,
+                    "y1": 260
+                  },
+                  "children": [],
+                  "id": "9366ea60528c",
+                  "kind": "cell",
+                  "provenance": {
+                    "extractor": "bottom_up",
+                    "stage": "extract_tables_v2"
+                  },
+                  "text": "East"
+                }
+              ],
+              "id": "067de9eab31c",
+              "kind": "row",
+              "provenance": {},
+              "text": null
+            },
+            {
+              "attrs": {
+                "page": 1,
+                "row_index": 2
+              },
+              "bbox": {
+                "page": 1,
+                "x0": 138,
+                "x1": 358,
+                "y0": 224,
+                "y1": 278
+              },
+              "children": [
+                {
+                  "attrs": {
+                    "align": "left"
+                  },
+                  "bbox": {
+                    "page": 1,
+                    "x0": 138,
+                    "x1": 248,
+                    "y0": 260,
+                    "y1": 278
+                  },
+                  "children": [],
+                  "id": "4ffecfb44ca0",
+                  "kind": "cell",
+                  "provenance": {
+                    "extractor": "bottom_up",
+                    "stage": "extract_tables_v2"
+                  },
+                  "text": "LA"
+                },
+                {
+                  "attrs": {
+                    "align": "left"
+                  },
+                  "bbox": {
+                    "page": 1,
+                    "x0": 248,
+                    "x1": 358,
+                    "y0": 260,
+                    "y1": 278
+                  },
+                  "children": [],
+                  "id": "0065ec4af18a",
+                  "kind": "cell",
+                  "provenance": {
+                    "extractor": "bottom_up",
+                    "stage": "extract_tables_v2"
+                  },
+                  "text": "West"
+                }
+              ],
+              "id": "4501144c08f0",
+              "kind": "row",
+              "provenance": {},
+              "text": null
+            }
+          ],
+          "id": "a61d253a7226",
+          "kind": "table",
+          "provenance": {
+            "extractor": "bottom_up",
+            "stage": "extract_tables_v2"
+          },
+          "text": null
+        },
+        {
+          "attrs": {},
+          "bbox": {
+            "page": 1,
+            "x0": 138,
+            "x1": 471,
+            "y0": 286,
+            "y1": 319
+          },
+          "children": [],
+          "id": "b679fb7a1617",
+          "kind": "paragraph",
+          "provenance": {
+            "extractor": "segment",
+            "stage": "build_tree"
+          },
+          "text": "NOTE-BOT: This paragraph sits at the bottom of the page-2 outer cell. Its bottom edge is flush with the outer frame's bottom edge; sub-table C above is flush with the outer frame's top edge."
         }
       ],
-      "id": "c6bd39703da5",
+      "id": "afda1a0a8caf",
       "kind": "page",
       "provenance": {},
       "text": null
     }
   ],
-  "id": "6029ab720b3e",
+  "id": "aba2766e188e",
   "kind": "document",
   "provenance": {},
   "text": null

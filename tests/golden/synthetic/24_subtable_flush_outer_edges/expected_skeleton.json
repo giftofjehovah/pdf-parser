@@ -11,101 +11,89 @@
             {
               "children": [
                 {
-                  "children": [
-                    {
-                      "children": [
-                        {
-                          "children": [
-                            {
-                              "kind": "cell",
-                              "text": "Item"
-                            },
-                            {
-                              "kind": "cell",
-                              "text": "Qty"
-                            }
-                          ],
-                          "kind": "row"
-                        },
-                        {
-                          "children": [
-                            {
-                              "kind": "cell",
-                              "text": "Widget A"
-                            },
-                            {
-                              "kind": "cell",
-                              "text": "10"
-                            }
-                          ],
-                          "kind": "row"
-                        },
-                        {
-                          "children": [
-                            {
-                              "kind": "cell",
-                              "text": "Widget B"
-                            },
-                            {
-                              "kind": "cell",
-                              "text": "5"
-                            }
-                          ],
-                          "kind": "row"
-                        }
-                      ],
-                      "kind": "table"
-                    },
-                    {
-                      "kind": "paragraph",
-                      "text": "NOTE: This paragraph sits between two sub-tables that are flush against the outer frame's top and bottom edges. It must survive parsing as a paragraph node inside the outer cell."
-                    },
-                    {
-                      "children": [
-                        {
-                          "children": [
-                            {
-                              "kind": "cell",
-                              "text": "Month"
-                            },
-                            {
-                              "kind": "cell",
-                              "text": "Sales"
-                            }
-                          ],
-                          "kind": "row"
-                        },
-                        {
-                          "children": [
-                            {
-                              "kind": "cell",
-                              "text": "Jan"
-                            },
-                            {
-                              "kind": "cell",
-                              "text": "$500"
-                            }
-                          ],
-                          "kind": "row"
-                        },
-                        {
-                          "children": [
-                            {
-                              "kind": "cell",
-                              "text": "Feb"
-                            },
-                            {
-                              "kind": "cell",
-                              "text": "$700"
-                            }
-                          ],
-                          "kind": "row"
-                        }
-                      ],
-                      "kind": "table"
-                    }
-                  ],
+                  "kind": "cell",
+                  "text": "Item"
+                },
+                {
+                  "kind": "cell",
+                  "text": "Qty"
+                }
+              ],
+              "kind": "row"
+            },
+            {
+              "children": [
+                {
+                  "kind": "cell",
+                  "text": "Widget A"
+                },
+                {
+                  "kind": "cell",
+                  "text": "10"
+                }
+              ],
+              "kind": "row"
+            },
+            {
+              "children": [
+                {
+                  "kind": "cell",
+                  "text": "Widget B"
+                },
+                {
+                  "kind": "cell",
+                  "text": "5"
+                }
+              ],
+              "kind": "row"
+            },
+            {
+              "children": [
+                {
+                  "kind": "cell",
+                  "text": "NOTE: This paragraph sits between two sub-tables that are\nflush against the outer frame's top and bottom edges. It\nmust survive parsing as a paragraph node inside the outer\ncell."
+                },
+                {
                   "kind": "cell"
+                }
+              ],
+              "kind": "row"
+            },
+            {
+              "children": [
+                {
+                  "kind": "cell",
+                  "text": "Month"
+                },
+                {
+                  "kind": "cell",
+                  "text": "Sales"
+                }
+              ],
+              "kind": "row"
+            },
+            {
+              "children": [
+                {
+                  "kind": "cell",
+                  "text": "Jan"
+                },
+                {
+                  "kind": "cell",
+                  "text": "$500"
+                }
+              ],
+              "kind": "row"
+            },
+            {
+              "children": [
+                {
+                  "kind": "cell",
+                  "text": "Feb"
+                },
+                {
+                  "kind": "cell",
+                  "text": "$700"
                 }
               ],
               "kind": "row"

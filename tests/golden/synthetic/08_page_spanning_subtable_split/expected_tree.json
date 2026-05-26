@@ -101,8 +101,8 @@
                   "id": "6d28da4c668c",
                   "kind": "cell",
                   "provenance": {
-                    "extractor": "pdfplumber",
-                    "stage": "extract_tables"
+                    "extractor": "bottom_up",
+                    "stage": "extract_tables_v2"
                   },
                   "text": "Step"
                 },
@@ -121,8 +121,8 @@
                   "id": "c54fdf921900",
                   "kind": "cell",
                   "provenance": {
-                    "extractor": "pdfplumber",
-                    "stage": "extract_tables"
+                    "extractor": "bottom_up",
+                    "stage": "extract_tables_v2"
                   },
                   "text": "Detail"
                 },
@@ -141,8 +141,8 @@
                   "id": "38e661458b45",
                   "kind": "cell",
                   "provenance": {
-                    "extractor": "pdfplumber",
-                    "stage": "extract_tables"
+                    "extractor": "bottom_up",
+                    "stage": "extract_tables_v2"
                   },
                   "text": "Notes"
                 }
@@ -180,8 +180,8 @@
                   "id": "66bd197168fe",
                   "kind": "cell",
                   "provenance": {
-                    "extractor": "pdfplumber",
-                    "stage": "extract_tables"
+                    "extractor": "bottom_up",
+                    "stage": "extract_tables_v2"
                   },
                   "text": "1"
                 },
@@ -200,8 +200,8 @@
                   "id": "080daf5b3b3e",
                   "kind": "cell",
                   "provenance": {
-                    "extractor": "pdfplumber",
-                    "stage": "extract_tables"
+                    "extractor": "bottom_up",
+                    "stage": "extract_tables_v2"
                   },
                   "text": "plain 1"
                 },
@@ -220,8 +220,8 @@
                   "id": "ac146f355e41",
                   "kind": "cell",
                   "provenance": {
-                    "extractor": "pdfplumber",
-                    "stage": "extract_tables"
+                    "extractor": "bottom_up",
+                    "stage": "extract_tables_v2"
                   },
                   "text": "n1"
                 }
@@ -259,8 +259,8 @@
                   "id": "40f584daec77",
                   "kind": "cell",
                   "provenance": {
-                    "extractor": "pdfplumber",
-                    "stage": "extract_tables"
+                    "extractor": "bottom_up",
+                    "stage": "extract_tables_v2"
                   },
                   "text": "2"
                 },
@@ -279,8 +279,8 @@
                   "id": "5df4c13f85d7",
                   "kind": "cell",
                   "provenance": {
-                    "extractor": "pdfplumber",
-                    "stage": "extract_tables"
+                    "extractor": "bottom_up",
+                    "stage": "extract_tables_v2"
                   },
                   "text": "plain 2"
                 },
@@ -299,8 +299,8 @@
                   "id": "b94b3c50b24a",
                   "kind": "cell",
                   "provenance": {
-                    "extractor": "pdfplumber",
-                    "stage": "extract_tables"
+                    "extractor": "bottom_up",
+                    "stage": "extract_tables_v2"
                   },
                   "text": "n2"
                 }
@@ -338,8 +338,8 @@
                   "id": "c3b4e9b7a7f9",
                   "kind": "cell",
                   "provenance": {
-                    "extractor": "pdfplumber",
-                    "stage": "extract_tables"
+                    "extractor": "bottom_up",
+                    "stage": "extract_tables_v2"
                   },
                   "text": "3"
                 },
@@ -358,8 +358,8 @@
                   "id": "233646d2bf08",
                   "kind": "cell",
                   "provenance": {
-                    "extractor": "pdfplumber",
-                    "stage": "extract_tables"
+                    "extractor": "bottom_up",
+                    "stage": "extract_tables_v2"
                   },
                   "text": "plain 3"
                 },
@@ -378,8 +378,8 @@
                   "id": "cbbc2f9db193",
                   "kind": "cell",
                   "provenance": {
-                    "extractor": "pdfplumber",
-                    "stage": "extract_tables"
+                    "extractor": "bottom_up",
+                    "stage": "extract_tables_v2"
                   },
                   "text": "n3"
                 }
@@ -417,8 +417,8 @@
                   "id": "0998b7de685b",
                   "kind": "cell",
                   "provenance": {
-                    "extractor": "pdfplumber",
-                    "stage": "extract_tables"
+                    "extractor": "bottom_up",
+                    "stage": "extract_tables_v2"
                   },
                   "text": "4"
                 },
@@ -437,8 +437,8 @@
                   "id": "a54f7d49508d",
                   "kind": "cell",
                   "provenance": {
-                    "extractor": "pdfplumber",
-                    "stage": "extract_tables"
+                    "extractor": "bottom_up",
+                    "stage": "extract_tables_v2"
                   },
                   "text": "plain 4"
                 },
@@ -457,8 +457,8 @@
                   "id": "15a8bd1e10fe",
                   "kind": "cell",
                   "provenance": {
-                    "extractor": "pdfplumber",
-                    "stage": "extract_tables"
+                    "extractor": "bottom_up",
+                    "stage": "extract_tables_v2"
                   },
                   "text": "n4"
                 }
@@ -496,8 +496,8 @@
                   "id": "b3cef992fed8",
                   "kind": "cell",
                   "provenance": {
-                    "extractor": "pdfplumber",
-                    "stage": "extract_tables"
+                    "extractor": "bottom_up",
+                    "stage": "extract_tables_v2"
                   },
                   "text": "5"
                 },
@@ -516,8 +516,8 @@
                   "id": "0e7e5ca15d2f",
                   "kind": "cell",
                   "provenance": {
-                    "extractor": "pdfplumber",
-                    "stage": "extract_tables"
+                    "extractor": "bottom_up",
+                    "stage": "extract_tables_v2"
                   },
                   "text": "plain 5"
                 },
@@ -536,8 +536,8 @@
                   "id": "67efc0ec81e7",
                   "kind": "cell",
                   "provenance": {
-                    "extractor": "pdfplumber",
-                    "stage": "extract_tables"
+                    "extractor": "bottom_up",
+                    "stage": "extract_tables_v2"
                   },
                   "text": "n5"
                 }
@@ -575,8 +575,8 @@
                   "id": "8f4649e0000c",
                   "kind": "cell",
                   "provenance": {
-                    "extractor": "pdfplumber",
-                    "stage": "extract_tables"
+                    "extractor": "bottom_up",
+                    "stage": "extract_tables_v2"
                   },
                   "text": "6"
                 },
@@ -595,8 +595,8 @@
                   "id": "c2689ac4f617",
                   "kind": "cell",
                   "provenance": {
-                    "extractor": "pdfplumber",
-                    "stage": "extract_tables"
+                    "extractor": "bottom_up",
+                    "stage": "extract_tables_v2"
                   },
                   "text": "plain 6"
                 },
@@ -615,8 +615,8 @@
                   "id": "cc8d17950d2f",
                   "kind": "cell",
                   "provenance": {
-                    "extractor": "pdfplumber",
-                    "stage": "extract_tables"
+                    "extractor": "bottom_up",
+                    "stage": "extract_tables_v2"
                   },
                   "text": "n6"
                 }
@@ -654,8 +654,8 @@
                   "id": "e43b5c24d685",
                   "kind": "cell",
                   "provenance": {
-                    "extractor": "pdfplumber",
-                    "stage": "extract_tables"
+                    "extractor": "bottom_up",
+                    "stage": "extract_tables_v2"
                   },
                   "text": "7"
                 },
@@ -674,8 +674,8 @@
                   "id": "090f15d4ff09",
                   "kind": "cell",
                   "provenance": {
-                    "extractor": "pdfplumber",
-                    "stage": "extract_tables"
+                    "extractor": "bottom_up",
+                    "stage": "extract_tables_v2"
                   },
                   "text": "plain 7"
                 },
@@ -694,8 +694,8 @@
                   "id": "410b4ff8a92f",
                   "kind": "cell",
                   "provenance": {
-                    "extractor": "pdfplumber",
-                    "stage": "extract_tables"
+                    "extractor": "bottom_up",
+                    "stage": "extract_tables_v2"
                   },
                   "text": "n7"
                 }
@@ -733,8 +733,8 @@
                   "id": "ba4387ccb5bf",
                   "kind": "cell",
                   "provenance": {
-                    "extractor": "pdfplumber",
-                    "stage": "extract_tables"
+                    "extractor": "bottom_up",
+                    "stage": "extract_tables_v2"
                   },
                   "text": "8"
                 },
@@ -753,8 +753,8 @@
                   "id": "4a879e2098d7",
                   "kind": "cell",
                   "provenance": {
-                    "extractor": "pdfplumber",
-                    "stage": "extract_tables"
+                    "extractor": "bottom_up",
+                    "stage": "extract_tables_v2"
                   },
                   "text": "plain 8"
                 },
@@ -773,8 +773,8 @@
                   "id": "efa6c6605e4b",
                   "kind": "cell",
                   "provenance": {
-                    "extractor": "pdfplumber",
-                    "stage": "extract_tables"
+                    "extractor": "bottom_up",
+                    "stage": "extract_tables_v2"
                   },
                   "text": "n8"
                 }
@@ -812,8 +812,8 @@
                   "id": "bca753e9af0e",
                   "kind": "cell",
                   "provenance": {
-                    "extractor": "pdfplumber",
-                    "stage": "extract_tables"
+                    "extractor": "bottom_up",
+                    "stage": "extract_tables_v2"
                   },
                   "text": "9"
                 },
@@ -832,8 +832,8 @@
                   "id": "2b3cdf8cc9a5",
                   "kind": "cell",
                   "provenance": {
-                    "extractor": "pdfplumber",
-                    "stage": "extract_tables"
+                    "extractor": "bottom_up",
+                    "stage": "extract_tables_v2"
                   },
                   "text": "plain 9"
                 },
@@ -852,8 +852,8 @@
                   "id": "1c03ca5746f7",
                   "kind": "cell",
                   "provenance": {
-                    "extractor": "pdfplumber",
-                    "stage": "extract_tables"
+                    "extractor": "bottom_up",
+                    "stage": "extract_tables_v2"
                   },
                   "text": "n9"
                 }
@@ -891,8 +891,8 @@
                   "id": "b4b61d41949b",
                   "kind": "cell",
                   "provenance": {
-                    "extractor": "pdfplumber",
-                    "stage": "extract_tables"
+                    "extractor": "bottom_up",
+                    "stage": "extract_tables_v2"
                   },
                   "text": "10"
                 },
@@ -911,8 +911,8 @@
                   "id": "0907010f1ed0",
                   "kind": "cell",
                   "provenance": {
-                    "extractor": "pdfplumber",
-                    "stage": "extract_tables"
+                    "extractor": "bottom_up",
+                    "stage": "extract_tables_v2"
                   },
                   "text": "plain 10"
                 },
@@ -931,8 +931,8 @@
                   "id": "2c6af35258ff",
                   "kind": "cell",
                   "provenance": {
-                    "extractor": "pdfplumber",
-                    "stage": "extract_tables"
+                    "extractor": "bottom_up",
+                    "stage": "extract_tables_v2"
                   },
                   "text": "n10"
                 }
@@ -970,8 +970,8 @@
                   "id": "72229af262c5",
                   "kind": "cell",
                   "provenance": {
-                    "extractor": "pdfplumber",
-                    "stage": "extract_tables"
+                    "extractor": "bottom_up",
+                    "stage": "extract_tables_v2"
                   },
                   "text": "11"
                 },
@@ -990,8 +990,8 @@
                   "id": "8d60b08e6ce5",
                   "kind": "cell",
                   "provenance": {
-                    "extractor": "pdfplumber",
-                    "stage": "extract_tables"
+                    "extractor": "bottom_up",
+                    "stage": "extract_tables_v2"
                   },
                   "text": "plain 11"
                 },
@@ -1010,8 +1010,8 @@
                   "id": "8c71be87aecf",
                   "kind": "cell",
                   "provenance": {
-                    "extractor": "pdfplumber",
-                    "stage": "extract_tables"
+                    "extractor": "bottom_up",
+                    "stage": "extract_tables_v2"
                   },
                   "text": "n11"
                 }
@@ -1049,8 +1049,8 @@
                   "id": "db3b7077fa61",
                   "kind": "cell",
                   "provenance": {
-                    "extractor": "pdfplumber",
-                    "stage": "extract_tables"
+                    "extractor": "bottom_up",
+                    "stage": "extract_tables_v2"
                   },
                   "text": "12"
                 },
@@ -1069,8 +1069,8 @@
                   "id": "0fe9d048ab1f",
                   "kind": "cell",
                   "provenance": {
-                    "extractor": "pdfplumber",
-                    "stage": "extract_tables"
+                    "extractor": "bottom_up",
+                    "stage": "extract_tables_v2"
                   },
                   "text": "plain 12"
                 },
@@ -1089,8 +1089,8 @@
                   "id": "2bd006f9bb83",
                   "kind": "cell",
                   "provenance": {
-                    "extractor": "pdfplumber",
-                    "stage": "extract_tables"
+                    "extractor": "bottom_up",
+                    "stage": "extract_tables_v2"
                   },
                   "text": "n12"
                 }
@@ -1128,8 +1128,8 @@
                   "id": "d136c7461dd1",
                   "kind": "cell",
                   "provenance": {
-                    "extractor": "pdfplumber",
-                    "stage": "extract_tables"
+                    "extractor": "bottom_up",
+                    "stage": "extract_tables_v2"
                   },
                   "text": "13"
                 },
@@ -1148,8 +1148,8 @@
                   "id": "cf274414855e",
                   "kind": "cell",
                   "provenance": {
-                    "extractor": "pdfplumber",
-                    "stage": "extract_tables"
+                    "extractor": "bottom_up",
+                    "stage": "extract_tables_v2"
                   },
                   "text": "plain 13"
                 },
@@ -1168,8 +1168,8 @@
                   "id": "2dc46796650b",
                   "kind": "cell",
                   "provenance": {
-                    "extractor": "pdfplumber",
-                    "stage": "extract_tables"
+                    "extractor": "bottom_up",
+                    "stage": "extract_tables_v2"
                   },
                   "text": "n13"
                 }
@@ -1207,8 +1207,8 @@
                   "id": "b187eab06979",
                   "kind": "cell",
                   "provenance": {
-                    "extractor": "pdfplumber",
-                    "stage": "extract_tables"
+                    "extractor": "bottom_up",
+                    "stage": "extract_tables_v2"
                   },
                   "text": "14"
                 },
@@ -1227,8 +1227,8 @@
                   "id": "24e36b99b516",
                   "kind": "cell",
                   "provenance": {
-                    "extractor": "pdfplumber",
-                    "stage": "extract_tables"
+                    "extractor": "bottom_up",
+                    "stage": "extract_tables_v2"
                   },
                   "text": "plain 14"
                 },
@@ -1247,8 +1247,8 @@
                   "id": "e7f4d5176584",
                   "kind": "cell",
                   "provenance": {
-                    "extractor": "pdfplumber",
-                    "stage": "extract_tables"
+                    "extractor": "bottom_up",
+                    "stage": "extract_tables_v2"
                   },
                   "text": "n14"
                 }
@@ -1286,8 +1286,8 @@
                   "id": "bf966addc0b2",
                   "kind": "cell",
                   "provenance": {
-                    "extractor": "pdfplumber",
-                    "stage": "extract_tables"
+                    "extractor": "bottom_up",
+                    "stage": "extract_tables_v2"
                   },
                   "text": "15"
                 },
@@ -1306,8 +1306,8 @@
                   "id": "7780d1ac83fa",
                   "kind": "cell",
                   "provenance": {
-                    "extractor": "pdfplumber",
-                    "stage": "extract_tables"
+                    "extractor": "bottom_up",
+                    "stage": "extract_tables_v2"
                   },
                   "text": "plain 15"
                 },
@@ -1326,8 +1326,8 @@
                   "id": "deb900481e47",
                   "kind": "cell",
                   "provenance": {
-                    "extractor": "pdfplumber",
-                    "stage": "extract_tables"
+                    "extractor": "bottom_up",
+                    "stage": "extract_tables_v2"
                   },
                   "text": "n15"
                 }
@@ -1365,8 +1365,8 @@
                   "id": "e44f486fbb30",
                   "kind": "cell",
                   "provenance": {
-                    "extractor": "pdfplumber",
-                    "stage": "extract_tables"
+                    "extractor": "bottom_up",
+                    "stage": "extract_tables_v2"
                   },
                   "text": "16"
                 },
@@ -1385,8 +1385,8 @@
                   "id": "84696f012460",
                   "kind": "cell",
                   "provenance": {
-                    "extractor": "pdfplumber",
-                    "stage": "extract_tables"
+                    "extractor": "bottom_up",
+                    "stage": "extract_tables_v2"
                   },
                   "text": "plain 16"
                 },
@@ -1405,8 +1405,8 @@
                   "id": "5ae0f6210567",
                   "kind": "cell",
                   "provenance": {
-                    "extractor": "pdfplumber",
-                    "stage": "extract_tables"
+                    "extractor": "bottom_up",
+                    "stage": "extract_tables_v2"
                   },
                   "text": "n16"
                 }
@@ -1444,8 +1444,8 @@
                   "id": "ef92244a1327",
                   "kind": "cell",
                   "provenance": {
-                    "extractor": "pdfplumber",
-                    "stage": "extract_tables"
+                    "extractor": "bottom_up",
+                    "stage": "extract_tables_v2"
                   },
                   "text": "17"
                 },
@@ -1464,8 +1464,8 @@
                   "id": "1fa71bd4f275",
                   "kind": "cell",
                   "provenance": {
-                    "extractor": "pdfplumber",
-                    "stage": "extract_tables"
+                    "extractor": "bottom_up",
+                    "stage": "extract_tables_v2"
                   },
                   "text": "plain 17"
                 },
@@ -1484,8 +1484,8 @@
                   "id": "4922abe39344",
                   "kind": "cell",
                   "provenance": {
-                    "extractor": "pdfplumber",
-                    "stage": "extract_tables"
+                    "extractor": "bottom_up",
+                    "stage": "extract_tables_v2"
                   },
                   "text": "n17"
                 }
@@ -1523,8 +1523,8 @@
                   "id": "23c47450f707",
                   "kind": "cell",
                   "provenance": {
-                    "extractor": "pdfplumber",
-                    "stage": "extract_tables"
+                    "extractor": "bottom_up",
+                    "stage": "extract_tables_v2"
                   },
                   "text": "18"
                 },
@@ -1543,8 +1543,8 @@
                   "id": "1d59ab26a14a",
                   "kind": "cell",
                   "provenance": {
-                    "extractor": "pdfplumber",
-                    "stage": "extract_tables"
+                    "extractor": "bottom_up",
+                    "stage": "extract_tables_v2"
                   },
                   "text": "plain 18"
                 },
@@ -1563,8 +1563,8 @@
                   "id": "7f50b847c50c",
                   "kind": "cell",
                   "provenance": {
-                    "extractor": "pdfplumber",
-                    "stage": "extract_tables"
+                    "extractor": "bottom_up",
+                    "stage": "extract_tables_v2"
                   },
                   "text": "n18"
                 }
@@ -1602,8 +1602,8 @@
                   "id": "023bdc65490f",
                   "kind": "cell",
                   "provenance": {
-                    "extractor": "pdfplumber",
-                    "stage": "extract_tables"
+                    "extractor": "bottom_up",
+                    "stage": "extract_tables_v2"
                   },
                   "text": "19"
                 },
@@ -1622,8 +1622,8 @@
                   "id": "087328a03a12",
                   "kind": "cell",
                   "provenance": {
-                    "extractor": "pdfplumber",
-                    "stage": "extract_tables"
+                    "extractor": "bottom_up",
+                    "stage": "extract_tables_v2"
                   },
                   "text": "plain 19"
                 },
@@ -1642,8 +1642,8 @@
                   "id": "1920a8ce546b",
                   "kind": "cell",
                   "provenance": {
-                    "extractor": "pdfplumber",
-                    "stage": "extract_tables"
+                    "extractor": "bottom_up",
+                    "stage": "extract_tables_v2"
                   },
                   "text": "n19"
                 }
@@ -1681,8 +1681,8 @@
                   "id": "c0f49deb4e1b",
                   "kind": "cell",
                   "provenance": {
-                    "extractor": "pdfplumber",
-                    "stage": "extract_tables"
+                    "extractor": "bottom_up",
+                    "stage": "extract_tables_v2"
                   },
                   "text": "20"
                 },
@@ -1701,8 +1701,8 @@
                   "id": "1b746eb7656e",
                   "kind": "cell",
                   "provenance": {
-                    "extractor": "pdfplumber",
-                    "stage": "extract_tables"
+                    "extractor": "bottom_up",
+                    "stage": "extract_tables_v2"
                   },
                   "text": "plain 20"
                 },
@@ -1721,8 +1721,8 @@
                   "id": "541c5a95761a",
                   "kind": "cell",
                   "provenance": {
-                    "extractor": "pdfplumber",
-                    "stage": "extract_tables"
+                    "extractor": "bottom_up",
+                    "stage": "extract_tables_v2"
                   },
                   "text": "n20"
                 }
@@ -1760,8 +1760,8 @@
                   "id": "7b7965262fa9",
                   "kind": "cell",
                   "provenance": {
-                    "extractor": "pdfplumber",
-                    "stage": "extract_tables"
+                    "extractor": "bottom_up",
+                    "stage": "extract_tables_v2"
                   },
                   "text": "21"
                 },
@@ -1780,8 +1780,8 @@
                   "id": "a78a3858ef08",
                   "kind": "cell",
                   "provenance": {
-                    "extractor": "pdfplumber",
-                    "stage": "extract_tables"
+                    "extractor": "bottom_up",
+                    "stage": "extract_tables_v2"
                   },
                   "text": "plain 21"
                 },
@@ -1800,8 +1800,8 @@
                   "id": "8ac1b9013bf3",
                   "kind": "cell",
                   "provenance": {
-                    "extractor": "pdfplumber",
-                    "stage": "extract_tables"
+                    "extractor": "bottom_up",
+                    "stage": "extract_tables_v2"
                   },
                   "text": "n21"
                 }
@@ -1839,8 +1839,8 @@
                   "id": "fef6c202b332",
                   "kind": "cell",
                   "provenance": {
-                    "extractor": "pdfplumber",
-                    "stage": "extract_tables"
+                    "extractor": "bottom_up",
+                    "stage": "extract_tables_v2"
                   },
                   "text": "22"
                 },
@@ -1859,8 +1859,8 @@
                   "id": "1ba0bb0245d4",
                   "kind": "cell",
                   "provenance": {
-                    "extractor": "pdfplumber",
-                    "stage": "extract_tables"
+                    "extractor": "bottom_up",
+                    "stage": "extract_tables_v2"
                   },
                   "text": "plain 22"
                 },
@@ -1879,8 +1879,8 @@
                   "id": "8d4e7c24290f",
                   "kind": "cell",
                   "provenance": {
-                    "extractor": "pdfplumber",
-                    "stage": "extract_tables"
+                    "extractor": "bottom_up",
+                    "stage": "extract_tables_v2"
                   },
                   "text": "n22"
                 }
@@ -1918,8 +1918,8 @@
                   "id": "06f3515e58c9",
                   "kind": "cell",
                   "provenance": {
-                    "extractor": "pdfplumber",
-                    "stage": "extract_tables"
+                    "extractor": "bottom_up",
+                    "stage": "extract_tables_v2"
                   },
                   "text": "23"
                 },
@@ -1938,8 +1938,8 @@
                   "id": "191f5096b498",
                   "kind": "cell",
                   "provenance": {
-                    "extractor": "pdfplumber",
-                    "stage": "extract_tables"
+                    "extractor": "bottom_up",
+                    "stage": "extract_tables_v2"
                   },
                   "text": "plain 23"
                 },
@@ -1958,8 +1958,8 @@
                   "id": "3d30702090eb",
                   "kind": "cell",
                   "provenance": {
-                    "extractor": "pdfplumber",
-                    "stage": "extract_tables"
+                    "extractor": "bottom_up",
+                    "stage": "extract_tables_v2"
                   },
                   "text": "n23"
                 }
@@ -1997,8 +1997,8 @@
                   "id": "368ac799b0db",
                   "kind": "cell",
                   "provenance": {
-                    "extractor": "pdfplumber",
-                    "stage": "extract_tables"
+                    "extractor": "bottom_up",
+                    "stage": "extract_tables_v2"
                   },
                   "text": "24"
                 },
@@ -2017,8 +2017,8 @@
                   "id": "06c775893a2e",
                   "kind": "cell",
                   "provenance": {
-                    "extractor": "pdfplumber",
-                    "stage": "extract_tables"
+                    "extractor": "bottom_up",
+                    "stage": "extract_tables_v2"
                   },
                   "text": "plain 24"
                 },
@@ -2037,8 +2037,8 @@
                   "id": "387452a65654",
                   "kind": "cell",
                   "provenance": {
-                    "extractor": "pdfplumber",
-                    "stage": "extract_tables"
+                    "extractor": "bottom_up",
+                    "stage": "extract_tables_v2"
                   },
                   "text": "n24"
                 }
@@ -2076,8 +2076,8 @@
                   "id": "6fd0728fd627",
                   "kind": "cell",
                   "provenance": {
-                    "extractor": "pdfplumber",
-                    "stage": "extract_tables"
+                    "extractor": "bottom_up",
+                    "stage": "extract_tables_v2"
                   },
                   "text": "25"
                 },
@@ -2096,8 +2096,8 @@
                   "id": "9c25c015e1ee",
                   "kind": "cell",
                   "provenance": {
-                    "extractor": "pdfplumber",
-                    "stage": "extract_tables"
+                    "extractor": "bottom_up",
+                    "stage": "extract_tables_v2"
                   },
                   "text": "plain 25"
                 },
@@ -2116,8 +2116,8 @@
                   "id": "3d24f81ee588",
                   "kind": "cell",
                   "provenance": {
-                    "extractor": "pdfplumber",
-                    "stage": "extract_tables"
+                    "extractor": "bottom_up",
+                    "stage": "extract_tables_v2"
                   },
                   "text": "n25"
                 }
@@ -2155,8 +2155,8 @@
                   "id": "17093b757e1c",
                   "kind": "cell",
                   "provenance": {
-                    "extractor": "pdfplumber",
-                    "stage": "extract_tables"
+                    "extractor": "bottom_up",
+                    "stage": "extract_tables_v2"
                   },
                   "text": "26"
                 },
@@ -2175,8 +2175,8 @@
                   "id": "78c754ed8ba4",
                   "kind": "cell",
                   "provenance": {
-                    "extractor": "pdfplumber",
-                    "stage": "extract_tables"
+                    "extractor": "bottom_up",
+                    "stage": "extract_tables_v2"
                   },
                   "text": "plain 26"
                 },
@@ -2195,8 +2195,8 @@
                   "id": "3c8f58c7f585",
                   "kind": "cell",
                   "provenance": {
-                    "extractor": "pdfplumber",
-                    "stage": "extract_tables"
+                    "extractor": "bottom_up",
+                    "stage": "extract_tables_v2"
                   },
                   "text": "n26"
                 }
@@ -2228,14 +2228,14 @@
                     "x0": 136,
                     "x1": 196,
                     "y0": 604,
-                    "y1": 622
+                    "y1": 624
                   },
                   "children": [],
-                  "id": "d09b2f198f3b",
+                  "id": "d080dce58a0d",
                   "kind": "cell",
                   "provenance": {
-                    "extractor": "pdfplumber",
-                    "stage": "extract_tables"
+                    "extractor": "bottom_up",
+                    "stage": "extract_tables_v2"
                   },
                   "text": "27"
                 },
@@ -2248,14 +2248,14 @@
                     "x0": 196,
                     "x1": 396,
                     "y0": 604,
-                    "y1": 622
+                    "y1": 624
                   },
                   "children": [],
-                  "id": "59800d45aac4",
+                  "id": "603d16a2c58c",
                   "kind": "cell",
                   "provenance": {
-                    "extractor": "pdfplumber",
-                    "stage": "extract_tables"
+                    "extractor": "bottom_up",
+                    "stage": "extract_tables_v2"
                   },
                   "text": "plain 27"
                 },
@@ -2268,19 +2268,19 @@
                     "x0": 396,
                     "x1": 476,
                     "y0": 604,
-                    "y1": 622
+                    "y1": 624
                   },
                   "children": [],
-                  "id": "fc94f6180848",
+                  "id": "256fe9aa2efd",
                   "kind": "cell",
                   "provenance": {
-                    "extractor": "pdfplumber",
-                    "stage": "extract_tables"
+                    "extractor": "bottom_up",
+                    "stage": "extract_tables_v2"
                   },
                   "text": "n27"
                 }
               ],
-              "id": "4561d541d22a",
+              "id": "af0f7d30c5cc",
               "kind": "row",
               "provenance": {},
               "text": null
@@ -2306,15 +2306,15 @@
                     "page": 0,
                     "x0": 136,
                     "x1": 196,
-                    "y0": 622,
-                    "y1": 700
+                    "y0": 624,
+                    "y1": 698
                   },
                   "children": [],
-                  "id": "64b5bd4ab080",
+                  "id": "892aa05f057d",
                   "kind": "cell",
                   "provenance": {
-                    "extractor": "pdfplumber",
-                    "stage": "extract_tables"
+                    "extractor": "bottom_up",
+                    "stage": "extract_tables_v2"
                   },
                   "text": "28"
                 },
@@ -2326,8 +2326,8 @@
                     "page": 0,
                     "x0": 196,
                     "x1": 396,
-                    "y0": 622,
-                    "y1": 700
+                    "y0": 624,
+                    "y1": 698
                   },
                   "children": [
                     {
@@ -2377,8 +2377,8 @@
                               "id": "16bca34f816d",
                               "kind": "cell",
                               "provenance": {
-                                "extractor": "pdfplumber",
-                                "stage": "extract_tables"
+                                "extractor": "bottom_up",
+                                "stage": "extract_tables_v2"
                               },
                               "text": "sub-H1"
                             },
@@ -2397,8 +2397,8 @@
                               "id": "bdcc3945bb74",
                               "kind": "cell",
                               "provenance": {
-                                "extractor": "pdfplumber",
-                                "stage": "extract_tables"
+                                "extractor": "bottom_up",
+                                "stage": "extract_tables_v2"
                               },
                               "text": "sub-H2"
                             }
@@ -2436,8 +2436,8 @@
                               "id": "8eb1a7a0474b",
                               "kind": "cell",
                               "provenance": {
-                                "extractor": "pdfplumber",
-                                "stage": "extract_tables"
+                                "extractor": "bottom_up",
+                                "stage": "extract_tables_v2"
                               },
                               "text": "a"
                             },
@@ -2456,8 +2456,8 @@
                               "id": "2e6cc9fc3c83",
                               "kind": "cell",
                               "provenance": {
-                                "extractor": "pdfplumber",
-                                "stage": "extract_tables"
+                                "extractor": "bottom_up",
+                                "stage": "extract_tables_v2"
                               },
                               "text": "1"
                             }
@@ -2495,8 +2495,8 @@
                               "id": "44c23079ebad",
                               "kind": "cell",
                               "provenance": {
-                                "extractor": "pdfplumber",
-                                "stage": "extract_tables"
+                                "extractor": "bottom_up",
+                                "stage": "extract_tables_v2"
                               },
                               "text": "b"
                             },
@@ -2515,8 +2515,8 @@
                               "id": "84822b5dc153",
                               "kind": "cell",
                               "provenance": {
-                                "extractor": "pdfplumber",
-                                "stage": "extract_tables"
+                                "extractor": "bottom_up",
+                                "stage": "extract_tables_v2"
                               },
                               "text": "2"
                             }
@@ -2554,8 +2554,8 @@
                               "id": "a85c24321aad",
                               "kind": "cell",
                               "provenance": {
-                                "extractor": "pdfplumber",
-                                "stage": "extract_tables"
+                                "extractor": "bottom_up",
+                                "stage": "extract_tables_v2"
                               },
                               "text": "c"
                             },
@@ -2574,8 +2574,8 @@
                               "id": "9574bbb2c3cb",
                               "kind": "cell",
                               "provenance": {
-                                "extractor": "pdfplumber",
-                                "stage": "extract_tables"
+                                "extractor": "bottom_up",
+                                "stage": "extract_tables_v2"
                               },
                               "text": "3"
                             }
@@ -2589,17 +2589,17 @@
                       "id": "2427a5082b4a",
                       "kind": "table",
                       "provenance": {
-                        "extractor": "pdfplumber",
-                        "stage": "extract_tables"
+                        "extractor": "bottom_up",
+                        "stage": "extract_tables_v2"
                       },
                       "text": null
                     }
                   ],
-                  "id": "334b91247c31",
+                  "id": "aae93d2ffb70",
                   "kind": "cell",
                   "provenance": {
-                    "extractor": "pdfplumber",
-                    "stage": "extract_tables"
+                    "extractor": "bottom_up",
+                    "stage": "extract_tables_v2"
                   },
                   "text": null
                 },
@@ -2611,20 +2611,20 @@
                     "page": 0,
                     "x0": 396,
                     "x1": 476,
-                    "y0": 622,
-                    "y1": 700
+                    "y0": 624,
+                    "y1": 698
                   },
                   "children": [],
-                  "id": "08c9e70809c3",
+                  "id": "4741f28aaf1c",
                   "kind": "cell",
                   "provenance": {
-                    "extractor": "pdfplumber",
-                    "stage": "extract_tables"
+                    "extractor": "bottom_up",
+                    "stage": "extract_tables_v2"
                   },
                   "text": "ends pg1"
                 }
               ],
-              "id": "16abc2a2e490",
+              "id": "110de12ff4b6",
               "kind": "row",
               "provenance": {},
               "text": null
@@ -2650,15 +2650,15 @@
                     "page": 1,
                     "x0": 136,
                     "x1": 196,
-                    "y0": 78,
-                    "y1": 138
+                    "y0": 80,
+                    "y1": 136
                   },
                   "children": [],
-                  "id": "1f258b141536",
+                  "id": "25e6d20b1bcc",
                   "kind": "cell",
                   "provenance": {
-                    "extractor": "pdfplumber",
-                    "stage": "extract_tables"
+                    "extractor": "bottom_up",
+                    "stage": "extract_tables_v2"
                   },
                   "text": "29"
                 },
@@ -2670,8 +2670,8 @@
                     "page": 1,
                     "x0": 196,
                     "x1": 396,
-                    "y0": 78,
-                    "y1": 138
+                    "y0": 80,
+                    "y1": 136
                   },
                   "children": [
                     {
@@ -2721,8 +2721,8 @@
                               "id": "a2baad1831aa",
                               "kind": "cell",
                               "provenance": {
-                                "extractor": "pdfplumber",
-                                "stage": "extract_tables"
+                                "extractor": "bottom_up",
+                                "stage": "extract_tables_v2"
                               },
                               "text": "d"
                             },
@@ -2741,8 +2741,8 @@
                               "id": "79b6f430fbc8",
                               "kind": "cell",
                               "provenance": {
-                                "extractor": "pdfplumber",
-                                "stage": "extract_tables"
+                                "extractor": "bottom_up",
+                                "stage": "extract_tables_v2"
                               },
                               "text": "4"
                             }
@@ -2780,8 +2780,8 @@
                               "id": "56d702e2cc09",
                               "kind": "cell",
                               "provenance": {
-                                "extractor": "pdfplumber",
-                                "stage": "extract_tables"
+                                "extractor": "bottom_up",
+                                "stage": "extract_tables_v2"
                               },
                               "text": "e"
                             },
@@ -2800,8 +2800,8 @@
                               "id": "29d80f7e92c2",
                               "kind": "cell",
                               "provenance": {
-                                "extractor": "pdfplumber",
-                                "stage": "extract_tables"
+                                "extractor": "bottom_up",
+                                "stage": "extract_tables_v2"
                               },
                               "text": "5"
                             }
@@ -2839,8 +2839,8 @@
                               "id": "551f87fc8ce5",
                               "kind": "cell",
                               "provenance": {
-                                "extractor": "pdfplumber",
-                                "stage": "extract_tables"
+                                "extractor": "bottom_up",
+                                "stage": "extract_tables_v2"
                               },
                               "text": "f"
                             },
@@ -2859,8 +2859,8 @@
                               "id": "34295f08e031",
                               "kind": "cell",
                               "provenance": {
-                                "extractor": "pdfplumber",
-                                "stage": "extract_tables"
+                                "extractor": "bottom_up",
+                                "stage": "extract_tables_v2"
                               },
                               "text": "6"
                             }
@@ -2874,17 +2874,17 @@
                       "id": "959924582971",
                       "kind": "table",
                       "provenance": {
-                        "extractor": "pdfplumber",
-                        "stage": "extract_tables"
+                        "extractor": "bottom_up",
+                        "stage": "extract_tables_v2"
                       },
                       "text": null
                     }
                   ],
-                  "id": "eaf8aa108379",
+                  "id": "f51ecc89962d",
                   "kind": "cell",
                   "provenance": {
-                    "extractor": "pdfplumber",
-                    "stage": "extract_tables"
+                    "extractor": "bottom_up",
+                    "stage": "extract_tables_v2"
                   },
                   "text": null
                 },
@@ -2896,20 +2896,20 @@
                     "page": 1,
                     "x0": 396,
                     "x1": 476,
-                    "y0": 78,
-                    "y1": 138
+                    "y0": 80,
+                    "y1": 136
                   },
                   "children": [],
-                  "id": "8384ef8f419e",
+                  "id": "d5bd39b210ca",
                   "kind": "cell",
                   "provenance": {
-                    "extractor": "pdfplumber",
-                    "stage": "extract_tables"
+                    "extractor": "bottom_up",
+                    "stage": "extract_tables_v2"
                   },
                   "text": "starts pg2"
                 }
               ],
-              "id": "ffa8d56d1052",
+              "id": "0d71d813d15a",
               "kind": "row",
               "provenance": {},
               "text": null
@@ -2935,15 +2935,15 @@
                     "page": 1,
                     "x0": 136,
                     "x1": 196,
-                    "y0": 138,
+                    "y0": 136,
                     "y1": 156
                   },
                   "children": [],
-                  "id": "45f52f092f5f",
+                  "id": "2a3b43237591",
                   "kind": "cell",
                   "provenance": {
-                    "extractor": "pdfplumber",
-                    "stage": "extract_tables"
+                    "extractor": "bottom_up",
+                    "stage": "extract_tables_v2"
                   },
                   "text": "30"
                 },
@@ -2955,15 +2955,15 @@
                     "page": 1,
                     "x0": 196,
                     "x1": 396,
-                    "y0": 138,
+                    "y0": 136,
                     "y1": 156
                   },
                   "children": [],
-                  "id": "bfec83cb0b17",
+                  "id": "0dfa93782e06",
                   "kind": "cell",
                   "provenance": {
-                    "extractor": "pdfplumber",
-                    "stage": "extract_tables"
+                    "extractor": "bottom_up",
+                    "stage": "extract_tables_v2"
                   },
                   "text": "plain 30"
                 },
@@ -2975,20 +2975,20 @@
                     "page": 1,
                     "x0": 396,
                     "x1": 476,
-                    "y0": 138,
+                    "y0": 136,
                     "y1": 156
                   },
                   "children": [],
-                  "id": "e37b4f45d769",
+                  "id": "f2c9cbdab3c3",
                   "kind": "cell",
                   "provenance": {
-                    "extractor": "pdfplumber",
-                    "stage": "extract_tables"
+                    "extractor": "bottom_up",
+                    "stage": "extract_tables_v2"
                   },
                   "text": "n30"
                 }
               ],
-              "id": "45fb7ec4da5b",
+              "id": "87d306deb08e",
               "kind": "row",
               "provenance": {},
               "text": null
@@ -3021,8 +3021,8 @@
                   "id": "f9552570ef7b",
                   "kind": "cell",
                   "provenance": {
-                    "extractor": "pdfplumber",
-                    "stage": "extract_tables"
+                    "extractor": "bottom_up",
+                    "stage": "extract_tables_v2"
                   },
                   "text": "31"
                 },
@@ -3041,8 +3041,8 @@
                   "id": "77787bde9d82",
                   "kind": "cell",
                   "provenance": {
-                    "extractor": "pdfplumber",
-                    "stage": "extract_tables"
+                    "extractor": "bottom_up",
+                    "stage": "extract_tables_v2"
                   },
                   "text": "plain 31"
                 },
@@ -3061,8 +3061,8 @@
                   "id": "586ade2b6ce1",
                   "kind": "cell",
                   "provenance": {
-                    "extractor": "pdfplumber",
-                    "stage": "extract_tables"
+                    "extractor": "bottom_up",
+                    "stage": "extract_tables_v2"
                   },
                   "text": "n31"
                 }
@@ -3100,8 +3100,8 @@
                   "id": "e25f66a1db9e",
                   "kind": "cell",
                   "provenance": {
-                    "extractor": "pdfplumber",
-                    "stage": "extract_tables"
+                    "extractor": "bottom_up",
+                    "stage": "extract_tables_v2"
                   },
                   "text": "32"
                 },
@@ -3120,8 +3120,8 @@
                   "id": "09e640a0c4de",
                   "kind": "cell",
                   "provenance": {
-                    "extractor": "pdfplumber",
-                    "stage": "extract_tables"
+                    "extractor": "bottom_up",
+                    "stage": "extract_tables_v2"
                   },
                   "text": "plain 32"
                 },
@@ -3140,8 +3140,8 @@
                   "id": "5858362c3056",
                   "kind": "cell",
                   "provenance": {
-                    "extractor": "pdfplumber",
-                    "stage": "extract_tables"
+                    "extractor": "bottom_up",
+                    "stage": "extract_tables_v2"
                   },
                   "text": "n32"
                 }
@@ -3179,8 +3179,8 @@
                   "id": "bb20f8d98430",
                   "kind": "cell",
                   "provenance": {
-                    "extractor": "pdfplumber",
-                    "stage": "extract_tables"
+                    "extractor": "bottom_up",
+                    "stage": "extract_tables_v2"
                   },
                   "text": "33"
                 },
@@ -3199,8 +3199,8 @@
                   "id": "558ef6ec9fce",
                   "kind": "cell",
                   "provenance": {
-                    "extractor": "pdfplumber",
-                    "stage": "extract_tables"
+                    "extractor": "bottom_up",
+                    "stage": "extract_tables_v2"
                   },
                   "text": "plain 33"
                 },
@@ -3219,8 +3219,8 @@
                   "id": "0c3033addd95",
                   "kind": "cell",
                   "provenance": {
-                    "extractor": "pdfplumber",
-                    "stage": "extract_tables"
+                    "extractor": "bottom_up",
+                    "stage": "extract_tables_v2"
                   },
                   "text": "n33"
                 }
@@ -3258,8 +3258,8 @@
                   "id": "03b2b26ba556",
                   "kind": "cell",
                   "provenance": {
-                    "extractor": "pdfplumber",
-                    "stage": "extract_tables"
+                    "extractor": "bottom_up",
+                    "stage": "extract_tables_v2"
                   },
                   "text": "34"
                 },
@@ -3278,8 +3278,8 @@
                   "id": "76281e815809",
                   "kind": "cell",
                   "provenance": {
-                    "extractor": "pdfplumber",
-                    "stage": "extract_tables"
+                    "extractor": "bottom_up",
+                    "stage": "extract_tables_v2"
                   },
                   "text": "plain 34"
                 },
@@ -3298,8 +3298,8 @@
                   "id": "550b263af146",
                   "kind": "cell",
                   "provenance": {
-                    "extractor": "pdfplumber",
-                    "stage": "extract_tables"
+                    "extractor": "bottom_up",
+                    "stage": "extract_tables_v2"
                   },
                   "text": "n34"
                 }
@@ -3337,8 +3337,8 @@
                   "id": "97b2486e31c1",
                   "kind": "cell",
                   "provenance": {
-                    "extractor": "pdfplumber",
-                    "stage": "extract_tables"
+                    "extractor": "bottom_up",
+                    "stage": "extract_tables_v2"
                   },
                   "text": "35"
                 },
@@ -3357,8 +3357,8 @@
                   "id": "a5b9d89a66c5",
                   "kind": "cell",
                   "provenance": {
-                    "extractor": "pdfplumber",
-                    "stage": "extract_tables"
+                    "extractor": "bottom_up",
+                    "stage": "extract_tables_v2"
                   },
                   "text": "plain 35"
                 },
@@ -3377,8 +3377,8 @@
                   "id": "ffd0b5f52165",
                   "kind": "cell",
                   "provenance": {
-                    "extractor": "pdfplumber",
-                    "stage": "extract_tables"
+                    "extractor": "bottom_up",
+                    "stage": "extract_tables_v2"
                   },
                   "text": "n35"
                 }
@@ -3416,8 +3416,8 @@
                   "id": "559f056cf174",
                   "kind": "cell",
                   "provenance": {
-                    "extractor": "pdfplumber",
-                    "stage": "extract_tables"
+                    "extractor": "bottom_up",
+                    "stage": "extract_tables_v2"
                   },
                   "text": "36"
                 },
@@ -3436,8 +3436,8 @@
                   "id": "a3eafedb6140",
                   "kind": "cell",
                   "provenance": {
-                    "extractor": "pdfplumber",
-                    "stage": "extract_tables"
+                    "extractor": "bottom_up",
+                    "stage": "extract_tables_v2"
                   },
                   "text": "plain 36"
                 },
@@ -3456,8 +3456,8 @@
                   "id": "6847c7332f37",
                   "kind": "cell",
                   "provenance": {
-                    "extractor": "pdfplumber",
-                    "stage": "extract_tables"
+                    "extractor": "bottom_up",
+                    "stage": "extract_tables_v2"
                   },
                   "text": "n36"
                 }
@@ -3495,8 +3495,8 @@
                   "id": "3177a6862c27",
                   "kind": "cell",
                   "provenance": {
-                    "extractor": "pdfplumber",
-                    "stage": "extract_tables"
+                    "extractor": "bottom_up",
+                    "stage": "extract_tables_v2"
                   },
                   "text": "37"
                 },
@@ -3515,8 +3515,8 @@
                   "id": "216a9de88f83",
                   "kind": "cell",
                   "provenance": {
-                    "extractor": "pdfplumber",
-                    "stage": "extract_tables"
+                    "extractor": "bottom_up",
+                    "stage": "extract_tables_v2"
                   },
                   "text": "plain 37"
                 },
@@ -3535,8 +3535,8 @@
                   "id": "c617ca4afb30",
                   "kind": "cell",
                   "provenance": {
-                    "extractor": "pdfplumber",
-                    "stage": "extract_tables"
+                    "extractor": "bottom_up",
+                    "stage": "extract_tables_v2"
                   },
                   "text": "n37"
                 }
@@ -3574,8 +3574,8 @@
                   "id": "49aa4a22e185",
                   "kind": "cell",
                   "provenance": {
-                    "extractor": "pdfplumber",
-                    "stage": "extract_tables"
+                    "extractor": "bottom_up",
+                    "stage": "extract_tables_v2"
                   },
                   "text": "38"
                 },
@@ -3594,8 +3594,8 @@
                   "id": "ffdb3ab434cb",
                   "kind": "cell",
                   "provenance": {
-                    "extractor": "pdfplumber",
-                    "stage": "extract_tables"
+                    "extractor": "bottom_up",
+                    "stage": "extract_tables_v2"
                   },
                   "text": "plain 38"
                 },
@@ -3614,8 +3614,8 @@
                   "id": "f4eb19fbaae4",
                   "kind": "cell",
                   "provenance": {
-                    "extractor": "pdfplumber",
-                    "stage": "extract_tables"
+                    "extractor": "bottom_up",
+                    "stage": "extract_tables_v2"
                   },
                   "text": "n38"
                 }
@@ -3653,8 +3653,8 @@
                   "id": "0c13863172c6",
                   "kind": "cell",
                   "provenance": {
-                    "extractor": "pdfplumber",
-                    "stage": "extract_tables"
+                    "extractor": "bottom_up",
+                    "stage": "extract_tables_v2"
                   },
                   "text": "39"
                 },
@@ -3673,8 +3673,8 @@
                   "id": "8fae636e8fc4",
                   "kind": "cell",
                   "provenance": {
-                    "extractor": "pdfplumber",
-                    "stage": "extract_tables"
+                    "extractor": "bottom_up",
+                    "stage": "extract_tables_v2"
                   },
                   "text": "plain 39"
                 },
@@ -3693,8 +3693,8 @@
                   "id": "0924de115411",
                   "kind": "cell",
                   "provenance": {
-                    "extractor": "pdfplumber",
-                    "stage": "extract_tables"
+                    "extractor": "bottom_up",
+                    "stage": "extract_tables_v2"
                   },
                   "text": "n39"
                 }
@@ -3732,8 +3732,8 @@
                   "id": "75e057e31e58",
                   "kind": "cell",
                   "provenance": {
-                    "extractor": "pdfplumber",
-                    "stage": "extract_tables"
+                    "extractor": "bottom_up",
+                    "stage": "extract_tables_v2"
                   },
                   "text": "40"
                 },
@@ -3752,8 +3752,8 @@
                   "id": "251d3202648a",
                   "kind": "cell",
                   "provenance": {
-                    "extractor": "pdfplumber",
-                    "stage": "extract_tables"
+                    "extractor": "bottom_up",
+                    "stage": "extract_tables_v2"
                   },
                   "text": "plain 40"
                 },
@@ -3772,8 +3772,8 @@
                   "id": "a84744d997ce",
                   "kind": "cell",
                   "provenance": {
-                    "extractor": "pdfplumber",
-                    "stage": "extract_tables"
+                    "extractor": "bottom_up",
+                    "stage": "extract_tables_v2"
                   },
                   "text": "n40"
                 }
@@ -3811,8 +3811,8 @@
                   "id": "8e059ad97818",
                   "kind": "cell",
                   "provenance": {
-                    "extractor": "pdfplumber",
-                    "stage": "extract_tables"
+                    "extractor": "bottom_up",
+                    "stage": "extract_tables_v2"
                   },
                   "text": "41"
                 },
@@ -3831,8 +3831,8 @@
                   "id": "53814f74c773",
                   "kind": "cell",
                   "provenance": {
-                    "extractor": "pdfplumber",
-                    "stage": "extract_tables"
+                    "extractor": "bottom_up",
+                    "stage": "extract_tables_v2"
                   },
                   "text": "plain 41"
                 },
@@ -3851,8 +3851,8 @@
                   "id": "e3c15afd3d85",
                   "kind": "cell",
                   "provenance": {
-                    "extractor": "pdfplumber",
-                    "stage": "extract_tables"
+                    "extractor": "bottom_up",
+                    "stage": "extract_tables_v2"
                   },
                   "text": "n41"
                 }
@@ -3890,8 +3890,8 @@
                   "id": "600686c7e362",
                   "kind": "cell",
                   "provenance": {
-                    "extractor": "pdfplumber",
-                    "stage": "extract_tables"
+                    "extractor": "bottom_up",
+                    "stage": "extract_tables_v2"
                   },
                   "text": "42"
                 },
@@ -3910,8 +3910,8 @@
                   "id": "1a2121f51950",
                   "kind": "cell",
                   "provenance": {
-                    "extractor": "pdfplumber",
-                    "stage": "extract_tables"
+                    "extractor": "bottom_up",
+                    "stage": "extract_tables_v2"
                   },
                   "text": "plain 42"
                 },
@@ -3930,8 +3930,8 @@
                   "id": "97fb8771370b",
                   "kind": "cell",
                   "provenance": {
-                    "extractor": "pdfplumber",
-                    "stage": "extract_tables"
+                    "extractor": "bottom_up",
+                    "stage": "extract_tables_v2"
                   },
                   "text": "n42"
                 }
@@ -3969,8 +3969,8 @@
                   "id": "5c1b0b784901",
                   "kind": "cell",
                   "provenance": {
-                    "extractor": "pdfplumber",
-                    "stage": "extract_tables"
+                    "extractor": "bottom_up",
+                    "stage": "extract_tables_v2"
                   },
                   "text": "43"
                 },
@@ -3989,8 +3989,8 @@
                   "id": "052899eb42f9",
                   "kind": "cell",
                   "provenance": {
-                    "extractor": "pdfplumber",
-                    "stage": "extract_tables"
+                    "extractor": "bottom_up",
+                    "stage": "extract_tables_v2"
                   },
                   "text": "plain 43"
                 },
@@ -4009,8 +4009,8 @@
                   "id": "1522999e7c29",
                   "kind": "cell",
                   "provenance": {
-                    "extractor": "pdfplumber",
-                    "stage": "extract_tables"
+                    "extractor": "bottom_up",
+                    "stage": "extract_tables_v2"
                   },
                   "text": "n43"
                 }
@@ -4048,8 +4048,8 @@
                   "id": "08e5be3537b1",
                   "kind": "cell",
                   "provenance": {
-                    "extractor": "pdfplumber",
-                    "stage": "extract_tables"
+                    "extractor": "bottom_up",
+                    "stage": "extract_tables_v2"
                   },
                   "text": "44"
                 },
@@ -4068,8 +4068,8 @@
                   "id": "f971e362b73b",
                   "kind": "cell",
                   "provenance": {
-                    "extractor": "pdfplumber",
-                    "stage": "extract_tables"
+                    "extractor": "bottom_up",
+                    "stage": "extract_tables_v2"
                   },
                   "text": "plain 44"
                 },
@@ -4088,8 +4088,8 @@
                   "id": "0c2913f54d32",
                   "kind": "cell",
                   "provenance": {
-                    "extractor": "pdfplumber",
-                    "stage": "extract_tables"
+                    "extractor": "bottom_up",
+                    "stage": "extract_tables_v2"
                   },
                   "text": "n44"
                 }
@@ -4127,8 +4127,8 @@
                   "id": "7599d81c579b",
                   "kind": "cell",
                   "provenance": {
-                    "extractor": "pdfplumber",
-                    "stage": "extract_tables"
+                    "extractor": "bottom_up",
+                    "stage": "extract_tables_v2"
                   },
                   "text": "45"
                 },
@@ -4147,8 +4147,8 @@
                   "id": "21a6409b7808",
                   "kind": "cell",
                   "provenance": {
-                    "extractor": "pdfplumber",
-                    "stage": "extract_tables"
+                    "extractor": "bottom_up",
+                    "stage": "extract_tables_v2"
                   },
                   "text": "plain 45"
                 },
@@ -4167,8 +4167,8 @@
                   "id": "c6490c51d514",
                   "kind": "cell",
                   "provenance": {
-                    "extractor": "pdfplumber",
-                    "stage": "extract_tables"
+                    "extractor": "bottom_up",
+                    "stage": "extract_tables_v2"
                   },
                   "text": "n45"
                 }
@@ -4206,8 +4206,8 @@
                   "id": "c8768d78a77c",
                   "kind": "cell",
                   "provenance": {
-                    "extractor": "pdfplumber",
-                    "stage": "extract_tables"
+                    "extractor": "bottom_up",
+                    "stage": "extract_tables_v2"
                   },
                   "text": "46"
                 },
@@ -4226,8 +4226,8 @@
                   "id": "62c81a4fbee5",
                   "kind": "cell",
                   "provenance": {
-                    "extractor": "pdfplumber",
-                    "stage": "extract_tables"
+                    "extractor": "bottom_up",
+                    "stage": "extract_tables_v2"
                   },
                   "text": "plain 46"
                 },
@@ -4246,8 +4246,8 @@
                   "id": "3af37710d84a",
                   "kind": "cell",
                   "provenance": {
-                    "extractor": "pdfplumber",
-                    "stage": "extract_tables"
+                    "extractor": "bottom_up",
+                    "stage": "extract_tables_v2"
                   },
                   "text": "n46"
                 }
@@ -4285,8 +4285,8 @@
                   "id": "6468928e2f61",
                   "kind": "cell",
                   "provenance": {
-                    "extractor": "pdfplumber",
-                    "stage": "extract_tables"
+                    "extractor": "bottom_up",
+                    "stage": "extract_tables_v2"
                   },
                   "text": "47"
                 },
@@ -4305,8 +4305,8 @@
                   "id": "97c22b4a72f3",
                   "kind": "cell",
                   "provenance": {
-                    "extractor": "pdfplumber",
-                    "stage": "extract_tables"
+                    "extractor": "bottom_up",
+                    "stage": "extract_tables_v2"
                   },
                   "text": "plain 47"
                 },
@@ -4325,8 +4325,8 @@
                   "id": "4dd9bf49fb19",
                   "kind": "cell",
                   "provenance": {
-                    "extractor": "pdfplumber",
-                    "stage": "extract_tables"
+                    "extractor": "bottom_up",
+                    "stage": "extract_tables_v2"
                   },
                   "text": "n47"
                 }
@@ -4364,8 +4364,8 @@
                   "id": "752c5ccd3cd2",
                   "kind": "cell",
                   "provenance": {
-                    "extractor": "pdfplumber",
-                    "stage": "extract_tables"
+                    "extractor": "bottom_up",
+                    "stage": "extract_tables_v2"
                   },
                   "text": "48"
                 },
@@ -4384,8 +4384,8 @@
                   "id": "d1a9cc35d49c",
                   "kind": "cell",
                   "provenance": {
-                    "extractor": "pdfplumber",
-                    "stage": "extract_tables"
+                    "extractor": "bottom_up",
+                    "stage": "extract_tables_v2"
                   },
                   "text": "plain 48"
                 },
@@ -4404,8 +4404,8 @@
                   "id": "6fdbc89504f4",
                   "kind": "cell",
                   "provenance": {
-                    "extractor": "pdfplumber",
-                    "stage": "extract_tables"
+                    "extractor": "bottom_up",
+                    "stage": "extract_tables_v2"
                   },
                   "text": "n48"
                 }
@@ -4443,8 +4443,8 @@
                   "id": "dea923d4bae2",
                   "kind": "cell",
                   "provenance": {
-                    "extractor": "pdfplumber",
-                    "stage": "extract_tables"
+                    "extractor": "bottom_up",
+                    "stage": "extract_tables_v2"
                   },
                   "text": "49"
                 },
@@ -4463,8 +4463,8 @@
                   "id": "3bc7a79b941b",
                   "kind": "cell",
                   "provenance": {
-                    "extractor": "pdfplumber",
-                    "stage": "extract_tables"
+                    "extractor": "bottom_up",
+                    "stage": "extract_tables_v2"
                   },
                   "text": "plain 49"
                 },
@@ -4483,8 +4483,8 @@
                   "id": "211c87969699",
                   "kind": "cell",
                   "provenance": {
-                    "extractor": "pdfplumber",
-                    "stage": "extract_tables"
+                    "extractor": "bottom_up",
+                    "stage": "extract_tables_v2"
                   },
                   "text": "n49"
                 }
@@ -4495,16 +4495,16 @@
               "text": null
             }
           ],
-          "id": "8dd4f9fb84a2",
+          "id": "f8547727a649",
           "kind": "table",
           "provenance": {
-            "extractor": "pdfplumber+stitch",
+            "extractor": "bottom_up+stitch",
             "stage": "stitch_pages"
           },
           "text": null
         }
       ],
-      "id": "3f17e0695e34",
+      "id": "09fdc40bc3f8",
       "kind": "page",
       "provenance": {},
       "text": null
@@ -4527,7 +4527,7 @@
       "text": null
     }
   ],
-  "id": "e84e35f1e2ac",
+  "id": "e3619832a65c",
   "kind": "document",
   "provenance": {},
   "text": null

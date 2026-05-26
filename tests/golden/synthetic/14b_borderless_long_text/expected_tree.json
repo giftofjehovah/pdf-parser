@@ -42,16 +42,6 @@
         },
         {
           "attrs": {
-            "anchor_score": 0.833,
-            "anchor_signals": {
-              "cols_norm": 1.0,
-              "fill": 0.659,
-              "fill_penalty": 0.043,
-              "numeric": 0.0,
-              "rows_norm": 1.0,
-              "spacing": 1.0,
-              "stability": 1.0
-            },
             "header_signature": [
               "Customer Name",
               "Order Description",
@@ -84,7 +74,9 @@
               },
               "children": [
                 {
-                  "attrs": {},
+                  "attrs": {
+                    "align": "left"
+                  },
                   "bbox": {
                     "page": 0,
                     "x0": 77,
@@ -96,13 +88,15 @@
                   "id": "ed00162d3b8c",
                   "kind": "cell",
                   "provenance": {
-                    "extractor": "anchor",
-                    "stage": "detect_tables_anchor"
+                    "extractor": "bottom_up",
+                    "stage": "extract_tables_v2"
                   },
                   "text": "Customer Name"
                 },
                 {
-                  "attrs": {},
+                  "attrs": {
+                    "align": "left"
+                  },
                   "bbox": {
                     "page": 0,
                     "x0": 227,
@@ -114,13 +108,15 @@
                   "id": "d04f41efcf9e",
                   "kind": "cell",
                   "provenance": {
-                    "extractor": "anchor",
-                    "stage": "detect_tables_anchor"
+                    "extractor": "bottom_up",
+                    "stage": "extract_tables_v2"
                   },
                   "text": "Order Description"
                 },
                 {
-                  "attrs": {},
+                  "attrs": {
+                    "align": "left"
+                  },
                   "bbox": {
                     "page": 0,
                     "x0": 427,
@@ -132,18 +128,15 @@
                   "id": "97791a628c3f",
                   "kind": "cell",
                   "provenance": {
-                    "extractor": "anchor",
-                    "stage": "detect_tables_anchor"
+                    "extractor": "bottom_up",
+                    "stage": "extract_tables_v2"
                   },
                   "text": "Status Notes"
                 }
               ],
               "id": "11f8435cdd6e",
               "kind": "row",
-              "provenance": {
-                "extractor": "anchor",
-                "stage": "detect_tables_anchor"
-              },
+              "provenance": {},
               "text": null
             },
             {
@@ -160,7 +153,9 @@
               },
               "children": [
                 {
-                  "attrs": {},
+                  "attrs": {
+                    "align": "left"
+                  },
                   "bbox": {
                     "page": 0,
                     "x0": 77,
@@ -172,13 +167,15 @@
                   "id": "ec2639c879a8",
                   "kind": "cell",
                   "provenance": {
-                    "extractor": "anchor",
-                    "stage": "detect_tables_anchor"
+                    "extractor": "bottom_up",
+                    "stage": "extract_tables_v2"
                   },
                   "text": "Acme Corporation"
                 },
                 {
-                  "attrs": {},
+                  "attrs": {
+                    "align": "left"
+                  },
                   "bbox": {
                     "page": 0,
                     "x0": 227,
@@ -190,13 +187,15 @@
                   "id": "38802ae53353",
                   "kind": "cell",
                   "provenance": {
-                    "extractor": "anchor",
-                    "stage": "detect_tables_anchor"
+                    "extractor": "bottom_up",
+                    "stage": "extract_tables_v2"
                   },
                   "text": "Annual subscription renewal"
                 },
                 {
-                  "attrs": {},
+                  "attrs": {
+                    "align": "left"
+                  },
                   "bbox": {
                     "page": 0,
                     "x0": 427,
@@ -208,18 +207,15 @@
                   "id": "93a8c3767b0f",
                   "kind": "cell",
                   "provenance": {
-                    "extractor": "anchor",
-                    "stage": "detect_tables_anchor"
+                    "extractor": "bottom_up",
+                    "stage": "extract_tables_v2"
                   },
                   "text": "Paid in Q3"
                 }
               ],
               "id": "5f15f1782aaf",
               "kind": "row",
-              "provenance": {
-                "extractor": "anchor",
-                "stage": "detect_tables_anchor"
-              },
+              "provenance": {},
               "text": null
             },
             {
@@ -236,7 +232,9 @@
               },
               "children": [
                 {
-                  "attrs": {},
+                  "attrs": {
+                    "align": "left"
+                  },
                   "bbox": {
                     "page": 0,
                     "x0": 77,
@@ -248,13 +246,15 @@
                   "id": "f8195cb4fe95",
                   "kind": "cell",
                   "provenance": {
-                    "extractor": "anchor",
-                    "stage": "detect_tables_anchor"
+                    "extractor": "bottom_up",
+                    "stage": "extract_tables_v2"
                   },
                   "text": "Globex Industries"
                 },
                 {
-                  "attrs": {},
+                  "attrs": {
+                    "align": "left"
+                  },
                   "bbox": {
                     "page": 0,
                     "x0": 227,
@@ -266,13 +266,15 @@
                   "id": "192aa331a159",
                   "kind": "cell",
                   "provenance": {
-                    "extractor": "anchor",
-                    "stage": "detect_tables_anchor"
+                    "extractor": "bottom_up",
+                    "stage": "extract_tables_v2"
                   },
                   "text": "Hardware shipment delayed"
                 },
                 {
-                  "attrs": {},
+                  "attrs": {
+                    "align": "left"
+                  },
                   "bbox": {
                     "page": 0,
                     "x0": 427,
@@ -284,18 +286,15 @@
                   "id": "f70407ec7206",
                   "kind": "cell",
                   "provenance": {
-                    "extractor": "anchor",
-                    "stage": "detect_tables_anchor"
+                    "extractor": "bottom_up",
+                    "stage": "extract_tables_v2"
                   },
                   "text": "Pending review"
                 }
               ],
               "id": "db98da515642",
               "kind": "row",
-              "provenance": {
-                "extractor": "anchor",
-                "stage": "detect_tables_anchor"
-              },
+              "provenance": {},
               "text": null
             },
             {
@@ -312,7 +311,9 @@
               },
               "children": [
                 {
-                  "attrs": {},
+                  "attrs": {
+                    "align": "left"
+                  },
                   "bbox": {
                     "page": 0,
                     "x0": 77,
@@ -324,13 +325,15 @@
                   "id": "40121e869587",
                   "kind": "cell",
                   "provenance": {
-                    "extractor": "anchor",
-                    "stage": "detect_tables_anchor"
+                    "extractor": "bottom_up",
+                    "stage": "extract_tables_v2"
                   },
                   "text": "Initech Holdings"
                 },
                 {
-                  "attrs": {},
+                  "attrs": {
+                    "align": "left"
+                  },
                   "bbox": {
                     "page": 0,
                     "x0": 227,
@@ -342,13 +345,15 @@
                   "id": "ba759b5a41f7",
                   "kind": "cell",
                   "provenance": {
-                    "extractor": "anchor",
-                    "stage": "detect_tables_anchor"
+                    "extractor": "bottom_up",
+                    "stage": "extract_tables_v2"
                   },
                   "text": "Consulting engagement closed"
                 },
                 {
-                  "attrs": {},
+                  "attrs": {
+                    "align": "left"
+                  },
                   "bbox": {
                     "page": 0,
                     "x0": 427,
@@ -360,18 +365,15 @@
                   "id": "b558153bae0f",
                   "kind": "cell",
                   "provenance": {
-                    "extractor": "anchor",
-                    "stage": "detect_tables_anchor"
+                    "extractor": "bottom_up",
+                    "stage": "extract_tables_v2"
                   },
                   "text": "Invoice sent"
                 }
               ],
               "id": "e0801bbc1cdd",
               "kind": "row",
-              "provenance": {
-                "extractor": "anchor",
-                "stage": "detect_tables_anchor"
-              },
+              "provenance": {},
               "text": null
             },
             {
@@ -388,7 +390,9 @@
               },
               "children": [
                 {
-                  "attrs": {},
+                  "attrs": {
+                    "align": "left"
+                  },
                   "bbox": {
                     "page": 0,
                     "x0": 77,
@@ -400,13 +404,15 @@
                   "id": "c015fad24a5e",
                   "kind": "cell",
                   "provenance": {
-                    "extractor": "anchor",
-                    "stage": "detect_tables_anchor"
+                    "extractor": "bottom_up",
+                    "stage": "extract_tables_v2"
                   },
                   "text": "Umbrella Logistics"
                 },
                 {
-                  "attrs": {},
+                  "attrs": {
+                    "align": "left"
+                  },
                   "bbox": {
                     "page": 0,
                     "x0": 227,
@@ -418,13 +424,15 @@
                   "id": "8e33d2872ab6",
                   "kind": "cell",
                   "provenance": {
-                    "extractor": "anchor",
-                    "stage": "detect_tables_anchor"
+                    "extractor": "bottom_up",
+                    "stage": "extract_tables_v2"
                   },
                   "text": "Routine maintenance contract"
                 },
                 {
-                  "attrs": {},
+                  "attrs": {
+                    "align": "left"
+                  },
                   "bbox": {
                     "page": 0,
                     "x0": 427,
@@ -436,26 +444,23 @@
                   "id": "e20822c33905",
                   "kind": "cell",
                   "provenance": {
-                    "extractor": "anchor",
-                    "stage": "detect_tables_anchor"
+                    "extractor": "bottom_up",
+                    "stage": "extract_tables_v2"
                   },
                   "text": "Awaiting reply"
                 }
               ],
               "id": "9fcde0068abe",
               "kind": "row",
-              "provenance": {
-                "extractor": "anchor",
-                "stage": "detect_tables_anchor"
-              },
+              "provenance": {},
               "text": null
             }
           ],
           "id": "b42692c19fc9",
           "kind": "table",
           "provenance": {
-            "extractor": "anchor",
-            "stage": "detect_tables_anchor"
+            "extractor": "bottom_up",
+            "stage": "extract_tables_v2"
           },
           "text": null
         }

@@ -43,19 +43,25 @@
         {
           "attrs": {
             "header_signature": [
-              ""
+              "Collection",
+              "Books",
+              "32%",
+              "28%",
+              "30%",
+              "28%",
+              "or 50,000\nitems"
             ],
-            "n_cols": 1,
-            "n_rows": 1,
+            "n_cols": 7,
+            "n_rows": 4,
             "page": 0,
             "page_height": 792.0
           },
           "bbox": {
             "page": 0,
-            "x0": 61,
-            "x1": 551,
-            "y0": 118,
-            "y1": 574
+            "x0": 67,
+            "x1": 527,
+            "y0": 126,
+            "y1": 218
           },
           "children": [
             {
@@ -65,10 +71,10 @@
               },
               "bbox": {
                 "page": 0,
-                "x0": 61,
-                "x1": 551,
-                "y0": 118,
-                "y1": 574
+                "x0": 67,
+                "x1": 527,
+                "y0": 126,
+                "y1": 218
               },
               "children": [
                 {
@@ -77,1851 +83,1412 @@
                   },
                   "bbox": {
                     "page": 0,
-                    "x0": 61,
-                    "x1": 551,
-                    "y0": 118,
-                    "y1": 574
+                    "x0": 67,
+                    "x1": 147,
+                    "y0": 126,
+                    "y1": 158
                   },
-                  "children": [
-                    {
-                      "attrs": {
-                        "header_signature": [
-                          "Collection",
-                          "Books",
-                          "32%",
-                          "28%",
-                          "30%",
-                          "28%",
-                          "or 50,000\nitems"
-                        ],
-                        "n_cols": 7,
-                        "n_rows": 4,
-                        "page": 0,
-                        "page_height": 792.0
-                      },
-                      "bbox": {
-                        "page": 0,
-                        "x0": 67,
-                        "x1": 527,
-                        "y0": 126,
-                        "y1": 218
-                      },
-                      "children": [
-                        {
-                          "attrs": {
-                            "page": 0,
-                            "row_index": 0
-                          },
-                          "bbox": {
-                            "page": 0,
-                            "x0": 67,
-                            "x1": 527,
-                            "y0": 126,
-                            "y1": 218
-                          },
-                          "children": [
-                            {
-                              "attrs": {
-                                "align": "left"
-                              },
-                              "bbox": {
-                                "page": 0,
-                                "x0": 67,
-                                "x1": 147,
-                                "y0": 126,
-                                "y1": 158
-                              },
-                              "children": [],
-                              "id": "df5996fe9206",
-                              "kind": "cell",
-                              "provenance": {
-                                "extractor": "pdfplumber",
-                                "stage": "extract_tables"
-                              },
-                              "text": "Collection"
-                            },
-                            {
-                              "attrs": {
-                                "align": "left"
-                              },
-                              "bbox": {
-                                "page": 0,
-                                "x0": 147,
-                                "x1": 257,
-                                "y0": 126,
-                                "y1": 158
-                              },
-                              "children": [],
-                              "id": "46c01312ca6b",
-                              "kind": "cell",
-                              "provenance": {
-                                "extractor": "pdfplumber",
-                                "stage": "extract_tables"
-                              },
-                              "text": "Books"
-                            },
-                            {
-                              "attrs": {
-                                "align": "left"
-                              },
-                              "bbox": {
-                                "page": 0,
-                                "x0": 257,
-                                "x1": 307,
-                                "y0": 126,
-                                "y1": 158
-                              },
-                              "children": [],
-                              "id": "750773d344bd",
-                              "kind": "cell",
-                              "provenance": {
-                                "extractor": "pdfplumber",
-                                "stage": "extract_tables"
-                              },
-                              "text": "32%"
-                            },
-                            {
-                              "attrs": {
-                                "align": "left"
-                              },
-                              "bbox": {
-                                "page": 0,
-                                "x0": 307,
-                                "x1": 357,
-                                "y0": 126,
-                                "y1": 158
-                              },
-                              "children": [],
-                              "id": "fe3f816ccd1a",
-                              "kind": "cell",
-                              "provenance": {
-                                "extractor": "pdfplumber",
-                                "stage": "extract_tables"
-                              },
-                              "text": "28%"
-                            },
-                            {
-                              "attrs": {
-                                "align": "left"
-                              },
-                              "bbox": {
-                                "page": 0,
-                                "x0": 357,
-                                "x1": 407,
-                                "y0": 126,
-                                "y1": 158
-                              },
-                              "children": [],
-                              "id": "2036c9eb89d7",
-                              "kind": "cell",
-                              "provenance": {
-                                "extractor": "pdfplumber",
-                                "stage": "extract_tables"
-                              },
-                              "text": "30%"
-                            },
-                            {
-                              "attrs": {
-                                "align": "left"
-                              },
-                              "bbox": {
-                                "page": 0,
-                                "x0": 407,
-                                "x1": 457,
-                                "y0": 126,
-                                "y1": 158
-                              },
-                              "children": [],
-                              "id": "199407252674",
-                              "kind": "cell",
-                              "provenance": {
-                                "extractor": "pdfplumber",
-                                "stage": "extract_tables"
-                              },
-                              "text": "28%"
-                            },
-                            {
-                              "attrs": {
-                                "align": "left"
-                              },
-                              "bbox": {
-                                "page": 0,
-                                "x0": 457,
-                                "x1": 527,
-                                "y0": 126,
-                                "y1": 158
-                              },
-                              "children": [],
-                              "id": "b2a7da96d6ca",
-                              "kind": "cell",
-                              "provenance": {
-                                "extractor": "pdfplumber",
-                                "stage": "extract_tables"
-                              },
-                              "text": "or 50,000\nitems"
-                            }
-                          ],
-                          "id": "7e29eb709ccc",
-                          "kind": "row",
-                          "provenance": {},
-                          "text": null
-                        },
-                        {
-                          "attrs": {
-                            "page": 0,
-                            "row_index": 1
-                          },
-                          "bbox": {
-                            "page": 0,
-                            "x0": 67,
-                            "x1": 527,
-                            "y0": 126,
-                            "y1": 218
-                          },
-                          "children": [
-                            {
-                              "attrs": {
-                                "align": "left"
-                              },
-                              "bbox": {
-                                "page": 0,
-                                "x0": 67,
-                                "x1": 147,
-                                "y0": 158,
-                                "y1": 178
-                              },
-                              "children": [],
-                              "id": "3d464d6f1d52",
-                              "kind": "cell",
-                              "provenance": {
-                                "extractor": "pdfplumber",
-                                "stage": "extract_tables"
-                              },
-                              "text": "Collection"
-                            },
-                            {
-                              "attrs": {
-                                "align": "left"
-                              },
-                              "bbox": {
-                                "page": 0,
-                                "x0": 147,
-                                "x1": 257,
-                                "y0": 158,
-                                "y1": 178
-                              },
-                              "children": [],
-                              "id": "65467ccecc22",
-                              "kind": "cell",
-                              "provenance": {
-                                "extractor": "pdfplumber",
-                                "stage": "extract_tables"
-                              },
-                              "text": "Periodicals"
-                            },
-                            {
-                              "attrs": {
-                                "align": "left"
-                              },
-                              "bbox": {
-                                "page": 0,
-                                "x0": 257,
-                                "x1": 307,
-                                "y0": 158,
-                                "y1": 178
-                              },
-                              "children": [],
-                              "id": "e08272c39ba0",
-                              "kind": "cell",
-                              "provenance": {
-                                "extractor": "pdfplumber",
-                                "stage": "extract_tables"
-                              },
-                              "text": "8%"
-                            },
-                            {
-                              "attrs": {
-                                "align": "left"
-                              },
-                              "bbox": {
-                                "page": 0,
-                                "x0": 307,
-                                "x1": 357,
-                                "y0": 158,
-                                "y1": 178
-                              },
-                              "children": [],
-                              "id": "6f42500cd58e",
-                              "kind": "cell",
-                              "provenance": {
-                                "extractor": "pdfplumber",
-                                "stage": "extract_tables"
-                              },
-                              "text": "7%"
-                            },
-                            {
-                              "attrs": {
-                                "align": "left"
-                              },
-                              "bbox": {
-                                "page": 0,
-                                "x0": 357,
-                                "x1": 407,
-                                "y0": 158,
-                                "y1": 178
-                              },
-                              "children": [],
-                              "id": "9e0c5f960327",
-                              "kind": "cell",
-                              "provenance": {
-                                "extractor": "pdfplumber",
-                                "stage": "extract_tables"
-                              },
-                              "text": "5%"
-                            },
-                            {
-                              "attrs": {
-                                "align": "left"
-                              },
-                              "bbox": {
-                                "page": 0,
-                                "x0": 407,
-                                "x1": 457,
-                                "y0": 158,
-                                "y1": 178
-                              },
-                              "children": [],
-                              "id": "a8b87e716627",
-                              "kind": "cell",
-                              "provenance": {
-                                "extractor": "pdfplumber",
-                                "stage": "extract_tables"
-                              },
-                              "text": "7%"
-                            },
-                            {
-                              "attrs": {
-                                "align": "left"
-                              },
-                              "bbox": {
-                                "page": 0,
-                                "x0": 457,
-                                "x1": 527,
-                                "y0": 158,
-                                "y1": 178
-                              },
-                              "children": [],
-                              "id": "9986bacd8d25",
-                              "kind": "cell",
-                              "provenance": {
-                                "extractor": "pdfplumber",
-                                "stage": "extract_tables"
-                              },
-                              "text": "Max 25%"
-                            }
-                          ],
-                          "id": "9d877620fde8",
-                          "kind": "row",
-                          "provenance": {},
-                          "text": null
-                        },
-                        {
-                          "attrs": {
-                            "page": 0,
-                            "row_index": 2
-                          },
-                          "bbox": {
-                            "page": 0,
-                            "x0": 67,
-                            "x1": 527,
-                            "y0": 126,
-                            "y1": 218
-                          },
-                          "children": [
-                            {
-                              "attrs": {
-                                "align": "left"
-                              },
-                              "bbox": {
-                                "page": 0,
-                                "x0": 67,
-                                "x1": 147,
-                                "y0": 178,
-                                "y1": 198
-                              },
-                              "children": [],
-                              "id": "880a06597712",
-                              "kind": "cell",
-                              "provenance": {
-                                "extractor": "pdfplumber",
-                                "stage": "extract_tables"
-                              },
-                              "text": "Collection"
-                            },
-                            {
-                              "attrs": {
-                                "align": "left"
-                              },
-                              "bbox": {
-                                "page": 0,
-                                "x0": 147,
-                                "x1": 257,
-                                "y0": 178,
-                                "y1": 198
-                              },
-                              "children": [],
-                              "id": "3bc611bc2477",
-                              "kind": "cell",
-                              "provenance": {
-                                "extractor": "pdfplumber",
-                                "stage": "extract_tables"
-                              },
-                              "text": "Specialty Producers*"
-                            },
-                            {
-                              "attrs": {
-                                "align": "left"
-                              },
-                              "bbox": {
-                                "page": 0,
-                                "x0": 257,
-                                "x1": 307,
-                                "y0": 178,
-                                "y1": 198
-                              },
-                              "children": [],
-                              "id": "a45a84066515",
-                              "kind": "cell",
-                              "provenance": {
-                                "extractor": "pdfplumber",
-                                "stage": "extract_tables"
-                              },
-                              "text": "8%"
-                            },
-                            {
-                              "attrs": {
-                                "align": "left"
-                              },
-                              "bbox": {
-                                "page": 0,
-                                "x0": 307,
-                                "x1": 357,
-                                "y0": 178,
-                                "y1": 198
-                              },
-                              "children": [],
-                              "id": "cb3af17a2ec9",
-                              "kind": "cell",
-                              "provenance": {
-                                "extractor": "pdfplumber",
-                                "stage": "extract_tables"
-                              },
-                              "text": "10%"
-                            },
-                            {
-                              "attrs": {
-                                "align": "left"
-                              },
-                              "bbox": {
-                                "page": 0,
-                                "x0": 357,
-                                "x1": 407,
-                                "y0": 178,
-                                "y1": 198
-                              },
-                              "children": [],
-                              "id": "840920144d4c",
-                              "kind": "cell",
-                              "provenance": {
-                                "extractor": "pdfplumber",
-                                "stage": "extract_tables"
-                              },
-                              "text": "8%"
-                            },
-                            {
-                              "attrs": {
-                                "align": "left"
-                              },
-                              "bbox": {
-                                "page": 0,
-                                "x0": 407,
-                                "x1": 457,
-                                "y0": 178,
-                                "y1": 198
-                              },
-                              "children": [],
-                              "id": "75ba22097e4a",
-                              "kind": "cell",
-                              "provenance": {
-                                "extractor": "pdfplumber",
-                                "stage": "extract_tables"
-                              },
-                              "text": "8%"
-                            },
-                            {
-                              "attrs": {
-                                "align": "left"
-                              },
-                              "bbox": {
-                                "page": 0,
-                                "x0": 457,
-                                "x1": 527,
-                                "y0": 178,
-                                "y1": 198
-                              },
-                              "children": [],
-                              "id": "aeaa303de638",
-                              "kind": "cell",
-                              "provenance": {
-                                "extractor": "pdfplumber",
-                                "stage": "extract_tables"
-                              },
-                              "text": "NA"
-                            }
-                          ],
-                          "id": "8c04efdfe015",
-                          "kind": "row",
-                          "provenance": {},
-                          "text": null
-                        },
-                        {
-                          "attrs": {
-                            "page": 0,
-                            "row_index": 3
-                          },
-                          "bbox": {
-                            "page": 0,
-                            "x0": 67,
-                            "x1": 527,
-                            "y0": 126,
-                            "y1": 218
-                          },
-                          "children": [
-                            {
-                              "attrs": {
-                                "align": "left"
-                              },
-                              "bbox": {
-                                "page": 0,
-                                "x0": 67,
-                                "x1": 147,
-                                "y0": 198,
-                                "y1": 218
-                              },
-                              "children": [],
-                              "id": "031b9a882b11",
-                              "kind": "cell",
-                              "provenance": {
-                                "extractor": "pdfplumber",
-                                "stage": "extract_tables"
-                              },
-                              "text": "Collection"
-                            },
-                            {
-                              "attrs": {
-                                "align": "left"
-                              },
-                              "bbox": {
-                                "page": 0,
-                                "x0": 147,
-                                "x1": 257,
-                                "y0": 198,
-                                "y1": 218
-                              },
-                              "children": [],
-                              "id": "4504b9148a5d",
-                              "kind": "cell",
-                              "provenance": {
-                                "extractor": "pdfplumber",
-                                "stage": "extract_tables"
-                              },
-                              "text": "Other Producers*"
-                            },
-                            {
-                              "attrs": {
-                                "align": "left"
-                              },
-                              "bbox": {
-                                "page": 0,
-                                "x0": 257,
-                                "x1": 307,
-                                "y0": 198,
-                                "y1": 218
-                              },
-                              "children": [],
-                              "id": "458f9ddb72cd",
-                              "kind": "cell",
-                              "provenance": {
-                                "extractor": "pdfplumber",
-                                "stage": "extract_tables"
-                              },
-                              "text": "11%"
-                            },
-                            {
-                              "attrs": {
-                                "align": "left"
-                              },
-                              "bbox": {
-                                "page": 0,
-                                "x0": 307,
-                                "x1": 357,
-                                "y0": 198,
-                                "y1": 218
-                              },
-                              "children": [],
-                              "id": "2cf93f24716b",
-                              "kind": "cell",
-                              "provenance": {
-                                "extractor": "pdfplumber",
-                                "stage": "extract_tables"
-                              },
-                              "text": "10%"
-                            },
-                            {
-                              "attrs": {
-                                "align": "left"
-                              },
-                              "bbox": {
-                                "page": 0,
-                                "x0": 357,
-                                "x1": 407,
-                                "y0": 198,
-                                "y1": 218
-                              },
-                              "children": [],
-                              "id": "188cefcd3af8",
-                              "kind": "cell",
-                              "provenance": {
-                                "extractor": "pdfplumber",
-                                "stage": "extract_tables"
-                              },
-                              "text": "10%"
-                            },
-                            {
-                              "attrs": {
-                                "align": "left"
-                              },
-                              "bbox": {
-                                "page": 0,
-                                "x0": 407,
-                                "x1": 457,
-                                "y0": 198,
-                                "y1": 218
-                              },
-                              "children": [],
-                              "id": "9c17997b2b09",
-                              "kind": "cell",
-                              "provenance": {
-                                "extractor": "pdfplumber",
-                                "stage": "extract_tables"
-                              },
-                              "text": "8%"
-                            },
-                            {
-                              "attrs": {
-                                "align": "left"
-                              },
-                              "bbox": {
-                                "page": 0,
-                                "x0": 457,
-                                "x1": 527,
-                                "y0": 198,
-                                "y1": 218
-                              },
-                              "children": [],
-                              "id": "3c4447258e6c",
-                              "kind": "cell",
-                              "provenance": {
-                                "extractor": "pdfplumber",
-                                "stage": "extract_tables"
-                              },
-                              "text": "Max 15%"
-                            }
-                          ],
-                          "id": "648f0c71b649",
-                          "kind": "row",
-                          "provenance": {},
-                          "text": null
-                        }
-                      ],
-                      "id": "23d0304279c2",
-                      "kind": "table",
-                      "provenance": {
-                        "extractor": "pdfplumber",
-                        "stage": "extract_tables"
-                      },
-                      "text": null
-                    },
-                    {
-                      "attrs": {},
-                      "bbox": {
-                        "page": 0,
-                        "x0": 67,
-                        "x1": 544,
-                        "y0": 232,
-                        "y1": 253
-                      },
-                      "children": [],
-                      "id": "73865daeb736",
-                      "kind": "list_item",
-                      "provenance": {
-                        "extractor": "pdfplumber",
-                        "stage": "extract_tables"
-                      },
-                      "text": "* Specialty Producers and Other Producers are adjusted to reflect the correct catalogue code at branch level. Reference works are aggregated to other producers."
-                    },
-                    {
-                      "attrs": {},
-                      "bbox": {
-                        "page": 0,
-                        "x0": 67,
-                        "x1": 540,
-                        "y0": 270,
-                        "y1": 303
-                      },
-                      "children": [],
-                      "id": "e3384bb90987",
-                      "kind": "list_item",
-                      "provenance": {
-                        "extractor": "pdfplumber",
-                        "stage": "extract_tables"
-                      },
-                      "text": "\u2022 Given the continued strong digital lending performance and regional opportunity, the Audio & Digital cap is to be revised to 20% from 15% to support eBook program expansion and to offset the reduction in the overall Collection portfolio on the back of lower Books sub-category exposures."
-                    },
-                    {
-                      "attrs": {},
-                      "bbox": {
-                        "page": 0,
-                        "x0": 67,
-                        "x1": 545,
-                        "y0": 312,
-                        "y1": 345
-                      },
-                      "children": [],
-                      "id": "e272aef419c8",
-                      "kind": "list_item",
-                      "provenance": {
-                        "extractor": "pdfplumber",
-                        "stage": "extract_tables"
-                      },
-                      "text": "\u2022 In recognising the change in the collection composition, combined with the books category still grappling with print decline, weakened demand and elevated storage costs, the Books cap is being revised downward to a maximum of 40% (previously 55%) or 50,000 items (previously 65,000)."
-                    },
-                    {
-                      "attrs": {},
-                      "bbox": {
-                        "page": 0,
-                        "x0": 67,
-                        "x1": 545,
-                        "y0": 362,
-                        "y1": 395
-                      },
-                      "children": [],
-                      "id": "f9c9142e6e13",
-                      "kind": "paragraph",
-                      "provenance": {
-                        "extractor": "pdfplumber",
-                        "stage": "extract_tables"
-                      },
-                      "text": "The Other Producers and Other Media cap is at 15% primarily to support transition projects in Specialty Collections production not covered under other sub-segment caps and as detailed under the \u201cPreservation / Sustainability / Heritage Limits\u201d section8."
-                    },
-                    {
-                      "attrs": {},
-                      "bbox": {
-                        "page": 0,
-                        "x0": 67,
-                        "x1": 307,
-                        "y0": 414,
-                        "y1": 423
-                      },
-                      "children": [],
-                      "id": "dd694f26ae6a",
-                      "kind": "paragraph",
-                      "provenance": {
-                        "extractor": "pdfplumber",
-                        "stage": "extract_tables"
-                      },
-                      "text": "Branches (Breakdown by Service Area (\u201cSVC\u201d) Region):"
-                    },
-                    {
-                      "attrs": {},
-                      "bbox": {
-                        "page": 0,
-                        "x0": 67,
-                        "x1": 360,
-                        "y0": 436,
-                        "y1": 448
-                      },
-                      "children": [],
-                      "id": "c53ccef3019e",
-                      "kind": "list_item",
-                      "provenance": {
-                        "extractor": "pdfplumber",
-                        "stage": "extract_tables"
-                      },
-                      "text": "o North, Central, South are the top 3 areas in terms of circulation."
-                    },
-                    {
-                      "attrs": {},
-                      "bbox": {
-                        "page": 0,
-                        "x0": 67,
-                        "x1": 527,
-                        "y0": 454,
-                        "y1": 466
-                      },
-                      "children": [],
-                      "id": "170b1ac51ccf",
-                      "kind": "list_item",
-                      "provenance": {
-                        "extractor": "pdfplumber",
-                        "stage": "extract_tables"
-                      },
-                      "text": "o No specific area cap is proposed but the collection should continue to be managed in a balanced manner."
-                    },
-                    {
-                      "attrs": {
-                        "header_signature": [
-                          "SVC Region",
-                          "Dec-24\n(%)",
-                          "Mar-25\n(%)",
-                          "Jun-25\n(%)",
-                          "Sep-25\n(%)",
-                          "Proposed PS"
-                        ],
-                        "n_cols": 6,
-                        "n_rows": 4,
-                        "page": 0,
-                        "page_height": 792.0
-                      },
-                      "bbox": {
-                        "page": 0,
-                        "x0": 67,
-                        "x1": 507,
-                        "y0": 474,
-                        "y1": 566
-                      },
-                      "children": [
-                        {
-                          "attrs": {
-                            "page": 0,
-                            "row_index": 0
-                          },
-                          "bbox": {
-                            "page": 0,
-                            "x0": 67,
-                            "x1": 507,
-                            "y0": 474,
-                            "y1": 566
-                          },
-                          "children": [
-                            {
-                              "attrs": {
-                                "align": "left"
-                              },
-                              "bbox": {
-                                "page": 0,
-                                "x0": 67,
-                                "x1": 157,
-                                "y0": 474,
-                                "y1": 506
-                              },
-                              "children": [],
-                              "id": "8c0428617092",
-                              "kind": "cell",
-                              "provenance": {
-                                "extractor": "pdfplumber",
-                                "stage": "extract_tables"
-                              },
-                              "text": "SVC Region"
-                            },
-                            {
-                              "attrs": {
-                                "align": "left"
-                              },
-                              "bbox": {
-                                "page": 0,
-                                "x0": 157,
-                                "x1": 222,
-                                "y0": 474,
-                                "y1": 506
-                              },
-                              "children": [
-                                {
-                                  "attrs": {
-                                    "header_signature": [
-                                      "Dec-24"
-                                    ],
-                                    "n_cols": 1,
-                                    "n_rows": 2,
-                                    "page": 0,
-                                    "page_height": 792.0
-                                  },
-                                  "bbox": {
-                                    "page": 0,
-                                    "x0": 175,
-                                    "x1": 204,
-                                    "y0": 480,
-                                    "y1": 501
-                                  },
-                                  "children": [
-                                    {
-                                      "attrs": {
-                                        "page": 0,
-                                        "row_index": 0
-                                      },
-                                      "bbox": {
-                                        "page": 0,
-                                        "x0": 175,
-                                        "x1": 204,
-                                        "y0": 480,
-                                        "y1": 501
-                                      },
-                                      "children": [
-                                        {
-                                          "attrs": {
-                                            "align": "left"
-                                          },
-                                          "bbox": {
-                                            "page": 0,
-                                            "x0": 175,
-                                            "x1": 204,
-                                            "y0": 480,
-                                            "y1": 490
-                                          },
-                                          "children": [],
-                                          "id": "3e70c44df3e9",
-                                          "kind": "cell",
-                                          "provenance": {
-                                            "extractor": "pdfplumber",
-                                            "stage": "extract_tables"
-                                          },
-                                          "text": "Dec-24"
-                                        }
-                                      ],
-                                      "id": "a55e0eef6837",
-                                      "kind": "row",
-                                      "provenance": {},
-                                      "text": null
-                                    },
-                                    {
-                                      "attrs": {
-                                        "page": 0,
-                                        "row_index": 1
-                                      },
-                                      "bbox": {
-                                        "page": 0,
-                                        "x0": 175,
-                                        "x1": 204,
-                                        "y0": 480,
-                                        "y1": 501
-                                      },
-                                      "children": [
-                                        {
-                                          "attrs": {
-                                            "align": "left"
-                                          },
-                                          "bbox": {
-                                            "page": 0,
-                                            "x0": 175,
-                                            "x1": 204,
-                                            "y0": 490,
-                                            "y1": 501
-                                          },
-                                          "children": [],
-                                          "id": "57c81aef6a11",
-                                          "kind": "cell",
-                                          "provenance": {
-                                            "extractor": "pdfplumber",
-                                            "stage": "extract_tables"
-                                          },
-                                          "text": "(%)"
-                                        }
-                                      ],
-                                      "id": "fa1bdfec330b",
-                                      "kind": "row",
-                                      "provenance": {},
-                                      "text": null
-                                    }
-                                  ],
-                                  "id": "0fbd5058301c",
-                                  "kind": "table",
-                                  "provenance": {
-                                    "extractor": "pdfplumber",
-                                    "stage": "extract_tables"
-                                  },
-                                  "text": null
-                                }
-                              ],
-                              "id": "115ae96dd706",
-                              "kind": "cell",
-                              "provenance": {
-                                "extractor": "pdfplumber",
-                                "stage": "extract_tables"
-                              },
-                              "text": null
-                            },
-                            {
-                              "attrs": {
-                                "align": "left"
-                              },
-                              "bbox": {
-                                "page": 0,
-                                "x0": 222,
-                                "x1": 287,
-                                "y0": 474,
-                                "y1": 506
-                              },
-                              "children": [
-                                {
-                                  "attrs": {
-                                    "header_signature": [
-                                      "Mar-25"
-                                    ],
-                                    "n_cols": 1,
-                                    "n_rows": 2,
-                                    "page": 0,
-                                    "page_height": 792.0
-                                  },
-                                  "bbox": {
-                                    "page": 0,
-                                    "x0": 240,
-                                    "x1": 269,
-                                    "y0": 480,
-                                    "y1": 501
-                                  },
-                                  "children": [
-                                    {
-                                      "attrs": {
-                                        "page": 0,
-                                        "row_index": 0
-                                      },
-                                      "bbox": {
-                                        "page": 0,
-                                        "x0": 240,
-                                        "x1": 269,
-                                        "y0": 480,
-                                        "y1": 501
-                                      },
-                                      "children": [
-                                        {
-                                          "attrs": {
-                                            "align": "left"
-                                          },
-                                          "bbox": {
-                                            "page": 0,
-                                            "x0": 240,
-                                            "x1": 269,
-                                            "y0": 480,
-                                            "y1": 490
-                                          },
-                                          "children": [],
-                                          "id": "00cfb3135f89",
-                                          "kind": "cell",
-                                          "provenance": {
-                                            "extractor": "pdfplumber",
-                                            "stage": "extract_tables"
-                                          },
-                                          "text": "Mar-25"
-                                        }
-                                      ],
-                                      "id": "3cbea8c49fa0",
-                                      "kind": "row",
-                                      "provenance": {},
-                                      "text": null
-                                    },
-                                    {
-                                      "attrs": {
-                                        "page": 0,
-                                        "row_index": 1
-                                      },
-                                      "bbox": {
-                                        "page": 0,
-                                        "x0": 240,
-                                        "x1": 269,
-                                        "y0": 480,
-                                        "y1": 501
-                                      },
-                                      "children": [
-                                        {
-                                          "attrs": {
-                                            "align": "left"
-                                          },
-                                          "bbox": {
-                                            "page": 0,
-                                            "x0": 240,
-                                            "x1": 269,
-                                            "y0": 490,
-                                            "y1": 501
-                                          },
-                                          "children": [],
-                                          "id": "9209c8f7dfa5",
-                                          "kind": "cell",
-                                          "provenance": {
-                                            "extractor": "pdfplumber",
-                                            "stage": "extract_tables"
-                                          },
-                                          "text": "(%)"
-                                        }
-                                      ],
-                                      "id": "722d4dcabca6",
-                                      "kind": "row",
-                                      "provenance": {},
-                                      "text": null
-                                    }
-                                  ],
-                                  "id": "e9cc895905c8",
-                                  "kind": "table",
-                                  "provenance": {
-                                    "extractor": "pdfplumber",
-                                    "stage": "extract_tables"
-                                  },
-                                  "text": null
-                                }
-                              ],
-                              "id": "63f8fa870095",
-                              "kind": "cell",
-                              "provenance": {
-                                "extractor": "pdfplumber",
-                                "stage": "extract_tables"
-                              },
-                              "text": null
-                            },
-                            {
-                              "attrs": {
-                                "align": "left"
-                              },
-                              "bbox": {
-                                "page": 0,
-                                "x0": 287,
-                                "x1": 352,
-                                "y0": 474,
-                                "y1": 506
-                              },
-                              "children": [
-                                {
-                                  "attrs": {
-                                    "header_signature": [
-                                      "Jun-25"
-                                    ],
-                                    "n_cols": 1,
-                                    "n_rows": 2,
-                                    "page": 0,
-                                    "page_height": 792.0
-                                  },
-                                  "bbox": {
-                                    "page": 0,
-                                    "x0": 305,
-                                    "x1": 334,
-                                    "y0": 480,
-                                    "y1": 501
-                                  },
-                                  "children": [
-                                    {
-                                      "attrs": {
-                                        "page": 0,
-                                        "row_index": 0
-                                      },
-                                      "bbox": {
-                                        "page": 0,
-                                        "x0": 305,
-                                        "x1": 334,
-                                        "y0": 480,
-                                        "y1": 501
-                                      },
-                                      "children": [
-                                        {
-                                          "attrs": {
-                                            "align": "left"
-                                          },
-                                          "bbox": {
-                                            "page": 0,
-                                            "x0": 305,
-                                            "x1": 334,
-                                            "y0": 480,
-                                            "y1": 490
-                                          },
-                                          "children": [],
-                                          "id": "b3aa944998bf",
-                                          "kind": "cell",
-                                          "provenance": {
-                                            "extractor": "pdfplumber",
-                                            "stage": "extract_tables"
-                                          },
-                                          "text": "Jun-25"
-                                        }
-                                      ],
-                                      "id": "5a11cac12381",
-                                      "kind": "row",
-                                      "provenance": {},
-                                      "text": null
-                                    },
-                                    {
-                                      "attrs": {
-                                        "page": 0,
-                                        "row_index": 1
-                                      },
-                                      "bbox": {
-                                        "page": 0,
-                                        "x0": 305,
-                                        "x1": 334,
-                                        "y0": 480,
-                                        "y1": 501
-                                      },
-                                      "children": [
-                                        {
-                                          "attrs": {
-                                            "align": "left"
-                                          },
-                                          "bbox": {
-                                            "page": 0,
-                                            "x0": 305,
-                                            "x1": 334,
-                                            "y0": 490,
-                                            "y1": 501
-                                          },
-                                          "children": [],
-                                          "id": "c3b45ea99aa1",
-                                          "kind": "cell",
-                                          "provenance": {
-                                            "extractor": "pdfplumber",
-                                            "stage": "extract_tables"
-                                          },
-                                          "text": "(%)"
-                                        }
-                                      ],
-                                      "id": "cbeef497f2ae",
-                                      "kind": "row",
-                                      "provenance": {},
-                                      "text": null
-                                    }
-                                  ],
-                                  "id": "b347d75f74de",
-                                  "kind": "table",
-                                  "provenance": {
-                                    "extractor": "pdfplumber",
-                                    "stage": "extract_tables"
-                                  },
-                                  "text": null
-                                }
-                              ],
-                              "id": "ed2768906b00",
-                              "kind": "cell",
-                              "provenance": {
-                                "extractor": "pdfplumber",
-                                "stage": "extract_tables"
-                              },
-                              "text": null
-                            },
-                            {
-                              "attrs": {
-                                "align": "left"
-                              },
-                              "bbox": {
-                                "page": 0,
-                                "x0": 352,
-                                "x1": 417,
-                                "y0": 474,
-                                "y1": 506
-                              },
-                              "children": [
-                                {
-                                  "attrs": {
-                                    "header_signature": [
-                                      "Sep-25"
-                                    ],
-                                    "n_cols": 1,
-                                    "n_rows": 2,
-                                    "page": 0,
-                                    "page_height": 792.0
-                                  },
-                                  "bbox": {
-                                    "page": 0,
-                                    "x0": 370,
-                                    "x1": 399,
-                                    "y0": 480,
-                                    "y1": 501
-                                  },
-                                  "children": [
-                                    {
-                                      "attrs": {
-                                        "page": 0,
-                                        "row_index": 0
-                                      },
-                                      "bbox": {
-                                        "page": 0,
-                                        "x0": 370,
-                                        "x1": 399,
-                                        "y0": 480,
-                                        "y1": 501
-                                      },
-                                      "children": [
-                                        {
-                                          "attrs": {
-                                            "align": "left"
-                                          },
-                                          "bbox": {
-                                            "page": 0,
-                                            "x0": 370,
-                                            "x1": 399,
-                                            "y0": 480,
-                                            "y1": 490
-                                          },
-                                          "children": [],
-                                          "id": "77334d5efbec",
-                                          "kind": "cell",
-                                          "provenance": {
-                                            "extractor": "pdfplumber",
-                                            "stage": "extract_tables"
-                                          },
-                                          "text": "Sep-25"
-                                        }
-                                      ],
-                                      "id": "1242a9e7c211",
-                                      "kind": "row",
-                                      "provenance": {},
-                                      "text": null
-                                    },
-                                    {
-                                      "attrs": {
-                                        "page": 0,
-                                        "row_index": 1
-                                      },
-                                      "bbox": {
-                                        "page": 0,
-                                        "x0": 370,
-                                        "x1": 399,
-                                        "y0": 480,
-                                        "y1": 501
-                                      },
-                                      "children": [
-                                        {
-                                          "attrs": {
-                                            "align": "left"
-                                          },
-                                          "bbox": {
-                                            "page": 0,
-                                            "x0": 370,
-                                            "x1": 399,
-                                            "y0": 490,
-                                            "y1": 501
-                                          },
-                                          "children": [],
-                                          "id": "6f9f9016369f",
-                                          "kind": "cell",
-                                          "provenance": {
-                                            "extractor": "pdfplumber",
-                                            "stage": "extract_tables"
-                                          },
-                                          "text": "(%)"
-                                        }
-                                      ],
-                                      "id": "5f1daf3c2c66",
-                                      "kind": "row",
-                                      "provenance": {},
-                                      "text": null
-                                    }
-                                  ],
-                                  "id": "454cabf900c2",
-                                  "kind": "table",
-                                  "provenance": {
-                                    "extractor": "pdfplumber",
-                                    "stage": "extract_tables"
-                                  },
-                                  "text": null
-                                }
-                              ],
-                              "id": "3552aa0688d4",
-                              "kind": "cell",
-                              "provenance": {
-                                "extractor": "pdfplumber",
-                                "stage": "extract_tables"
-                              },
-                              "text": null
-                            },
-                            {
-                              "attrs": {
-                                "align": "left"
-                              },
-                              "bbox": {
-                                "page": 0,
-                                "x0": 417,
-                                "x1": 507,
-                                "y0": 474,
-                                "y1": 506
-                              },
-                              "children": [],
-                              "id": "0a87e694b06b",
-                              "kind": "cell",
-                              "provenance": {
-                                "extractor": "pdfplumber",
-                                "stage": "extract_tables"
-                              },
-                              "text": "Proposed PS"
-                            }
-                          ],
-                          "id": "6b174200cb28",
-                          "kind": "row",
-                          "provenance": {},
-                          "text": null
-                        },
-                        {
-                          "attrs": {
-                            "page": 0,
-                            "row_index": 1
-                          },
-                          "bbox": {
-                            "page": 0,
-                            "x0": 67,
-                            "x1": 507,
-                            "y0": 474,
-                            "y1": 566
-                          },
-                          "children": [
-                            {
-                              "attrs": {
-                                "align": "left"
-                              },
-                              "bbox": {
-                                "page": 0,
-                                "x0": 67,
-                                "x1": 157,
-                                "y0": 506,
-                                "y1": 526
-                              },
-                              "children": [],
-                              "id": "0a9cc7806452",
-                              "kind": "cell",
-                              "provenance": {
-                                "extractor": "pdfplumber",
-                                "stage": "extract_tables"
-                              },
-                              "text": "North"
-                            },
-                            {
-                              "attrs": {
-                                "align": "left"
-                              },
-                              "bbox": {
-                                "page": 0,
-                                "x0": 157,
-                                "x1": 222,
-                                "y0": 506,
-                                "y1": 526
-                              },
-                              "children": [],
-                              "id": "93c6796c5d99",
-                              "kind": "cell",
-                              "provenance": {
-                                "extractor": "pdfplumber",
-                                "stage": "extract_tables"
-                              },
-                              "text": "24%"
-                            },
-                            {
-                              "attrs": {
-                                "align": "left"
-                              },
-                              "bbox": {
-                                "page": 0,
-                                "x0": 222,
-                                "x1": 287,
-                                "y0": 506,
-                                "y1": 526
-                              },
-                              "children": [],
-                              "id": "b6bf67062af4",
-                              "kind": "cell",
-                              "provenance": {
-                                "extractor": "pdfplumber",
-                                "stage": "extract_tables"
-                              },
-                              "text": "26%"
-                            },
-                            {
-                              "attrs": {
-                                "align": "left"
-                              },
-                              "bbox": {
-                                "page": 0,
-                                "x0": 287,
-                                "x1": 352,
-                                "y0": 506,
-                                "y1": 526
-                              },
-                              "children": [],
-                              "id": "6082b704d7c1",
-                              "kind": "cell",
-                              "provenance": {
-                                "extractor": "pdfplumber",
-                                "stage": "extract_tables"
-                              },
-                              "text": "22%"
-                            },
-                            {
-                              "attrs": {
-                                "align": "left"
-                              },
-                              "bbox": {
-                                "page": 0,
-                                "x0": 352,
-                                "x1": 417,
-                                "y0": 506,
-                                "y1": 526
-                              },
-                              "children": [],
-                              "id": "a4c965ee0468",
-                              "kind": "cell",
-                              "provenance": {
-                                "extractor": "pdfplumber",
-                                "stage": "extract_tables"
-                              },
-                              "text": "22%"
-                            },
-                            {
-                              "attrs": {
-                                "align": "left"
-                              },
-                              "bbox": {
-                                "page": 0,
-                                "x0": 417,
-                                "x1": 507,
-                                "y0": 506,
-                                "y1": 526
-                              },
-                              "children": [],
-                              "id": "36165ed92118",
-                              "kind": "cell",
-                              "provenance": {
-                                "extractor": "pdfplumber",
-                                "stage": "extract_tables"
-                              },
-                              "text": ""
-                            }
-                          ],
-                          "id": "80cc772b64ea",
-                          "kind": "row",
-                          "provenance": {},
-                          "text": null
-                        },
-                        {
-                          "attrs": {
-                            "page": 0,
-                            "row_index": 2
-                          },
-                          "bbox": {
-                            "page": 0,
-                            "x0": 67,
-                            "x1": 507,
-                            "y0": 474,
-                            "y1": 566
-                          },
-                          "children": [
-                            {
-                              "attrs": {
-                                "align": "left"
-                              },
-                              "bbox": {
-                                "page": 0,
-                                "x0": 67,
-                                "x1": 157,
-                                "y0": 526,
-                                "y1": 546
-                              },
-                              "children": [],
-                              "id": "3edbca57ba82",
-                              "kind": "cell",
-                              "provenance": {
-                                "extractor": "pdfplumber",
-                                "stage": "extract_tables"
-                              },
-                              "text": "Central"
-                            },
-                            {
-                              "attrs": {
-                                "align": "left"
-                              },
-                              "bbox": {
-                                "page": 0,
-                                "x0": 157,
-                                "x1": 222,
-                                "y0": 526,
-                                "y1": 546
-                              },
-                              "children": [],
-                              "id": "258b24a72feb",
-                              "kind": "cell",
-                              "provenance": {
-                                "extractor": "pdfplumber",
-                                "stage": "extract_tables"
-                              },
-                              "text": "16%"
-                            },
-                            {
-                              "attrs": {
-                                "align": "left"
-                              },
-                              "bbox": {
-                                "page": 0,
-                                "x0": 222,
-                                "x1": 287,
-                                "y0": 526,
-                                "y1": 546
-                              },
-                              "children": [],
-                              "id": "c73e0783c3a2",
-                              "kind": "cell",
-                              "provenance": {
-                                "extractor": "pdfplumber",
-                                "stage": "extract_tables"
-                              },
-                              "text": "15%"
-                            },
-                            {
-                              "attrs": {
-                                "align": "left"
-                              },
-                              "bbox": {
-                                "page": 0,
-                                "x0": 287,
-                                "x1": 352,
-                                "y0": 526,
-                                "y1": 546
-                              },
-                              "children": [],
-                              "id": "c1cdb55352b6",
-                              "kind": "cell",
-                              "provenance": {
-                                "extractor": "pdfplumber",
-                                "stage": "extract_tables"
-                              },
-                              "text": "15%"
-                            },
-                            {
-                              "attrs": {
-                                "align": "left"
-                              },
-                              "bbox": {
-                                "page": 0,
-                                "x0": 352,
-                                "x1": 417,
-                                "y0": 526,
-                                "y1": 546
-                              },
-                              "children": [],
-                              "id": "49c112278316",
-                              "kind": "cell",
-                              "provenance": {
-                                "extractor": "pdfplumber",
-                                "stage": "extract_tables"
-                              },
-                              "text": "14%"
-                            },
-                            {
-                              "attrs": {
-                                "align": "left"
-                              },
-                              "bbox": {
-                                "page": 0,
-                                "x0": 417,
-                                "x1": 507,
-                                "y0": 526,
-                                "y1": 546
-                              },
-                              "children": [],
-                              "id": "eacca5d492b0",
-                              "kind": "cell",
-                              "provenance": {
-                                "extractor": "pdfplumber",
-                                "stage": "extract_tables"
-                              },
-                              "text": ""
-                            }
-                          ],
-                          "id": "f358fe2d3167",
-                          "kind": "row",
-                          "provenance": {},
-                          "text": null
-                        },
-                        {
-                          "attrs": {
-                            "page": 0,
-                            "row_index": 3
-                          },
-                          "bbox": {
-                            "page": 0,
-                            "x0": 67,
-                            "x1": 507,
-                            "y0": 474,
-                            "y1": 566
-                          },
-                          "children": [
-                            {
-                              "attrs": {
-                                "align": "left"
-                              },
-                              "bbox": {
-                                "page": 0,
-                                "x0": 67,
-                                "x1": 157,
-                                "y0": 546,
-                                "y1": 566
-                              },
-                              "children": [],
-                              "id": "83866a2392ed",
-                              "kind": "cell",
-                              "provenance": {
-                                "extractor": "pdfplumber",
-                                "stage": "extract_tables"
-                              },
-                              "text": "South"
-                            },
-                            {
-                              "attrs": {
-                                "align": "left"
-                              },
-                              "bbox": {
-                                "page": 0,
-                                "x0": 157,
-                                "x1": 222,
-                                "y0": 546,
-                                "y1": 566
-                              },
-                              "children": [],
-                              "id": "52318bdf5b36",
-                              "kind": "cell",
-                              "provenance": {
-                                "extractor": "pdfplumber",
-                                "stage": "extract_tables"
-                              },
-                              "text": "13%"
-                            },
-                            {
-                              "attrs": {
-                                "align": "left"
-                              },
-                              "bbox": {
-                                "page": 0,
-                                "x0": 222,
-                                "x1": 287,
-                                "y0": 546,
-                                "y1": 566
-                              },
-                              "children": [],
-                              "id": "b27880515bb7",
-                              "kind": "cell",
-                              "provenance": {
-                                "extractor": "pdfplumber",
-                                "stage": "extract_tables"
-                              },
-                              "text": "14%"
-                            },
-                            {
-                              "attrs": {
-                                "align": "left"
-                              },
-                              "bbox": {
-                                "page": 0,
-                                "x0": 287,
-                                "x1": 352,
-                                "y0": 546,
-                                "y1": 566
-                              },
-                              "children": [],
-                              "id": "e3a03c30beed",
-                              "kind": "cell",
-                              "provenance": {
-                                "extractor": "pdfplumber",
-                                "stage": "extract_tables"
-                              },
-                              "text": "13%"
-                            },
-                            {
-                              "attrs": {
-                                "align": "left"
-                              },
-                              "bbox": {
-                                "page": 0,
-                                "x0": 352,
-                                "x1": 417,
-                                "y0": 546,
-                                "y1": 566
-                              },
-                              "children": [],
-                              "id": "450c13db4da6",
-                              "kind": "cell",
-                              "provenance": {
-                                "extractor": "pdfplumber",
-                                "stage": "extract_tables"
-                              },
-                              "text": "14%"
-                            },
-                            {
-                              "attrs": {
-                                "align": "left"
-                              },
-                              "bbox": {
-                                "page": 0,
-                                "x0": 417,
-                                "x1": 507,
-                                "y0": 546,
-                                "y1": 566
-                              },
-                              "children": [],
-                              "id": "bea309819102",
-                              "kind": "cell",
-                              "provenance": {
-                                "extractor": "pdfplumber",
-                                "stage": "extract_tables"
-                              },
-                              "text": ""
-                            }
-                          ],
-                          "id": "37bf9c0cbacb",
-                          "kind": "row",
-                          "provenance": {},
-                          "text": null
-                        }
-                      ],
-                      "id": "5d8ecc9afc71",
-                      "kind": "table",
-                      "provenance": {
-                        "extractor": "pdfplumber",
-                        "stage": "extract_tables"
-                      },
-                      "text": null
-                    }
-                  ],
-                  "id": "85771858ede9",
+                  "children": [],
+                  "id": "df5996fe9206",
                   "kind": "cell",
                   "provenance": {
-                    "extractor": "pdfplumber",
-                    "stage": "extract_tables"
+                    "extractor": "bottom_up",
+                    "stage": "extract_tables_v2"
                   },
-                  "text": null
+                  "text": "Collection"
+                },
+                {
+                  "attrs": {
+                    "align": "left"
+                  },
+                  "bbox": {
+                    "page": 0,
+                    "x0": 147,
+                    "x1": 257,
+                    "y0": 126,
+                    "y1": 158
+                  },
+                  "children": [],
+                  "id": "46c01312ca6b",
+                  "kind": "cell",
+                  "provenance": {
+                    "extractor": "bottom_up",
+                    "stage": "extract_tables_v2"
+                  },
+                  "text": "Books"
+                },
+                {
+                  "attrs": {
+                    "align": "left"
+                  },
+                  "bbox": {
+                    "page": 0,
+                    "x0": 257,
+                    "x1": 307,
+                    "y0": 126,
+                    "y1": 158
+                  },
+                  "children": [],
+                  "id": "750773d344bd",
+                  "kind": "cell",
+                  "provenance": {
+                    "extractor": "bottom_up",
+                    "stage": "extract_tables_v2"
+                  },
+                  "text": "32%"
+                },
+                {
+                  "attrs": {
+                    "align": "left"
+                  },
+                  "bbox": {
+                    "page": 0,
+                    "x0": 307,
+                    "x1": 357,
+                    "y0": 126,
+                    "y1": 158
+                  },
+                  "children": [],
+                  "id": "fe3f816ccd1a",
+                  "kind": "cell",
+                  "provenance": {
+                    "extractor": "bottom_up",
+                    "stage": "extract_tables_v2"
+                  },
+                  "text": "28%"
+                },
+                {
+                  "attrs": {
+                    "align": "left"
+                  },
+                  "bbox": {
+                    "page": 0,
+                    "x0": 357,
+                    "x1": 407,
+                    "y0": 126,
+                    "y1": 158
+                  },
+                  "children": [],
+                  "id": "2036c9eb89d7",
+                  "kind": "cell",
+                  "provenance": {
+                    "extractor": "bottom_up",
+                    "stage": "extract_tables_v2"
+                  },
+                  "text": "30%"
+                },
+                {
+                  "attrs": {
+                    "align": "left"
+                  },
+                  "bbox": {
+                    "page": 0,
+                    "x0": 407,
+                    "x1": 457,
+                    "y0": 126,
+                    "y1": 158
+                  },
+                  "children": [],
+                  "id": "199407252674",
+                  "kind": "cell",
+                  "provenance": {
+                    "extractor": "bottom_up",
+                    "stage": "extract_tables_v2"
+                  },
+                  "text": "28%"
+                },
+                {
+                  "attrs": {
+                    "align": "left"
+                  },
+                  "bbox": {
+                    "page": 0,
+                    "x0": 457,
+                    "x1": 527,
+                    "y0": 126,
+                    "y1": 158
+                  },
+                  "children": [],
+                  "id": "b2a7da96d6ca",
+                  "kind": "cell",
+                  "provenance": {
+                    "extractor": "bottom_up",
+                    "stage": "extract_tables_v2"
+                  },
+                  "text": "or 50,000\nitems"
                 }
               ],
-              "id": "8fa809c41ecc",
+              "id": "7e29eb709ccc",
+              "kind": "row",
+              "provenance": {},
+              "text": null
+            },
+            {
+              "attrs": {
+                "page": 0,
+                "row_index": 1
+              },
+              "bbox": {
+                "page": 0,
+                "x0": 67,
+                "x1": 527,
+                "y0": 126,
+                "y1": 218
+              },
+              "children": [
+                {
+                  "attrs": {
+                    "align": "left"
+                  },
+                  "bbox": {
+                    "page": 0,
+                    "x0": 67,
+                    "x1": 147,
+                    "y0": 158,
+                    "y1": 178
+                  },
+                  "children": [],
+                  "id": "3d464d6f1d52",
+                  "kind": "cell",
+                  "provenance": {
+                    "extractor": "bottom_up",
+                    "stage": "extract_tables_v2"
+                  },
+                  "text": "Collection"
+                },
+                {
+                  "attrs": {
+                    "align": "left"
+                  },
+                  "bbox": {
+                    "page": 0,
+                    "x0": 147,
+                    "x1": 257,
+                    "y0": 158,
+                    "y1": 178
+                  },
+                  "children": [],
+                  "id": "65467ccecc22",
+                  "kind": "cell",
+                  "provenance": {
+                    "extractor": "bottom_up",
+                    "stage": "extract_tables_v2"
+                  },
+                  "text": "Periodicals"
+                },
+                {
+                  "attrs": {
+                    "align": "left"
+                  },
+                  "bbox": {
+                    "page": 0,
+                    "x0": 257,
+                    "x1": 307,
+                    "y0": 158,
+                    "y1": 178
+                  },
+                  "children": [],
+                  "id": "e08272c39ba0",
+                  "kind": "cell",
+                  "provenance": {
+                    "extractor": "bottom_up",
+                    "stage": "extract_tables_v2"
+                  },
+                  "text": "8%"
+                },
+                {
+                  "attrs": {
+                    "align": "left"
+                  },
+                  "bbox": {
+                    "page": 0,
+                    "x0": 307,
+                    "x1": 357,
+                    "y0": 158,
+                    "y1": 178
+                  },
+                  "children": [],
+                  "id": "6f42500cd58e",
+                  "kind": "cell",
+                  "provenance": {
+                    "extractor": "bottom_up",
+                    "stage": "extract_tables_v2"
+                  },
+                  "text": "7%"
+                },
+                {
+                  "attrs": {
+                    "align": "left"
+                  },
+                  "bbox": {
+                    "page": 0,
+                    "x0": 357,
+                    "x1": 407,
+                    "y0": 158,
+                    "y1": 178
+                  },
+                  "children": [],
+                  "id": "9e0c5f960327",
+                  "kind": "cell",
+                  "provenance": {
+                    "extractor": "bottom_up",
+                    "stage": "extract_tables_v2"
+                  },
+                  "text": "5%"
+                },
+                {
+                  "attrs": {
+                    "align": "left"
+                  },
+                  "bbox": {
+                    "page": 0,
+                    "x0": 407,
+                    "x1": 457,
+                    "y0": 158,
+                    "y1": 178
+                  },
+                  "children": [],
+                  "id": "a8b87e716627",
+                  "kind": "cell",
+                  "provenance": {
+                    "extractor": "bottom_up",
+                    "stage": "extract_tables_v2"
+                  },
+                  "text": "7%"
+                },
+                {
+                  "attrs": {
+                    "align": "left"
+                  },
+                  "bbox": {
+                    "page": 0,
+                    "x0": 457,
+                    "x1": 527,
+                    "y0": 158,
+                    "y1": 178
+                  },
+                  "children": [],
+                  "id": "9986bacd8d25",
+                  "kind": "cell",
+                  "provenance": {
+                    "extractor": "bottom_up",
+                    "stage": "extract_tables_v2"
+                  },
+                  "text": "Max 25%"
+                }
+              ],
+              "id": "9d877620fde8",
+              "kind": "row",
+              "provenance": {},
+              "text": null
+            },
+            {
+              "attrs": {
+                "page": 0,
+                "row_index": 2
+              },
+              "bbox": {
+                "page": 0,
+                "x0": 67,
+                "x1": 527,
+                "y0": 126,
+                "y1": 218
+              },
+              "children": [
+                {
+                  "attrs": {
+                    "align": "left"
+                  },
+                  "bbox": {
+                    "page": 0,
+                    "x0": 67,
+                    "x1": 147,
+                    "y0": 178,
+                    "y1": 198
+                  },
+                  "children": [],
+                  "id": "880a06597712",
+                  "kind": "cell",
+                  "provenance": {
+                    "extractor": "bottom_up",
+                    "stage": "extract_tables_v2"
+                  },
+                  "text": "Collection"
+                },
+                {
+                  "attrs": {
+                    "align": "left"
+                  },
+                  "bbox": {
+                    "page": 0,
+                    "x0": 147,
+                    "x1": 257,
+                    "y0": 178,
+                    "y1": 198
+                  },
+                  "children": [],
+                  "id": "3bc611bc2477",
+                  "kind": "cell",
+                  "provenance": {
+                    "extractor": "bottom_up",
+                    "stage": "extract_tables_v2"
+                  },
+                  "text": "Specialty Producers*"
+                },
+                {
+                  "attrs": {
+                    "align": "left"
+                  },
+                  "bbox": {
+                    "page": 0,
+                    "x0": 257,
+                    "x1": 307,
+                    "y0": 178,
+                    "y1": 198
+                  },
+                  "children": [],
+                  "id": "a45a84066515",
+                  "kind": "cell",
+                  "provenance": {
+                    "extractor": "bottom_up",
+                    "stage": "extract_tables_v2"
+                  },
+                  "text": "8%"
+                },
+                {
+                  "attrs": {
+                    "align": "left"
+                  },
+                  "bbox": {
+                    "page": 0,
+                    "x0": 307,
+                    "x1": 357,
+                    "y0": 178,
+                    "y1": 198
+                  },
+                  "children": [],
+                  "id": "cb3af17a2ec9",
+                  "kind": "cell",
+                  "provenance": {
+                    "extractor": "bottom_up",
+                    "stage": "extract_tables_v2"
+                  },
+                  "text": "10%"
+                },
+                {
+                  "attrs": {
+                    "align": "left"
+                  },
+                  "bbox": {
+                    "page": 0,
+                    "x0": 357,
+                    "x1": 407,
+                    "y0": 178,
+                    "y1": 198
+                  },
+                  "children": [],
+                  "id": "840920144d4c",
+                  "kind": "cell",
+                  "provenance": {
+                    "extractor": "bottom_up",
+                    "stage": "extract_tables_v2"
+                  },
+                  "text": "8%"
+                },
+                {
+                  "attrs": {
+                    "align": "left"
+                  },
+                  "bbox": {
+                    "page": 0,
+                    "x0": 407,
+                    "x1": 457,
+                    "y0": 178,
+                    "y1": 198
+                  },
+                  "children": [],
+                  "id": "75ba22097e4a",
+                  "kind": "cell",
+                  "provenance": {
+                    "extractor": "bottom_up",
+                    "stage": "extract_tables_v2"
+                  },
+                  "text": "8%"
+                },
+                {
+                  "attrs": {
+                    "align": "left"
+                  },
+                  "bbox": {
+                    "page": 0,
+                    "x0": 457,
+                    "x1": 527,
+                    "y0": 178,
+                    "y1": 198
+                  },
+                  "children": [],
+                  "id": "aeaa303de638",
+                  "kind": "cell",
+                  "provenance": {
+                    "extractor": "bottom_up",
+                    "stage": "extract_tables_v2"
+                  },
+                  "text": "NA"
+                }
+              ],
+              "id": "8c04efdfe015",
+              "kind": "row",
+              "provenance": {},
+              "text": null
+            },
+            {
+              "attrs": {
+                "page": 0,
+                "row_index": 3
+              },
+              "bbox": {
+                "page": 0,
+                "x0": 67,
+                "x1": 527,
+                "y0": 126,
+                "y1": 218
+              },
+              "children": [
+                {
+                  "attrs": {
+                    "align": "left"
+                  },
+                  "bbox": {
+                    "page": 0,
+                    "x0": 67,
+                    "x1": 147,
+                    "y0": 198,
+                    "y1": 218
+                  },
+                  "children": [],
+                  "id": "031b9a882b11",
+                  "kind": "cell",
+                  "provenance": {
+                    "extractor": "bottom_up",
+                    "stage": "extract_tables_v2"
+                  },
+                  "text": "Collection"
+                },
+                {
+                  "attrs": {
+                    "align": "left"
+                  },
+                  "bbox": {
+                    "page": 0,
+                    "x0": 147,
+                    "x1": 257,
+                    "y0": 198,
+                    "y1": 218
+                  },
+                  "children": [],
+                  "id": "4504b9148a5d",
+                  "kind": "cell",
+                  "provenance": {
+                    "extractor": "bottom_up",
+                    "stage": "extract_tables_v2"
+                  },
+                  "text": "Other Producers*"
+                },
+                {
+                  "attrs": {
+                    "align": "left"
+                  },
+                  "bbox": {
+                    "page": 0,
+                    "x0": 257,
+                    "x1": 307,
+                    "y0": 198,
+                    "y1": 218
+                  },
+                  "children": [],
+                  "id": "458f9ddb72cd",
+                  "kind": "cell",
+                  "provenance": {
+                    "extractor": "bottom_up",
+                    "stage": "extract_tables_v2"
+                  },
+                  "text": "11%"
+                },
+                {
+                  "attrs": {
+                    "align": "left"
+                  },
+                  "bbox": {
+                    "page": 0,
+                    "x0": 307,
+                    "x1": 357,
+                    "y0": 198,
+                    "y1": 218
+                  },
+                  "children": [],
+                  "id": "2cf93f24716b",
+                  "kind": "cell",
+                  "provenance": {
+                    "extractor": "bottom_up",
+                    "stage": "extract_tables_v2"
+                  },
+                  "text": "10%"
+                },
+                {
+                  "attrs": {
+                    "align": "left"
+                  },
+                  "bbox": {
+                    "page": 0,
+                    "x0": 357,
+                    "x1": 407,
+                    "y0": 198,
+                    "y1": 218
+                  },
+                  "children": [],
+                  "id": "188cefcd3af8",
+                  "kind": "cell",
+                  "provenance": {
+                    "extractor": "bottom_up",
+                    "stage": "extract_tables_v2"
+                  },
+                  "text": "10%"
+                },
+                {
+                  "attrs": {
+                    "align": "left"
+                  },
+                  "bbox": {
+                    "page": 0,
+                    "x0": 407,
+                    "x1": 457,
+                    "y0": 198,
+                    "y1": 218
+                  },
+                  "children": [],
+                  "id": "9c17997b2b09",
+                  "kind": "cell",
+                  "provenance": {
+                    "extractor": "bottom_up",
+                    "stage": "extract_tables_v2"
+                  },
+                  "text": "8%"
+                },
+                {
+                  "attrs": {
+                    "align": "left"
+                  },
+                  "bbox": {
+                    "page": 0,
+                    "x0": 457,
+                    "x1": 527,
+                    "y0": 198,
+                    "y1": 218
+                  },
+                  "children": [],
+                  "id": "3c4447258e6c",
+                  "kind": "cell",
+                  "provenance": {
+                    "extractor": "bottom_up",
+                    "stage": "extract_tables_v2"
+                  },
+                  "text": "Max 15%"
+                }
+              ],
+              "id": "648f0c71b649",
               "kind": "row",
               "provenance": {},
               "text": null
             }
           ],
-          "id": "34db6770be05",
+          "id": "23d0304279c2",
           "kind": "table",
           "provenance": {
-            "extractor": "pdfplumber",
-            "stage": "extract_tables"
+            "extractor": "bottom_up",
+            "stage": "extract_tables_v2"
+          },
+          "text": null
+        },
+        {
+          "attrs": {},
+          "bbox": {
+            "page": 0,
+            "x0": 67,
+            "x1": 544,
+            "y0": 232,
+            "y1": 253
+          },
+          "children": [
+            {
+              "attrs": {},
+              "bbox": {
+                "page": 0,
+                "x0": 67,
+                "x1": 544,
+                "y0": 232,
+                "y1": 253
+              },
+              "children": [],
+              "id": "73865daeb736",
+              "kind": "list_item",
+              "provenance": {
+                "extractor": "segment",
+                "stage": "build_tree"
+              },
+              "text": "* Specialty Producers and Other Producers are adjusted to reflect the correct catalogue code at branch level. Reference works are aggregated to other producers."
+            },
+            {
+              "attrs": {},
+              "bbox": {
+                "page": 0,
+                "x0": 68,
+                "x1": 539,
+                "y0": 270,
+                "y1": 303
+              },
+              "children": [],
+              "id": "e4103ef4e58e",
+              "kind": "list_item",
+              "provenance": {
+                "extractor": "segment",
+                "stage": "build_tree"
+              },
+              "text": "\u2022 Given the continued strong digital lending performance and regional opportunity, the Audio & Digital cap is to be revised to 20% from 15% to support eBook program expansion and to offset the reduction in the overall Collection portfolio on the back of lower Books sub-category exposures."
+            },
+            {
+              "attrs": {},
+              "bbox": {
+                "page": 0,
+                "x0": 68,
+                "x1": 545,
+                "y0": 313,
+                "y1": 345
+              },
+              "children": [],
+              "id": "d8c446eb4a79",
+              "kind": "list_item",
+              "provenance": {
+                "extractor": "segment",
+                "stage": "build_tree"
+              },
+              "text": "\u2022 In recognising the change in the collection composition, combined with the books category still grappling with print decline, weakened demand and elevated storage costs, the Books cap is being revised downward to a maximum of 40% (previously 55%) or 50,000 items (previously 65,000)."
+            }
+          ],
+          "id": "ea59176e798d",
+          "kind": "list",
+          "provenance": {},
+          "text": null
+        },
+        {
+          "attrs": {},
+          "bbox": {
+            "page": 0,
+            "x0": 67,
+            "x1": 545,
+            "y0": 362,
+            "y1": 393
+          },
+          "children": [],
+          "id": "61667a454f93",
+          "kind": "paragraph",
+          "provenance": {
+            "extractor": "segment",
+            "stage": "build_tree"
+          },
+          "text": "The Other Producers and Other Media cap is at 15% primarily to support transition projects in Specialty Collections production not covered under other sub-segment caps and as detailed under the \u201cPreservation / Sustainability / Heritage Limits\u201d section8."
+        },
+        {
+          "attrs": {
+            "level": 3
+          },
+          "bbox": {
+            "page": 0,
+            "x0": 68,
+            "x1": 306,
+            "y0": 414,
+            "y1": 423
+          },
+          "children": [],
+          "id": "46d8844bdb4c",
+          "kind": "heading",
+          "provenance": {
+            "extractor": "segment",
+            "stage": "build_tree"
+          },
+          "text": "Branches (Breakdown by Service Area (\u201cSVC\u201d) Region):"
+        },
+        {
+          "attrs": {},
+          "bbox": {
+            "page": 0,
+            "x0": 108,
+            "x1": 359,
+            "y0": 436,
+            "y1": 445
+          },
+          "children": [],
+          "id": "5e707bf35087",
+          "kind": "paragraph",
+          "provenance": {
+            "extractor": "segment",
+            "stage": "build_tree"
+          },
+          "text": "North, Central, South are the top 3 areas in terms of circulation."
+        },
+        {
+          "attrs": {
+            "level": 2
+          },
+          "bbox": {
+            "page": 0,
+            "x0": 67,
+            "x1": 73,
+            "y0": 440,
+            "y1": 446
+          },
+          "children": [],
+          "id": "bc746b7daf96",
+          "kind": "heading",
+          "provenance": {
+            "extractor": "segment",
+            "stage": "build_tree"
+          },
+          "text": "o"
+        },
+        {
+          "attrs": {},
+          "bbox": {
+            "page": 0,
+            "x0": 108,
+            "x1": 526,
+            "y0": 454,
+            "y1": 463
+          },
+          "children": [],
+          "id": "01d9dab0fe1c",
+          "kind": "paragraph",
+          "provenance": {
+            "extractor": "segment",
+            "stage": "build_tree"
+          },
+          "text": "No specific area cap is proposed but the collection should continue to be managed in a balanced manner."
+        },
+        {
+          "attrs": {
+            "level": 2
+          },
+          "bbox": {
+            "page": 0,
+            "x0": 67,
+            "x1": 73,
+            "y0": 458,
+            "y1": 464
+          },
+          "children": [],
+          "id": "6ff29f0df3e0",
+          "kind": "heading",
+          "provenance": {
+            "extractor": "segment",
+            "stage": "build_tree"
+          },
+          "text": "o"
+        },
+        {
+          "attrs": {
+            "header_signature": [
+              "SVC Region",
+              "Dec-24\n(%)",
+              "Mar-25\n(%)",
+              "Jun-25\n(%)",
+              "Sep-25\n(%)",
+              "Proposed PS"
+            ],
+            "n_cols": 6,
+            "n_rows": 4,
+            "page": 0,
+            "page_height": 792.0
+          },
+          "bbox": {
+            "page": 0,
+            "x0": 67,
+            "x1": 507,
+            "y0": 474,
+            "y1": 566
+          },
+          "children": [
+            {
+              "attrs": {
+                "page": 0,
+                "row_index": 0
+              },
+              "bbox": {
+                "page": 0,
+                "x0": 67,
+                "x1": 507,
+                "y0": 474,
+                "y1": 566
+              },
+              "children": [
+                {
+                  "attrs": {
+                    "align": "left"
+                  },
+                  "bbox": {
+                    "page": 0,
+                    "x0": 67,
+                    "x1": 157,
+                    "y0": 474,
+                    "y1": 506
+                  },
+                  "children": [],
+                  "id": "8c0428617092",
+                  "kind": "cell",
+                  "provenance": {
+                    "extractor": "bottom_up",
+                    "stage": "extract_tables_v2"
+                  },
+                  "text": "SVC Region"
+                },
+                {
+                  "attrs": {
+                    "align": "left"
+                  },
+                  "bbox": {
+                    "page": 0,
+                    "x0": 157,
+                    "x1": 222,
+                    "y0": 474,
+                    "y1": 506
+                  },
+                  "children": [],
+                  "id": "d17a9389de50",
+                  "kind": "cell",
+                  "provenance": {
+                    "extractor": "bottom_up",
+                    "stage": "extract_tables_v2"
+                  },
+                  "text": "Dec-24\n(%)"
+                },
+                {
+                  "attrs": {
+                    "align": "left"
+                  },
+                  "bbox": {
+                    "page": 0,
+                    "x0": 222,
+                    "x1": 287,
+                    "y0": 474,
+                    "y1": 506
+                  },
+                  "children": [],
+                  "id": "ac78b7d70d00",
+                  "kind": "cell",
+                  "provenance": {
+                    "extractor": "bottom_up",
+                    "stage": "extract_tables_v2"
+                  },
+                  "text": "Mar-25\n(%)"
+                },
+                {
+                  "attrs": {
+                    "align": "left"
+                  },
+                  "bbox": {
+                    "page": 0,
+                    "x0": 287,
+                    "x1": 352,
+                    "y0": 474,
+                    "y1": 506
+                  },
+                  "children": [],
+                  "id": "568dcbef025b",
+                  "kind": "cell",
+                  "provenance": {
+                    "extractor": "bottom_up",
+                    "stage": "extract_tables_v2"
+                  },
+                  "text": "Jun-25\n(%)"
+                },
+                {
+                  "attrs": {
+                    "align": "left"
+                  },
+                  "bbox": {
+                    "page": 0,
+                    "x0": 352,
+                    "x1": 417,
+                    "y0": 474,
+                    "y1": 506
+                  },
+                  "children": [],
+                  "id": "b3566c1ae064",
+                  "kind": "cell",
+                  "provenance": {
+                    "extractor": "bottom_up",
+                    "stage": "extract_tables_v2"
+                  },
+                  "text": "Sep-25\n(%)"
+                },
+                {
+                  "attrs": {
+                    "align": "left"
+                  },
+                  "bbox": {
+                    "page": 0,
+                    "x0": 417,
+                    "x1": 507,
+                    "y0": 474,
+                    "y1": 506
+                  },
+                  "children": [],
+                  "id": "0a87e694b06b",
+                  "kind": "cell",
+                  "provenance": {
+                    "extractor": "bottom_up",
+                    "stage": "extract_tables_v2"
+                  },
+                  "text": "Proposed PS"
+                }
+              ],
+              "id": "ca67c482dd22",
+              "kind": "row",
+              "provenance": {},
+              "text": null
+            },
+            {
+              "attrs": {
+                "page": 0,
+                "row_index": 1
+              },
+              "bbox": {
+                "page": 0,
+                "x0": 67,
+                "x1": 507,
+                "y0": 474,
+                "y1": 566
+              },
+              "children": [
+                {
+                  "attrs": {
+                    "align": "left"
+                  },
+                  "bbox": {
+                    "page": 0,
+                    "x0": 67,
+                    "x1": 157,
+                    "y0": 506,
+                    "y1": 526
+                  },
+                  "children": [],
+                  "id": "0a9cc7806452",
+                  "kind": "cell",
+                  "provenance": {
+                    "extractor": "bottom_up",
+                    "stage": "extract_tables_v2"
+                  },
+                  "text": "North"
+                },
+                {
+                  "attrs": {
+                    "align": "left"
+                  },
+                  "bbox": {
+                    "page": 0,
+                    "x0": 157,
+                    "x1": 222,
+                    "y0": 506,
+                    "y1": 526
+                  },
+                  "children": [],
+                  "id": "93c6796c5d99",
+                  "kind": "cell",
+                  "provenance": {
+                    "extractor": "bottom_up",
+                    "stage": "extract_tables_v2"
+                  },
+                  "text": "24%"
+                },
+                {
+                  "attrs": {
+                    "align": "left"
+                  },
+                  "bbox": {
+                    "page": 0,
+                    "x0": 222,
+                    "x1": 287,
+                    "y0": 506,
+                    "y1": 526
+                  },
+                  "children": [],
+                  "id": "b6bf67062af4",
+                  "kind": "cell",
+                  "provenance": {
+                    "extractor": "bottom_up",
+                    "stage": "extract_tables_v2"
+                  },
+                  "text": "26%"
+                },
+                {
+                  "attrs": {
+                    "align": "left"
+                  },
+                  "bbox": {
+                    "page": 0,
+                    "x0": 287,
+                    "x1": 352,
+                    "y0": 506,
+                    "y1": 526
+                  },
+                  "children": [],
+                  "id": "6082b704d7c1",
+                  "kind": "cell",
+                  "provenance": {
+                    "extractor": "bottom_up",
+                    "stage": "extract_tables_v2"
+                  },
+                  "text": "22%"
+                },
+                {
+                  "attrs": {
+                    "align": "left"
+                  },
+                  "bbox": {
+                    "page": 0,
+                    "x0": 352,
+                    "x1": 417,
+                    "y0": 506,
+                    "y1": 526
+                  },
+                  "children": [],
+                  "id": "a4c965ee0468",
+                  "kind": "cell",
+                  "provenance": {
+                    "extractor": "bottom_up",
+                    "stage": "extract_tables_v2"
+                  },
+                  "text": "22%"
+                },
+                {
+                  "attrs": {
+                    "align": "left"
+                  },
+                  "bbox": {
+                    "page": 0,
+                    "x0": 417,
+                    "x1": 507,
+                    "y0": 506,
+                    "y1": 526
+                  },
+                  "children": [],
+                  "id": "36165ed92118",
+                  "kind": "cell",
+                  "provenance": {
+                    "extractor": "bottom_up",
+                    "stage": "extract_tables_v2"
+                  },
+                  "text": ""
+                }
+              ],
+              "id": "80cc772b64ea",
+              "kind": "row",
+              "provenance": {},
+              "text": null
+            },
+            {
+              "attrs": {
+                "page": 0,
+                "row_index": 2
+              },
+              "bbox": {
+                "page": 0,
+                "x0": 67,
+                "x1": 507,
+                "y0": 474,
+                "y1": 566
+              },
+              "children": [
+                {
+                  "attrs": {
+                    "align": "left"
+                  },
+                  "bbox": {
+                    "page": 0,
+                    "x0": 67,
+                    "x1": 157,
+                    "y0": 526,
+                    "y1": 546
+                  },
+                  "children": [],
+                  "id": "3edbca57ba82",
+                  "kind": "cell",
+                  "provenance": {
+                    "extractor": "bottom_up",
+                    "stage": "extract_tables_v2"
+                  },
+                  "text": "Central"
+                },
+                {
+                  "attrs": {
+                    "align": "left"
+                  },
+                  "bbox": {
+                    "page": 0,
+                    "x0": 157,
+                    "x1": 222,
+                    "y0": 526,
+                    "y1": 546
+                  },
+                  "children": [],
+                  "id": "258b24a72feb",
+                  "kind": "cell",
+                  "provenance": {
+                    "extractor": "bottom_up",
+                    "stage": "extract_tables_v2"
+                  },
+                  "text": "16%"
+                },
+                {
+                  "attrs": {
+                    "align": "left"
+                  },
+                  "bbox": {
+                    "page": 0,
+                    "x0": 222,
+                    "x1": 287,
+                    "y0": 526,
+                    "y1": 546
+                  },
+                  "children": [],
+                  "id": "c73e0783c3a2",
+                  "kind": "cell",
+                  "provenance": {
+                    "extractor": "bottom_up",
+                    "stage": "extract_tables_v2"
+                  },
+                  "text": "15%"
+                },
+                {
+                  "attrs": {
+                    "align": "left"
+                  },
+                  "bbox": {
+                    "page": 0,
+                    "x0": 287,
+                    "x1": 352,
+                    "y0": 526,
+                    "y1": 546
+                  },
+                  "children": [],
+                  "id": "c1cdb55352b6",
+                  "kind": "cell",
+                  "provenance": {
+                    "extractor": "bottom_up",
+                    "stage": "extract_tables_v2"
+                  },
+                  "text": "15%"
+                },
+                {
+                  "attrs": {
+                    "align": "left"
+                  },
+                  "bbox": {
+                    "page": 0,
+                    "x0": 352,
+                    "x1": 417,
+                    "y0": 526,
+                    "y1": 546
+                  },
+                  "children": [],
+                  "id": "49c112278316",
+                  "kind": "cell",
+                  "provenance": {
+                    "extractor": "bottom_up",
+                    "stage": "extract_tables_v2"
+                  },
+                  "text": "14%"
+                },
+                {
+                  "attrs": {
+                    "align": "left"
+                  },
+                  "bbox": {
+                    "page": 0,
+                    "x0": 417,
+                    "x1": 507,
+                    "y0": 526,
+                    "y1": 546
+                  },
+                  "children": [],
+                  "id": "eacca5d492b0",
+                  "kind": "cell",
+                  "provenance": {
+                    "extractor": "bottom_up",
+                    "stage": "extract_tables_v2"
+                  },
+                  "text": ""
+                }
+              ],
+              "id": "f358fe2d3167",
+              "kind": "row",
+              "provenance": {},
+              "text": null
+            },
+            {
+              "attrs": {
+                "page": 0,
+                "row_index": 3
+              },
+              "bbox": {
+                "page": 0,
+                "x0": 67,
+                "x1": 507,
+                "y0": 474,
+                "y1": 566
+              },
+              "children": [
+                {
+                  "attrs": {
+                    "align": "left"
+                  },
+                  "bbox": {
+                    "page": 0,
+                    "x0": 67,
+                    "x1": 157,
+                    "y0": 546,
+                    "y1": 566
+                  },
+                  "children": [],
+                  "id": "83866a2392ed",
+                  "kind": "cell",
+                  "provenance": {
+                    "extractor": "bottom_up",
+                    "stage": "extract_tables_v2"
+                  },
+                  "text": "South"
+                },
+                {
+                  "attrs": {
+                    "align": "left"
+                  },
+                  "bbox": {
+                    "page": 0,
+                    "x0": 157,
+                    "x1": 222,
+                    "y0": 546,
+                    "y1": 566
+                  },
+                  "children": [],
+                  "id": "52318bdf5b36",
+                  "kind": "cell",
+                  "provenance": {
+                    "extractor": "bottom_up",
+                    "stage": "extract_tables_v2"
+                  },
+                  "text": "13%"
+                },
+                {
+                  "attrs": {
+                    "align": "left"
+                  },
+                  "bbox": {
+                    "page": 0,
+                    "x0": 222,
+                    "x1": 287,
+                    "y0": 546,
+                    "y1": 566
+                  },
+                  "children": [],
+                  "id": "b27880515bb7",
+                  "kind": "cell",
+                  "provenance": {
+                    "extractor": "bottom_up",
+                    "stage": "extract_tables_v2"
+                  },
+                  "text": "14%"
+                },
+                {
+                  "attrs": {
+                    "align": "left"
+                  },
+                  "bbox": {
+                    "page": 0,
+                    "x0": 287,
+                    "x1": 352,
+                    "y0": 546,
+                    "y1": 566
+                  },
+                  "children": [],
+                  "id": "e3a03c30beed",
+                  "kind": "cell",
+                  "provenance": {
+                    "extractor": "bottom_up",
+                    "stage": "extract_tables_v2"
+                  },
+                  "text": "13%"
+                },
+                {
+                  "attrs": {
+                    "align": "left"
+                  },
+                  "bbox": {
+                    "page": 0,
+                    "x0": 352,
+                    "x1": 417,
+                    "y0": 546,
+                    "y1": 566
+                  },
+                  "children": [],
+                  "id": "450c13db4da6",
+                  "kind": "cell",
+                  "provenance": {
+                    "extractor": "bottom_up",
+                    "stage": "extract_tables_v2"
+                  },
+                  "text": "14%"
+                },
+                {
+                  "attrs": {
+                    "align": "left"
+                  },
+                  "bbox": {
+                    "page": 0,
+                    "x0": 417,
+                    "x1": 507,
+                    "y0": 546,
+                    "y1": 566
+                  },
+                  "children": [],
+                  "id": "bea309819102",
+                  "kind": "cell",
+                  "provenance": {
+                    "extractor": "bottom_up",
+                    "stage": "extract_tables_v2"
+                  },
+                  "text": ""
+                }
+              ],
+              "id": "37bf9c0cbacb",
+              "kind": "row",
+              "provenance": {},
+              "text": null
+            }
+          ],
+          "id": "321a5b9d16eb",
+          "kind": "table",
+          "provenance": {
+            "extractor": "bottom_up",
+            "stage": "extract_tables_v2"
           },
           "text": null
         }
       ],
-      "id": "a8c12d65cb6f",
+      "id": "aa4f252455da",
       "kind": "page",
       "provenance": {},
       "text": null
     }
   ],
-  "id": "2d78536a3f9d",
+  "id": "334f6791841a",
   "kind": "document",
   "provenance": {},
   "text": null

@@ -42,16 +42,6 @@
         },
         {
           "attrs": {
-            "anchor_score": 0.824,
-            "anchor_signals": {
-              "cols_norm": 1.0,
-              "fill": 0.663,
-              "fill_penalty": 0.065,
-              "numeric": 0.0,
-              "rows_norm": 1.0,
-              "spacing": 1.0,
-              "stability": 1.0
-            },
             "header_signature": [
               "Customer Name",
               "Order Description",
@@ -97,7 +87,9 @@
               },
               "children": [
                 {
-                  "attrs": {},
+                  "attrs": {
+                    "align": "left"
+                  },
                   "bbox": {
                     "page": 0,
                     "x0": 72,
@@ -109,13 +101,15 @@
                   "id": "a1d13d62d51f",
                   "kind": "cell",
                   "provenance": {
-                    "extractor": "anchor",
-                    "stage": "detect_tables_anchor"
+                    "extractor": "bottom_up",
+                    "stage": "extract_tables_v2"
                   },
                   "text": "Customer Name"
                 },
                 {
-                  "attrs": {},
+                  "attrs": {
+                    "align": "left"
+                  },
                   "bbox": {
                     "page": 0,
                     "x0": 222,
@@ -127,13 +121,15 @@
                   "id": "d6948edf5fdf",
                   "kind": "cell",
                   "provenance": {
-                    "extractor": "anchor",
-                    "stage": "detect_tables_anchor"
+                    "extractor": "bottom_up",
+                    "stage": "extract_tables_v2"
                   },
                   "text": "Order Description"
                 },
                 {
-                  "attrs": {},
+                  "attrs": {
+                    "align": "left"
+                  },
                   "bbox": {
                     "page": 0,
                     "x0": 442,
@@ -145,18 +141,15 @@
                   "id": "2510fd5be9b4",
                   "kind": "cell",
                   "provenance": {
-                    "extractor": "anchor",
-                    "stage": "detect_tables_anchor"
+                    "extractor": "bottom_up",
+                    "stage": "extract_tables_v2"
                   },
                   "text": "Status Notes"
                 }
               ],
               "id": "de6c9f5774e2",
               "kind": "row",
-              "provenance": {
-                "extractor": "anchor",
-                "stage": "detect_tables_anchor"
-              },
+              "provenance": {},
               "text": null
             },
             {
@@ -173,7 +166,9 @@
               },
               "children": [
                 {
-                  "attrs": {},
+                  "attrs": {
+                    "align": "left"
+                  },
                   "bbox": {
                     "page": 0,
                     "x0": 72,
@@ -185,13 +180,15 @@
                   "id": "e0928b8d63eb",
                   "kind": "cell",
                   "provenance": {
-                    "extractor": "anchor",
-                    "stage": "detect_tables_anchor"
+                    "extractor": "bottom_up",
+                    "stage": "extract_tables_v2"
                   },
                   "text": "Customer-01-Inc"
                 },
                 {
-                  "attrs": {},
+                  "attrs": {
+                    "align": "left"
+                  },
                   "bbox": {
                     "page": 0,
                     "x0": 222,
@@ -203,13 +200,15 @@
                   "id": "ebbcd039e311",
                   "kind": "cell",
                   "provenance": {
-                    "extractor": "anchor",
-                    "stage": "detect_tables_anchor"
+                    "extractor": "bottom_up",
+                    "stage": "extract_tables_v2"
                   },
                   "text": "Order-01-pending-review"
                 },
                 {
-                  "attrs": {},
+                  "attrs": {
+                    "align": "left"
+                  },
                   "bbox": {
                     "page": 0,
                     "x0": 442,
@@ -221,18 +220,15 @@
                   "id": "f9f8bc4a3580",
                   "kind": "cell",
                   "provenance": {
-                    "extractor": "anchor",
-                    "stage": "detect_tables_anchor"
+                    "extractor": "bottom_up",
+                    "stage": "extract_tables_v2"
                   },
                   "text": "Status-01-followup"
                 }
               ],
               "id": "22bdafc7c0ff",
               "kind": "row",
-              "provenance": {
-                "extractor": "anchor",
-                "stage": "detect_tables_anchor"
-              },
+              "provenance": {},
               "text": null
             },
             {
@@ -249,7 +245,9 @@
               },
               "children": [
                 {
-                  "attrs": {},
+                  "attrs": {
+                    "align": "left"
+                  },
                   "bbox": {
                     "page": 0,
                     "x0": 72,
@@ -261,13 +259,15 @@
                   "id": "1a96667485cf",
                   "kind": "cell",
                   "provenance": {
-                    "extractor": "anchor",
-                    "stage": "detect_tables_anchor"
+                    "extractor": "bottom_up",
+                    "stage": "extract_tables_v2"
                   },
                   "text": "Customer-02-Inc"
                 },
                 {
-                  "attrs": {},
+                  "attrs": {
+                    "align": "left"
+                  },
                   "bbox": {
                     "page": 0,
                     "x0": 222,
@@ -279,13 +279,15 @@
                   "id": "5598cf0a234b",
                   "kind": "cell",
                   "provenance": {
-                    "extractor": "anchor",
-                    "stage": "detect_tables_anchor"
+                    "extractor": "bottom_up",
+                    "stage": "extract_tables_v2"
                   },
                   "text": "Order-02-pending-review"
                 },
                 {
-                  "attrs": {},
+                  "attrs": {
+                    "align": "left"
+                  },
                   "bbox": {
                     "page": 0,
                     "x0": 442,
@@ -297,18 +299,15 @@
                   "id": "3427b8bc8a08",
                   "kind": "cell",
                   "provenance": {
-                    "extractor": "anchor",
-                    "stage": "detect_tables_anchor"
+                    "extractor": "bottom_up",
+                    "stage": "extract_tables_v2"
                   },
                   "text": "Status-02-followup"
                 }
               ],
               "id": "bb8c56874c00",
               "kind": "row",
-              "provenance": {
-                "extractor": "anchor",
-                "stage": "detect_tables_anchor"
-              },
+              "provenance": {},
               "text": null
             },
             {
@@ -325,7 +324,9 @@
               },
               "children": [
                 {
-                  "attrs": {},
+                  "attrs": {
+                    "align": "left"
+                  },
                   "bbox": {
                     "page": 0,
                     "x0": 72,
@@ -337,13 +338,15 @@
                   "id": "9f494e3760ed",
                   "kind": "cell",
                   "provenance": {
-                    "extractor": "anchor",
-                    "stage": "detect_tables_anchor"
+                    "extractor": "bottom_up",
+                    "stage": "extract_tables_v2"
                   },
                   "text": "Customer-03-Inc"
                 },
                 {
-                  "attrs": {},
+                  "attrs": {
+                    "align": "left"
+                  },
                   "bbox": {
                     "page": 0,
                     "x0": 222,
@@ -355,13 +358,15 @@
                   "id": "2acd47747f99",
                   "kind": "cell",
                   "provenance": {
-                    "extractor": "anchor",
-                    "stage": "detect_tables_anchor"
+                    "extractor": "bottom_up",
+                    "stage": "extract_tables_v2"
                   },
                   "text": "Order-03-pending-review"
                 },
                 {
-                  "attrs": {},
+                  "attrs": {
+                    "align": "left"
+                  },
                   "bbox": {
                     "page": 0,
                     "x0": 442,
@@ -373,18 +378,15 @@
                   "id": "14ab35ffe586",
                   "kind": "cell",
                   "provenance": {
-                    "extractor": "anchor",
-                    "stage": "detect_tables_anchor"
+                    "extractor": "bottom_up",
+                    "stage": "extract_tables_v2"
                   },
                   "text": "Status-03-followup"
                 }
               ],
               "id": "7957ac513b41",
               "kind": "row",
-              "provenance": {
-                "extractor": "anchor",
-                "stage": "detect_tables_anchor"
-              },
+              "provenance": {},
               "text": null
             },
             {
@@ -401,7 +403,9 @@
               },
               "children": [
                 {
-                  "attrs": {},
+                  "attrs": {
+                    "align": "left"
+                  },
                   "bbox": {
                     "page": 0,
                     "x0": 72,
@@ -413,13 +417,15 @@
                   "id": "bdcc19b493ec",
                   "kind": "cell",
                   "provenance": {
-                    "extractor": "anchor",
-                    "stage": "detect_tables_anchor"
+                    "extractor": "bottom_up",
+                    "stage": "extract_tables_v2"
                   },
                   "text": "Customer-04-Inc"
                 },
                 {
-                  "attrs": {},
+                  "attrs": {
+                    "align": "left"
+                  },
                   "bbox": {
                     "page": 0,
                     "x0": 222,
@@ -431,13 +437,15 @@
                   "id": "07055843fb1d",
                   "kind": "cell",
                   "provenance": {
-                    "extractor": "anchor",
-                    "stage": "detect_tables_anchor"
+                    "extractor": "bottom_up",
+                    "stage": "extract_tables_v2"
                   },
                   "text": "Order-04-pending-review"
                 },
                 {
-                  "attrs": {},
+                  "attrs": {
+                    "align": "left"
+                  },
                   "bbox": {
                     "page": 0,
                     "x0": 442,
@@ -449,18 +457,15 @@
                   "id": "0d29d24a5a97",
                   "kind": "cell",
                   "provenance": {
-                    "extractor": "anchor",
-                    "stage": "detect_tables_anchor"
+                    "extractor": "bottom_up",
+                    "stage": "extract_tables_v2"
                   },
                   "text": "Status-04-followup"
                 }
               ],
               "id": "aa0ed9d3bf46",
               "kind": "row",
-              "provenance": {
-                "extractor": "anchor",
-                "stage": "detect_tables_anchor"
-              },
+              "provenance": {},
               "text": null
             },
             {
@@ -477,7 +482,9 @@
               },
               "children": [
                 {
-                  "attrs": {},
+                  "attrs": {
+                    "align": "left"
+                  },
                   "bbox": {
                     "page": 0,
                     "x0": 72,
@@ -489,13 +496,15 @@
                   "id": "b056073d1282",
                   "kind": "cell",
                   "provenance": {
-                    "extractor": "anchor",
-                    "stage": "detect_tables_anchor"
+                    "extractor": "bottom_up",
+                    "stage": "extract_tables_v2"
                   },
                   "text": "Customer-05-Inc"
                 },
                 {
-                  "attrs": {},
+                  "attrs": {
+                    "align": "left"
+                  },
                   "bbox": {
                     "page": 0,
                     "x0": 222,
@@ -507,13 +516,15 @@
                   "id": "0e02eff19915",
                   "kind": "cell",
                   "provenance": {
-                    "extractor": "anchor",
-                    "stage": "detect_tables_anchor"
+                    "extractor": "bottom_up",
+                    "stage": "extract_tables_v2"
                   },
                   "text": "Order-05-pending-review"
                 },
                 {
-                  "attrs": {},
+                  "attrs": {
+                    "align": "left"
+                  },
                   "bbox": {
                     "page": 0,
                     "x0": 442,
@@ -525,18 +536,15 @@
                   "id": "f71107145be6",
                   "kind": "cell",
                   "provenance": {
-                    "extractor": "anchor",
-                    "stage": "detect_tables_anchor"
+                    "extractor": "bottom_up",
+                    "stage": "extract_tables_v2"
                   },
                   "text": "Status-05-followup"
                 }
               ],
               "id": "04d82faa7ed9",
               "kind": "row",
-              "provenance": {
-                "extractor": "anchor",
-                "stage": "detect_tables_anchor"
-              },
+              "provenance": {},
               "text": null
             },
             {
@@ -553,7 +561,9 @@
               },
               "children": [
                 {
-                  "attrs": {},
+                  "attrs": {
+                    "align": "left"
+                  },
                   "bbox": {
                     "page": 0,
                     "x0": 72,
@@ -565,13 +575,15 @@
                   "id": "fc717e4607d6",
                   "kind": "cell",
                   "provenance": {
-                    "extractor": "anchor",
-                    "stage": "detect_tables_anchor"
+                    "extractor": "bottom_up",
+                    "stage": "extract_tables_v2"
                   },
                   "text": "Customer-06-Inc"
                 },
                 {
-                  "attrs": {},
+                  "attrs": {
+                    "align": "left"
+                  },
                   "bbox": {
                     "page": 0,
                     "x0": 222,
@@ -583,13 +595,15 @@
                   "id": "429cf7a1f8c2",
                   "kind": "cell",
                   "provenance": {
-                    "extractor": "anchor",
-                    "stage": "detect_tables_anchor"
+                    "extractor": "bottom_up",
+                    "stage": "extract_tables_v2"
                   },
                   "text": "Order-06-pending-review"
                 },
                 {
-                  "attrs": {},
+                  "attrs": {
+                    "align": "left"
+                  },
                   "bbox": {
                     "page": 0,
                     "x0": 442,
@@ -601,18 +615,15 @@
                   "id": "04652b214839",
                   "kind": "cell",
                   "provenance": {
-                    "extractor": "anchor",
-                    "stage": "detect_tables_anchor"
+                    "extractor": "bottom_up",
+                    "stage": "extract_tables_v2"
                   },
                   "text": "Status-06-followup"
                 }
               ],
               "id": "5db8525b0aed",
               "kind": "row",
-              "provenance": {
-                "extractor": "anchor",
-                "stage": "detect_tables_anchor"
-              },
+              "provenance": {},
               "text": null
             },
             {
@@ -629,7 +640,9 @@
               },
               "children": [
                 {
-                  "attrs": {},
+                  "attrs": {
+                    "align": "left"
+                  },
                   "bbox": {
                     "page": 0,
                     "x0": 72,
@@ -641,13 +654,15 @@
                   "id": "5d6ee5eb84b8",
                   "kind": "cell",
                   "provenance": {
-                    "extractor": "anchor",
-                    "stage": "detect_tables_anchor"
+                    "extractor": "bottom_up",
+                    "stage": "extract_tables_v2"
                   },
                   "text": "Customer-07-Inc"
                 },
                 {
-                  "attrs": {},
+                  "attrs": {
+                    "align": "left"
+                  },
                   "bbox": {
                     "page": 0,
                     "x0": 222,
@@ -659,13 +674,15 @@
                   "id": "53a66deaf3cd",
                   "kind": "cell",
                   "provenance": {
-                    "extractor": "anchor",
-                    "stage": "detect_tables_anchor"
+                    "extractor": "bottom_up",
+                    "stage": "extract_tables_v2"
                   },
                   "text": "Order-07-pending-review"
                 },
                 {
-                  "attrs": {},
+                  "attrs": {
+                    "align": "left"
+                  },
                   "bbox": {
                     "page": 0,
                     "x0": 442,
@@ -677,18 +694,15 @@
                   "id": "70d1b71b9771",
                   "kind": "cell",
                   "provenance": {
-                    "extractor": "anchor",
-                    "stage": "detect_tables_anchor"
+                    "extractor": "bottom_up",
+                    "stage": "extract_tables_v2"
                   },
                   "text": "Status-07-followup"
                 }
               ],
               "id": "7fe2456378d5",
               "kind": "row",
-              "provenance": {
-                "extractor": "anchor",
-                "stage": "detect_tables_anchor"
-              },
+              "provenance": {},
               "text": null
             },
             {
@@ -705,7 +719,9 @@
               },
               "children": [
                 {
-                  "attrs": {},
+                  "attrs": {
+                    "align": "left"
+                  },
                   "bbox": {
                     "page": 0,
                     "x0": 72,
@@ -717,13 +733,15 @@
                   "id": "ec65328ce648",
                   "kind": "cell",
                   "provenance": {
-                    "extractor": "anchor",
-                    "stage": "detect_tables_anchor"
+                    "extractor": "bottom_up",
+                    "stage": "extract_tables_v2"
                   },
                   "text": "Customer-08-Inc"
                 },
                 {
-                  "attrs": {},
+                  "attrs": {
+                    "align": "left"
+                  },
                   "bbox": {
                     "page": 0,
                     "x0": 222,
@@ -735,13 +753,15 @@
                   "id": "8ae38d844dc5",
                   "kind": "cell",
                   "provenance": {
-                    "extractor": "anchor",
-                    "stage": "detect_tables_anchor"
+                    "extractor": "bottom_up",
+                    "stage": "extract_tables_v2"
                   },
                   "text": "Order-08-pending-review"
                 },
                 {
-                  "attrs": {},
+                  "attrs": {
+                    "align": "left"
+                  },
                   "bbox": {
                     "page": 0,
                     "x0": 442,
@@ -753,18 +773,15 @@
                   "id": "af0bee3670bd",
                   "kind": "cell",
                   "provenance": {
-                    "extractor": "anchor",
-                    "stage": "detect_tables_anchor"
+                    "extractor": "bottom_up",
+                    "stage": "extract_tables_v2"
                   },
                   "text": "Status-08-followup"
                 }
               ],
               "id": "9c75174ed8fc",
               "kind": "row",
-              "provenance": {
-                "extractor": "anchor",
-                "stage": "detect_tables_anchor"
-              },
+              "provenance": {},
               "text": null
             },
             {
@@ -781,7 +798,9 @@
               },
               "children": [
                 {
-                  "attrs": {},
+                  "attrs": {
+                    "align": "left"
+                  },
                   "bbox": {
                     "page": 0,
                     "x0": 72,
@@ -793,13 +812,15 @@
                   "id": "f2adad89570d",
                   "kind": "cell",
                   "provenance": {
-                    "extractor": "anchor",
-                    "stage": "detect_tables_anchor"
+                    "extractor": "bottom_up",
+                    "stage": "extract_tables_v2"
                   },
                   "text": "Customer-09-Inc"
                 },
                 {
-                  "attrs": {},
+                  "attrs": {
+                    "align": "left"
+                  },
                   "bbox": {
                     "page": 0,
                     "x0": 222,
@@ -811,13 +832,15 @@
                   "id": "04f1a10b3aba",
                   "kind": "cell",
                   "provenance": {
-                    "extractor": "anchor",
-                    "stage": "detect_tables_anchor"
+                    "extractor": "bottom_up",
+                    "stage": "extract_tables_v2"
                   },
                   "text": "Order-09-pending-review"
                 },
                 {
-                  "attrs": {},
+                  "attrs": {
+                    "align": "left"
+                  },
                   "bbox": {
                     "page": 0,
                     "x0": 442,
@@ -829,18 +852,15 @@
                   "id": "993ba17a1279",
                   "kind": "cell",
                   "provenance": {
-                    "extractor": "anchor",
-                    "stage": "detect_tables_anchor"
+                    "extractor": "bottom_up",
+                    "stage": "extract_tables_v2"
                   },
                   "text": "Status-09-followup"
                 }
               ],
               "id": "aca8e703e610",
               "kind": "row",
-              "provenance": {
-                "extractor": "anchor",
-                "stage": "detect_tables_anchor"
-              },
+              "provenance": {},
               "text": null
             },
             {
@@ -857,7 +877,9 @@
               },
               "children": [
                 {
-                  "attrs": {},
+                  "attrs": {
+                    "align": "left"
+                  },
                   "bbox": {
                     "page": 0,
                     "x0": 72,
@@ -869,13 +891,15 @@
                   "id": "c493e6ea9408",
                   "kind": "cell",
                   "provenance": {
-                    "extractor": "anchor",
-                    "stage": "detect_tables_anchor"
+                    "extractor": "bottom_up",
+                    "stage": "extract_tables_v2"
                   },
                   "text": "Customer-10-Inc"
                 },
                 {
-                  "attrs": {},
+                  "attrs": {
+                    "align": "left"
+                  },
                   "bbox": {
                     "page": 0,
                     "x0": 222,
@@ -887,13 +911,15 @@
                   "id": "22a27917d790",
                   "kind": "cell",
                   "provenance": {
-                    "extractor": "anchor",
-                    "stage": "detect_tables_anchor"
+                    "extractor": "bottom_up",
+                    "stage": "extract_tables_v2"
                   },
                   "text": "Order-10-pending-review"
                 },
                 {
-                  "attrs": {},
+                  "attrs": {
+                    "align": "left"
+                  },
                   "bbox": {
                     "page": 0,
                     "x0": 442,
@@ -905,18 +931,15 @@
                   "id": "90fe812ef86e",
                   "kind": "cell",
                   "provenance": {
-                    "extractor": "anchor",
-                    "stage": "detect_tables_anchor"
+                    "extractor": "bottom_up",
+                    "stage": "extract_tables_v2"
                   },
                   "text": "Status-10-followup"
                 }
               ],
               "id": "038b7a73cdc1",
               "kind": "row",
-              "provenance": {
-                "extractor": "anchor",
-                "stage": "detect_tables_anchor"
-              },
+              "provenance": {},
               "text": null
             },
             {
@@ -933,7 +956,9 @@
               },
               "children": [
                 {
-                  "attrs": {},
+                  "attrs": {
+                    "align": "left"
+                  },
                   "bbox": {
                     "page": 0,
                     "x0": 72,
@@ -945,13 +970,15 @@
                   "id": "bf20000ea418",
                   "kind": "cell",
                   "provenance": {
-                    "extractor": "anchor",
-                    "stage": "detect_tables_anchor"
+                    "extractor": "bottom_up",
+                    "stage": "extract_tables_v2"
                   },
                   "text": "Customer-11-Inc"
                 },
                 {
-                  "attrs": {},
+                  "attrs": {
+                    "align": "left"
+                  },
                   "bbox": {
                     "page": 0,
                     "x0": 222,
@@ -963,13 +990,15 @@
                   "id": "402baa6b716d",
                   "kind": "cell",
                   "provenance": {
-                    "extractor": "anchor",
-                    "stage": "detect_tables_anchor"
+                    "extractor": "bottom_up",
+                    "stage": "extract_tables_v2"
                   },
                   "text": "Order-11-pending-review"
                 },
                 {
-                  "attrs": {},
+                  "attrs": {
+                    "align": "left"
+                  },
                   "bbox": {
                     "page": 0,
                     "x0": 442,
@@ -981,18 +1010,15 @@
                   "id": "dc66053a9fcc",
                   "kind": "cell",
                   "provenance": {
-                    "extractor": "anchor",
-                    "stage": "detect_tables_anchor"
+                    "extractor": "bottom_up",
+                    "stage": "extract_tables_v2"
                   },
                   "text": "Status-11-followup"
                 }
               ],
               "id": "7ec691ad0dee",
               "kind": "row",
-              "provenance": {
-                "extractor": "anchor",
-                "stage": "detect_tables_anchor"
-              },
+              "provenance": {},
               "text": null
             },
             {
@@ -1009,7 +1035,9 @@
               },
               "children": [
                 {
-                  "attrs": {},
+                  "attrs": {
+                    "align": "left"
+                  },
                   "bbox": {
                     "page": 0,
                     "x0": 72,
@@ -1021,13 +1049,15 @@
                   "id": "6eef66b4f12f",
                   "kind": "cell",
                   "provenance": {
-                    "extractor": "anchor",
-                    "stage": "detect_tables_anchor"
+                    "extractor": "bottom_up",
+                    "stage": "extract_tables_v2"
                   },
                   "text": "Customer-12-Inc"
                 },
                 {
-                  "attrs": {},
+                  "attrs": {
+                    "align": "left"
+                  },
                   "bbox": {
                     "page": 0,
                     "x0": 222,
@@ -1039,13 +1069,15 @@
                   "id": "38177e6d9012",
                   "kind": "cell",
                   "provenance": {
-                    "extractor": "anchor",
-                    "stage": "detect_tables_anchor"
+                    "extractor": "bottom_up",
+                    "stage": "extract_tables_v2"
                   },
                   "text": "Order-12-pending-review"
                 },
                 {
-                  "attrs": {},
+                  "attrs": {
+                    "align": "left"
+                  },
                   "bbox": {
                     "page": 0,
                     "x0": 442,
@@ -1057,18 +1089,15 @@
                   "id": "7345ad99ac01",
                   "kind": "cell",
                   "provenance": {
-                    "extractor": "anchor",
-                    "stage": "detect_tables_anchor"
+                    "extractor": "bottom_up",
+                    "stage": "extract_tables_v2"
                   },
                   "text": "Status-12-followup"
                 }
               ],
               "id": "07c25619d6ed",
               "kind": "row",
-              "provenance": {
-                "extractor": "anchor",
-                "stage": "detect_tables_anchor"
-              },
+              "provenance": {},
               "text": null
             },
             {
@@ -1085,7 +1114,9 @@
               },
               "children": [
                 {
-                  "attrs": {},
+                  "attrs": {
+                    "align": "left"
+                  },
                   "bbox": {
                     "page": 0,
                     "x0": 72,
@@ -1097,13 +1128,15 @@
                   "id": "df0d69fb9eaa",
                   "kind": "cell",
                   "provenance": {
-                    "extractor": "anchor",
-                    "stage": "detect_tables_anchor"
+                    "extractor": "bottom_up",
+                    "stage": "extract_tables_v2"
                   },
                   "text": "Customer-13-Inc"
                 },
                 {
-                  "attrs": {},
+                  "attrs": {
+                    "align": "left"
+                  },
                   "bbox": {
                     "page": 0,
                     "x0": 222,
@@ -1115,13 +1148,15 @@
                   "id": "41714e0eabed",
                   "kind": "cell",
                   "provenance": {
-                    "extractor": "anchor",
-                    "stage": "detect_tables_anchor"
+                    "extractor": "bottom_up",
+                    "stage": "extract_tables_v2"
                   },
                   "text": "Order-13-pending-review"
                 },
                 {
-                  "attrs": {},
+                  "attrs": {
+                    "align": "left"
+                  },
                   "bbox": {
                     "page": 0,
                     "x0": 442,
@@ -1133,18 +1168,15 @@
                   "id": "2fe56e1a8dbb",
                   "kind": "cell",
                   "provenance": {
-                    "extractor": "anchor",
-                    "stage": "detect_tables_anchor"
+                    "extractor": "bottom_up",
+                    "stage": "extract_tables_v2"
                   },
                   "text": "Status-13-followup"
                 }
               ],
               "id": "4dda382d5290",
               "kind": "row",
-              "provenance": {
-                "extractor": "anchor",
-                "stage": "detect_tables_anchor"
-              },
+              "provenance": {},
               "text": null
             },
             {
@@ -1161,7 +1193,9 @@
               },
               "children": [
                 {
-                  "attrs": {},
+                  "attrs": {
+                    "align": "left"
+                  },
                   "bbox": {
                     "page": 0,
                     "x0": 72,
@@ -1173,13 +1207,15 @@
                   "id": "2b96ad991363",
                   "kind": "cell",
                   "provenance": {
-                    "extractor": "anchor",
-                    "stage": "detect_tables_anchor"
+                    "extractor": "bottom_up",
+                    "stage": "extract_tables_v2"
                   },
                   "text": "Customer-14-Inc"
                 },
                 {
-                  "attrs": {},
+                  "attrs": {
+                    "align": "left"
+                  },
                   "bbox": {
                     "page": 0,
                     "x0": 222,
@@ -1191,13 +1227,15 @@
                   "id": "11ee8b729712",
                   "kind": "cell",
                   "provenance": {
-                    "extractor": "anchor",
-                    "stage": "detect_tables_anchor"
+                    "extractor": "bottom_up",
+                    "stage": "extract_tables_v2"
                   },
                   "text": "Order-14-pending-review"
                 },
                 {
-                  "attrs": {},
+                  "attrs": {
+                    "align": "left"
+                  },
                   "bbox": {
                     "page": 0,
                     "x0": 442,
@@ -1209,18 +1247,15 @@
                   "id": "baf307787ab4",
                   "kind": "cell",
                   "provenance": {
-                    "extractor": "anchor",
-                    "stage": "detect_tables_anchor"
+                    "extractor": "bottom_up",
+                    "stage": "extract_tables_v2"
                   },
                   "text": "Status-14-followup"
                 }
               ],
               "id": "722a44c9ca82",
               "kind": "row",
-              "provenance": {
-                "extractor": "anchor",
-                "stage": "detect_tables_anchor"
-              },
+              "provenance": {},
               "text": null
             },
             {
@@ -1237,7 +1272,9 @@
               },
               "children": [
                 {
-                  "attrs": {},
+                  "attrs": {
+                    "align": "left"
+                  },
                   "bbox": {
                     "page": 0,
                     "x0": 72,
@@ -1249,13 +1286,15 @@
                   "id": "2eab6aef6043",
                   "kind": "cell",
                   "provenance": {
-                    "extractor": "anchor",
-                    "stage": "detect_tables_anchor"
+                    "extractor": "bottom_up",
+                    "stage": "extract_tables_v2"
                   },
                   "text": "Customer-15-Inc"
                 },
                 {
-                  "attrs": {},
+                  "attrs": {
+                    "align": "left"
+                  },
                   "bbox": {
                     "page": 0,
                     "x0": 222,
@@ -1267,13 +1306,15 @@
                   "id": "867a80f4a326",
                   "kind": "cell",
                   "provenance": {
-                    "extractor": "anchor",
-                    "stage": "detect_tables_anchor"
+                    "extractor": "bottom_up",
+                    "stage": "extract_tables_v2"
                   },
                   "text": "Order-15-pending-review"
                 },
                 {
-                  "attrs": {},
+                  "attrs": {
+                    "align": "left"
+                  },
                   "bbox": {
                     "page": 0,
                     "x0": 442,
@@ -1285,18 +1326,15 @@
                   "id": "335e466ac405",
                   "kind": "cell",
                   "provenance": {
-                    "extractor": "anchor",
-                    "stage": "detect_tables_anchor"
+                    "extractor": "bottom_up",
+                    "stage": "extract_tables_v2"
                   },
                   "text": "Status-15-followup"
                 }
               ],
               "id": "abd14da39a07",
               "kind": "row",
-              "provenance": {
-                "extractor": "anchor",
-                "stage": "detect_tables_anchor"
-              },
+              "provenance": {},
               "text": null
             },
             {
@@ -1313,7 +1351,9 @@
               },
               "children": [
                 {
-                  "attrs": {},
+                  "attrs": {
+                    "align": "left"
+                  },
                   "bbox": {
                     "page": 0,
                     "x0": 72,
@@ -1325,13 +1365,15 @@
                   "id": "68fe3ecd1d2f",
                   "kind": "cell",
                   "provenance": {
-                    "extractor": "anchor",
-                    "stage": "detect_tables_anchor"
+                    "extractor": "bottom_up",
+                    "stage": "extract_tables_v2"
                   },
                   "text": "Customer-16-Inc"
                 },
                 {
-                  "attrs": {},
+                  "attrs": {
+                    "align": "left"
+                  },
                   "bbox": {
                     "page": 0,
                     "x0": 222,
@@ -1343,13 +1385,15 @@
                   "id": "331f691a1745",
                   "kind": "cell",
                   "provenance": {
-                    "extractor": "anchor",
-                    "stage": "detect_tables_anchor"
+                    "extractor": "bottom_up",
+                    "stage": "extract_tables_v2"
                   },
                   "text": "Order-16-pending-review"
                 },
                 {
-                  "attrs": {},
+                  "attrs": {
+                    "align": "left"
+                  },
                   "bbox": {
                     "page": 0,
                     "x0": 442,
@@ -1361,18 +1405,15 @@
                   "id": "0633915cc051",
                   "kind": "cell",
                   "provenance": {
-                    "extractor": "anchor",
-                    "stage": "detect_tables_anchor"
+                    "extractor": "bottom_up",
+                    "stage": "extract_tables_v2"
                   },
                   "text": "Status-16-followup"
                 }
               ],
               "id": "b1f51f18dab1",
               "kind": "row",
-              "provenance": {
-                "extractor": "anchor",
-                "stage": "detect_tables_anchor"
-              },
+              "provenance": {},
               "text": null
             },
             {
@@ -1389,7 +1430,9 @@
               },
               "children": [
                 {
-                  "attrs": {},
+                  "attrs": {
+                    "align": "left"
+                  },
                   "bbox": {
                     "page": 0,
                     "x0": 72,
@@ -1401,13 +1444,15 @@
                   "id": "ba429a3e8cc1",
                   "kind": "cell",
                   "provenance": {
-                    "extractor": "anchor",
-                    "stage": "detect_tables_anchor"
+                    "extractor": "bottom_up",
+                    "stage": "extract_tables_v2"
                   },
                   "text": "Customer-17-Inc"
                 },
                 {
-                  "attrs": {},
+                  "attrs": {
+                    "align": "left"
+                  },
                   "bbox": {
                     "page": 0,
                     "x0": 222,
@@ -1419,13 +1464,15 @@
                   "id": "56365267ba98",
                   "kind": "cell",
                   "provenance": {
-                    "extractor": "anchor",
-                    "stage": "detect_tables_anchor"
+                    "extractor": "bottom_up",
+                    "stage": "extract_tables_v2"
                   },
                   "text": "Order-17-pending-review"
                 },
                 {
-                  "attrs": {},
+                  "attrs": {
+                    "align": "left"
+                  },
                   "bbox": {
                     "page": 0,
                     "x0": 442,
@@ -1437,18 +1484,15 @@
                   "id": "2f37ba9b6741",
                   "kind": "cell",
                   "provenance": {
-                    "extractor": "anchor",
-                    "stage": "detect_tables_anchor"
+                    "extractor": "bottom_up",
+                    "stage": "extract_tables_v2"
                   },
                   "text": "Status-17-followup"
                 }
               ],
               "id": "025924190b97",
               "kind": "row",
-              "provenance": {
-                "extractor": "anchor",
-                "stage": "detect_tables_anchor"
-              },
+              "provenance": {},
               "text": null
             },
             {
@@ -1465,7 +1509,9 @@
               },
               "children": [
                 {
-                  "attrs": {},
+                  "attrs": {
+                    "align": "left"
+                  },
                   "bbox": {
                     "page": 0,
                     "x0": 72,
@@ -1477,13 +1523,15 @@
                   "id": "58c830493300",
                   "kind": "cell",
                   "provenance": {
-                    "extractor": "anchor",
-                    "stage": "detect_tables_anchor"
+                    "extractor": "bottom_up",
+                    "stage": "extract_tables_v2"
                   },
                   "text": "Customer-18-Inc"
                 },
                 {
-                  "attrs": {},
+                  "attrs": {
+                    "align": "left"
+                  },
                   "bbox": {
                     "page": 0,
                     "x0": 222,
@@ -1495,13 +1543,15 @@
                   "id": "bc9ee6a64c97",
                   "kind": "cell",
                   "provenance": {
-                    "extractor": "anchor",
-                    "stage": "detect_tables_anchor"
+                    "extractor": "bottom_up",
+                    "stage": "extract_tables_v2"
                   },
                   "text": "Order-18-pending-review"
                 },
                 {
-                  "attrs": {},
+                  "attrs": {
+                    "align": "left"
+                  },
                   "bbox": {
                     "page": 0,
                     "x0": 442,
@@ -1513,18 +1563,15 @@
                   "id": "ddb214c6d146",
                   "kind": "cell",
                   "provenance": {
-                    "extractor": "anchor",
-                    "stage": "detect_tables_anchor"
+                    "extractor": "bottom_up",
+                    "stage": "extract_tables_v2"
                   },
                   "text": "Status-18-followup"
                 }
               ],
               "id": "5e610b94d127",
               "kind": "row",
-              "provenance": {
-                "extractor": "anchor",
-                "stage": "detect_tables_anchor"
-              },
+              "provenance": {},
               "text": null
             },
             {
@@ -1541,7 +1588,9 @@
               },
               "children": [
                 {
-                  "attrs": {},
+                  "attrs": {
+                    "align": "left"
+                  },
                   "bbox": {
                     "page": 0,
                     "x0": 72,
@@ -1553,13 +1602,15 @@
                   "id": "c287406febf3",
                   "kind": "cell",
                   "provenance": {
-                    "extractor": "anchor",
-                    "stage": "detect_tables_anchor"
+                    "extractor": "bottom_up",
+                    "stage": "extract_tables_v2"
                   },
                   "text": "Customer-19-Inc"
                 },
                 {
-                  "attrs": {},
+                  "attrs": {
+                    "align": "left"
+                  },
                   "bbox": {
                     "page": 0,
                     "x0": 222,
@@ -1571,13 +1622,15 @@
                   "id": "fdd1aa318529",
                   "kind": "cell",
                   "provenance": {
-                    "extractor": "anchor",
-                    "stage": "detect_tables_anchor"
+                    "extractor": "bottom_up",
+                    "stage": "extract_tables_v2"
                   },
                   "text": "Order-19-pending-review"
                 },
                 {
-                  "attrs": {},
+                  "attrs": {
+                    "align": "left"
+                  },
                   "bbox": {
                     "page": 0,
                     "x0": 442,
@@ -1589,18 +1642,15 @@
                   "id": "b20166ae8f5e",
                   "kind": "cell",
                   "provenance": {
-                    "extractor": "anchor",
-                    "stage": "detect_tables_anchor"
+                    "extractor": "bottom_up",
+                    "stage": "extract_tables_v2"
                   },
                   "text": "Status-19-followup"
                 }
               ],
               "id": "248c9b02e506",
               "kind": "row",
-              "provenance": {
-                "extractor": "anchor",
-                "stage": "detect_tables_anchor"
-              },
+              "provenance": {},
               "text": null
             },
             {
@@ -1617,7 +1667,9 @@
               },
               "children": [
                 {
-                  "attrs": {},
+                  "attrs": {
+                    "align": "left"
+                  },
                   "bbox": {
                     "page": 0,
                     "x0": 72,
@@ -1629,13 +1681,15 @@
                   "id": "88657f343c71",
                   "kind": "cell",
                   "provenance": {
-                    "extractor": "anchor",
-                    "stage": "detect_tables_anchor"
+                    "extractor": "bottom_up",
+                    "stage": "extract_tables_v2"
                   },
                   "text": "Customer-20-Inc"
                 },
                 {
-                  "attrs": {},
+                  "attrs": {
+                    "align": "left"
+                  },
                   "bbox": {
                     "page": 0,
                     "x0": 222,
@@ -1647,13 +1701,15 @@
                   "id": "77be1e4a83a5",
                   "kind": "cell",
                   "provenance": {
-                    "extractor": "anchor",
-                    "stage": "detect_tables_anchor"
+                    "extractor": "bottom_up",
+                    "stage": "extract_tables_v2"
                   },
                   "text": "Order-20-pending-review"
                 },
                 {
-                  "attrs": {},
+                  "attrs": {
+                    "align": "left"
+                  },
                   "bbox": {
                     "page": 0,
                     "x0": 442,
@@ -1665,18 +1721,15 @@
                   "id": "55f103a8af05",
                   "kind": "cell",
                   "provenance": {
-                    "extractor": "anchor",
-                    "stage": "detect_tables_anchor"
+                    "extractor": "bottom_up",
+                    "stage": "extract_tables_v2"
                   },
                   "text": "Status-20-followup"
                 }
               ],
               "id": "195f9329907a",
               "kind": "row",
-              "provenance": {
-                "extractor": "anchor",
-                "stage": "detect_tables_anchor"
-              },
+              "provenance": {},
               "text": null
             },
             {
@@ -1693,7 +1746,9 @@
               },
               "children": [
                 {
-                  "attrs": {},
+                  "attrs": {
+                    "align": "left"
+                  },
                   "bbox": {
                     "page": 0,
                     "x0": 72,
@@ -1705,13 +1760,15 @@
                   "id": "ce064578674f",
                   "kind": "cell",
                   "provenance": {
-                    "extractor": "anchor",
-                    "stage": "detect_tables_anchor"
+                    "extractor": "bottom_up",
+                    "stage": "extract_tables_v2"
                   },
                   "text": "Customer-21-Inc"
                 },
                 {
-                  "attrs": {},
+                  "attrs": {
+                    "align": "left"
+                  },
                   "bbox": {
                     "page": 0,
                     "x0": 222,
@@ -1723,13 +1780,15 @@
                   "id": "909aa6d72207",
                   "kind": "cell",
                   "provenance": {
-                    "extractor": "anchor",
-                    "stage": "detect_tables_anchor"
+                    "extractor": "bottom_up",
+                    "stage": "extract_tables_v2"
                   },
                   "text": "Order-21-pending-review"
                 },
                 {
-                  "attrs": {},
+                  "attrs": {
+                    "align": "left"
+                  },
                   "bbox": {
                     "page": 0,
                     "x0": 442,
@@ -1741,18 +1800,15 @@
                   "id": "85a1b8e0dcc9",
                   "kind": "cell",
                   "provenance": {
-                    "extractor": "anchor",
-                    "stage": "detect_tables_anchor"
+                    "extractor": "bottom_up",
+                    "stage": "extract_tables_v2"
                   },
                   "text": "Status-21-followup"
                 }
               ],
               "id": "640cbdf53f3f",
               "kind": "row",
-              "provenance": {
-                "extractor": "anchor",
-                "stage": "detect_tables_anchor"
-              },
+              "provenance": {},
               "text": null
             },
             {
@@ -1769,7 +1825,9 @@
               },
               "children": [
                 {
-                  "attrs": {},
+                  "attrs": {
+                    "align": "left"
+                  },
                   "bbox": {
                     "page": 0,
                     "x0": 72,
@@ -1781,13 +1839,15 @@
                   "id": "e3b9e046d419",
                   "kind": "cell",
                   "provenance": {
-                    "extractor": "anchor",
-                    "stage": "detect_tables_anchor"
+                    "extractor": "bottom_up",
+                    "stage": "extract_tables_v2"
                   },
                   "text": "Customer-22-Inc"
                 },
                 {
-                  "attrs": {},
+                  "attrs": {
+                    "align": "left"
+                  },
                   "bbox": {
                     "page": 0,
                     "x0": 222,
@@ -1799,13 +1859,15 @@
                   "id": "b230fdacd8c4",
                   "kind": "cell",
                   "provenance": {
-                    "extractor": "anchor",
-                    "stage": "detect_tables_anchor"
+                    "extractor": "bottom_up",
+                    "stage": "extract_tables_v2"
                   },
                   "text": "Order-22-pending-review"
                 },
                 {
-                  "attrs": {},
+                  "attrs": {
+                    "align": "left"
+                  },
                   "bbox": {
                     "page": 0,
                     "x0": 442,
@@ -1817,18 +1879,15 @@
                   "id": "8d3ecf6deb01",
                   "kind": "cell",
                   "provenance": {
-                    "extractor": "anchor",
-                    "stage": "detect_tables_anchor"
+                    "extractor": "bottom_up",
+                    "stage": "extract_tables_v2"
                   },
                   "text": "Status-22-followup"
                 }
               ],
               "id": "12af6555e00d",
               "kind": "row",
-              "provenance": {
-                "extractor": "anchor",
-                "stage": "detect_tables_anchor"
-              },
+              "provenance": {},
               "text": null
             },
             {
@@ -1845,7 +1904,9 @@
               },
               "children": [
                 {
-                  "attrs": {},
+                  "attrs": {
+                    "align": "left"
+                  },
                   "bbox": {
                     "page": 0,
                     "x0": 72,
@@ -1857,13 +1918,15 @@
                   "id": "d327f506d76c",
                   "kind": "cell",
                   "provenance": {
-                    "extractor": "anchor",
-                    "stage": "detect_tables_anchor"
+                    "extractor": "bottom_up",
+                    "stage": "extract_tables_v2"
                   },
                   "text": "Customer-23-Inc"
                 },
                 {
-                  "attrs": {},
+                  "attrs": {
+                    "align": "left"
+                  },
                   "bbox": {
                     "page": 0,
                     "x0": 222,
@@ -1875,13 +1938,15 @@
                   "id": "8c4f5bdfd6ec",
                   "kind": "cell",
                   "provenance": {
-                    "extractor": "anchor",
-                    "stage": "detect_tables_anchor"
+                    "extractor": "bottom_up",
+                    "stage": "extract_tables_v2"
                   },
                   "text": "Order-23-pending-review"
                 },
                 {
-                  "attrs": {},
+                  "attrs": {
+                    "align": "left"
+                  },
                   "bbox": {
                     "page": 0,
                     "x0": 442,
@@ -1893,18 +1958,15 @@
                   "id": "45bfd7d4e21f",
                   "kind": "cell",
                   "provenance": {
-                    "extractor": "anchor",
-                    "stage": "detect_tables_anchor"
+                    "extractor": "bottom_up",
+                    "stage": "extract_tables_v2"
                   },
                   "text": "Status-23-followup"
                 }
               ],
               "id": "792fc4a05b75",
               "kind": "row",
-              "provenance": {
-                "extractor": "anchor",
-                "stage": "detect_tables_anchor"
-              },
+              "provenance": {},
               "text": null
             },
             {
@@ -1921,7 +1983,9 @@
               },
               "children": [
                 {
-                  "attrs": {},
+                  "attrs": {
+                    "align": "left"
+                  },
                   "bbox": {
                     "page": 0,
                     "x0": 72,
@@ -1933,13 +1997,15 @@
                   "id": "86b84112a1dc",
                   "kind": "cell",
                   "provenance": {
-                    "extractor": "anchor",
-                    "stage": "detect_tables_anchor"
+                    "extractor": "bottom_up",
+                    "stage": "extract_tables_v2"
                   },
                   "text": "Customer-24-Inc"
                 },
                 {
-                  "attrs": {},
+                  "attrs": {
+                    "align": "left"
+                  },
                   "bbox": {
                     "page": 0,
                     "x0": 222,
@@ -1951,13 +2017,15 @@
                   "id": "e83e3c1cb9d7",
                   "kind": "cell",
                   "provenance": {
-                    "extractor": "anchor",
-                    "stage": "detect_tables_anchor"
+                    "extractor": "bottom_up",
+                    "stage": "extract_tables_v2"
                   },
                   "text": "Order-24-pending-review"
                 },
                 {
-                  "attrs": {},
+                  "attrs": {
+                    "align": "left"
+                  },
                   "bbox": {
                     "page": 0,
                     "x0": 442,
@@ -1969,18 +2037,15 @@
                   "id": "fccdd862d6c5",
                   "kind": "cell",
                   "provenance": {
-                    "extractor": "anchor",
-                    "stage": "detect_tables_anchor"
+                    "extractor": "bottom_up",
+                    "stage": "extract_tables_v2"
                   },
                   "text": "Status-24-followup"
                 }
               ],
               "id": "c18bdfd322eb",
               "kind": "row",
-              "provenance": {
-                "extractor": "anchor",
-                "stage": "detect_tables_anchor"
-              },
+              "provenance": {},
               "text": null
             },
             {
@@ -1997,7 +2062,9 @@
               },
               "children": [
                 {
-                  "attrs": {},
+                  "attrs": {
+                    "align": "left"
+                  },
                   "bbox": {
                     "page": 0,
                     "x0": 72,
@@ -2009,13 +2076,15 @@
                   "id": "259d8171eeb8",
                   "kind": "cell",
                   "provenance": {
-                    "extractor": "anchor",
-                    "stage": "detect_tables_anchor"
+                    "extractor": "bottom_up",
+                    "stage": "extract_tables_v2"
                   },
                   "text": "Customer-25-Inc"
                 },
                 {
-                  "attrs": {},
+                  "attrs": {
+                    "align": "left"
+                  },
                   "bbox": {
                     "page": 0,
                     "x0": 222,
@@ -2027,13 +2096,15 @@
                   "id": "8bc8e5fbe84a",
                   "kind": "cell",
                   "provenance": {
-                    "extractor": "anchor",
-                    "stage": "detect_tables_anchor"
+                    "extractor": "bottom_up",
+                    "stage": "extract_tables_v2"
                   },
                   "text": "Order-25-pending-review"
                 },
                 {
-                  "attrs": {},
+                  "attrs": {
+                    "align": "left"
+                  },
                   "bbox": {
                     "page": 0,
                     "x0": 442,
@@ -2045,18 +2116,15 @@
                   "id": "bb3d0e40f0dc",
                   "kind": "cell",
                   "provenance": {
-                    "extractor": "anchor",
-                    "stage": "detect_tables_anchor"
+                    "extractor": "bottom_up",
+                    "stage": "extract_tables_v2"
                   },
                   "text": "Status-25-followup"
                 }
               ],
               "id": "7545853e47bc",
               "kind": "row",
-              "provenance": {
-                "extractor": "anchor",
-                "stage": "detect_tables_anchor"
-              },
+              "provenance": {},
               "text": null
             },
             {
@@ -2073,7 +2141,9 @@
               },
               "children": [
                 {
-                  "attrs": {},
+                  "attrs": {
+                    "align": "left"
+                  },
                   "bbox": {
                     "page": 0,
                     "x0": 72,
@@ -2085,13 +2155,15 @@
                   "id": "1979f7372fe3",
                   "kind": "cell",
                   "provenance": {
-                    "extractor": "anchor",
-                    "stage": "detect_tables_anchor"
+                    "extractor": "bottom_up",
+                    "stage": "extract_tables_v2"
                   },
                   "text": "Customer-26-Inc"
                 },
                 {
-                  "attrs": {},
+                  "attrs": {
+                    "align": "left"
+                  },
                   "bbox": {
                     "page": 0,
                     "x0": 222,
@@ -2103,13 +2175,15 @@
                   "id": "09bbb0efdb71",
                   "kind": "cell",
                   "provenance": {
-                    "extractor": "anchor",
-                    "stage": "detect_tables_anchor"
+                    "extractor": "bottom_up",
+                    "stage": "extract_tables_v2"
                   },
                   "text": "Order-26-pending-review"
                 },
                 {
-                  "attrs": {},
+                  "attrs": {
+                    "align": "left"
+                  },
                   "bbox": {
                     "page": 0,
                     "x0": 442,
@@ -2121,18 +2195,15 @@
                   "id": "f5097ead9268",
                   "kind": "cell",
                   "provenance": {
-                    "extractor": "anchor",
-                    "stage": "detect_tables_anchor"
+                    "extractor": "bottom_up",
+                    "stage": "extract_tables_v2"
                   },
                   "text": "Status-26-followup"
                 }
               ],
               "id": "1da9daa9477f",
               "kind": "row",
-              "provenance": {
-                "extractor": "anchor",
-                "stage": "detect_tables_anchor"
-              },
+              "provenance": {},
               "text": null
             },
             {
@@ -2149,7 +2220,9 @@
               },
               "children": [
                 {
-                  "attrs": {},
+                  "attrs": {
+                    "align": "left"
+                  },
                   "bbox": {
                     "page": 0,
                     "x0": 72,
@@ -2161,13 +2234,15 @@
                   "id": "6a46a5c063ad",
                   "kind": "cell",
                   "provenance": {
-                    "extractor": "anchor",
-                    "stage": "detect_tables_anchor"
+                    "extractor": "bottom_up",
+                    "stage": "extract_tables_v2"
                   },
                   "text": "Customer-27-Inc"
                 },
                 {
-                  "attrs": {},
+                  "attrs": {
+                    "align": "left"
+                  },
                   "bbox": {
                     "page": 0,
                     "x0": 222,
@@ -2179,13 +2254,15 @@
                   "id": "2dcf49660c71",
                   "kind": "cell",
                   "provenance": {
-                    "extractor": "anchor",
-                    "stage": "detect_tables_anchor"
+                    "extractor": "bottom_up",
+                    "stage": "extract_tables_v2"
                   },
                   "text": "Order-27-pending-review"
                 },
                 {
-                  "attrs": {},
+                  "attrs": {
+                    "align": "left"
+                  },
                   "bbox": {
                     "page": 0,
                     "x0": 442,
@@ -2197,18 +2274,15 @@
                   "id": "6ab6b6dd4a5a",
                   "kind": "cell",
                   "provenance": {
-                    "extractor": "anchor",
-                    "stage": "detect_tables_anchor"
+                    "extractor": "bottom_up",
+                    "stage": "extract_tables_v2"
                   },
                   "text": "Status-27-followup"
                 }
               ],
               "id": "5c3f3b4736a4",
               "kind": "row",
-              "provenance": {
-                "extractor": "anchor",
-                "stage": "detect_tables_anchor"
-              },
+              "provenance": {},
               "text": null
             },
             {
@@ -2225,7 +2299,9 @@
               },
               "children": [
                 {
-                  "attrs": {},
+                  "attrs": {
+                    "align": "left"
+                  },
                   "bbox": {
                     "page": 0,
                     "x0": 72,
@@ -2237,13 +2313,15 @@
                   "id": "e5ee4d6c4f00",
                   "kind": "cell",
                   "provenance": {
-                    "extractor": "anchor",
-                    "stage": "detect_tables_anchor"
+                    "extractor": "bottom_up",
+                    "stage": "extract_tables_v2"
                   },
                   "text": "Customer-28-Inc"
                 },
                 {
-                  "attrs": {},
+                  "attrs": {
+                    "align": "left"
+                  },
                   "bbox": {
                     "page": 0,
                     "x0": 222,
@@ -2255,13 +2333,15 @@
                   "id": "541395a06e41",
                   "kind": "cell",
                   "provenance": {
-                    "extractor": "anchor",
-                    "stage": "detect_tables_anchor"
+                    "extractor": "bottom_up",
+                    "stage": "extract_tables_v2"
                   },
                   "text": "Order-28-pending-review"
                 },
                 {
-                  "attrs": {},
+                  "attrs": {
+                    "align": "left"
+                  },
                   "bbox": {
                     "page": 0,
                     "x0": 442,
@@ -2273,18 +2353,15 @@
                   "id": "39eaf32fb0b5",
                   "kind": "cell",
                   "provenance": {
-                    "extractor": "anchor",
-                    "stage": "detect_tables_anchor"
+                    "extractor": "bottom_up",
+                    "stage": "extract_tables_v2"
                   },
                   "text": "Status-28-followup"
                 }
               ],
               "id": "31ceca9901ca",
               "kind": "row",
-              "provenance": {
-                "extractor": "anchor",
-                "stage": "detect_tables_anchor"
-              },
+              "provenance": {},
               "text": null
             },
             {
@@ -2301,7 +2378,9 @@
               },
               "children": [
                 {
-                  "attrs": {},
+                  "attrs": {
+                    "align": "left"
+                  },
                   "bbox": {
                     "page": 1,
                     "x0": 72,
@@ -2313,13 +2392,15 @@
                   "id": "0b9aafd77a0b",
                   "kind": "cell",
                   "provenance": {
-                    "extractor": "anchor",
-                    "stage": "detect_tables_anchor"
+                    "extractor": "bottom_up",
+                    "stage": "extract_tables_v2"
                   },
                   "text": "Customer-29-Inc"
                 },
                 {
-                  "attrs": {},
+                  "attrs": {
+                    "align": "left"
+                  },
                   "bbox": {
                     "page": 1,
                     "x0": 222,
@@ -2331,13 +2412,15 @@
                   "id": "839a5e233dbb",
                   "kind": "cell",
                   "provenance": {
-                    "extractor": "anchor",
-                    "stage": "detect_tables_anchor"
+                    "extractor": "bottom_up",
+                    "stage": "extract_tables_v2"
                   },
                   "text": "Order-29-pending-review"
                 },
                 {
-                  "attrs": {},
+                  "attrs": {
+                    "align": "left"
+                  },
                   "bbox": {
                     "page": 1,
                     "x0": 442,
@@ -2349,18 +2432,15 @@
                   "id": "a48acf67c746",
                   "kind": "cell",
                   "provenance": {
-                    "extractor": "anchor",
-                    "stage": "detect_tables_anchor"
+                    "extractor": "bottom_up",
+                    "stage": "extract_tables_v2"
                   },
                   "text": "Status-29-followup"
                 }
               ],
               "id": "5b6b1671ae3c",
               "kind": "row",
-              "provenance": {
-                "extractor": "anchor",
-                "stage": "detect_tables_anchor"
-              },
+              "provenance": {},
               "text": null
             },
             {
@@ -2377,7 +2457,9 @@
               },
               "children": [
                 {
-                  "attrs": {},
+                  "attrs": {
+                    "align": "left"
+                  },
                   "bbox": {
                     "page": 1,
                     "x0": 72,
@@ -2389,13 +2471,15 @@
                   "id": "b028820e5be0",
                   "kind": "cell",
                   "provenance": {
-                    "extractor": "anchor",
-                    "stage": "detect_tables_anchor"
+                    "extractor": "bottom_up",
+                    "stage": "extract_tables_v2"
                   },
                   "text": "Customer-30-Inc"
                 },
                 {
-                  "attrs": {},
+                  "attrs": {
+                    "align": "left"
+                  },
                   "bbox": {
                     "page": 1,
                     "x0": 222,
@@ -2407,13 +2491,15 @@
                   "id": "3375e36e30bf",
                   "kind": "cell",
                   "provenance": {
-                    "extractor": "anchor",
-                    "stage": "detect_tables_anchor"
+                    "extractor": "bottom_up",
+                    "stage": "extract_tables_v2"
                   },
                   "text": "Order-30-pending-review"
                 },
                 {
-                  "attrs": {},
+                  "attrs": {
+                    "align": "left"
+                  },
                   "bbox": {
                     "page": 1,
                     "x0": 442,
@@ -2425,18 +2511,15 @@
                   "id": "59ce629fc954",
                   "kind": "cell",
                   "provenance": {
-                    "extractor": "anchor",
-                    "stage": "detect_tables_anchor"
+                    "extractor": "bottom_up",
+                    "stage": "extract_tables_v2"
                   },
                   "text": "Status-30-followup"
                 }
               ],
               "id": "fe95445e53c3",
               "kind": "row",
-              "provenance": {
-                "extractor": "anchor",
-                "stage": "detect_tables_anchor"
-              },
+              "provenance": {},
               "text": null
             },
             {
@@ -2453,7 +2536,9 @@
               },
               "children": [
                 {
-                  "attrs": {},
+                  "attrs": {
+                    "align": "left"
+                  },
                   "bbox": {
                     "page": 1,
                     "x0": 72,
@@ -2465,13 +2550,15 @@
                   "id": "b785e4f385f2",
                   "kind": "cell",
                   "provenance": {
-                    "extractor": "anchor",
-                    "stage": "detect_tables_anchor"
+                    "extractor": "bottom_up",
+                    "stage": "extract_tables_v2"
                   },
                   "text": "Customer-31-Inc"
                 },
                 {
-                  "attrs": {},
+                  "attrs": {
+                    "align": "left"
+                  },
                   "bbox": {
                     "page": 1,
                     "x0": 222,
@@ -2483,13 +2570,15 @@
                   "id": "7c3905df80d7",
                   "kind": "cell",
                   "provenance": {
-                    "extractor": "anchor",
-                    "stage": "detect_tables_anchor"
+                    "extractor": "bottom_up",
+                    "stage": "extract_tables_v2"
                   },
                   "text": "Order-31-pending-review"
                 },
                 {
-                  "attrs": {},
+                  "attrs": {
+                    "align": "left"
+                  },
                   "bbox": {
                     "page": 1,
                     "x0": 442,
@@ -2501,18 +2590,15 @@
                   "id": "1aa61cafe3ed",
                   "kind": "cell",
                   "provenance": {
-                    "extractor": "anchor",
-                    "stage": "detect_tables_anchor"
+                    "extractor": "bottom_up",
+                    "stage": "extract_tables_v2"
                   },
                   "text": "Status-31-followup"
                 }
               ],
               "id": "1b57910c8ef9",
               "kind": "row",
-              "provenance": {
-                "extractor": "anchor",
-                "stage": "detect_tables_anchor"
-              },
+              "provenance": {},
               "text": null
             },
             {
@@ -2529,7 +2615,9 @@
               },
               "children": [
                 {
-                  "attrs": {},
+                  "attrs": {
+                    "align": "left"
+                  },
                   "bbox": {
                     "page": 1,
                     "x0": 72,
@@ -2541,13 +2629,15 @@
                   "id": "f80ba7687e09",
                   "kind": "cell",
                   "provenance": {
-                    "extractor": "anchor",
-                    "stage": "detect_tables_anchor"
+                    "extractor": "bottom_up",
+                    "stage": "extract_tables_v2"
                   },
                   "text": "Customer-32-Inc"
                 },
                 {
-                  "attrs": {},
+                  "attrs": {
+                    "align": "left"
+                  },
                   "bbox": {
                     "page": 1,
                     "x0": 222,
@@ -2559,13 +2649,15 @@
                   "id": "7d4050ddb54d",
                   "kind": "cell",
                   "provenance": {
-                    "extractor": "anchor",
-                    "stage": "detect_tables_anchor"
+                    "extractor": "bottom_up",
+                    "stage": "extract_tables_v2"
                   },
                   "text": "Order-32-pending-review"
                 },
                 {
-                  "attrs": {},
+                  "attrs": {
+                    "align": "left"
+                  },
                   "bbox": {
                     "page": 1,
                     "x0": 442,
@@ -2577,18 +2669,15 @@
                   "id": "e6e71e50e5cc",
                   "kind": "cell",
                   "provenance": {
-                    "extractor": "anchor",
-                    "stage": "detect_tables_anchor"
+                    "extractor": "bottom_up",
+                    "stage": "extract_tables_v2"
                   },
                   "text": "Status-32-followup"
                 }
               ],
               "id": "53416cfa56ac",
               "kind": "row",
-              "provenance": {
-                "extractor": "anchor",
-                "stage": "detect_tables_anchor"
-              },
+              "provenance": {},
               "text": null
             },
             {
@@ -2605,7 +2694,9 @@
               },
               "children": [
                 {
-                  "attrs": {},
+                  "attrs": {
+                    "align": "left"
+                  },
                   "bbox": {
                     "page": 1,
                     "x0": 72,
@@ -2617,13 +2708,15 @@
                   "id": "4723a474b7f2",
                   "kind": "cell",
                   "provenance": {
-                    "extractor": "anchor",
-                    "stage": "detect_tables_anchor"
+                    "extractor": "bottom_up",
+                    "stage": "extract_tables_v2"
                   },
                   "text": "Customer-33-Inc"
                 },
                 {
-                  "attrs": {},
+                  "attrs": {
+                    "align": "left"
+                  },
                   "bbox": {
                     "page": 1,
                     "x0": 222,
@@ -2635,13 +2728,15 @@
                   "id": "12976196b154",
                   "kind": "cell",
                   "provenance": {
-                    "extractor": "anchor",
-                    "stage": "detect_tables_anchor"
+                    "extractor": "bottom_up",
+                    "stage": "extract_tables_v2"
                   },
                   "text": "Order-33-pending-review"
                 },
                 {
-                  "attrs": {},
+                  "attrs": {
+                    "align": "left"
+                  },
                   "bbox": {
                     "page": 1,
                     "x0": 442,
@@ -2653,18 +2748,15 @@
                   "id": "398a1214b134",
                   "kind": "cell",
                   "provenance": {
-                    "extractor": "anchor",
-                    "stage": "detect_tables_anchor"
+                    "extractor": "bottom_up",
+                    "stage": "extract_tables_v2"
                   },
                   "text": "Status-33-followup"
                 }
               ],
               "id": "7ae755510108",
               "kind": "row",
-              "provenance": {
-                "extractor": "anchor",
-                "stage": "detect_tables_anchor"
-              },
+              "provenance": {},
               "text": null
             },
             {
@@ -2681,7 +2773,9 @@
               },
               "children": [
                 {
-                  "attrs": {},
+                  "attrs": {
+                    "align": "left"
+                  },
                   "bbox": {
                     "page": 1,
                     "x0": 72,
@@ -2693,13 +2787,15 @@
                   "id": "3a7a813e4629",
                   "kind": "cell",
                   "provenance": {
-                    "extractor": "anchor",
-                    "stage": "detect_tables_anchor"
+                    "extractor": "bottom_up",
+                    "stage": "extract_tables_v2"
                   },
                   "text": "Customer-34-Inc"
                 },
                 {
-                  "attrs": {},
+                  "attrs": {
+                    "align": "left"
+                  },
                   "bbox": {
                     "page": 1,
                     "x0": 222,
@@ -2711,13 +2807,15 @@
                   "id": "ce9feeeda946",
                   "kind": "cell",
                   "provenance": {
-                    "extractor": "anchor",
-                    "stage": "detect_tables_anchor"
+                    "extractor": "bottom_up",
+                    "stage": "extract_tables_v2"
                   },
                   "text": "Order-34-pending-review"
                 },
                 {
-                  "attrs": {},
+                  "attrs": {
+                    "align": "left"
+                  },
                   "bbox": {
                     "page": 1,
                     "x0": 442,
@@ -2729,18 +2827,15 @@
                   "id": "bf49924a7bf8",
                   "kind": "cell",
                   "provenance": {
-                    "extractor": "anchor",
-                    "stage": "detect_tables_anchor"
+                    "extractor": "bottom_up",
+                    "stage": "extract_tables_v2"
                   },
                   "text": "Status-34-followup"
                 }
               ],
               "id": "975248f28022",
               "kind": "row",
-              "provenance": {
-                "extractor": "anchor",
-                "stage": "detect_tables_anchor"
-              },
+              "provenance": {},
               "text": null
             },
             {
@@ -2757,7 +2852,9 @@
               },
               "children": [
                 {
-                  "attrs": {},
+                  "attrs": {
+                    "align": "left"
+                  },
                   "bbox": {
                     "page": 1,
                     "x0": 72,
@@ -2769,13 +2866,15 @@
                   "id": "efc363b64734",
                   "kind": "cell",
                   "provenance": {
-                    "extractor": "anchor",
-                    "stage": "detect_tables_anchor"
+                    "extractor": "bottom_up",
+                    "stage": "extract_tables_v2"
                   },
                   "text": "Customer-35-Inc"
                 },
                 {
-                  "attrs": {},
+                  "attrs": {
+                    "align": "left"
+                  },
                   "bbox": {
                     "page": 1,
                     "x0": 222,
@@ -2787,13 +2886,15 @@
                   "id": "c0ea0f6b625e",
                   "kind": "cell",
                   "provenance": {
-                    "extractor": "anchor",
-                    "stage": "detect_tables_anchor"
+                    "extractor": "bottom_up",
+                    "stage": "extract_tables_v2"
                   },
                   "text": "Order-35-pending-review"
                 },
                 {
-                  "attrs": {},
+                  "attrs": {
+                    "align": "left"
+                  },
                   "bbox": {
                     "page": 1,
                     "x0": 442,
@@ -2805,18 +2906,15 @@
                   "id": "2849ab52410e",
                   "kind": "cell",
                   "provenance": {
-                    "extractor": "anchor",
-                    "stage": "detect_tables_anchor"
+                    "extractor": "bottom_up",
+                    "stage": "extract_tables_v2"
                   },
                   "text": "Status-35-followup"
                 }
               ],
               "id": "276263a50ae6",
               "kind": "row",
-              "provenance": {
-                "extractor": "anchor",
-                "stage": "detect_tables_anchor"
-              },
+              "provenance": {},
               "text": null
             },
             {
@@ -2833,7 +2931,9 @@
               },
               "children": [
                 {
-                  "attrs": {},
+                  "attrs": {
+                    "align": "left"
+                  },
                   "bbox": {
                     "page": 1,
                     "x0": 72,
@@ -2845,13 +2945,15 @@
                   "id": "0362dffcfab1",
                   "kind": "cell",
                   "provenance": {
-                    "extractor": "anchor",
-                    "stage": "detect_tables_anchor"
+                    "extractor": "bottom_up",
+                    "stage": "extract_tables_v2"
                   },
                   "text": "Customer-36-Inc"
                 },
                 {
-                  "attrs": {},
+                  "attrs": {
+                    "align": "left"
+                  },
                   "bbox": {
                     "page": 1,
                     "x0": 222,
@@ -2863,13 +2965,15 @@
                   "id": "d4cd084fd075",
                   "kind": "cell",
                   "provenance": {
-                    "extractor": "anchor",
-                    "stage": "detect_tables_anchor"
+                    "extractor": "bottom_up",
+                    "stage": "extract_tables_v2"
                   },
                   "text": "Order-36-pending-review"
                 },
                 {
-                  "attrs": {},
+                  "attrs": {
+                    "align": "left"
+                  },
                   "bbox": {
                     "page": 1,
                     "x0": 442,
@@ -2881,18 +2985,15 @@
                   "id": "a6c140abf576",
                   "kind": "cell",
                   "provenance": {
-                    "extractor": "anchor",
-                    "stage": "detect_tables_anchor"
+                    "extractor": "bottom_up",
+                    "stage": "extract_tables_v2"
                   },
                   "text": "Status-36-followup"
                 }
               ],
               "id": "9a21a0872394",
               "kind": "row",
-              "provenance": {
-                "extractor": "anchor",
-                "stage": "detect_tables_anchor"
-              },
+              "provenance": {},
               "text": null
             },
             {
@@ -2909,7 +3010,9 @@
               },
               "children": [
                 {
-                  "attrs": {},
+                  "attrs": {
+                    "align": "left"
+                  },
                   "bbox": {
                     "page": 1,
                     "x0": 72,
@@ -2921,13 +3024,15 @@
                   "id": "05ef16c1114c",
                   "kind": "cell",
                   "provenance": {
-                    "extractor": "anchor",
-                    "stage": "detect_tables_anchor"
+                    "extractor": "bottom_up",
+                    "stage": "extract_tables_v2"
                   },
                   "text": "Customer-37-Inc"
                 },
                 {
-                  "attrs": {},
+                  "attrs": {
+                    "align": "left"
+                  },
                   "bbox": {
                     "page": 1,
                     "x0": 222,
@@ -2939,13 +3044,15 @@
                   "id": "3c154002b563",
                   "kind": "cell",
                   "provenance": {
-                    "extractor": "anchor",
-                    "stage": "detect_tables_anchor"
+                    "extractor": "bottom_up",
+                    "stage": "extract_tables_v2"
                   },
                   "text": "Order-37-pending-review"
                 },
                 {
-                  "attrs": {},
+                  "attrs": {
+                    "align": "left"
+                  },
                   "bbox": {
                     "page": 1,
                     "x0": 442,
@@ -2957,18 +3064,15 @@
                   "id": "5277cba23093",
                   "kind": "cell",
                   "provenance": {
-                    "extractor": "anchor",
-                    "stage": "detect_tables_anchor"
+                    "extractor": "bottom_up",
+                    "stage": "extract_tables_v2"
                   },
                   "text": "Status-37-followup"
                 }
               ],
               "id": "c9386449d127",
               "kind": "row",
-              "provenance": {
-                "extractor": "anchor",
-                "stage": "detect_tables_anchor"
-              },
+              "provenance": {},
               "text": null
             },
             {
@@ -2985,7 +3089,9 @@
               },
               "children": [
                 {
-                  "attrs": {},
+                  "attrs": {
+                    "align": "left"
+                  },
                   "bbox": {
                     "page": 1,
                     "x0": 72,
@@ -2997,13 +3103,15 @@
                   "id": "b615198c9e70",
                   "kind": "cell",
                   "provenance": {
-                    "extractor": "anchor",
-                    "stage": "detect_tables_anchor"
+                    "extractor": "bottom_up",
+                    "stage": "extract_tables_v2"
                   },
                   "text": "Customer-38-Inc"
                 },
                 {
-                  "attrs": {},
+                  "attrs": {
+                    "align": "left"
+                  },
                   "bbox": {
                     "page": 1,
                     "x0": 222,
@@ -3015,13 +3123,15 @@
                   "id": "055ff6a61dd6",
                   "kind": "cell",
                   "provenance": {
-                    "extractor": "anchor",
-                    "stage": "detect_tables_anchor"
+                    "extractor": "bottom_up",
+                    "stage": "extract_tables_v2"
                   },
                   "text": "Order-38-pending-review"
                 },
                 {
-                  "attrs": {},
+                  "attrs": {
+                    "align": "left"
+                  },
                   "bbox": {
                     "page": 1,
                     "x0": 442,
@@ -3033,18 +3143,15 @@
                   "id": "48926f61507d",
                   "kind": "cell",
                   "provenance": {
-                    "extractor": "anchor",
-                    "stage": "detect_tables_anchor"
+                    "extractor": "bottom_up",
+                    "stage": "extract_tables_v2"
                   },
                   "text": "Status-38-followup"
                 }
               ],
               "id": "802fa1578037",
               "kind": "row",
-              "provenance": {
-                "extractor": "anchor",
-                "stage": "detect_tables_anchor"
-              },
+              "provenance": {},
               "text": null
             },
             {
@@ -3061,7 +3168,9 @@
               },
               "children": [
                 {
-                  "attrs": {},
+                  "attrs": {
+                    "align": "left"
+                  },
                   "bbox": {
                     "page": 1,
                     "x0": 72,
@@ -3073,13 +3182,15 @@
                   "id": "e17535f56e04",
                   "kind": "cell",
                   "provenance": {
-                    "extractor": "anchor",
-                    "stage": "detect_tables_anchor"
+                    "extractor": "bottom_up",
+                    "stage": "extract_tables_v2"
                   },
                   "text": "Customer-39-Inc"
                 },
                 {
-                  "attrs": {},
+                  "attrs": {
+                    "align": "left"
+                  },
                   "bbox": {
                     "page": 1,
                     "x0": 222,
@@ -3091,13 +3202,15 @@
                   "id": "b2c06c72db2f",
                   "kind": "cell",
                   "provenance": {
-                    "extractor": "anchor",
-                    "stage": "detect_tables_anchor"
+                    "extractor": "bottom_up",
+                    "stage": "extract_tables_v2"
                   },
                   "text": "Order-39-pending-review"
                 },
                 {
-                  "attrs": {},
+                  "attrs": {
+                    "align": "left"
+                  },
                   "bbox": {
                     "page": 1,
                     "x0": 442,
@@ -3109,18 +3222,15 @@
                   "id": "1fcc96afbd73",
                   "kind": "cell",
                   "provenance": {
-                    "extractor": "anchor",
-                    "stage": "detect_tables_anchor"
+                    "extractor": "bottom_up",
+                    "stage": "extract_tables_v2"
                   },
                   "text": "Status-39-followup"
                 }
               ],
               "id": "30f855491955",
               "kind": "row",
-              "provenance": {
-                "extractor": "anchor",
-                "stage": "detect_tables_anchor"
-              },
+              "provenance": {},
               "text": null
             },
             {
@@ -3137,7 +3247,9 @@
               },
               "children": [
                 {
-                  "attrs": {},
+                  "attrs": {
+                    "align": "left"
+                  },
                   "bbox": {
                     "page": 1,
                     "x0": 72,
@@ -3149,13 +3261,15 @@
                   "id": "ebded0d5677b",
                   "kind": "cell",
                   "provenance": {
-                    "extractor": "anchor",
-                    "stage": "detect_tables_anchor"
+                    "extractor": "bottom_up",
+                    "stage": "extract_tables_v2"
                   },
                   "text": "Customer-40-Inc"
                 },
                 {
-                  "attrs": {},
+                  "attrs": {
+                    "align": "left"
+                  },
                   "bbox": {
                     "page": 1,
                     "x0": 222,
@@ -3167,13 +3281,15 @@
                   "id": "3f94597cab25",
                   "kind": "cell",
                   "provenance": {
-                    "extractor": "anchor",
-                    "stage": "detect_tables_anchor"
+                    "extractor": "bottom_up",
+                    "stage": "extract_tables_v2"
                   },
                   "text": "Order-40-pending-review"
                 },
                 {
-                  "attrs": {},
+                  "attrs": {
+                    "align": "left"
+                  },
                   "bbox": {
                     "page": 1,
                     "x0": 442,
@@ -3185,18 +3301,15 @@
                   "id": "6fbae8daaf7d",
                   "kind": "cell",
                   "provenance": {
-                    "extractor": "anchor",
-                    "stage": "detect_tables_anchor"
+                    "extractor": "bottom_up",
+                    "stage": "extract_tables_v2"
                   },
                   "text": "Status-40-followup"
                 }
               ],
               "id": "ff915080ac74",
               "kind": "row",
-              "provenance": {
-                "extractor": "anchor",
-                "stage": "detect_tables_anchor"
-              },
+              "provenance": {},
               "text": null
             },
             {
@@ -3213,7 +3326,9 @@
               },
               "children": [
                 {
-                  "attrs": {},
+                  "attrs": {
+                    "align": "left"
+                  },
                   "bbox": {
                     "page": 1,
                     "x0": 72,
@@ -3225,13 +3340,15 @@
                   "id": "50b11630485d",
                   "kind": "cell",
                   "provenance": {
-                    "extractor": "anchor",
-                    "stage": "detect_tables_anchor"
+                    "extractor": "bottom_up",
+                    "stage": "extract_tables_v2"
                   },
                   "text": "Customer-41-Inc"
                 },
                 {
-                  "attrs": {},
+                  "attrs": {
+                    "align": "left"
+                  },
                   "bbox": {
                     "page": 1,
                     "x0": 222,
@@ -3243,13 +3360,15 @@
                   "id": "4d017dde41be",
                   "kind": "cell",
                   "provenance": {
-                    "extractor": "anchor",
-                    "stage": "detect_tables_anchor"
+                    "extractor": "bottom_up",
+                    "stage": "extract_tables_v2"
                   },
                   "text": "Order-41-pending-review"
                 },
                 {
-                  "attrs": {},
+                  "attrs": {
+                    "align": "left"
+                  },
                   "bbox": {
                     "page": 1,
                     "x0": 442,
@@ -3261,18 +3380,15 @@
                   "id": "647ae56e7a60",
                   "kind": "cell",
                   "provenance": {
-                    "extractor": "anchor",
-                    "stage": "detect_tables_anchor"
+                    "extractor": "bottom_up",
+                    "stage": "extract_tables_v2"
                   },
                   "text": "Status-41-followup"
                 }
               ],
               "id": "f2a2d94391bf",
               "kind": "row",
-              "provenance": {
-                "extractor": "anchor",
-                "stage": "detect_tables_anchor"
-              },
+              "provenance": {},
               "text": null
             },
             {
@@ -3289,7 +3405,9 @@
               },
               "children": [
                 {
-                  "attrs": {},
+                  "attrs": {
+                    "align": "left"
+                  },
                   "bbox": {
                     "page": 1,
                     "x0": 72,
@@ -3301,13 +3419,15 @@
                   "id": "febc987eb243",
                   "kind": "cell",
                   "provenance": {
-                    "extractor": "anchor",
-                    "stage": "detect_tables_anchor"
+                    "extractor": "bottom_up",
+                    "stage": "extract_tables_v2"
                   },
                   "text": "Customer-42-Inc"
                 },
                 {
-                  "attrs": {},
+                  "attrs": {
+                    "align": "left"
+                  },
                   "bbox": {
                     "page": 1,
                     "x0": 222,
@@ -3319,13 +3439,15 @@
                   "id": "28d31b902e01",
                   "kind": "cell",
                   "provenance": {
-                    "extractor": "anchor",
-                    "stage": "detect_tables_anchor"
+                    "extractor": "bottom_up",
+                    "stage": "extract_tables_v2"
                   },
                   "text": "Order-42-pending-review"
                 },
                 {
-                  "attrs": {},
+                  "attrs": {
+                    "align": "left"
+                  },
                   "bbox": {
                     "page": 1,
                     "x0": 442,
@@ -3337,18 +3459,15 @@
                   "id": "0aabe8ff63de",
                   "kind": "cell",
                   "provenance": {
-                    "extractor": "anchor",
-                    "stage": "detect_tables_anchor"
+                    "extractor": "bottom_up",
+                    "stage": "extract_tables_v2"
                   },
                   "text": "Status-42-followup"
                 }
               ],
               "id": "ad81234345da",
               "kind": "row",
-              "provenance": {
-                "extractor": "anchor",
-                "stage": "detect_tables_anchor"
-              },
+              "provenance": {},
               "text": null
             },
             {
@@ -3365,7 +3484,9 @@
               },
               "children": [
                 {
-                  "attrs": {},
+                  "attrs": {
+                    "align": "left"
+                  },
                   "bbox": {
                     "page": 1,
                     "x0": 72,
@@ -3377,13 +3498,15 @@
                   "id": "768faf2c2d8c",
                   "kind": "cell",
                   "provenance": {
-                    "extractor": "anchor",
-                    "stage": "detect_tables_anchor"
+                    "extractor": "bottom_up",
+                    "stage": "extract_tables_v2"
                   },
                   "text": "Customer-43-Inc"
                 },
                 {
-                  "attrs": {},
+                  "attrs": {
+                    "align": "left"
+                  },
                   "bbox": {
                     "page": 1,
                     "x0": 222,
@@ -3395,13 +3518,15 @@
                   "id": "8fabf8871452",
                   "kind": "cell",
                   "provenance": {
-                    "extractor": "anchor",
-                    "stage": "detect_tables_anchor"
+                    "extractor": "bottom_up",
+                    "stage": "extract_tables_v2"
                   },
                   "text": "Order-43-pending-review"
                 },
                 {
-                  "attrs": {},
+                  "attrs": {
+                    "align": "left"
+                  },
                   "bbox": {
                     "page": 1,
                     "x0": 442,
@@ -3413,18 +3538,15 @@
                   "id": "bdc64b06848a",
                   "kind": "cell",
                   "provenance": {
-                    "extractor": "anchor",
-                    "stage": "detect_tables_anchor"
+                    "extractor": "bottom_up",
+                    "stage": "extract_tables_v2"
                   },
                   "text": "Status-43-followup"
                 }
               ],
               "id": "57b00fda76e8",
               "kind": "row",
-              "provenance": {
-                "extractor": "anchor",
-                "stage": "detect_tables_anchor"
-              },
+              "provenance": {},
               "text": null
             },
             {
@@ -3441,7 +3563,9 @@
               },
               "children": [
                 {
-                  "attrs": {},
+                  "attrs": {
+                    "align": "left"
+                  },
                   "bbox": {
                     "page": 1,
                     "x0": 72,
@@ -3453,13 +3577,15 @@
                   "id": "27f36c859f6e",
                   "kind": "cell",
                   "provenance": {
-                    "extractor": "anchor",
-                    "stage": "detect_tables_anchor"
+                    "extractor": "bottom_up",
+                    "stage": "extract_tables_v2"
                   },
                   "text": "Customer-44-Inc"
                 },
                 {
-                  "attrs": {},
+                  "attrs": {
+                    "align": "left"
+                  },
                   "bbox": {
                     "page": 1,
                     "x0": 222,
@@ -3471,13 +3597,15 @@
                   "id": "6a04cf4a27d9",
                   "kind": "cell",
                   "provenance": {
-                    "extractor": "anchor",
-                    "stage": "detect_tables_anchor"
+                    "extractor": "bottom_up",
+                    "stage": "extract_tables_v2"
                   },
                   "text": "Order-44-pending-review"
                 },
                 {
-                  "attrs": {},
+                  "attrs": {
+                    "align": "left"
+                  },
                   "bbox": {
                     "page": 1,
                     "x0": 442,
@@ -3489,18 +3617,15 @@
                   "id": "106f7d82e093",
                   "kind": "cell",
                   "provenance": {
-                    "extractor": "anchor",
-                    "stage": "detect_tables_anchor"
+                    "extractor": "bottom_up",
+                    "stage": "extract_tables_v2"
                   },
                   "text": "Status-44-followup"
                 }
               ],
               "id": "389abca6173c",
               "kind": "row",
-              "provenance": {
-                "extractor": "anchor",
-                "stage": "detect_tables_anchor"
-              },
+              "provenance": {},
               "text": null
             },
             {
@@ -3517,7 +3642,9 @@
               },
               "children": [
                 {
-                  "attrs": {},
+                  "attrs": {
+                    "align": "left"
+                  },
                   "bbox": {
                     "page": 1,
                     "x0": 72,
@@ -3529,13 +3656,15 @@
                   "id": "b89c23f3461d",
                   "kind": "cell",
                   "provenance": {
-                    "extractor": "anchor",
-                    "stage": "detect_tables_anchor"
+                    "extractor": "bottom_up",
+                    "stage": "extract_tables_v2"
                   },
                   "text": "Customer-45-Inc"
                 },
                 {
-                  "attrs": {},
+                  "attrs": {
+                    "align": "left"
+                  },
                   "bbox": {
                     "page": 1,
                     "x0": 222,
@@ -3547,13 +3676,15 @@
                   "id": "501a709c1e1d",
                   "kind": "cell",
                   "provenance": {
-                    "extractor": "anchor",
-                    "stage": "detect_tables_anchor"
+                    "extractor": "bottom_up",
+                    "stage": "extract_tables_v2"
                   },
                   "text": "Order-45-pending-review"
                 },
                 {
-                  "attrs": {},
+                  "attrs": {
+                    "align": "left"
+                  },
                   "bbox": {
                     "page": 1,
                     "x0": 442,
@@ -3565,18 +3696,15 @@
                   "id": "480db0c64ac1",
                   "kind": "cell",
                   "provenance": {
-                    "extractor": "anchor",
-                    "stage": "detect_tables_anchor"
+                    "extractor": "bottom_up",
+                    "stage": "extract_tables_v2"
                   },
                   "text": "Status-45-followup"
                 }
               ],
               "id": "368d03c062ff",
               "kind": "row",
-              "provenance": {
-                "extractor": "anchor",
-                "stage": "detect_tables_anchor"
-              },
+              "provenance": {},
               "text": null
             },
             {
@@ -3593,7 +3721,9 @@
               },
               "children": [
                 {
-                  "attrs": {},
+                  "attrs": {
+                    "align": "left"
+                  },
                   "bbox": {
                     "page": 1,
                     "x0": 72,
@@ -3605,13 +3735,15 @@
                   "id": "80e41fe49c28",
                   "kind": "cell",
                   "provenance": {
-                    "extractor": "anchor",
-                    "stage": "detect_tables_anchor"
+                    "extractor": "bottom_up",
+                    "stage": "extract_tables_v2"
                   },
                   "text": "Customer-46-Inc"
                 },
                 {
-                  "attrs": {},
+                  "attrs": {
+                    "align": "left"
+                  },
                   "bbox": {
                     "page": 1,
                     "x0": 222,
@@ -3623,13 +3755,15 @@
                   "id": "e7bfe27979d9",
                   "kind": "cell",
                   "provenance": {
-                    "extractor": "anchor",
-                    "stage": "detect_tables_anchor"
+                    "extractor": "bottom_up",
+                    "stage": "extract_tables_v2"
                   },
                   "text": "Order-46-pending-review"
                 },
                 {
-                  "attrs": {},
+                  "attrs": {
+                    "align": "left"
+                  },
                   "bbox": {
                     "page": 1,
                     "x0": 442,
@@ -3641,18 +3775,15 @@
                   "id": "825bc03bfc3f",
                   "kind": "cell",
                   "provenance": {
-                    "extractor": "anchor",
-                    "stage": "detect_tables_anchor"
+                    "extractor": "bottom_up",
+                    "stage": "extract_tables_v2"
                   },
                   "text": "Status-46-followup"
                 }
               ],
               "id": "44076d56fd67",
               "kind": "row",
-              "provenance": {
-                "extractor": "anchor",
-                "stage": "detect_tables_anchor"
-              },
+              "provenance": {},
               "text": null
             },
             {
@@ -3669,7 +3800,9 @@
               },
               "children": [
                 {
-                  "attrs": {},
+                  "attrs": {
+                    "align": "left"
+                  },
                   "bbox": {
                     "page": 1,
                     "x0": 72,
@@ -3681,13 +3814,15 @@
                   "id": "4243f02f7cd2",
                   "kind": "cell",
                   "provenance": {
-                    "extractor": "anchor",
-                    "stage": "detect_tables_anchor"
+                    "extractor": "bottom_up",
+                    "stage": "extract_tables_v2"
                   },
                   "text": "Customer-47-Inc"
                 },
                 {
-                  "attrs": {},
+                  "attrs": {
+                    "align": "left"
+                  },
                   "bbox": {
                     "page": 1,
                     "x0": 222,
@@ -3699,13 +3834,15 @@
                   "id": "ef69c8f41b2e",
                   "kind": "cell",
                   "provenance": {
-                    "extractor": "anchor",
-                    "stage": "detect_tables_anchor"
+                    "extractor": "bottom_up",
+                    "stage": "extract_tables_v2"
                   },
                   "text": "Order-47-pending-review"
                 },
                 {
-                  "attrs": {},
+                  "attrs": {
+                    "align": "left"
+                  },
                   "bbox": {
                     "page": 1,
                     "x0": 442,
@@ -3717,18 +3854,15 @@
                   "id": "7935168e8834",
                   "kind": "cell",
                   "provenance": {
-                    "extractor": "anchor",
-                    "stage": "detect_tables_anchor"
+                    "extractor": "bottom_up",
+                    "stage": "extract_tables_v2"
                   },
                   "text": "Status-47-followup"
                 }
               ],
               "id": "2dd9a3ab3eb0",
               "kind": "row",
-              "provenance": {
-                "extractor": "anchor",
-                "stage": "detect_tables_anchor"
-              },
+              "provenance": {},
               "text": null
             },
             {
@@ -3745,7 +3879,9 @@
               },
               "children": [
                 {
-                  "attrs": {},
+                  "attrs": {
+                    "align": "left"
+                  },
                   "bbox": {
                     "page": 1,
                     "x0": 72,
@@ -3757,13 +3893,15 @@
                   "id": "2375bef9c735",
                   "kind": "cell",
                   "provenance": {
-                    "extractor": "anchor",
-                    "stage": "detect_tables_anchor"
+                    "extractor": "bottom_up",
+                    "stage": "extract_tables_v2"
                   },
                   "text": "Customer-48-Inc"
                 },
                 {
-                  "attrs": {},
+                  "attrs": {
+                    "align": "left"
+                  },
                   "bbox": {
                     "page": 1,
                     "x0": 222,
@@ -3775,13 +3913,15 @@
                   "id": "b6454889b620",
                   "kind": "cell",
                   "provenance": {
-                    "extractor": "anchor",
-                    "stage": "detect_tables_anchor"
+                    "extractor": "bottom_up",
+                    "stage": "extract_tables_v2"
                   },
                   "text": "Order-48-pending-review"
                 },
                 {
-                  "attrs": {},
+                  "attrs": {
+                    "align": "left"
+                  },
                   "bbox": {
                     "page": 1,
                     "x0": 442,
@@ -3793,18 +3933,15 @@
                   "id": "c10ab0902dc4",
                   "kind": "cell",
                   "provenance": {
-                    "extractor": "anchor",
-                    "stage": "detect_tables_anchor"
+                    "extractor": "bottom_up",
+                    "stage": "extract_tables_v2"
                   },
                   "text": "Status-48-followup"
                 }
               ],
               "id": "c2aca526fffb",
               "kind": "row",
-              "provenance": {
-                "extractor": "anchor",
-                "stage": "detect_tables_anchor"
-              },
+              "provenance": {},
               "text": null
             },
             {
@@ -3821,7 +3958,9 @@
               },
               "children": [
                 {
-                  "attrs": {},
+                  "attrs": {
+                    "align": "left"
+                  },
                   "bbox": {
                     "page": 1,
                     "x0": 72,
@@ -3833,13 +3972,15 @@
                   "id": "7ef3f770af52",
                   "kind": "cell",
                   "provenance": {
-                    "extractor": "anchor",
-                    "stage": "detect_tables_anchor"
+                    "extractor": "bottom_up",
+                    "stage": "extract_tables_v2"
                   },
                   "text": "Customer-49-Inc"
                 },
                 {
-                  "attrs": {},
+                  "attrs": {
+                    "align": "left"
+                  },
                   "bbox": {
                     "page": 1,
                     "x0": 222,
@@ -3851,13 +3992,15 @@
                   "id": "dfb86e212f21",
                   "kind": "cell",
                   "provenance": {
-                    "extractor": "anchor",
-                    "stage": "detect_tables_anchor"
+                    "extractor": "bottom_up",
+                    "stage": "extract_tables_v2"
                   },
                   "text": "Order-49-pending-review"
                 },
                 {
-                  "attrs": {},
+                  "attrs": {
+                    "align": "left"
+                  },
                   "bbox": {
                     "page": 1,
                     "x0": 442,
@@ -3869,18 +4012,15 @@
                   "id": "eb290daf272a",
                   "kind": "cell",
                   "provenance": {
-                    "extractor": "anchor",
-                    "stage": "detect_tables_anchor"
+                    "extractor": "bottom_up",
+                    "stage": "extract_tables_v2"
                   },
                   "text": "Status-49-followup"
                 }
               ],
               "id": "3883a2e4531d",
               "kind": "row",
-              "provenance": {
-                "extractor": "anchor",
-                "stage": "detect_tables_anchor"
-              },
+              "provenance": {},
               "text": null
             },
             {
@@ -3897,7 +4037,9 @@
               },
               "children": [
                 {
-                  "attrs": {},
+                  "attrs": {
+                    "align": "left"
+                  },
                   "bbox": {
                     "page": 1,
                     "x0": 72,
@@ -3909,13 +4051,15 @@
                   "id": "8644bcf79e93",
                   "kind": "cell",
                   "provenance": {
-                    "extractor": "anchor",
-                    "stage": "detect_tables_anchor"
+                    "extractor": "bottom_up",
+                    "stage": "extract_tables_v2"
                   },
                   "text": "Customer-50-Inc"
                 },
                 {
-                  "attrs": {},
+                  "attrs": {
+                    "align": "left"
+                  },
                   "bbox": {
                     "page": 1,
                     "x0": 222,
@@ -3927,13 +4071,15 @@
                   "id": "70eabc891d54",
                   "kind": "cell",
                   "provenance": {
-                    "extractor": "anchor",
-                    "stage": "detect_tables_anchor"
+                    "extractor": "bottom_up",
+                    "stage": "extract_tables_v2"
                   },
                   "text": "Order-50-pending-review"
                 },
                 {
-                  "attrs": {},
+                  "attrs": {
+                    "align": "left"
+                  },
                   "bbox": {
                     "page": 1,
                     "x0": 442,
@@ -3945,25 +4091,22 @@
                   "id": "8c51e7500704",
                   "kind": "cell",
                   "provenance": {
-                    "extractor": "anchor",
-                    "stage": "detect_tables_anchor"
+                    "extractor": "bottom_up",
+                    "stage": "extract_tables_v2"
                   },
                   "text": "Status-50-followup"
                 }
               ],
               "id": "f3f48e4ef7d8",
               "kind": "row",
-              "provenance": {
-                "extractor": "anchor",
-                "stage": "detect_tables_anchor"
-              },
+              "provenance": {},
               "text": null
             }
           ],
           "id": "eded6bffaf7a",
           "kind": "table",
           "provenance": {
-            "extractor": "anchor+stitch",
+            "extractor": "bottom_up+stitch",
             "stage": "stitch_pages"
           },
           "text": null
