@@ -307,10 +307,36 @@ CASES_DIR = Path("tests/golden/synthetic")
 #     residual for fixtures 22 / 25 (legacy reaches them via the
 #     megatable-decomposition pass not in this port).
 #
-# Fixtures 24 still xfail in parity: caps cluster to zero-height bands
-# (legacy collapses to a 1-row wrapper via megatable decomposition; the
-# port emits a multi-row wrapper with empty header/footer text), so id
-# divergence remains.  Parity-only -- behavioural tests are unaffected.
+# Parity pass 5 deferred (fixtures 24 / 25 -- megatable decomposition):
+# legacy reaches both fixtures via ``detect_tables._try_decompose_megatable``,
+# a row-cluster decomposition pass that splits a fused table by finding
+# sparse rows (rows whose cells are far apart vertically from the
+# surrounding rows) and emitting them as inter-table paragraphs wrapped
+# in a 1x1 outer container.
+#
+# Fixture 24: pdfplumber's line strategy emits the inter-paragraph cell at
+# (186, 172, 426, 226) at full table width because the source PDF has
+# rules drawn around the paragraph.  Bottom-up fuses Item/Qty (3 rows) +
+# paragraph (1 wide row) + Month/Sales (3 rows) into a single 7x2 table;
+# legacy decomposes via the wide-paragraph split into a 1x1 wrapper
+# hosting two nested 3x2 sub-tables.
+#
+# Fixture 25: outer rectangle has only vertical rails plus one top + one
+# bottom cap (pure closed_rect).  Residual D's borderless-frame port
+# explicitly rejects this shape (no header / footer cap-band text), so
+# bottom-up sees only the inner sub-tables and emits them as siblings.
+# Legacy reaches the 1x1 wrapper via megatable decomposition (which
+# treats the rail-bounded region as a wrapper around any inner tables).
+#
+# Both fixtures would require either porting `_try_decompose_megatable`
+# (high regression risk -- the gap-row classifier triggers on any sparse
+# row including legitimate ones in fixtures 15/22) or relaxing
+# `_frame_cells`'s pure-closed_rect gate (high regression risk -- would
+# synthesise spurious wrappers around ordinary multi-column tables that
+# share rails).  Both touch the load-bearing rim of the rewrite for
+# parity-only gains on 2 fixtures.  Left as Phase-10+ residual; the
+# behavioural shape (2 inner sub-tables present) is preserved -- only
+# the wrapper hierarchy differs.
 #
 _XFAIL_CASES: set[str] = {
     "02_nested_table",
