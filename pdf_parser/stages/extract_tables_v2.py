@@ -63,7 +63,8 @@ def _celltable_to_docnode(
                     if r_idx < len(t.cell_bboxes) and c_idx < len(t.cell_bboxes[r_idx])
                     else t.bbox)
             is_covered = (r_idx, c_idx) in t.covered
-            attrs: dict = {"align": "left"}
+            align = _cell_align(page_chars, cbox) if page_chars else "left"
+            attrs: dict = {"align": align}
             if is_covered:
                 attrs["covered"] = True
             nested_in_cell = [sub for sub in t.nested if _bbox_inside(sub.bbox, cbox)]
@@ -119,6 +120,45 @@ def _bbox_inside(inner: BBox, outer: BBox, tol: float = 2.0) -> bool:
     return (inner.page == outer.page
             and inner.x0 >= outer.x0 - tol and inner.y0 >= outer.y0 - tol
             and inner.x1 <= outer.x1 + tol and inner.y1 <= outer.y1 + tol)
+
+
+# ---------------------------------------------------------------------------
+# Cell alignment detection.
+#
+# Compares the gap from the cell's left wall to the text's left edge against
+# the gap from the text's right edge to the cell's right wall.  Text that
+# sits markedly closer to the right wall (right_gap < 30 % of left_gap AND
+# right_gap < 6 pt absolute) is classified as right-aligned.  Empty cells,
+# left-hugging text, and roughly-centred text all default to ``"left"``.
+#
+# Inlined verbatim from the legacy ``extract_tables._cell_align`` so the
+# HTML renderer's ``.num`` CSS class (gated on ``attrs["align"] == "right"``)
+# wires back up under bottom-up — pre-existing regression since the Phase-10
+# rewrite hardcoded ``"left"`` for every cell.
+# ---------------------------------------------------------------------------
+
+def _cell_align(page_chars: list[dict], cbox: BBox, tol: float = 1.0) -> str:
+    """Return ``"right"`` when chars inside ``cbox`` hug its right wall, else ``"left"``."""
+    chars = [
+        c for c in page_chars
+        if c.get("x0", 0) >= cbox.x0 - tol
+        and c.get("x1", 0) <= cbox.x1 + tol
+        and c.get("top", 0) >= cbox.y0 - tol
+        and c.get("bottom", 0) <= cbox.y1 + tol
+        and c.get("text", "").strip()
+    ]
+    if not chars:
+        return "left"
+    cell_w = cbox.x1 - cbox.x0
+    if cell_w < 2:
+        return "left"
+    text_x0 = min(c["x0"] for c in chars)
+    text_x1 = max(c["x1"] for c in chars)
+    left_gap = text_x0 - cbox.x0
+    right_gap = cbox.x1 - text_x1
+    if right_gap < left_gap * 0.30 and right_gap < 6.0:
+        return "right"
+    return "left"
 
 
 # ---------------------------------------------------------------------------

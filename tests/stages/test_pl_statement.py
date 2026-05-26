@@ -233,3 +233,38 @@ def test_no_cross_row_text_leakage(grid):
 def test_all_row_labels_non_empty(grid):
     empty_label_rows = [i for i, row in enumerate(grid) if not row[0]]
     assert empty_label_rows == [], f"rows with empty labels: {empty_label_rows}"
+
+
+# ---------------------------------------------------------------------------
+# Cell alignment: numeric columns right-aligned, label column left-aligned
+# ---------------------------------------------------------------------------
+
+
+def _aligns(table):
+    """rows × cols → align attr ('left'/'right')."""
+    return [[c.attrs.get("align", "left") for c in row.children] for row in table.children]
+
+
+def test_label_column_always_left_aligned(table):
+    aligns = _aligns(table)
+    for r_idx, row in enumerate(aligns):
+        assert row[0] == "left", f"row {r_idx} label cell should be left-aligned"
+
+
+def test_numeric_columns_right_aligned_in_body_rows(table):
+    """Body data rows (not section headers, not the column header) sit
+    flush against the right wall — alignment must be detected as 'right'.
+
+    Section-header rows have empty numeric cells → align defaults to 'left';
+    the column-header row (row 0) is centered → also 'left'.  All other
+    rows carry right-aligned numerics in cols 1-4.
+    """
+    section_row_idxs = set(SECTION_ROWS)
+    aligns = _aligns(table)
+    for r_idx, row in enumerate(aligns):
+        if r_idx == 0 or r_idx in section_row_idxs:
+            continue
+        for c_idx in range(1, 5):
+            assert row[c_idx] == "right", (
+                f"row {r_idx} col {c_idx} should be right-aligned, got {row[c_idx]}"
+            )
