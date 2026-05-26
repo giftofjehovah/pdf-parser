@@ -49,6 +49,21 @@ CASES_DIR = Path("tests/golden/synthetic")
 # 1-row 1-col candidates (lone bordered blocks, split-off footers)
 # remain rejected.  Behaviourally a no-op for the other 26 fixtures.
 #
+# Parity divergence -- fixture 22 (legacy over-emission, bottom-up canonical):
+# 22_text_between_adjacent_tables remains xfailed but is structurally
+# CORRECT under bottom-up.  Legacy emits 7 tables: the two real tables
+# (Collection 4x7 + SVC Region 4x6) plus 5 spurious singletons -- one
+# big 1x1 wrapper at y=118..574 with sig=('',), and four 2x1 header-only
+# tables ('Dec-24',), ('Mar-25',), ('Jun-25',), ('Sep-25',) at
+# y=479..500.  These extras are vestigial single-cell "tables" surfaced
+# by the legacy anchor-detector + megatable noise pipeline -- not real
+# tables in the source PDF.  Bottom-up emits only the two real tables.
+# Comprehensive omnibus is unaffected: the two-table count is what every
+# downstream consumer needs.  Left xfailed for the duration of the
+# rewrite as a tracking marker; the goldens are re-baked under bottom-up
+# in Phase 10 (the flip-default cleanup) and the xfail is dropped at the
+# same time.
+#
 # Comprehensive assertions un-xfailed under Residual E:
 #   * ``test_annex_a_open_body_table`` (Name/Score/Grade 5x3)
 #   * ``test_annex_a_framed_body_table`` (Region/Q1../Q4 5x5)
