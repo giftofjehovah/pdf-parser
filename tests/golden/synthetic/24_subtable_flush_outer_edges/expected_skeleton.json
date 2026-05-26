@@ -46,19 +46,16 @@
                 }
               ],
               "kind": "row"
-            },
-            {
-              "children": [
-                {
-                  "kind": "cell",
-                  "text": "NOTE: This paragraph sits between two sub-tables that are\nflush against the outer frame's top and bottom edges. It\nmust survive parsing as a paragraph node inside the outer\ncell."
-                },
-                {
-                  "kind": "cell"
-                }
-              ],
-              "kind": "row"
-            },
+            }
+          ],
+          "kind": "table"
+        },
+        {
+          "kind": "paragraph",
+          "text": "NOTE: This paragraph sits between two sub-tables that are flush against the outer frame's top and bottom edges. It must survive parsing as a paragraph node inside the outer cell."
+        },
+        {
+          "children": [
             {
               "children": [
                 {

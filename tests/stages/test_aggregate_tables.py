@@ -596,3 +596,87 @@ def test_text_in_row_gap_ignored_when_word_overlaps_adjacent_row() -> None:
     ]
     fused = aggregate(cells, page_height=792.0, page_words=boundary_word)
     assert len(fused) == 1, "word touching adjacent row must not force split"
+
+
+# ---------------------------------------------------------------------------
+# Frame-middle-bay drop: a wide bordered cell containing prose, flanked by
+# multi-column grid clusters both above and below, is the closing of an
+# outer-frame interior between two stacked sub-grids (fixture 24).  pdfplumber
+# closes the gap as a single "cell" because the outer's vertical rails extend
+# continuously; aggregate must drop it so the two flanking sub-tables surface
+# as siblings (mirrors fixture 25's text-bearing-gap split).
+# ---------------------------------------------------------------------------
+
+
+def test_frame_middle_bay_dropped_when_flanked_by_multicol_grids() -> None:
+    """Wide line cell + prose + multicol grids above AND below → bay dropped,
+    two sibling sub-tables remain.
+    """
+    def bb(y0, y1, x0, x1):
+        return BBox(page=0, x0=x0, y0=y0, x1=x1, y1=y1)
+
+    cells = [
+        # Sub-table A: 3 rows × 2 cols, y=[100..154], anchors at x=100 and x=200.
+        Cell(bbox=bb(100, 118, 100, 200), text="Item",     source="line", confidence=1.0),
+        Cell(bbox=bb(100, 118, 200, 300), text="Qty",      source="line", confidence=1.0),
+        Cell(bbox=bb(118, 136, 100, 200), text="Widget A", source="line", confidence=1.0),
+        Cell(bbox=bb(118, 136, 200, 300), text="10",       source="line", confidence=1.0),
+        Cell(bbox=bb(136, 154, 100, 200), text="Widget B", source="line", confidence=1.0),
+        Cell(bbox=bb(136, 154, 200, 300), text="5",        source="line", confidence=1.0),
+        # Wide bay: 1 cell spanning both columns at y=[154..208] (54pt tall).
+        Cell(
+            bbox=bb(154, 208, 100, 300),
+            text="NOTE: This paragraph sits between two sub-tables flush with "
+                 "the outer frame's top and bottom edges, exercising the bay "
+                 "drop heuristic end to end.",
+            source="line", confidence=1.0,
+        ),
+        # Sub-table B: 3 rows × 2 cols, y=[208..262], same anchors.
+        Cell(bbox=bb(208, 226, 100, 200), text="Month",    source="line", confidence=1.0),
+        Cell(bbox=bb(208, 226, 200, 300), text="Sales",    source="line", confidence=1.0),
+        Cell(bbox=bb(226, 244, 100, 200), text="Jan",      source="line", confidence=1.0),
+        Cell(bbox=bb(226, 244, 200, 300), text="$500",     source="line", confidence=1.0),
+        Cell(bbox=bb(244, 262, 100, 200), text="Feb",      source="line", confidence=1.0),
+        Cell(bbox=bb(244, 262, 200, 300), text="$700",     source="line", confidence=1.0),
+    ]
+    out = aggregate(cells, page_height=792.0)
+    assert len(out) == 2, (
+        f"frame-middle-bay should be dropped, leaving 2 sibling tables; "
+        f"got {len(out)}: {[t.grid for t in out]}"
+    )
+    assert out[0].grid[0] == ["Item", "Qty"]
+    assert out[1].grid[0] == ["Month", "Sales"]
+
+
+def test_wide_line_cell_kept_when_not_flanked_above() -> None:
+    """A wide prose cell at the TOP of a cluster (no flanking grid above)
+    is a legitimate header band / standalone callout — must NOT be dropped.
+    """
+    def bb(y0, y1, x0, x1):
+        return BBox(page=0, x0=x0, y0=y0, x1=x1, y1=y1)
+
+    cells = [
+        # Wide bay at top (no rows above).
+        Cell(
+            bbox=bb(100, 154, 100, 300),
+            text="LEAD-IN: A long paragraph with prose-like characteristics "
+                 "that absolutely fits the bay heuristic on text length and "
+                 "height — but the absence of cells above it disqualifies it.",
+            source="line", confidence=1.0,
+        ),
+        # Multicol grid below.
+        Cell(bbox=bb(154, 172, 100, 200), text="Month",    source="line", confidence=1.0),
+        Cell(bbox=bb(154, 172, 200, 300), text="Sales",    source="line", confidence=1.0),
+        Cell(bbox=bb(172, 190, 100, 200), text="Jan",      source="line", confidence=1.0),
+        Cell(bbox=bb(172, 190, 200, 300), text="$500",     source="line", confidence=1.0),
+    ]
+    out = aggregate(cells, page_height=792.0)
+    # Cell pool retained: at minimum we have not dropped to zero.  The wide
+    # cell may surface in different table shapes depending on clustering,
+    # but its TEXT must appear somewhere in the output.
+    all_text = " ".join(
+        cell for t in out for row in t.grid for cell in row
+    )
+    assert "LEAD-IN" in all_text, (
+        f"wide prose cell at top should NOT be dropped; full grid text: {all_text!r}"
+    )

@@ -284,6 +284,121 @@ def _gap_has_between_text(
     return False
 
 
+# ---------------------------------------------------------------------------
+# Frame-middle-bay drop.
+#
+# pdfplumber's line strategy closes the borderless gap between two stacked
+# sub-grids into a single "cell" when the surrounding outer frame's vertical
+# rails extend continuously across the gap (fixture 24: outer 1×1 BOX with
+# zero padding hosting sub_a + NOTE-paragraph + sub_b).  That synthetic cell
+# IS bordered — but logically it is the outer frame's interior, not a
+# tabular cell.  Left in place, it fuses the two sub-grids into one wide
+# table that absorbs the NOTE prose into row text.
+#
+# The bay is identified structurally — NOT via prose-text heuristics on the
+# wide cell's content alone — by requiring multi-column LINE clusters
+# strictly above AND strictly below the candidate, both inside the
+# candidate's x-range.  Lone callouts, header bands, and footer bands all
+# fail one or both flank checks because they have grid cells on at most
+# one side (cf. fixtures 16 / 13 Annex C / 23 — all KEEP in the cross-fixture
+# audit).
+# ---------------------------------------------------------------------------
+
+# Minimum width (pt) for a candidate frame-bay closure.  Below this the
+# cell is just a wide-ish merged data cell; full-frame closures observed
+# in the 27 fixtures span ≥180pt (fixture 24 = 240pt).
+_BAY_MIN_WIDTH = 180.0
+# Minimum height (pt).  Multi-line wrapped prose runs ~3× the body line
+# height; ordinary colspan headers stay at one line (~12-18pt).  30pt
+# rejects single-line spans while accepting two-line+ prose.
+_BAY_MIN_HEIGHT = 30.0
+# Minimum text length (chars).  Multi-word prose only; short colspan
+# labels (``"Subtotal"``, ``"Q1 2024"``) are typically < 30 chars.
+_BAY_MIN_TEXT_LEN = 50
+# Minimum number of distinct x-anchors required on EACH flanking side.
+# 2 = a real multi-column grid; 1 would match a stack of single-column
+# bordered text blocks (callouts) and over-fire.
+_BAY_MIN_FLANK_COLS = 2
+# Slack on the flanking containment check (cell's x-range inside the bay's).
+_BAY_FLANK_TOL = 2.0
+
+
+def _has_multicol_line_flank(
+    bay: Cell,
+    cells: list[Cell],
+    *,
+    side: str,
+    tol: float = _BAY_FLANK_TOL,
+    min_cols: int = _BAY_MIN_FLANK_COLS,
+) -> bool:
+    """True iff at least ``min_cols`` distinct LINE-cell x0 positions exist
+    strictly above (``side='above'``) or below (``side='below'``) ``bay``,
+    inside its x-range.
+    """
+    if side == "above":
+        flank = [
+            c for c in cells
+            if c is not bay
+            and c.source == "line"
+            and c.bbox.page == bay.bbox.page
+            and c.bbox.y1 <= bay.bbox.y0 + tol
+            and c.bbox.x0 >= bay.bbox.x0 - tol
+            and c.bbox.x1 <= bay.bbox.x1 + tol
+        ]
+    else:  # below
+        flank = [
+            c for c in cells
+            if c is not bay
+            and c.source == "line"
+            and c.bbox.page == bay.bbox.page
+            and c.bbox.y0 >= bay.bbox.y1 - tol
+            and c.bbox.x0 >= bay.bbox.x0 - tol
+            and c.bbox.x1 <= bay.bbox.x1 + tol
+        ]
+    if len(flank) < min_cols:
+        return False
+    distinct_x = {round(c.bbox.x0, 0) for c in flank}
+    return len(distinct_x) >= min_cols
+
+
+def _drop_frame_middle_bays(cells: list[Cell]) -> list[Cell]:
+    """Drop wide bordered cells that are the borderless interior of an
+    outer frame closed by stacked sub-grids' edges (fixture 24).
+
+    A cell qualifies as a frame middle bay when **all** of:
+
+      * ``source == "line"`` (a real pdfplumber line-bounded region)
+      * width ≥ :data:`_BAY_MIN_WIDTH`
+      * height ≥ :data:`_BAY_MIN_HEIGHT` (multi-line wrapped prose)
+      * non-empty text of length ≥ :data:`_BAY_MIN_TEXT_LEN`
+      * ≥ :data:`_BAY_MIN_FLANK_COLS` distinct line-cell x0 positions
+        STRICTLY ABOVE the candidate within its x-range
+      * ≥ :data:`_BAY_MIN_FLANK_COLS` distinct line-cell x0 positions
+        STRICTLY BELOW the candidate within its x-range
+
+    Dropped bays disappear from the cell pool entirely; the surrounding
+    grid cells then split into sibling sub-tables via the existing
+    gap-based row clustering, and the bay's prose text is recovered as a
+    page-level paragraph by :mod:`pdf_parser.stages.segment` and placed in
+    reading order by :mod:`pdf_parser.stages.build_tree` — mirroring
+    fixture 25's text-bearing-gap split path.
+    """
+    kept: list[Cell] = []
+    for c in cells:
+        if (
+            c.source == "line"
+            and (c.bbox.x1 - c.bbox.x0) >= _BAY_MIN_WIDTH
+            and (c.bbox.y1 - c.bbox.y0) >= _BAY_MIN_HEIGHT
+            and len((c.text or "").strip()) >= _BAY_MIN_TEXT_LEN
+            and _has_multicol_line_flank(c, cells, side="above")
+            and _has_multicol_line_flank(c, cells, side="below")
+        ):
+            continue
+        kept.append(c)
+    return kept
+
+
+
 def _split_into_tables(
     rows: list[list[Cell]],
     *,
@@ -950,6 +1065,7 @@ def _aggregate_recursive(
     nested tree — eliminating the double appearance without losing the
     structural link.
     """
+    cells = _drop_frame_middle_bays(cells)
     top_after_sub, nested_pool_sub = _carve_subclusters(cells)
     top_cells, _np_container, container_ids = _carve_container_frames(top_after_sub)
     # Final nested pool: filler-removed (sub-cluster carve) AND container-removed
