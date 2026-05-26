@@ -20,8 +20,12 @@ body {
 }
 .tb {
   position: absolute;
-  overflow: hidden;
-  white-space: nowrap;
+  /* Joined wrapped paragraphs use the union bbox of their visual lines:
+     width matches the column, height spans all lines.  Allow normal wrapping
+     so the joined text re-flows inside that bbox instead of being clipped. */
+  white-space: normal;
+  overflow: visible;
+  line-height: 13.50px;
 }
 .tb-h1 { font-size: 21.00px; font-weight: bold; overflow: visible; }
 .tb-h2 { font-size: 18.00px; font-weight: bold; overflow: visible; }
@@ -30,6 +34,7 @@ body {
 .cell {
   position: absolute;
   overflow: hidden;
+  white-space: pre-line;
   display: flex;
   align-items: center;
   font-size: 11.25px;
@@ -50,7 +55,8 @@ body {
 </style>
 </head>
 <body>
-<div class="page" style="width:918px;height:1188px;"><div class="tb tb-h1" style="left:118.0px;top:124.3px;width:283.1px;height:24.9px;">Simple Table Example</div><div class="tb" style="left:117.3px;top:190.3px;width:235.1px;height:10.9px;">The table below has three columns.</div><div class="cell" style="left:359.4px;top:222.0px;width:69.8px;height:27.0px;background:#D3D3D3;font-weight:bold;">Name</div><div class="cell" style="left:429.2px;top:222.0px;width:73.8px;height:27.0px;background:#D3D3D3;font-weight:bold;">Quantity</div><div class="cell" style="left:503.0px;top:222.0px;width:55.6px;height:27.0px;background:#D3D3D3;font-weight:bold;">Price</div><div class="cell" style="left:359.4px;top:249.0px;width:69.8px;height:27.0px;">Apple</div><div class="cell" style="left:429.2px;top:249.0px;width:73.8px;height:27.0px;">3</div><div class="cell" style="left:503.0px;top:249.0px;width:55.6px;height:27.0px;">$1.00</div><div class="cell" style="left:359.4px;top:276.0px;width:69.8px;height:27.0px;">Banana</div><div class="cell" style="left:429.2px;top:276.0px;width:73.8px;height:27.0px;">6</div><div class="cell" style="left:503.0px;top:276.0px;width:55.6px;height:27.0px;">$0.50</div></div>
+<div class="page" style="width:918px;height:1188px;"><div class="tb tb-h1" style="left:118.0px;top:124.3px;width:283.1px;height:24.9px;">Simple Table Example</div><div class="tb" style="left:117.3px;top:190.3px;width:235.1px;height:10.9px;">The table below has three columns.</div><div class="cell" style="left:359.5px;top:222.0px;width:69.7px;height:27.0px;background:#D3D3D3;font-weight:bold;">Name</div><div class="cell" style="left:429.2px;top:222.0px;width:73.9px;height:27.0px;background:#D3D3D3;font-weight:bold;">Quantity</div><div class="cell" style="left:503.0px;top:222.0px;width:55.5px;height:27.0px;background:#D3D3D3;font-weight:bold;">Price</div><div class="cell" style="left:359.5px;top:249.0px;width:69.7px;height:27.0px;">Apple</div><div class="cell" style="left:429.2px;top:249.0px;width:73.9px;height:27.0px;">3</div><div class="cell" style="left:503.0px;top:249.0px;width:55.5px;height:27.0px;">$1.00</div><div class="cell" style="left:359.5px;top:276.0px;width:69.7px;height:27.0px;">Banana</div><div class="cell" style="left:429.2px;top:276.0px;width:73.9px;height:27.0px;">6</div><div class="cell" style="left:503.0px;top:276.0px;width:55.5px;height:27.0px;">$0.50</div></div>
 
 </body>
 </html>
+

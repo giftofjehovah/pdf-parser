@@ -20,8 +20,12 @@ body {
 }
 .tb {
   position: absolute;
-  overflow: hidden;
-  white-space: nowrap;
+  /* Joined wrapped paragraphs use the union bbox of their visual lines:
+     width matches the column, height spans all lines.  Allow normal wrapping
+     so the joined text re-flows inside that bbox instead of being clipped. */
+  white-space: normal;
+  overflow: visible;
+  line-height: 13.50px;
 }
 .tb-h1 { font-size: 21.00px; font-weight: bold; overflow: visible; }
 .tb-h2 { font-size: 18.00px; font-weight: bold; overflow: visible; }
@@ -30,6 +34,7 @@ body {
 .cell {
   position: absolute;
   overflow: hidden;
+  white-space: pre-line;
   display: flex;
   align-items: center;
   font-size: 11.25px;
@@ -50,7 +55,8 @@ body {
 </style>
 </head>
 <body>
-<div class="page" style="width:918px;height:1188px;"><div class="tb tb-h1" style="left:117.6px;top:124.3px;width:325.2px;height:20.0px;">Text Between Sub-Tables</div><div class="cell" style="left:234.0px;top:177.0px;width:450.0px;height:30.0px;background:#D3D3D3;font-weight:bold;">Section Header</div><div class="cell" style="left:234.0px;top:207.0px;width:450.0px;height:219.0px;"><div class="cell" style="left:9.0px;top:6.0px;width:135.0px;height:27.0px;background:#ADD8E6;font-weight:bold;">Item</div><div class="cell" style="left:144.0px;top:6.0px;width:135.0px;height:27.0px;background:#ADD8E6;font-weight:bold;">Qty</div><div class="cell" style="left:9.0px;top:33.0px;width:135.0px;height:27.0px;">Widget A</div><div class="cell" style="left:144.0px;top:33.0px;width:135.0px;height:27.0px;">10</div><div class="cell" style="left:9.0px;top:60.0px;width:135.0px;height:27.0px;">Widget B</div><div class="cell" style="left:144.0px;top:60.0px;width:135.0px;height:27.0px;">5</div><div class="cell" style="left:9.0px;top:132.0px;width:135.0px;height:27.0px;background:#ADD8E6;font-weight:bold;">Month</div><div class="cell" style="left:144.0px;top:132.0px;width:135.0px;height:27.0px;background:#ADD8E6;font-weight:bold;">Sales</div><div class="cell" style="left:9.0px;top:159.0px;width:135.0px;height:27.0px;">Jan</div><div class="cell" style="left:144.0px;top:159.0px;width:135.0px;height:27.0px;">$500</div><div class="cell" style="left:9.0px;top:186.0px;width:135.0px;height:27.0px;">Feb</div><div class="cell" style="left:144.0px;top:186.0px;width:135.0px;height:27.0px;">$700</div></div><div class="cell" style="left:234.0px;top:426.0px;width:450.0px;height:30.0px;">Section Footer</div></div>
+<div class="page" style="width:918px;height:1188px;"><div class="tb tb-h1" style="left:117.6px;top:124.3px;width:325.2px;height:20.0px;">Text Between Sub-Tables</div><div class="cell" style="left:234.0px;top:177.0px;width:450.0px;height:30.0px;background:#D3D3D3;font-weight:bold;">Section Header</div><div class="cell" style="left:234.0px;top:207.0px;width:450.0px;height:219.0px;"><div class="cell" style="left:9.0px;top:6.0px;width:135.0px;height:27.0px;background:#ADD8E6;font-weight:bold;">Item</div><div class="cell" style="left:144.0px;top:6.0px;width:135.0px;height:27.0px;background:#ADD8E6;font-weight:bold;">Qty</div><div class="cell" style="left:9.0px;top:33.0px;width:135.0px;height:27.0px;">Widget A</div><div class="cell" style="left:144.0px;top:33.0px;width:135.0px;height:27.0px;">10</div><div class="cell" style="left:9.0px;top:60.0px;width:135.0px;height:27.0px;">Widget B</div><div class="cell" style="left:144.0px;top:60.0px;width:135.0px;height:27.0px;">5</div><div class="tb" style="left:9.0px;top:99.1px;width:430.2px;height:33.0px;">NOTE: This paragraph sits between the two sub-tables and must be preserved.</div><div class="cell" style="left:9.0px;top:132.0px;width:135.0px;height:27.0px;background:#ADD8E6;font-weight:bold;">Month</div><div class="cell" style="left:144.0px;top:132.0px;width:135.0px;height:27.0px;background:#ADD8E6;font-weight:bold;">Sales</div><div class="cell" style="left:9.0px;top:159.0px;width:135.0px;height:27.0px;">Jan</div><div class="cell" style="left:144.0px;top:159.0px;width:135.0px;height:27.0px;">$500</div><div class="cell" style="left:9.0px;top:186.0px;width:135.0px;height:27.0px;">Feb</div><div class="cell" style="left:144.0px;top:186.0px;width:135.0px;height:27.0px;">$700</div></div><div class="cell" style="left:234.0px;top:426.0px;width:450.0px;height:30.0px;">Section Footer</div></div>
 
 </body>
 </html>
+
