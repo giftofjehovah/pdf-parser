@@ -44,7 +44,7 @@
           "attrs": {
             "header_signature": [
               "Label",
-              "Section\nIntro:\n(cid:127) Lorem ipsum dolor sit amet consectetur\nadipiscing elit sed do eiusmod tempor\nincididunt ut labore et dolore magna aliqua\nUt enim ad minim veniam quis nostrud\nexercitation ullamco laboris nisi ut aliquip ex\nea commodo consequat Duis aute irure dolor\nin reprehenderit in voluptate velit esse cillum\ndolore eu fugiat nulla pariatur Excepteur sint\noccaecat cupidatat non proident sunt in culpa\nqui officia deserunt mollit anim id est\nlaborum.\n(cid:127) Lorem ipsum dolor sit amet consectetur\nadipiscing elit sed do eiusmod tempor\nincididunt ut labore et dolore magna aliqua\nUt enim ad minim veniam quis nostrud\nexercitation ullamco laboris nisi ut aliquip ex\nea commodo consequat Duis aute irure dolor\nin reprehenderit in voluptate velit esse cillum\ndolore eu fugiat nulla pariatur Excepteur sint\noccaecat cupidatat non proident sunt in culpa\nqui officia deserunt mollit anim id est\nlaborum.\n(cid:127) Lorem ipsum dolor sit amet consectetur\nadipiscing elit sed do eiusmod tempor\nincididunt ut labore et dolore magna aliqua\nUt enim ad minim veniam quis nostrud\nexercitation ullamco laboris nisi ut aliquip ex\nea commodo consequat Duis aute irure dolor\nin reprehenderit in voluptate velit esse cillum\ndolore eu fugiat nulla pariatur Excepteur sint\noccaecat cupidatat non proident sunt in culpa\nqui officia deserunt mollit anim id est\nlaborum.\n(cid:127) Lorem ipsum dolor sit amet consectetur\nadipiscing elit sed do eiusmod tempor\nincididunt ut labore et dolore magna aliqua\nUt enim ad minim veniam quis nostrud\nexercitation ullamco laboris nisi ut aliquip ex\nea commodo consequat Duis aute irure dolor\nin reprehenderit in voluptate velit esse cillum\ndolore eu fugiat nulla pariatur Excepteur sint\noccaecat cupidatat non proident sunt in culpa\nqui officia deserunt mollit anim id est\nlaborum."
+              "Section\nIntro:\n\u2022 Lorem ipsum dolor sit amet consectetur\nadipiscing elit sed do eiusmod tempor\nincididunt ut labore et dolore magna aliqua\nUt enim ad minim veniam quis nostrud\nexercitation ullamco laboris nisi ut aliquip ex\nea commodo consequat Duis aute irure dolor\nin reprehenderit in voluptate velit esse cillum\ndolore eu fugiat nulla pariatur Excepteur sint\noccaecat cupidatat non proident sunt in culpa\nqui officia deserunt mollit anim id est\nlaborum.\n\u2022 Lorem ipsum dolor sit amet consectetur\nadipiscing elit sed do eiusmod tempor\nincididunt ut labore et dolore magna aliqua\nUt enim ad minim veniam quis nostrud\nexercitation ullamco laboris nisi ut aliquip ex\nea commodo consequat Duis aute irure dolor\nin reprehenderit in voluptate velit esse cillum\ndolore eu fugiat nulla pariatur Excepteur sint\noccaecat cupidatat non proident sunt in culpa\nqui officia deserunt mollit anim id est\nlaborum.\n\u2022 Lorem ipsum dolor sit amet consectetur\nadipiscing elit sed do eiusmod tempor\nincididunt ut labore et dolore magna aliqua\nUt enim ad minim veniam quis nostrud\nexercitation ullamco laboris nisi ut aliquip ex\nea commodo consequat Duis aute irure dolor\nin reprehenderit in voluptate velit esse cillum\ndolore eu fugiat nulla pariatur Excepteur sint\noccaecat cupidatat non proident sunt in culpa\nqui officia deserunt mollit anim id est\nlaborum.\n\u2022 Lorem ipsum dolor sit amet consectetur\nadipiscing elit sed do eiusmod tempor\nincididunt ut labore et dolore magna aliqua\nUt enim ad minim veniam quis nostrud\nexercitation ullamco laboris nisi ut aliquip ex\nea commodo consequat Duis aute irure dolor\nin reprehenderit in voluptate velit esse cillum\ndolore eu fugiat nulla pariatur Excepteur sint\noccaecat cupidatat non proident sunt in culpa\nqui officia deserunt mollit anim id est\nlaborum."
             ],
             "n_cols": 2,
             "n_rows": 1,
@@ -104,22 +104,22 @@
                     "y1": 594
                   },
                   "children": [],
-                  "id": "31df2d38331c",
+                  "id": "e9e5fbf7f8cd",
                   "kind": "cell",
                   "provenance": {
                     "extractor": "bottom_up",
                     "stage": "extract_tables_v2"
                   },
-                  "text": "Section\nIntro:\n(cid:127) Lorem ipsum dolor sit amet consectetur\nadipiscing elit sed do eiusmod tempor\nincididunt ut labore et dolore magna aliqua\nUt enim ad minim veniam quis nostrud\nexercitation ullamco laboris nisi ut aliquip ex\nea commodo consequat Duis aute irure dolor\nin reprehenderit in voluptate velit esse cillum\ndolore eu fugiat nulla pariatur Excepteur sint\noccaecat cupidatat non proident sunt in culpa\nqui officia deserunt mollit anim id est\nlaborum.\n(cid:127) Lorem ipsum dolor sit amet consectetur\nadipiscing elit sed do eiusmod tempor\nincididunt ut labore et dolore magna aliqua\nUt enim ad minim veniam quis nostrud\nexercitation ullamco laboris nisi ut aliquip ex\nea commodo consequat Duis aute irure dolor\nin reprehenderit in voluptate velit esse cillum\ndolore eu fugiat nulla pariatur Excepteur sint\noccaecat cupidatat non proident sunt in culpa\nqui officia deserunt mollit anim id est\nlaborum.\n(cid:127) Lorem ipsum dolor sit amet consectetur\nadipiscing elit sed do eiusmod tempor\nincididunt ut labore et dolore magna aliqua\nUt enim ad minim veniam quis nostrud\nexercitation ullamco laboris nisi ut aliquip ex\nea commodo consequat Duis aute irure dolor\nin reprehenderit in voluptate velit esse cillum\ndolore eu fugiat nulla pariatur Excepteur sint\noccaecat cupidatat non proident sunt in culpa\nqui officia deserunt mollit anim id est\nlaborum.\n(cid:127) Lorem ipsum dolor sit amet consectetur\nadipiscing elit sed do eiusmod tempor\nincididunt ut labore et dolore magna aliqua\nUt enim ad minim veniam quis nostrud\nexercitation ullamco laboris nisi ut aliquip ex\nea commodo consequat Duis aute irure dolor\nin reprehenderit in voluptate velit esse cillum\ndolore eu fugiat nulla pariatur Excepteur sint\noccaecat cupidatat non proident sunt in culpa\nqui officia deserunt mollit anim id est\nlaborum."
+                  "text": "Section\nIntro:\n\u2022 Lorem ipsum dolor sit amet consectetur\nadipiscing elit sed do eiusmod tempor\nincididunt ut labore et dolore magna aliqua\nUt enim ad minim veniam quis nostrud\nexercitation ullamco laboris nisi ut aliquip ex\nea commodo consequat Duis aute irure dolor\nin reprehenderit in voluptate velit esse cillum\ndolore eu fugiat nulla pariatur Excepteur sint\noccaecat cupidatat non proident sunt in culpa\nqui officia deserunt mollit anim id est\nlaborum.\n\u2022 Lorem ipsum dolor sit amet consectetur\nadipiscing elit sed do eiusmod tempor\nincididunt ut labore et dolore magna aliqua\nUt enim ad minim veniam quis nostrud\nexercitation ullamco laboris nisi ut aliquip ex\nea commodo consequat Duis aute irure dolor\nin reprehenderit in voluptate velit esse cillum\ndolore eu fugiat nulla pariatur Excepteur sint\noccaecat cupidatat non proident sunt in culpa\nqui officia deserunt mollit anim id est\nlaborum.\n\u2022 Lorem ipsum dolor sit amet consectetur\nadipiscing elit sed do eiusmod tempor\nincididunt ut labore et dolore magna aliqua\nUt enim ad minim veniam quis nostrud\nexercitation ullamco laboris nisi ut aliquip ex\nea commodo consequat Duis aute irure dolor\nin reprehenderit in voluptate velit esse cillum\ndolore eu fugiat nulla pariatur Excepteur sint\noccaecat cupidatat non proident sunt in culpa\nqui officia deserunt mollit anim id est\nlaborum.\n\u2022 Lorem ipsum dolor sit amet consectetur\nadipiscing elit sed do eiusmod tempor\nincididunt ut labore et dolore magna aliqua\nUt enim ad minim veniam quis nostrud\nexercitation ullamco laboris nisi ut aliquip ex\nea commodo consequat Duis aute irure dolor\nin reprehenderit in voluptate velit esse cillum\ndolore eu fugiat nulla pariatur Excepteur sint\noccaecat cupidatat non proident sunt in culpa\nqui officia deserunt mollit anim id est\nlaborum."
                 }
               ],
-              "id": "0b02dfdac4dc",
+              "id": "1971dab64dad",
               "kind": "row",
               "provenance": {},
               "text": null
             }
           ],
-          "id": "2c46492c8c48",
+          "id": "c6f1028e1fbb",
           "kind": "table",
           "provenance": {
             "extractor": "bottom_up",
@@ -128,13 +128,13 @@
           "text": null
         }
       ],
-      "id": "0bd6430f65f4",
+      "id": "e9e16dff5ba0",
       "kind": "page",
       "provenance": {},
       "text": null
     }
   ],
-  "id": "55dae5982625",
+  "id": "9600ea0c2096",
   "kind": "document",
   "provenance": {},
   "text": null

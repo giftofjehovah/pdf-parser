@@ -330,3 +330,33 @@ def test_headerless_keyvalue_table_committed_fixture_matches_regeneration(tmp_pa
     regen = tmp_path / "regen.pdf"
     BUILDERS["29_headerless_keyvalue_table"](regen)
     assert _digest(committed) == _digest(regen)
+
+
+def test_label_rowspan_bulleted_rows_pdf_is_byte_stable(tmp_path):
+    a = tmp_path / "a.pdf"; b = tmp_path / "b.pdf"
+    BUILDERS["30_label_rowspan_bulleted_rows"](a)
+    BUILDERS["30_label_rowspan_bulleted_rows"](b)
+    assert _digest(a) == _digest(b)
+
+
+def test_label_rowspan_bulleted_rows_committed_fixture_matches_regeneration(tmp_path):
+    committed = GOLDEN_DIR / "30_label_rowspan_bulleted_rows" / "source.pdf"
+    assert committed.exists(), "run `python -m tests.fixtures.build_pdfs` first"
+    regen = tmp_path / "regen.pdf"
+    BUILDERS["30_label_rowspan_bulleted_rows"](regen)
+    assert _digest(committed) == _digest(regen)
+
+
+def test_label_with_inline_bullet_cell_pdf_is_byte_stable(tmp_path):
+    a = tmp_path / "a.pdf"; b = tmp_path / "b.pdf"
+    BUILDERS["31_label_with_inline_bullet_cell"](a)
+    BUILDERS["31_label_with_inline_bullet_cell"](b)
+    assert _digest(a) == _digest(b)
+
+
+def test_label_with_inline_bullet_cell_committed_fixture_matches_regeneration(tmp_path):
+    committed = GOLDEN_DIR / "31_label_with_inline_bullet_cell" / "source.pdf"
+    assert committed.exists(), "run `python -m tests.fixtures.build_pdfs` first"
+    regen = tmp_path / "regen.pdf"
+    BUILDERS["31_label_with_inline_bullet_cell"](regen)
+    assert _digest(committed) == _digest(regen)

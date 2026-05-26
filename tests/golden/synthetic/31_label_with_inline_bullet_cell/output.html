@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>PDF Preview</title>
+<style>
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+body {
+  background: #777;
+  padding: 24px;
+  font-family: Helvetica, Arial, sans-serif;
+  font-size: 11.25px;
+}
+.page {
+  position: relative;
+  background: white;
+  margin: 0 auto 32px;
+  box-shadow: 0 4px 24px rgba(0,0,0,.45);
+  overflow: hidden;
+}
+.tb {
+  position: absolute;
+  /* Joined wrapped paragraphs use the union bbox of their visual lines:
+     width matches the column, height spans all lines.  Allow normal wrapping
+     so the joined text re-flows inside that bbox instead of being clipped. */
+  white-space: normal;
+  overflow: visible;
+  line-height: 13.50px;
+}
+.tb-h1 { font-size: 21.00px; font-weight: bold; overflow: visible; }
+.tb-h2 { font-size: 18.00px; font-weight: bold; overflow: visible; }
+.tb-h3 { font-size: 16.50px; font-weight: bold; overflow: visible; }
+.tb-h4 { font-size: 15.00px; font-weight: bold; overflow: visible; }
+.cell {
+  position: absolute;
+  overflow: hidden;
+  white-space: pre-line;
+  display: flex;
+  align-items: center;
+  font-size: 11.25px;
+  line-height: 13.50px;
+  padding: 3.0px 4.5px;
+  border: 0.6px solid #AAAAAA;
+}
+/* heuristic fallback classes (used when no pdf_path is given) */
+.rH { background: #D0D0D0; font-weight: bold; justify-content: center; }
+.rS { background: #E8E8E8; font-weight: bold; font-size: 10.50px; }
+.rT { background: #F0F0F0; font-weight: bold; border-top-color: #000 !important; }
+.rK { background: #DDEEFF; font-weight: bold;
+       border-top: 1.2px solid #000 !important;
+       border-bottom: 1.2px solid #000 !important; }
+.rP { font-style: italic; color: #444; }
+.num { justify-content: flex-end; }
+
+</style>
+</head>
+<body>
+<div class="page" style="width:918px;height:1188px;"><div class="tb tb-h1" style="left:65.1px;top:70.3px;width:345.7px;height:20.0px;">Label with Inline Bullet Cell</div><div class="cell" style="left:113.4px;top:123.0px;width:151.2px;height:25.5px;background:#DDE3EE;font-weight:bold;">Sub-Segment</div><div class="cell" style="left:264.6px;top:123.0px;width:540.0px;height:25.5px;background:#DDE3EE;font-weight:bold;">Client Level Considerations</div><div class="cell" style="left:113.4px;top:148.5px;width:151.2px;height:81.0px;">All Clients</div><div class="cell" style="left:264.6px;top:148.5px;width:540.0px;height:81.0px;">• Extensive track record in their relevant sector.
+• Experienced and diversified management team with clear separation of roles and
+responsibilities.
+• Strong asset base with proven access to capital markets.</div><div class="cell" style="left:113.4px;top:229.5px;width:151.2px;height:133.5px;">Tier One Producers</div><div class="cell" style="left:264.6px;top:229.5px;width:540.0px;height:133.5px;">• We engage selectively with sub-USD1bn-market-cap names under a capital-light
+advisory mandate.
+• Private companies must have a strong financial sponsor (e.g. Orion, EMR, Denham).
+• Asset base sufficiently de-risked through diversification of geographies or
+development stage.
+• Technical specialists must validate any underlying asset that underpins a debt
+facility.</div><div class="cell" style="left:113.4px;top:363.0px;width:151.2px;height:25.5px;">Tier Two Producers</div><div class="cell" style="left:264.6px;top:363.0px;width:540.0px;height:25.5px;">• Substantial trading scale and strong record of financial performance vs. peers.</div></div>
+
+</body>
+</html>
+

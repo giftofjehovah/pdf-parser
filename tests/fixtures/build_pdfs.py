@@ -2692,6 +2692,198 @@ def build_29_headerless_keyvalue_table(out: Path) -> None:
     ]
     doc.build(story)
 
+def build_30_label_rowspan_bulleted_rows(out: Path) -> None:
+    """30_label_rowspan_bulleted_rows: 2-column table where the left column
+    carries a vertically-merged label cell and the right column has each
+    bullet item rendered as its OWN row (visible horizontal grid lines
+    between bullets).
+
+    Real-world manifestation: a credit-underwriting "Client Level
+    Considerations" table where each row group has one short label
+    (``All Clients``, ``Global Mining``, ``Global Metals``) and 1..N
+    bulleted criteria in the adjacent cell, all sharing the same
+    ``INNERGRID`` style.  reportlab's ``SPAN`` command merges the label
+    cell vertically, but the INNERGRID style still draws horizontal
+    strokes between every pair of adjacent rows inside the right column.
+
+    pdfplumber's line strategy faithfully reports one row per bullet --
+    correct at the visible-edge level but unreadable as a parsed tree:
+    each bullet surfaces as its own row, with empty left cells in the
+    continuation rows (col 0 = ``None`` because of the SPAN).
+
+    Expected parse: 1 header row + one row per row-group, with the
+    right-column cell of each row-group carrying the concatenated bullet
+    text.  The
+    :func:`pdf_parser.stages.aggregate_tables._absorb_label_bullet_continuations`
+    pre-pass folds continuation rows into the anchor row when (a) the
+    anchor cell is tall, (b) every continuation cell's y-range lies
+    inside the anchor's, (c) the continuation lives in a different
+    column, and (d) the continuation text starts with a bullet glyph.
+    """
+    from reportlab.lib.enums import TA_LEFT
+    from reportlab.lib.styles import ParagraphStyle
+    from reportlab.lib.units import inch
+
+    body = ParagraphStyle(
+        "body30", fontName="Helvetica", fontSize=9, leading=11, alignment=TA_LEFT,
+    )
+    bold = ParagraphStyle(
+        "bold30", fontName="Helvetica-Bold", fontSize=9, leading=11,
+    )
+
+    def _bullet(text):
+        return Paragraph(f"\u2022 {text}", body)
+
+    rows = [
+        [Paragraph("Sub-Segment", bold),
+         Paragraph("Client Level Considerations", bold)],
+        # Group A: label + 3 bullets.
+        [Paragraph("All Clients", body),
+         _bullet("Extensive track record in their relevant sector.")],
+        ["", _bullet("Experienced and diversified management team with clear "
+                     "separation of roles and responsibilities.")],
+        ["", _bullet("Strong asset base with proven access to capital markets.")],
+        # Group B: label + 4 bullets.
+        [Paragraph("Tier One Producers", body),
+         _bullet("We engage selectively with sub-USD1bn-market-cap names "
+                 "under a capital-light advisory mandate.")],
+        ["", _bullet("Private companies must have a strong financial sponsor "
+                     "(e.g. Orion, EMR, Denham).")],
+        ["", _bullet("Asset base sufficiently de-risked through "
+                     "diversification of geographies or development stage.")],
+        ["", _bullet("Technical specialists must validate any underlying "
+                     "asset that underpins a debt facility.")],
+        # Group C: label + 1 bullet (no continuation -- exercises the
+        # "anchor already lands in a 2-cell row, no merge needed" path).
+        [Paragraph("Tier Two Producers", body),
+         _bullet("Substantial trading scale and strong record of financial "
+                 "performance vs. peers.")],
+    ]
+
+    style = TableStyle([
+        ("BOX",           (0, 0), (-1, -1), 0.75, colors.black),
+        ("INNERGRID",     (0, 0), (-1, -1), 0.5,  colors.black),
+        ("VALIGN",        (0, 0), (-1, -1), "TOP"),
+        ("LEFTPADDING",   (0, 0), (-1, -1), 4),
+        ("RIGHTPADDING",  (0, 0), (-1, -1), 4),
+        ("TOPPADDING",    (0, 0), (-1, -1), 3),
+        ("BOTTOMPADDING", (0, 0), (-1, -1), 3),
+        ("BACKGROUND",    (0, 0), (-1, 0),  colors.HexColor("#DDE3EE")),
+        # Vertically merge the label cells of each multi-bullet group.
+        ("SPAN", (0, 1), (0, 3)),  # All Clients spans rows 1..3
+        ("SPAN", (0, 4), (0, 7)),  # Tier One Producers spans rows 4..7
+        # Group C has only one bullet -- no SPAN required.
+    ])
+
+    tbl = Table(rows, colWidths=[1.4 * inch, 5.0 * inch], style=style)
+    doc = SimpleDocTemplate(
+        str(out), pagesize=LETTER,
+        topMargin=36, bottomMargin=36, leftMargin=36, rightMargin=36,
+    )
+    doc.build([
+        Paragraph("Label Rowspan with Bulleted Rows", _styles()["Heading1"]),
+        Spacer(1, 12),
+        tbl,
+    ])
+
+
+def build_31_label_with_inline_bullet_cell(out: Path) -> None:
+    """31_label_with_inline_bullet_cell: 2-column table where each right
+    cell holds multiple bullets as PARAGRAPHS INSIDE the same cell --
+    i.e. NO horizontal grid lines between bullets.
+
+    Companion of fixture 30 covering the inverse rendering choice: the
+    same logical content (label + N bullets per row group) but with the
+    bullets emitted as a list of flowables inside one ``Table`` cell
+    instead of as individual ``Table`` rows joined by a rowspan SPAN.
+
+    pdfplumber's line strategy detects exactly one row per logical group
+    here (no horizontal stroke separates the bullets), so
+    :func:`pdf_parser.stages.aggregate_tables._absorb_label_bullet_continuations`
+    has no continuation rows to fold -- the absorber is a no-op and the
+    parsed tree falls out identical to fixture 30's post-absorption tree.
+
+    Pinning both rendering choices guarantees the two paths converge to
+    the same DocNode shape: 1 header row + N data rows, each data row
+    carrying a multi-bullet cell on the right.
+    """
+    from reportlab.lib.enums import TA_LEFT
+    from reportlab.lib.styles import ParagraphStyle
+    from reportlab.lib.units import inch
+
+    body = ParagraphStyle(
+        "body31", fontName="Helvetica", fontSize=9, leading=11, alignment=TA_LEFT,
+    )
+    bold = ParagraphStyle(
+        "bold31", fontName="Helvetica-Bold", fontSize=9, leading=11,
+    )
+    bullet_style = ParagraphStyle(
+        "bullet31", parent=body, leftIndent=8, spaceBefore=2,
+    )
+
+    def _bullets(*texts):
+        # List of bullet-prefixed flowables -- reportlab packs them into
+        # ONE Table cell, so no internal horizontal grid line gets drawn
+        # between adjacent paragraphs.
+        return [Paragraph(f"\u2022 {t}", bullet_style) for t in texts]
+
+    rows = [
+        [Paragraph("Sub-Segment", bold),
+         Paragraph("Client Level Considerations", bold)],
+        # Group A: label + 3 bullets packed into one cell.
+        [Paragraph("All Clients", body),
+         _bullets(
+             "Extensive track record in their relevant sector.",
+             "Experienced and diversified management team with clear "
+             "separation of roles and responsibilities.",
+             "Strong asset base with proven access to capital markets.",
+         )],
+        # Group B: label + 4 bullets packed into one cell.
+        [Paragraph("Tier One Producers", body),
+         _bullets(
+             "We engage selectively with sub-USD1bn-market-cap names "
+             "under a capital-light advisory mandate.",
+             "Private companies must have a strong financial sponsor "
+             "(e.g. Orion, EMR, Denham).",
+             "Asset base sufficiently de-risked through diversification "
+             "of geographies or development stage.",
+             "Technical specialists must validate any underlying asset "
+             "that underpins a debt facility.",
+         )],
+        # Group C: label + single bullet -- single-bullet right cell.
+        [Paragraph("Tier Two Producers", body),
+         _bullets(
+             "Substantial trading scale and strong record of financial "
+             "performance vs. peers.",
+         )],
+    ]
+
+    style = TableStyle([
+        ("BOX",           (0, 0), (-1, -1), 0.75, colors.black),
+        ("INNERGRID",     (0, 0), (-1, -1), 0.5,  colors.black),
+        ("VALIGN",        (0, 0), (-1, -1), "TOP"),
+        ("LEFTPADDING",   (0, 0), (-1, -1), 4),
+        ("RIGHTPADDING",  (0, 0), (-1, -1), 4),
+        ("TOPPADDING",    (0, 0), (-1, -1), 3),
+        ("BOTTOMPADDING", (0, 0), (-1, -1), 3),
+        ("BACKGROUND",    (0, 0), (-1, 0),  colors.HexColor("#DDE3EE")),
+        # No SPAN: each row's cells stay in their own row.  INNERGRID
+        # draws a line BETWEEN rows, but not between the bullet
+        # flowables packed inside a single cell.
+    ])
+
+    tbl = Table(rows, colWidths=[1.4 * inch, 5.0 * inch], style=style)
+    doc = SimpleDocTemplate(
+        str(out), pagesize=LETTER,
+        topMargin=36, bottomMargin=36, leftMargin=36, rightMargin=36,
+    )
+    doc.build([
+        Paragraph("Label with Inline Bullet Cell", _styles()["Heading1"]),
+        Spacer(1, 12),
+        tbl,
+    ])
+
+
 BUILDERS = {
     "01_simple_table": build_01_simple_table,
     "02_nested_table": build_02_nested_table,
@@ -2724,6 +2916,8 @@ BUILDERS = {
     "27_ruled_header_prose_body_cell":     build_27_ruled_header_prose_body_cell,
     "28_title_cover_with_meta_lines":      build_28_title_cover_with_meta_lines,
     "29_headerless_keyvalue_table":        build_29_headerless_keyvalue_table,
+    "30_label_rowspan_bulleted_rows":      build_30_label_rowspan_bulleted_rows,
+    "31_label_with_inline_bullet_cell":    build_31_label_with_inline_bullet_cell,
 }
 
 def build_all() -> None:

@@ -59,6 +59,9 @@ def detect_cells(page, page_index: int) -> list[Cell]:
     When neither line nor frame fires, fall back to gutter-based detection,
     and finally to the pdfplumber text-strategy fallback (lowest confidence,
     prose-guarded).
+
+    Before returning, every cell's ``text`` is normalised so unmapped CID
+    bullets render as ``\u2022`` — see :func:`_normalize_cell_text`.
     """
     line = _line_cells(page, page_index)
     frame = _frame_cells(page, page_index, line_cells=line)
@@ -67,11 +70,81 @@ def detect_cells(page, page_index: int) -> list[Cell]:
         if monsters:
             drop_ids = {id(c) for c in monsters}
             line = [c for c in line if id(c) not in drop_ids]
-        return line + frame + body_cells
+        return _normalize_cells(line + frame + body_cells)
     gutter = _gutter_cells(page, page_index)
     if gutter:
-        return gutter
-    return _text_cells(page, page_index)
+        return _normalize_cells(gutter)
+    return _normalize_cells(_text_cells(page, page_index))
+
+
+# ---------------------------------------------------------------------------
+# Cell-text normalisation.
+#
+# pdfplumber's ``extract_text`` / ``extract`` surfaces unmapped CIDs verbatim
+# when an embedded font lacks a ToUnicode entry.  reportlab renders the
+# disc bullet at CID 127 in a Type 1 dingbat font, so every bullet leaks
+# through as the literal string ``"(cid:127)"`` -- the PDF *displays* the
+# bullet correctly (the font's CharStrings draw the right shape) but text
+# extraction never sees the codepoint.
+#
+# The between-text path (``extract_tables_v2._between_text_nodes``) already
+# normalises ``(cid:127)`` -> ``\u2022`` at line leads, but it only runs for
+# paragraphs sitting between nested sub-tables inside a cell.  Plain cell
+# text returned by ``_line_cells`` / ``_gutter_cells`` / ``_text_cells``
+# never crossed that path, so the literal ``(cid:127)`` reached
+# HTML / JSON / markdown / chunks consumers unchanged (fixtures 23 / 30 /
+# 31 + the user-reported M&M pattern).
+#
+# We apply the same conservative line-lead replacement to every Cell on
+# the way out of ``detect_cells``: any line that begins (after lstrip)
+# with ``(cid:127)`` followed by whitespace OR end-of-line becomes
+# ``\u2022`` + the rest.  Mid-line ``(cid:127)`` -- never seen in practice
+# because pdfplumber emits one CID per glyph -- is left alone, so we
+# cannot accidentally rewrite a legitimately unmapped glyph in the
+# middle of a word.
+# ---------------------------------------------------------------------------
+
+_CID_DISC_BULLET = "(cid:127)"
+
+
+def _normalize_cell_text(text: str) -> str:
+    """Replace ``(cid:127)`` at line leads with ``\u2022``."""
+    if _CID_DISC_BULLET not in text:
+        return text
+    out: list[str] = []
+    for line in text.split("\n"):
+        lead = len(line) - len(line.lstrip())
+        body = line[lead:]
+        if body.startswith(_CID_DISC_BULLET):
+            rest = body[len(_CID_DISC_BULLET):]
+            if not rest or rest[0].isspace():
+                line = line[:lead] + "\u2022" + rest
+        out.append(line)
+    return "\n".join(out)
+
+
+def _normalize_cells(cells: list[Cell]) -> list[Cell]:
+    """Return ``cells`` with each ``text`` field normalised.
+
+    Returns the original list unchanged when no cell carried the unmapped
+    CID, so the common path costs only ``"(cid:127)" in s`` per cell.
+    """
+    out: list[Cell] = []
+    changed = False
+    for c in cells:
+        new_text = _normalize_cell_text(c.text)
+        if new_text is c.text or new_text == c.text:
+            out.append(c)
+            continue
+        out.append(Cell(
+            bbox=c.bbox,
+            text=new_text,
+            source=c.source,
+            confidence=c.confidence,
+            bbox_style=c.bbox_style,
+        ))
+        changed = True
+    return out if changed else cells
 
 
 # ---------------------------------------------------------------------------

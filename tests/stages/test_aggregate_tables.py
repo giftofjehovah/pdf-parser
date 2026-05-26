@@ -1,7 +1,17 @@
 """CellTable dataclass shape + empty-input contract for aggregate()."""
+from pathlib import Path
+
+import pdfplumber
+
 from pdf_parser.model import BBox
-from pdf_parser.stages.detect_cells import Cell
-from pdf_parser.stages.aggregate_tables import CellTable, aggregate, _cells_inside, _dedupe_cells
+from pdf_parser.stages.detect_cells import Cell, detect_cells
+from pdf_parser.stages.aggregate_tables import (
+    CellTable,
+    _absorb_label_bullet_continuations,
+    _cells_inside,
+    _dedupe_cells,
+    aggregate,
+)
 
 
 def test_celltable_fields():
@@ -679,4 +689,235 @@ def test_wide_line_cell_kept_when_not_flanked_above() -> None:
     )
     assert "LEAD-IN" in all_text, (
         f"wide prose cell at top should NOT be dropped; full grid text: {all_text!r}"
+    )
+
+
+def test_absorb_label_bullet_continuations_collapses_group() -> None:
+    """Unit: 'tall label + N bullet continuation rows' collapse to one row.
+
+    Synthetic mirror of the M&M / Client-Level-Considerations idiom.  The
+    raw input is what ``_row_cluster`` produces against pdfplumber's per-
+    row output when the left column carries a vertical SPAN and the
+    right column has each bullet on its own row.
+    """
+    bb = lambda x0, y0, x1, y1: BBox(page=0, x0=x0, y0=y0, x1=x1, y1=y1)
+
+    # Single-cell rows as ``_row_cluster`` would emit them (sorted by y0,
+    # then x0; the tall label lands BEFORE its bullets because they
+    # share a y0).
+    rows = [
+        # Header.
+        [Cell(bbox=bb(50, 40, 150, 56),  text="Label",  source="line", confidence=1.0),
+         Cell(bbox=bb(150, 40, 500, 56), text="Detail", source="line", confidence=1.0)],
+        # Group A: tall label + 3 bullets.
+        [Cell(bbox=bb(50, 56, 150, 110), text="All Clients", source="line", confidence=1.0)],
+        [Cell(bbox=bb(150, 56,  500,  72), text="\u2022 first",  source="line", confidence=1.0)],
+        [Cell(bbox=bb(150, 72,  500,  92), text="\u2022 second", source="line", confidence=1.0)],
+        [Cell(bbox=bb(150, 92,  500, 110), text="\u2022 third",  source="line", confidence=1.0)],
+        # Group B: label + single bullet on the same row (no SPAN, no
+        # continuation).  Must pass through untouched.
+        [Cell(bbox=bb(50, 110, 150, 128), text="Solo",       source="line", confidence=1.0),
+         Cell(bbox=bb(150, 110, 500, 128), text="\u2022 just one", source="line", confidence=1.0)],
+    ]
+
+    out = _absorb_label_bullet_continuations(rows)
+
+    # Expected: 3 rows (header + Group A merged + Group B unchanged).
+    assert len(out) == 3, [
+        [(c.bbox.y0, c.bbox.y1, c.text) for c in r] for r in out
+    ]
+
+    # Row 0: header preserved.
+    assert [c.text for c in out[0]] == ["Label", "Detail"]
+
+    # Row 1: anchor + merged bullets.  Anchor stays unchanged; merged
+    # cell text is the bullets joined with newlines; bbox unions them.
+    assert len(out[1]) == 2
+    anchor, merged = out[1]
+    assert anchor.text == "All Clients"
+    assert merged.text == "\u2022 first\n\u2022 second\n\u2022 third"
+    assert (merged.bbox.x0, merged.bbox.x1) == (150, 500)
+    assert (merged.bbox.y0, merged.bbox.y1) == (56, 110)
+
+    # Row 2: untouched (the absorber must not consume a row that already
+    # has 2 cells).
+    assert [c.text for c in out[2]] == ["Solo", "\u2022 just one"]
+
+
+def test_absorb_skips_when_continuation_is_not_a_bullet() -> None:
+    """Discriminator gate: non-bullet continuation rows must NOT merge.
+
+    A data table with a rowspan label (``"Sales" | "Q1" | "$1.2M"``,
+    ``... | "Q2" | "$1.5M"``) reaches the same single-cell shape after
+    ``_row_cluster`` when the bullets-style ``INNERGRID`` is replaced by
+    plain data rows.  The absorber must leave those rows alone.
+    """
+    bb = lambda x0, y0, x1, y1: BBox(page=0, x0=x0, y0=y0, x1=x1, y1=y1)
+
+    rows = [
+        [Cell(bbox=bb(50, 40, 150, 56),  text="Period", source="line", confidence=1.0),
+         Cell(bbox=bb(150, 40, 350, 56), text="Amount", source="line", confidence=1.0)],
+        # Tall label.
+        [Cell(bbox=bb(50, 56, 150, 110), text="Sales", source="line", confidence=1.0)],
+        # Data rows -- no bullet glyphs.
+        [Cell(bbox=bb(150, 56, 350, 74), text="Q1: $1.2M", source="line", confidence=1.0)],
+        [Cell(bbox=bb(150, 74, 350, 92), text="Q2: $1.5M", source="line", confidence=1.0)],
+    ]
+
+    out = _absorb_label_bullet_continuations(rows)
+    # No merging: every row preserved as-is.
+    assert len(out) == len(rows)
+    assert [c.text for r in out for c in r] == [
+        "Period", "Amount", "Sales", "Q1: $1.2M", "Q2: $1.5M",
+    ]
+
+
+def test_absorb_skips_when_anchor_is_not_tall() -> None:
+    """Anchor height gate: short single-cell anchors must NOT swallow their
+    short bullet neighbours below.  Without this gate, a tight stack of
+    bullet-led paragraphs that happen to share a column with a short
+    label above would all collapse into one row -- which is wrong when
+    the label is itself a single short line, not a rowspan."""
+    bb = lambda x0, y0, x1, y1: BBox(page=0, x0=x0, y0=y0, x1=x1, y1=y1)
+
+    rows = [
+        [Cell(bbox=bb(50, 40, 150, 56),  text="L", source="line", confidence=1.0),
+         Cell(bbox=bb(150, 40, 350, 56), text="R", source="line", confidence=1.0)],
+        # Short label (height 16, same as bullets below).
+        [Cell(bbox=bb(50, 56, 150, 72), text="Label", source="line", confidence=1.0)],
+        # Bullets at the SAME height -- not continuations of any rowspan.
+        [Cell(bbox=bb(150, 56, 350, 72), text="\u2022 b1", source="line", confidence=1.0)],
+        [Cell(bbox=bb(150, 72, 350, 88), text="\u2022 b2", source="line", confidence=1.0)],
+    ]
+
+    out = _absorb_label_bullet_continuations(rows)
+    # Anchor is not tall (height 16 == bullet height) so the continuation
+    # condition ``ncell_h < anchor_h - tol`` fails.  Rows pass through.
+    assert len(out) == len(rows)
+
+
+def test_fixture_30_collapses_bullet_continuations_to_logical_rows() -> None:
+    """End-to-end: fixture 30 (label rowspan + bulleted rows) must parse
+    as 1 header row + 3 logical rows -- NOT 1 + 8 (one row per bullet).
+
+    Regression for the M&M / Client-Level-Considerations pattern where
+    pdfplumber's line strategy emits one row per bullet because visible
+    horizontal grid lines exist between bullets inside the right column.
+    """
+    pdf = Path("tests/golden/synthetic/30_label_rowspan_bulleted_rows/source.pdf")
+    assert pdf.exists(), f"fixture missing: {pdf}; run python -m tests.fixtures.build_pdfs"
+
+    with pdfplumber.open(str(pdf)) as plumb:
+        page = plumb.pages[0]
+        cells = detect_cells(page, page_index=0)
+        cell_tables = aggregate(cells, page_height=page.height)
+
+    assert len(cell_tables) == 1, f"expected exactly one table, got {len(cell_tables)}"
+    ct = cell_tables[0]
+
+    # Header + 3 logical rows -- not 1 + 8.
+    assert len(ct.grid) == 4, (
+        f"expected 4 rows after absorption (header + 3 groups); got {len(ct.grid)}: "
+        f"{[[c[:20] for c in r] for r in ct.grid]}"
+    )
+    assert len(ct.grid[0]) == 2 and ct.grid[0] == ["Sub-Segment", "Client Level Considerations"]
+
+    # Group A: label + 3 bullets joined into one cell.
+    label_a, bullets_a = ct.grid[1]
+    assert label_a == "All Clients"
+    assert bullets_a.count("\u2022") == 3, bullets_a
+
+    # Group B: label + 4 bullets joined into one cell.
+    label_b, bullets_b = ct.grid[2]
+    assert label_b == "Tier One Producers"
+    assert bullets_b.count("\u2022") == 4, bullets_b
+
+    # Group C: label + single bullet -- the absorber must NOT have
+    # collapsed anything here because there was no continuation row.
+    label_c, bullets_c = ct.grid[3]
+    assert label_c == "Tier Two Producers"
+    assert bullets_c.count("\u2022") == 1, bullets_c
+
+
+def test_fixture_31_inline_bullet_cell_parses_without_absorption() -> None:
+    """End-to-end: fixture 31 (no horizontal grid lines between bullets)
+    must parse to the SAME shape as fixture 30 -- 1 header row + 3 data
+    rows, each data row's right cell holding the multi-bullet text.
+
+    pdfplumber emits one row per logical group here (visible-edge truth:
+    no horizontal stroke between bullets), so the absorber is a no-op.
+    Pinning the parity guarantees both rendering choices -- bullets as
+    INNERGRID-separated rows (fixture 30) and bullets as flowables
+    packed into one cell (fixture 31) -- converge to the same DocNode
+    tree.
+    """
+    pdf = Path("tests/golden/synthetic/31_label_with_inline_bullet_cell/source.pdf")
+    assert pdf.exists(), f"fixture missing: {pdf}; run python -m tests.fixtures.build_pdfs"
+
+    with pdfplumber.open(str(pdf)) as plumb:
+        page = plumb.pages[0]
+        # Cross-check: pdfplumber itself sees 4 rows here, NOT 1 per
+        # bullet -- that's the structural premise of this fixture.
+        pdfplumber_rows = page.find_tables()[0].rows
+        assert len(pdfplumber_rows) == 4, (
+            f"premise violated: pdfplumber should detect 4 rows when no "
+            f"horizontal stroke separates bullets; got {len(pdfplumber_rows)}"
+        )
+        cells = detect_cells(page, page_index=0)
+        cell_tables = aggregate(cells, page_height=page.height)
+
+    assert len(cell_tables) == 1, f"expected exactly one table, got {len(cell_tables)}"
+    ct = cell_tables[0]
+
+    assert len(ct.grid) == 4, (
+        f"expected 4 rows; got {len(ct.grid)}: "
+        f"{[[c[:20] for c in r] for r in ct.grid]}"
+    )
+    assert ct.grid[0] == ["Sub-Segment", "Client Level Considerations"]
+
+    # Group A: label + 3 bullets in the SAME cell (no row-per-bullet).
+    label_a, bullets_a = ct.grid[1]
+    assert label_a == "All Clients"
+    assert bullets_a.count("\u2022") == 3, bullets_a
+
+    # Group B: label + 4 bullets.
+    label_b, bullets_b = ct.grid[2]
+    assert label_b == "Tier One Producers"
+    assert bullets_b.count("\u2022") == 4, bullets_b
+
+    # Group C: single bullet.
+    label_c, bullets_c = ct.grid[3]
+    assert label_c == "Tier Two Producers"
+    assert bullets_c.count("\u2022") == 1, bullets_c
+
+
+def test_fixtures_30_and_31_produce_equivalent_tree_shape() -> None:
+    """Parity: fixture 30 (INNERGRID between bullets, absorber fires) and
+    fixture 31 (no grid between bullets, absorber no-op) must yield
+    identical row counts, column counts, and per-row bullet counts.
+
+    Locks in the contract that the two rendering choices converge --
+    callers should never have to know which idiom the source PDF used.
+    """
+    paths = {
+        "30": Path("tests/golden/synthetic/30_label_rowspan_bulleted_rows/source.pdf"),
+        "31": Path("tests/golden/synthetic/31_label_with_inline_bullet_cell/source.pdf"),
+    }
+
+    def _shape(p: Path) -> tuple[int, int, tuple[int, ...]]:
+        with pdfplumber.open(str(p)) as plumb:
+            page = plumb.pages[0]
+            cells = detect_cells(page, page_index=0)
+            ct = aggregate(cells, page_height=page.height)[0]
+        bullet_counts = tuple(
+            row[1].count("\u2022")
+            for row in ct.grid[1:]  # skip header
+        )
+        return len(ct.grid), len(ct.grid[0]), bullet_counts
+
+    shape_30 = _shape(paths["30"])
+    shape_31 = _shape(paths["31"])
+    assert shape_30 == shape_31, (
+        f"fixtures 30 and 31 must produce identical shapes; "
+        f"got 30={shape_30}, 31={shape_31}"
     )

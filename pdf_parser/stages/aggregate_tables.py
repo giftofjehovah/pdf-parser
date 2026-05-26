@@ -208,6 +208,142 @@ def _apply_rowspan_merge(rows: list[list[Cell]]) -> list[list[Cell]]:
         adjusted.append(merged)
     return adjusted
 
+# ---------------------------------------------------------------------------
+# Label-then-bullets row absorption.
+#
+# Some PDFs render a 2-column table where the left column carries a tall
+# vertically-merged label cell (rowspan) and the right column holds each
+# bullet item as its OWN row, with visible horizontal grid lines between
+# bullets (M&M / Client-Level-Considerations idiom in real-world credit
+# decks).  pdfplumber's line strategy faithfully reports one row per
+# bullet, which produces an unreadable tree of one-bullet-per-row.
+#
+# After ``_row_cluster``, that pattern surfaces as:
+#
+#     row N    : [Label (tall, col 0, y = Y0..Y1)]
+#     row N+1  : [Bullet 1 (col 1, y = Y0..y_a)]
+#     row N+2  : [Bullet 2 (col 1, y = y_a..y_b)]
+#     ...
+#     row N+k  : [Bullet k (col 1, y = y_{k-1}..Y1)]
+#
+# The label-cell row is single-cell because ``_row_cluster`` buckets by
+# y-midpoint, and the tall label's y-mid never lines up with any bullet's
+# y-mid.  ``_apply_rowspan_merge`` cannot rescue it either: it only
+# relocates tall cells INTO existing multi-cell rows, and here there is
+# no multi-cell row to land in.
+#
+# This pass collapses the group into a single row ``[Label, MergedBullets]``
+# where the merged cell concatenates the bullet texts with newlines and
+# unions their bboxes.  The downstream ``_celltable_to_docnode`` already
+# splits multi-line cell text into ``list_item`` nodes when each line
+# starts with a bullet glyph, so the merged cell renders as a proper
+# bulleted list under one row.
+#
+# Trigger gates (all must hold) -- strict so ordinary multi-row tables
+# (data tables with rowspan labels, e.g. "Q1/Q2/Q3 | $X") are untouched:
+#
+#   * Anchor row is single-cell.
+#   * Anchor cell's height exceeds every following continuation cell's
+#     height (i.e. it's tall relative to the bullet rows it spans).
+#   * Every continuation row is single-cell.
+#   * Every continuation cell's y-range lies inside the anchor cell's
+#     y-range (with sub-pt slack) AND its x-range does not overlap the
+#     anchor's (i.e. they live in different columns).
+#   * Every continuation cell's text starts with a recognised bullet
+#     glyph -- this is the discriminator vs. a real data-table rowspan.
+# ---------------------------------------------------------------------------
+
+# Bullet glyphs that unambiguously mark a cell line as a list item.
+# Mirrors ``extract_tables_v2._CELL_UNAMBIGUOUS_BULLETS``; kept local so
+# ``aggregate_tables`` does not depend on a downstream stage.
+_CONTINUATION_BULLET_GLYPHS = ("\u2022", "\u25e6", "\u25aa", "(cid:127)")
+_CONTAIN_Y_TOL = 1.0
+
+
+def _starts_with_bullet(text: str) -> bool:
+    """True if ``text`` (after lstrip) begins with a recognised bullet glyph."""
+    return (text or "").lstrip().startswith(_CONTINUATION_BULLET_GLYPHS)
+
+
+def _absorb_label_bullet_continuations(rows: list[list[Cell]]) -> list[list[Cell]]:
+    """Collapse 'tall label + N bullet continuation rows' patterns into one row.
+
+    See module-level commentary above for the structural signature and the
+    full set of trigger gates.  No-op when no anchor candidate has any
+    qualifying continuation row beneath it.
+    """
+    if len(rows) < 2:
+        return rows
+
+    out: list[list[Cell]] = []
+    i = 0
+    while i < len(rows):
+        row = rows[i]
+        if len(row) != 1:
+            out.append(row); i += 1; continue
+        anchor = row[0]
+        anchor_h = anchor.bbox.y1 - anchor.bbox.y0
+
+        # Scan forward for continuation rows.
+        continuations: list[Cell] = []
+        j = i + 1
+        while j < len(rows):
+            nxt = rows[j]
+            if len(nxt) != 1:
+                break
+            ncell = nxt[0]
+            if ncell.bbox.page != anchor.bbox.page:
+                break
+            # Continuation must sit inside the anchor's y-range (so the
+            # anchor really does vertically span this row).
+            if not (anchor.bbox.y0 - _CONTAIN_Y_TOL <= ncell.bbox.y0
+                    and ncell.bbox.y1 <= anchor.bbox.y1 + _CONTAIN_Y_TOL):
+                break
+            # Continuation must occupy a different column from the anchor.
+            in_different_col = (
+                ncell.bbox.x1 <= anchor.bbox.x0 + _CONTAIN_Y_TOL
+                or anchor.bbox.x1 <= ncell.bbox.x0 + _CONTAIN_Y_TOL
+            )
+            if not in_different_col:
+                break
+            # Continuation must be shorter than the anchor (rules out the
+            # anchor itself being a single short paragraph followed by
+            # equally short prose).
+            if not ((ncell.bbox.y1 - ncell.bbox.y0) < anchor_h - _CONTAIN_Y_TOL):
+                break
+            # Discriminator: continuation text must begin with a bullet.
+            if not _starts_with_bullet(ncell.text):
+                break
+            continuations.append(ncell)
+            j += 1
+
+        if not continuations:
+            out.append(row); i += 1; continue
+
+        merged_bbox = BBox(
+            page=continuations[0].bbox.page,
+            x0=min(c.bbox.x0 for c in continuations),
+            y0=min(c.bbox.y0 for c in continuations),
+            x1=max(c.bbox.x1 for c in continuations),
+            y1=max(c.bbox.y1 for c in continuations),
+        )
+        merged_cell = Cell(
+            bbox=merged_bbox,
+            text="\n".join(c.text for c in continuations),
+            source=continuations[0].source,
+            confidence=min(c.confidence for c in continuations),
+            bbox_style=continuations[0].bbox_style,
+        )
+        # Replace anchor row with [anchor, merged_continuation], sorted by x0
+        # so the downstream column-anchor pass sees them in left-to-right
+        # order regardless of which column the anchor lives in.
+        merged_row = sorted([anchor, merged_cell], key=lambda c: c.bbox.x0)
+        out.append(merged_row)
+        i = j
+
+    return out
+
+
 
 # Floor on the gap-split threshold: even if the median row height is small
 # (single-line tables of ~3pt), inter-row gaps under this never break the
@@ -1075,7 +1211,9 @@ def _aggregate_recursive(
 
     top: list[CellTable] = []
     for table_rows in _split_into_tables(
-        _apply_rowspan_merge(_row_cluster(top_cells)),
+        _absorb_label_bullet_continuations(
+            _apply_rowspan_merge(_row_cluster(top_cells))
+        ),
         gap_mult=gap_mult,
         page_words=page_words,
     ):
