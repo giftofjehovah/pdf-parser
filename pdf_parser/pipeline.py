@@ -78,31 +78,23 @@ def parse(
     llm_fallback: Optional["LLMFallback"] = None,
     *,
     use_anchor: bool = True,
-    use_bottom_up: bool = False,
+    use_bottom_up: bool = True,
 ) -> DocNode:
     """Parse ``pdf_path`` and return the document tree.
 
-    ``use_anchor`` (default ``True``) controls the column-anchor table
-    detector (see :mod:`pdf_parser.stages.detect_tables_anchor`).  It runs
-    additively after the legacy ``detect_tables`` cascade and recovers
-    borderless tables with long-text cells that legacy's
-    ``_MAX_CELL_TEXT_CHARS`` heuristic rejects.  Set ``False`` to disable
-    (escape hatch for false positives or perf-sensitive callers).
+    ``use_bottom_up`` (default ``True``) selects the bottom-up
+    cell-clustering extractor (:mod:`pdf_parser.stages.extract_tables_v2`).
+    The bottom-up path produces one ``detect_cells`` primitive
+    (line / gutter / text evidence) feeding one ``aggregate_tables``
+    clusterer that emits the same per-page ``DocNode(kind="table")`` tree
+    the downstream :mod:`stitch_pages` + :mod:`build_tree` stages consume.
 
-    Pipeline order: ``extract_tables → augment_with_anchor → stitch_tables``.
-    Anchor runs before stitch so cross-page anchor candidates can be merged
-    into a single table node, matching legacy stitch behaviour.  The stitch
-    stage is intra-extractor: legacy fragments merge with legacy fragments,
-    anchor fragments merge with anchor fragments — they never cross.
-
-    A single ``pdfplumber.PDF`` handle is shared across ``extract_tables``
-    and ``augment_with_anchor_tables`` so an anchor-enabled parse pays at
-    most one PDF open per call.
-
-    ``use_bottom_up`` (default False) selects the bottom-up cell-clustering
-    extractor (:mod:`pdf_parser.stages.extract_tables_v2`) in place of the
-    legacy cascade.  When True, ``use_anchor`` is ignored — bottom-up
-    subsumes the anchor detector's borderless-table recovery.
+    ``use_anchor`` (default ``True``) is retained for the legacy cascade
+    only; ignored when ``use_bottom_up=True`` (bottom-up subsumes the
+    anchor detector's borderless-table recovery).  Pass
+    ``use_bottom_up=False`` to fall back to the legacy
+    ``detect_tables → extract_tables → augment_with_anchor`` pipeline; in
+    that mode ``use_anchor=False`` further disables the anchor overlay.
     """
     pdf_path = Path(pdf_path)
     raw_pages = ingest(pdf_path)

@@ -54,10 +54,10 @@ def parse(
              "this flag to fall back to the legacy detect_tables cascade only.",
     ),
     bottom_up: bool = typer.Option(
-        False, "--bottom-up/--no-bottom-up",
-        help="Use the bottom-up cell-clustering extractor instead of the "
-             "legacy detect_tables cascade. Default off; flip with --bottom-up "
-             "for parity testing.",
+        True, "--bottom-up/--no-bottom-up",
+        help="Use the bottom-up cell-clustering extractor (default: enabled). "
+             "Pass --no-bottom-up to fall back to the legacy detect_tables "
+             "cascade.",
     ),
 ) -> None:
     fb = None
