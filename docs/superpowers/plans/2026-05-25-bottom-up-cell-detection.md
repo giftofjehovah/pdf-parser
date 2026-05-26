@@ -3203,7 +3203,24 @@ If anything fails, STOP and fix before flipping the default. The Phase-10 deleti
 
 ---
 
-# Phase 10 — Flip Default + Delete the Cascade
+# Phase 10 — Flip Default + Delete the Cascade ✅ COMPLETE
+
+**Landed 2026-05-25.**  Bottom-up is the default; the legacy cascade is gone
+(~2,400 LoC across `detect_tables.py`, `detect_tables_anchor.py`,
+`extract_tables.py` + the `scripts/explore_anchor_detector.py` exploration).
+`_between_text_nodes` was inlined into `extract_tables_v2.py` and
+`_visible_edges` was ported into `detect_cells.py` so the bottom-up path
+stands alone.
+
+One detour: fixture 25 surfaced silent data loss (NOTE-MID1 / NOTE-MID2
+dropped) that the prior "wrapper-only divergence" residual notes missed.
+Fixed inline by threading `page_words` through `aggregate` so
+`_split_into_tables` carves the row cluster on text-bearing gaps —
+preserving inter-table prose as page siblings when the closed_rect outer
+frame is rejected by `_frame_cells`.  Goldens for fixtures 22/24/25
+re-baked to the bottom-up canonical (different tree shape, same content).
+
+Final state: 409 passed, 1 skipped, 0 xfailed, 0 failures.
 
 Once Phase 9 is green, the bottom-up path is provably at parity. Phase 10 makes it the default and deletes the legacy code in atomic, easily-revertible commits.
 

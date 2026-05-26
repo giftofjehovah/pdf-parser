@@ -28,12 +28,15 @@ PDF file
   │    • starts with a bullet character                     → list_item
   │    • everything else                                    → paragraph
   │
-  ▼  Stages 3+4 – Detect & Extract Tables  (pdfplumber)
+  ▼  Stages 3+4 – Detect Cells & Aggregate Tables  (pdfplumber)
   │  PDF → list[DocNode]  (table subtrees)
-  │  pdfplumber detects table regions and cell grids. For each region a
-  │  table → row → cell DocNode subtree is built. Merged cells are resolved
-  │  by reconstructing a logical grid from horizontal and vertical lines.
-  │  Each cell is recursively probed for nested tables.
+  │  Bottom-up: `detect_cells` emits Cell records from three evidence sources
+  │  (line-bounded edges, persistent whitespace gutters, pdfplumber text-
+  │  strategy fallback).  `aggregate_tables` deduplicates, clusters into
+  │  rows, splits row groups on text-bearing gaps (preserving inter-table
+  │  paragraphs), and attaches nested sub-tables via spatial containment.
+  │  Each top-level table becomes a `table → row → cell` DocNode subtree;
+  │  merged cells carry `attrs.covered=True`.
   │
   ▼  Stage 5 – Stitch Pages   (pure Python)
   │  list[DocNode] → list[DocNode]  (cross-page tables merged)
