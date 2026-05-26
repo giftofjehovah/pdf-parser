@@ -243,33 +243,38 @@ CASES_DIR = Path("tests/golden/synthetic")
 # ``test_merged_cells_*`` and ``test_annex_e_*`` assertions in
 # ``tests/test_comprehensive.py`` (6 behavioural + 2 parity fixtures).
 #
-# Phase 10 prep deferred (07/13 synthetic-parent bbox parity):
+# Parity pass 4 deferred (fixtures 02 / 07 / 08 / 13 / 26 -- snap-cluster
+# y-bound divergence):
 # pdfplumber's line-strategy ``find_tables`` runs with the default
 # ``snap_tolerance=3``, so H-lines within 3pt of each other (e.g. the
-# outer main-table row boundary at y=208 and the inner sub-table
-# top at y=211 in fixture 07's nested-row band) snap to their
-# midpoint (y=209.5).  Bottom-up's "5" cell at row[5] col[0] then
-# emits at y=209.5..248.5 while legacy uses the un-snapped outer
-# boundaries y=208..250 (legacy reconstructs row geometry from the
-# full-width H-line set directly, not from pdfplumber's snap-tolerant
-# table extraction).  All cells in rows 4/5/6 (and 44/45/46 on page
-# spanned) cascade-differ by 1.5pt on the shared boundary, driving
-# 27 of 27 id divergences in fixture 07 and a proportional share in
-# 13_comprehensive's nested-row bands.
+# outer main-table row boundary at y=208 and the inner sub-table top at
+# y=211 in fixture 07's nested-row band; y=136/y=139 in fixture 02's
+# header/sub-table boundary) snap to their cluster midpoint.  The outer
+# table's row y-bounds then drift ~1.5pt off the visible edge, and the
+# inner sub-table inherits a different midpoint than legacy's per-cell
+# recursive snap on the cropped parent cell.  Cascade-differs every cell
+# in the affected nested-row bands.
 #
-# The Phase-9 ``_carve_subclusters`` synthetic parent inherits the
-# snapped y-extents from its bracket cells, so its bbox matches the
-# bracket cells' bbox — the divergence is upstream in ``detect_cells``,
-# not in the carve.  Reducing ``snap_tolerance`` below 3 would unblock
-# 07/13 parity but risks breaking sub-table detection on fixtures
-# where inner H-lines genuinely overdraw the outer row boundary
-# (fixtures 02/05/11 and the multi-cell rows of 14b).  A safer fix
-# would build line cells directly from the un-snapped visible-edge
-# intersections in a new helper, bypassing pdfplumber's snap heuristic
-# for the outer table boundary only — but that is a broader
-# ``detect_cells`` rewrite outside the allowed Phase-10-prep scope.
-# Left as Phase-10+ parity-only residual; no behavioural test relies
-# on byte-identical y-bounds in the nested-row bands.
+# Attempted fix in this session: ``_unsnap_outer_cell_ys`` -- a per-cell
+# post-pass that re-snaps each y-bound to the visible H-line whose width
+# best matches the cell (legacy ``_outer_line_ys``'s 50%-of-table-width
+# rule applied per cell instead of per table).  Outer cells correctly
+# walked back to the un-snapped wide H-line on fixture 02, but inner
+# sub-cells whose snapped midpoint already matches legacy's rounded
+# midpoint were pushed off it (sub-A: 137.0 -> 139.0), and lattice-filler
+# cells around inner sub-tables in 13_comprehensive's hardware inventory
+# became spurious empty columns (``('', 'cpu-X', 'cpu-Y', '')``).  Net
+# effect: zero parity gain on 02/07/08/13/26, one comprehensive regression
+# on ``test_multicolumn_text_not_misidentified_as_table``.  Reverted.
+#
+# A correct fix needs legacy's two-pass shape: snap-tolerant whole-page
+# detection for top-level tables, separate snap-tolerant CROPPED detection
+# per parent cell for inner sub-tables.  Bottom-up's single-pass
+# whole-page ``_line_cells`` cannot reproduce legacy's cropped-snap
+# midpoints without re-running ``find_tables`` per parent cell -- a
+# substantial rewrite outside the parity-cleanup scope.  Left as
+# Phase-10+ parity-only residual; no behavioural test relies on
+# byte-identical y-bounds in the affected nested-row bands.
 #
 # Phase 10 prep outcome (Residual D — fixtures 17 + Annex D in 13_comprehensive):
 # ``detect_cells._frame_cells`` ports the legacy
