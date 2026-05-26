@@ -363,6 +363,8 @@ Expected output: a single `# Nested Table Example` heading followed by a 3×3 ta
 
 `--visualize <path>` — also render bbox overlays per node kind (heading / paragraph / table / row / cell / …) for human spot-checking. If `<path>` ends in `.pdf`, writes a single multi-page debug PDF. Otherwise treats `<path>` as a directory and writes one PNG per page (`page_000.png`, `page_001.png`, …). Does not affect the stdout output.
 
+`--debug <dir>` — write a self-contained debug bundle to `<dir>` for remote diagnosis. Re-runs the pipeline capturing every intermediate stage and writes: `manifest.json` (versions, file hash, page sizes, per-stage timings, kind counts), `tree.json`, `validate.json`, `stages/01_ingest.json` … `05_stitch.json`, `overlays/01_ingest.pdf` … `06_final.pdf` (one colored overlay per pipeline stage, numbered in pipeline order with 06 as the final assembled tree), `pages/page_NNN.txt` (reading-order text dump per page), and a `README.md` legend. The stage-by-stage overlays let you walk backward (06 → 01) from a wrong final tree to the first stage that already shows the bug. Zip the directory and send it to a maintainer; everything they need is in the bundle. Disables the LLM fallback for the bundle pass — the bundle reports the deterministic stages only.
+
 ## Tests
 
     pytest                                  # everything

@@ -1,4 +1,4 @@
-"""CLI: pdf-parser parse <path> [--format ...] [--output PATH]."""
+"""CLI: pdf-parser parse <path> [--format ...] [--output PATH] [--debug DIR]."""
 
 from __future__ import annotations
 
@@ -47,13 +47,27 @@ def parse(
     validate_only: bool = typer.Option(False, "--validate-only"),
     enable_llm_fallback: bool = typer.Option(False, "--enable-llm-fallback"),
     visualize: Optional[Path] = typer.Option(None, "--visualize"),
+    debug: Optional[Path] = typer.Option(
+        None, "--debug",
+        help="Write a debug bundle (overlays, per-stage JSON, manifest) to DIR. "
+             "Re-runs the pipeline capturing intermediates. Disables --enable-llm-fallback "
+             "for the bundle pass since the bundle reports only the deterministic stages.",
+    ),
 ) -> None:
-    fb = None
-    if enable_llm_fallback:
-        from pdf_parser.fallback.llm import AnthropicLLMClient, LLMFallback
-        fb = LLMFallback(enabled=True, client=AnthropicLLMClient())
-
-    tree = parse_pdf(path, llm_fallback=fb)
+    if debug is not None:
+        # The debug bundle re-runs the pipeline capturing every intermediate.
+        # Skip the regular parse and emit the rendered output from the bundle's tree.
+        from pdf_parser.debug import parse_with_debug, write_bundle
+        bundle = parse_with_debug(path)
+        write_bundle(bundle, debug)
+        tree = bundle.tree
+        typer.echo(f"debug bundle written to {debug}", err=True)
+    else:
+        fb = None
+        if enable_llm_fallback:
+            from pdf_parser.fallback.llm import AnthropicLLMClient, LLMFallback
+            fb = LLMFallback(enabled=True, client=AnthropicLLMClient())
+        tree = parse_pdf(path, llm_fallback=fb)
 
     if validate_only:
         report = validate(tree, path)

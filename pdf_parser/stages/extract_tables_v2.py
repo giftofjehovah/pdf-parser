@@ -33,6 +33,19 @@ def extract_tables(pdf_path: Path, *, pdf=None) -> list[DocNode]:
 
 def _extract(pdf) -> list[DocNode]:
     out: list[DocNode] = []
+    for _page_idx, _cells, _cell_tables, nodes in _per_page(pdf):
+        out.extend(nodes)
+    return out
+
+
+def _per_page(pdf):
+    """Yield ``(page_idx, cells, cell_tables, docnodes)`` for each page.
+
+    Factored out of :func:`_extract` so the debug bundle (which needs the
+    intermediate ``cells`` and ``cell_tables``) can iterate the same loop
+    without duplicating its logic.  Production callers ignore everything
+    except ``docnodes``.
+    """
     for page_idx, page in enumerate(pdf.pages):
         cells = detect_cells(page, page_idx)
         # ``page.extract_words`` feeds aggregate's between-text gap split so
@@ -43,13 +56,12 @@ def _extract(pdf) -> list[DocNode]:
         page_words = page.extract_words(
             keep_blank_chars=False, use_text_flow=False,
         )
-        tables = aggregate(
+        cell_tables = aggregate(
             cells, page_height=float(page.height), page_words=page_words,
         )
         page_chars = page.chars
-        for t in tables:
-            out.append(_celltable_to_docnode(t, page_chars=page_chars))
-    return out
+        nodes = [_celltable_to_docnode(t, page_chars=page_chars) for t in cell_tables]
+        yield page_idx, cells, cell_tables, nodes
 
 
 def _celltable_to_docnode(
