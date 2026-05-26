@@ -189,11 +189,18 @@ CASES_DIR = Path("tests/golden/synthetic")
 # split cleanly.  This unblocks the two ``test_annex_c_*`` assertions in
 # ``tests/test_comprehensive.py`` and the ``test_16_keeps_between_text``
 # regression in ``tests/stages/test_extract_tables_v2_between.py``.
-# Strict id-set parity for 16/17 still fails: legacy emits an 11x1 outer
-# wrapper with empty-placeholder rows whose y-extents mirror the inner
-# sub-table row boundaries, while bottom-up emits a 3x1 wrapper (header /
-# container / footer); IDs cascade-differ.  Fixtures 24/25 + Annex D
-# outer 'Spanning Header' have NO line-detected container cell at all —
+# Parity pass 3 outcome (fixture 16 — full id-set parity):
+# ``aggregate_tables._expand_wrapper_with_placeholders`` runs after the
+# nested-attachment loop on each 1xN wrapper.  Each nested sub-table whose
+# width spans >= 50% of the wrapper's width contributes its row_bboxes y0/y1
+# as wrapper H-line positions (mirrors legacy ``_outer_line_ys``'s 50% rule
+# in ``extract_tables.py``); positions strictly inside the container row's
+# y-range form covered placeholder rows at the wrapper's full width,
+# shifting any existing footer / trailing rows down accordingly.  Fixture 17
+# is untouched because its inner sub-tables are 180pt wide vs the wrapper's
+# 400pt (45% < 50%) -- no qualifying H-lines, no expansion.  Fixtures
+# 24/25 + Annex D outer 'Spanning Header' have NO line-detected container
+# cell at all --
 # pdfplumber's line strategy collapses 24's outer frame into a single
 # table sharing internal cells, while 25 and Annex D have no outer rule
 # evidence whatsoever.  Legacy promotes those wrappers via the anchor
@@ -290,7 +297,6 @@ _XFAIL_CASES: set[str] = {
     "07_page_spanning_with_nested",
     "08_page_spanning_subtable_split",
     "13_comprehensive",
-    "16_text_between_subtables",
     "22_text_between_adjacent_tables",
     "24_subtable_flush_outer_edges",
     "25_subtable_flush_outer_vertical_only",

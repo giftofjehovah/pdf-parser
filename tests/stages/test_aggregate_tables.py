@@ -292,9 +292,12 @@ def test_outer_frame_container_carves_nested_subtables():
     yielding a flat 6-row table from the fused sub-tables instead of a
     1xN outer wrapper hosting the sub-tables as nested.
 
-    Expected behaviour: aggregate emits ONE top-level 3x1 outer table whose
-    middle cell hosts both sub-tables as nested children.  Header
-    signature is the first row's text.
+    Expected behaviour: aggregate emits ONE top-level outer wrapper whose
+    container cell hosts both sub-tables as nested children, plus 8 covered
+    placeholder rows mirroring the inner sub-table row boundaries (the
+    legacy ``_logical_grid_from_table`` convention -- see
+    ``test_wrapper_expands_placeholder_rows_when_inner_h_lines_span_majority``).
+    Header signature is the first row's text.
     """
     bb = lambda x0, y0, x1, y1: BBox(page=0, x0=x0, y0=y0, x1=x1, y1=y1)
     cells = [
@@ -324,11 +327,15 @@ def test_outer_frame_container_carves_nested_subtables():
     )
     outer = tables[0]
     assert outer.header_signature == ("Section Header",)
-    # 3x1 wrapper: Header, container (empty text), Footer.
-    assert len(outer.grid) == 3
+    # Header / container / 8 placeholders / footer.  Placeholder expansion
+    # is covered separately in
+    # ``test_wrapper_expands_placeholder_rows_when_inner_h_lines_span_majority``;
+    # this test focuses on the carve-out + nested attachment, so we just
+    # check the header / footer slots and the nested sub-tables.
+    assert len(outer.grid) == 11
     assert all(len(r) == 1 for r in outer.grid)
     assert outer.grid[0] == ["Section Header"]
-    assert outer.grid[2] == ["Section Footer"]
+    assert outer.grid[10] == ["Section Footer"]
     # Both sub-tables attached as nested.
     nested_sigs = {t.header_signature for t in outer.nested}
     assert nested_sigs == {("Item", "Qty"), ("Month", "Sales")}, (
@@ -433,3 +440,81 @@ def test_single_row_single_column_rejected():
     ]
     tables = aggregate(cells, page_height=792.0)
     assert tables == [], f"lone 1-col cell must not surface as a table, got {tables}"
+
+
+def test_wrapper_expands_placeholder_rows_when_inner_h_lines_span_majority():
+    """1xN wrapper with nested sub-tables whose width >= 50% of the wrapper's
+    width gets placeholder rows mirroring the inner sub-tables' row boundaries.
+
+    Mirrors fixture 16 (text-between-subtables): legacy's
+    ``_logical_grid_from_table`` collects every H-line whose width spans
+    at least 50% of the outer-table width as a row boundary; inner
+    sub-table H-lines that pass the 50% gate become wrapper rows (with the
+    container cell rowspan-extended over them, emitting them as
+    ``covered=True`` slots at the wrapper's full width).
+    """
+    bb = lambda x0, y0, x1, y1: BBox(page=0, x0=x0, y0=y0, x1=x1, y1=y1)
+    wrapper_x0, wrapper_x1 = 156, 456  # width 300
+    inner_x0, inner_x1 = 162, 342      # width 180; 180/300 = 0.60 >= 0.50
+    cells = [
+        Cell(bbox=bb(wrapper_x0, 118, wrapper_x1, 138), text="Section Header", source="line", confidence=1.0),
+        Cell(bbox=bb(wrapper_x0, 138, wrapper_x1, 284), text="container",      source="line", confidence=1.0),
+        Cell(bbox=bb(wrapper_x0, 284, wrapper_x1, 304), text="Section Footer", source="line", confidence=1.0),
+        Cell(bbox=bb(inner_x0, 142, 252, 160), text="Item",     source="line", confidence=1.0),
+        Cell(bbox=bb(252,      142, inner_x1, 160), text="Qty", source="line", confidence=1.0),
+        Cell(bbox=bb(inner_x0, 160, 252, 178), text="Widget A", source="line", confidence=1.0),
+        Cell(bbox=bb(252,      160, inner_x1, 178), text="10",  source="line", confidence=1.0),
+        Cell(bbox=bb(inner_x0, 178, 252, 196), text="Widget B", source="line", confidence=1.0),
+        Cell(bbox=bb(252,      178, inner_x1, 196), text="5",   source="line", confidence=1.0),
+        Cell(bbox=bb(inner_x0, 226, 252, 244), text="Month",    source="line", confidence=1.0),
+        Cell(bbox=bb(252,      226, inner_x1, 244), text="Sales",source="line", confidence=1.0),
+        Cell(bbox=bb(inner_x0, 244, 252, 262), text="Jan",      source="line", confidence=1.0),
+        Cell(bbox=bb(252,      244, inner_x1, 262), text="$500", source="line", confidence=1.0),
+        Cell(bbox=bb(inner_x0, 262, 252, 280), text="Feb",      source="line", confidence=1.0),
+        Cell(bbox=bb(252,      262, inner_x1, 280), text="$700", source="line", confidence=1.0),
+    ]
+    tables = aggregate(cells, page_height=792.0)
+    assert len(tables) == 1, f"expected 1 wrapper, got {len(tables)}"
+    w = tables[0]
+    assert w.header_signature == ("Section Header",)
+    # 1 header + 1 container + 8 placeholders + 1 footer = 11.
+    assert len(w.grid) == 11, f"expected 11 rows, got {len(w.grid)}"
+    assert w.grid[0] == ["Section Header"]
+    assert w.grid[10] == ["Section Footer"]
+    # Container row keeps its full y-extent on its cell bbox.
+    assert (w.cell_bboxes[1][0].y0, w.cell_bboxes[1][0].y1) == (138, 284)
+    for r_idx in range(2, 10):
+        assert (r_idx, 0) in w.covered, f"row {r_idx} must be covered"
+        cb = w.cell_bboxes[r_idx][0]
+        assert (cb.x0, cb.x1) == (wrapper_x0, wrapper_x1)
+    expected_y_pairs = [
+        (142, 160), (160, 178), (178, 196), (196, 226),
+        (226, 244), (244, 262), (262, 280), (280, 284),
+    ]
+    actual = [(w.cell_bboxes[r][0].y0, w.cell_bboxes[r][0].y1) for r in range(2, 10)]
+    assert actual == expected_y_pairs, (
+        f"placeholder y-pairs mismatch:\n  expected: {expected_y_pairs}\n  actual:   {actual}"
+    )
+
+
+def test_wrapper_skips_placeholder_expansion_when_inner_h_lines_too_narrow():
+    """Inner sub-tables whose width < 50% of wrapper width do NOT contribute
+    placeholder rows.  Mirrors fixture 17 per-page wrapper: wrapper width
+    400, inner sub-table width 180 (45%) -- below the 50% gate, so the
+    per-page wrapper stays 2x1.
+    """
+    bb = lambda x0, y0, x1, y1: BBox(page=0, x0=x0, y0=y0, x1=x1, y1=y1)
+    cells = [
+        Cell(bbox=bb(106, 118, 506, 138), text="Section Header", source="line", confidence=1.0),
+        Cell(bbox=bb(106, 138, 506, 712), text="container",      source="line", confidence=1.0),
+        Cell(bbox=bb(112, 142, 202, 160), text="Item",   source="line", confidence=1.0),
+        Cell(bbox=bb(202, 142, 292, 160), text="Qty",    source="line", confidence=1.0),
+        Cell(bbox=bb(112, 160, 202, 178), text="Widget A", source="line", confidence=1.0),
+        Cell(bbox=bb(202, 160, 292, 178), text="10",     source="line", confidence=1.0),
+        Cell(bbox=bb(112, 178, 202, 196), text="Widget B", source="line", confidence=1.0),
+        Cell(bbox=bb(202, 178, 292, 196), text="5",      source="line", confidence=1.0),
+    ]
+    tables = aggregate(cells, page_height=792.0)
+    assert len(tables) == 1
+    w = tables[0]
+    assert len(w.grid) == 2, f"expected 2-row wrapper, got {len(w.grid)}"

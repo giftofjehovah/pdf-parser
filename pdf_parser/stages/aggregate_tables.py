@@ -716,6 +716,123 @@ def _build_single_col_wrapper(
     )
 
 
+# Wrapper-placeholder gate: a nested sub-table whose width spans at least
+# this fraction of the wrapper's width contributes its row-y boundaries as
+# wrapper H-lines.  Matches legacy ``_outer_line_ys``'s 50% rule in
+# ``extract_tables.py`` -- inner sub-table H-lines that pass the gate get
+# treated as outer row boundaries, producing covered placeholder rows in
+# the wrapper that mirror the inner sub-table row layout.
+_WRAPPER_INNER_H_LINE_WIDTH_RATIO = 0.5
+# Inset tolerance for "strictly inside the container row" -- inner H-lines
+# whose y equals the container's y0 or y1 (e.g. the container's own top /
+# bottom edge) are the wrapper's outer rows, not placeholders.
+_WRAPPER_INNER_TOL = 1.0
+
+
+def _expand_wrapper_with_placeholders(ct: CellTable) -> None:
+    """Insert covered placeholder rows mirroring inner sub-table row
+    boundaries that span at least :data:`_WRAPPER_INNER_H_LINE_WIDTH_RATIO`
+    of the wrapper's width.
+
+    Mirrors legacy ``_logical_grid_from_table`` (extract_tables.py
+    lines 178-186 + 51-81): every H-line wider than 50% of the outer
+    table's width is a row boundary; inner sub-table H-lines that pass
+    the gate become wrapper rows.  The container cell rowspan-covers
+    them so they emit as ``covered=True`` slots at the wrapper's full
+    width.
+
+    No-op when:
+      * ``ct`` is not a 1xN wrapper (some row has >=2 cells).
+      * No nested sub-table passes the width gate (fixture 17 per-page
+        wrapper: inner sub-table 180pt, wrapper 400pt -> 45% < 50%).
+      * No inner H-line position lies strictly inside the container's
+        y-range (sub-tables flush to the container top/bottom only).
+
+    Mutates ``ct`` in place: extends ``grid``, ``cell_bboxes``,
+    ``row_bboxes`` with the new placeholders and shifts existing
+    ``covered`` entries for rows after the container down by the
+    number of inserted placeholders.
+    """
+    if not ct.nested:
+        return
+    if any(len(r) != 1 for r in ct.grid):
+        return
+    wrapper_width = ct.bbox.x1 - ct.bbox.x0
+    if wrapper_width <= 0:
+        return
+    qualifying = [
+        s for s in ct.nested
+        if (s.bbox.x1 - s.bbox.x0) / wrapper_width >= _WRAPPER_INNER_H_LINE_WIDTH_RATIO
+    ]
+    if not qualifying:
+        return
+
+    container_r_idx: int | None = None
+    for r_idx, row_bbs in enumerate(ct.cell_bboxes):
+        cb = row_bbs[0]
+        if any(
+            s.bbox.y0 >= cb.y0 - _WRAPPER_INNER_TOL
+            and s.bbox.y1 <= cb.y1 + _WRAPPER_INNER_TOL
+            for s in qualifying
+        ):
+            container_r_idx = r_idx
+            break
+    if container_r_idx is None:
+        return
+
+    container_bb = ct.cell_bboxes[container_r_idx][0]
+    h_positions: set[float] = set()
+    for s in qualifying:
+        for rb in s.row_bboxes:
+            for y in (rb.y0, rb.y1):
+                if (container_bb.y0 + _WRAPPER_INNER_TOL
+                        < y
+                        < container_bb.y1 - _WRAPPER_INNER_TOL):
+                    h_positions.add(y)
+    if not h_positions:
+        return
+
+    # Pairs of consecutive boundaries, final pair ending at container.y1.
+    boundary_ys = sorted(h_positions) + [container_bb.y1]
+    placeholder_pairs = [
+        (boundary_ys[i], boundary_ys[i + 1])
+        for i in range(len(boundary_ys) - 1)
+    ]
+    if not placeholder_pairs:
+        return
+
+    page = ct.bbox.page
+    insertion_r = container_r_idx + 1
+    shift_n = len(placeholder_pairs)
+
+    shifted_covered: set[tuple[int, int]] = {
+        (r + shift_n, c) if r >= insertion_r else (r, c)
+        for (r, c) in ct.covered
+    }
+
+    new_grid = list(ct.grid[:insertion_r])
+    new_cell_bboxes = list(ct.cell_bboxes[:insertion_r])
+    new_row_bboxes = list(ct.row_bboxes[:insertion_r])
+    for new_offset, (y0, y1) in enumerate(placeholder_pairs):
+        new_r = insertion_r + new_offset
+        new_grid.append([""])
+        new_cell_bboxes.append([BBox(
+            page=page, x0=ct.bbox.x0, y0=y0, x1=ct.bbox.x1, y1=y1,
+        )])
+        new_row_bboxes.append(BBox(
+            page=page, x0=ct.bbox.x0, y0=y0, x1=ct.bbox.x1, y1=y1,
+        ))
+        shifted_covered.add((new_r, 0))
+    new_grid.extend(ct.grid[insertion_r:])
+    new_cell_bboxes.extend(ct.cell_bboxes[insertion_r:])
+    new_row_bboxes.extend(ct.row_bboxes[insertion_r:])
+
+    ct.grid = new_grid
+    ct.cell_bboxes = new_cell_bboxes
+    ct.row_bboxes = new_row_bboxes
+    ct.covered = shifted_covered
+
+
 def _aggregate_recursive(
     cells: list[Cell],
     page_height: float,
@@ -801,6 +918,7 @@ def _aggregate_recursive(
                 ct.nested.extend(sub_tables)
                 # Clear the parent cell's text — the nested table replaces it.
                 ct.grid[r_idx][c_idx] = ""
+        _expand_wrapper_with_placeholders(ct)
         top.append(ct)
 
     nested_bboxes: set = set()
