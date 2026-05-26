@@ -39,10 +39,15 @@ CASES_DIR = Path("tests/golden/synthetic")
 # + Item/Qty/Price strips) -- page-wide gutter detection cannot recover
 # them because the three idioms share no consistent column structure.
 #
-# Fixture 23 (bordered-cell-with-bulleted-prose) remains xfailed: its sole
-# table is a header band that fills the entire page with no body below,
-# so re-extraction collects zero words.  Legacy reaches it via the anchor
-# detector's borderless-frame promotion, not the bottom-up cell path.
+# Parity pass 2 outcome (fixture 23 — full id-set parity):
+# the bordered-cell-with-bulleted-prose fixture is a single full-page
+# table whose row is split horizontally into Label + Section by a
+# visible vertical -- pdfplumber's line strategy emits two cells, one
+# row, two columns.  ``_rows_to_celltable``'s 1-row gate
+# (``if len(rows) < 2``) was rejecting it; relaxed to
+# ``if all(len(r) < 2 for r in rows)`` so 1xN candidates pass while
+# 1-row 1-col candidates (lone bordered blocks, split-off footers)
+# remain rejected.  Behaviourally a no-op for the other 26 fixtures.
 #
 # Comprehensive assertions un-xfailed under Residual E:
 #   * ``test_annex_a_open_body_table`` (Name/Score/Grade 5x3)
@@ -287,7 +292,6 @@ _XFAIL_CASES: set[str] = {
     "13_comprehensive",
     "16_text_between_subtables",
     "22_text_between_adjacent_tables",
-    "23_bordered_cell_with_bulleted_prose",
     "24_subtable_flush_outer_edges",
     "25_subtable_flush_outer_vertical_only",
     "26_spanning_subtable_flush_at_break",

@@ -397,3 +397,39 @@ def test_rowspan_tall_cell_marks_following_row_covered():
     # Row 3: independent, no rowspan leakage.
     assert t.grid[3] == ["South", "300", "400"]
     assert (3, 0) not in t.covered, "row 3 must not be marked covered"
+
+
+def test_single_row_multi_column_emits_celltable():
+    """A 1-row N-col line-detected candidate forms a CellTable.
+
+    Mirrors fixture 23 (bordered-cell-with-bulleted-prose): pdfplumber's
+    line strategy emits a single horizontal band split into >=2 vertical
+    cells by visible verticals.  Legacy's ``_logical_grid_from_table``
+    accepts this as a 1xN logical grid; bottom-up must too, or the cells
+    surface as loose paragraphs / lists instead of a table.
+
+    The negative-direction guard (single 1-col cell) stays in place:
+    ``all(len(r) < 2 for r in rows)`` still rejects 1-row 1-col candidates
+    so lone bordered text blocks and split-off footers do not become
+    spurious tables.
+    """
+    bb = lambda x0, y0, x1, y1: BBox(page=0, x0=x0, y0=y0, x1=x1, y1=y1)
+    cells = [
+        Cell(bbox=bb(190, 118, 241, 594), text="Label",   source="line", confidence=1.0),
+        Cell(bbox=bb(241, 118, 421, 594), text="Section", source="line", confidence=1.0),
+    ]
+    tables = aggregate(cells, page_height=792.0)
+    assert len(tables) == 1, f"expected 1 table, got {len(tables)}"
+    t = tables[0]
+    assert t.grid == [["Label", "Section"]]
+    assert t.header_signature == ("Label", "Section")
+
+
+def test_single_row_single_column_rejected():
+    """A 1-row 1-col candidate must NOT become a table (lone bordered block)."""
+    bb = lambda x0, y0, x1, y1: BBox(page=0, x0=x0, y0=y0, x1=x1, y1=y1)
+    cells = [
+        Cell(bbox=bb(100, 100, 400, 200), text="Lone block", source="line", confidence=1.0),
+    ]
+    tables = aggregate(cells, page_height=792.0)
+    assert tables == [], f"lone 1-col cell must not surface as a table, got {tables}"

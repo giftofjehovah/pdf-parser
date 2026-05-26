@@ -395,7 +395,11 @@ def _rows_to_celltable(
     (no spanning cell in this row) fall back to anchor x + row y, and
     slots whose y-range falls inside an earlier row's TALL cell at the
     same column inherit the tall cell's bbox (rowspan covered)."""
-    if len(rows) < 2 or all(len(r) < 2 for r in rows):
+    # Accept 1-row N-col candidates (fixture 23: a single bordered band
+    # split into Label + bulleted-prose by visible verticals).  Reject
+    # only when EVERY row is a single cell -- lone bordered blocks and
+    # split-off footers must not surface as spurious tables.
+    if all(len(r) < 2 for r in rows):
         return None
     anchors = _column_anchors(rows)
     n_cols = len(anchors)
