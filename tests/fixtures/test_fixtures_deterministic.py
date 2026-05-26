@@ -285,3 +285,48 @@ def test_spanning_subtable_flush_at_break_committed_fixture_matches_regeneration
     regen = tmp_path / "regen.pdf"
     BUILDERS["26_spanning_subtable_flush_at_break"](regen)
     assert _digest(committed) == _digest(regen)
+
+
+def test_ruled_header_prose_body_cell_pdf_is_byte_stable(tmp_path):
+    a = tmp_path / "a.pdf"; b = tmp_path / "b.pdf"
+    BUILDERS["27_ruled_header_prose_body_cell"](a)
+    BUILDERS["27_ruled_header_prose_body_cell"](b)
+    assert _digest(a) == _digest(b)
+
+
+def test_ruled_header_prose_body_cell_committed_fixture_matches_regeneration(tmp_path):
+    committed = GOLDEN_DIR / "27_ruled_header_prose_body_cell" / "source.pdf"
+    assert committed.exists(), "run `python -m tests.fixtures.build_pdfs` first"
+    regen = tmp_path / "regen.pdf"
+    BUILDERS["27_ruled_header_prose_body_cell"](regen)
+    assert _digest(committed) == _digest(regen)
+
+
+def test_title_cover_with_meta_lines_pdf_is_byte_stable(tmp_path):
+    a = tmp_path / "a.pdf"; b = tmp_path / "b.pdf"
+    BUILDERS["28_title_cover_with_meta_lines"](a)
+    BUILDERS["28_title_cover_with_meta_lines"](b)
+    assert _digest(a) == _digest(b)
+
+
+def test_title_cover_with_meta_lines_committed_fixture_matches_regeneration(tmp_path):
+    committed = GOLDEN_DIR / "28_title_cover_with_meta_lines" / "source.pdf"
+    assert committed.exists(), "run `python -m tests.fixtures.build_pdfs` first"
+    regen = tmp_path / "regen.pdf"
+    BUILDERS["28_title_cover_with_meta_lines"](regen)
+    assert _digest(committed) == _digest(regen)
+
+
+def test_headerless_keyvalue_table_pdf_is_byte_stable(tmp_path):
+    a = tmp_path / "a.pdf"; b = tmp_path / "b.pdf"
+    BUILDERS["29_headerless_keyvalue_table"](a)
+    BUILDERS["29_headerless_keyvalue_table"](b)
+    assert _digest(a) == _digest(b)
+
+
+def test_headerless_keyvalue_table_committed_fixture_matches_regeneration(tmp_path):
+    committed = GOLDEN_DIR / "29_headerless_keyvalue_table" / "source.pdf"
+    assert committed.exists(), "run `python -m tests.fixtures.build_pdfs` first"
+    regen = tmp_path / "regen.pdf"
+    BUILDERS["29_headerless_keyvalue_table"](regen)
+    assert _digest(committed) == _digest(regen)

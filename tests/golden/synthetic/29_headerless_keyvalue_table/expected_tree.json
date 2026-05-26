@@ -1,0 +1,259 @@
+{
+  "attrs": {},
+  "bbox": {
+    "page": 0,
+    "x0": 0,
+    "x1": 0,
+    "y0": 0,
+    "y1": 0
+  },
+  "children": [
+    {
+      "attrs": {
+        "page_index": 0
+      },
+      "bbox": {
+        "page": 0,
+        "x0": 0,
+        "x1": 612,
+        "y0": 0,
+        "y1": 792
+      },
+      "children": [
+        {
+          "attrs": {
+            "level": 1
+          },
+          "bbox": {
+            "page": 0,
+            "x0": 79,
+            "x1": 329,
+            "y0": 83,
+            "y1": 100
+          },
+          "children": [],
+          "id": "f7bfea6cbf34",
+          "kind": "heading",
+          "provenance": {
+            "extractor": "segment",
+            "stage": "build_tree"
+          },
+          "text": "Headerless Key-Value Listing"
+        },
+        {
+          "attrs": {
+            "header_signature": [
+              "Revenue",
+              "$1000"
+            ],
+            "n_cols": 2,
+            "n_rows": 3,
+            "page": 0,
+            "page_height": 792.0
+          },
+          "bbox": {
+            "page": 0,
+            "x0": 212,
+            "x1": 360,
+            "y0": 124,
+            "y1": 174
+          },
+          "children": [
+            {
+              "attrs": {
+                "page": 0,
+                "row_index": 0
+              },
+              "bbox": {
+                "page": 0,
+                "x0": 212,
+                "x1": 360,
+                "y0": 124,
+                "y1": 174
+              },
+              "children": [
+                {
+                  "attrs": {
+                    "align": "left"
+                  },
+                  "bbox": {
+                    "page": 0,
+                    "x0": 212,
+                    "x1": 332,
+                    "y0": 124,
+                    "y1": 134
+                  },
+                  "children": [],
+                  "id": "6d6953378635",
+                  "kind": "cell",
+                  "provenance": {
+                    "extractor": "bottom_up",
+                    "stage": "extract_tables_v2"
+                  },
+                  "text": "Revenue"
+                },
+                {
+                  "attrs": {
+                    "align": "left"
+                  },
+                  "bbox": {
+                    "page": 0,
+                    "x0": 332,
+                    "x1": 360,
+                    "y0": 124,
+                    "y1": 134
+                  },
+                  "children": [],
+                  "id": "34c12f5874a5",
+                  "kind": "cell",
+                  "provenance": {
+                    "extractor": "bottom_up",
+                    "stage": "extract_tables_v2"
+                  },
+                  "text": "$1000"
+                }
+              ],
+              "id": "d82f1a190f29",
+              "kind": "row",
+              "provenance": {},
+              "text": null
+            },
+            {
+              "attrs": {
+                "page": 0,
+                "row_index": 1
+              },
+              "bbox": {
+                "page": 0,
+                "x0": 212,
+                "x1": 360,
+                "y0": 124,
+                "y1": 174
+              },
+              "children": [
+                {
+                  "attrs": {
+                    "align": "left"
+                  },
+                  "bbox": {
+                    "page": 0,
+                    "x0": 212,
+                    "x1": 332,
+                    "y0": 144,
+                    "y1": 154
+                  },
+                  "children": [],
+                  "id": "92386455cf95",
+                  "kind": "cell",
+                  "provenance": {
+                    "extractor": "bottom_up",
+                    "stage": "extract_tables_v2"
+                  },
+                  "text": "Expenses"
+                },
+                {
+                  "attrs": {
+                    "align": "left"
+                  },
+                  "bbox": {
+                    "page": 0,
+                    "x0": 332,
+                    "x1": 360,
+                    "y0": 144,
+                    "y1": 154
+                  },
+                  "children": [],
+                  "id": "599c6dffc027",
+                  "kind": "cell",
+                  "provenance": {
+                    "extractor": "bottom_up",
+                    "stage": "extract_tables_v2"
+                  },
+                  "text": "$800"
+                }
+              ],
+              "id": "4dd32926d8a4",
+              "kind": "row",
+              "provenance": {},
+              "text": null
+            },
+            {
+              "attrs": {
+                "page": 0,
+                "row_index": 2
+              },
+              "bbox": {
+                "page": 0,
+                "x0": 212,
+                "x1": 360,
+                "y0": 124,
+                "y1": 174
+              },
+              "children": [
+                {
+                  "attrs": {
+                    "align": "left"
+                  },
+                  "bbox": {
+                    "page": 0,
+                    "x0": 212,
+                    "x1": 332,
+                    "y0": 164,
+                    "y1": 174
+                  },
+                  "children": [],
+                  "id": "0881af0bfdc0",
+                  "kind": "cell",
+                  "provenance": {
+                    "extractor": "bottom_up",
+                    "stage": "extract_tables_v2"
+                  },
+                  "text": "Net"
+                },
+                {
+                  "attrs": {
+                    "align": "left"
+                  },
+                  "bbox": {
+                    "page": 0,
+                    "x0": 332,
+                    "x1": 360,
+                    "y0": 164,
+                    "y1": 174
+                  },
+                  "children": [],
+                  "id": "e00a580b86f4",
+                  "kind": "cell",
+                  "provenance": {
+                    "extractor": "bottom_up",
+                    "stage": "extract_tables_v2"
+                  },
+                  "text": "$200"
+                }
+              ],
+              "id": "b8b9d9cce88c",
+              "kind": "row",
+              "provenance": {},
+              "text": null
+            }
+          ],
+          "id": "008532a58a66",
+          "kind": "table",
+          "provenance": {
+            "extractor": "bottom_up",
+            "stage": "extract_tables_v2"
+          },
+          "text": null
+        }
+      ],
+      "id": "fa2dd3b5288a",
+      "kind": "page",
+      "provenance": {},
+      "text": null
+    }
+  ],
+  "id": "862fa420a74f",
+  "kind": "document",
+  "provenance": {},
+  "text": null
+}

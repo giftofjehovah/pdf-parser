@@ -1,0 +1,34 @@
+{
+  "children": [
+    {
+      "children": [
+        {
+          "kind": "heading",
+          "text": "Project Phoenix Sample"
+        },
+        {
+          "kind": "heading",
+          "text": "Generic Subtitle Placeholder"
+        },
+        {
+          "kind": "heading",
+          "text": "01 January 2099"
+        },
+        {
+          "kind": "paragraph",
+          "text": "Authored by: Alice Example, Lead Coordinator, Sample Department"
+        },
+        {
+          "kind": "paragraph",
+          "text": "Reviewed by: Bob Placeholder, Quality Reviewer, Sample Department"
+        },
+        {
+          "kind": "paragraph",
+          "text": "Expires on: 31 December 2099"
+        }
+      ],
+      "kind": "page"
+    }
+  ],
+  "kind": "document"
+}

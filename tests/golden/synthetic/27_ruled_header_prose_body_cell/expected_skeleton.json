@@ -1,0 +1,65 @@
+{
+  "children": [
+    {
+      "children": [
+        {
+          "kind": "heading",
+          "text": "Ruled Header Over Prose Body Cell"
+        },
+        {
+          "children": [
+            {
+              "children": [
+                {
+                  "kind": "cell",
+                  "text": "A"
+                },
+                {
+                  "kind": "cell",
+                  "text": "B"
+                },
+                {
+                  "kind": "cell",
+                  "text": "C"
+                },
+                {
+                  "kind": "cell",
+                  "text": "D"
+                },
+                {
+                  "kind": "cell",
+                  "text": "data"
+                }
+              ],
+              "kind": "row"
+            },
+            {
+              "children": [
+                {
+                  "kind": "cell",
+                  "text": "o Long Term Strategic Planning Workgroup (\"LTSPW\"): A periodic recurring meeting / standing\ngroup with participation drawn from across various functions including Resource Planning, Quality\nAssurance Office (QAO) Team, Internal Reviewers, Subject-Matter/Discipline Experts, and the\nOperational Risk Management department has been formally constituted under the supervision of\nthe Central Review Board (\"CRB\") in the prior planning cycle. The purpose of the group is to\nreview, validate, approve and track progress across all initiatives that have been flagged as high\npriority and/or are not aligned with the agreed delivery roadmap of the programme."
+                },
+                {
+                  "kind": "cell"
+                },
+                {
+                  "kind": "cell"
+                },
+                {
+                  "kind": "cell"
+                },
+                {
+                  "kind": "cell"
+                }
+              ],
+              "kind": "row"
+            }
+          ],
+          "kind": "table"
+        }
+      ],
+      "kind": "page"
+    }
+  ],
+  "kind": "document"
+}

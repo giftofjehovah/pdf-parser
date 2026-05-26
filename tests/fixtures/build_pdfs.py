@@ -2496,6 +2496,201 @@ def build_26_spanning_subtable_flush_at_break(out: Path) -> None:
     doc.build(story)
 
 
+def build_27_ruled_header_prose_body_cell(out: Path) -> None:
+    """27_ruled_header_prose_body_cell: ruled multi-column header band above
+    a single full-width bordered body cell containing a wrapped, justified
+    bulleted paragraph.
+
+    Real-world manifestation: a description paragraph inside a bordered
+    document cell where the immediately preceding row is the bottom of a
+    multi-column data band (last visible header cell, e.g. ``data``).
+    pdfplumber's line strategy emits the row above as N side-by-side cells
+    and the prose body as one full-width "monster" line cell — the same
+    geometric pattern fixtures 19 / 20 use for legitimate row-strip tables.
+
+    Without the prose guard in
+    :func:`pdf_parser.stages.detect_cells._ruled_header_body_cells`, the
+    re-extractor bins every word in the paragraph into the header's N
+    column x-ranges by x-midpoint.  Because the paragraph is justified to
+    flush both margins, word positions shift line-to-line and the
+    rendered output shows vertical column lines slicing through the
+    prose — visually a multi-column mini-table that does not exist.
+
+    Expected parse: one outer 2-row table where the body row is a single
+    paragraph spanning the full header width — no fragmenting of sentences
+    across the 5 column boundaries.
+
+    Adversarial parameters chosen to hit ``_ruled_header_body_cells`` and
+    nothing else:
+
+      * 5 narrow header columns (80 pt each) — wide enough that several
+        words land in each column per visual line of binned prose.
+      * Justified body (TA_JUSTIFY) — flushes each wrapped line to the
+        full body width so binning fragments sentences across columns.
+      * 8 lines of wrapped prose — well above the 3-line floor that
+        ``_classify_body`` would treat as a structureless body.
+      * No internal vertical line in the body cell — pdfplumber's line
+        strategy emits ONE monster cell spanning the full header width
+        rather than 5 per-column body cells (fixture-01 idiom is
+        skipped, fixture-19/20 monster idiom is matched).
+    """
+    from reportlab.lib.enums import TA_JUSTIFY
+    from reportlab.lib.styles import ParagraphStyle
+
+    body_style = ParagraphStyle(
+        "body27", fontName="Helvetica", fontSize=11, leading=14,
+        alignment=TA_JUSTIFY, wordWrap=None,
+    )
+    bullet_style = ParagraphStyle(
+        "bullet27", parent=body_style, leftIndent=16, bulletIndent=4,
+        alignment=TA_JUSTIFY,
+    )
+    # The wrap dynamics matter as much as the content: every interior line
+    # ends just before a long compound word so the justifier has to stretch
+    # the preceding shorter words across the full body width.  Synthetic
+    # placeholder content with no real-world referent.
+    prose = Paragraph(
+        "Long Term Strategic Planning Workgroup (\"LTSPW\"): A periodic "
+        "recurring meeting / standing group with participation drawn from "
+        "across various functions including Resource Planning, Quality "
+        "Assurance Office (QAO) Team, Internal Reviewers, "
+        "Subject-Matter/Discipline Experts, and the Operational Risk "
+        "Management department has been formally constituted under the "
+        "supervision of the Central Review Board (\"CRB\") in the prior "
+        "planning cycle. The purpose of the group is to review, validate, "
+        "approve and track progress across all initiatives that have been "
+        "flagged as high priority and/or are not aligned with the agreed "
+        "delivery roadmap of the programme.",
+        bullet_style,
+        bulletText="o",
+    )
+    tbl = Table(
+        [
+            ["A", "B", "C", "D", "data"],     # 5-col ruled header band
+            [prose, "", "", "", ""],          # body row, spanned full-width
+        ],
+        style=TableStyle([
+            ("GRID", (0, 0), (-1, -1), 0.5, colors.black),
+            ("SPAN", (0, 1), (-1, 1)),
+            ("BACKGROUND", (0, 0), (-1, 0), colors.lightgrey),
+            ("VALIGN", (0, 0), (-1, -1), "TOP"),
+            ("LEFTPADDING",   (0, 0), (-1, -1), 4),
+            ("RIGHTPADDING",  (0, 0), (-1, -1), 4),
+            ("TOPPADDING",    (0, 0), (-1, -1), 4),
+            ("BOTTOMPADDING", (0, 0), (-1, -1), 4),
+        ]),
+        colWidths=[100, 100, 100, 100, 100],
+    )
+    doc = SimpleDocTemplate(str(out), pagesize=LETTER)
+    doc.build([
+        Paragraph("Ruled Header Over Prose Body Cell", _styles()["Heading1"]),
+        Spacer(1, 12),
+        tbl,
+    ])
+
+
+def build_28_title_cover_with_meta_lines(out: Path) -> None:
+    """28_title_cover_with_meta_lines: a title cover page with three stacked
+    label/value meta lines at a shared left margin.
+
+    Real-world manifestation: a title cover page that renders as::
+
+        Project Phoenix Sample                             (H1, blue)
+        Generic Subtitle Placeholder                       (H2, green)
+        01 January 2099                                    (H3, green)
+                                                           (vertical gap)
+        Authored by: Alice Example, Lead Coordinator, Sample Department
+        Reviewed by: Bob Placeholder, Quality Reviewer, Sample Department
+        Expires on: 31 December 2099
+
+    The three meta lines share a left margin and form exactly the
+    minimum 3-line run that
+    :func:`pdf_parser.stages.detect_cells._find_column_gutters` requires.
+    If the colon-padded gap after each label projects a persistent
+    whitespace column, ``_gutter_cells`` would emit a 3 x 2 spurious
+    table; the prose guard ``_is_gutter_table_shape`` must reject it on
+    avg-cell-length (the value cells run ~30-50 chars) before the table
+    surfaces.
+
+    Expected parse: three heading nodes for the title block, then three
+    paragraph nodes for the meta lines.  NO table on this page.
+    """
+    from reportlab.lib.styles import ParagraphStyle
+
+    blue = colors.HexColor("#0033A0")
+    green = colors.HexColor("#2E7D32")
+
+    h1 = ParagraphStyle(
+        "cover28_h1", fontName="Helvetica-Bold", fontSize=28, leading=34,
+        textColor=blue, spaceAfter=8,
+    )
+    h2 = ParagraphStyle(
+        "cover28_h2", fontName="Helvetica-Bold", fontSize=24, leading=30,
+        textColor=green, spaceAfter=6,
+    )
+    h3 = ParagraphStyle(
+        "cover28_h3", fontName="Helvetica-Bold", fontSize=16, leading=22,
+        textColor=green, spaceAfter=8,
+    )
+    body = ParagraphStyle(
+        "cover28_body", fontName="Helvetica", fontSize=11, leading=14,
+        spaceAfter=18,
+    )
+
+    doc = SimpleDocTemplate(str(out), pagesize=LETTER,
+                            topMargin=72, leftMargin=72,
+                            rightMargin=72, bottomMargin=72)
+    doc.build([
+        Paragraph("Project Phoenix Sample", h1),
+        Paragraph("Generic Subtitle Placeholder", h2),
+        Paragraph("01 January 2099", h3),
+        Spacer(1, 96),
+        Paragraph("Authored by: Alice Example, Lead Coordinator, "
+                  "Sample Department", body),
+        Paragraph("Reviewed by: Bob Placeholder, Quality Reviewer, "
+                  "Sample Department", body),
+        Paragraph("Expires on: 31 December 2099", body),
+    ])
+
+
+
+
+def build_29_headerless_keyvalue_table(out: Path) -> None:
+    """29_headerless_keyvalue_table: borderless 3-row x 2-col key-value
+    listing with no header row.
+
+    Tests the new ``table_validation.validate`` predicate's headerless
+    acceptance path.  No row carries a bold / larger font; ``has_header_row``
+    must return ``False`` and the homogeneity threshold stays at 0.75.
+    Two columns of consistent kinds (col 0: short labels, col 1: currency
+    values) clear the higher bar at 1.00, so the gutter detector emits the
+    table without needing positive header evidence.
+
+    Generic placeholder financial data only — Revenue / Expenses / Net
+    against three round-dollar values.  No real-world content.
+    """
+    doc = SimpleDocTemplate(str(out), pagesize=LETTER)
+    s = _styles()
+    data = [
+        ["Revenue",  "$1000"],
+        ["Expenses", "$800"],
+        ["Net",      "$200"],
+    ]
+    t = Table(data, colWidths=[120, 80])
+    t.setStyle(TableStyle([
+        # Same font / size on every row — no header signature.
+        ("FONTNAME",      (0, 0), (-1, -1), "Helvetica"),
+        ("FONTSIZE",      (0, 0), (-1, -1), 10),
+        ("TOPPADDING",    (0, 0), (-1, -1), 4),
+        ("BOTTOMPADDING", (0, 0), (-1, -1), 4),
+        # No GRID / BOX — fully borderless.
+    ]))
+    story = [
+        Paragraph("Headerless Key-Value Listing", s["Heading1"]),
+        Spacer(1, 12),
+        t,
+    ]
+    doc.build(story)
 
 BUILDERS = {
     "01_simple_table": build_01_simple_table,
@@ -2526,6 +2721,9 @@ BUILDERS = {
     "24_subtable_flush_outer_edges":      build_24_subtable_flush_outer_edges,
     "25_subtable_flush_outer_vertical_only": build_25_subtable_flush_outer_vertical_only,
     "26_spanning_subtable_flush_at_break": build_26_spanning_subtable_flush_at_break,
+    "27_ruled_header_prose_body_cell":     build_27_ruled_header_prose_body_cell,
+    "28_title_cover_with_meta_lines":      build_28_title_cover_with_meta_lines,
+    "29_headerless_keyvalue_table":        build_29_headerless_keyvalue_table,
 }
 
 def build_all() -> None:

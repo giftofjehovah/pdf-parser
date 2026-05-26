@@ -12,6 +12,7 @@ from pathlib import Path
 
 from pdf_parser.pipeline import parse
 from pdf_parser.render.json_ import to_json
+from pdf_parser.render.html import to_html
 
 ROOT = Path(__file__).resolve().parents[1]
 SYNTH = ROOT / "tests" / "golden" / "synthetic"
@@ -52,11 +53,13 @@ def update_case(case_dir: Path) -> None:
     pdf = case_dir / "source.pdf"
     if not pdf.exists():
         raise SystemExit(f"missing {pdf}")
-    tree = parse(pdf, **_load_parser_config(case_dir))
+    cfg = _load_parser_config(case_dir)
+    tree = parse(pdf, **cfg)
     full = json.loads(to_json(tree))
     full = _strip_bbox_noise(full)
     (case_dir / "expected_tree.json").write_text(json.dumps(full, indent=2, sort_keys=True) + "\n")
     (case_dir / "expected_skeleton.json").write_text(json.dumps(_skeleton(full), indent=2, sort_keys=True) + "\n")
+    (case_dir / "output.html").write_text(to_html(tree, pdf_path=pdf) + "\n")
     print(f"updated {case_dir.name}")
 
 

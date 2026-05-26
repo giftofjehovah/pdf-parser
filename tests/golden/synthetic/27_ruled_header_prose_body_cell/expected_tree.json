@@ -1,0 +1,327 @@
+{
+  "attrs": {},
+  "bbox": {
+    "page": 0,
+    "x0": 0,
+    "x1": 0,
+    "y0": 0,
+    "y1": 0
+  },
+  "children": [
+    {
+      "attrs": {
+        "page_index": 0
+      },
+      "bbox": {
+        "page": 0,
+        "x0": 0,
+        "x1": 612,
+        "y0": 0,
+        "y1": 792
+      },
+      "children": [
+        {
+          "attrs": {
+            "level": 1
+          },
+          "bbox": {
+            "page": 0,
+            "x0": 79,
+            "x1": 382,
+            "y0": 83,
+            "y1": 100
+          },
+          "children": [],
+          "id": "e14077f41555",
+          "kind": "heading",
+          "provenance": {
+            "extractor": "segment",
+            "stage": "build_tree"
+          },
+          "text": "Ruled Header Over Prose Body Cell"
+        },
+        {
+          "attrs": {
+            "header_signature": [
+              "A",
+              "B",
+              "C",
+              "D",
+              "data"
+            ],
+            "n_cols": 5,
+            "n_rows": 2,
+            "page": 0,
+            "page_height": 792.0
+          },
+          "bbox": {
+            "page": 0,
+            "x0": 56,
+            "x1": 556,
+            "y0": 118,
+            "y1": 244
+          },
+          "children": [
+            {
+              "attrs": {
+                "page": 0,
+                "row_index": 0
+              },
+              "bbox": {
+                "page": 0,
+                "x0": 56,
+                "x1": 556,
+                "y0": 118,
+                "y1": 244
+              },
+              "children": [
+                {
+                  "attrs": {
+                    "align": "left"
+                  },
+                  "bbox": {
+                    "page": 0,
+                    "x0": 56,
+                    "x1": 156,
+                    "y0": 118,
+                    "y1": 138
+                  },
+                  "children": [],
+                  "id": "9c2da67da0f5",
+                  "kind": "cell",
+                  "provenance": {
+                    "extractor": "bottom_up",
+                    "stage": "extract_tables_v2"
+                  },
+                  "text": "A"
+                },
+                {
+                  "attrs": {
+                    "align": "left"
+                  },
+                  "bbox": {
+                    "page": 0,
+                    "x0": 156,
+                    "x1": 256,
+                    "y0": 118,
+                    "y1": 138
+                  },
+                  "children": [],
+                  "id": "57fd945226de",
+                  "kind": "cell",
+                  "provenance": {
+                    "extractor": "bottom_up",
+                    "stage": "extract_tables_v2"
+                  },
+                  "text": "B"
+                },
+                {
+                  "attrs": {
+                    "align": "left"
+                  },
+                  "bbox": {
+                    "page": 0,
+                    "x0": 256,
+                    "x1": 356,
+                    "y0": 118,
+                    "y1": 138
+                  },
+                  "children": [],
+                  "id": "97591178c733",
+                  "kind": "cell",
+                  "provenance": {
+                    "extractor": "bottom_up",
+                    "stage": "extract_tables_v2"
+                  },
+                  "text": "C"
+                },
+                {
+                  "attrs": {
+                    "align": "left"
+                  },
+                  "bbox": {
+                    "page": 0,
+                    "x0": 356,
+                    "x1": 456,
+                    "y0": 118,
+                    "y1": 138
+                  },
+                  "children": [],
+                  "id": "9c5ee7786319",
+                  "kind": "cell",
+                  "provenance": {
+                    "extractor": "bottom_up",
+                    "stage": "extract_tables_v2"
+                  },
+                  "text": "D"
+                },
+                {
+                  "attrs": {
+                    "align": "left"
+                  },
+                  "bbox": {
+                    "page": 0,
+                    "x0": 456,
+                    "x1": 556,
+                    "y0": 118,
+                    "y1": 138
+                  },
+                  "children": [],
+                  "id": "149c4f37ff61",
+                  "kind": "cell",
+                  "provenance": {
+                    "extractor": "bottom_up",
+                    "stage": "extract_tables_v2"
+                  },
+                  "text": "data"
+                }
+              ],
+              "id": "5d1ab8a3879e",
+              "kind": "row",
+              "provenance": {},
+              "text": null
+            },
+            {
+              "attrs": {
+                "page": 0,
+                "row_index": 1
+              },
+              "bbox": {
+                "page": 0,
+                "x0": 56,
+                "x1": 556,
+                "y0": 118,
+                "y1": 244
+              },
+              "children": [
+                {
+                  "attrs": {
+                    "align": "left"
+                  },
+                  "bbox": {
+                    "page": 0,
+                    "x0": 56,
+                    "x1": 556,
+                    "y0": 138,
+                    "y1": 244
+                  },
+                  "children": [],
+                  "id": "1b5171c2a79e",
+                  "kind": "cell",
+                  "provenance": {
+                    "extractor": "bottom_up",
+                    "stage": "extract_tables_v2"
+                  },
+                  "text": "o Long Term Strategic Planning Workgroup (\"LTSPW\"): A periodic recurring meeting / standing\ngroup with participation drawn from across various functions including Resource Planning, Quality\nAssurance Office (QAO) Team, Internal Reviewers, Subject-Matter/Discipline Experts, and the\nOperational Risk Management department has been formally constituted under the supervision of\nthe Central Review Board (\"CRB\") in the prior planning cycle. The purpose of the group is to\nreview, validate, approve and track progress across all initiatives that have been flagged as high\npriority and/or are not aligned with the agreed delivery roadmap of the programme."
+                },
+                {
+                  "attrs": {
+                    "align": "right",
+                    "covered": true
+                  },
+                  "bbox": {
+                    "page": 0,
+                    "x0": 156,
+                    "x1": 256,
+                    "y0": 138,
+                    "y1": 244
+                  },
+                  "children": [],
+                  "id": "7af11a85ca9c",
+                  "kind": "cell",
+                  "provenance": {
+                    "extractor": "bottom_up",
+                    "stage": "extract_tables_v2"
+                  },
+                  "text": ""
+                },
+                {
+                  "attrs": {
+                    "align": "right",
+                    "covered": true
+                  },
+                  "bbox": {
+                    "page": 0,
+                    "x0": 256,
+                    "x1": 356,
+                    "y0": 138,
+                    "y1": 244
+                  },
+                  "children": [],
+                  "id": "31be92feb820",
+                  "kind": "cell",
+                  "provenance": {
+                    "extractor": "bottom_up",
+                    "stage": "extract_tables_v2"
+                  },
+                  "text": ""
+                },
+                {
+                  "attrs": {
+                    "align": "right",
+                    "covered": true
+                  },
+                  "bbox": {
+                    "page": 0,
+                    "x0": 356,
+                    "x1": 456,
+                    "y0": 138,
+                    "y1": 244
+                  },
+                  "children": [],
+                  "id": "5f9e783bea8e",
+                  "kind": "cell",
+                  "provenance": {
+                    "extractor": "bottom_up",
+                    "stage": "extract_tables_v2"
+                  },
+                  "text": ""
+                },
+                {
+                  "attrs": {
+                    "align": "left",
+                    "covered": true
+                  },
+                  "bbox": {
+                    "page": 0,
+                    "x0": 456,
+                    "x1": 556,
+                    "y0": 138,
+                    "y1": 244
+                  },
+                  "children": [],
+                  "id": "f489afceaabd",
+                  "kind": "cell",
+                  "provenance": {
+                    "extractor": "bottom_up",
+                    "stage": "extract_tables_v2"
+                  },
+                  "text": ""
+                }
+              ],
+              "id": "6e5ba59f1ef2",
+              "kind": "row",
+              "provenance": {},
+              "text": null
+            }
+          ],
+          "id": "befe875dd3d6",
+          "kind": "table",
+          "provenance": {
+            "extractor": "bottom_up",
+            "stage": "extract_tables_v2"
+          },
+          "text": null
+        }
+      ],
+      "id": "a477cc1df23e",
+      "kind": "page",
+      "provenance": {},
+      "text": null
+    }
+  ],
+  "id": "f6769fef5a91",
+  "kind": "document",
+  "provenance": {},
+  "text": null
+}

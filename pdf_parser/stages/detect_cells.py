@@ -18,6 +18,7 @@ from dataclasses import dataclass
 from typing import Literal
 
 from pdf_parser.model import BBox
+from pdf_parser.stages.table_validation import validate
 
 CellSource = Literal["line", "gutter", "text"]
 # How the cell's bbox relates to its column neighbours.
@@ -627,12 +628,6 @@ def _bin_words_to_columns(
     """Joined-text view of :func:`_bin_words_per_col`."""
     return [_bin_to_text(b) for b in _bin_words_per_col(words, cols)]
 
-# Tuned narrower than the legacy text-strategy guard because line-bounded
-# detection already absorbs most real tables; gutter only fires on borderless
-# layouts where false positives (multi-column prose) are the dominant risk.
-_GUTTER_MIN_CELL_COUNT             = 4    # below this, not enough signal for a table
-_GUTTER_MAX_AVG_CELL_CHARS         = 30   # avg cell length must stay ≤ this
-_GUTTER_MAX_LOWERCASE_START_RATIO  = 0.40 # ≤40% of cells may start lowercase
 # At or below this avg cell length the column-anchor / pdfplumber text-strategy
 # convention is used: cells share column boundaries (col_i.x1 == col_{i+1}.x0)
 # and all rows take the full table bbox.  Above it, ``tight`` per-cell bboxes
@@ -641,27 +636,6 @@ _GUTTER_MAX_LOWERCASE_START_RATIO  = 0.40 # ≤40% of cells may start lowercase
 # borderless descriptions — and preserves byte-identical id parity with the
 # two legacy producers (text-strategy + anchor) the bottom-up path replaces.
 _SHARED_LANE_AVG_CHARS_MAX = 7
-
-
-def _is_gutter_table_shape(grid: list[list[str]]) -> bool:
-    """True when ``grid`` looks like a table, not a slice of body prose.
-
-    Three predicates: ≥ ``_GUTTER_MIN_CELL_COUNT`` non-empty cells, average
-    cell length ≤ ``_GUTTER_MAX_AVG_CELL_CHARS``, lowercase-start ratio
-    ≤ ``_GUTTER_MAX_LOWERCASE_START_RATIO``.  Empty / whitespace-only cells
-    are filtered internally, so callers may pass either pre-filtered grids
-    or raw rows with empty placeholders.
-    """
-    cells = [c.strip() for row in grid for c in row if c.strip()]
-    if len(cells) < _GUTTER_MIN_CELL_COUNT:
-        return False
-    avg_len = sum(len(c) for c in cells) / len(cells)
-    if avg_len > _GUTTER_MAX_AVG_CELL_CHARS:
-        return False
-    lowercase_starts = sum(1 for c in cells if c[:1].islower())
-    if lowercase_starts / len(cells) > _GUTTER_MAX_LOWERCASE_START_RATIO:
-        return False
-    return True
 
 
 def _longest_signature_run(
@@ -719,9 +693,31 @@ def _gutter_cells(page, page_index: int) -> list[Cell]:
     if len(row_bins) < _GUTTER_MIN_RUN_LINES:
         return []
 
-    # Prose guard runs on the joined-text grid view.
+    # Validator: word atomicity must hold (no candidate column edge slices
+    # a binned word), column-type homogeneity must clear the
+    # headered / headerless threshold, and avg cell length must stay
+    # compact (rejects multi-column body prose where each "cell" is a
+    # half-line of paragraph wrap — fixture 15).
     candidate_rows = [[_bin_to_text(b) for b in row] for row in row_bins]
-    if not _is_gutter_table_shape(candidate_rows):
+    candidate_words = [w for row in row_bins for col in row for w in col]
+    page_chars = page.chars
+    chars_by_row = [
+        _chars_in_y_range(
+            page_chars,
+            min(w["top"] for w in line_words),
+            max(w["bottom"] for w in line_words),
+        )
+        for line_words in (
+            [w for col in row for w in col] for row in row_bins
+        )
+        if line_words
+    ]
+    if not validate(
+        words=candidate_words,
+        col_ranges=cols,
+        grid=candidate_rows,
+        chars_by_row=chars_by_row,
+    ).is_likely_table():
         return []
 
     # Decide bbox convention from the candidate's avg cell text length.
@@ -990,9 +986,13 @@ def _ruled_header_body_cells(
                 kept.append(cur)
             word_lines = kept
 
+        # Build the candidate (visual-row × column) grid first so we can
+        # discriminate wrapped prose from tabular body before emitting cells.
+        # Each line's words bin by x-midpoint into the header columns; the
+        # joined-text view feeds the prose guard.
+        candidate_grid: list[list[str]] = []
         for ln in word_lines:
-            y0 = min(w["top"] for w in ln)
-            y1 = max(w["bottom"] for w in ln)
+            row_texts: list[str] = []
             for cx0, cx1 in cols:
                 col_words = [
                     w for w in ln
@@ -1000,9 +1000,50 @@ def _ruled_header_body_cells(
                        <= (w["x0"] + w["x1"]) / 2.0
                        < cx1 + _RHB_WORD_BIN_TOL
                 ]
-                if not col_words:
+                row_texts.append(" ".join(w["text"] for w in col_words))
+            candidate_grid.append(row_texts)
+
+        # Validate the binned grid before emitting: in a real ruled-header
+        # body, each cell holds one datum (numeric / currency / short label)
+        # so column-type homogeneity is high.  In a wrapped-prose body, the
+        # sentence is sliced across the header's column boundaries — cells
+        # become mixed-kind multi-word fragments — homogeneity drops below
+        # the (header-lowered) acceptance bar and the validator rejects.
+        # Skipping leaves the original monster cell in place so the
+        # paragraph renders as a single full-width spanning row instead of
+        # a synthetic mini-table (fixture 27 regression).
+        head_y0 = min(c.bbox.y0 for c in sorted_band)
+        grid_with_header = [
+            [c.text for c in sorted_band],
+            *candidate_grid,
+        ]
+        page_chars = page.chars
+        chars_by_row = [
+            _chars_in_y_range(page_chars, head_y0, head_y1),
+            *(
+                _chars_in_y_range(
+                    page_chars,
+                    min(w["top"] for w in ln),
+                    max(w["bottom"] for w in ln),
+                )
+                for ln in word_lines
+            ),
+        ]
+        if not validate(
+            words=candidate_words,
+            col_ranges=cols,
+            grid=grid_with_header,
+            chars_by_row=chars_by_row,
+        ).is_likely_table():
+            continue
+
+        for row_idx, ln in enumerate(word_lines):
+            y0 = min(w["top"] for w in ln)
+            y1 = max(w["bottom"] for w in ln)
+            for col_idx, (cx0, cx1) in enumerate(cols):
+                text = candidate_grid[row_idx][col_idx]
+                if not text:
                     continue
-                text = " ".join(w["text"] for w in col_words)
                 new_cells.append(Cell(
                     bbox=BBox(page=page_index, x0=cx0, y0=y0, x1=cx1, y1=y1),
                     text=text,
@@ -1034,16 +1075,90 @@ _TEXT_FALLBACK_SETTINGS = {
 _TEXT_CELL_CONFIDENCE = 0.4
 
 
+def _chars_in_y_range(
+    page_chars: list[dict], y0: float, y1: float, tol: float = 1.0,
+) -> list[dict]:
+    """Return pdfplumber char dicts whose vertical span lies within
+    ``[y0 - tol, y1 + tol]``.
+
+    Used to bin chars per visual row for :func:`validate`'s header-row
+    detection (compares row-0 font / size to row-1+).
+    """
+    return [
+        c for c in page_chars
+        if c["top"] >= y0 - tol and c["bottom"] <= y1 + tol
+    ]
+
+
+def _row_bbox_y_range(row) -> tuple[float, float] | None:
+    """``(y0, y1)`` of a pdfplumber ``Row`` from its first non-None cell bbox."""
+    for cbox in row.cells:
+        if cbox is not None:
+            return cbox[1], cbox[3]
+    return None
+
+
 def _text_cells(page, page_index: int) -> list[Cell]:
     """Return cells detected via pdfplumber's text-strategy table finding,
-    guarded by _is_gutter_table_shape to reject multi-column prose.
+    guarded by :func:`validate` against multi-column prose and against
+    mid-word column slicing.
+
+    pdfplumber's text strategy projects vertical edges from inter-word gaps
+    in the WIDEST line (typically a large-font heading) across every other
+    line on the page.  On sparse layouts (cover pages, title slides, single
+    callouts) those projected edges land INSIDE words on body lines, so
+    pdfplumber's ``Table.extract`` returns rows of mid-syllable fragments
+    (``Mining`` → ``M``, ``January`` → ``Jan`` + ``uary``).  The validator's
+    word-atomicity signal rejects any candidate whose column edges slice
+    one or more page words — a structural impossibility for a real table.
     """
     tables = page.find_tables(table_settings=_TEXT_FALLBACK_SETTINGS)
     out: list[Cell] = []
+    page_words: list[dict] | None = None  # extract lazily
+    page_chars: list[dict] | None = None
     for t in tables:
         rows = t.extract()
-        if not _is_gutter_table_shape([[c.strip() for c in row if c] for row in rows]):
+        # Derive column x-ranges from the first row's cells.  pdfplumber
+        # gives identical column geometry across all rows of one Table, so
+        # the first row is sufficient.
+        col_ranges: list[tuple[float, float]] = []
+        if t.rows:
+            for cbox in t.rows[0].cells:
+                if cbox is None:
+                    continue
+                col_ranges.append((cbox[0], cbox[2]))
+        if not col_ranges:
             continue
+
+        # Words within the table y-extent feed the atomicity signal; chars
+        # per row feed header detection.
+        if page_words is None:
+            page_words = page.extract_words(
+                keep_blank_chars=False, use_text_flow=False,
+            )
+        if page_chars is None:
+            page_chars = page.chars
+        t_y0, t_y1 = t.bbox[1], t.bbox[3]
+        candidate_words = [
+            w for w in page_words
+            if not (w["bottom"] < t_y0 - 1.0 or w["top"] > t_y1 + 1.0)
+        ]
+        grid = [[(c or "").strip() for c in row] for row in rows]
+        chars_by_row: list[list[dict]] = []
+        for r in t.rows:
+            yr = _row_bbox_y_range(r)
+            chars_by_row.append(
+                _chars_in_y_range(page_chars, yr[0], yr[1]) if yr else []
+            )
+
+        if not validate(
+            words=candidate_words,
+            col_ranges=col_ranges,
+            grid=grid,
+            chars_by_row=chars_by_row,
+        ).is_likely_table():
+            continue
+
         for r_idx, row in enumerate(t.rows):
             for c_idx, cbox in enumerate(row.cells):
                 if cbox is None:

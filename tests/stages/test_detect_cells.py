@@ -288,3 +288,94 @@ def test_detect_cells_leaves_column_structured_body_alone():
     # Exactly the 9 line cells (3 header + 6 body), no re-binned duplicates.
     assert len(cells) == 9, [c.text for c in cells]
     assert all(c.source == "line" for c in cells)
+
+
+def test_ruled_header_body_skips_re_extraction_on_wrapped_prose():
+    """Fixture 27: 5-column ruled header above a single full-width bordered
+    cell containing a wrapped justified bulleted paragraph.
+
+    Reproduces the bug where the prose paragraph rendered with vertical
+    column lines slicing through the text: `_ruled_header_body_cells` saw
+    the multi-column header + one full-width monster body cell pattern
+    (matching fixtures 19 / 20) and re-binned the paragraph's words into
+    the header's column x-ranges, producing a synthetic mini-table.  The
+    prose guard (multi-word-cell ratio > 0.5) skips re-extraction so the
+    monster cell remains intact and the paragraph renders as a single
+    full-width spanning row.
+    """
+    pdf_path = Path("tests/golden/synthetic/27_ruled_header_prose_body_cell/source.pdf")
+    with pdfplumber.open(str(pdf_path)) as pdf:
+        page = pdf.pages[0]
+        cells = detect_cells(page, page_index=0)
+
+    # Header should still be 5 side-by-side cells.
+    header_texts = {c.text for c in cells if c.text in {"A", "B", "C", "D", "data"}}
+    assert header_texts == {"A", "B", "C", "D", "data"}, [c.text for c in cells]
+
+    # Body must remain as the single full-width monster cell, NOT five binned
+    # cells.  The bug would have split the paragraph's words into separate
+    # narrow cells holding sentence fragments.
+    forum_cells = [c for c in cells if "LTSPW" in c.text]
+    assert len(forum_cells) == 1, [c.text for c in cells]
+    monster = forum_cells[0]
+    # Monster spans the full header width (within snap tolerance), proving
+    # no re-binned per-column cells replaced it.
+    assert monster.bbox.x1 - monster.bbox.x0 > 350.0, monster.bbox
+
+    # Cross-check: no cell carries the bbox of a single header column with
+    # a multi-word prose fragment as text.  (The bug emitted such cells.)
+    for c in cells:
+        if c.text in header_texts:
+            continue
+        if c.bbox.x1 - c.bbox.x0 < 100.0 and len(c.text.split()) >= 2:
+            raise AssertionError(
+                f"prose got re-binned into a header column: {c!r}"
+            )
+
+
+def test_text_strategy_rejects_table_that_slices_words():
+    """Fixture 28: title cover page with three meta lines.
+
+    pdfplumber's text strategy projects vertical edges from the wide
+    inter-word gaps in the large-font cover heading across every other
+    line on the page.  Without the word-boundary guard the body words
+    below get sliced mid-syllable (e.g. "Phoenix" → "P" + "hoeni" + "x",
+    "January" → "Jan" + "uary"), surfacing as a spurious table with
+    mid-word fragment cells.
+
+    The guard inside :func:`_text_cells` rejects any candidate table
+    whose column edges slice through one or more page words.  After
+    rejection, no text-strategy cell remains on this page — the cover
+    parses as three headings and three paragraphs, with no table.
+    """
+    pdf_path = Path("tests/golden/synthetic/28_title_cover_with_meta_lines/source.pdf")
+    with pdfplumber.open(str(pdf_path)) as pdf:
+        page = pdf.pages[0]
+        cells = detect_cells(page, page_index=0)
+
+    # Cover page is borderless prose-only: no detector should fire.
+    assert cells == [], [
+        (c.source, c.text, c.bbox.x0, c.bbox.x1) for c in cells
+    ]
+
+def test_detect_cells_emits_3x2_grid_on_headerless_keyvalue_table():
+    """Fixture 29 (headerless key-value listing): the new
+    :func:`pdf_parser.stages.table_validation.validate` predicate must
+    accept this borderless 3-row x 2-col table even though no row carries
+    a header signature (same font / size across all rows).
+
+    Proves the validator's headerless acceptance path is live and that
+    real key-value listings clear the higher 0.75 homogeneity bar — col 0
+    is uniformly ``short`` labels, col 1 is uniformly ``currency`` values.
+    The gutter detector is the path under test (line / frame yield nothing
+    on a borderless table).
+    """
+    pdf_path = Path("tests/golden/synthetic/29_headerless_keyvalue_table/source.pdf")
+    with pdfplumber.open(str(pdf_path)) as pdf:
+        page = pdf.pages[0]
+        cells = detect_cells(page, page_index=0)
+    texts = {c.text for c in cells}
+    # 3 rows x 2 cols = 6 cells, all from the gutter detector.
+    assert len(cells) == 6, [c.text for c in cells]
+    assert all(c.source == "gutter" for c in cells)
+    assert {"Revenue", "Expenses", "Net", "$1000", "$800", "$200"} == texts

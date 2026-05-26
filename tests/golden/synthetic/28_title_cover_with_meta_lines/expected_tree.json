@@ -1,0 +1,148 @@
+{
+  "attrs": {},
+  "bbox": {
+    "page": 0,
+    "x0": 0,
+    "x1": 0,
+    "y0": 0,
+    "y1": 0
+  },
+  "children": [
+    {
+      "attrs": {
+        "page_index": 0
+      },
+      "bbox": {
+        "page": 0,
+        "x0": 0,
+        "x1": 612,
+        "y0": 0,
+        "y1": 792
+      },
+      "children": [
+        {
+          "attrs": {
+            "level": 1
+          },
+          "bbox": {
+            "page": 0,
+            "x0": 80,
+            "x1": 396,
+            "y0": 86,
+            "y1": 112
+          },
+          "children": [],
+          "id": "8f29ceb9945b",
+          "kind": "heading",
+          "provenance": {
+            "extractor": "segment",
+            "stage": "build_tree"
+          },
+          "text": "Project Phoenix Sample"
+        },
+        {
+          "attrs": {
+            "level": 1
+          },
+          "bbox": {
+            "page": 0,
+            "x0": 79,
+            "x1": 405,
+            "y0": 127,
+            "y1": 144
+          },
+          "children": [],
+          "id": "915f60606a90",
+          "kind": "heading",
+          "provenance": {
+            "extractor": "segment",
+            "stage": "build_tree"
+          },
+          "text": "Generic Subtitle Placeholder"
+        },
+        {
+          "attrs": {
+            "level": 3
+          },
+          "bbox": {
+            "page": 0,
+            "x0": 79,
+            "x1": 201,
+            "y0": 160,
+            "y1": 175
+          },
+          "children": [],
+          "id": "d838b37e8e87",
+          "kind": "heading",
+          "provenance": {
+            "extractor": "segment",
+            "stage": "build_tree"
+          },
+          "text": "01 January 2099"
+        },
+        {
+          "attrs": {},
+          "bbox": {
+            "page": 0,
+            "x0": 78,
+            "x1": 408,
+            "y0": 285,
+            "y1": 295
+          },
+          "children": [],
+          "id": "a029d86da909",
+          "kind": "paragraph",
+          "provenance": {
+            "extractor": "segment",
+            "stage": "build_tree"
+          },
+          "text": "Authored by: Alice Example, Lead Coordinator, Sample Department"
+        },
+        {
+          "attrs": {},
+          "bbox": {
+            "page": 0,
+            "x0": 79,
+            "x1": 421,
+            "y0": 317,
+            "y1": 327
+          },
+          "children": [],
+          "id": "108fae153f8a",
+          "kind": "paragraph",
+          "provenance": {
+            "extractor": "segment",
+            "stage": "build_tree"
+          },
+          "text": "Reviewed by: Bob Placeholder, Quality Reviewer, Sample Department"
+        },
+        {
+          "attrs": {},
+          "bbox": {
+            "page": 0,
+            "x0": 79,
+            "x1": 229,
+            "y0": 349,
+            "y1": 359
+          },
+          "children": [],
+          "id": "6702ee96776c",
+          "kind": "paragraph",
+          "provenance": {
+            "extractor": "segment",
+            "stage": "build_tree"
+          },
+          "text": "Expires on: 31 December 2099"
+        }
+      ],
+      "id": "dcfae972eb0a",
+      "kind": "page",
+      "provenance": {},
+      "text": null
+    }
+  ],
+  "id": "9de743845b65",
+  "kind": "document",
+  "provenance": {},
+  "text": null
+}
