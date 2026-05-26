@@ -39,57 +39,9 @@ def _walk(node: DocNode):
         yield from _walk(child)
 
 
-@pytest.fixture(scope="module", params=[False, True], ids=["legacy", "bottom_up"])
-def use_bottom_up(request) -> bool:
-    return request.param
-
-
 @pytest.fixture(scope="module")
-def tree(use_bottom_up: bool) -> DocNode:
-    return parse(PDF, use_bottom_up=use_bottom_up)
-
-
-# ---------------------------------------------------------------------------
-# Per-assertion xfail for the bottom_up variant.
-#
-# 13_comprehensive surfaces every residual the prior 27 fixtures cover
-# individually.  Phase 9's sub-cluster carve-out in
-# ``aggregate_tables._carve_subclusters`` recovers the page-spanning nested
-# Project Tracking table + Hardware Inventory nesting (6 assertions) for
-# bottom_up.  Phase 10 prep adds three more passes:
-#   * ``_carve_container_frames`` + ``_build_single_col_wrapper`` +
-#     ``_NESTED_CONTAINER_GAP_MULT`` recover Annex C's outer 1xN wrapper
-#     + nested-sub-table separation (2 assertions).
-#   * ``_apply_rowspan_merge`` + ``_rows_to_celltable``'s rowspan post-pass
-#     + ``_split_into_tables``'s rowspan-tolerance recover the merged-cells
-#     + Annex E vertical-merge assertions (6 assertions) and remove the
-#     spurious-table false positive that drove the multicolumn check
-#     (1 assertion).
-#   * ``detect_cells._frame_cells`` (Residual D) recovers Annex D's outer
-#     "Spanning Header" frame (2 assertions: Annex D + 5-spanning-tables).
-#   * ``detect_cells._ruled_header_body_cells`` (Residual E) re-bins body
-#     words into the line-detected header column template for ruled-header
-#     tables -- recovers Annex A open-body / framed-body / row-strips
-#     (3 assertions) and brings total table count from 22 to 23 (1 assertion).
-#
-# With Residual E landed every assertion in this file passes under bottom_up.
-# ``_REASON_PHASE_7`` is retained as documentation for the deferred
-# 1xN-outer-frame variants (fixtures 24/25 closed_rect / zero-height bands)
-# that have no behavioural assertion in this omnibus -- left for Phase 10
-# decision.  See ``docs/superpowers/plans/2026-05-25-bottom-up-cell-detection.md``.
-# ---------------------------------------------------------------------------
-
-
-_REASON_PHASE_7 = (
-    "Phase-7+ residual (1xN outer-frame without line-detected container): "
-    "Phase 10 prep's _carve_container_frames recovers fixtures 16 / Annex C "
-    "where pdfplumber emits an outer wrapper cell.  Phase 10 prep Residual D "
-    "(_frame_cells in detect_cells.py) further recovers fixtures 17 / Annex D "
-    "via vector-rail + cap-band frame promotion.  Remaining variant of the "
-    "residual: fixtures 24 / 25 (flush-edge sub-tables) where pdfplumber "
-    "fuses the line strategy on 24 and 25 is a pure closed_rect with no "
-    "cap-band evidence.  See tests/test_bottom_up_parity.py header."
-)
+def tree() -> DocNode:
+    return parse(PDF)
 
 
 # ---------------------------------------------------------------------------

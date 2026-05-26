@@ -8,7 +8,7 @@ from pathlib import Path
 
 import pytest
 
-from pdf_parser.stages.extract_tables import extract_tables
+from pdf_parser.stages.extract_tables_v2 import extract_tables
 
 PL = (
     Path(__file__).resolve().parents[1]

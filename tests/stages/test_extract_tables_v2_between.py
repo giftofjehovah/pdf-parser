@@ -13,7 +13,7 @@ from pdf_parser.pipeline import parse
 
 def test_16_keeps_between_text() -> None:
     pdf = Path("tests/golden/synthetic/16_text_between_subtables/source.pdf")
-    tree = parse(pdf, use_bottom_up=True)
+    tree = parse(pdf)
     has_mixed = False
 
     def walk(n) -> None:

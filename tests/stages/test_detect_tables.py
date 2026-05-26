@@ -1,69 +1,92 @@
+"""Per-fixture detection-quality tests for the bottom-up extractor.
+
+Asserts the public ``extract_tables_v2.extract_tables`` returns one
+``DocNode(kind='table')`` per source table with the correct shape, headers,
+and bbox — and that prose / shredded layouts do NOT surface as spurious
+tables (the load-bearing negative assertions: fixture 15 multicolumn
+paragraphs, fixture 23 bordered cell with bulleted prose).
+"""
 from pathlib import Path
 
-from pdf_parser.stages.detect_tables import detect_tables
+from pdf_parser.model import DocNode
+from pdf_parser.stages.extract_tables_v2 import extract_tables
 
 FIXTURE = Path(__file__).resolve().parents[1] / "golden" / "synthetic" / "01_simple_table" / "source.pdf"
 FIXTURE_14 = Path(__file__).resolve().parents[1] / "golden" / "synthetic" / "14_borderless_table" / "source.pdf"
 FIXTURE_15 = Path(__file__).resolve().parents[1] / "golden" / "synthetic" / "15_multicolumn_text" / "source.pdf"
 
 
+def _grid(table: DocNode) -> list[list[str]]:
+    """row × col → cell text (None → '')."""
+    return [
+        [(cell.text or "") for cell in row.children if cell.kind == "cell"]
+        for row in table.children if row.kind == "row"
+    ]
+
+
 def test_detects_one_table_on_first_page():
-    regions = detect_tables(FIXTURE)
-    assert len(regions) == 1
-    region = regions[0]
-    assert region.page_index == 0
+    tables = extract_tables(FIXTURE)
+    assert len(tables) == 1
+    assert tables[0].attrs["page"] == 0
 
 
 def test_table_has_three_rows_three_columns():
-    regions = detect_tables(FIXTURE)
-    grid = regions[0].grid
+    tables = extract_tables(FIXTURE)
+    grid = _grid(tables[0])
     assert len(grid) == 3
     assert all(len(row) == 3 for row in grid)
 
 
 def test_header_row_extracted():
-    regions = detect_tables(FIXTURE)
-    grid = regions[0].grid
+    tables = extract_tables(FIXTURE)
+    grid = _grid(tables[0])
     assert grid[0] == ["Name", "Quantity", "Price"]
 
 
 def test_table_bbox_has_positive_area():
-    regions = detect_tables(FIXTURE)
-    b = regions[0].bbox
+    tables = extract_tables(FIXTURE)
+    b = tables[0].bbox
     assert b.x1 > b.x0 and b.y1 > b.y0
 
 
 def test_borderless_table_detected_via_text_fallback():
-    """Line strategy finds nothing; text fallback must detect the table."""
-    regions = detect_tables(FIXTURE_14)
-    assert len(regions) == 1, f"expected 1 table region, got {len(regions)}"
-    assert regions[0].grid[0] == ["Name", "Score", "Grade"]
-    assert len(regions[0].grid) == 4  # 1 header + 3 data rows
+    """Fixture 14 has no rendered lines.  The bottom-up extractor's
+    gutter / text-strategy fallback (``detect_cells._gutter_cells`` and
+    ``_text_cells``) must still find the table.
+    """
+    tables = extract_tables(FIXTURE_14)
+    assert len(tables) == 1, f"expected 1 table, got {len(tables)}"
+    grid = _grid(tables[0])
+    assert grid[0] == ["Name", "Score", "Grade"]
+    assert len(grid) == 4  # 1 header + 3 data rows
 
 
 def test_borderless_table_has_correct_column_count():
-    regions = detect_tables(FIXTURE_14)
-    assert all(len(row) == 3 for row in regions[0].grid)
+    tables = extract_tables(FIXTURE_14)
+    grid = _grid(tables[0])
+    assert all(len(row) == 3 for row in grid)
 
 
 def test_multicolumn_paragraph_text_not_detected_as_table():
-    """Text strategy must not misidentify multi-column paragraph text as a table."""
-    regions = detect_tables(FIXTURE_15)
-    assert regions == [], (
-        f"False-positive: {len(regions)} table(s) detected in paragraph-text fixture. "
-        "_MAX_CELL_TEXT_CHARS may need lowering."
+    """Negative regression: multi-column paragraph layout (fixture 15)
+    must NOT surface as a table.  The text-strategy fallback's
+    prose-rejection guard (``detect_cells._is_gutter_table_shape``) is
+    what keeps the false-positive count at zero here.
+    """
+    tables = extract_tables(FIXTURE_15)
+    assert tables == [], (
+        f"False-positive: {len(tables)} table(s) detected in paragraph-text fixture."
     )
 
 
 def test_business_style_headers_detected():
-    """Borderless table with descriptive headers must be detected.
-
-    Pins _MAX_CELL_TEXT_CHARS to a value that accepts headers like
-    'Product Name' / 'Unit Price' / 'Quantity' (avg ~8 chars).
+    """Borderless table with descriptive headers (avg ~8 chars per cell)
+    must still be detected.  Pins the gutter / text-strategy fallback's
+    accept threshold high enough to take long-text headers like
+    ``Product Name`` / ``Unit Price`` / ``Quantity``.
     """
     import tempfile
 
-    # Build a temporary borderless table with longer headers.
     data_rows = [
         ["Product Name", "Unit Price", "Quantity"],
         ["Widget A",     "$25.99",    "12"],
@@ -72,10 +95,8 @@ def test_business_style_headers_detected():
     with tempfile.NamedTemporaryFile(suffix=".pdf", delete=False) as f:
         tmp = Path(f.name)
 
-    # Build a minimal borderless PDF with these headers.
     from reportlab.lib.pagesizes import LETTER
     from reportlab.platypus import SimpleDocTemplate, Table, TableStyle
-    from reportlab.lib.styles import getSampleStyleSheet
     doc = SimpleDocTemplate(str(tmp), pagesize=LETTER)
     t = Table(data_rows, colWidths=[140, 80, 80])
     t.setStyle(TableStyle([
@@ -87,12 +108,12 @@ def test_business_style_headers_detected():
     doc.build([t])
 
     try:
-        regions = detect_tables(tmp)
-        assert len(regions) == 1, (
-            f"Business-header borderless table not detected. "
-            f"_MAX_CELL_TEXT_CHARS may be too low."
+        tables = extract_tables(tmp)
+        assert len(tables) == 1, (
+            f"Business-header borderless table not detected; got {len(tables)} tables."
         )
-        assert regions[0].grid[0] == ["Product Name", "Unit Price", "Quantity"]
+        grid = _grid(tables[0])
+        assert grid[0] == ["Product Name", "Unit Price", "Quantity"]
     finally:
         tmp.unlink(missing_ok=True)
 
@@ -100,22 +121,19 @@ def test_business_style_headers_detected():
 def test_bordered_cell_with_bulleted_prose_is_not_shredded() -> None:
     """Regression for fixture ``23_bordered_cell_with_bulleted_prose``.
 
-    A bordered 1×2 outer table whose right cell contains wrapped justified
+    A bordered 1×2 outer table whose right cell holds wrapped justified
     bulleted prose used to be shredded into a fake many-column nested table
     by the text-strategy fallback — pdfplumber detects vertical whitespace
-    lanes through the wrapped text, producing mid-word cell splits like
+    lanes through wrapped text, producing mid-word cell splits like
     ``'Sec'|'tion'``, ``'Lorem ipsu'|'m d'|'ol'|'or sit a'``, with
     ``(cid:127)`` bullets stuck in column 1.
 
-    See ``tests/golden/synthetic/23_bordered_cell_with_bulleted_prose/`` for
-    the source PDF and committed golden tree.  The fix lives in
-    :func:`pdf_parser.stages.detect_tables._is_text_strategy_table`: shred
-    is identified by the dominant fraction of cells starting with a
-    lowercase letter (real table values overwhelmingly start with uppercase,
-    digits, or symbols).
+    The fix lives in ``detect_cells``' lowercase-start-ratio prose-rejection
+    guard: shred is identified by the dominant fraction of cells starting
+    with a lowercase letter (real table values overwhelmingly start with
+    uppercase, digits, or symbols).
     """
     from pdf_parser.pipeline import parse as parse_pdf
-    from pdf_parser.model import DocNode
 
     pdf = Path(__file__).resolve().parents[1] / "golden" / "synthetic" \
         / "23_bordered_cell_with_bulleted_prose" / "source.pdf"
@@ -137,9 +155,7 @@ def test_bordered_cell_with_bulleted_prose_is_not_shredded() -> None:
     # from text-strategy shredding would push this to 2+.
     assert len(tables) == 1, (
         f"Expected only the outer 1×2 wrapper table, got {len(tables)}. "
-        f"Shapes: {[(t.attrs.get('n_rows'), t.attrs.get('n_cols')) for t in tables]}. "
-        "Right cell was likely shredded by text-strategy fallback — see "
-        "_MAX_LOWERCASE_START_RATIO in pdf_parser.stages.detect_tables."
+        f"Shapes: {[(t.attrs.get('n_rows'), t.attrs.get('n_cols')) for t in tables]}."
     )
     assert tables[0].attrs.get("n_rows") == 1
     assert tables[0].attrs.get("n_cols") == 2

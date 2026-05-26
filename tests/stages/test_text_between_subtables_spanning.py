@@ -10,7 +10,7 @@ for the rendering choices.  Two visual properties matter to the parse:
   * Between-paragraphs sit in their own outer rows so each side of the
     page break retains the cell's TOPPADDING / BOTTOMPADDING.
 
-The borderless-frame detector in :mod:`pdf_parser.stages.detect_tables`
+The borderless-frame detector in :mod:`pdf_parser.stages.detect_cells`
 promotes the section frame to a single-column outer table (Header /
 Content per page / Footer) and the page-stitcher joins the per-page
 halves on matching column anchors.  The two inner sub-tables and the

@@ -1,7 +1,7 @@
 from pathlib import Path
 
 from pdf_parser.model import BBox, DocNode
-from pdf_parser.stages.extract_tables import extract_tables
+from pdf_parser.stages.extract_tables_v2 import extract_tables
 from pdf_parser.stages.stitch_pages import stitch_tables
 
 SPAN = Path(__file__).resolve().parents[1] / "golden" / "synthetic" / "03_page_spanning" / "source.pdf"

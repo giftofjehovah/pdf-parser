@@ -12,8 +12,7 @@ import pdfplumber
 
 from pdf_parser.model import BBox, DocNode
 from pdf_parser.stages.build_tree import build_tree
-from pdf_parser.stages.detect_tables_anchor import augment_with_anchor_tables
-from pdf_parser.stages.extract_tables import extract_tables
+from pdf_parser.stages.extract_tables_v2 import extract_tables
 from pdf_parser.stages.ingest import ingest
 from pdf_parser.stages.segment import segment
 from pdf_parser.stages.stitch_pages import stitch_tables
@@ -76,38 +75,21 @@ def _apply_llm_fallback(
 def parse(
     pdf_path: Path | str,
     llm_fallback: Optional["LLMFallback"] = None,
-    *,
-    use_anchor: bool = True,
-    use_bottom_up: bool = True,
 ) -> DocNode:
     """Parse ``pdf_path`` and return the document tree.
 
-    ``use_bottom_up`` (default ``True``) selects the bottom-up
-    cell-clustering extractor (:mod:`pdf_parser.stages.extract_tables_v2`).
-    The bottom-up path produces one ``detect_cells`` primitive
-    (line / gutter / text evidence) feeding one ``aggregate_tables``
-    clusterer that emits the same per-page ``DocNode(kind="table")`` tree
-    the downstream :mod:`stitch_pages` + :mod:`build_tree` stages consume.
-
-    ``use_anchor`` (default ``True``) is retained for the legacy cascade
-    only; ignored when ``use_bottom_up=True`` (bottom-up subsumes the
-    anchor detector's borderless-table recovery).  Pass
-    ``use_bottom_up=False`` to fall back to the legacy
-    ``detect_tables → extract_tables → augment_with_anchor`` pipeline; in
-    that mode ``use_anchor=False`` further disables the anchor overlay.
+    Stages: ingest → segment → extract_tables (bottom-up:
+    detect_cells → aggregate_tables → DocNodes) → stitch_pages
+    → build_tree.  Optional LLM fallback runs after build_tree to fill
+    empty page nodes when text extraction missed everything (typically
+    scanned PDFs without an embedded text layer).
     """
     pdf_path = Path(pdf_path)
     raw_pages = ingest(pdf_path)
     segments  = segment(raw_pages)
 
     with pdfplumber.open(str(pdf_path)) as pdf:
-        if use_bottom_up:
-            from pdf_parser.stages.extract_tables_v2 import extract_tables as extract_tables_v2
-            tables = extract_tables_v2(pdf_path, pdf=pdf)
-        else:
-            tables = extract_tables(pdf_path, pdf=pdf)
-            if use_anchor:
-                tables = augment_with_anchor_tables(tables, pdf_path, pdf=pdf)
+        tables = extract_tables(pdf_path, pdf=pdf)
 
     tables = stitch_tables(tables)
     tree   = build_tree(segments, tables)

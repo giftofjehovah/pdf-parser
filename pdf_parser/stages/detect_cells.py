@@ -75,13 +75,15 @@ def detect_cells(page, page_index: int) -> list[Cell]:
 
 # ---------------------------------------------------------------------------
 # Line-bounded cells: pdfplumber's line strategy + visible-edge overdraw
-# filtering (background-coloured strokes subtracted).  The overdraw helper is
-# currently a thin wrapper around ``detect_tables._visible_edges``; Phase 10
-# inlines a port here so the bottom-up path stands alone.
-#
-# ``_LINE_AXIS_TOL``, ``_LINE_SNAP_TOL`` and ``_is_background_color`` are
-# reserved for that Phase-10 inline (the inlined ``_visible_edges`` port uses
-# them); kept here so the constant/helper set is stable across the cutover.
+# filtering (background-coloured strokes subtracted).  Mirrors the policy
+# the legacy ``detect_tables._visible_edges`` cascade encoded: group raw
+# horizontal / vertical lines by their perpendicular coordinate, then for
+# each group compute ``union(visible) − union(background-coloured)`` along
+# the line's axis.  Background-coloured (near-white) strokes that overdraw
+# a visible black grid line are subtracted so pdfplumber's table engine
+# sees only the rendered edges, recovering merged cells drawn via white
+# overdraws (fixture 21_vertical_merge_invisible_lines and the Annex E
+# variant in 13_comprehensive).
 # ---------------------------------------------------------------------------
 
 _LINE_AXIS_TOL  = 0.5
@@ -115,16 +117,117 @@ def _is_background_color(c) -> bool:
     return False
 
 
+def _interval_subtract(
+    base: list[tuple[float, float]], holes: list[tuple[float, float]],
+) -> list[tuple[float, float]]:
+    """Return ``base \\ union(holes)`` as a sorted list of disjoint intervals.
+
+    Both inputs may contain unsorted / overlapping intervals.  Holes are
+    merged first, then carved out of each base interval in a single linear
+    sweep.
+    """
+    if not holes:
+        return [(min(a, b), max(a, b)) for a, b in base]
+    sorted_holes = sorted((min(a, b), max(a, b)) for a, b in holes)
+    merged_holes: list[tuple[float, float]] = []
+    for h in sorted_holes:
+        if merged_holes and h[0] <= merged_holes[-1][1]:
+            merged_holes[-1] = (merged_holes[-1][0], max(merged_holes[-1][1], h[1]))
+        else:
+            merged_holes.append(h)
+    out: list[tuple[float, float]] = []
+    for a, b in base:
+        a, b = min(a, b), max(a, b)
+        cur = a
+        for ha, hb in merged_holes:
+            if hb <= cur:
+                continue
+            if ha >= b:
+                break
+            if ha > cur:
+                out.append((cur, ha))
+            cur = max(cur, hb)
+            if cur >= b:
+                break
+        if cur < b:
+            out.append((cur, b))
+    return out
+
+
+def _clip_line(src: dict, *, x0=None, x1=None, top=None, bottom=None) -> dict:
+    """Clone a pdfplumber line dict, overriding endpoints and refreshing
+    ``width`` / ``height``.  ``y0`` / ``y1`` (bottom-origin) are left
+    untouched because pdfplumber's table engine only reads
+    ``top`` / ``bottom`` / ``x0`` / ``x1`` / ``width`` / ``height``.
+    """
+    d = dict(src)
+    if x0 is not None:
+        d["x0"] = x0
+    if x1 is not None:
+        d["x1"] = x1
+    if top is not None:
+        d["top"] = top
+    if bottom is not None:
+        d["bottom"] = bottom
+    d["width"] = d["x1"] - d["x0"]
+    d["height"] = d["bottom"] - d["top"]
+    return d
+
+
 def _visible_edges_local(page):
     """Return ``(h_lines, v_lines)`` with background-coloured overdraws removed.
 
-    Thin wrapper around ``detect_tables._visible_edges``.  Phase 10 inlines
-    a port here so the bottom-up path stands alone; see that module for the
-    design notes in the meantime.
+    Inlined Phase-10 port of the legacy ``detect_tables._visible_edges``.
+    Returns ``([], [])`` (the pdfplumber default-strategy signal) when no
+    background-coloured line exists anywhere on the page, so the caller
+    falls back to the standard ``"lines"`` strategy.
     """
-    from pdf_parser.stages.detect_tables import _visible_edges  # Phase 10 inlines this
-    h, v, _ = _visible_edges(page)
-    return h, v
+    h_raw = [ln for ln in page.lines if abs(ln["y0"] - ln["y1"]) < _LINE_AXIS_TOL]
+    v_raw = [ln for ln in page.lines if abs(ln["x0"] - ln["x1"]) < _LINE_AXIS_TOL]
+    had_overdraws = any(
+        _is_background_color(ln.get("stroking_color")) for ln in h_raw + v_raw
+    )
+    if not had_overdraws:
+        return [], []
+
+    def collect(raw, key_fn, seg_fn, rebuild_fn):
+        groups: dict[float, list[dict]] = {}
+        for ln in raw:
+            k = round(key_fn(ln) / _LINE_SNAP_TOL) * _LINE_SNAP_TOL
+            groups.setdefault(k, []).append(ln)
+        out: list[dict] = []
+        for grp in groups.values():
+            visible = [ln for ln in grp if not _is_background_color(ln.get("stroking_color"))]
+            holes = [seg_fn(ln) for ln in grp if _is_background_color(ln.get("stroking_color"))]
+            if not visible:
+                continue
+            spans = sorted(seg_fn(ln) for ln in visible)
+            merged: list[tuple[float, float]] = []
+            for s in spans:
+                s_norm = (min(s), max(s))
+                if merged and s_norm[0] <= merged[-1][1]:
+                    merged[-1] = (merged[-1][0], max(merged[-1][1], s_norm[1]))
+                else:
+                    merged.append(s_norm)
+            segs = _interval_subtract(merged, holes)
+            src = visible[0]
+            for a, b in segs:
+                out.append(rebuild_fn(src, a, b))
+        return out
+
+    horizontal = collect(
+        h_raw,
+        key_fn=lambda ln: ln["top"],
+        seg_fn=lambda ln: (ln["x0"], ln["x1"]),
+        rebuild_fn=lambda src, a, b: _clip_line(src, x0=a, x1=b),
+    )
+    vertical = collect(
+        v_raw,
+        key_fn=lambda ln: ln["x0"],
+        seg_fn=lambda ln: (ln["top"], ln["bottom"]),
+        rebuild_fn=lambda src, a, b: _clip_line(src, top=a, bottom=b),
+    )
+    return horizontal, vertical
 
 
 def _line_cells(page, page_index: int) -> list[Cell]:

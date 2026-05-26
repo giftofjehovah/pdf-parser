@@ -50,9 +50,3 @@ def test_parse_output_flag_writes_to_path(tmp_path):
     data = json.loads(out.read_text())
     assert data["kind"] == "document"
 
-
-def test_cli_bottom_up_flag_exists():
-    result = runner.invoke(app, ["parse", "--help"])
-    assert result.exit_code == 0
-    assert "--bottom-up" in result.stdout
-    assert "--no-bottom-up" in result.stdout

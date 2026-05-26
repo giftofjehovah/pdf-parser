@@ -47,30 +47,13 @@ def parse(
     validate_only: bool = typer.Option(False, "--validate-only"),
     enable_llm_fallback: bool = typer.Option(False, "--enable-llm-fallback"),
     visualize: Optional[Path] = typer.Option(None, "--visualize"),
-    no_anchor: bool = typer.Option(
-        False, "--no-anchor",
-        help="Disable the column-anchor table detector (default: enabled). "
-             "Anchor recovers borderless tables with long-text cells; pass "
-             "this flag to fall back to the legacy detect_tables cascade only.",
-    ),
-    bottom_up: bool = typer.Option(
-        True, "--bottom-up/--no-bottom-up",
-        help="Use the bottom-up cell-clustering extractor (default: enabled). "
-             "Pass --no-bottom-up to fall back to the legacy detect_tables "
-             "cascade.",
-    ),
 ) -> None:
     fb = None
     if enable_llm_fallback:
         from pdf_parser.fallback.llm import AnthropicLLMClient, LLMFallback
         fb = LLMFallback(enabled=True, client=AnthropicLLMClient())
 
-    tree = parse_pdf(
-        path,
-        llm_fallback=fb,
-        use_anchor=not no_anchor,
-        use_bottom_up=bottom_up,
-    )
+    tree = parse_pdf(path, llm_fallback=fb)
 
     if validate_only:
         report = validate(tree, path)

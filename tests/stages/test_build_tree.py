@@ -1,7 +1,7 @@
 from pathlib import Path
 
 from pdf_parser.stages.build_tree import build_tree
-from pdf_parser.stages.extract_tables import extract_tables
+from pdf_parser.stages.extract_tables_v2 import extract_tables
 from pdf_parser.stages.ingest import ingest
 from pdf_parser.stages.segment import segment
 from pdf_parser.stages.stitch_pages import stitch_tables

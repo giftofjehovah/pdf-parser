@@ -1,6 +1,6 @@
 from pathlib import Path
 
-from pdf_parser.stages.extract_tables import extract_tables
+from pdf_parser.stages.extract_tables_v2 import extract_tables
 
 SIMPLE = Path(__file__).resolve().parents[1] / "golden" / "synthetic" / "01_simple_table" / "source.pdf"
 NESTED = Path(__file__).resolve().parents[1] / "golden" / "synthetic" / "02_nested_table" / "source.pdf"

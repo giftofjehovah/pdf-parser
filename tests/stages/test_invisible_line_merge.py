@@ -6,8 +6,10 @@ column 0 with white.  Visually, the three covered rows in column 0 collapse
 into one merged cell containing three lines of text; the PDF data, however,
 still encodes three split rows.  The parser must subtract the background-
 coloured stroke overdraws from pdfplumber's edge set (see
-``pdf_parser.stages.detect_tables._visible_edges``) so the merged cell is
-honoured downstream as a rowspan-3 cell with two ``covered`` neighbours.
+``pdf_parser.stages.detect_cells._visible_edges_local`` and the
+``_interval_subtract`` / ``_is_background_color`` helpers it builds on) so
+the merged cell is honoured downstream as a rowspan-3 cell with two
+``covered`` neighbours.
 """
 from __future__ import annotations
 
@@ -17,10 +19,10 @@ import pytest
 
 from pdf_parser.model import DocNode
 from pdf_parser.pipeline import parse
-from pdf_parser.stages.detect_tables import (
+from pdf_parser.stages.detect_cells import (
     _interval_subtract,
     _is_background_color,
-    _visible_edges,
+    _visible_edges_local,
 )
 
 import pdfplumber
@@ -112,8 +114,11 @@ def test_21_visible_edges_detects_overdraws_and_subtracts_them():
     overdrawn rows while preserving the col-1..-3 portions."""
     with pdfplumber.open(str(PDF_21)) as pdf:
         page = pdf.pages[0]
-        h_vis, v_vis, had = _visible_edges(page)
-    assert had, "fixture 21 must contain at least one background-coloured line"
+        h_vis, v_vis = _visible_edges_local(page)
+    assert h_vis and v_vis, (
+        "fixture 21 must contain at least one background-coloured line; "
+        "`_visible_edges_local` returns empty when no overdraws fire"
+    )
     # Two rows (Pacific→Northwest, Northwest→Division) have their col-0
     # segment overdrawn.  Visible h-edges at those y-values must start at
     # x≈266 (col-1 left edge) — never at x≈166 (col-0 left edge).

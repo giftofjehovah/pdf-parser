@@ -1,7 +1,7 @@
 """Tests for fixtures 18-20: ruled-header / open-body tables.
 
 Three variants exercise the same parser path
-(``pdf_parser.stages.detect_tables._redistribute_ruled_header_body``):
+(``pdf_parser.stages.detect_cells._ruled_header_body_cells``):
 
   * ``18_ruled_header_open_body`` — header has cell borders + a rule under it;
     body has *no* lines at all.  pdfplumber's line strategy detects only the

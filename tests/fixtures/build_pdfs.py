@@ -1423,8 +1423,8 @@ def build_14b_borderless_long_text(out: Path) -> None:
     "Awaiting reply"). The legacy text-strategy fallback rejects this shape on
     avg-cell-length; the experimental column-anchor detector recovers it.
 
-    Used by ``tests/stages/test_detect_tables_anchor.py`` and by the default
-    golden suite (anchor detector enabled by default since the flip).
+    Used by the golden suite via the bottom-up extractor (``detect_cells``'s
+    gutter / text-strategy fallback recovers the long-text columns).
     """
     doc = SimpleDocTemplate(str(out), pagesize=LETTER)
     s = _styles()
