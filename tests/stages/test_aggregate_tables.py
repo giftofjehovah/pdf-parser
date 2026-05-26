@@ -518,3 +518,81 @@ def test_wrapper_skips_placeholder_expansion_when_inner_h_lines_too_narrow():
     assert len(tables) == 1
     w = tables[0]
     assert len(w.grid) == 2, f"expected 2-row wrapper, got {len(w.grid)}"
+def test_text_in_row_gap_splits_two_subtables_with_shared_anchors() -> None:
+    """Two sub-tables sharing column anchors fuse by default when the inter-row
+    gap is below ``_TABLE_GAP_MULT × median_h``.  When the caller passes
+    ``page_words`` containing a word strictly inside the gap, the cluster splits
+    so the inter-table prose surfaces as a sibling paragraph upstream.
+
+    Mirrors fixture 25 (``25_subtable_flush_outer_vertical_only``) where two
+    sub-tables sharing x-anchors lose their NOTE-MID paragraph under the
+    default clusterer because the 30pt y-gap (1.67× the 18pt row height) sits
+    below the 2.5× threshold and fuses the sub-tables into one table region —
+    ``build_tree`` then suppresses the paragraph as overlapping that region.
+    """
+    def bb(y0, y1, x0, x1):
+        return BBox(page=0, x0=x0, y0=y0, x1=x1, y1=y1)
+
+    cells = [
+        # Sub-table A: 3 rows × 2 cols, x=[100..200, 200..300], y=[100..154]
+        Cell(bbox=bb(100, 118, 100, 200), text="Item",     source="line", confidence=1.0),
+        Cell(bbox=bb(100, 118, 200, 300), text="Qty",      source="line", confidence=1.0),
+        Cell(bbox=bb(118, 136, 100, 200), text="Widget A", source="line", confidence=1.0),
+        Cell(bbox=bb(118, 136, 200, 300), text="10",       source="line", confidence=1.0),
+        Cell(bbox=bb(136, 154, 100, 200), text="Widget B", source="line", confidence=1.0),
+        Cell(bbox=bb(136, 154, 200, 300), text="5",        source="line", confidence=1.0),
+        # 30pt gap y=154..184 (default threshold = max(2.5*18, 8) = 45 — no split).
+        # Sub-table B: 3 rows × 2 cols, same anchors, y=[184..238]
+        Cell(bbox=bb(184, 202, 100, 200), text="Month",    source="line", confidence=1.0),
+        Cell(bbox=bb(184, 202, 200, 300), text="Sales",    source="line", confidence=1.0),
+        Cell(bbox=bb(202, 220, 100, 200), text="Jan",      source="line", confidence=1.0),
+        Cell(bbox=bb(202, 220, 200, 300), text="$500",     source="line", confidence=1.0),
+        Cell(bbox=bb(220, 238, 100, 200), text="Feb",      source="line", confidence=1.0),
+        Cell(bbox=bb(220, 238, 200, 300), text="$700",     source="line", confidence=1.0),
+    ]
+
+    # Sanity: without page_words, the two sub-tables fuse into one 6-row table.
+    fused = aggregate(cells, page_height=792.0)
+    assert len(fused) == 1, f"baseline: tables should fuse without page_words, got {len(fused)}"
+    assert len(fused[0].grid) == 6
+
+    # With a word strictly inside the gap y-range and overlapping the cluster
+    # x-extent, the cluster splits into two CellTables.
+    page_words = [
+        {"x0": 100.0, "x1": 280.0, "top": 162.0, "bottom": 170.0, "text": "NOTE-BETWEEN"},
+    ]
+    split = aggregate(cells, page_height=792.0, page_words=page_words)
+    assert len(split) == 2, (
+        f"text-bearing gap must split: got {len(split)} table(s) "
+        f"with grids={[t.grid for t in split]}"
+    )
+    assert split[0].grid[0] == ["Item", "Qty"]
+    assert split[1].grid[0] == ["Month", "Sales"]
+
+
+def test_text_in_row_gap_ignored_when_word_overlaps_adjacent_row() -> None:
+    """Text in the gap that overlaps an adjacent row's y-range is NOT a between-paragraph.
+
+    Cell text often spills marginally outside its line-cell bbox (font ascenders,
+    wrapped-line continuation).  The split heuristic must require the word to
+    sit STRICTLY inside the gap (top > prev.y1 + tol, bottom < next.y0 - tol).
+    """
+    def bb(y0, y1, x0, x1):
+        return BBox(page=0, x0=x0, y0=y0, x1=x1, y1=y1)
+
+    cells = [
+        Cell(bbox=bb(100, 118, 100, 200), text="Item",     source="line", confidence=1.0),
+        Cell(bbox=bb(100, 118, 200, 300), text="Qty",      source="line", confidence=1.0),
+        Cell(bbox=bb(118, 136, 100, 200), text="Widget A", source="line", confidence=1.0),
+        Cell(bbox=bb(118, 136, 200, 300), text="10",       source="line", confidence=1.0),
+        Cell(bbox=bb(136, 154, 100, 200), text="Widget B", source="line", confidence=1.0),
+        Cell(bbox=bb(136, 154, 200, 300), text="5",        source="line", confidence=1.0),
+        Cell(bbox=bb(184, 202, 100, 200), text="Month",    source="line", confidence=1.0),
+        Cell(bbox=bb(184, 202, 200, 300), text="Sales",    source="line", confidence=1.0),
+    ]
+    # Word straddles the prev row's y1 — must NOT trigger split.
+    boundary_word = [
+        {"x0": 110.0, "x1": 190.0, "top": 153.0, "bottom": 161.0, "text": "spill"},
+    ]
+    fused = aggregate(cells, page_height=792.0, page_words=boundary_word)
+    assert len(fused) == 1, "word touching adjacent row must not force split"

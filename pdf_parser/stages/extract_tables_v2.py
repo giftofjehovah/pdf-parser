@@ -27,7 +27,17 @@ def _extract(pdf) -> list[DocNode]:
     out: list[DocNode] = []
     for page_idx, page in enumerate(pdf.pages):
         cells = detect_cells(page, page_idx)
-        tables = aggregate(cells, page_height=float(page.height))
+        # ``page.extract_words`` feeds aggregate's between-text gap split so
+        # inter-table prose (NOTE-MID1/2 on fixture 25) survives when the
+        # outer pure-closed_rect frame would otherwise fuse two sub-tables
+        # sharing column anchors into one table region.  See
+        # ``aggregate_tables._gap_has_between_text``.
+        page_words = page.extract_words(
+            keep_blank_chars=False, use_text_flow=False,
+        )
+        tables = aggregate(
+            cells, page_height=float(page.height), page_words=page_words,
+        )
         page_chars = page.chars
         for t in tables:
             out.append(_celltable_to_docnode(t, page_chars=page_chars))

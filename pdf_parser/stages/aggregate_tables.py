@@ -226,12 +226,70 @@ _TABLE_GAP_FLOOR_PT = 8.0
 # header and body rows.
 _NESTED_CONTAINER_GAP_MULT = 1.2
 
+# Slack on the "word strictly inside the gap" check.  A 1pt tolerance lets a
+# word whose top y sits at the previous row's bottom rounded to the same int
+# still count as "inside" (and conversely rejects a word whose ascender pokes
+# into the row above).  Mirrors ``_CONTAIN_TOL``'s ratio: enough to absorb
+# sub-pt drift from coordinate arithmetic, tight enough to refuse overflow.
+_BETWEEN_TEXT_TOL = 1.0
+
+
+def _gap_has_between_text(
+    prev_table: list[list[Cell]],
+    next_row: list[Cell],
+    page_words: list[dict],
+    *,
+    tol: float = _BETWEEN_TEXT_TOL,
+) -> bool:
+    """True if any word in ``page_words`` sits strictly inside the y-band
+    between the previous table's bottom and ``next_row``'s top, with x-overlap
+    against the table's x-extent.
+
+    The "strictly inside" criterion (``top > prev_y1 + tol`` and
+    ``bottom < next_y0 - tol``) rejects cell-text spill (ascenders, wrapped
+    line continuation glyphs) that would otherwise fire spurious splits in
+    legitimate single tables.
+
+    The x-overlap criterion (any horizontal intersection with the cluster's
+    x-extent) catches between-paragraphs that span a sub-region of the
+    cluster width (e.g. a 240pt paragraph inside a 360pt sub-table column
+    band on fixture 25).
+    """
+    if not page_words:
+        return False
+    prev_y1 = max(c.bbox.y1 for prow in prev_table for c in prow)
+    next_y0 = min(c.bbox.y0 for c in next_row)
+    if next_y0 <= prev_y1 + 2.0 * tol:
+        return False
+    page = next_row[0].bbox.page
+    x0 = min(c.bbox.x0 for prow in prev_table for c in prow)
+    x1 = max(c.bbox.x1 for prow in prev_table for c in prow)
+    x0 = min(x0, *(c.bbox.x0 for c in next_row))
+    x1 = max(x1, *(c.bbox.x1 for c in next_row))
+    for w in page_words:
+        if w.get("page_number") not in (None, page + 1):
+            # pdfplumber's word dicts carry a 1-indexed page_number when
+            # iterated from a multi-page extraction; tolerate missing.
+            continue
+        wtop = float(w.get("top", 0.0))
+        wbot = float(w.get("bottom", 0.0))
+        if wtop < prev_y1 + tol or wbot > next_y0 - tol:
+            continue
+        wx0 = float(w.get("x0", 0.0))
+        wx1 = float(w.get("x1", 0.0))
+        if wx1 < x0 - tol or wx0 > x1 + tol:
+            continue
+        if (w.get("text") or "").strip():
+            return True
+    return False
+
 
 def _split_into_tables(
     rows: list[list[Cell]],
     *,
     gap_mult: float = _TABLE_GAP_MULT,
     gap_floor: float = _TABLE_GAP_FLOOR_PT,
+    page_words: list[dict] | None = None,
 ) -> list[list[list[Cell]]]:
     """Adjacent rows with similar geometry AND small inter-row gap form one
     table candidate.
@@ -255,6 +313,16 @@ def _split_into_tables(
     spacer cell), as in fixtures 16/17 / Annex C-D of 13_comprehensive —
     otherwise their 30pt inter-sub-table gap (~1.67× the 18pt row height)
     sits below the default 2.5× threshold and the sub-tables fuse.
+
+    ``page_words`` is the page's extracted words (1pt-precise word dicts from
+    ``page.extract_words``).  When provided, any inter-row gap that contains
+    a word strictly inside the gap y-band and overlapping the cluster's
+    x-extent force-splits the cluster — preserving inter-table prose that
+    would otherwise be silently dropped by ``build_tree``'s
+    table-region-overlap suppression rule.  Mirrors legacy
+    ``_try_decompose_megatable`` for the pure-closed_rect outer-frame idiom
+    (fixture 25 / no header / no footer caps where ``_frame_cells``'s
+    cap-band gate rejects the wrapper).  ``None`` disables the check.
     """
     if not rows:
         return []
@@ -296,6 +364,8 @@ def _split_into_tables(
         heights = [_row_height(rr) for rr in prev_table]
         median_h = statistics.median(heights) if heights else 0.0
         if gap > max(gap_mult * median_h, gap_floor):
+            tables.append([r])
+        elif page_words and _gap_has_between_text(prev_table, r, page_words):
             tables.append([r])
         else:
             prev_table.append(r)
@@ -475,14 +545,27 @@ def _rows_to_celltable(
 
 
 
-def aggregate(cells: list[Cell], page_height: float) -> list[CellTable]:
+def aggregate(
+    cells: list[Cell],
+    page_height: float,
+    *,
+    page_words: list[dict] | None = None,
+) -> list[CellTable]:
     """Group ``cells`` into tables, attaching nested sub-tables via spatial
     containment.  See module docstring.
+
+    ``page_words`` is the page's extracted word dicts (from
+    ``page.extract_words``).  When provided, ``_split_into_tables`` carves
+    inter-table prose out of fused row clusters whose y-gap sits below the
+    default ``_TABLE_GAP_MULT`` threshold — see
+    :func:`_gap_has_between_text` and the discussion in
+    :func:`_split_into_tables`.  ``None`` (the default) preserves the
+    pre-Phase-10 behaviour.
     """
     if not cells:
         return []
     cells = _dedupe_cells(cells)
-    return _aggregate_recursive(cells, page_height)
+    return _aggregate_recursive(cells, page_height, page_words=page_words)
 
 
 def _find_bracketing_text_cells(
@@ -838,6 +921,7 @@ def _aggregate_recursive(
     page_height: float,
     *,
     gap_mult: float = _TABLE_GAP_MULT,
+    page_words: list[dict] | None = None,
 ) -> list[CellTable]:
     """Produce top-level tables; attach contained sub-tables as ``nested``.
 
@@ -875,7 +959,9 @@ def _aggregate_recursive(
 
     top: list[CellTable] = []
     for table_rows in _split_into_tables(
-        _apply_rowspan_merge(_row_cluster(top_cells)), gap_mult=gap_mult,
+        _apply_rowspan_merge(_row_cluster(top_cells)),
+        gap_mult=gap_mult,
+        page_words=page_words,
     ):
         ct = _rows_to_celltable(table_rows, page_height)
         if ct is None:
@@ -911,7 +997,8 @@ def _aggregate_recursive(
                     else _TABLE_GAP_MULT
                 )
                 sub_tables = _aggregate_recursive(
-                    inside, page_height, gap_mult=sub_gap_mult,
+                    inside, page_height,
+                    gap_mult=sub_gap_mult, page_words=page_words,
                 )
                 if not sub_tables:
                     continue
