@@ -11,8 +11,9 @@ import typer
 from pdf_parser.chunk import chunk_tree
 from pdf_parser.pipeline import parse as parse_pdf
 from pdf_parser.render.html import to_html
-from pdf_parser.render.json_ import to_json
+from pdf_parser.render.json_ import to_json, to_tree_json
 from pdf_parser.render.markdown import to_markdown
+from pdf_parser.render.llm_prompt import to_llm_prompts
 from pdf_parser.validate.report import validate
 
 app = typer.Typer(add_completion=False, help="Deterministic PDF parser.")
@@ -32,6 +33,10 @@ def _render(tree, format: str, pdf_path: Path | None = None) -> str:
         return to_html(tree, pdf_path=pdf_path)
     if format == "chunks":
         return json.dumps([c.model_dump() for c in chunk_tree(tree)], indent=2)
+    if format == "llm-prompt":
+        return "\n\n=====================\n\n".join(to_llm_prompts(tree))
+    if format == "tree":
+        return to_tree_json(tree, indent=2)
     raise typer.BadParameter(f"unknown format: {format}", param_hint="--format")
 
 
@@ -39,7 +44,7 @@ def _render(tree, format: str, pdf_path: Path | None = None) -> str:
 def parse(
     path: Path,
     format: str = typer.Option("json", "--format", "-f",
-                               help="json | markdown | html | chunks"),
+                               help="json | tree | markdown | html | chunks | llm-prompt"),
     output: Optional[Path] = typer.Option(
         None, "--output", "-o",
         help="Write rendered output to PATH instead of stdout. Parent dirs are created.",

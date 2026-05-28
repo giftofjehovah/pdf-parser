@@ -348,12 +348,13 @@ Expected output: a single `# Nested Table Example` heading followed by a 3×3 ta
 
 ### Options
 
-`-f, --format {json,markdown,html,chunks}` — output shape. Default `json`.
+`-f, --format {json,markdown,html,chunks,llm-prompt}` — output shape. Default `json`.
 
 - `json` — full `DocNode` tree (`pydantic` model_dump), pretty-printed with indent=2. Preserves hierarchy, bboxes, page numbers, and nested tables. Use this when you want the raw structured output.
 - `markdown` — flattened Markdown rendering: headings become `#`/`##`/…, tables become GitHub-style pipe tables, paragraphs become plain text. Lossy with respect to bboxes.
 - `html` — page-faithful absolute layout: each page becomes a white box sized to the PDF page dimensions (scaled 1.5×). Elements are absolutely positioned from their `BBox` coordinates so column widths, row heights, and reading flow match the source. Table fill colours are extracted directly from the PDF. Use this for visual spot-checking or human review.
 - `chunks` — RAG-ready chunks as a JSON array. Each chunk carries `text`, `breadcrumb` (heading path), page span, bbox span, and token estimate. Paragraphs are split at ~800 tokens with ~100-token overlap; tables are split row-wise with the header repeated on each piece.
+- `llm-prompt` — per-page, ID-anchored prompt body for an LLM that decides chunk boundaries. Each page is emitted as a YAML-like envelope (`page`, `pages_total`, `breadcrumb`, `continued_tables`) followed by indented HTML+Markdown: prose blocks become Markdown with `<!-- id:... -->` anchors, tables become indented `<table>` with `data-id` on every `<table>`/`<tr>`/`<td>`. Tables that stitch across pages are emitted as a per-page **slice** (rows physically on this page + the header row repeated on continuations) with `data-continues-to` / `data-continued-from` / `data-shape` / `data-row-range` so the model can tell "this is the same logical table I saw earlier" without ever seeing the full table in one prompt. Per-page output is bounded regardless of total table length, which makes 17-page tables tractable. Rowspan-placeholder rows are suppressed entirely. The CLI joins page prompts with a `=====================` separator; programmatic callers should use `to_llm_prompt(tree, page_index)` or `to_llm_prompts(tree)` from `pdf_parser.render.llm_prompt` instead. The model's response is expected to be JSON listing chunk decisions by `data-id` — the renderer does not call any LLM itself.
 
 `-o, --output <path>` — write the rendered output to `<path>` instead of stdout. Parent directories are created if missing. Mutually composable with `--visualize`: you can write the parse tree to a file and the bbox overlay PDF in the same invocation.
 
