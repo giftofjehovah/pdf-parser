@@ -360,3 +360,46 @@ def test_label_with_inline_bullet_cell_committed_fixture_matches_regeneration(tm
     regen = tmp_path / "regen.pdf"
     BUILDERS["31_label_with_inline_bullet_cell"](regen)
     assert _digest(committed) == _digest(regen)
+
+
+def test_dark_band_header_phantom_rows_pdf_is_byte_stable(tmp_path):
+    a = tmp_path / "a.pdf"; b = tmp_path / "b.pdf"
+    BUILDERS["32_dark_band_header_phantom_rows"](a)
+    BUILDERS["32_dark_band_header_phantom_rows"](b)
+    assert _digest(a) == _digest(b)
+
+
+def test_dark_band_header_phantom_rows_committed_fixture_matches_regeneration(tmp_path):
+    committed = GOLDEN_DIR / "32_dark_band_header_phantom_rows" / "source.pdf"
+    assert committed.exists(), "run `python -m tests.fixtures.build_pdfs` first"
+    regen = tmp_path / "regen.pdf"
+    BUILDERS["32_dark_band_header_phantom_rows"](regen)
+    assert _digest(committed) == _digest(regen)
+
+def test_dark_band_header_phantom_rows_in_subtable_pdf_is_byte_stable(tmp_path):
+    a = tmp_path / "a.pdf"; b = tmp_path / "b.pdf"
+    BUILDERS["33_dark_band_header_phantom_rows_in_subtable"](a)
+    BUILDERS["33_dark_band_header_phantom_rows_in_subtable"](b)
+    assert _digest(a) == _digest(b)
+
+
+def test_dark_band_header_phantom_rows_in_subtable_committed_fixture_matches_regeneration(tmp_path):
+    committed = GOLDEN_DIR / "33_dark_band_header_phantom_rows_in_subtable" / "source.pdf"
+    assert committed.exists(), "run `python -m tests.fixtures.build_pdfs` first"
+    regen = tmp_path / "regen.pdf"
+    BUILDERS["33_dark_band_header_phantom_rows_in_subtable"](regen)
+    assert _digest(committed) == _digest(regen)
+
+def test_label_with_inline_bullet_cell_in_subtable_pdf_is_byte_stable(tmp_path):
+    a = tmp_path / "a.pdf"; b = tmp_path / "b.pdf"
+    BUILDERS["34_label_with_inline_bullet_cell_in_subtable"](a)
+    BUILDERS["34_label_with_inline_bullet_cell_in_subtable"](b)
+    assert _digest(a) == _digest(b)
+
+
+def test_label_with_inline_bullet_cell_in_subtable_committed_fixture_matches_regeneration(tmp_path):
+    committed = GOLDEN_DIR / "34_label_with_inline_bullet_cell_in_subtable" / "source.pdf"
+    assert committed.exists(), "run `python -m tests.fixtures.build_pdfs` first"
+    regen = tmp_path / "regen.pdf"
+    BUILDERS["34_label_with_inline_bullet_cell_in_subtable"](regen)
+    assert _digest(committed) == _digest(regen)

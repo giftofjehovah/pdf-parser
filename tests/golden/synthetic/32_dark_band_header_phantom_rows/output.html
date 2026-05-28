@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>PDF Preview</title>
+<style>
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+body {
+  background: #777;
+  padding: 24px;
+  font-family: Helvetica, Arial, sans-serif;
+  font-size: 11.25px;
+}
+.page {
+  position: relative;
+  background: white;
+  margin: 0 auto 32px;
+  box-shadow: 0 4px 24px rgba(0,0,0,.45);
+  overflow: hidden;
+}
+.tb {
+  position: absolute;
+  /* Joined wrapped paragraphs use the union bbox of their visual lines:
+     width matches the column, height spans all lines.  Allow normal wrapping
+     so the joined text re-flows inside that bbox instead of being clipped. */
+  white-space: normal;
+  overflow: visible;
+  line-height: 13.50px;
+}
+.tb-h1 { font-size: 21.00px; font-weight: bold; overflow: visible; }
+.tb-h2 { font-size: 18.00px; font-weight: bold; overflow: visible; }
+.tb-h3 { font-size: 16.50px; font-weight: bold; overflow: visible; }
+.tb-h4 { font-size: 15.00px; font-weight: bold; overflow: visible; }
+.cell {
+  position: absolute;
+  overflow: hidden;
+  white-space: pre-line;
+  display: flex;
+  align-items: center;
+  font-size: 11.25px;
+  line-height: 13.50px;
+  padding: 3.0px 4.5px;
+  border: 0.6px solid #AAAAAA;
+}
+/* heuristic fallback classes (used when no pdf_path is given) */
+.rH { background: #D0D0D0; font-weight: bold; justify-content: center; }
+.rS { background: #E8E8E8; font-weight: bold; font-size: 10.50px; }
+.rT { background: #F0F0F0; font-weight: bold; border-top-color: #000 !important; }
+.rK { background: #DDEEFF; font-weight: bold;
+       border-top: 1.2px solid #000 !important;
+       border-bottom: 1.2px solid #000 !important; }
+.rP { font-style: italic; color: #444; }
+.num { justify-content: flex-end; }
+
+</style>
+</head>
+<body>
+<div class="page" style="width:918px;height:1188px;"><div class="cell" style="left:148.5px;top:117.0px;width:129.6px;height:108.0px;background:#000000;color:#ffffff;font-weight:bold;">Climate Risk
+Grading</div><div class="cell" style="left:278.1px;top:117.0px;width:113.4px;height:108.0px;background:#000000;color:#ffffff;font-weight:bold;">Threshold</div><div class="cell" style="left:391.5px;top:117.0px;width:75.6px;height:108.0px;background:#000000;color:#ffffff;font-weight:bold;">Q3 2024</div><div class="cell" style="left:467.1px;top:117.0px;width:75.6px;height:108.0px;background:#000000;color:#ffffff;font-weight:bold;">Q4 2024</div><div class="cell" style="left:542.7px;top:117.0px;width:75.6px;height:108.0px;background:#000000;color:#ffffff;font-weight:bold;">Q1 2025</div><div class="cell" style="left:618.3px;top:117.0px;width:75.6px;height:108.0px;background:#000000;color:#ffffff;font-weight:bold;">Q2 2025</div><div class="cell" style="left:693.9px;top:117.0px;width:75.6px;height:108.0px;background:#000000;color:#ffffff;font-weight:bold;">Q3 2025</div><div class="cell" style="left:148.5px;top:225.0px;width:129.6px;height:30.0px;background:#2BA757;color:#ffffff;font-weight:bold;">Green</div><div class="cell" style="left:278.1px;top:225.0px;width:113.4px;height:330.0px;">Black &amp; Red
+cases - No
+more than 20%
+of net nominal
+exposure in
+portfolio based
+on 2022-23
+data</div><div class="cell" style="left:391.5px;top:225.0px;width:75.6px;height:30.0px;">63%</div><div class="cell" style="left:467.1px;top:225.0px;width:75.6px;height:30.0px;">61%</div><div class="cell" style="left:542.7px;top:225.0px;width:75.6px;height:30.0px;">62%</div><div class="cell" style="left:618.3px;top:225.0px;width:75.6px;height:30.0px;">53%</div><div class="cell" style="left:693.9px;top:225.0px;width:75.6px;height:30.0px;">61%</div><div class="cell" style="left:148.5px;top:255.0px;width:129.6px;height:30.0px;background:#F4A100;font-weight:bold;">Amber</div><div class="cell" style="left:391.5px;top:255.0px;width:75.6px;height:30.0px;">35%</div><div class="cell" style="left:467.1px;top:255.0px;width:75.6px;height:30.0px;">37%</div><div class="cell" style="left:542.7px;top:255.0px;width:75.6px;height:30.0px;">36%</div><div class="cell" style="left:618.3px;top:255.0px;width:75.6px;height:30.0px;">44%</div><div class="cell" style="left:693.9px;top:255.0px;width:75.6px;height:30.0px;">37%</div><div class="cell" style="left:148.5px;top:285.0px;width:129.6px;height:30.0px;background:#E11C1C;color:#ffffff;font-weight:bold;">Red</div><div class="cell" style="left:391.5px;top:285.0px;width:75.6px;height:30.0px;">2%</div><div class="cell" style="left:467.1px;top:285.0px;width:75.6px;height:30.0px;">2%</div><div class="cell" style="left:542.7px;top:285.0px;width:75.6px;height:30.0px;">2%</div><div class="cell" style="left:618.3px;top:285.0px;width:75.6px;height:30.0px;">3%</div><div class="cell" style="left:693.9px;top:285.0px;width:75.6px;height:30.0px;">1%</div><div class="cell" style="left:148.5px;top:315.0px;width:129.6px;height:30.0px;background:#000000;color:#ffffff;font-weight:bold;">Black</div><div class="cell" style="left:391.5px;top:315.0px;width:75.6px;height:30.0px;">0%</div><div class="cell" style="left:467.1px;top:315.0px;width:75.6px;height:30.0px;">0%</div><div class="cell" style="left:542.7px;top:315.0px;width:75.6px;height:30.0px;">0%</div><div class="cell" style="left:618.3px;top:315.0px;width:75.6px;height:30.0px;">0%</div><div class="cell" style="left:693.9px;top:315.0px;width:75.6px;height:30.0px;">0%</div><div class="cell" style="left:148.5px;top:345.0px;width:129.6px;height:90.0px;">Exposure
+(USDm)</div><div class="cell" style="left:391.5px;top:345.0px;width:75.6px;height:30.0px;">5,660</div><div class="cell" style="left:467.1px;top:345.0px;width:75.6px;height:30.0px;">5,243</div><div class="cell" style="left:542.7px;top:345.0px;width:75.6px;height:30.0px;">5,749</div><div class="cell" style="left:618.3px;top:345.0px;width:75.6px;height:30.0px;">5,540</div><div class="cell" style="left:693.9px;top:345.0px;width:75.6px;height:30.0px;">5,711</div><div class="cell" style="left:391.5px;top:375.0px;width:75.6px;height:30.0px;"></div><div class="cell" style="left:467.1px;top:375.0px;width:75.6px;height:30.0px;"></div><div class="cell" style="left:542.7px;top:375.0px;width:75.6px;height:30.0px;"></div><div class="cell" style="left:618.3px;top:375.0px;width:75.6px;height:30.0px;"></div><div class="cell" style="left:693.9px;top:375.0px;width:75.6px;height:30.0px;"></div><div class="cell" style="left:391.5px;top:405.0px;width:75.6px;height:30.0px;"></div><div class="cell" style="left:467.1px;top:405.0px;width:75.6px;height:30.0px;"></div><div class="cell" style="left:542.7px;top:405.0px;width:75.6px;height:30.0px;"></div><div class="cell" style="left:618.3px;top:405.0px;width:75.6px;height:30.0px;"></div><div class="cell" style="left:693.9px;top:405.0px;width:75.6px;height:30.0px;"></div><div class="cell" style="left:148.5px;top:435.0px;width:129.6px;height:120.0px;">(Client Count)</div><div class="cell" style="left:391.5px;top:435.0px;width:75.6px;height:30.0px;"></div><div class="cell" style="left:467.1px;top:435.0px;width:75.6px;height:30.0px;"></div><div class="cell" style="left:542.7px;top:435.0px;width:75.6px;height:30.0px;"></div><div class="cell" style="left:618.3px;top:435.0px;width:75.6px;height:30.0px;"></div><div class="cell" style="left:693.9px;top:435.0px;width:75.6px;height:30.0px;"></div><div class="cell" style="left:391.5px;top:465.0px;width:75.6px;height:30.0px;">166</div><div class="cell" style="left:467.1px;top:465.0px;width:75.6px;height:30.0px;">168</div><div class="cell" style="left:542.7px;top:465.0px;width:75.6px;height:30.0px;">180</div><div class="cell" style="left:618.3px;top:465.0px;width:75.6px;height:30.0px;">179</div><div class="cell" style="left:693.9px;top:465.0px;width:75.6px;height:30.0px;">190</div><div class="cell" style="left:391.5px;top:495.0px;width:75.6px;height:30.0px;"></div><div class="cell" style="left:467.1px;top:495.0px;width:75.6px;height:30.0px;"></div><div class="cell" style="left:542.7px;top:495.0px;width:75.6px;height:30.0px;"></div><div class="cell" style="left:618.3px;top:495.0px;width:75.6px;height:30.0px;"></div><div class="cell" style="left:693.9px;top:495.0px;width:75.6px;height:30.0px;"></div><div class="cell" style="left:391.5px;top:525.0px;width:75.6px;height:30.0px;"></div><div class="cell" style="left:467.1px;top:525.0px;width:75.6px;height:30.0px;"></div><div class="cell" style="left:542.7px;top:525.0px;width:75.6px;height:30.0px;"></div><div class="cell" style="left:618.3px;top:525.0px;width:75.6px;height:30.0px;"></div><div class="cell" style="left:693.9px;top:525.0px;width:75.6px;height:30.0px;"></div><div class="tb" style="left:93.5px;top:580.5px;width:734.4px;height:15.5px;">o Net Zero &amp; Climate Risk Working Forum ("NZCRWF"): A global quarterly bimonthly</div><div class="tb" style="left:111.1px;top:601.5px;width:717.4px;height:120.5px;">forum/working group with representation from key stakeholders across Client Coverage, Chief Sustainability Officer (CSO) Team, Credit Officers/Industries Risk, ESGR Client Risk Management team was established under the purview of the CIB Client Review Committee ("CRC") in 2023. The purpose of the forum is to review, challenge, agree and monitor progress against action plans for clients that are high climate risk and/or are misaligned from the Group’s committed NZ pathways.</div></div>
+
+</body>
+</html>
+

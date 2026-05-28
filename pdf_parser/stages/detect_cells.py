@@ -164,6 +164,7 @@ _LINE_AXIS_TOL  = 0.5
 _LINE_SNAP_TOL  = 1.0
 _BG_COLOR_TOL   = 0.95
 _MIN_CELL_AREA  = 1.0
+_BAND_PADDING_TOL = 0.5  # pt; row-rect containment slack
 
 _DEFAULT_TABLE_SETTINGS = {
     "vertical_strategy":    "lines",
@@ -304,6 +305,120 @@ def _visible_edges_local(page):
     return horizontal, vertical
 
 
+
+def _absorb_band_padding_rows(page, cells: list[Cell]) -> list[Cell]:
+    """Fold blank line-cell rows into an adjacent text-bearing row when
+    both rows sit inside the same non-background-coloured filled rect.
+
+    Pattern under repair: a designer pads a header (or grouped band) by
+    stacking empty rows above and/or below the text row, all sharing a
+    single background fill rectangle.  pdfplumber's line strategy
+    decodes each row as its own cell band, so downstream sees phantom
+    blank rows that nobody can read in the rendered PDF (the dark fill
+    hides the empty cells visually).
+
+    Gates (cheapest first):
+
+      * Page must carry at least one non-background-coloured filled
+        rect — the structural cue distinguishing a true band from
+        incidental blank rows in a borderless table.
+      * Inside that rect, exactly one row must be text-bearing.  Two or
+        more text rows under the same fill is a legitimate multi-row
+        coloured band (e.g. a multi-line section heading); zero text
+        rows leaves nothing to absorb into.
+      * Every absorbed blank row must share the text row's column
+        x-signature exactly — otherwise it belongs to a different
+        column structure that happens to overlap.
+      * Each candidate row's full x-extent must fit inside the band
+        rect — guards against single-cell coloured backgrounds (e.g. a
+        per-cell colour-coded grade label) swallowing the rest of a
+        multi-column row that merely starts at the same x as the rect.
+
+    On match, blank rows are dropped and the text row's bbox grows to
+    span the union y-extent of the absorbed rows + the text row.
+    """
+    if not cells:
+        return cells
+
+    band_rects: list[tuple[float, float, float, float]] = []
+    for r in page.rects:
+        if not r.get("fill"):
+            continue
+        if _is_background_color(r.get("non_stroking_color")):
+            continue
+        band_rects.append((r["x0"], r["top"], r["x1"], r["bottom"]))
+    if not band_rects:
+        return cells
+
+    tol = _BAND_PADDING_TOL
+
+    # Bucket cells into rows by snapped (y0, y1).
+    row_buckets: dict[tuple[float, float], list[Cell]] = {}
+    for c in cells:
+        key = (round(c.bbox.y0 / tol) * tol, round(c.bbox.y1 / tol) * tol)
+        row_buckets.setdefault(key, []).append(c)
+
+    def _row_sig(row: list[Cell]) -> tuple[tuple[float, float], ...]:
+        return tuple(sorted((round(c.bbox.x0, 1), round(c.bbox.x1, 1)) for c in row))
+
+    def _is_blank_row(row: list[Cell]) -> bool:
+        return all(not c.text.strip() for c in row)
+
+    # Assign each row to its first enclosing band rect.
+    rect_to_rows: dict[int, list[tuple[float, float]]] = {}
+    for key, row in row_buckets.items():
+        y0, y1 = key
+        rx0 = min(c.bbox.x0 for c in row)
+        rx1 = max(c.bbox.x1 for c in row)
+        for ridx, (bx0, by0, bx1, by1) in enumerate(band_rects):
+            if (by0 - tol <= y0 and y1 <= by1 + tol
+                    and bx0 - tol <= rx0 and rx1 <= bx1 + tol):
+                rect_to_rows.setdefault(ridx, []).append(key)
+                break
+
+    absorbed: set[tuple[float, float]] = set()
+    extensions: dict[tuple[float, float], tuple[float, float]] = {}
+
+    for row_keys in rect_to_rows.values():
+        if len(row_keys) < 2:
+            continue
+        text_keys  = [k for k in row_keys if not _is_blank_row(row_buckets[k])]
+        blank_keys = [k for k in row_keys if     _is_blank_row(row_buckets[k])]
+        if len(text_keys) != 1 or not blank_keys:
+            continue
+        text_key = text_keys[0]
+        text_sig = _row_sig(row_buckets[text_key])
+        absorbable = [k for k in blank_keys if _row_sig(row_buckets[k]) == text_sig]
+        if not absorbable:
+            continue
+        ext_y0, ext_y1 = text_key
+        for k in absorbable:
+            ext_y0 = min(ext_y0, k[0])
+            ext_y1 = max(ext_y1, k[1])
+            absorbed.add(k)
+        extensions[text_key] = (ext_y0, ext_y1)
+
+    if not absorbed:
+        return cells
+
+    out: list[Cell] = []
+    for key, row in row_buckets.items():
+        if key in absorbed:
+            continue
+        if key in extensions:
+            ny0, ny1 = extensions[key]
+            for c in row:
+                out.append(Cell(
+                    bbox=BBox(page=c.bbox.page, x0=c.bbox.x0, y0=ny0, x1=c.bbox.x1, y1=ny1),
+                    text=c.text,
+                    source=c.source,
+                    confidence=c.confidence,
+                    bbox_style=c.bbox_style,
+                ))
+        else:
+            out.extend(row)
+    return out
+
 def _line_cells(page, page_index: int) -> list[Cell]:
     settings = dict(_DEFAULT_TABLE_SETTINGS)
     h_vis, v_vis = _visible_edges_local(page)
@@ -335,7 +450,7 @@ def _line_cells(page, page_index: int) -> list[Cell]:
                     source="line",
                     confidence=1.0,
                 ))
-    return out
+    return _absorb_band_padding_rows(page, out)
 
 # ---------------------------------------------------------------------------
 # Borderless-frame promotion (Phase-10 prep, Residual D).

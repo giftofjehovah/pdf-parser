@@ -1,0 +1,140 @@
+{
+  "children": [
+    {
+      "children": [
+        {
+          "children": [
+            {
+              "children": [
+                {
+                  "kind": "cell",
+                  "text": "Client Selection Criteria (nested)"
+                }
+              ],
+              "kind": "row"
+            },
+            {
+              "children": [
+                {
+                  "children": [
+                    {
+                      "children": [
+                        {
+                          "children": [
+                            {
+                              "kind": "cell",
+                              "text": "Sub-Segment"
+                            },
+                            {
+                              "kind": "cell",
+                              "text": "Client Level Considerations"
+                            }
+                          ],
+                          "kind": "row"
+                        },
+                        {
+                          "children": [
+                            {
+                              "kind": "cell",
+                              "text": "All Clients"
+                            },
+                            {
+                              "kind": "cell",
+                              "text": "\u2022 Extensive track record in their relevant sector.\n\u2022 Experienced and diversified management team with clear separation of roles and\nresponsibilities.\n\u2022 Strong asset base with proven access to capital markets."
+                            }
+                          ],
+                          "kind": "row"
+                        },
+                        {
+                          "children": [
+                            {
+                              "kind": "cell",
+                              "text": "Tier One Producers"
+                            },
+                            {
+                              "kind": "cell",
+                              "text": "\u2022 We engage selectively with sub-USD1bn-market-cap names under a capital-light\nadvisory mandate.\n\u2022 Private companies must have a strong financial sponsor (e.g. Orion, EMR, Denham).\n\u2022 Asset base sufficiently de-risked through diversification of geographies or\ndevelopment stage.\n\u2022 Technical specialists must validate any underlying asset that underpins a debt\nfacility."
+                            }
+                          ],
+                          "kind": "row"
+                        },
+                        {
+                          "children": [
+                            {
+                              "kind": "cell",
+                              "text": "Tier Two Producers"
+                            },
+                            {
+                              "kind": "cell",
+                              "text": "\u2022 Substantial trading scale and strong record of financial performance vs. peers."
+                            }
+                          ],
+                          "kind": "row"
+                        }
+                      ],
+                      "kind": "table"
+                    }
+                  ],
+                  "kind": "cell"
+                }
+              ],
+              "kind": "row"
+            },
+            {
+              "children": [
+                {
+                  "kind": "cell"
+                }
+              ],
+              "kind": "row"
+            },
+            {
+              "children": [
+                {
+                  "kind": "cell"
+                }
+              ],
+              "kind": "row"
+            },
+            {
+              "children": [
+                {
+                  "kind": "cell"
+                }
+              ],
+              "kind": "row"
+            },
+            {
+              "children": [
+                {
+                  "kind": "cell"
+                }
+              ],
+              "kind": "row"
+            },
+            {
+              "children": [
+                {
+                  "kind": "cell"
+                }
+              ],
+              "kind": "row"
+            },
+            {
+              "children": [
+                {
+                  "kind": "cell",
+                  "text": "End of nested table"
+                }
+              ],
+              "kind": "row"
+            }
+          ],
+          "kind": "table"
+        }
+      ],
+      "kind": "page"
+    }
+  ],
+  "kind": "document"
+}

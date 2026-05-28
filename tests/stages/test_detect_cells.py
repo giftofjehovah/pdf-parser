@@ -379,3 +379,173 @@ def test_detect_cells_emits_3x2_grid_on_headerless_keyvalue_table():
     assert len(cells) == 6, [c.text for c in cells]
     assert all(c.source == "gutter" for c in cells)
     assert {"Revenue", "Expenses", "Net", "$1000", "$800", "$200"} == texts
+
+def test_line_cells_on_dark_band_header_fixture():
+    """Fixture 32 (dark-band header with stacked empty padding rows + a
+    SPAN-merged Threshold column).
+
+    Locks in two behaviours from ``_line_cells`` on this fixture:
+
+      1. *Dark-band header collapses to one row* — the
+         :func:`_absorb_band_padding_rows` post-pass folds the empty
+         padding rows above and below the column-header text (all
+         three rows share a single black-filled rect) into the text
+         row.  Without the absorber, ``_line_cells`` would faithfully
+         decode all three PDF rows and expose 14 phantom blank cells
+         flanking the header text; with it, the band reduces to a
+         single 7-cell row whose bbox spans the full band y-extent.
+
+      2. *True ``SPAN`` survives intact* — the desired behaviour.  The
+         Threshold column is one merged cell spanning data rows 3..13
+         carrying the full continuous paragraph.  ``_line_cells`` must
+         return exactly one cell for that region, tall enough to cover
+         all 11 data rows.  Guards against the absorber accidentally
+         splitting legitimate SPAN cells.
+    """
+    pdf_path = Path("tests/golden/synthetic/32_dark_band_header_phantom_rows/source.pdf")
+    with pdfplumber.open(str(pdf_path)) as pdf:
+        page = pdf.pages[0]
+        cells = _line_cells(page, page_index=0)
+
+    # Group cells by y0 to recover the row structure.
+    from collections import defaultdict
+    rows = defaultdict(list)
+    for c in cells:
+        rows[round(c.bbox.y0, 1)].append(c)
+    ordered_rows = [sorted(rs, key=lambda c: c.bbox.x0) for _, rs in sorted(rows.items())]
+
+    # --- (1) dark-band header collapsed to one row -------------------------
+    header_row = ordered_rows[0]
+    assert len(header_row) == 7, [c.text for c in header_row]
+    header_texts = [c.text for c in header_row]
+    assert header_texts[0].startswith("Climate Risk")
+    assert header_texts[1] == "Threshold"
+    assert header_texts[2:] == ["Q3 2024", "Q4 2024", "Q1 2025", "Q2 2025", "Q3 2025"]
+
+    # The collapsed header bbox must span the entire band (y=78..150 in
+    # fixture units): top of the empty pad-top row through the bottom of
+    # the empty pad-bottom row.  Allow 1pt slack.
+    band_y_extent = (header_row[0].bbox.y0, header_row[0].bbox.y1)
+    assert abs(band_y_extent[0] - 78.0) < 1.0, band_y_extent
+    assert abs(band_y_extent[1] - 150.0) < 1.0, band_y_extent
+    # All cells in the collapsed header share the same bbox y-range.
+    assert all(abs(c.bbox.y0 - band_y_extent[0]) < 1.0 for c in header_row)
+    assert all(abs(c.bbox.y1 - band_y_extent[1]) < 1.0 for c in header_row)
+
+    # No blank cells remain inside the band y-extent — the phantom rows
+    # are gone, not merely hidden.
+    blanks_in_band = [
+        c for c in cells
+        if not c.text.strip()
+        and c.bbox.y0 >= band_y_extent[0] - 1.0
+        and c.bbox.y1 <= band_y_extent[1] + 1.0
+    ]
+    assert blanks_in_band == [], [(c.bbox.y0, c.bbox.y1, c.bbox.x0) for c in blanks_in_band]
+
+    # --- (2) Threshold SPAN survives ---------------------------------------
+    threshold_text = (
+        "Black & Red cases - No more than 20% of net nominal exposure in "
+        "portfolio based on 2022-23 data"
+    )
+    threshold_cells = [
+        c for c in cells
+        if " ".join(c.text.split()).startswith("Black & Red cases")
+    ]
+    assert len(threshold_cells) == 1, [c.text for c in threshold_cells]
+    merged = threshold_cells[0]
+    # Reportlab wraps the paragraph inside the cell, so the extracted text
+    # carries line breaks; collapse whitespace before comparing.
+    flat = " ".join(merged.text.split())
+    assert flat == threshold_text, flat
+    # The merged cell must be tall enough to cover all 11 data rows
+    # (rows 3..13 in the fixture).  Each data row is ~20pt, so the SPAN
+    # height should be in the 200-240pt range; assert > 150 to leave
+    # generous slack while still excluding any per-row split.
+    assert (merged.bbox.y1 - merged.bbox.y0) > 150, merged.bbox
+
+def test_line_cells_on_dark_band_header_in_subtable_fixture():
+    """Fixture 33 (fixture 32's dark-band header table nested inside a
+    1-column GRID-bordered outer table).
+
+    Locks in the same two ``_line_cells`` invariants as fixture 32 —
+    band collapses to one row, true ``SPAN`` survives — but with the
+    pathological table sitting one level deeper in the hierarchy.  The
+    outer table's borders contribute extra horizontal strokes that
+    pdfplumber's line strategy decodes, so this test guards against a
+    future change to :func:`_absorb_band_padding_rows` that would
+    accidentally restrict its scope to top-level tables.
+
+    Also asserts that the outer wrapper's Header and Footer rows survive
+    as their own line cells — proof that the absorber didn't over-reach
+    and merge the outer wrapper into the inner band.
+    """
+    pdf_path = Path("tests/golden/synthetic/33_dark_band_header_phantom_rows_in_subtable/source.pdf")
+    with pdfplumber.open(str(pdf_path)) as pdf:
+        page = pdf.pages[0]
+        cells = _line_cells(page, page_index=0)
+
+    # --- (1) Dark-band header collapsed to one 7-cell row -----------------
+    # Match the inner band's first cell precisely: its text is exactly the
+    # two-line "Climate Risk\nGrading" (a <br/> inside the Paragraph), not
+    # the outer wrapper header ("Climate Risk Grading (nested)") or the
+    # big outer-cell whose text happens to contain "Climate Risk".
+    band_header_cells = [
+        c for c in cells
+        if " ".join(c.text.split()) == "Climate Risk Grading"
+    ]
+    assert len(band_header_cells) == 1, [c.text for c in band_header_cells]
+    band_top = band_header_cells[0].bbox.y0
+    band_bot = band_header_cells[0].bbox.y1
+
+    # The collapsed band must span all 3 stacked PDF rows (~72pt).
+    assert (band_bot - band_top) > 60, (band_top, band_bot)
+
+    # The collapsed header has exactly 7 cells sharing the band's y-range.
+    band_row = [
+        c for c in cells
+        if abs(c.bbox.y0 - band_top) < 1.0 and abs(c.bbox.y1 - band_bot) < 1.0
+    ]
+    assert len(band_row) == 7, [c.text for c in band_row]
+    band_row.sort(key=lambda c: c.bbox.x0)
+    band_texts = [c.text for c in band_row]
+    assert band_texts[0].startswith("Climate Risk")
+    assert band_texts[1] == "Threshold"
+    assert band_texts[2:] == ["Q3 2024", "Q4 2024", "Q1 2025", "Q2 2025", "Q3 2025"]
+
+    # No blank cells remain inside the band y-extent.
+    blanks_in_band = [
+        c for c in cells
+        if not c.text.strip()
+        and c.bbox.y0 >= band_top - 1.0
+        and c.bbox.y1 <= band_bot + 1.0
+    ]
+    assert blanks_in_band == [], [(c.bbox.y0, c.bbox.y1, c.bbox.x0) for c in blanks_in_band]
+
+    # --- (2) Threshold SPAN survives intact -------------------------------
+    threshold_text = (
+        "Black & Red cases - No more than 20% of net nominal exposure in "
+        "portfolio based on 2022-23 data"
+    )
+    threshold_cells = [
+        c for c in cells
+        if " ".join(c.text.split()).startswith("Black & Red cases")
+    ]
+    assert len(threshold_cells) == 1, [c.text for c in threshold_cells]
+    merged = threshold_cells[0]
+    flat = " ".join(merged.text.split())
+    assert flat == threshold_text, flat
+    # The SPAN must cover all 11 data rows (~220pt). Assert > 150 to leave
+    # generous slack while still excluding any per-row split.
+    assert (merged.bbox.y1 - merged.bbox.y0) > 150, merged.bbox
+
+    # --- (3) Outer wrapper rows survive as their own cells ----------------
+    # Proof that we actually tested the nested case: the outer table's
+    # Header and Footer rows are visible as standalone single-cell rows
+    # straddling the inner band on both sides.
+    outer_header = [c for c in cells if c.text.strip() == "Climate Risk Grading (nested)"]
+    outer_footer = [c for c in cells if c.text.strip() == "End of nested table"]
+    assert len(outer_header) == 1, [c.text for c in outer_header]
+    assert len(outer_footer) == 1, [c.text for c in outer_footer]
+    # Header sits above the band, footer sits below.
+    assert outer_header[0].bbox.y1 <= band_top + 1.0, (outer_header[0].bbox, band_top)
+    assert outer_footer[0].bbox.y0 >= merged.bbox.y1 - 1.0, (outer_footer[0].bbox, merged.bbox)

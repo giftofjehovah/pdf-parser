@@ -2884,6 +2884,367 @@ def build_31_label_with_inline_bullet_cell(out: Path) -> None:
     ])
 
 
+def build_32_dark_band_header_phantom_rows(out: Path) -> None:
+    """32_dark_band_header_phantom_rows: dark-filled header band whose
+    visual single "row" is realised as THREE stacked PDF rows -- empty
+    padding above, the column-header text in the middle, empty padding
+    below -- all sharing the same black fill.
+
+    Real-world manifestation: a bank sustainability report's "Climate Risk
+    Grading" table.  The author drew a tall dark title band by padding the
+    header row with two adjacent empty-but-same-fill rows so the white
+    column-header text would float vertically centred inside a thick band.
+    Visually the band reads as a single header row; structurally the PDF
+    carries three explicit rows that pdfplumber's line strategy faithfully
+    decodes, so ``_line_cells`` emits 7 + 7 + 7 cells -- the middle 7
+    carry the header text, the outer 14 are empty.
+
+    Companion shape elements that make the fixture exercise more than the
+    header pathology:
+
+      * 4 colour-coded grade-label rows (Green/Amber/Red/Black) in the
+        leftmost column -- single-cell backgrounds, not a band.
+      * One ``SPAN`` covering rows 3..13 of column 1 holding the full
+        threshold paragraph ("Black & Red cases - No more than 20% of net
+        nominal exposure in portfolio based on 2022-23 data") -- the
+        intended merged-cell shape that reads as a single continuous
+        column in the original document.  Validates that ``_line_cells``
+        keeps a true SPAN intact even when the surrounding columns have
+        per-row grid lines.
+      * Two row-label rowspans ("Exposure (USDm)" across rows 7..9 and
+        "(Client Count)" across rows 10..13) so the absorber / aggregator
+        sees a realistic stacked-label pattern alongside the SPAN.
+      * A bulleted prose paragraph below the table mirroring the
+        NZCRWF description below the original real-world table -- gives
+        downstream segmentation a non-table neighbour to interact with.
+
+    No ``SPAN`` is applied to the header padding rows: the bug under test
+    is precisely that the parser cannot tell, from the PDF alone, that
+    those two empty padding rows belong to the header.
+    """
+    from reportlab.lib.enums import TA_CENTER, TA_JUSTIFY, TA_LEFT
+    from reportlab.lib.styles import ParagraphStyle
+    from reportlab.lib.units import inch
+
+    white_hdr   = ParagraphStyle("h32",  fontName="Helvetica-Bold", fontSize=10, leading=12, textColor=colors.white, alignment=TA_CENTER)
+    grade_label = ParagraphStyle("g32",  fontName="Helvetica-Bold", fontSize=10, leading=12, textColor=colors.white, alignment=TA_LEFT, leftIndent=4)
+    body_text   = ParagraphStyle("b32",  fontName="Helvetica",      fontSize=10, leading=12, alignment=TA_CENTER)
+    row_label   = ParagraphStyle("rl32", parent=body_text, alignment=TA_LEFT, fontName="Helvetica-Bold")
+    bullet_p    = ParagraphStyle("bp32", fontName="Helvetica",      fontSize=11, leading=14, alignment=TA_JUSTIFY, leftIndent=14, bulletIndent=2)
+
+    P = lambda s: Paragraph(s, body_text)
+    H = lambda s: Paragraph(s, white_hdr)
+    G = lambda s: Paragraph(s, grade_label)
+
+    threshold_text = Paragraph(
+        "Black &amp; Red cases - No more than 20% of net nominal "
+        "exposure in portfolio based on 2022-23 data",
+        body_text,
+    )
+
+    data = [
+        # Dark-band header rendered as 3 PDF rows (padding / text / padding).
+        ["", "", "", "", "", "", ""],
+        [H("Climate Risk<br/>Grading"), H("Threshold"),
+         H("Q3 2024"), H("Q4 2024"), H("Q1 2025"), H("Q2 2025"), H("Q3 2025")],
+        ["", "", "", "", "", "", ""],
+        # Body rows. The Threshold column is one merged cell spanning rows
+        # 3..13; we put the whole paragraph in row 3 and leave the rest
+        # blank so the SPAN absorbs them.
+        [G("Green"), threshold_text, P("63%"), P("61%"), P("62%"), P("53%"), P("61%")],
+        [G("Amber"), "",             P("35%"), P("37%"), P("36%"), P("44%"), P("37%")],
+        [G("Red"),   "",             P("2%"),  P("2%"),  P("2%"),  P("3%"),  P("1%")],
+        [G("Black"), "",             P("0%"),  P("0%"),  P("0%"),  P("0%"),  P("0%")],
+        # Exposure rowspan (rows 7..9).
+        [Paragraph("Exposure<br/>(USDm)", row_label), "",
+         P("5,660"), P("5,243"), P("5,749"), P("5,540"), P("5,711")],
+        ["", "", "", "", "", "", ""],
+        ["", "", "", "", "", "", ""],
+        # (Client Count) rowspan (rows 10..13).
+        [Paragraph("(Client Count)", row_label), "", "", "", "", "", ""],
+        ["", "", P("166"), P("168"), P("180"), P("179"), P("190")],
+        ["", "", "", "", "", "", ""],
+        ["", "", "", "", "", "", ""],
+    ]
+    col_widths = [1.2 * inch, 1.05 * inch] + [0.7 * inch] * 5
+    style = TableStyle([
+        ("FONTSIZE",      (0, 0), (-1, -1), 9),
+        # 3-row dark header band -- the phantom-rows source.
+        ("BACKGROUND",    (0, 0), (-1, 2), colors.black),
+        # Per-cell colour-coded grade labels.
+        ("BACKGROUND",    (0, 3), (0, 3), colors.HexColor("#2BA757")),
+        ("BACKGROUND",    (0, 4), (0, 4), colors.HexColor("#F4A100")),
+        ("BACKGROUND",    (0, 5), (0, 5), colors.HexColor("#E11C1C")),
+        ("BACKGROUND",    (0, 6), (0, 6), colors.black),
+        ("GRID",          (0, 0), (-1, -1), 0.5, colors.black),
+        ("VALIGN",        (0, 0), (-1, -1), "MIDDLE"),
+        ("ALIGN",         (0, 0), (-1, -1), "CENTER"),
+        ("LEFTPADDING",   (0, 0), (-1, -1), 3),
+        ("RIGHTPADDING",  (0, 0), (-1, -1), 3),
+        ("TOPPADDING",    (0, 0), (-1, -1), 4),
+        ("BOTTOMPADDING", (0, 0), (-1, -1), 4),
+        # Threshold column merged across all data rows (3..13).
+        ("SPAN",   (1, 3),  (1, 13)),
+        ("VALIGN", (1, 3),  (1, 13), "TOP"),
+        # Row-label rowspans.
+        ("SPAN",   (0, 7),  (0, 9)),
+        ("SPAN",   (0, 10), (0, 13)),
+    ])
+    tbl = Table(data, colWidths=col_widths, style=style)
+
+    prose = Paragraph(
+        "<b>Net Zero &amp; Climate Risk Working Forum (\"NZCRWF\"):</b> A global "
+        "quarterly bimonthly forum/working group with representation from key "
+        "stakeholders across Client Coverage, Chief Sustainability Officer (CSO) "
+        "Team, Credit Officers/Industries Risk, ESGR Client Risk Management team "
+        "was established under the purview of the CIB Client Review Committee "
+        "(\"CRC\") in 2023. The purpose of the forum is to review, challenge, "
+        "agree and monitor progress against action plans for clients that are "
+        "high climate risk and/or are misaligned from the Group\u2019s committed "
+        "NZ pathways.",
+        bullet_p, bulletText="o",
+    )
+    doc = SimpleDocTemplate(
+        str(out), pagesize=LETTER,
+        topMargin=72, bottomMargin=54, leftMargin=54, rightMargin=54,
+    )
+    doc.build([tbl, Spacer(1, 14), prose])
+
+
+
+def build_33_dark_band_header_phantom_rows_in_subtable(out: Path) -> None:
+    """33_dark_band_header_phantom_rows_in_subtable: fixture 32's
+    dark-band-header table embedded as a nested ``Table`` flowable inside
+    an outer 1-column GRID-bordered table (Header row / nested table /
+    Footer row).
+
+    Purpose: stress the :func:`_absorb_band_padding_rows` fix in the
+    *nested* code path.  The inner table is byte-for-byte the same dark
+    band layout as fixture 32 -- three stacked black-fill rows realising
+    a single visual header band, plus a SPAN-merged Threshold column and
+    two row-label rowspans -- but now it sits inside an outer cell.  An
+    outer GRID introduces additional horizontal strokes around the
+    nested table that pdfplumber's line strategy will pick up; the
+    absorber must still recognise that the THREE band rows belong to a
+    single header because the band fill rects themselves are unchanged.
+
+    Equivalent end shape: the dark-band header collapses to one 7-cell
+    row whose bbox spans the full band y-extent, and the Threshold SPAN
+    survives as a single tall cell -- identical invariants to fixture 32,
+    just one level deeper in the table hierarchy.
+
+    No prose neighbour below the inner table (fixture 32 covers that);
+    the outer wrapper is the only structural addition.
+    """
+    from reportlab.lib.enums import TA_CENTER, TA_LEFT
+    from reportlab.lib.styles import ParagraphStyle
+    from reportlab.lib.units import inch
+
+    white_hdr   = ParagraphStyle("h33",  fontName="Helvetica-Bold", fontSize=10, leading=12, textColor=colors.white, alignment=TA_CENTER)
+    grade_label = ParagraphStyle("g33",  fontName="Helvetica-Bold", fontSize=10, leading=12, textColor=colors.white, alignment=TA_LEFT, leftIndent=4)
+    body_text   = ParagraphStyle("b33",  fontName="Helvetica",      fontSize=10, leading=12, alignment=TA_CENTER)
+    row_label   = ParagraphStyle("rl33", parent=body_text, alignment=TA_LEFT, fontName="Helvetica-Bold")
+    outer_hdr   = ParagraphStyle("oh33", fontName="Helvetica-Bold", fontSize=11, leading=13, alignment=TA_LEFT)
+
+    P = lambda s: Paragraph(s, body_text)
+    H = lambda s: Paragraph(s, white_hdr)
+    G = lambda s: Paragraph(s, grade_label)
+
+    threshold_text = Paragraph(
+        "Black &amp; Red cases - No more than 20% of net nominal "
+        "exposure in portfolio based on 2022-23 data",
+        body_text,
+    )
+
+    inner_data = [
+        # Dark-band header rendered as 3 PDF rows (padding / text / padding).
+        ["", "", "", "", "", "", ""],
+        [H("Climate Risk<br/>Grading"), H("Threshold"),
+         H("Q3 2024"), H("Q4 2024"), H("Q1 2025"), H("Q2 2025"), H("Q3 2025")],
+        ["", "", "", "", "", "", ""],
+        # Body rows. The Threshold column is one merged cell spanning rows
+        # 3..13; we put the whole paragraph in row 3 and leave the rest
+        # blank so the SPAN absorbs them.
+        [G("Green"), threshold_text, P("63%"), P("61%"), P("62%"), P("53%"), P("61%")],
+        [G("Amber"), "",             P("35%"), P("37%"), P("36%"), P("44%"), P("37%")],
+        [G("Red"),   "",             P("2%"),  P("2%"),  P("2%"),  P("3%"),  P("1%")],
+        [G("Black"), "",             P("0%"),  P("0%"),  P("0%"),  P("0%"),  P("0%")],
+        # Exposure rowspan (rows 7..9).
+        [Paragraph("Exposure<br/>(USDm)", row_label), "",
+         P("5,660"), P("5,243"), P("5,749"), P("5,540"), P("5,711")],
+        ["", "", "", "", "", "", ""],
+        ["", "", "", "", "", "", ""],
+        # (Client Count) rowspan (rows 10..13).
+        [Paragraph("(Client Count)", row_label), "", "", "", "", "", ""],
+        ["", "", P("166"), P("168"), P("180"), P("179"), P("190")],
+        ["", "", "", "", "", "", ""],
+        ["", "", "", "", "", "", ""],
+    ]
+    inner_col_widths = [1.2 * inch, 1.05 * inch] + [0.7 * inch] * 5
+    inner_style = TableStyle([
+        ("FONTSIZE",      (0, 0), (-1, -1), 9),
+        # 3-row dark header band -- the phantom-rows source.
+        ("BACKGROUND",    (0, 0), (-1, 2), colors.black),
+        # Per-cell colour-coded grade labels.
+        ("BACKGROUND",    (0, 3), (0, 3), colors.HexColor("#2BA757")),
+        ("BACKGROUND",    (0, 4), (0, 4), colors.HexColor("#F4A100")),
+        ("BACKGROUND",    (0, 5), (0, 5), colors.HexColor("#E11C1C")),
+        ("BACKGROUND",    (0, 6), (0, 6), colors.black),
+        ("GRID",          (0, 0), (-1, -1), 0.5, colors.black),
+        ("VALIGN",        (0, 0), (-1, -1), "MIDDLE"),
+        ("ALIGN",         (0, 0), (-1, -1), "CENTER"),
+        ("LEFTPADDING",   (0, 0), (-1, -1), 3),
+        ("RIGHTPADDING",  (0, 0), (-1, -1), 3),
+        ("TOPPADDING",    (0, 0), (-1, -1), 4),
+        ("BOTTOMPADDING", (0, 0), (-1, -1), 4),
+        # Threshold column merged across all data rows (3..13).
+        ("SPAN",   (1, 3),  (1, 13)),
+        ("VALIGN", (1, 3),  (1, 13), "TOP"),
+        # Row-label rowspans.
+        ("SPAN",   (0, 7),  (0, 9)),
+        ("SPAN",   (0, 10), (0, 13)),
+    ])
+    inner_tbl = Table(inner_data, colWidths=inner_col_widths, style=inner_style)
+
+    # Outer 1-column wrapper. Column width must exceed the inner table's
+    # 5.75" footprint plus outer cell padding.
+    outer_col_width = sum(inner_col_widths) + 18  # ~ 6pt left + 6pt right + 6pt slack
+    outer = Table(
+        [
+            [Paragraph("Climate Risk Grading (nested)", outer_hdr)],
+            [inner_tbl],
+            [Paragraph("End of nested table", outer_hdr)],
+        ],
+        colWidths=[outer_col_width],
+        style=TableStyle([
+            ("GRID",          (0, 0), (-1, -1), 0.75, colors.black),
+            ("VALIGN",        (0, 0), (-1, -1), "TOP"),
+            ("LEFTPADDING",   (0, 0), (-1, -1), 6),
+            ("RIGHTPADDING",  (0, 0), (-1, -1), 6),
+            ("TOPPADDING",    (0, 0), (-1, -1), 6),
+            ("BOTTOMPADDING", (0, 0), (-1, -1), 6),
+        ]),
+    )
+
+    doc = SimpleDocTemplate(
+        str(out), pagesize=LETTER,
+        topMargin=72, bottomMargin=54, leftMargin=54, rightMargin=54,
+    )
+    doc.build([outer])
+
+
+
+def build_34_label_with_inline_bullet_cell_in_subtable(out: Path) -> None:
+    """34_label_with_inline_bullet_cell_in_subtable: fixture 31's
+    inline-bullet-cell table embedded as a nested ``Table`` flowable inside
+    an outer 1-column GRID-bordered table (Header row / nested table /
+    Footer row).
+
+    Purpose: pin the wrapper-placeholder behaviour for the inverse of
+    fixture 33.  Fixture 31's inner table has 4 logical rows whose
+    horizontal grid lines span 100% of the outer wrapper's width, so
+    :func:`pdf_parser.stages.aggregate_tables._expand_wrapper_with_placeholders`
+    mirrors each inner boundary as a ``covered=True`` continuation row of
+    the container cell.  The outer therefore surfaces as
+    ``Header / container(nested) / placeholder x N / Footer`` with every
+    placeholder row rowspan-covered by the container cell.  HTML renders
+    them as a single visual cell (covered cells are skipped at line 352
+    of ``render/html.py``); the tree dump still carries the placeholders
+    so downstream consumers see the row-boundary signal.
+
+    Companion of fixture 33 (dark-band header wrapped) -- same outer
+    shape, different inner pathology, so the pair pins both branches of
+    the wrapper-placeholder mechanism: 33 stresses band-padding absorption
+    one level deep, 34 stresses the inline-bullet path one level deep.
+    """
+    from reportlab.lib.enums import TA_LEFT
+    from reportlab.lib.styles import ParagraphStyle
+    from reportlab.lib.units import inch
+
+    body = ParagraphStyle(
+        "body34", fontName="Helvetica", fontSize=9, leading=11, alignment=TA_LEFT,
+    )
+    bold = ParagraphStyle(
+        "bold34", fontName="Helvetica-Bold", fontSize=9, leading=11,
+    )
+    bullet_style = ParagraphStyle(
+        "bullet34", parent=body, leftIndent=8, spaceBefore=2,
+    )
+    outer_hdr = ParagraphStyle(
+        "oh34", fontName="Helvetica-Bold", fontSize=11, leading=13, alignment=TA_LEFT,
+    )
+
+    def _bullets(*texts):
+        return [Paragraph(f"\u2022 {t}", bullet_style) for t in texts]
+
+    inner_rows = [
+        [Paragraph("Sub-Segment", bold),
+         Paragraph("Client Level Considerations", bold)],
+        [Paragraph("All Clients", body),
+         _bullets(
+             "Extensive track record in their relevant sector.",
+             "Experienced and diversified management team with clear "
+             "separation of roles and responsibilities.",
+             "Strong asset base with proven access to capital markets.",
+         )],
+        [Paragraph("Tier One Producers", body),
+         _bullets(
+             "We engage selectively with sub-USD1bn-market-cap names "
+             "under a capital-light advisory mandate.",
+             "Private companies must have a strong financial sponsor "
+             "(e.g. Orion, EMR, Denham).",
+             "Asset base sufficiently de-risked through diversification "
+             "of geographies or development stage.",
+             "Technical specialists must validate any underlying asset "
+             "that underpins a debt facility.",
+         )],
+        [Paragraph("Tier Two Producers", body),
+         _bullets(
+             "Substantial trading scale and strong record of financial "
+             "performance vs. peers.",
+         )],
+    ]
+
+    inner_col_widths = [1.4 * inch, 5.0 * inch]
+    inner_style = TableStyle([
+        ("BOX",           (0, 0), (-1, -1), 0.75, colors.black),
+        ("INNERGRID",     (0, 0), (-1, -1), 0.5,  colors.black),
+        ("VALIGN",        (0, 0), (-1, -1), "TOP"),
+        ("LEFTPADDING",   (0, 0), (-1, -1), 4),
+        ("RIGHTPADDING",  (0, 0), (-1, -1), 4),
+        ("TOPPADDING",    (0, 0), (-1, -1), 3),
+        ("BOTTOMPADDING", (0, 0), (-1, -1), 3),
+        ("BACKGROUND",    (0, 0), (-1, 0),  colors.HexColor("#DDE3EE")),
+    ])
+    inner_tbl = Table(inner_rows, colWidths=inner_col_widths, style=inner_style)
+
+    # Outer 1-column wrapper.  Width = inner footprint + 12pt padding budget
+    # + 6pt slack -- mirrors fixture 33's sizing recipe.
+    outer_col_width = sum(inner_col_widths) + 18
+    outer = Table(
+        [
+            [Paragraph("Client Selection Criteria (nested)", outer_hdr)],
+            [inner_tbl],
+            [Paragraph("End of nested table", outer_hdr)],
+        ],
+        colWidths=[outer_col_width],
+        style=TableStyle([
+            ("GRID",          (0, 0), (-1, -1), 0.75, colors.black),
+            ("VALIGN",        (0, 0), (-1, -1), "TOP"),
+            ("LEFTPADDING",   (0, 0), (-1, -1), 6),
+            ("RIGHTPADDING",  (0, 0), (-1, -1), 6),
+            ("TOPPADDING",    (0, 0), (-1, -1), 6),
+            ("BOTTOMPADDING", (0, 0), (-1, -1), 6),
+        ]),
+    )
+
+    doc = SimpleDocTemplate(
+        str(out), pagesize=LETTER,
+        topMargin=72, bottomMargin=54, leftMargin=54, rightMargin=54,
+    )
+    doc.build([outer])
+
+
 BUILDERS = {
     "01_simple_table": build_01_simple_table,
     "02_nested_table": build_02_nested_table,
@@ -2918,6 +3279,9 @@ BUILDERS = {
     "29_headerless_keyvalue_table":        build_29_headerless_keyvalue_table,
     "30_label_rowspan_bulleted_rows":      build_30_label_rowspan_bulleted_rows,
     "31_label_with_inline_bullet_cell":    build_31_label_with_inline_bullet_cell,
+    "32_dark_band_header_phantom_rows":  build_32_dark_band_header_phantom_rows,
+    "33_dark_band_header_phantom_rows_in_subtable": build_33_dark_band_header_phantom_rows_in_subtable,
+    "34_label_with_inline_bullet_cell_in_subtable": build_34_label_with_inline_bullet_cell_in_subtable,
 }
 
 def build_all() -> None:

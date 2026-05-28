@@ -1,0 +1,643 @@
+{
+  "attrs": {},
+  "bbox": {
+    "page": 0,
+    "x0": 0,
+    "x1": 0,
+    "y0": 0,
+    "y1": 0
+  },
+  "children": [
+    {
+      "attrs": {
+        "page_index": 0
+      },
+      "bbox": {
+        "page": 0,
+        "x0": 0,
+        "x1": 612,
+        "y0": 0,
+        "y1": 792
+      },
+      "children": [
+        {
+          "attrs": {
+            "header_signature": [
+              "Client Selection Criteria (nested)"
+            ],
+            "n_cols": 1,
+            "n_rows": 8,
+            "page": 0,
+            "page_height": 792.0
+          },
+          "bbox": {
+            "page": 0,
+            "x0": 67,
+            "x1": 545,
+            "y0": 78,
+            "y1": 317
+          },
+          "children": [
+            {
+              "attrs": {
+                "page": 0,
+                "row_index": 0
+              },
+              "bbox": {
+                "page": 0,
+                "x0": 67,
+                "x1": 545,
+                "y0": 78,
+                "y1": 317
+              },
+              "children": [
+                {
+                  "attrs": {
+                    "align": "left"
+                  },
+                  "bbox": {
+                    "page": 0,
+                    "x0": 67,
+                    "x1": 545,
+                    "y0": 78,
+                    "y1": 103
+                  },
+                  "children": [],
+                  "id": "64a0468d59d9",
+                  "kind": "cell",
+                  "provenance": {
+                    "extractor": "bottom_up",
+                    "stage": "extract_tables_v2"
+                  },
+                  "text": "Client Selection Criteria (nested)"
+                }
+              ],
+              "id": "fee1e9ea8c14",
+              "kind": "row",
+              "provenance": {},
+              "text": null
+            },
+            {
+              "attrs": {
+                "page": 0,
+                "row_index": 1
+              },
+              "bbox": {
+                "page": 0,
+                "x0": 67,
+                "x1": 545,
+                "y0": 78,
+                "y1": 317
+              },
+              "children": [
+                {
+                  "attrs": {
+                    "align": "left"
+                  },
+                  "bbox": {
+                    "page": 0,
+                    "x0": 67,
+                    "x1": 545,
+                    "y0": 103,
+                    "y1": 292
+                  },
+                  "children": [
+                    {
+                      "attrs": {
+                        "header_signature": [
+                          "Sub-Segment",
+                          "Client Level Considerations"
+                        ],
+                        "n_cols": 2,
+                        "n_rows": 4,
+                        "page": 0,
+                        "page_height": 792.0
+                      },
+                      "bbox": {
+                        "page": 0,
+                        "x0": 73,
+                        "x1": 533,
+                        "y0": 109,
+                        "y1": 286
+                      },
+                      "children": [
+                        {
+                          "attrs": {
+                            "page": 0,
+                            "row_index": 0
+                          },
+                          "bbox": {
+                            "page": 0,
+                            "x0": 73,
+                            "x1": 533,
+                            "y0": 109,
+                            "y1": 286
+                          },
+                          "children": [
+                            {
+                              "attrs": {
+                                "align": "left"
+                              },
+                              "bbox": {
+                                "page": 0,
+                                "x0": 73,
+                                "x1": 173,
+                                "y0": 109,
+                                "y1": 126
+                              },
+                              "children": [],
+                              "id": "c6361a0c2f3d",
+                              "kind": "cell",
+                              "provenance": {
+                                "extractor": "bottom_up",
+                                "stage": "extract_tables_v2"
+                              },
+                              "text": "Sub-Segment"
+                            },
+                            {
+                              "attrs": {
+                                "align": "left"
+                              },
+                              "bbox": {
+                                "page": 0,
+                                "x0": 173,
+                                "x1": 533,
+                                "y0": 109,
+                                "y1": 126
+                              },
+                              "children": [],
+                              "id": "d9d2a41b7e0f",
+                              "kind": "cell",
+                              "provenance": {
+                                "extractor": "bottom_up",
+                                "stage": "extract_tables_v2"
+                              },
+                              "text": "Client Level Considerations"
+                            }
+                          ],
+                          "id": "42189f1cff1a",
+                          "kind": "row",
+                          "provenance": {},
+                          "text": null
+                        },
+                        {
+                          "attrs": {
+                            "page": 0,
+                            "row_index": 1
+                          },
+                          "bbox": {
+                            "page": 0,
+                            "x0": 73,
+                            "x1": 533,
+                            "y0": 109,
+                            "y1": 286
+                          },
+                          "children": [
+                            {
+                              "attrs": {
+                                "align": "left"
+                              },
+                              "bbox": {
+                                "page": 0,
+                                "x0": 73,
+                                "x1": 173,
+                                "y0": 126,
+                                "y1": 180
+                              },
+                              "children": [],
+                              "id": "4f0911b649af",
+                              "kind": "cell",
+                              "provenance": {
+                                "extractor": "bottom_up",
+                                "stage": "extract_tables_v2"
+                              },
+                              "text": "All Clients"
+                            },
+                            {
+                              "attrs": {
+                                "align": "left"
+                              },
+                              "bbox": {
+                                "page": 0,
+                                "x0": 173,
+                                "x1": 533,
+                                "y0": 126,
+                                "y1": 180
+                              },
+                              "children": [],
+                              "id": "5f6eeb699aea",
+                              "kind": "cell",
+                              "provenance": {
+                                "extractor": "bottom_up",
+                                "stage": "extract_tables_v2"
+                              },
+                              "text": "\u2022 Extensive track record in their relevant sector.\n\u2022 Experienced and diversified management team with clear separation of roles and\nresponsibilities.\n\u2022 Strong asset base with proven access to capital markets."
+                            }
+                          ],
+                          "id": "9778707c4dd7",
+                          "kind": "row",
+                          "provenance": {},
+                          "text": null
+                        },
+                        {
+                          "attrs": {
+                            "page": 0,
+                            "row_index": 2
+                          },
+                          "bbox": {
+                            "page": 0,
+                            "x0": 73,
+                            "x1": 533,
+                            "y0": 109,
+                            "y1": 286
+                          },
+                          "children": [
+                            {
+                              "attrs": {
+                                "align": "left"
+                              },
+                              "bbox": {
+                                "page": 0,
+                                "x0": 73,
+                                "x1": 173,
+                                "y0": 180,
+                                "y1": 269
+                              },
+                              "children": [],
+                              "id": "01525ce42068",
+                              "kind": "cell",
+                              "provenance": {
+                                "extractor": "bottom_up",
+                                "stage": "extract_tables_v2"
+                              },
+                              "text": "Tier One Producers"
+                            },
+                            {
+                              "attrs": {
+                                "align": "left"
+                              },
+                              "bbox": {
+                                "page": 0,
+                                "x0": 173,
+                                "x1": 533,
+                                "y0": 180,
+                                "y1": 269
+                              },
+                              "children": [],
+                              "id": "6f1ac49d5ad3",
+                              "kind": "cell",
+                              "provenance": {
+                                "extractor": "bottom_up",
+                                "stage": "extract_tables_v2"
+                              },
+                              "text": "\u2022 We engage selectively with sub-USD1bn-market-cap names under a capital-light\nadvisory mandate.\n\u2022 Private companies must have a strong financial sponsor (e.g. Orion, EMR, Denham).\n\u2022 Asset base sufficiently de-risked through diversification of geographies or\ndevelopment stage.\n\u2022 Technical specialists must validate any underlying asset that underpins a debt\nfacility."
+                            }
+                          ],
+                          "id": "1f9dac851bf0",
+                          "kind": "row",
+                          "provenance": {},
+                          "text": null
+                        },
+                        {
+                          "attrs": {
+                            "page": 0,
+                            "row_index": 3
+                          },
+                          "bbox": {
+                            "page": 0,
+                            "x0": 73,
+                            "x1": 533,
+                            "y0": 109,
+                            "y1": 286
+                          },
+                          "children": [
+                            {
+                              "attrs": {
+                                "align": "left"
+                              },
+                              "bbox": {
+                                "page": 0,
+                                "x0": 73,
+                                "x1": 173,
+                                "y0": 269,
+                                "y1": 286
+                              },
+                              "children": [],
+                              "id": "816ffeec08d2",
+                              "kind": "cell",
+                              "provenance": {
+                                "extractor": "bottom_up",
+                                "stage": "extract_tables_v2"
+                              },
+                              "text": "Tier Two Producers"
+                            },
+                            {
+                              "attrs": {
+                                "align": "left"
+                              },
+                              "bbox": {
+                                "page": 0,
+                                "x0": 173,
+                                "x1": 533,
+                                "y0": 269,
+                                "y1": 286
+                              },
+                              "children": [],
+                              "id": "d670bb95788c",
+                              "kind": "cell",
+                              "provenance": {
+                                "extractor": "bottom_up",
+                                "stage": "extract_tables_v2"
+                              },
+                              "text": "\u2022 Substantial trading scale and strong record of financial performance vs. peers."
+                            }
+                          ],
+                          "id": "c64b6474be68",
+                          "kind": "row",
+                          "provenance": {},
+                          "text": null
+                        }
+                      ],
+                      "id": "8926d51fa4a4",
+                      "kind": "table",
+                      "provenance": {
+                        "extractor": "bottom_up",
+                        "stage": "extract_tables_v2"
+                      },
+                      "text": null
+                    }
+                  ],
+                  "id": "aae7e75b04e6",
+                  "kind": "cell",
+                  "provenance": {
+                    "extractor": "bottom_up",
+                    "stage": "extract_tables_v2"
+                  },
+                  "text": null
+                }
+              ],
+              "id": "ffa682e388b4",
+              "kind": "row",
+              "provenance": {},
+              "text": null
+            },
+            {
+              "attrs": {
+                "page": 0,
+                "row_index": 2
+              },
+              "bbox": {
+                "page": 0,
+                "x0": 67,
+                "x1": 545,
+                "y0": 78,
+                "y1": 317
+              },
+              "children": [
+                {
+                  "attrs": {
+                    "align": "left",
+                    "covered": true
+                  },
+                  "bbox": {
+                    "page": 0,
+                    "x0": 67,
+                    "x1": 545,
+                    "y0": 109,
+                    "y1": 126
+                  },
+                  "children": [],
+                  "id": "056e8c6c7b4e",
+                  "kind": "cell",
+                  "provenance": {
+                    "extractor": "bottom_up",
+                    "stage": "extract_tables_v2"
+                  },
+                  "text": ""
+                }
+              ],
+              "id": "f33096b6a1db",
+              "kind": "row",
+              "provenance": {},
+              "text": null
+            },
+            {
+              "attrs": {
+                "page": 0,
+                "row_index": 3
+              },
+              "bbox": {
+                "page": 0,
+                "x0": 67,
+                "x1": 545,
+                "y0": 78,
+                "y1": 317
+              },
+              "children": [
+                {
+                  "attrs": {
+                    "align": "left",
+                    "covered": true
+                  },
+                  "bbox": {
+                    "page": 0,
+                    "x0": 67,
+                    "x1": 545,
+                    "y0": 126,
+                    "y1": 180
+                  },
+                  "children": [],
+                  "id": "a0258acee444",
+                  "kind": "cell",
+                  "provenance": {
+                    "extractor": "bottom_up",
+                    "stage": "extract_tables_v2"
+                  },
+                  "text": ""
+                }
+              ],
+              "id": "13da8f04fe2f",
+              "kind": "row",
+              "provenance": {},
+              "text": null
+            },
+            {
+              "attrs": {
+                "page": 0,
+                "row_index": 4
+              },
+              "bbox": {
+                "page": 0,
+                "x0": 67,
+                "x1": 545,
+                "y0": 78,
+                "y1": 317
+              },
+              "children": [
+                {
+                  "attrs": {
+                    "align": "left",
+                    "covered": true
+                  },
+                  "bbox": {
+                    "page": 0,
+                    "x0": 67,
+                    "x1": 545,
+                    "y0": 180,
+                    "y1": 269
+                  },
+                  "children": [],
+                  "id": "ad7e152fd7f3",
+                  "kind": "cell",
+                  "provenance": {
+                    "extractor": "bottom_up",
+                    "stage": "extract_tables_v2"
+                  },
+                  "text": ""
+                }
+              ],
+              "id": "5235adafb782",
+              "kind": "row",
+              "provenance": {},
+              "text": null
+            },
+            {
+              "attrs": {
+                "page": 0,
+                "row_index": 5
+              },
+              "bbox": {
+                "page": 0,
+                "x0": 67,
+                "x1": 545,
+                "y0": 78,
+                "y1": 317
+              },
+              "children": [
+                {
+                  "attrs": {
+                    "align": "left",
+                    "covered": true
+                  },
+                  "bbox": {
+                    "page": 0,
+                    "x0": 67,
+                    "x1": 545,
+                    "y0": 269,
+                    "y1": 286
+                  },
+                  "children": [],
+                  "id": "64ed3d0303e2",
+                  "kind": "cell",
+                  "provenance": {
+                    "extractor": "bottom_up",
+                    "stage": "extract_tables_v2"
+                  },
+                  "text": ""
+                }
+              ],
+              "id": "9ac1b03e5808",
+              "kind": "row",
+              "provenance": {},
+              "text": null
+            },
+            {
+              "attrs": {
+                "page": 0,
+                "row_index": 6
+              },
+              "bbox": {
+                "page": 0,
+                "x0": 67,
+                "x1": 545,
+                "y0": 78,
+                "y1": 317
+              },
+              "children": [
+                {
+                  "attrs": {
+                    "align": "left",
+                    "covered": true
+                  },
+                  "bbox": {
+                    "page": 0,
+                    "x0": 67,
+                    "x1": 545,
+                    "y0": 286,
+                    "y1": 292
+                  },
+                  "children": [],
+                  "id": "29b4492bb180",
+                  "kind": "cell",
+                  "provenance": {
+                    "extractor": "bottom_up",
+                    "stage": "extract_tables_v2"
+                  },
+                  "text": ""
+                }
+              ],
+              "id": "fbbffe3c2a1b",
+              "kind": "row",
+              "provenance": {},
+              "text": null
+            },
+            {
+              "attrs": {
+                "page": 0,
+                "row_index": 7
+              },
+              "bbox": {
+                "page": 0,
+                "x0": 67,
+                "x1": 545,
+                "y0": 78,
+                "y1": 317
+              },
+              "children": [
+                {
+                  "attrs": {
+                    "align": "left"
+                  },
+                  "bbox": {
+                    "page": 0,
+                    "x0": 67,
+                    "x1": 545,
+                    "y0": 292,
+                    "y1": 317
+                  },
+                  "children": [],
+                  "id": "7652ed441543",
+                  "kind": "cell",
+                  "provenance": {
+                    "extractor": "bottom_up",
+                    "stage": "extract_tables_v2"
+                  },
+                  "text": "End of nested table"
+                }
+              ],
+              "id": "4ac757f19fa2",
+              "kind": "row",
+              "provenance": {},
+              "text": null
+            }
+          ],
+          "id": "d58223e1eeef",
+          "kind": "table",
+          "provenance": {
+            "extractor": "bottom_up",
+            "stage": "extract_tables_v2"
+          },
+          "text": null
+        }
+      ],
+      "id": "aea1dc019e2c",
+      "kind": "page",
+      "provenance": {},
+      "text": null
+    }
+  ],
+  "id": "8b8c7c6b0572",
+  "kind": "document",
+  "provenance": {},
+  "text": null
+}

@@ -150,6 +150,27 @@ def _color_to_hex(color) -> str | None:
     return None
 
 
+# Rec. 709 luminance threshold below which a coloured background needs
+# white text to stay legible.  Tuned so true dark fills (black, dark red,
+# dark green, navy) flip to white text while mid-light cell tints
+# (light grey banding, pastel highlights, amber labels) keep the default
+# black ink.  Keep in sync with downstream renderers that re-style cells.
+_DARK_BG_LUMA_MAX = 0.6
+
+
+def _is_dark_color(hex_color: str) -> bool:
+    """True when ``hex_color`` (``#RRGGBB``) is dark enough to need white text."""
+    if not hex_color or len(hex_color) != 7 or hex_color[0] != "#":
+        return False
+    try:
+        r = int(hex_color[1:3], 16) / 255.0
+        g = int(hex_color[3:5], 16) / 255.0
+        b = int(hex_color[5:7], 16) / 255.0
+    except ValueError:
+        return False
+    return 0.2126 * r + 0.7152 * g + 0.0722 * b < _DARK_BG_LUMA_MAX
+
+
 # (x0, top, x1, bottom, page_index, hex_color)
 _RectEntry = tuple[float, float, float, float, int, str]
 
@@ -341,7 +362,7 @@ def _render_table_rows(
                     extra_border = "border-top:1.2px solid #000;border-bottom:1.2px solid #000;"
                 elif bg and bg.upper() == "#F0F0F0":
                     extra_border = "border-top:1px solid #000;"
-                bg_css = f"background:{bg};" if bg else ""
+                bg_css = f"background:{bg};{'color:#ffffff;' if _is_dark_color(bg) else ''}" if bg else ""
                 style = f"{pos}{bg_css}{bold}{extra_border}"
                 is_right = cell.attrs.get("align") == "right"
                 tag_open = f'<div class="cell{" num" if is_right else ""}" style="{style}'

@@ -1,0 +1,2025 @@
+{
+  "attrs": {},
+  "bbox": {
+    "page": 0,
+    "x0": 0,
+    "x1": 0,
+    "y0": 0,
+    "y1": 0
+  },
+  "children": [
+    {
+      "attrs": {
+        "page_index": 0
+      },
+      "bbox": {
+        "page": 0,
+        "x0": 0,
+        "x1": 612,
+        "y0": 0,
+        "y1": 792
+      },
+      "children": [
+        {
+          "attrs": {
+            "header_signature": [
+              "Climate Risk\nGrading",
+              "Threshold",
+              "Q3 2024",
+              "Q4 2024",
+              "Q1 2025",
+              "Q2 2025",
+              "Q3 2025"
+            ],
+            "n_cols": 7,
+            "n_rows": 2,
+            "page": 0,
+            "page_height": 792.0
+          },
+          "bbox": {
+            "page": 0,
+            "x0": 99,
+            "x1": 513,
+            "y0": 78,
+            "y1": 170
+          },
+          "children": [
+            {
+              "attrs": {
+                "page": 0,
+                "row_index": 0
+              },
+              "bbox": {
+                "page": 0,
+                "x0": 99,
+                "x1": 513,
+                "y0": 78,
+                "y1": 170
+              },
+              "children": [
+                {
+                  "attrs": {
+                    "align": "left"
+                  },
+                  "bbox": {
+                    "page": 0,
+                    "x0": 99,
+                    "x1": 185,
+                    "y0": 78,
+                    "y1": 150
+                  },
+                  "children": [],
+                  "id": "19141fa64cce",
+                  "kind": "cell",
+                  "provenance": {
+                    "extractor": "bottom_up",
+                    "stage": "extract_tables_v2"
+                  },
+                  "text": "Climate Risk\nGrading"
+                },
+                {
+                  "attrs": {
+                    "align": "left"
+                  },
+                  "bbox": {
+                    "page": 0,
+                    "x0": 185,
+                    "x1": 261,
+                    "y0": 78,
+                    "y1": 150
+                  },
+                  "children": [],
+                  "id": "64d5e22aefdd",
+                  "kind": "cell",
+                  "provenance": {
+                    "extractor": "bottom_up",
+                    "stage": "extract_tables_v2"
+                  },
+                  "text": "Threshold"
+                },
+                {
+                  "attrs": {
+                    "align": "left"
+                  },
+                  "bbox": {
+                    "page": 0,
+                    "x0": 261,
+                    "x1": 311,
+                    "y0": 78,
+                    "y1": 150
+                  },
+                  "children": [],
+                  "id": "3231fc125d14",
+                  "kind": "cell",
+                  "provenance": {
+                    "extractor": "bottom_up",
+                    "stage": "extract_tables_v2"
+                  },
+                  "text": "Q3 2024"
+                },
+                {
+                  "attrs": {
+                    "align": "left"
+                  },
+                  "bbox": {
+                    "page": 0,
+                    "x0": 311,
+                    "x1": 362,
+                    "y0": 78,
+                    "y1": 150
+                  },
+                  "children": [],
+                  "id": "ddccfa50050a",
+                  "kind": "cell",
+                  "provenance": {
+                    "extractor": "bottom_up",
+                    "stage": "extract_tables_v2"
+                  },
+                  "text": "Q4 2024"
+                },
+                {
+                  "attrs": {
+                    "align": "left"
+                  },
+                  "bbox": {
+                    "page": 0,
+                    "x0": 362,
+                    "x1": 412,
+                    "y0": 78,
+                    "y1": 150
+                  },
+                  "children": [],
+                  "id": "735b010648f7",
+                  "kind": "cell",
+                  "provenance": {
+                    "extractor": "bottom_up",
+                    "stage": "extract_tables_v2"
+                  },
+                  "text": "Q1 2025"
+                },
+                {
+                  "attrs": {
+                    "align": "left"
+                  },
+                  "bbox": {
+                    "page": 0,
+                    "x0": 412,
+                    "x1": 463,
+                    "y0": 78,
+                    "y1": 150
+                  },
+                  "children": [],
+                  "id": "a816d9f2bf3b",
+                  "kind": "cell",
+                  "provenance": {
+                    "extractor": "bottom_up",
+                    "stage": "extract_tables_v2"
+                  },
+                  "text": "Q2 2025"
+                },
+                {
+                  "attrs": {
+                    "align": "left"
+                  },
+                  "bbox": {
+                    "page": 0,
+                    "x0": 463,
+                    "x1": 513,
+                    "y0": 78,
+                    "y1": 150
+                  },
+                  "children": [],
+                  "id": "d250b3ff3d0f",
+                  "kind": "cell",
+                  "provenance": {
+                    "extractor": "bottom_up",
+                    "stage": "extract_tables_v2"
+                  },
+                  "text": "Q3 2025"
+                }
+              ],
+              "id": "6d28c6944c0d",
+              "kind": "row",
+              "provenance": {},
+              "text": null
+            },
+            {
+              "attrs": {
+                "page": 0,
+                "row_index": 1
+              },
+              "bbox": {
+                "page": 0,
+                "x0": 99,
+                "x1": 513,
+                "y0": 78,
+                "y1": 170
+              },
+              "children": [
+                {
+                  "attrs": {
+                    "align": "left"
+                  },
+                  "bbox": {
+                    "page": 0,
+                    "x0": 99,
+                    "x1": 185,
+                    "y0": 150,
+                    "y1": 170
+                  },
+                  "children": [],
+                  "id": "ab2a42e380fb",
+                  "kind": "cell",
+                  "provenance": {
+                    "extractor": "bottom_up",
+                    "stage": "extract_tables_v2"
+                  },
+                  "text": "Green"
+                },
+                {
+                  "attrs": {
+                    "align": "left",
+                    "covered": true
+                  },
+                  "bbox": {
+                    "page": 0,
+                    "x0": 185,
+                    "x1": 261,
+                    "y0": 150,
+                    "y1": 170
+                  },
+                  "children": [],
+                  "id": "d6d7e800510b",
+                  "kind": "cell",
+                  "provenance": {
+                    "extractor": "bottom_up",
+                    "stage": "extract_tables_v2"
+                  },
+                  "text": ""
+                },
+                {
+                  "attrs": {
+                    "align": "left",
+                    "covered": true
+                  },
+                  "bbox": {
+                    "page": 0,
+                    "x0": 261,
+                    "x1": 311,
+                    "y0": 150,
+                    "y1": 170
+                  },
+                  "children": [],
+                  "id": "45104f62c202",
+                  "kind": "cell",
+                  "provenance": {
+                    "extractor": "bottom_up",
+                    "stage": "extract_tables_v2"
+                  },
+                  "text": ""
+                },
+                {
+                  "attrs": {
+                    "align": "left",
+                    "covered": true
+                  },
+                  "bbox": {
+                    "page": 0,
+                    "x0": 311,
+                    "x1": 362,
+                    "y0": 150,
+                    "y1": 170
+                  },
+                  "children": [],
+                  "id": "16cfbba455f7",
+                  "kind": "cell",
+                  "provenance": {
+                    "extractor": "bottom_up",
+                    "stage": "extract_tables_v2"
+                  },
+                  "text": ""
+                },
+                {
+                  "attrs": {
+                    "align": "left",
+                    "covered": true
+                  },
+                  "bbox": {
+                    "page": 0,
+                    "x0": 362,
+                    "x1": 412,
+                    "y0": 150,
+                    "y1": 170
+                  },
+                  "children": [],
+                  "id": "b929efac925f",
+                  "kind": "cell",
+                  "provenance": {
+                    "extractor": "bottom_up",
+                    "stage": "extract_tables_v2"
+                  },
+                  "text": ""
+                },
+                {
+                  "attrs": {
+                    "align": "left",
+                    "covered": true
+                  },
+                  "bbox": {
+                    "page": 0,
+                    "x0": 412,
+                    "x1": 463,
+                    "y0": 150,
+                    "y1": 170
+                  },
+                  "children": [],
+                  "id": "6169e3f3a415",
+                  "kind": "cell",
+                  "provenance": {
+                    "extractor": "bottom_up",
+                    "stage": "extract_tables_v2"
+                  },
+                  "text": ""
+                },
+                {
+                  "attrs": {
+                    "align": "left",
+                    "covered": true
+                  },
+                  "bbox": {
+                    "page": 0,
+                    "x0": 463,
+                    "x1": 513,
+                    "y0": 150,
+                    "y1": 170
+                  },
+                  "children": [],
+                  "id": "71ecfd1600dc",
+                  "kind": "cell",
+                  "provenance": {
+                    "extractor": "bottom_up",
+                    "stage": "extract_tables_v2"
+                  },
+                  "text": ""
+                }
+              ],
+              "id": "de15242f470e",
+              "kind": "row",
+              "provenance": {},
+              "text": null
+            }
+          ],
+          "id": "d88d368149a7",
+          "kind": "table",
+          "provenance": {
+            "extractor": "bottom_up",
+            "stage": "extract_tables_v2"
+          },
+          "text": null
+        },
+        {
+          "attrs": {
+            "header_signature": [
+              "Black & Red\ncases - No\nmore than 20%\nof net nominal\nexposure in\nportfolio based\non 2022-23\ndata",
+              "63%",
+              "61%",
+              "62%",
+              "53%",
+              "61%"
+            ],
+            "n_cols": 6,
+            "n_rows": 1,
+            "page": 0,
+            "page_height": 792.0
+          },
+          "bbox": {
+            "page": 0,
+            "x0": 185,
+            "x1": 513,
+            "y0": 150,
+            "y1": 370
+          },
+          "children": [
+            {
+              "attrs": {
+                "page": 0,
+                "row_index": 0
+              },
+              "bbox": {
+                "page": 0,
+                "x0": 185,
+                "x1": 513,
+                "y0": 150,
+                "y1": 370
+              },
+              "children": [
+                {
+                  "attrs": {
+                    "align": "left"
+                  },
+                  "bbox": {
+                    "page": 0,
+                    "x0": 185,
+                    "x1": 261,
+                    "y0": 150,
+                    "y1": 370
+                  },
+                  "children": [],
+                  "id": "a3aa6f00ded5",
+                  "kind": "cell",
+                  "provenance": {
+                    "extractor": "bottom_up",
+                    "stage": "extract_tables_v2"
+                  },
+                  "text": "Black & Red\ncases - No\nmore than 20%\nof net nominal\nexposure in\nportfolio based\non 2022-23\ndata"
+                },
+                {
+                  "attrs": {
+                    "align": "left"
+                  },
+                  "bbox": {
+                    "page": 0,
+                    "x0": 261,
+                    "x1": 311,
+                    "y0": 150,
+                    "y1": 170
+                  },
+                  "children": [],
+                  "id": "d25b8cab1337",
+                  "kind": "cell",
+                  "provenance": {
+                    "extractor": "bottom_up",
+                    "stage": "extract_tables_v2"
+                  },
+                  "text": "63%"
+                },
+                {
+                  "attrs": {
+                    "align": "left"
+                  },
+                  "bbox": {
+                    "page": 0,
+                    "x0": 311,
+                    "x1": 362,
+                    "y0": 150,
+                    "y1": 170
+                  },
+                  "children": [],
+                  "id": "97f8931e5aa1",
+                  "kind": "cell",
+                  "provenance": {
+                    "extractor": "bottom_up",
+                    "stage": "extract_tables_v2"
+                  },
+                  "text": "61%"
+                },
+                {
+                  "attrs": {
+                    "align": "left"
+                  },
+                  "bbox": {
+                    "page": 0,
+                    "x0": 362,
+                    "x1": 412,
+                    "y0": 150,
+                    "y1": 170
+                  },
+                  "children": [],
+                  "id": "cfec1e5bb85f",
+                  "kind": "cell",
+                  "provenance": {
+                    "extractor": "bottom_up",
+                    "stage": "extract_tables_v2"
+                  },
+                  "text": "62%"
+                },
+                {
+                  "attrs": {
+                    "align": "left"
+                  },
+                  "bbox": {
+                    "page": 0,
+                    "x0": 412,
+                    "x1": 463,
+                    "y0": 150,
+                    "y1": 170
+                  },
+                  "children": [],
+                  "id": "eddc94522499",
+                  "kind": "cell",
+                  "provenance": {
+                    "extractor": "bottom_up",
+                    "stage": "extract_tables_v2"
+                  },
+                  "text": "53%"
+                },
+                {
+                  "attrs": {
+                    "align": "left"
+                  },
+                  "bbox": {
+                    "page": 0,
+                    "x0": 463,
+                    "x1": 513,
+                    "y0": 150,
+                    "y1": 170
+                  },
+                  "children": [],
+                  "id": "5201e359fe21",
+                  "kind": "cell",
+                  "provenance": {
+                    "extractor": "bottom_up",
+                    "stage": "extract_tables_v2"
+                  },
+                  "text": "61%"
+                }
+              ],
+              "id": "74ce3f1bf372",
+              "kind": "row",
+              "provenance": {},
+              "text": null
+            }
+          ],
+          "id": "e320e3859615",
+          "kind": "table",
+          "provenance": {
+            "extractor": "bottom_up",
+            "stage": "extract_tables_v2"
+          },
+          "text": null
+        },
+        {
+          "attrs": {
+            "header_signature": [
+              "Amber",
+              "35%",
+              "37%",
+              "36%",
+              "44%",
+              "37%"
+            ],
+            "n_cols": 6,
+            "n_rows": 10,
+            "page": 0,
+            "page_height": 792.0
+          },
+          "bbox": {
+            "page": 0,
+            "x0": 99,
+            "x1": 513,
+            "y0": 170,
+            "y1": 370
+          },
+          "children": [
+            {
+              "attrs": {
+                "page": 0,
+                "row_index": 0
+              },
+              "bbox": {
+                "page": 0,
+                "x0": 99,
+                "x1": 513,
+                "y0": 170,
+                "y1": 370
+              },
+              "children": [
+                {
+                  "attrs": {
+                    "align": "left"
+                  },
+                  "bbox": {
+                    "page": 0,
+                    "x0": 99,
+                    "x1": 185,
+                    "y0": 170,
+                    "y1": 190
+                  },
+                  "children": [],
+                  "id": "db71a99bc2da",
+                  "kind": "cell",
+                  "provenance": {
+                    "extractor": "bottom_up",
+                    "stage": "extract_tables_v2"
+                  },
+                  "text": "Amber"
+                },
+                {
+                  "attrs": {
+                    "align": "left"
+                  },
+                  "bbox": {
+                    "page": 0,
+                    "x0": 261,
+                    "x1": 311,
+                    "y0": 170,
+                    "y1": 190
+                  },
+                  "children": [],
+                  "id": "189c5a351130",
+                  "kind": "cell",
+                  "provenance": {
+                    "extractor": "bottom_up",
+                    "stage": "extract_tables_v2"
+                  },
+                  "text": "35%"
+                },
+                {
+                  "attrs": {
+                    "align": "left"
+                  },
+                  "bbox": {
+                    "page": 0,
+                    "x0": 311,
+                    "x1": 362,
+                    "y0": 170,
+                    "y1": 190
+                  },
+                  "children": [],
+                  "id": "4a66849b0901",
+                  "kind": "cell",
+                  "provenance": {
+                    "extractor": "bottom_up",
+                    "stage": "extract_tables_v2"
+                  },
+                  "text": "37%"
+                },
+                {
+                  "attrs": {
+                    "align": "left"
+                  },
+                  "bbox": {
+                    "page": 0,
+                    "x0": 362,
+                    "x1": 412,
+                    "y0": 170,
+                    "y1": 190
+                  },
+                  "children": [],
+                  "id": "57e78c490bed",
+                  "kind": "cell",
+                  "provenance": {
+                    "extractor": "bottom_up",
+                    "stage": "extract_tables_v2"
+                  },
+                  "text": "36%"
+                },
+                {
+                  "attrs": {
+                    "align": "left"
+                  },
+                  "bbox": {
+                    "page": 0,
+                    "x0": 412,
+                    "x1": 463,
+                    "y0": 170,
+                    "y1": 190
+                  },
+                  "children": [],
+                  "id": "869ed8ae5a3e",
+                  "kind": "cell",
+                  "provenance": {
+                    "extractor": "bottom_up",
+                    "stage": "extract_tables_v2"
+                  },
+                  "text": "44%"
+                },
+                {
+                  "attrs": {
+                    "align": "left"
+                  },
+                  "bbox": {
+                    "page": 0,
+                    "x0": 463,
+                    "x1": 513,
+                    "y0": 170,
+                    "y1": 190
+                  },
+                  "children": [],
+                  "id": "5f6b5b7c017e",
+                  "kind": "cell",
+                  "provenance": {
+                    "extractor": "bottom_up",
+                    "stage": "extract_tables_v2"
+                  },
+                  "text": "37%"
+                }
+              ],
+              "id": "f38d38f16ec2",
+              "kind": "row",
+              "provenance": {},
+              "text": null
+            },
+            {
+              "attrs": {
+                "page": 0,
+                "row_index": 1
+              },
+              "bbox": {
+                "page": 0,
+                "x0": 99,
+                "x1": 513,
+                "y0": 170,
+                "y1": 370
+              },
+              "children": [
+                {
+                  "attrs": {
+                    "align": "left"
+                  },
+                  "bbox": {
+                    "page": 0,
+                    "x0": 99,
+                    "x1": 185,
+                    "y0": 190,
+                    "y1": 210
+                  },
+                  "children": [],
+                  "id": "b4d7b3c6014d",
+                  "kind": "cell",
+                  "provenance": {
+                    "extractor": "bottom_up",
+                    "stage": "extract_tables_v2"
+                  },
+                  "text": "Red"
+                },
+                {
+                  "attrs": {
+                    "align": "left"
+                  },
+                  "bbox": {
+                    "page": 0,
+                    "x0": 261,
+                    "x1": 311,
+                    "y0": 190,
+                    "y1": 210
+                  },
+                  "children": [],
+                  "id": "d6df95e37f50",
+                  "kind": "cell",
+                  "provenance": {
+                    "extractor": "bottom_up",
+                    "stage": "extract_tables_v2"
+                  },
+                  "text": "2%"
+                },
+                {
+                  "attrs": {
+                    "align": "left"
+                  },
+                  "bbox": {
+                    "page": 0,
+                    "x0": 311,
+                    "x1": 362,
+                    "y0": 190,
+                    "y1": 210
+                  },
+                  "children": [],
+                  "id": "e7dea34a672b",
+                  "kind": "cell",
+                  "provenance": {
+                    "extractor": "bottom_up",
+                    "stage": "extract_tables_v2"
+                  },
+                  "text": "2%"
+                },
+                {
+                  "attrs": {
+                    "align": "left"
+                  },
+                  "bbox": {
+                    "page": 0,
+                    "x0": 362,
+                    "x1": 412,
+                    "y0": 190,
+                    "y1": 210
+                  },
+                  "children": [],
+                  "id": "5ca49fcb9780",
+                  "kind": "cell",
+                  "provenance": {
+                    "extractor": "bottom_up",
+                    "stage": "extract_tables_v2"
+                  },
+                  "text": "2%"
+                },
+                {
+                  "attrs": {
+                    "align": "left"
+                  },
+                  "bbox": {
+                    "page": 0,
+                    "x0": 412,
+                    "x1": 463,
+                    "y0": 190,
+                    "y1": 210
+                  },
+                  "children": [],
+                  "id": "7f2c04dad782",
+                  "kind": "cell",
+                  "provenance": {
+                    "extractor": "bottom_up",
+                    "stage": "extract_tables_v2"
+                  },
+                  "text": "3%"
+                },
+                {
+                  "attrs": {
+                    "align": "left"
+                  },
+                  "bbox": {
+                    "page": 0,
+                    "x0": 463,
+                    "x1": 513,
+                    "y0": 190,
+                    "y1": 210
+                  },
+                  "children": [],
+                  "id": "06829cc1152f",
+                  "kind": "cell",
+                  "provenance": {
+                    "extractor": "bottom_up",
+                    "stage": "extract_tables_v2"
+                  },
+                  "text": "1%"
+                }
+              ],
+              "id": "df0a852839bd",
+              "kind": "row",
+              "provenance": {},
+              "text": null
+            },
+            {
+              "attrs": {
+                "page": 0,
+                "row_index": 2
+              },
+              "bbox": {
+                "page": 0,
+                "x0": 99,
+                "x1": 513,
+                "y0": 170,
+                "y1": 370
+              },
+              "children": [
+                {
+                  "attrs": {
+                    "align": "left"
+                  },
+                  "bbox": {
+                    "page": 0,
+                    "x0": 99,
+                    "x1": 185,
+                    "y0": 210,
+                    "y1": 230
+                  },
+                  "children": [],
+                  "id": "0dd84768401c",
+                  "kind": "cell",
+                  "provenance": {
+                    "extractor": "bottom_up",
+                    "stage": "extract_tables_v2"
+                  },
+                  "text": "Black"
+                },
+                {
+                  "attrs": {
+                    "align": "left"
+                  },
+                  "bbox": {
+                    "page": 0,
+                    "x0": 261,
+                    "x1": 311,
+                    "y0": 210,
+                    "y1": 230
+                  },
+                  "children": [],
+                  "id": "29ae5136cf4d",
+                  "kind": "cell",
+                  "provenance": {
+                    "extractor": "bottom_up",
+                    "stage": "extract_tables_v2"
+                  },
+                  "text": "0%"
+                },
+                {
+                  "attrs": {
+                    "align": "left"
+                  },
+                  "bbox": {
+                    "page": 0,
+                    "x0": 311,
+                    "x1": 362,
+                    "y0": 210,
+                    "y1": 230
+                  },
+                  "children": [],
+                  "id": "f2d9f7ae9a0d",
+                  "kind": "cell",
+                  "provenance": {
+                    "extractor": "bottom_up",
+                    "stage": "extract_tables_v2"
+                  },
+                  "text": "0%"
+                },
+                {
+                  "attrs": {
+                    "align": "left"
+                  },
+                  "bbox": {
+                    "page": 0,
+                    "x0": 362,
+                    "x1": 412,
+                    "y0": 210,
+                    "y1": 230
+                  },
+                  "children": [],
+                  "id": "a2404f407577",
+                  "kind": "cell",
+                  "provenance": {
+                    "extractor": "bottom_up",
+                    "stage": "extract_tables_v2"
+                  },
+                  "text": "0%"
+                },
+                {
+                  "attrs": {
+                    "align": "left"
+                  },
+                  "bbox": {
+                    "page": 0,
+                    "x0": 412,
+                    "x1": 463,
+                    "y0": 210,
+                    "y1": 230
+                  },
+                  "children": [],
+                  "id": "b7769a77efe4",
+                  "kind": "cell",
+                  "provenance": {
+                    "extractor": "bottom_up",
+                    "stage": "extract_tables_v2"
+                  },
+                  "text": "0%"
+                },
+                {
+                  "attrs": {
+                    "align": "left"
+                  },
+                  "bbox": {
+                    "page": 0,
+                    "x0": 463,
+                    "x1": 513,
+                    "y0": 210,
+                    "y1": 230
+                  },
+                  "children": [],
+                  "id": "1475ce517924",
+                  "kind": "cell",
+                  "provenance": {
+                    "extractor": "bottom_up",
+                    "stage": "extract_tables_v2"
+                  },
+                  "text": "0%"
+                }
+              ],
+              "id": "6df0964a5249",
+              "kind": "row",
+              "provenance": {},
+              "text": null
+            },
+            {
+              "attrs": {
+                "page": 0,
+                "row_index": 3
+              },
+              "bbox": {
+                "page": 0,
+                "x0": 99,
+                "x1": 513,
+                "y0": 170,
+                "y1": 370
+              },
+              "children": [
+                {
+                  "attrs": {
+                    "align": "left"
+                  },
+                  "bbox": {
+                    "page": 0,
+                    "x0": 99,
+                    "x1": 185,
+                    "y0": 230,
+                    "y1": 290
+                  },
+                  "children": [],
+                  "id": "eb8d96041bb4",
+                  "kind": "cell",
+                  "provenance": {
+                    "extractor": "bottom_up",
+                    "stage": "extract_tables_v2"
+                  },
+                  "text": "Exposure\n(USDm)"
+                },
+                {
+                  "attrs": {
+                    "align": "left"
+                  },
+                  "bbox": {
+                    "page": 0,
+                    "x0": 261,
+                    "x1": 311,
+                    "y0": 230,
+                    "y1": 250
+                  },
+                  "children": [],
+                  "id": "37abbff78f87",
+                  "kind": "cell",
+                  "provenance": {
+                    "extractor": "bottom_up",
+                    "stage": "extract_tables_v2"
+                  },
+                  "text": "5,660"
+                },
+                {
+                  "attrs": {
+                    "align": "left"
+                  },
+                  "bbox": {
+                    "page": 0,
+                    "x0": 311,
+                    "x1": 362,
+                    "y0": 230,
+                    "y1": 250
+                  },
+                  "children": [],
+                  "id": "b01f4f383319",
+                  "kind": "cell",
+                  "provenance": {
+                    "extractor": "bottom_up",
+                    "stage": "extract_tables_v2"
+                  },
+                  "text": "5,243"
+                },
+                {
+                  "attrs": {
+                    "align": "left"
+                  },
+                  "bbox": {
+                    "page": 0,
+                    "x0": 362,
+                    "x1": 412,
+                    "y0": 230,
+                    "y1": 250
+                  },
+                  "children": [],
+                  "id": "612b8f0069a6",
+                  "kind": "cell",
+                  "provenance": {
+                    "extractor": "bottom_up",
+                    "stage": "extract_tables_v2"
+                  },
+                  "text": "5,749"
+                },
+                {
+                  "attrs": {
+                    "align": "left"
+                  },
+                  "bbox": {
+                    "page": 0,
+                    "x0": 412,
+                    "x1": 463,
+                    "y0": 230,
+                    "y1": 250
+                  },
+                  "children": [],
+                  "id": "41033ebfbc94",
+                  "kind": "cell",
+                  "provenance": {
+                    "extractor": "bottom_up",
+                    "stage": "extract_tables_v2"
+                  },
+                  "text": "5,540"
+                },
+                {
+                  "attrs": {
+                    "align": "left"
+                  },
+                  "bbox": {
+                    "page": 0,
+                    "x0": 463,
+                    "x1": 513,
+                    "y0": 230,
+                    "y1": 250
+                  },
+                  "children": [],
+                  "id": "f2bae0d9b9e2",
+                  "kind": "cell",
+                  "provenance": {
+                    "extractor": "bottom_up",
+                    "stage": "extract_tables_v2"
+                  },
+                  "text": "5,711"
+                }
+              ],
+              "id": "8792a5a95c63",
+              "kind": "row",
+              "provenance": {},
+              "text": null
+            },
+            {
+              "attrs": {
+                "page": 0,
+                "row_index": 4
+              },
+              "bbox": {
+                "page": 0,
+                "x0": 99,
+                "x1": 513,
+                "y0": 170,
+                "y1": 370
+              },
+              "children": [
+                {
+                  "attrs": {
+                    "align": "left",
+                    "covered": true
+                  },
+                  "bbox": {
+                    "page": 0,
+                    "x0": 99,
+                    "x1": 261,
+                    "y0": 250,
+                    "y1": 270
+                  },
+                  "children": [],
+                  "id": "ae000fc9e5c9",
+                  "kind": "cell",
+                  "provenance": {
+                    "extractor": "bottom_up",
+                    "stage": "extract_tables_v2"
+                  },
+                  "text": ""
+                },
+                {
+                  "attrs": {
+                    "align": "left"
+                  },
+                  "bbox": {
+                    "page": 0,
+                    "x0": 261,
+                    "x1": 311,
+                    "y0": 250,
+                    "y1": 270
+                  },
+                  "children": [],
+                  "id": "b5c3676d3439",
+                  "kind": "cell",
+                  "provenance": {
+                    "extractor": "bottom_up",
+                    "stage": "extract_tables_v2"
+                  },
+                  "text": ""
+                },
+                {
+                  "attrs": {
+                    "align": "left"
+                  },
+                  "bbox": {
+                    "page": 0,
+                    "x0": 311,
+                    "x1": 362,
+                    "y0": 250,
+                    "y1": 270
+                  },
+                  "children": [],
+                  "id": "920d0f2081b2",
+                  "kind": "cell",
+                  "provenance": {
+                    "extractor": "bottom_up",
+                    "stage": "extract_tables_v2"
+                  },
+                  "text": ""
+                },
+                {
+                  "attrs": {
+                    "align": "left"
+                  },
+                  "bbox": {
+                    "page": 0,
+                    "x0": 362,
+                    "x1": 412,
+                    "y0": 250,
+                    "y1": 270
+                  },
+                  "children": [],
+                  "id": "dc1f10cd4a7a",
+                  "kind": "cell",
+                  "provenance": {
+                    "extractor": "bottom_up",
+                    "stage": "extract_tables_v2"
+                  },
+                  "text": ""
+                },
+                {
+                  "attrs": {
+                    "align": "left"
+                  },
+                  "bbox": {
+                    "page": 0,
+                    "x0": 412,
+                    "x1": 463,
+                    "y0": 250,
+                    "y1": 270
+                  },
+                  "children": [],
+                  "id": "97d3ece328c3",
+                  "kind": "cell",
+                  "provenance": {
+                    "extractor": "bottom_up",
+                    "stage": "extract_tables_v2"
+                  },
+                  "text": ""
+                },
+                {
+                  "attrs": {
+                    "align": "left"
+                  },
+                  "bbox": {
+                    "page": 0,
+                    "x0": 463,
+                    "x1": 513,
+                    "y0": 250,
+                    "y1": 270
+                  },
+                  "children": [],
+                  "id": "adb37320a06d",
+                  "kind": "cell",
+                  "provenance": {
+                    "extractor": "bottom_up",
+                    "stage": "extract_tables_v2"
+                  },
+                  "text": ""
+                }
+              ],
+              "id": "0bce19f6cd23",
+              "kind": "row",
+              "provenance": {},
+              "text": null
+            },
+            {
+              "attrs": {
+                "page": 0,
+                "row_index": 5
+              },
+              "bbox": {
+                "page": 0,
+                "x0": 99,
+                "x1": 513,
+                "y0": 170,
+                "y1": 370
+              },
+              "children": [
+                {
+                  "attrs": {
+                    "align": "left",
+                    "covered": true
+                  },
+                  "bbox": {
+                    "page": 0,
+                    "x0": 99,
+                    "x1": 261,
+                    "y0": 270,
+                    "y1": 290
+                  },
+                  "children": [],
+                  "id": "f406f2bcc436",
+                  "kind": "cell",
+                  "provenance": {
+                    "extractor": "bottom_up",
+                    "stage": "extract_tables_v2"
+                  },
+                  "text": ""
+                },
+                {
+                  "attrs": {
+                    "align": "left"
+                  },
+                  "bbox": {
+                    "page": 0,
+                    "x0": 261,
+                    "x1": 311,
+                    "y0": 270,
+                    "y1": 290
+                  },
+                  "children": [],
+                  "id": "19d122c1f1bf",
+                  "kind": "cell",
+                  "provenance": {
+                    "extractor": "bottom_up",
+                    "stage": "extract_tables_v2"
+                  },
+                  "text": ""
+                },
+                {
+                  "attrs": {
+                    "align": "left"
+                  },
+                  "bbox": {
+                    "page": 0,
+                    "x0": 311,
+                    "x1": 362,
+                    "y0": 270,
+                    "y1": 290
+                  },
+                  "children": [],
+                  "id": "a83a9a78b3f4",
+                  "kind": "cell",
+                  "provenance": {
+                    "extractor": "bottom_up",
+                    "stage": "extract_tables_v2"
+                  },
+                  "text": ""
+                },
+                {
+                  "attrs": {
+                    "align": "left"
+                  },
+                  "bbox": {
+                    "page": 0,
+                    "x0": 362,
+                    "x1": 412,
+                    "y0": 270,
+                    "y1": 290
+                  },
+                  "children": [],
+                  "id": "f1b66ec54e8c",
+                  "kind": "cell",
+                  "provenance": {
+                    "extractor": "bottom_up",
+                    "stage": "extract_tables_v2"
+                  },
+                  "text": ""
+                },
+                {
+                  "attrs": {
+                    "align": "left"
+                  },
+                  "bbox": {
+                    "page": 0,
+                    "x0": 412,
+                    "x1": 463,
+                    "y0": 270,
+                    "y1": 290
+                  },
+                  "children": [],
+                  "id": "6d438a9ac897",
+                  "kind": "cell",
+                  "provenance": {
+                    "extractor": "bottom_up",
+                    "stage": "extract_tables_v2"
+                  },
+                  "text": ""
+                },
+                {
+                  "attrs": {
+                    "align": "left"
+                  },
+                  "bbox": {
+                    "page": 0,
+                    "x0": 463,
+                    "x1": 513,
+                    "y0": 270,
+                    "y1": 290
+                  },
+                  "children": [],
+                  "id": "092d1cf8aa07",
+                  "kind": "cell",
+                  "provenance": {
+                    "extractor": "bottom_up",
+                    "stage": "extract_tables_v2"
+                  },
+                  "text": ""
+                }
+              ],
+              "id": "6a2e984e9388",
+              "kind": "row",
+              "provenance": {},
+              "text": null
+            },
+            {
+              "attrs": {
+                "page": 0,
+                "row_index": 6
+              },
+              "bbox": {
+                "page": 0,
+                "x0": 99,
+                "x1": 513,
+                "y0": 170,
+                "y1": 370
+              },
+              "children": [
+                {
+                  "attrs": {
+                    "align": "left"
+                  },
+                  "bbox": {
+                    "page": 0,
+                    "x0": 99,
+                    "x1": 185,
+                    "y0": 290,
+                    "y1": 370
+                  },
+                  "children": [],
+                  "id": "01a4e1cceb69",
+                  "kind": "cell",
+                  "provenance": {
+                    "extractor": "bottom_up",
+                    "stage": "extract_tables_v2"
+                  },
+                  "text": "(Client Count)"
+                },
+                {
+                  "attrs": {
+                    "align": "left"
+                  },
+                  "bbox": {
+                    "page": 0,
+                    "x0": 261,
+                    "x1": 311,
+                    "y0": 290,
+                    "y1": 310
+                  },
+                  "children": [],
+                  "id": "a7843b7b9685",
+                  "kind": "cell",
+                  "provenance": {
+                    "extractor": "bottom_up",
+                    "stage": "extract_tables_v2"
+                  },
+                  "text": ""
+                },
+                {
+                  "attrs": {
+                    "align": "left"
+                  },
+                  "bbox": {
+                    "page": 0,
+                    "x0": 311,
+                    "x1": 362,
+                    "y0": 290,
+                    "y1": 310
+                  },
+                  "children": [],
+                  "id": "e008fe7af86e",
+                  "kind": "cell",
+                  "provenance": {
+                    "extractor": "bottom_up",
+                    "stage": "extract_tables_v2"
+                  },
+                  "text": ""
+                },
+                {
+                  "attrs": {
+                    "align": "left"
+                  },
+                  "bbox": {
+                    "page": 0,
+                    "x0": 362,
+                    "x1": 412,
+                    "y0": 290,
+                    "y1": 310
+                  },
+                  "children": [],
+                  "id": "531b24e26363",
+                  "kind": "cell",
+                  "provenance": {
+                    "extractor": "bottom_up",
+                    "stage": "extract_tables_v2"
+                  },
+                  "text": ""
+                },
+                {
+                  "attrs": {
+                    "align": "left"
+                  },
+                  "bbox": {
+                    "page": 0,
+                    "x0": 412,
+                    "x1": 463,
+                    "y0": 290,
+                    "y1": 310
+                  },
+                  "children": [],
+                  "id": "2566459f2f1c",
+                  "kind": "cell",
+                  "provenance": {
+                    "extractor": "bottom_up",
+                    "stage": "extract_tables_v2"
+                  },
+                  "text": ""
+                },
+                {
+                  "attrs": {
+                    "align": "left"
+                  },
+                  "bbox": {
+                    "page": 0,
+                    "x0": 463,
+                    "x1": 513,
+                    "y0": 290,
+                    "y1": 310
+                  },
+                  "children": [],
+                  "id": "b7f4f1adc98f",
+                  "kind": "cell",
+                  "provenance": {
+                    "extractor": "bottom_up",
+                    "stage": "extract_tables_v2"
+                  },
+                  "text": ""
+                }
+              ],
+              "id": "7097ae7bd849",
+              "kind": "row",
+              "provenance": {},
+              "text": null
+            },
+            {
+              "attrs": {
+                "page": 0,
+                "row_index": 7
+              },
+              "bbox": {
+                "page": 0,
+                "x0": 99,
+                "x1": 513,
+                "y0": 170,
+                "y1": 370
+              },
+              "children": [
+                {
+                  "attrs": {
+                    "align": "left",
+                    "covered": true
+                  },
+                  "bbox": {
+                    "page": 0,
+                    "x0": 99,
+                    "x1": 261,
+                    "y0": 310,
+                    "y1": 330
+                  },
+                  "children": [],
+                  "id": "568edbd39d85",
+                  "kind": "cell",
+                  "provenance": {
+                    "extractor": "bottom_up",
+                    "stage": "extract_tables_v2"
+                  },
+                  "text": ""
+                },
+                {
+                  "attrs": {
+                    "align": "left"
+                  },
+                  "bbox": {
+                    "page": 0,
+                    "x0": 261,
+                    "x1": 311,
+                    "y0": 310,
+                    "y1": 330
+                  },
+                  "children": [],
+                  "id": "2e9168d54962",
+                  "kind": "cell",
+                  "provenance": {
+                    "extractor": "bottom_up",
+                    "stage": "extract_tables_v2"
+                  },
+                  "text": "166"
+                },
+                {
+                  "attrs": {
+                    "align": "left"
+                  },
+                  "bbox": {
+                    "page": 0,
+                    "x0": 311,
+                    "x1": 362,
+                    "y0": 310,
+                    "y1": 330
+                  },
+                  "children": [],
+                  "id": "3d0c440744f6",
+                  "kind": "cell",
+                  "provenance": {
+                    "extractor": "bottom_up",
+                    "stage": "extract_tables_v2"
+                  },
+                  "text": "168"
+                },
+                {
+                  "attrs": {
+                    "align": "left"
+                  },
+                  "bbox": {
+                    "page": 0,
+                    "x0": 362,
+                    "x1": 412,
+                    "y0": 310,
+                    "y1": 330
+                  },
+                  "children": [],
+                  "id": "9789fca2a07d",
+                  "kind": "cell",
+                  "provenance": {
+                    "extractor": "bottom_up",
+                    "stage": "extract_tables_v2"
+                  },
+                  "text": "180"
+                },
+                {
+                  "attrs": {
+                    "align": "left"
+                  },
+                  "bbox": {
+                    "page": 0,
+                    "x0": 412,
+                    "x1": 463,
+                    "y0": 310,
+                    "y1": 330
+                  },
+                  "children": [],
+                  "id": "06ca5845fd78",
+                  "kind": "cell",
+                  "provenance": {
+                    "extractor": "bottom_up",
+                    "stage": "extract_tables_v2"
+                  },
+                  "text": "179"
+                },
+                {
+                  "attrs": {
+                    "align": "left"
+                  },
+                  "bbox": {
+                    "page": 0,
+                    "x0": 463,
+                    "x1": 513,
+                    "y0": 310,
+                    "y1": 330
+                  },
+                  "children": [],
+                  "id": "a7a391bd5bff",
+                  "kind": "cell",
+                  "provenance": {
+                    "extractor": "bottom_up",
+                    "stage": "extract_tables_v2"
+                  },
+                  "text": "190"
+                }
+              ],
+              "id": "6cfa97aecded",
+              "kind": "row",
+              "provenance": {},
+              "text": null
+            },
+            {
+              "attrs": {
+                "page": 0,
+                "row_index": 8
+              },
+              "bbox": {
+                "page": 0,
+                "x0": 99,
+                "x1": 513,
+                "y0": 170,
+                "y1": 370
+              },
+              "children": [
+                {
+                  "attrs": {
+                    "align": "left",
+                    "covered": true
+                  },
+                  "bbox": {
+                    "page": 0,
+                    "x0": 99,
+                    "x1": 261,
+                    "y0": 330,
+                    "y1": 350
+                  },
+                  "children": [],
+                  "id": "aa7f34b3b637",
+                  "kind": "cell",
+                  "provenance": {
+                    "extractor": "bottom_up",
+                    "stage": "extract_tables_v2"
+                  },
+                  "text": ""
+                },
+                {
+                  "attrs": {
+                    "align": "left"
+                  },
+                  "bbox": {
+                    "page": 0,
+                    "x0": 261,
+                    "x1": 311,
+                    "y0": 330,
+                    "y1": 350
+                  },
+                  "children": [],
+                  "id": "21a69f90d6a4",
+                  "kind": "cell",
+                  "provenance": {
+                    "extractor": "bottom_up",
+                    "stage": "extract_tables_v2"
+                  },
+                  "text": ""
+                },
+                {
+                  "attrs": {
+                    "align": "left"
+                  },
+                  "bbox": {
+                    "page": 0,
+                    "x0": 311,
+                    "x1": 362,
+                    "y0": 330,
+                    "y1": 350
+                  },
+                  "children": [],
+                  "id": "cf4815a97f2b",
+                  "kind": "cell",
+                  "provenance": {
+                    "extractor": "bottom_up",
+                    "stage": "extract_tables_v2"
+                  },
+                  "text": ""
+                },
+                {
+                  "attrs": {
+                    "align": "left"
+                  },
+                  "bbox": {
+                    "page": 0,
+                    "x0": 362,
+                    "x1": 412,
+                    "y0": 330,
+                    "y1": 350
+                  },
+                  "children": [],
+                  "id": "7f5c8b41998f",
+                  "kind": "cell",
+                  "provenance": {
+                    "extractor": "bottom_up",
+                    "stage": "extract_tables_v2"
+                  },
+                  "text": ""
+                },
+                {
+                  "attrs": {
+                    "align": "left"
+                  },
+                  "bbox": {
+                    "page": 0,
+                    "x0": 412,
+                    "x1": 463,
+                    "y0": 330,
+                    "y1": 350
+                  },
+                  "children": [],
+                  "id": "1748d601a59f",
+                  "kind": "cell",
+                  "provenance": {
+                    "extractor": "bottom_up",
+                    "stage": "extract_tables_v2"
+                  },
+                  "text": ""
+                },
+                {
+                  "attrs": {
+                    "align": "left"
+                  },
+                  "bbox": {
+                    "page": 0,
+                    "x0": 463,
+                    "x1": 513,
+                    "y0": 330,
+                    "y1": 350
+                  },
+                  "children": [],
+                  "id": "3159b3dc6786",
+                  "kind": "cell",
+                  "provenance": {
+                    "extractor": "bottom_up",
+                    "stage": "extract_tables_v2"
+                  },
+                  "text": ""
+                }
+              ],
+              "id": "9413ac8aeb04",
+              "kind": "row",
+              "provenance": {},
+              "text": null
+            },
+            {
+              "attrs": {
+                "page": 0,
+                "row_index": 9
+              },
+              "bbox": {
+                "page": 0,
+                "x0": 99,
+                "x1": 513,
+                "y0": 170,
+                "y1": 370
+              },
+              "children": [
+                {
+                  "attrs": {
+                    "align": "left",
+                    "covered": true
+                  },
+                  "bbox": {
+                    "page": 0,
+                    "x0": 99,
+                    "x1": 261,
+                    "y0": 350,
+                    "y1": 370
+                  },
+                  "children": [],
+                  "id": "2262a6432c54",
+                  "kind": "cell",
+                  "provenance": {
+                    "extractor": "bottom_up",
+                    "stage": "extract_tables_v2"
+                  },
+                  "text": ""
+                },
+                {
+                  "attrs": {
+                    "align": "left"
+                  },
+                  "bbox": {
+                    "page": 0,
+                    "x0": 261,
+                    "x1": 311,
+                    "y0": 350,
+                    "y1": 370
+                  },
+                  "children": [],
+                  "id": "3ed25976d361",
+                  "kind": "cell",
+                  "provenance": {
+                    "extractor": "bottom_up",
+                    "stage": "extract_tables_v2"
+                  },
+                  "text": ""
+                },
+                {
+                  "attrs": {
+                    "align": "left"
+                  },
+                  "bbox": {
+                    "page": 0,
+                    "x0": 311,
+                    "x1": 362,
+                    "y0": 350,
+                    "y1": 370
+                  },
+                  "children": [],
+                  "id": "fc4c360e9b55",
+                  "kind": "cell",
+                  "provenance": {
+                    "extractor": "bottom_up",
+                    "stage": "extract_tables_v2"
+                  },
+                  "text": ""
+                },
+                {
+                  "attrs": {
+                    "align": "left"
+                  },
+                  "bbox": {
+                    "page": 0,
+                    "x0": 362,
+                    "x1": 412,
+                    "y0": 350,
+                    "y1": 370
+                  },
+                  "children": [],
+                  "id": "a27e8ccb65ab",
+                  "kind": "cell",
+                  "provenance": {
+                    "extractor": "bottom_up",
+                    "stage": "extract_tables_v2"
+                  },
+                  "text": ""
+                },
+                {
+                  "attrs": {
+                    "align": "left"
+                  },
+                  "bbox": {
+                    "page": 0,
+                    "x0": 412,
+                    "x1": 463,
+                    "y0": 350,
+                    "y1": 370
+                  },
+                  "children": [],
+                  "id": "c795f23f57af",
+                  "kind": "cell",
+                  "provenance": {
+                    "extractor": "bottom_up",
+                    "stage": "extract_tables_v2"
+                  },
+                  "text": ""
+                },
+                {
+                  "attrs": {
+                    "align": "left"
+                  },
+                  "bbox": {
+                    "page": 0,
+                    "x0": 463,
+                    "x1": 513,
+                    "y0": 350,
+                    "y1": 370
+                  },
+                  "children": [],
+                  "id": "363345c9c5ba",
+                  "kind": "cell",
+                  "provenance": {
+                    "extractor": "bottom_up",
+                    "stage": "extract_tables_v2"
+                  },
+                  "text": ""
+                }
+              ],
+              "id": "145bb6919f03",
+              "kind": "row",
+              "provenance": {},
+              "text": null
+            }
+          ],
+          "id": "9117620451e4",
+          "kind": "table",
+          "provenance": {
+            "extractor": "bottom_up",
+            "stage": "extract_tables_v2"
+          },
+          "text": null
+        },
+        {
+          "attrs": {},
+          "bbox": {
+            "page": 0,
+            "x0": 62,
+            "x1": 552,
+            "y0": 387,
+            "y1": 397
+          },
+          "children": [],
+          "id": "dbca6dcee05a",
+          "kind": "paragraph",
+          "provenance": {
+            "extractor": "segment",
+            "stage": "build_tree"
+          },
+          "text": "o Net Zero & Climate Risk Working Forum (\"NZCRWF\"): A global quarterly bimonthly"
+        },
+        {
+          "attrs": {},
+          "bbox": {
+            "page": 0,
+            "x0": 74,
+            "x1": 552,
+            "y0": 401,
+            "y1": 481
+          },
+          "children": [],
+          "id": "0e1f2744a651",
+          "kind": "paragraph",
+          "provenance": {
+            "extractor": "segment",
+            "stage": "build_tree"
+          },
+          "text": "forum/working group with representation from key stakeholders across Client Coverage, Chief Sustainability Officer (CSO) Team, Credit Officers/Industries Risk, ESGR Client Risk Management team was established under the purview of the CIB Client Review Committee (\"CRC\") in 2023. The purpose of the forum is to review, challenge, agree and monitor progress against action plans for clients that are high climate risk and/or are misaligned from the Group\u2019s committed NZ pathways."
+        }
+      ],
+      "id": "aaecb8d80299",
+      "kind": "page",
+      "provenance": {},
+      "text": null
+    }
+  ],
+  "id": "ed3835671db9",
+  "kind": "document",
+  "provenance": {},
+  "text": null
+}
